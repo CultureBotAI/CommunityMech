@@ -1,0 +1,119 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 11
+stage: 4
+revision: 1
+outcome: completed
+summary: Reviewed all 526 eligible records in the frozen CommunityMech inventory at
+  commit e9ada20c23b553a0328f8d0601b46ab8fcb906f3 across all 3 declared record roots
+  (510 kb/communities/*.yaml, 14 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and 22 domain
+  cohorts using review-yaml-record and review-yaml-category. Saved immutable structured
+  review bundles (20261108T121400Z-c11s4-record-deep-audit and 20261108T121500Z-c11s4-frozen-cohort-review)
+  and preserved 3 new actionable open findings across 3 records (CommunityMech:000069,
+  000181, 000213) plus 7 carried-forward source-limited deferred findings (10 total
+  carry_forward_ids) for Cycle 11 Stage 5 grouped remediation.
+source_revision: e9ada20c23b553a0328f8d0601b46ab8fcb906f3
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000010/stage-05/revision-0001/evidence.yaml
+  sha256: 27b40a5df61fb090e4094a7cb868a6f0164581961653ae657047cac19ff0babf
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000011/stage-04/revision-0001/review_report.md
+  sha256: eda9a262a24cf689e4489c3baffb185f115258a01d7c95a4d3e7949c2dfcb5c1
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000011/stage-04/revision-0001/review_findings.yaml
+  sha256: 2d32cf4fb5c966b706f5a09b43e7208144e3f3076ecabf0d22924937c6a0dedd
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000011/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: 0e4242f0dd1d8c340d27a251d0e9f6283b7075ac0adb9f9d8eefa0f7a1761eb0
+  kind: supporting
+findings:
+- finding_id: c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
+  status: open
+  summary: 'CommunityMech:000069 (kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml)
+    omits abundance_level: DOMINANT on both Syntrophobacter fumaroxidans (taxonomy[0],
+    NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203)
+    despite verbatim defined two-member syntrophic coculture support in PMID:9828440
+    (doi:10.1007/s002030050656).'
+- finding_id: c11s4-000181-pseudomonas-rhodococcus-abundance-levels
+  status: open
+  summary: 'CommunityMech:000181 (kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml)
+    omits abundance_level: DOMINANT on both Pseudomonas putida HS12 (taxonomy[0],
+    NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) despite
+    verbatim defined two-strain chloronitrobenzene-degrading coculture support in
+    PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999).'
+- finding_id: c11s4-000213-variovorax-cryptococcus-abundance-levels
+  status: open
+  summary: 'CommunityMech:000213 (kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml)
+    omits abundance_level: DOMINANT on both Variovorax species (taxonomy[0], NCBITaxon:34072)
+    and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) despite verbatim defined
+    two-member vitamin cross-feeding mutualism support in PMID:37553333 (doi:10.1016/j.cub.2023.07.036).'
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
+groups: []
+carry_forward_ids:
+- c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
+- c11s4-000181-pseudomonas-rhodococcus-abundance-levels
+- c11s4-000213-variovorax-cryptococcus-abundance-levels
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []

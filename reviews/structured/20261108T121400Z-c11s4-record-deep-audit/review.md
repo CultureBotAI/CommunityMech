@@ -1,0 +1,1609 @@
+# Cycle 11 Stage 4 Per-Record Deep Audit of Isolates, Reusable Taxa, New Cycle 11 Records, Cycle 10 Stage 5 Remediated Records, and Actionable Community Records
+
+- Review: 20261108T121400Z-c11s4-record-deep-audit
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-08T12:08:00Z
+- Finished UTC: 2026-11-08T12:14:00Z
+- Reviewer: antigravity-c11s4-record-reviewer (independent)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Deep per-record scientific and structural audit of 26 records (all 14 data/isolates/*.yaml records including newly curated 000529 and 000530, both kb/taxa/*.yaml reusable taxon records updated in Cycle 11 Stage 3, all 3 newly curated and causal-graph-reviewed community records in Cycle 11 Stage 1/2 [000526, 000527, 000528], all 3 community records remediated in Cycle 10 Stage 5 [000052, 000092, 000162], representative CommonTaxon-linked community 000385, and 3 kb/communities/*.yaml records with newly identified actionable completeness gaps [000069, 000181, 000213]) at frozen Git revision e9ada20c23b553a0328f8d0601b46ab8fcb906f3.
+
+## Scope And Provenance
+
+Focused per-record deep audit of all isolate baselines (14), all reusable taxon records (2), all newly curated and causal-graph-reviewed community records in Cycle 11 (3), all Cycle 10 Stage 5 remediated community records (3), representative CommonTaxon-linked community (1), and all community records with new actionable Stage 5 remediation findings (3).
+
+Selection: All 14 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 3 new/causal-graph-reviewed kb/communities/*.yaml records (000526, 000527, 000528), 3 Cycle 10 Stage 5 remediated records (000052, 000092, 000162), representative CommonTaxon-linked record (000385), and 3 kb/communities/*.yaml records (000069, 000181, 000213) surfaced by completeness audits.
+Coverage: full; 26 reviewed / 26 in the declared population.
+Source: git_commit at Git base e9ada20c23b553a0328f8d0601b46ab8fcb906f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000052 | kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml | maintained | CommunityMech:000052 (Pelotomaculum-Methanothermobacter Syntrophic Consortium) |
+| CommunityMech:000069 | kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml | maintained | CommunityMech:000069 (Syntrophobacter-Methanospirillum Syntrophic Consortium) |
+| CommunityMech:000092 | kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml | maintained | CommunityMech:000092 (Rhodopseudomonas-E. coli Cross-Feeding Coculture) |
+| CommunityMech:000162 | kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml | maintained | CommunityMech:000162 (Thalassiosira-Ruegeria Phycosphere Coculture) |
+| CommunityMech:000181 | kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml | maintained | CommunityMech:000181 (Pseudomonas-Rhodococcus Chloronitrobenzene Coculture) |
+| CommunityMech:000213 | kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml | maintained | CommunityMech:000213 (Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm) |
+| CommunityMech:000273 | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml | maintained | CommunityMech:000273 (Chromobacterium Gold Biocyanidation Platform) |
+| CommunityMech:000320 | data/isolates/Aspergillus_Indium_LED_Recovery.yaml | maintained | CommunityMech:000320 (Aspergillus Indium LCD Recovery Platform) |
+| CommunityMech:000321 | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml | maintained | CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model) |
+| CommunityMech:000322 | data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml | maintained | CommunityMech:000322 (Methylobacterium REE E-waste Platform) |
+| CommunityMech:000385 | kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | maintained | CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium) |
+| CommunityMech:000488 | data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml | maintained | CommunityMech:000488 (Bacillus licheniformis Tannery Effluent Chromate Biosorption Isolate) |
+| CommunityMech:000489 | data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml | maintained | CommunityMech:000489 (Adapted Acidithiobacillus ferrooxidans Waste LED Metal Bioleaching Isolate) |
+| CommunityMech:000490 | data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml | maintained | CommunityMech:000490 (Ferrimicrobium acidiphilum Acidophilic Extracellular Iron Respiration Isolate) |
+| CommunityMech:000492 | data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml | maintained | CommunityMech:000492 (Intrasporangium chromatireducens Q5-1 Chromate Reduction Isolate) |
+| CommunityMech:000495 | data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml | maintained | CommunityMech:000495 (Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate) |
+| CommunityMech:000521 | data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml | maintained | CommunityMech:000521 (Pseudomonas protegens E1BL2 Jala Maize Seed-Endophyte Isolate Baseline) |
+| CommunityMech:000524 | data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml | maintained | CommunityMech:000524 (Shewanella oneidensis MR-1 SO1 Brewing-Wastewater NCM Bioleaching Isolate Baseline) |
+| CommunityMech:000525 | data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml | maintained | CommunityMech:000525 (Bacillus subtilis 168 BS1 Brewing-Wastewater Ethanol-Detoxifying Isolate Baseline) |
+| CommunityMech:000526 | kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | maintained | CommunityMech:000526 (SO3-Delta-mtrC-BS3 Lithium-ion Battery Bioleaching Consortium) |
+| CommunityMech:000527 | kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | maintained | CommunityMech:000527 (SO3-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium) |
+| CommunityMech:000528 | kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | maintained | CommunityMech:000528 (SO3-Delta-mtrC-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium) |
+| CommunityMech:000529 | data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml | maintained | CommunityMech:000529 (Bacillus subtilis 168 BS3 Brewing-Wastewater Metal-Resistant Isolate Baseline) |
+| CommunityMech:000530 | data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml | maintained | CommunityMech:000530 (Bacillus subtilis 168 BS0 Brewing-Wastewater Wild-Type Isolate Baseline) |
+| CommunityMech:taxon:000001 | kb/taxa/Shewanella_oneidensis_MR1.yaml | maintained | CommunityMech:taxon:000001 (Shewanella oneidensis MR-1) |
+| CommunityMech:taxon:000002 | kb/taxa/Geobacter_sulfurreducens.yaml | maintained | CommunityMech:taxon:000002 (Geobacter sulfurreducens) |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| LinkML schema validation on 26 deep-audit records | passed | True | CommunityMech:000052, CommunityMech:000069, CommunityMech:000092, CommunityMech:000162, CommunityMech:000181, CommunityMech:000213, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000385, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000521, CommunityMech:000524, CommunityMech:000525, CommunityMech:000526, CommunityMech:000527, CommunityMech:000528, CommunityMech:000529, CommunityMech:000530, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 24 MicrobialCommunity records and 2 CommonTaxon files validate against src/communitymech/schema/communitymech.yaml with 0 errors. |
+| NetworkIntegrityAuditor check on 26 deep-audit records | passed | True | CommunityMech:000052, CommunityMech:000069, CommunityMech:000092, CommunityMech:000162, CommunityMech:000181, CommunityMech:000213, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000385, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000521, CommunityMech:000524, CommunityMech:000525, CommunityMech:000526, CommunityMech:000527, CommunityMech:000528, CommunityMech:000529, CommunityMech:000530, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 24/24 MicrobialCommunity deep-audit records pass NetworkIntegrityAuditor with 0 warnings. |
+
+## Scientific And Domain Assessments
+
+### Deep per-record audit of CommunityMech:000052 (Pelotomaculum-Methanothermobacter Syntrophic Consortium)
+
+completeness: supported. Targets: CommunityMech:000052.
+
+Record CommunityMech:000052 (kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml) in cohort SYNTROPHY has Completeness Score 100/100, 2 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000069 (Syntrophobacter-Methanospirillum Syntrophic Consortium)
+
+completeness: concern. Targets: CommunityMech:000069.
+
+Record CommunityMech:000069 (kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml) in cohort SYNTROPHY has Completeness Score 100/100, 2 taxa, 3 interactions, 3 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000092 (Rhodopseudomonas-E. coli Cross-Feeding Coculture)
+
+completeness: supported. Targets: CommunityMech:000092.
+
+Record CommunityMech:000092 (kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml) in cohort BIOTECHNOLOGY has Completeness Score 98/100, 2 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000162 (Thalassiosira-Ruegeria Phycosphere Coculture)
+
+completeness: supported. Targets: CommunityMech:000162.
+
+Record CommunityMech:000162 (kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml) in cohort PHYTOPLANKTON has Completeness Score 97/100, 2 taxa, 3 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000181 (Pseudomonas-Rhodococcus Chloronitrobenzene Coculture)
+
+completeness: concern. Targets: CommunityMech:000181.
+
+Record CommunityMech:000181 (kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml) in cohort BIOREMEDIATION has Completeness Score 96/100, 2 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000213 (Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm)
+
+completeness: concern. Targets: CommunityMech:000213.
+
+Record CommunityMech:000213 (kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml) in cohort BIOTECHNOLOGY has Completeness Score 100/100, 2 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000273 (Chromobacterium Gold Biocyanidation Platform)
+
+completeness: supported. Targets: CommunityMech:000273.
+
+Record CommunityMech:000273 (data/isolates/Chromobacterium_Gold_Biocyanidation.yaml) in cohort ISOLATES:BIOTECHNOLOGY has Completeness Score 91/100, 1 taxa, 4 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000320 (Aspergillus Indium LCD Recovery Platform)
+
+completeness: supported. Targets: CommunityMech:000320.
+
+Record CommunityMech:000320 (data/isolates/Aspergillus_Indium_LED_Recovery.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 91/100, 1 taxa, 5 interactions, 4 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model)
+
+completeness: supported. Targets: CommunityMech:000321.
+
+Record CommunityMech:000321 (data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml) in cohort ISOLATES:BIOTECHNOLOGY has Completeness Score 95/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000322 (Methylobacterium REE E-waste Platform)
+
+completeness: supported. Targets: CommunityMech:000322.
+
+Record CommunityMech:000322 (data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 94/100, 1 taxa, 4 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium)
+
+completeness: supported. Targets: CommunityMech:000385.
+
+Record CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) in cohort BIOMINING has Completeness Score 95/100, 2 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000488 (Bacillus licheniformis Tannery Effluent Chromate Biosorption Isolate)
+
+completeness: supported. Targets: CommunityMech:000488.
+
+Record CommunityMech:000488 (data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000489 (Adapted Acidithiobacillus ferrooxidans Waste LED Metal Bioleaching Isolate)
+
+completeness: supported. Targets: CommunityMech:000489.
+
+Record CommunityMech:000489 (data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000490 (Ferrimicrobium acidiphilum Acidophilic Extracellular Iron Respiration Isolate)
+
+completeness: supported. Targets: CommunityMech:000490.
+
+Record CommunityMech:000490 (data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000492 (Intrasporangium chromatireducens Q5-1 Chromate Reduction Isolate)
+
+completeness: supported. Targets: CommunityMech:000492.
+
+Record CommunityMech:000492 (data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000495 (Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate)
+
+completeness: supported. Targets: CommunityMech:000495.
+
+Record CommunityMech:000495 (data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml) in cohort ISOLATES:EXTREME_ENVIRONMENT has Completeness Score 92/100, 1 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000521 (Pseudomonas protegens E1BL2 Jala Maize Seed-Endophyte Isolate Baseline)
+
+completeness: supported. Targets: CommunityMech:000521.
+
+Record CommunityMech:000521 (data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml) in cohort ISOLATES:RHIZOSPHERE has Completeness Score 94/100, 1 taxa, 3 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000524 (Shewanella oneidensis MR-1 SO1 Brewing-Wastewater NCM Bioleaching Isolate Baseline)
+
+completeness: supported. Targets: CommunityMech:000524.
+
+Record CommunityMech:000524 (data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions, 0 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000525 (Bacillus subtilis 168 BS1 Brewing-Wastewater Ethanol-Detoxifying Isolate Baseline)
+
+completeness: supported. Targets: CommunityMech:000525.
+
+Record CommunityMech:000525 (data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000526 (SO3-Delta-mtrC-BS3 Lithium-ion Battery Bioleaching Consortium)
+
+completeness: supported. Targets: CommunityMech:000526.
+
+Record CommunityMech:000526 (kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000527 (SO3-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium)
+
+completeness: supported. Targets: CommunityMech:000527.
+
+Record CommunityMech:000527 (kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000528 (SO3-Delta-mtrC-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium)
+
+completeness: supported. Targets: CommunityMech:000528.
+
+Record CommunityMech:000528 (kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000529 (Bacillus subtilis 168 BS3 Brewing-Wastewater Metal-Resistant Isolate Baseline)
+
+completeness: supported. Targets: CommunityMech:000529.
+
+Record CommunityMech:000529 (data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000530 (Bacillus subtilis 168 BS0 Brewing-Wastewater Wild-Type Isolate Baseline)
+
+completeness: supported. Targets: CommunityMech:000530.
+
+Record CommunityMech:000530 (data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:taxon:000001 (Shewanella oneidensis MR-1)
+
+completeness: supported. Targets: CommunityMech:taxon:000001.
+
+Record CommunityMech:taxon:000001 (kb/taxa/Shewanella_oneidensis_MR1.yaml) in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal edges, 5 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:taxon:000002 (Geobacter sulfurreducens)
+
+completeness: supported. Targets: CommunityMech:taxon:000002.
+
+Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml) in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal edges, 4 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+
+## Findings
+
+### c11s4-000069-syntrophobacter-methanospirillum-abundance-levels: Both obligate syntrophic coculture partners in Syntrophobacter_Methanospirillum_Syntrophy (CommunityMech:000069) omit abundance_level despite defined two-member coculture support in PMID:9828440
+
+major / open / confirmed; issue key: c11s4-000069-syntrophobacter-methanospirillum-abundance-levels.
+
+In kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml (CommunityMech:000069), both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203, functional_role: [SYNTROPHIC_PARTNER]) omit abundance_level. The cited primary study (PMID:9828440, doi:10.1007/s002030050656) explicitly establishes that 'The enzymes involved in propionate oxidation by Syntrophobacter fumaroxidans were studied using cell-free extracts of cells grown in pure culture on fumarate and in syntrophic culture with Methanospirillum hungatei on propionate.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+
+### c11s4-000181-pseudomonas-rhodococcus-abundance-levels: Both chloronitrobenzene-degrading coculture partners in Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture (CommunityMech:000181) omit abundance_level despite defined two-strain coculture support in PMID:10049867
+
+major / open / confirmed; issue key: c11s4-000181-pseudomonas-rhodococcus-abundance-levels.
+
+In kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml (CommunityMech:000181), both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303, functional_role: [PRIMARY_DEGRADER]) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827, functional_role: [CROSS_FEEDER, SECONDARY_FERMENTER]) omit abundance_level. The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1090-1098.1999) explicitly establishes that 'Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp. strain HS51 were able to completely mineralize 3- and 4-chloronitrobenzene (3- and 4-CNB), which are nonpermissive growth substrates for their individual monocultures.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+
+### c11s4-000213-variovorax-cryptococcus-abundance-levels: Both vitamin cross-feeding mutualism partners in Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm (CommunityMech:000213) omit abundance_level despite defined two-member coculture support in PMID:37553333
+
+major / open / confirmed; issue key: c11s4-000213-variovorax-cryptococcus-abundance-levels.
+
+In kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml (CommunityMech:000213), both Variovorax species (taxonomy[0], NCBITaxon:34072, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level. The cited primary study (PMID:37553333, doi:10.1016/j.cub.2023.07.036) explicitly establishes that 'Fitness assays in minimal media of the two top hubs, a bacterium (Variovorax) and a yeast (Cryptococcus), helped suggest a persistent mutualism. Metabolomics combined with monoculture and coculture conditioning expectations showed the fitness benefit comes from reciprocal exchange of two B vitamins: Variovorax requires thiamine and overproduces pantothenate, whereas Cryptococcus requires pantothenate and overproduces thiamine.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+
+## Recommended Actions And Acceptance Checks
+
+### act-populate-syntrophobacter-methanospirillum-abundance-levels
+
+Add abundance_level: DOMINANT to both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203) backed by PMID:9828440 (doi:10.1007/s002030050656) on CommunityMech:000069, and append curation_history.
+
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+- just validate-history history
+
+### act-populate-pseudomonas-rhodococcus-abundance-levels
+
+Add abundance_level: DOMINANT to both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) backed by PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) on CommunityMech:000181, and append curation_history.
+
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+- just validate-history history
+
+### act-populate-variovorax-cryptococcus-abundance-levels
+
+Add abundance_level: DOMINANT to both Variovorax species (taxonomy[0], NCBITaxon:34072) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) backed by PMID:37553333 (doi:10.1016/j.cub.2023.07.036) on CommunityMech:000213, and append curation_history.
+
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+- just validate-history history
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and CommonTaxon classes | supports | All 510 kb/communities/*.yaml, 14 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records (526 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
+| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 526 records | supports | Proportional 100-point review-communities Completeness Score audit across all 524 MicrobialCommunity records (min 50, median 93, mean 91.3, max 100; CommunityMech:000069 = 100/100, CommunityMech:000181 = 96/100, CommunityMech:000213 = 100/100) and 2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (524/524), while scripts/audit_completeness.py:calculate_completeness() scores 000069 at 90/100, 000181 at 95/100, and 000213 at 85/100. |
+| ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 510 kb/communities and 14 data/isolates records found 493/510 communities and 14/14 isolates with 0 warnings (including all 24/24 MicrobialCommunity records in the 26-record deep audit) and 17 community records with 48 non-fatal warnings (46 DISCONNECTED across 16 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
+| ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-525 | supports | Corpus-wide causal graph inventory covers all 524 MicrobialCommunity records (510 kb/communities/*.yaml and 14 data/isolates/*.yaml) through CommunityMech:000530 with 100% SHA-256 attestation in verify_causal_graph_reviews.py after Cycle 11 Stage 2 (#2729). |
+| ev-common-taxon-linkage-audit | kb/taxa/Shewanella_oneidensis_MR1.yaml; TaxonomicComposition.common_taxon cross-references and kb/taxa/*.yaml EvidenceItem entries | supports | Corpus-wide audit of reusable taxon cross-references confirmed 22 TaxonomicComposition.common_taxon links across 21 MicrobialCommunity records (20 kb/communities/*.yaml records and 1 data/isolates/*.yaml record: 6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes with 27 verified EvidenceItems] and 15 Shewanella oneidensis communities plus isolate baseline CommunityMech:000524 linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes with 34 verified EvidenceItems], with CommunityMech:000177 linking to both) after Cycle 11 Stage 3 (#2730). |
+| ev-syntrophobacter-methanospirillum-pmid9828440 | PMID:9828440; kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml | supports | PMID:9828440 (doi:10.1007/s002030050656) establishes that Syntrophobacter fumaroxidans (NCBITaxon:119484) and Methanospirillum hungatei (NCBITaxon:2203) form a defined two-member syntrophic propionate-oxidizing co-culture. |
+| ev-pseudomonas-rhodococcus-pmid10049867 | PMID:10049867; kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml | supports | PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) establishes that Pseudomonas putida HS12 (NCBITaxon:303) and Rhodococcus sp. strain HS51 (NCBITaxon:1827) form a defined two-strain coculture that completely mineralizes 3- and 4-chloronitrobenzene. |
+| ev-variovorax-cryptococcus-pmid37553333 | PMID:37553333; kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml | supports | PMID:37553333 (doi:10.1016/j.cub.2023.07.036) establishes that thiamine-requiring Variovorax species (NCBITaxon:34072) and pantothenate-requiring Cryptococcus yeast (NCBITaxon:5206) form a defined two-member vitamin cross-feeding mutualism. |
+| ev-prior-structured-reviews | reviews/structured; 265 retained structured review bundles through 20261107T202000Z-c10s5-remediation-verification-r2 | context_only | Lineage inspection of all 265 prior structured reviews and Cycle 10 Stage 5 evidence.yaml confirmed that all 3 Cycle 10 Stage 4 open findings across CommunityMech:000052, 000092, and 000162 were resolved in Cycle 10 Stage 5 (#2723, PR #2724) and 7 record-scoped source-limited findings remain deferred at commit e9ada20c23b553a0328f8d0601b46ab8fcb906f3. |
+
+## Limits And Additional Notes
+
+- Read-only Stage 4 record review; no record YAML files were modified in this stage.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261108T121400Z-c11s4-record-deep-audit
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: Cycle 11 Stage 4 Per-Record Deep Audit of Isolates, Reusable Taxa, New Cycle
+  11 Records, Cycle 10 Stage 5 Remediated Records, and Actionable Community Records
+started_at: '2026-11-08T12:08:00Z'
+finished_at: '2026-11-08T12:14:00Z'
+reviewer:
+  identity: antigravity-c11s4-record-reviewer
+  kind: agent
+  model: claude-opus-4-6
+  independence: independent
+  independence_basis: Dedicated Cycle 11 Stage 4 read-only review pass over frozen
+    commit e9ada20c23b553a0328f8d0601b46ab8fcb906f3 without record mutation.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+native_verdict: NEEDS_CURATION (3 P2 major findings across CommunityMech:000069, 000181,
+  and 000213; 23 isolate/taxon/new-community/C10S5-remediated/CommonTaxon-linked records
+  pass with 0 defects)
+scientific_review: true
+summary: Deep per-record scientific and structural audit of 26 records (all 14 data/isolates/*.yaml
+  records including newly curated 000529 and 000530, both kb/taxa/*.yaml reusable
+  taxon records updated in Cycle 11 Stage 3, all 3 newly curated and causal-graph-reviewed
+  community records in Cycle 11 Stage 1/2 [000526, 000527, 000528], all 3 community
+  records remediated in Cycle 10 Stage 5 [000052, 000092, 000162], representative
+  CommonTaxon-linked community 000385, and 3 kb/communities/*.yaml records with newly
+  identified actionable completeness gaps [000069, 000181, 000213]) at frozen Git
+  revision e9ada20c23b553a0328f8d0601b46ab8fcb906f3.
+source:
+  git_revision: e9ada20c23b553a0328f8d0601b46ab8fcb906f3
+  state: git_commit
+  inputs:
+  - path: data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml
+    sha256: 1183e9ac2b3567f395e7f19cceb575ac15227bc4ce1323736c042d1fbd43fb4b
+    role: target
+  - path: data/isolates/Aspergillus_Indium_LED_Recovery.yaml
+    sha256: c9ebc23ad2748751ae6a42fbc2340c5f7524a7aa38185bcad4602b7e56734d9d
+    role: target
+  - path: data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml
+    sha256: 452de842b34bb5c9073f31331ddef8f120323f5a934257e9a9db1e5e8f043f43
+    role: target
+  - path: data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml
+    sha256: 165451ae89b467384dae87f9e5ef00d4b68fc7823037b3b96226e632bf186947
+    role: target
+  - path: data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml
+    sha256: 42834ab5f80c67edd88527a323dfa94514b440d63891e4fd88790b50a230cf28
+    role: target
+  - path: data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml
+    sha256: 7ad94b96c56469311346da8af429fb922eaa122a96464121697282771c45120e
+    role: target
+  - path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    sha256: 3f3fe69bc250a439ff851305a95d485ad1deee50602335de11b36601542e04d4
+    role: target
+  - path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    sha256: 4eb42a867f2b2b1489c4ef4fa95e408d241a54d0e2bfb1cf9474dd407d036b86
+    role: target
+  - path: data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml
+    sha256: 58f2d2fd0be0be26c7519de2e31f5cc80a9dbb2a43932a242dc27fc832e1a492
+    role: target
+  - path: data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml
+    sha256: cc05785add2613ee69f29971820f913e038de75e44d584a3d8ec22015377c0f1
+    role: target
+  - path: data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+    sha256: 3be922d81b044ad742cd52ae866f3007d2f17141fc7355c4a34ad9f96ca304c4
+    role: target
+  - path: data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml
+    sha256: 70d9761a556a3e744eb81c26f1906bb0ce697b3d64be526ecaafddea7404f978
+    role: target
+  - path: data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml
+    sha256: 64b3114cddeee0140d34709e04dd0510dbc62710da0a73810629133c72147f71
+    role: target
+  - path: data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml
+    sha256: 671bdcdf702788c7280e49be29c0e95455be1ca1ded72119ede0b0da864154f1
+    role: target
+  - path: kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml
+    sha256: e3b010c4546be0c4d6fe2387bb2dc157ec3deac29acf2f2f717c561065bfadc4
+    role: target
+  - path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    sha256: 2638bb5668d31d6c8a59d616e36777b22d38f03e1fef80dc58fada489628e41e
+    role: target
+  - path: kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml
+    sha256: 27e659408e018cf4b52ed18250fda7f7f0322a9a21c3d4a22991b2aebb43a103
+    role: target
+  - path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+    sha256: bc1fb667da9be21480d7f27961b01fc547c45dc3cef1ca63b58fe01584104076
+    role: target
+  - path: kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+    sha256: 8ce45b8ea2b6e7f966aecf7b30e8508aa427316ac92c53ab788e858a708ea968
+    role: target
+  - path: kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+    sha256: c83966d6d3c59f5aa614dfe035ae3dc483531e2da8e08d4f886b11fa77984f43
+    role: target
+  - path: kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+    sha256: 568d6b743edb421494036d68981dfb3c6a812d24992119d49f802fee5400aba7
+    role: target
+  - path: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+    sha256: a4076f47b588559b0a751b8d4e0be16c067af11c359ba5e9f401fd0b542fb61a
+    role: target
+  - path: kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml
+    sha256: c7fc5d3ab85057261c78e16263db859d035dfc3aa4abaaae67fbec3d6e53c1d4
+    role: target
+  - path: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+    sha256: 6423810bc3c64954b2ea8471c4821aabbdef9fd8298b3cbbdbad8defe798d662
+    role: target
+  - path: kb/taxa/Geobacter_sulfurreducens.yaml
+    sha256: ab3bcd9639241391f25a20b5bbdb3a40ee6e907d441f696355ce16745e3c4b92
+    role: target
+  - path: kb/taxa/Shewanella_oneidensis_MR1.yaml
+    sha256: 3bb69ddaa4d9064fe6340d04dff7bd9bac375fb08495580e369ba239b71bdd75
+    role: target
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: 7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: reports/causal_graph_review/inventory.tsv
+    sha256: b36ff237892df41a0731f42b78f94f2c937eaeaa844f45e20ce3965d3a2b91c1
+    role: context
+  - path: reports/causal_graph_review/summary.json
+    sha256: 3858a8327eb62066fe8265243b81f68daa85b92b2e530785676eb617c107f89a
+    role: context
+scope:
+  description: Focused per-record deep audit of all isolate baselines (14), all reusable
+    taxon records (2), all newly curated and causal-graph-reviewed community records
+    in Cycle 11 (3), all Cycle 10 Stage 5 remediated community records (3), representative
+    CommonTaxon-linked community (1), and all community records with new actionable
+    Stage 5 remediation findings (3).
+  selection: All 14 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 3 new/causal-graph-reviewed
+    kb/communities/*.yaml records (000526, 000527, 000528), 3 Cycle 10 Stage 5 remediated
+    records (000052, 000092, 000162), representative CommonTaxon-linked record (000385),
+    and 3 kb/communities/*.yaml records (000069, 000181, 000213) surfaced by completeness
+    audits.
+  coverage: full
+  population_size: 26
+  reviewed_target_ids:
+  - CommunityMech:000052
+  - CommunityMech:000069
+  - CommunityMech:000092
+  - CommunityMech:000162
+  - CommunityMech:000181
+  - CommunityMech:000213
+  - CommunityMech:000273
+  - CommunityMech:000320
+  - CommunityMech:000321
+  - CommunityMech:000322
+  - CommunityMech:000385
+  - CommunityMech:000488
+  - CommunityMech:000489
+  - CommunityMech:000490
+  - CommunityMech:000492
+  - CommunityMech:000495
+  - CommunityMech:000521
+  - CommunityMech:000524
+  - CommunityMech:000525
+  - CommunityMech:000526
+  - CommunityMech:000527
+  - CommunityMech:000528
+  - CommunityMech:000529
+  - CommunityMech:000530
+  - CommunityMech:taxon:000001
+  - CommunityMech:taxon:000002
+targets:
+- target_id: CommunityMech:000052
+  path: kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml
+  label: CommunityMech:000052 (Pelotomaculum-Methanothermobacter Syntrophic Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000069
+  path: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+  label: CommunityMech:000069 (Syntrophobacter-Methanospirillum Syntrophic Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000092
+  path: kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml
+  label: CommunityMech:000092 (Rhodopseudomonas-E. coli Cross-Feeding Coculture)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000162
+  path: kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml
+  label: CommunityMech:000162 (Thalassiosira-Ruegeria Phycosphere Coculture)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000181
+  path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+  label: CommunityMech:000181 (Pseudomonas-Rhodococcus Chloronitrobenzene Coculture)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000213
+  path: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+  label: CommunityMech:000213 (Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000273
+  path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  label: CommunityMech:000273 (Chromobacterium Gold Biocyanidation Platform)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000320
+  path: data/isolates/Aspergillus_Indium_LED_Recovery.yaml
+  label: CommunityMech:000320 (Aspergillus Indium LCD Recovery Platform)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000321
+  path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  label: CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000322
+  path: data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml
+  label: CommunityMech:000322 (Methylobacterium REE E-waste Platform)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000385
+  path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  label: CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000488
+  path: data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml
+  label: CommunityMech:000488 (Bacillus licheniformis Tannery Effluent Chromate Biosorption
+    Isolate)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000489
+  path: data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml
+  label: CommunityMech:000489 (Adapted Acidithiobacillus ferrooxidans Waste LED Metal
+    Bioleaching Isolate)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000490
+  path: data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml
+  label: CommunityMech:000490 (Ferrimicrobium acidiphilum Acidophilic Extracellular
+    Iron Respiration Isolate)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000492
+  path: data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  label: CommunityMech:000492 (Intrasporangium chromatireducens Q5-1 Chromate Reduction
+    Isolate)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000495
+  path: data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml
+  label: CommunityMech:000495 (Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000521
+  path: data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml
+  label: CommunityMech:000521 (Pseudomonas protegens E1BL2 Jala Maize Seed-Endophyte
+    Isolate Baseline)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000524
+  path: data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml
+  label: CommunityMech:000524 (Shewanella oneidensis MR-1 SO1 Brewing-Wastewater NCM
+    Bioleaching Isolate Baseline)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000525
+  path: data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml
+  label: CommunityMech:000525 (Bacillus subtilis 168 BS1 Brewing-Wastewater Ethanol-Detoxifying
+    Isolate Baseline)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000526
+  path: kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  label: CommunityMech:000526 (SO3-Delta-mtrC-BS3 Lithium-ion Battery Bioleaching
+    Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000527
+  path: kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  label: CommunityMech:000527 (SO3-Delta-omcA-BS3 Lithium-ion Battery Bioleaching
+    Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000528
+  path: kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  label: CommunityMech:000528 (SO3-Delta-mtrC-Delta-omcA-BS3 Lithium-ion Battery Bioleaching
+    Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000529
+  path: data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml
+  label: CommunityMech:000529 (Bacillus subtilis 168 BS3 Brewing-Wastewater Metal-Resistant
+    Isolate Baseline)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000530
+  path: data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml
+  label: CommunityMech:000530 (Bacillus subtilis 168 BS0 Brewing-Wastewater Wild-Type
+    Isolate Baseline)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:taxon:000001
+  path: kb/taxa/Shewanella_oneidensis_MR1.yaml
+  label: CommunityMech:taxon:000001 (Shewanella oneidensis MR-1)
+  record_class: CommonTaxon
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:taxon:000002
+  path: kb/taxa/Geobacter_sulfurreducens.yaml
+  label: CommunityMech:taxon:000002 (Geobacter sulfurreducens)
+  record_class: CommonTaxon
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+checks:
+- check_id: chk-linkml-schema-deep-c11s4
+  name: LinkML schema validation on 26 deep-audit records
+  status: passed
+  required: true
+  summary: All 24 MicrobialCommunity records and 2 CommonTaxon files validate against
+    src/communitymech/schema/communitymech.yaml with 0 errors.
+  target_ids:
+  - CommunityMech:000052
+  - CommunityMech:000069
+  - CommunityMech:000092
+  - CommunityMech:000162
+  - CommunityMech:000181
+  - CommunityMech:000213
+  - CommunityMech:000273
+  - CommunityMech:000320
+  - CommunityMech:000321
+  - CommunityMech:000322
+  - CommunityMech:000385
+  - CommunityMech:000488
+  - CommunityMech:000489
+  - CommunityMech:000490
+  - CommunityMech:000492
+  - CommunityMech:000495
+  - CommunityMech:000521
+  - CommunityMech:000524
+  - CommunityMech:000525
+  - CommunityMech:000526
+  - CommunityMech:000527
+  - CommunityMech:000528
+  - CommunityMech:000529
+  - CommunityMech:000530
+  - CommunityMech:taxon:000001
+  - CommunityMech:taxon:000002
+  command: .venv/bin/python -c 'validate 26 deep-audit records against src/communitymech/schema/communitymech.yaml'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - ev-schema-validation-gate
+- check_id: chk-network-integrity-deep-c11s4
+  name: NetworkIntegrityAuditor check on 26 deep-audit records
+  status: passed
+  required: true
+  summary: All 24/24 MicrobialCommunity deep-audit records pass NetworkIntegrityAuditor
+    with 0 warnings.
+  target_ids:
+  - CommunityMech:000052
+  - CommunityMech:000069
+  - CommunityMech:000092
+  - CommunityMech:000162
+  - CommunityMech:000181
+  - CommunityMech:000213
+  - CommunityMech:000273
+  - CommunityMech:000320
+  - CommunityMech:000321
+  - CommunityMech:000322
+  - CommunityMech:000385
+  - CommunityMech:000488
+  - CommunityMech:000489
+  - CommunityMech:000490
+  - CommunityMech:000492
+  - CommunityMech:000495
+  - CommunityMech:000521
+  - CommunityMech:000524
+  - CommunityMech:000525
+  - CommunityMech:000526
+  - CommunityMech:000527
+  - CommunityMech:000528
+  - CommunityMech:000529
+  - CommunityMech:000530
+  - CommunityMech:taxon:000001
+  - CommunityMech:taxon:000002
+  command: .venv/bin/python -m communitymech.cli audit-network
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - ev-network-integrity-audit
+evidence:
+- evidence_id: ev-schema-validation-gate
+  kind: validation
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity and CommonTaxon classes
+  accessed_at: '2026-11-08T12:10:00Z'
+  support: supports
+  summary: All 510 kb/communities/*.yaml, 14 data/isolates/*.yaml, and 2 kb/taxa/*.yaml
+    records (526 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum
+    compliance.
+- evidence_id: ev-completeness-audit
+  kind: validation
+  reference: scripts/audit_completeness.py
+  locator: 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness()
+    across all 526 records
+  accessed_at: '2026-11-08T12:11:00Z'
+  support: supports
+  summary: Proportional 100-point review-communities Completeness Score audit across
+    all 524 MicrobialCommunity records (min 50, median 93, mean 91.3, max 100; CommunityMech:000069
+    = 100/100, CommunityMech:000181 = 96/100, CommunityMech:000213 = 100/100) and
+    2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level
+    environment_term coverage (524/524), while scripts/audit_completeness.py:calculate_completeness()
+    scores 000069 at 90/100, 000181 at 95/100, and 000213 at 85/100.
+- evidence_id: ev-network-integrity-audit
+  kind: validation
+  reference: src/communitymech/network/auditor.py
+  locator: NetworkIntegrityAuditor.audit_all()
+  accessed_at: '2026-11-08T12:11:30Z'
+  support: supports
+  summary: NetworkIntegrityAuditor across 510 kb/communities and 14 data/isolates
+    records found 493/510 communities and 14/14 isolates with 0 warnings (including
+    all 24/24 MicrobialCommunity records in the 26-record deep audit) and 17 community
+    records with 48 non-fatal warnings (46 DISCONNECTED across 16 records and 2 COMMUNITY_LEVEL
+    UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0
+    error-severity issues, 0 broken downstream references).
+- evidence_id: ev-causal-inventory
+  kind: record_content
+  reference: reports/causal_graph_review/inventory.tsv
+  locator: rows 1-525
+  accessed_at: '2026-11-08T12:12:00Z'
+  support: supports
+  summary: Corpus-wide causal graph inventory covers all 524 MicrobialCommunity records
+    (510 kb/communities/*.yaml and 14 data/isolates/*.yaml) through CommunityMech:000530
+    with 100% SHA-256 attestation in verify_causal_graph_reviews.py after Cycle 11
+    Stage 2 (#2729).
+- evidence_id: ev-common-taxon-linkage-audit
+  kind: record_content
+  reference: kb/taxa/Shewanella_oneidensis_MR1.yaml
+  locator: TaxonomicComposition.common_taxon cross-references and kb/taxa/*.yaml EvidenceItem
+    entries
+  accessed_at: '2026-11-08T12:12:30Z'
+  support: supports
+  summary: 'Corpus-wide audit of reusable taxon cross-references confirmed 22 TaxonomicComposition.common_taxon
+    links across 21 MicrobialCommunity records (20 kb/communities/*.yaml records and
+    1 data/isolates/*.yaml record: 6 Geobacter sulfurreducens communities linked to
+    CommunityMech:taxon:000002 [4 reusable UniProt EET genes with 27 verified EvidenceItems]
+    and 15 Shewanella oneidensis communities plus isolate baseline CommunityMech:000524
+    linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes with 34 verified
+    EvidenceItems], with CommunityMech:000177 linking to both) after Cycle 11 Stage
+    3 (#2730).'
+- evidence_id: ev-syntrophobacter-methanospirillum-pmid9828440
+  kind: primary_source
+  reference: PMID:9828440
+  locator: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+  accessed_at: '2026-11-08T12:13:00Z'
+  support: supports
+  summary: PMID:9828440 (doi:10.1007/s002030050656) establishes that Syntrophobacter
+    fumaroxidans (NCBITaxon:119484) and Methanospirillum hungatei (NCBITaxon:2203)
+    form a defined two-member syntrophic propionate-oxidizing co-culture.
+  quote: The enzymes involved in propionate oxidation by Syntrophobacter fumaroxidans
+    were studied using cell-free extracts of cells grown in pure culture on fumarate
+    and in syntrophic culture with Methanospirillum hungatei on propionate.
+- evidence_id: ev-pseudomonas-rhodococcus-pmid10049867
+  kind: primary_source
+  reference: PMID:10049867
+  locator: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+  accessed_at: '2026-11-08T12:13:15Z'
+  support: supports
+  summary: PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) establishes that Pseudomonas
+    putida HS12 (NCBITaxon:303) and Rhodococcus sp. strain HS51 (NCBITaxon:1827) form
+    a defined two-strain coculture that completely mineralizes 3- and 4-chloronitrobenzene.
+  quote: Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp. strain HS51
+    were able to completely mineralize 3- and 4-chloronitrobenzene (3- and 4-CNB),
+    which are nonpermissive growth substrates for their individual monocultures.
+- evidence_id: ev-variovorax-cryptococcus-pmid37553333
+  kind: primary_source
+  reference: PMID:37553333
+  locator: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+  accessed_at: '2026-11-08T12:13:30Z'
+  support: supports
+  summary: PMID:37553333 (doi:10.1016/j.cub.2023.07.036) establishes that thiamine-requiring
+    Variovorax species (NCBITaxon:34072) and pantothenate-requiring Cryptococcus yeast
+    (NCBITaxon:5206) form a defined two-member vitamin cross-feeding mutualism.
+  quote: 'Fitness assays in minimal media of the two top hubs, a bacterium (Variovorax)
+    and a yeast (Cryptococcus), helped suggest a persistent mutualism. Metabolomics
+    combined with monoculture and coculture conditioning expectations showed the fitness
+    benefit comes from reciprocal exchange of two B vitamins: Variovorax requires
+    thiamine and overproduces pantothenate, whereas Cryptococcus requires pantothenate
+    and overproduces thiamine.'
+- evidence_id: ev-prior-structured-reviews
+  kind: prior_review
+  reference: reviews/structured
+  locator: 265 retained structured review bundles through 20261107T202000Z-c10s5-remediation-verification-r2
+  accessed_at: '2026-11-08T12:13:45Z'
+  support: context_only
+  summary: 'Lineage inspection of all 265 prior structured reviews and Cycle 10 Stage
+    5 evidence.yaml confirmed that all 3 Cycle 10 Stage 4 open findings across CommunityMech:000052,
+    000092, and 000162 were resolved in Cycle 10 Stage 5 (#2723, PR #2724) and 7 record-scoped
+    source-limited findings remain deferred at commit e9ada20c23b553a0328f8d0601b46ab8fcb906f3.'
+assessments:
+- assessment_id: assess-communitymech-000052
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000052 (Pelotomaculum-Methanothermobacter
+    Syntrophic Consortium)
+  outcome: supported
+  summary: Record CommunityMech:000052 (kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml)
+    in cohort SYNTROPHY has Completeness Score 100/100, 2 taxa, 3 interactions, 2
+    causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000052
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000069
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000069 (Syntrophobacter-Methanospirillum
+    Syntrophic Consortium)
+  outcome: concern
+  summary: Record CommunityMech:000069 (kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml)
+    in cohort SYNTROPHY has Completeness Score 100/100, 2 taxa, 3 interactions, 3
+    causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000069
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000092
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000092 (Rhodopseudomonas-E. coli Cross-Feeding
+    Coculture)
+  outcome: supported
+  summary: Record CommunityMech:000092 (kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml)
+    in cohort BIOTECHNOLOGY has Completeness Score 98/100, 2 taxa, 3 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000092
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 98.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000162
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000162 (Thalassiosira-Ruegeria Phycosphere
+    Coculture)
+  outcome: supported
+  summary: Record CommunityMech:000162 (kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml)
+    in cohort PHYTOPLANKTON has Completeness Score 97/100, 2 taxa, 3 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000162
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 97.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000181
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000181 (Pseudomonas-Rhodococcus Chloronitrobenzene
+    Coculture)
+  outcome: concern
+  summary: Record CommunityMech:000181 (kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml)
+    in cohort BIOREMEDIATION has Completeness Score 96/100, 2 taxa, 3 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000181
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 96.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000213
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000213 (Variovorax-Cryptococcus Vitamin
+    Cross-Feeding Microcosm)
+  outcome: concern
+  summary: Record CommunityMech:000213 (kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml)
+    in cohort BIOTECHNOLOGY has Completeness Score 100/100, 2 taxa, 3 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000213
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000273
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000273 (Chromobacterium Gold Biocyanidation
+    Platform)
+  outcome: supported
+  summary: Record CommunityMech:000273 (data/isolates/Chromobacterium_Gold_Biocyanidation.yaml)
+    in cohort ISOLATES:BIOTECHNOLOGY has Completeness Score 91/100, 1 taxa, 4 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 91.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000320
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000320 (Aspergillus Indium LCD Recovery
+    Platform)
+  outcome: supported
+  summary: Record CommunityMech:000320 (data/isolates/Aspergillus_Indium_LED_Recovery.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 91/100, 1 taxa, 5 interactions,
+    4 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000320
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 91.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000321
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000321 (BioModels MODEL2204300002
+    Kefir Rothia Model)
+  outcome: supported
+  summary: Record CommunityMech:000321 (data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml)
+    in cohort ISOLATES:BIOTECHNOLOGY has Completeness Score 95/100, 1 taxa, 1 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000322
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000322 (Methylobacterium REE E-waste
+    Platform)
+  outcome: supported
+  summary: Record CommunityMech:000322 (data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 94/100, 1 taxa, 4 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000322
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 94.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000385
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000385 (SO3-BS3 Lithium-ion Battery
+    Bioleaching Consortium)
+  outcome: supported
+  summary: Record CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml)
+    in cohort BIOMINING has Completeness Score 95/100, 2 taxa, 2 interactions, 1 causal
+    edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000385
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000488
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000488 (Bacillus licheniformis Tannery
+    Effluent Chromate Biosorption Isolate)
+  outcome: supported
+  summary: Record CommunityMech:000488 (data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml)
+    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 2 interactions,
+    1 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000488
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000489
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000489 (Adapted Acidithiobacillus
+    ferrooxidans Waste LED Metal Bioleaching Isolate)
+  outcome: supported
+  summary: Record CommunityMech:000489 (data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 3 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000489
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000490
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000490 (Ferrimicrobium acidiphilum
+    Acidophilic Extracellular Iron Respiration Isolate)
+  outcome: supported
+  summary: Record CommunityMech:000490 (data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions,
+    1 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000490
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000492
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000492 (Intrasporangium chromatireducens
+    Q5-1 Chromate Reduction Isolate)
+  outcome: supported
+  summary: Record CommunityMech:000492 (data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml)
+    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 3 interactions,
+    2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000492
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000495
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000495 (Ferroplasma acidiphilum ZJ
+    Acid Mine Drainage Isolate)
+  outcome: supported
+  summary: Record CommunityMech:000495 (data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml)
+    in cohort ISOLATES:EXTREME_ENVIRONMENT has Completeness Score 92/100, 1 taxa,
+    3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon
+    links, and 0 network warnings.
+  target_ids:
+  - CommunityMech:000495
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 92.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000521
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000521 (Pseudomonas protegens E1BL2
+    Jala Maize Seed-Endophyte Isolate Baseline)
+  outcome: supported
+  summary: Record CommunityMech:000521 (data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml)
+    in cohort ISOLATES:RHIZOSPHERE has Completeness Score 94/100, 1 taxa, 3 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000521
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 94.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000524
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000524 (Shewanella oneidensis MR-1
+    SO1 Brewing-Wastewater NCM Bioleaching Isolate Baseline)
+  outcome: supported
+  summary: Record CommunityMech:000524 (data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions,
+    0 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000524
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000525
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000525 (Bacillus subtilis 168 BS1
+    Brewing-Wastewater Ethanol-Detoxifying Isolate Baseline)
+  outcome: supported
+  summary: Record CommunityMech:000525 (data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000525
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000526
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000526 (SO3-Delta-mtrC-BS3 Lithium-ion
+    Battery Bioleaching Consortium)
+  outcome: supported
+  summary: Record CommunityMech:000526 (kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml)
+    in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal
+    edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000526
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 97.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000527
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000527 (SO3-Delta-omcA-BS3 Lithium-ion
+    Battery Bioleaching Consortium)
+  outcome: supported
+  summary: Record CommunityMech:000527 (kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml)
+    in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal
+    edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000527
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 97.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000528
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000528 (SO3-Delta-mtrC-Delta-omcA-BS3
+    Lithium-ion Battery Bioleaching Consortium)
+  outcome: supported
+  summary: Record CommunityMech:000528 (kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml)
+    in cohort BIOMINING has Completeness Score 97/100, 2 taxa, 2 interactions, 1 causal
+    edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000528
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 97.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000529
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000529 (Bacillus subtilis 168 BS3
+    Brewing-Wastewater Metal-Resistant Isolate Baseline)
+  outcome: supported
+  summary: Record CommunityMech:000529 (data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 2 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000529
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000530
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000530 (Bacillus subtilis 168 BS0
+    Brewing-Wastewater Wild-Type Isolate Baseline)
+  outcome: supported
+  summary: Record CommunityMech:000530 (data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml)
+    in cohort ISOLATES:BIOMINING has Completeness Score 95/100, 1 taxa, 1 interactions,
+    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
+    network warnings.
+  target_ids:
+  - CommunityMech:000530
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-taxon-000001
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:taxon:000001 (Shewanella oneidensis
+    MR-1)
+  outcome: supported
+  summary: Record CommunityMech:taxon:000001 (kb/taxa/Shewanella_oneidensis_MR1.yaml)
+    in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal
+    edges, 5 inline gene annotations, 0 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:taxon:000001
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-taxon-000002
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:taxon:000002 (Geobacter sulfurreducens)
+  outcome: supported
+  summary: Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml)
+    in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal
+    edges, 4 inline gene annotations, 0 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:taxon:000002
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+findings:
+- finding_id: c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
+  issue_key: c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Both obligate syntrophic coculture partners in Syntrophobacter_Methanospirillum_Syntrophy
+    (CommunityMech:000069) omit abundance_level despite defined two-member coculture
+    support in PMID:9828440
+  description: 'In kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+    (CommunityMech:000069), both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484,
+    functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanospirillum
+    hungatei (taxonomy[1], NCBITaxon:2203, functional_role: [SYNTROPHIC_PARTNER])
+    omit abundance_level. The cited primary study (PMID:9828440, doi:10.1007/s002030050656)
+    explicitly establishes that ''The enzymes involved in propionate oxidation by
+    Syntrophobacter fumaroxidans were studied using cell-free extracts of cells grown
+    in pure culture on fumarate and in syntrophic culture with Methanospirillum hungatei
+    on propionate.'' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1]
+    raises the review-communities s_ab abundance_level rubric component from 0/5 to
+    5/5 (0/2 -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000069
+  field_paths:
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-syntrophobacter-methanospirillum-pmid9828440
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on both defined two-member
+    syntrophic coculture partners leaves the review-communities s_ab rubric component
+    at 0/5 (Completeness Score 100/100; scripts/audit_completeness.py score 90/100)
+    and maps to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+- finding_id: c11s4-000181-pseudomonas-rhodococcus-abundance-levels
+  issue_key: c11s4-000181-pseudomonas-rhodococcus-abundance-levels
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Both chloronitrobenzene-degrading coculture partners in Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture
+    (CommunityMech:000181) omit abundance_level despite defined two-strain coculture
+    support in PMID:10049867
+  description: 'In kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    (CommunityMech:000181), both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303,
+    functional_role: [PRIMARY_DEGRADER]) and Rhodococcus sp. strain HS51 (taxonomy[1],
+    NCBITaxon:1827, functional_role: [CROSS_FEEDER, SECONDARY_FERMENTER]) omit abundance_level.
+    The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1090-1098.1999) explicitly
+    establishes that ''Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp.
+    strain HS51 were able to completely mineralize 3- and 4-chloronitrobenzene (3-
+    and 4-CNB), which are nonpermissive growth substrates for their individual monocultures.''
+    Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the
+    review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2
+    -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000181
+  field_paths:
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-pseudomonas-rhodococcus-pmid10049867
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on both defined two-strain
+    chloronitrobenzene-degrading coculture members leaves the review-communities s_ab
+    rubric component at 0/5 (Completeness Score 96/100; scripts/audit_completeness.py
+    score 95/100) and maps to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+- finding_id: c11s4-000213-variovorax-cryptococcus-abundance-levels
+  issue_key: c11s4-000213-variovorax-cryptococcus-abundance-levels
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Both vitamin cross-feeding mutualism partners in Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm
+    (CommunityMech:000213) omit abundance_level despite defined two-member coculture
+    support in PMID:37553333
+  description: 'In kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+    (CommunityMech:000213), both Variovorax species (taxonomy[0], NCBITaxon:34072,
+    functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) and Cryptococcus yeast (taxonomy[1],
+    NCBITaxon:5206, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level.
+    The cited primary study (PMID:37553333, doi:10.1016/j.cub.2023.07.036) explicitly
+    establishes that ''Fitness assays in minimal media of the two top hubs, a bacterium
+    (Variovorax) and a yeast (Cryptococcus), helped suggest a persistent mutualism.
+    Metabolomics combined with monoculture and coculture conditioning expectations
+    showed the fitness benefit comes from reciprocal exchange of two B vitamins: Variovorax
+    requires thiamine and overproduces pantothenate, whereas Cryptococcus requires
+    pantothenate and overproduces thiamine.'' Setting abundance_level: DOMINANT on
+    both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level
+    rubric component from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000213
+  field_paths:
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-variovorax-cryptococcus-pmid37553333
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on both defined two-member
+    vitamin cross-feeding mutualism partners leaves the review-communities s_ab rubric
+    component at 0/5 (Completeness Score 100/100; scripts/audit_completeness.py score
+    85/100) and maps to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+actions:
+- action_id: act-populate-syntrophobacter-methanospirillum-abundance-levels
+  description: 'Add abundance_level: DOMINANT to both Syntrophobacter fumaroxidans
+    (taxonomy[0], NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203)
+    backed by PMID:9828440 (doi:10.1007/s002030050656) on CommunityMech:000069, and
+    append curation_history.'
+  finding_ids:
+  - c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
+  target_ids:
+  - CommunityMech:000069
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
+    MicrobialCommunity kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+  - just validate-history history
+- action_id: act-populate-pseudomonas-rhodococcus-abundance-levels
+  description: 'Add abundance_level: DOMINANT to both Pseudomonas putida HS12 (taxonomy[0],
+    NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) backed
+    by PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) on CommunityMech:000181,
+    and append curation_history.'
+  finding_ids:
+  - c11s4-000181-pseudomonas-rhodococcus-abundance-levels
+  target_ids:
+  - CommunityMech:000181
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
+    MicrobialCommunity kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+  - just validate-history history
+- action_id: act-populate-variovorax-cryptococcus-abundance-levels
+  description: 'Add abundance_level: DOMINANT to both Variovorax species (taxonomy[0],
+    NCBITaxon:34072) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) backed by
+    PMID:37553333 (doi:10.1016/j.cub.2023.07.036) on CommunityMech:000213, and append
+    curation_history.'
+  finding_ids:
+  - c11s4-000213-variovorax-cryptococcus-abundance-levels
+  target_ids:
+  - CommunityMech:000213
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+    role: canonical_record
+  acceptance_checks:
+  - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
+    MicrobialCommunity kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+  - just validate-history history
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261107T174400Z-c10s4-record-deep-audit
+  relationship: prior_cycle_stage4_deep_audit
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261107T202000Z-c10s5-remediation-verification-r2
+  relationship: prior_cycle_stage5_remediation_review
+limitations:
+- Read-only Stage 4 record review; no record YAML files were modified in this stage.
+tags:
+- cycle11
+- stage4
+- record-review
+- deep-audit
+```
