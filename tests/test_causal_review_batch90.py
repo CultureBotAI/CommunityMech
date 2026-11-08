@@ -152,8 +152,22 @@ def test_history_no_spend_and_unfinished_followups_are_explicit():
 def test_reviewed_records_canonical_participants_and_caches_are_hash_bound():
     ledger, rows, docs = records()
     assert ledger["cache_changes"] == []
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261108-c11s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000181":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         canonical = [
             {k: t["taxon_term"][k] for k in ["preferred_term", "term"]} for t in doc["taxonomy"]
         ]

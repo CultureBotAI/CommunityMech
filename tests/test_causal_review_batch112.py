@@ -161,8 +161,22 @@ def test_complete_dispositions_and_source_access_limits_are_recorded():
 def test_histories_hashes_and_canonical_participants_are_guarded():
     ledger, rows, docs = records()
     assert ledger["independent_approval"] is False
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261108-c11s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000069":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert row["status"] == "reviewed"
         expected_events = 2 if row["id"] == "CommunityMech:000071" else 1
         assert row["curation_events_added"] == len(row["history_files"]) == expected_events
