@@ -81,14 +81,19 @@ a sealed serum bottle whose seal was the entire mechanism.
    `…/webservices/rest/search?query=EXT_ID:<pmid>%20AND%20SRC:MED&format=json&resultType=core`
    (DOI: `query=DOI:"<doi>"`).
 3. Locate legal full text via the access ladder — `scripts/fulltext_access.py
-   --pmid <pmid>` (or `--doi <doi>`). It tries, in order: **Europe PMC OA**
-   (`fullTextXML`) → **Unpaywall** best OA location (free) → **CORE** (set
-   `CORE_API_KEY`) → and if none, prints an **author-request email draft**.
+   --pmid <pmid>` (or `--doi <doi>`). It tries, in order: **Local Zotero PDF**
+   (`$ZOTERO_DATA_DIR/zotero.sqlite` + `storage/`) → **Europe PMC OA**
+   (`fullTextXML`) → **OpenAlex OA** (`best_oa_location` / `locations`,
+   anonymous) → **bioRxiv / medRxiv** (`10.1101` / `10.64898`) → **DOE
+   OSTI.gov** → **LBNL Publisher TDM APIs** (`$ELSEVIER_API_KEY`,
+   `$SPRINGER_API_KEY`, `$WILEY_TDM_TOKEN`) → **CORE** (`$CORE_API_KEY`) → and
+   if none, prints an **author-request email draft**.
    - `ACCESS <method> <url>` → fetch that URL for the Methods (`curl --compressed`
-     for the EPMC XML).
-   - `NO_LEGAL_OA` → the paper is closed-access with no legal OA copy; use only
+     for EPMC XML, or read the local `file://` PDF from Zotero).
+   - `NO_LEGAL_OA` → the paper has no reachable legal copy; use only
      abstract-level conditions, and surface the author-request draft to the
-     curator. **Never** use Sci-Hub or other gray-area sources.
+     curator. **Never** use Sci-Hub or other gray-area sources, and **never**
+     commit paywalled publisher full text or PDFs into `references_cache/`.
 4. Extract conditions → one `growth_media` entry (+ `cultivation_setup` if a
    defined reactor). Insert as new top-level keys (append near end of file);
    keep existing content byte-for-byte.

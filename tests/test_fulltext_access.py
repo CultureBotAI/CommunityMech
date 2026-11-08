@@ -1,0 +1,197 @@
+"""Tests for scripts/fulltext_access.py, access_sweep.py, and author_request_index.py."""
+
+from __future__ import annotations
+
+import sqlite3
+import sys
+from pathlib import Path
+
+import pytest
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_DIR = REPO_ROOT / "scripts"
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+import access_sweep  # noqa: E402
+import author_request_index  # noqa: E402
+import fulltext_access  # noqa: E402
+
+
+@pytest.mark.parametrize(
+    "script_name",
+    ["fulltext_access.py", "access_sweep.py", "author_request_index.py"],
+)
+def test_no_email_disclosure_in_access_scripts(script_name: str) -> None:
+    """External API scripts must call CrossRef, OpenAlex, and Europe PMC anonymously."""
+    source = (SCRIPTS_DIR / script_name).read_text(encoding="utf-8")
+    assert "mailto:" not in source, f"{script_name} must not send mailto: in headers or URLs"
+    assert "@gmail.com" not in source, f"{script_name} must not hardcode a personal email"
+
+
+def test_user_agents_carry_no_email_addresses() -> None:
+    for mod in (fulltext_access, access_sweep, author_request_index):
+        ua = mod.UA.get("User-Agent", "")
+        assert "@" not in ua
+        assert "mailto" not in ua.lower()
+
+
+def test_try_zotero_local_resolves_pdf_by_doi_and_pmid(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    zotero_dir = tmp_path / "Zotero"
+    storage_dir = zotero_dir / "storage" / "ABCD1234"
+    storage_dir.mkdir(parents=True)
+    pdf_file = storage_dir / "paper.pdf"
+    pdf_file.write_bytes(b"%PDF-1.4\n%test\n")
+
+    db_path = zotero_dir / "zotero.sqlite"
+    with sqlite3.connect(db_path) as conn:
+        conn.executescript("""
+            CREATE TABLE fields (fieldID INTEGER PRIMARY KEY, fieldName TEXT);
+            CREATE TABLE itemDataValues (valueID INTEGER PRIMARY KEY, value TEXT);
+            CREATE TABLE itemData (itemID INTEGER, fieldID INTEGER, valueID INTEGER);
+            CREATE TABLE items (itemID INTEGER PRIMARY KEY, key TEXT);
+            CREATE TABLE itemAttachments (
+                itemID INTEGER PRIMARY KEY,
+                parentItemID INTEGER,
+                contentType TEXT,
+                path TEXT
+            );
+            INSERT INTO fields VALUES (1, 'DOI'), (2, 'extra');
+            INSERT INTO itemDataValues VALUES
+                (10, '10.1038/s41564-024-01234-5'),
+                (11, 'PMID: 38999999');
+            INSERT INTO items VALUES (100, 'PARENT01'), (101, 'ABCD1234');
+            INSERT INTO itemData VALUES (100, 1, 10), (100, 2, 11);
+            INSERT INTO itemAttachments VALUES
+                (101, 100, 'application/pdf', 'storage:paper.pdf');
+            """)
+
+    monkeypatch.setenv("ZOTERO_DATA_DIR", str(zotero_dir))
+
+    hit_by_doi = fulltext_access.try_zotero_local(doi="https://doi.org/10.1038/s41564-024-01234-5")
+    assert hit_by_doi == f"file://{pdf_file.resolve()}"
+
+    hit_by_pmid = fulltext_access.try_zotero_local(pmid="38999999")
+    assert hit_by_pmid == f"file://{pdf_file.resolve()}"
+
+    miss = fulltext_access.try_zotero_local(doi="10.1038/nonexistent")
+    assert miss is None
+
+
+def test_try_openalex_oa_rejects_doi_resolver_and_picks_real_oa_url(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured_urls: list[str] = []
+
+    def fake_get_json(url: str, headers: dict | None = None):
+        captured_urls.append(url)
+        return {
+            "open_access": {"is_oa": True, "oa_url": "https://doi.org/10.1016/j.biortech.2026.1"},
+            "best_oa_location": {
+                "is_oa": True,
+                "url": "https://doi.org/10.1016/j.biortech.2026.1",
+                "pdf_url": None,
+            },
+            "locations": [
+                {
+                    "is_oa": True,
+                    "landing_page_url": "https://doi.org/10.1016/j.biortech.2026.1",
+                    "pdf_url": None,
+                },
+                {
+                    "is_oa": True,
+                    "landing_page_url": "https://escholarship.org/uc/item/12345",
+                    "pdf_url": "https://escholarship.org/content/qt12345/qt12345.pdf",
+                },
+            ],
+        }
+
+    monkeypatch.setattr(fulltext_access, "_get_json", fake_get_json)
+    hit = fulltext_access.try_openalex_oa("10.1016/j.biortech.2026.1")
+    assert hit == "https://escholarship.org/content/qt12345/qt12345.pdf"
+    assert captured_urls and "mailto" not in captured_urls[0]
+
+
+def test_try_osti_extracts_fulltext_href(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        fulltext_access,
+        "_get_json",
+        lambda url, headers=None: [
+            {
+                "osti_id": "1999999",
+                "links": [
+                    {"rel": "citation", "href": "https://www.osti.gov/biblio/1999999"},
+                    {"rel": "fulltext", "href": "https://www.osti.gov/servlets/purl/1999999"},
+                ],
+            }
+        ],
+    )
+    assert (
+        fulltext_access.try_osti("10.2172/1999999") == "https://www.osti.gov/servlets/purl/1999999"
+    )
+
+
+def test_try_springer_tdm_does_not_leak_api_key_in_returned_url(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("SPRINGER_API_KEY", "secret-springer-key-123")
+    probed: list[str] = []
+
+    def fake_prefix(url: str, headers: dict | None = None, max_bytes: int = 32768) -> str:
+        probed.append(url)
+        return "<article><body><sec><title>Methods</title></sec></body></article>"
+
+    monkeypatch.setattr(fulltext_access, "_get_text_prefix", fake_prefix)
+    url = fulltext_access.try_springer_tdm("10.1038/s41586-024-00001-1")
+    assert url is not None
+    assert "secret-springer-key-123" not in url
+    assert "api_key" not in url
+    assert probed and "secret-springer-key-123" in probed[0]
+
+
+def test_try_elsevier_tdm_requires_body_elements(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("ELSEVIER_API_KEY", "secret-elsevier-key")
+
+    # Metadata-only XML without <body or <ce:sections must not count as full text
+    meta_xml = "<full-text-retrieval-response><coredata/></full-text-retrieval-response>"
+    monkeypatch.setattr(
+        fulltext_access,
+        "_get_text_prefix",
+        lambda url, headers=None, max_bytes=32768: meta_xml,
+    )
+    assert fulltext_access.try_elsevier_tdm("10.1016/j.biortech.2026.134417") is None
+
+    # Full-text XML with <ce:sections succeeds
+    body_xml = (
+        "<full-text-retrieval-response><originalText>"
+        "<ce:sections>...</ce:sections></originalText>"
+        "</full-text-retrieval-response>"
+    )
+    monkeypatch.setattr(
+        fulltext_access,
+        "_get_text_prefix",
+        lambda url, headers=None, max_bytes=32768: body_xml,
+    )
+    hit = fulltext_access.try_elsevier_tdm("10.1016/j.biortech.2026.134417")
+    expected_url = (
+        "https://api.elsevier.com/content/article/doi/"
+        "10.1016/j.biortech.2026.134417?httpAccept=text/xml"
+    )
+    assert hit == expected_url
+
+
+def test_access_ladder_stops_at_first_hit(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(fulltext_access, "try_zotero_local", lambda pmid, doi: None)
+    monkeypatch.setattr(fulltext_access, "try_europepmc", lambda rec: None)
+    monkeypatch.setattr(
+        fulltext_access,
+        "try_openalex_oa",
+        lambda doi, pmid=None: "https://zenodo.org/record/1/files/paper.pdf",
+    )
+    method, url = fulltext_access.access_ladder(
+        {"pmid": "12345"}, "10.5281/zenodo.1", "Test Paper", pmid="12345"
+    )
+    assert method == "openalex_oa"
+    assert url == "https://zenodo.org/record/1/files/paper.pdf"
