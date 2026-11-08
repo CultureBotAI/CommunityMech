@@ -6,7 +6,7 @@
 - **Total YAML records in repository**: **526**
   - `kb/communities/`: **510** `MicrobialCommunity` records
   - `data/isolates/`: **14** `MicrobialCommunity` records
-  - `kb/taxa/`: **2** `CommonTaxon` records (`CommunityMech:taxon:000001` `Shewanella oneidensis MR-1`, `CommunityMech:taxon:000002` `Priestia megaterium`)
+  - `kb/taxa/`: **2** `CommonTaxon` records (`CommunityMech:taxon:000001` `Shewanella oneidensis MR-1`, `CommunityMech:taxon:000002` `Geobacter sulfurreducens`)
 - **Causal-graph inventory (`reports/causal_graph_review/inventory.tsv` & `summary.json`)**:
   - Total `MicrobialCommunity` records indexed: **524**
   - `reviewed`: **470** (465 carried forward with verified SHA-256 hashes + 5 newly reviewed and enriched in Batch 143)
