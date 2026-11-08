@@ -32,6 +32,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sqlite3
 import sys
 import urllib.parse
@@ -378,6 +379,57 @@ def access_ladder(
     return "none", None
 
 
+def fetch_to_staging(method: str, url: str, dest: Path) -> Path:
+    """Download or copy a resolved full-text payload to a staging path outside references_cache/."""
+    resolved = dest.resolve()
+    if "references_cache" in resolved.parts:
+        raise ValueError(
+            "Refusing to stage fulltext_access output directly into references_cache/; "
+            "stage into .temp/ or reports/ and use scripts/cache_fulltext.py for verified OA text."
+        )
+    resolved.parent.mkdir(parents=True, exist_ok=True)
+
+    if url.startswith("file://"):
+        src_path = Path(urllib.parse.unquote(urllib.parse.urlparse(url).path))
+        shutil.copy2(src_path, resolved)
+        return resolved
+
+    if not url.startswith("https://"):
+        raise ValueError(f"Unsupported URL scheme for staging fetch: {url}")
+
+    headers = dict(UA)
+    fetch_url = url
+    if method == "elsevier_tdm":
+        key = os.environ.get("ELSEVIER_API_KEY", "").strip()
+        if key:
+            headers["X-ELS-APIKey"] = key
+        headers["Accept"] = "text/xml"
+        inst_token = os.environ.get("ELSEVIER_INST_TOKEN", "").strip()
+        if inst_token:
+            headers["X-ELS-Insttoken"] = inst_token
+    elif method == "springer_tdm":
+        key = os.environ.get("SPRINGER_API_KEY", "").strip()
+        if key and "api_key=" not in fetch_url:
+            sep = "&" if "?" in fetch_url else "?"
+            fetch_url = f"{fetch_url}{sep}{urllib.parse.urlencode({'api_key': key})}"
+    elif method == "wiley_tdm":
+        token = os.environ.get("WILEY_TDM_TOKEN", "").strip()
+        if token:
+            headers["Wiley-TDM-Client-Token"] = token
+    elif method == "core":
+        key = os.environ.get("CORE_API_KEY", "").strip()
+        if key:
+            headers["Authorization"] = f"Bearer {key}"
+
+    req = urllib.request.Request(fetch_url, headers=headers)  # noqa: S310
+    with urllib.request.urlopen(req, timeout=60) as r:  # noqa: S310
+        payload = r.read()
+    if not payload:
+        raise RuntimeError(f"Empty payload returned from {method} ({url})")
+    resolved.write_bytes(payload)
+    return resolved
+
+
 def author_request_draft(rec: dict, doi: str | None) -> str:
     title = re.sub(r"<[^>]+>", "", rec.get("title", "") or "").rstrip(".")
     authors = rec.get("authorString", "") or "the corresponding author"
@@ -403,6 +455,10 @@ def main(argv: list[str] | None = None) -> int:
     g.add_argument("--pmid")
     g.add_argument("--doi")
     p.add_argument("--title", help="fallback for CORE title search")
+    p.add_argument(
+        "--fetch-to",
+        help="stage the resolved full text to this path (outside references_cache/) using method auth headers",
+    )
     args = p.parse_args(argv)
 
     rec = epmc_core(args.pmid, args.doi)
@@ -414,6 +470,9 @@ def main(argv: list[str] | None = None) -> int:
     method, url = access_ladder(rec, doi, title, pmid=args.pmid)
     if url:
         print(f"ACCESS\t{method}\t{url}")
+        if args.fetch_to:
+            saved = fetch_to_staging(method, url, Path(args.fetch_to))
+            print(f"SAVED\t{method}\t{saved}")
         return 0
 
     print(

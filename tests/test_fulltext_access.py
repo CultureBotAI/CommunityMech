@@ -195,3 +195,61 @@ def test_access_ladder_stops_at_first_hit(monkeypatch: pytest.MonkeyPatch) -> No
     )
     assert method == "openalex_oa"
     assert url == "https://zenodo.org/record/1/files/paper.pdf"
+
+
+def test_fetch_to_staging_rejects_references_cache(tmp_path: Path) -> None:
+    bad_dest = tmp_path / "references_cache" / "PMID_12345.xml"
+    with pytest.raises(ValueError, match="references_cache"):
+        fulltext_access.fetch_to_staging(
+            "elsevier_tdm",
+            "https://api.elsevier.com/content/article/doi/10.1016/j.biortech.2026.1?httpAccept=text/xml",
+            bad_dest,
+        )
+
+
+def test_fetch_to_staging_attaches_tdm_headers(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("ELSEVIER_API_KEY", "els-key-999")
+    monkeypatch.setenv("WILEY_TDM_TOKEN", "wiley-tok-888")
+    captured_headers: list[dict] = []
+
+    class DummyResp:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def read(self) -> bytes:
+            return (
+                b"<full-text-retrieval-response><body>Methods</body></full-text-retrieval-response>"
+            )
+
+    def fake_urlopen(req, timeout=60):
+        captured_headers.append(dict(req.header_items()))
+        return DummyResp()
+
+    monkeypatch.setattr(fulltext_access.urllib.request, "urlopen", fake_urlopen)
+
+    els_out = tmp_path / ".temp" / "elsevier.xml"
+    saved = fulltext_access.fetch_to_staging(
+        "elsevier_tdm",
+        "https://api.elsevier.com/content/article/doi/10.1016/j.biortech.2026.1?httpAccept=text/xml",
+        els_out,
+    )
+    assert saved.is_file()
+    assert any(
+        k.lower() == "x-els-apikey" and v == "els-key-999" for k, v in captured_headers[-1].items()
+    )
+
+    wiley_out = tmp_path / ".temp" / "wiley.pdf"
+    fulltext_access.fetch_to_staging(
+        "wiley_tdm",
+        "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Fbit.1",
+        wiley_out,
+    )
+    assert any(
+        k.lower() == "wiley-tdm-client-token" and v == "wiley-tok-888"
+        for k, v in captured_headers[-1].items()
+    )
