@@ -249,19 +249,19 @@ Reviewed member records (2): CommunityMech:taxon:000001, CommunityMech:taxon:000
 
 major / open / confirmed; issue key: c11s4-000069-syntrophobacter-methanospirillum-abundance-levels.
 
-In kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml (CommunityMech:000069), both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203, functional_role: [SYNTROPHIC_PARTNER]) omit abundance_level. The cited primary study (PMID:9828440, doi:10.1007/s002030050656) explicitly establishes that 'The enzymes involved in propionate oxidation by Syntrophobacter fumaroxidans were studied using cell-free extracts of cells grown in pure culture on fumarate and in syntrophic culture with Methanospirillum hungatei on propionate.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+In kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml (CommunityMech:000069), both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203, functional_role: [SYNTROPHIC_PARTNER]) omit abundance_level. The cited primary study (PMID:9828440, doi:10.1099/00207713-48-4-1383) explicitly establishes that 'It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure culture with sulfate or fumarate as the electron acceptor.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
 
 ### c11s4-000181-pseudomonas-rhodococcus-abundance-levels: Both chloronitrobenzene-degrading coculture partners in Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture (CommunityMech:000181) omit abundance_level despite defined two-strain coculture support in PMID:10049867
 
 major / open / confirmed; issue key: c11s4-000181-pseudomonas-rhodococcus-abundance-levels.
 
-In kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml (CommunityMech:000181), both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303, functional_role: [PRIMARY_DEGRADER]) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827, functional_role: [CROSS_FEEDER, SECONDARY_FERMENTER]) omit abundance_level. The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1090-1098.1999) explicitly establishes that 'Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp. strain HS51 were able to completely mineralize 3- and 4-chloronitrobenzene (3- and 4-CNB), which are nonpermissive growth substrates for their individual monocultures.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+In kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml (CommunityMech:000181), both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303, functional_role: [PRIMARY_DEGRADER]) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827, functional_role: [CROSS_FEEDER, PRIMARY_DEGRADER]) omit abundance_level. The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1083-1091.1999) explicitly establishes that 'For the degradation of CNBs, Rhodococcus sp. strain HS51, which degrades 4- and 5-chloro-2-hydroxyacetanilides, was isolated and combined with P. putida HS12 to give a coculture. This coculture was confirmed to mineralize 3- and 4-CNBs in the presence of an additional carbon source.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
 
 ### c11s4-000213-variovorax-cryptococcus-abundance-levels: Both vitamin cross-feeding mutualism partners in Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm (CommunityMech:000213) omit abundance_level despite defined two-member coculture support in PMID:37553333
 
 major / open / confirmed; issue key: c11s4-000213-variovorax-cryptococcus-abundance-levels.
 
-In kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml (CommunityMech:000213), both Variovorax species (taxonomy[0], NCBITaxon:34072, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level. The cited primary study (PMID:37553333, doi:10.1016/j.cub.2023.07.036) explicitly establishes that 'Fitness assays in minimal media of the two top hubs, a bacterium (Variovorax) and a yeast (Cryptococcus), helped suggest a persistent mutualism. Metabolomics combined with monoculture and coculture conditioning expectations showed the fitness benefit comes from reciprocal exchange of two B vitamins: Variovorax requires thiamine and overproduces pantothenate, whereas Cryptococcus requires pantothenate and overproduces thiamine.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
+In kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml (CommunityMech:000213), both Variovorax species (taxonomy[0], NCBITaxon:34072, functional_role: [CROSS_FEEDER, PRIMARY_PRODUCER]) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206, functional_role: [CROSS_FEEDER, PRIMARY_PRODUCER]) omit abundance_level. The cited primary study (PMID:37553333, doi:10.1038/s41467-023-40360-4) explicitly establishes that 'predict that a Variovorax species is a hub as an important source of thiamine. Quantification of thiamine during the growth of Variovorax in minimal media show high levels of thiamine production, up to 100 mg/L. A few of the correlated thiamine auxotrophs are predicted to produce pantothenate, which we show is required for growth of Variovorax, supporting that a subset of vitamin-dependent interactions are mutualistic. A Cryptococcus yeast produces the B-vitamin pantothenate, and co-culturing with Variovorax leads to a 90-130-fold fitness increase for both organisms.' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
 
 ### cheese-assay-evidence-gap: Pairwise cheese-rind competition and cross-feeding assay details require full-text tables beyond cached PMID:25043025 abstract
 
@@ -323,21 +323,21 @@ Disposition: Deferred: source-limited pending full-text interaction data (#1681)
 
 ### act-populate-syntrophobacter-methanospirillum-abundance-levels
 
-Add abundance_level: DOMINANT to both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203) backed by PMID:9828440 (doi:10.1007/s002030050656) on CommunityMech:000069, and append curation_history.
+Add abundance_level: DOMINANT to both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203) backed by PMID:9828440 (doi:10.1099/00207713-48-4-1383) on CommunityMech:000069, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
 - just validate-history history
 
 ### act-populate-pseudomonas-rhodococcus-abundance-levels
 
-Add abundance_level: DOMINANT to both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) backed by PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) on CommunityMech:000181, and append curation_history.
+Add abundance_level: DOMINANT to both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) backed by PMID:10049867 (doi:10.1128/AEM.65.3.1083-1091.1999) on CommunityMech:000181, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
 - just validate-history history
 
 ### act-populate-variovorax-cryptococcus-abundance-levels
 
-Add abundance_level: DOMINANT to both Variovorax species (taxonomy[0], NCBITaxon:34072) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) backed by PMID:37553333 (doi:10.1016/j.cub.2023.07.036) on CommunityMech:000213, and append curation_history.
+Add abundance_level: DOMINANT to both Variovorax species (taxonomy[0], NCBITaxon:34072) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) backed by PMID:37553333 (doi:10.1038/s41467-023-40360-4) on CommunityMech:000213, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
 - just validate-history history
@@ -361,9 +361,9 @@ Retain source-limited full-text findings until open-access full text or suppleme
 | ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 510 kb/communities and 14 data/isolates records found 493/510 communities and 14/14 isolates with 0 warnings (including all 24/24 MicrobialCommunity records in the 26-record deep audit) and 17 community records with 48 non-fatal warnings (46 DISCONNECTED across 16 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-525 | supports | Corpus-wide causal graph inventory covers all 524 MicrobialCommunity records (510 kb/communities/*.yaml and 14 data/isolates/*.yaml) through CommunityMech:000530 with 100% SHA-256 attestation in verify_causal_graph_reviews.py after Cycle 11 Stage 2 (#2729). |
 | ev-common-taxon-linkage-audit | kb/taxa/Shewanella_oneidensis_MR1.yaml; TaxonomicComposition.common_taxon cross-references and kb/taxa/*.yaml EvidenceItem entries | supports | Corpus-wide audit of reusable taxon cross-references confirmed 22 TaxonomicComposition.common_taxon links across 21 MicrobialCommunity records (20 kb/communities/*.yaml records and 1 data/isolates/*.yaml record: 6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes with 27 verified EvidenceItems] and 15 Shewanella oneidensis communities plus isolate baseline CommunityMech:000524 linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes with 34 verified EvidenceItems], with CommunityMech:000177 linking to both) after Cycle 11 Stage 3 (#2730). |
-| ev-syntrophobacter-methanospirillum-pmid9828440 | PMID:9828440; kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml | supports | PMID:9828440 (doi:10.1007/s002030050656) establishes that Syntrophobacter fumaroxidans (NCBITaxon:119484) and Methanospirillum hungatei (NCBITaxon:2203) form a defined two-member syntrophic propionate-oxidizing co-culture. |
-| ev-pseudomonas-rhodococcus-pmid10049867 | PMID:10049867; kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml | supports | PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) establishes that Pseudomonas putida HS12 (NCBITaxon:303) and Rhodococcus sp. strain HS51 (NCBITaxon:1827) form a defined two-strain coculture that completely mineralizes 3- and 4-chloronitrobenzene. |
-| ev-variovorax-cryptococcus-pmid37553333 | PMID:37553333; kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml | supports | PMID:37553333 (doi:10.1016/j.cub.2023.07.036) establishes that thiamine-requiring Variovorax species (NCBITaxon:34072) and pantothenate-requiring Cryptococcus yeast (NCBITaxon:5206) form a defined two-member vitamin cross-feeding mutualism. |
+| ev-syntrophobacter-methanospirillum-pmid9828440 | PMID:9828440; kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml | supports | PMID:9828440 (doi:10.1099/00207713-48-4-1383) establishes that Syntrophobacter fumaroxidans (NCBITaxon:119484) and Methanospirillum hungatei (NCBITaxon:2203) form a defined two-member syntrophic propionate-oxidizing co-culture. |
+| ev-pseudomonas-rhodococcus-pmid10049867 | PMID:10049867; kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml | supports | PMID:10049867 (doi:10.1128/AEM.65.3.1083-1091.1999) establishes that Pseudomonas putida HS12 (NCBITaxon:303) and Rhodococcus sp. strain HS51 (NCBITaxon:1827) form a defined two-strain coculture that mineralizes 3- and 4-chloronitrobenzene. |
+| ev-variovorax-cryptococcus-pmid37553333 | PMID:37553333; kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml | supports | PMID:37553333 (doi:10.1038/s41467-023-40360-4) establishes that thiamine-producing, pantothenate-requiring Variovorax species (NCBITaxon:34072) and pantothenate-producing, thiamine-auxotrophic Cryptococcus yeast (NCBITaxon:5206) form a defined two-member vitamin cross-feeding mutualism. |
 | ev-prior-structured-reviews | reviews/structured; 265 retained structured review bundles through 20261107T202000Z-c10s5-remediation-verification-r2 | context_only | Lineage inspection of all 265 prior structured reviews and Cycle 10 Stage 5 evidence.yaml confirmed that all 3 Cycle 10 Stage 4 open findings across CommunityMech:000052, 000092, and 000162 were resolved in Cycle 10 Stage 5 (#2723, PR #2724) and 7 record-scoped source-limited findings remain deferred at commit e9ada20c23b553a0328f8d0601b46ab8fcb906f3. |
 
 ## Limits And Additional Notes
@@ -1014,39 +1014,44 @@ evidence:
   locator: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
   accessed_at: '2026-11-08T12:13:00Z'
   support: supports
-  summary: PMID:9828440 (doi:10.1007/s002030050656) establishes that Syntrophobacter
+  summary: PMID:9828440 (doi:10.1099/00207713-48-4-1383) establishes that Syntrophobacter
     fumaroxidans (NCBITaxon:119484) and Methanospirillum hungatei (NCBITaxon:2203)
     form a defined two-member syntrophic propionate-oxidizing co-culture.
-  quote: The enzymes involved in propionate oxidation by Syntrophobacter fumaroxidans
-    were studied using cell-free extracts of cells grown in pure culture on fumarate
-    and in syntrophic culture with Methanospirillum hungatei on propionate.
+  quote: It oxidized propionate syntrophically in co-culture with the hydrogen- and
+    formate-utilizing Methanospirillum hungateii, and was able to oxidize propionate
+    and other organic compounds in pure culture with sulfate or fumarate as the electron
+    acceptor.
 - evidence_id: ev-pseudomonas-rhodococcus-pmid10049867
   kind: primary_source
   reference: PMID:10049867
   locator: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
   accessed_at: '2026-11-08T12:13:15Z'
   support: supports
-  summary: PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) establishes that Pseudomonas
+  summary: PMID:10049867 (doi:10.1128/AEM.65.3.1083-1091.1999) establishes that Pseudomonas
     putida HS12 (NCBITaxon:303) and Rhodococcus sp. strain HS51 (NCBITaxon:1827) form
-    a defined two-strain coculture that completely mineralizes 3- and 4-chloronitrobenzene.
-  quote: Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp. strain HS51
-    were able to completely mineralize 3- and 4-chloronitrobenzene (3- and 4-CNB),
-    which are nonpermissive growth substrates for their individual monocultures.
+    a defined two-strain coculture that mineralizes 3- and 4-chloronitrobenzene.
+  quote: For the degradation of CNBs, Rhodococcus sp. strain HS51, which degrades
+    4- and 5-chloro-2-hydroxyacetanilides, was isolated and combined with P. putida
+    HS12 to give a coculture. This coculture was confirmed to mineralize 3- and 4-CNBs
+    in the presence of an additional carbon source.
 - evidence_id: ev-variovorax-cryptococcus-pmid37553333
   kind: primary_source
   reference: PMID:37553333
   locator: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
   accessed_at: '2026-11-08T12:13:30Z'
   support: supports
-  summary: PMID:37553333 (doi:10.1016/j.cub.2023.07.036) establishes that thiamine-requiring
-    Variovorax species (NCBITaxon:34072) and pantothenate-requiring Cryptococcus yeast
-    (NCBITaxon:5206) form a defined two-member vitamin cross-feeding mutualism.
-  quote: 'Fitness assays in minimal media of the two top hubs, a bacterium (Variovorax)
-    and a yeast (Cryptococcus), helped suggest a persistent mutualism. Metabolomics
-    combined with monoculture and coculture conditioning expectations showed the fitness
-    benefit comes from reciprocal exchange of two B vitamins: Variovorax requires
-    thiamine and overproduces pantothenate, whereas Cryptococcus requires pantothenate
-    and overproduces thiamine.'
+  summary: PMID:37553333 (doi:10.1038/s41467-023-40360-4) establishes that thiamine-producing,
+    pantothenate-requiring Variovorax species (NCBITaxon:34072) and pantothenate-producing,
+    thiamine-auxotrophic Cryptococcus yeast (NCBITaxon:5206) form a defined two-member
+    vitamin cross-feeding mutualism.
+  quote: predict that a Variovorax species is a hub as an important source of thiamine.
+    Quantification of thiamine during the growth of Variovorax in minimal media show
+    high levels of thiamine production, up to 100 mg/L. A few of the correlated thiamine
+    auxotrophs are predicted to produce pantothenate, which we show is required for
+    growth of Variovorax, supporting that a subset of vitamin-dependent interactions
+    are mutualistic. A Cryptococcus yeast produces the B-vitamin pantothenate, and
+    co-culturing with Variovorax leads to a 90-130-fold fitness increase for both
+    organisms.
 - evidence_id: ev-prior-structured-reviews
   kind: prior_review
   reference: reviews/structured
@@ -1892,13 +1897,13 @@ findings:
     (CommunityMech:000069), both Syntrophobacter fumaroxidans (taxonomy[0], NCBITaxon:119484,
     functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanospirillum
     hungatei (taxonomy[1], NCBITaxon:2203, functional_role: [SYNTROPHIC_PARTNER])
-    omit abundance_level. The cited primary study (PMID:9828440, doi:10.1007/s002030050656)
-    explicitly establishes that ''The enzymes involved in propionate oxidation by
-    Syntrophobacter fumaroxidans were studied using cell-free extracts of cells grown
-    in pure culture on fumarate and in syntrophic culture with Methanospirillum hungatei
-    on propionate.'' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1]
-    raises the review-communities s_ab abundance_level rubric component from 0/5 to
-    5/5 (0/2 -> 2/2 taxa with abundance_level).'
+    omit abundance_level. The cited primary study (PMID:9828440, doi:10.1099/00207713-48-4-1383)
+    explicitly establishes that ''It oxidized propionate syntrophically in co-culture
+    with the hydrogen- and formate-utilizing Methanospirillum hungateii, and was able
+    to oxidize propionate and other organic compounds in pure culture with sulfate
+    or fumarate as the electron acceptor.'' Setting abundance_level: DOMINANT on both
+    taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level
+    rubric component from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000069
   field_paths:
@@ -1934,14 +1939,14 @@ findings:
   description: 'In kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
     (CommunityMech:000181), both Pseudomonas putida HS12 (taxonomy[0], NCBITaxon:303,
     functional_role: [PRIMARY_DEGRADER]) and Rhodococcus sp. strain HS51 (taxonomy[1],
-    NCBITaxon:1827, functional_role: [CROSS_FEEDER, SECONDARY_FERMENTER]) omit abundance_level.
-    The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1090-1098.1999) explicitly
-    establishes that ''Mixed cultures of Pseudomonas putida HS12 and Rhodococcus sp.
-    strain HS51 were able to completely mineralize 3- and 4-chloronitrobenzene (3-
-    and 4-CNB), which are nonpermissive growth substrates for their individual monocultures.''
-    Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1] raises the
-    review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2
-    -> 2/2 taxa with abundance_level).'
+    NCBITaxon:1827, functional_role: [CROSS_FEEDER, PRIMARY_DEGRADER]) omit abundance_level.
+    The cited primary study (PMID:10049867, doi:10.1128/AEM.65.3.1083-1091.1999) explicitly
+    establishes that ''For the degradation of CNBs, Rhodococcus sp. strain HS51, which
+    degrades 4- and 5-chloro-2-hydroxyacetanilides, was isolated and combined with
+    P. putida HS12 to give a coculture. This coculture was confirmed to mineralize
+    3- and 4-CNBs in the presence of an additional carbon source.'' Setting abundance_level:
+    DOMINANT on both taxonomy[0] and taxonomy[1] raises the review-communities s_ab
+    abundance_level rubric component from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000181
   field_paths:
@@ -1976,17 +1981,19 @@ findings:
     support in PMID:37553333
   description: 'In kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
     (CommunityMech:000213), both Variovorax species (taxonomy[0], NCBITaxon:34072,
-    functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) and Cryptococcus yeast (taxonomy[1],
-    NCBITaxon:5206, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level.
-    The cited primary study (PMID:37553333, doi:10.1016/j.cub.2023.07.036) explicitly
-    establishes that ''Fitness assays in minimal media of the two top hubs, a bacterium
-    (Variovorax) and a yeast (Cryptococcus), helped suggest a persistent mutualism.
-    Metabolomics combined with monoculture and coculture conditioning expectations
-    showed the fitness benefit comes from reciprocal exchange of two B vitamins: Variovorax
-    requires thiamine and overproduces pantothenate, whereas Cryptococcus requires
-    pantothenate and overproduces thiamine.'' Setting abundance_level: DOMINANT on
-    both taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level
-    rubric component from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level).'
+    functional_role: [CROSS_FEEDER, PRIMARY_PRODUCER]) and Cryptococcus yeast (taxonomy[1],
+    NCBITaxon:5206, functional_role: [CROSS_FEEDER, PRIMARY_PRODUCER]) omit abundance_level.
+    The cited primary study (PMID:37553333, doi:10.1038/s41467-023-40360-4) explicitly
+    establishes that ''predict that a Variovorax species is a hub as an important
+    source of thiamine. Quantification of thiamine during the growth of Variovorax
+    in minimal media show high levels of thiamine production, up to 100 mg/L. A few
+    of the correlated thiamine auxotrophs are predicted to produce pantothenate, which
+    we show is required for growth of Variovorax, supporting that a subset of vitamin-dependent
+    interactions are mutualistic. A Cryptococcus yeast produces the B-vitamin pantothenate,
+    and co-culturing with Variovorax leads to a 90-130-fold fitness increase for both
+    organisms.'' Setting abundance_level: DOMINANT on both taxonomy[0] and taxonomy[1]
+    raises the review-communities s_ab abundance_level rubric component from 0/5 to
+    5/5 (0/2 -> 2/2 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000213
   field_paths:
@@ -2745,8 +2752,8 @@ actions:
 - action_id: act-populate-syntrophobacter-methanospirillum-abundance-levels
   description: 'Add abundance_level: DOMINANT to both Syntrophobacter fumaroxidans
     (taxonomy[0], NCBITaxon:119484) and Methanospirillum hungatei (taxonomy[1], NCBITaxon:2203)
-    backed by PMID:9828440 (doi:10.1007/s002030050656) on CommunityMech:000069, and
-    append curation_history.'
+    backed by PMID:9828440 (doi:10.1099/00207713-48-4-1383) on CommunityMech:000069,
+    and append curation_history.'
   finding_ids:
   - c11s4-000069-syntrophobacter-methanospirillum-abundance-levels
   target_ids:
@@ -2762,7 +2769,7 @@ actions:
 - action_id: act-populate-pseudomonas-rhodococcus-abundance-levels
   description: 'Add abundance_level: DOMINANT to both Pseudomonas putida HS12 (taxonomy[0],
     NCBITaxon:303) and Rhodococcus sp. strain HS51 (taxonomy[1], NCBITaxon:1827) backed
-    by PMID:10049867 (doi:10.1128/AEM.65.3.1090-1098.1999) on CommunityMech:000181,
+    by PMID:10049867 (doi:10.1128/AEM.65.3.1083-1091.1999) on CommunityMech:000181,
     and append curation_history.'
   finding_ids:
   - c11s4-000181-pseudomonas-rhodococcus-abundance-levels
@@ -2779,7 +2786,7 @@ actions:
 - action_id: act-populate-variovorax-cryptococcus-abundance-levels
   description: 'Add abundance_level: DOMINANT to both Variovorax species (taxonomy[0],
     NCBITaxon:34072) and Cryptococcus yeast (taxonomy[1], NCBITaxon:5206) backed by
-    PMID:37553333 (doi:10.1016/j.cub.2023.07.036) on CommunityMech:000213, and append
+    PMID:37553333 (doi:10.1038/s41467-023-40360-4) on CommunityMech:000213, and append
     curation_history.'
   finding_ids:
   - c11s4-000213-variovorax-cryptococcus-abundance-levels
