@@ -1,0 +1,215 @@
+reviewer: antigravity-c11s5
+review_mode: stage5_remediation_reattestation
+independent_approval: false
+base_commit: 9a8e792c58dd63a2b4b352643151b35750a1b8ff
+baseline_commit: 9a8e792c58dd63a2b4b352643151b35750a1b8ff
+issues:
+- 2732
+unresolved_research_issues: []
+unresolved_non_graph_issues: []
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  dry_runs: []
+  repair_scope: Stage 5 review remediation of TaxonomicComposition.abundance_level
+    and supporting EvidenceItem entries on CommunityMech:000069, 000181, and 000213;
+    no causal graph node or downstream edge topology changes.
+records:
+- path: kb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml
+  id: CommunityMech:000069
+  original_sha256: a4076f47b588559b0a751b8d4e0be16c067af11c359ba5e9f401fd0b542fb61a
+  record_sha256: eca7b9e856eb522cf3ddf42ef226aa0ac61ad51854b15dde7f19a63c7ff38013
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-c11s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+    record_sha256: a4076f47b588559b0a751b8d4e0be16c067af11c359ba5e9f401fd0b542fb61a
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch112 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:9828440 two-member syntrophic
+    propionate-oxidizing co-culture evidence to Syntrophobacter fumaroxidans and Methanospirillum
+    hungatei while preserving batch112 causal graph decisions.
+  node_decisions:
+  - node: Propionate Oxidation and H2/Formate Production
+    rationale: Bound propionate oxidation and enzyme inference to exact partner and
+      assay.
+  - node: Interspecies Electron Transfer and Methanogenesis
+    rationale: Retain carrier-removal feedback with physical units and flux uncertainty
+      explicit.
+  - node: Syntrophic Propionate-to-Methane Conversion
+    rationale: Retain coupled community conversion without duplicate exchange typing.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: &id001
+  - &id002
+    source: Propionate Oxidation and H2/Formate Production
+    target: Interspecies Electron Transfer and Methanogenesis
+    description: 'DIRECTLY IMPLIED: reducing equivalents released during bacterial
+      propionate oxidation supply M. hungatei through hydrogen and/or formate for
+      methanogenesis. The evidence does not quantify their separate fluxes in this
+      pair.'
+  - &id003
+    source: Interspecies Electron Transfer and Methanogenesis
+    target: Propionate Oxidation and H2/Formate Production
+    description: 'DIRECTLY IMPLIED feedback: hydrogen/formate consumption by M. hungatei
+      lowers hydrogen partial pressure and formate concentration, enabling continued
+      propionate oxidation. This retains the thermodynamic cooperation inferred from
+      syntrophic versus electron-acceptor-supported axenic growth; it is not a selective
+      carrier-removal assay in this exact pair.'
+  - &id004
+    source: Interspecies Electron Transfer and Methanogenesis
+    target: Syntrophic Propionate-to-Methane Conversion
+    description: Methanogenic consumption of bacterially supplied reducing equivalents
+      couples propionate oxidation to methane production. Cooperation is reciprocal,
+      but the carrier transfer described here is bacterial-to-methanogen, not bidirectional
+      donation.
+  edges_after: *id001
+  retained_edge_decisions:
+  - before: *id002
+    after: *id002
+    rationale: Unchanged from 20261008-seven-records-batch112.yaml.
+  - before: *id003
+    after: *id003
+    rationale: Unchanged from 20261008-seven-records-batch112.yaml.
+  - before: *id004
+    after: *id004
+    rationale: Unchanged from 20261008-seven-records-batch112.yaml.
+  removed_edge_decisions: []
+  references:
+  - PMID:9828440
+  - PMID:29611893
+  issues:
+  - 1871
+  - 2732
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Syntrophobacter_Methanospirillum_Syntrophy/2026-11-08T150000Z-antigravity-2732a1.yaml
+- path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+  id: CommunityMech:000181
+  original_sha256: 2638bb5668d31d6c8a59d616e36777b22d38f03e1fef80dc58fada489628e41e
+  record_sha256: 2a321d04ee60086d18ea0c4b98caf0519138a8a85087be7f60d967e041dce423
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-c11s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml
+    record_sha256: 2638bb5668d31d6c8a59d616e36777b22d38f03e1fef80dc58fada489628e41e
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch90 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:10049867 two-member chloronitrobenzene-mineralizing
+    coculture evidence to Pseudomonas putida HS12 and Rhodococcus sp. strain HS51
+    while preserving batch90 causal graph decisions.
+  node_decisions:
+  - node: Pseudomonas Partial Chloronitrobenzene Transformation
+    original_node: Pseudomonas Partial Chloronitrobenzene Transformation
+    rationale: Preserve chemically supported upstream transformation with transfer
+      limits.
+  - node: Rhodococcus Intermediate Degradation
+    original_node: Rhodococcus Intermediate Degradation
+    rationale: Remove the reverse-feeding implication while retaining downstream degradation.
+  - node: Coculture Chloronitrobenzene Mineralization
+    original_node: Coculture Chloronitrobenzene Mineralization
+    rationale: Preserve conditional mineralization without treating the outcome as
+      evidence of product-removal feedback.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: &id005
+  - &id006
+    source: Pseudomonas Partial Chloronitrobenzene Transformation
+    target: Rhodococcus Intermediate Degradation
+    description: 'The reported upstream transformation produces the intermediates
+      that the downstream partner degrades, coupling the two steps. PARTIAL: the accessible
+      abstract does not resolve every transfer or assimilation step.'
+  - &id007
+    source: Rhodococcus Intermediate Degradation
+    target: Coculture Chloronitrobenzene Mineralization
+    description: 'The reported downstream intermediate degradation contributes to
+      the proposed two-strain pathway and conditional coculture mineralization. PARTIAL:
+      the full pathway and carbon-balance measurements were not independently inspected.'
+  edges_after: *id005
+  retained_edge_decisions:
+  - before: *id006
+    after: *id006
+    rationale: Unchanged from 20261007-four-records-batch90.yaml.
+  - before: *id007
+    after: *id007
+    rationale: Unchanged from 20261007-four-records-batch90.yaml.
+  removed_edge_decisions: []
+  references:
+  - PMID:10049867
+  issues:
+  - 1738
+  - 2732
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture/2026-11-08T150000Z-antigravity-2732a2.yaml
+- path: kb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml
+  id: CommunityMech:000213
+  original_sha256: 6423810bc3c64954b2ea8471c4821aabbdef9fd8298b3cbbdbad8defe798d662
+  record_sha256: bdbd921d021cab8131e127bf8d461692e649ae4513d4c0b53eda97e0e6868e0e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-c11s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch117.yaml
+    record_sha256: 6423810bc3c64954b2ea8471c4821aabbdef9fd8298b3cbbdbad8defe798d662
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch117 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:37553333 two-member vitamin-mutualism
+    coculture evidence to Variovorax and Cryptococcus while preserving batch117 causal
+    graph decisions.
+  node_decisions:
+  - node: Variovorax thiamine provision to Cryptococcus
+    rationale: Scope thiamine cross-feeding to the tested yeast and separate production
+      assay from network inference.
+  - node: Cryptococcus Pantothenate Provision to Variovorax
+    rationale: Preserve reciprocal vitamin evidence with spent-medium and exclusive-mediation
+      limits.
+  - node: Bidirectional Vitamin Mutualism in Coculture
+    rationale: Retain experimental mutual benefit while documenting inconsistent reported
+      fold changes.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: &id008
+  - &id009
+    source: Variovorax thiamine provision to Cryptococcus
+    target: Bidirectional Vitamin Mutualism in Coculture
+    description: Thiamine production and yeast thiamine responsiveness support one
+      resource route contributing to the observed coculture benefit. This does not
+      establish all correlated recipients or vitamin exchange as the only cause of
+      that benefit.
+  - &id010
+    source: Cryptococcus Pantothenate Provision to Variovorax
+    target: Bidirectional Vitamin Mutualism in Coculture
+    description: Yeast pantothenate production and bacterial supplementation response
+      support the reciprocal resource route contributing to coculture benefit. The
+      controls do not exclude other spent-medium components or establish exclusive
+      mediation.
+  edges_after: *id008
+  retained_edge_decisions:
+  - before: *id009
+    after: *id009
+    rationale: Unchanged from 20261008-four-records-batch117.yaml.
+  - before: *id010
+    after: *id010
+    rationale: Unchanged from 20261008-four-records-batch117.yaml.
+  removed_edge_decisions: []
+  references:
+  - PMID:37553333
+  issues:
+  - 1910
+  - 2732
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm/2026-11-08T150000Z-antigravity-2732a3.yaml
