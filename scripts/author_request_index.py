@@ -27,8 +27,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-EMAIL = "marcinjoachimiak@gmail.com"
-UA = {"User-Agent": f"CommunityMech/1.0 (mailto:{EMAIL})"}
+UA = {"User-Agent": "CommunityMech/1.0"}
 ROOT = Path(__file__).resolve().parent.parent
 RESIDUAL_MD = ROOT / "reports" / "fulltext_access_183.md"
 AUTHOR_DIR = ROOT / "reports" / "author_requests"

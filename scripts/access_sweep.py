@@ -34,8 +34,15 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-EMAIL = os.environ.get("UNPAYWALL_EMAIL", "marcinjoachimiak@gmail.com")
-UA = {"User-Agent": f"CommunityMech-access/1.0 (mailto:{EMAIL})"}
+from fulltext_access import (
+    try_elsevier_tdm,
+    try_osti,
+    try_springer_tdm,
+    try_wiley_tdm,
+    try_zotero_local,
+)
+
+UA = {"User-Agent": "CommunityMech-access/1.0"}
 ROOT = Path(__file__).resolve().parent.parent
 RESIDUAL_MD = ROOT / "reports" / "fulltext_access_183.md"
 AUTHOR_DIR = ROOT / "reports" / "author_requests"
@@ -79,9 +86,7 @@ def openalex_locations(pmid: str | None, doi: str | None) -> dict:
         key = f"pmid:{pmid}"
     else:
         return {}
-    d = _get_json(
-        f"https://api.openalex.org/works/{urllib.parse.quote(key, safe=':')}?mailto={EMAIL}"
-    )
+    d = _get_json(f"https://api.openalex.org/works/{urllib.parse.quote(key, safe=':')}")
     if not d:
         return {}
     oa_urls = []
@@ -156,7 +161,15 @@ def main() -> int:
         oa = openalex_locations(r["pmid"], r["doi"])
         doi = r["doi"] or oa.get("resolved_doi")
         urls = list(oa.get("oa_urls") or [])
-        for extra in (biorxiv_pdf(doi), try_core(doi, r["title"])):
+        for extra in (
+            try_zotero_local(r["pmid"], doi),
+            biorxiv_pdf(doi),
+            try_osti(doi, r["title"]),
+            try_elsevier_tdm(doi),
+            try_springer_tdm(doi),
+            try_wiley_tdm(doi),
+            try_core(doi, r["title"]),
+        ):
             if extra and extra not in urls:
                 urls.append(extra)
         r["oa_status"] = oa.get("oa_status")

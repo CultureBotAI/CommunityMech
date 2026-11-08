@@ -37,12 +37,10 @@ from pathlib import Path
 
 # fulltext_access.py lives beside this script; its dir is on sys.path when run directly.
 from fulltext_access import (
+    access_ladder,
     author_request_draft,
     crossref_meta,
     epmc_core,
-    try_core,
-    try_europepmc,
-    try_unpaywall,
 )
 
 REPO = Path(__file__).resolve().parent.parent
@@ -84,19 +82,6 @@ def split_ref(ref: str) -> tuple[str | None, str | None]:
     return None, None
 
 
-def access_ladder(rec: dict, doi: str | None, title: str | None) -> tuple[str, str | None]:
-    """Return (method, url) for the first legal full-text hit, or ('none', None)."""
-    for method, fn in (
-        ("europepmc_oa", lambda: try_europepmc(rec)),
-        ("unpaywall", lambda: try_unpaywall(doi)),
-        ("core", lambda: try_core(doi, title)),
-    ):
-        url = fn()
-        if url:
-            return method, url
-    return "none", None
-
-
 def strip_html(s: str) -> str:
     return re.sub(r"<[^>]+>", "", s or "").strip()
 
@@ -118,7 +103,7 @@ def prep_record(path: Path) -> dict:
     if not rec.get("title") and doi:  # DOI-only / not in EPMC -> CrossRef metadata
         rec = {**crossref_meta(doi), **rec}
     title = strip_html(rec.get("title", ""))
-    method, url = access_ladder(rec, doi, title)
+    method, url = access_ladder(rec, doi, title, pmid=pmid)
 
     row["method"] = method
     row["url"] = url or ""
@@ -151,6 +136,7 @@ def _write_bundle(
             f"- **Full-text access:** `{method}` — OA full text available",
             f"- **Methods URL (fetch this):** {url}",
             "  - Europe PMC XML: fetch with `curl --compressed <url>` and read the Methods.",
+            f"  - TDM / authenticated / local: stage to `.temp/` with `uv run python scripts/fulltext_access.py --doi {doi or '<doi>'} --fetch-to .temp/{stem}.xml`.",
         ]
     else:
         lines += [
