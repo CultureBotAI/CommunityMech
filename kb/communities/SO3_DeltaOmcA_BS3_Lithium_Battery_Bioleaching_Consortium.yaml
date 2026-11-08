@@ -261,6 +261,14 @@ ecological_interactions:
       transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
     explanation: Confirms that SO3ΔomcA retains the pHG13-Ptac-ribADEHC-irrE riboflavin and IrrE expression module while lacking
       outer-membrane decaheme c-type cytochrome gene omcA.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the process of the brewing wastewater‐mediated reduction of NCM catalyzed by the SO3‐BS3 consortium, strain
+      BS3 eliminated the ethanol inhibition on the EET of S. oneidensis by removing residual ethanol and synthesized riboflavin
+      as the electron shuttle.
+    explanation: Confirms the upstream division-of-labor function of Bacillus subtilis BS3 in eliminating ethanol inhibition
+      and supplying riboflavin as an electron shuttle.
 - name: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔomcA-BS3 Consortium
   description: Deletion of outer-membrane decaheme c-type cytochrome gene omcA in SO3ΔomcA disrupted both direct outer-membrane
     cytochrome electron transfer to NCM and MtrC/OmcA-dependent reduction of the riboflavin shuttle, causing the SO3ΔomcA-BS3
@@ -324,6 +332,13 @@ ecological_interactions:
       were essential for NCM reduction in metal oxide leaching.
     explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to the 13.4 mg L^-1 sole-strain
       BS3 baseline.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis MR‐1, which was subsequently
+      transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+    explanation: Documents the homologous-recombination construction of strain SO3ΔomcA carrying pHG13-Ptac-ribADEHC-irrE
+      for the downstream OmcA-deficient EET node.
 environmental_factors:
 - name: SO3ΔomcA-BS3 total leached NCM metal ions and MFC power density
   value: 18.7 mg L^-1 total leached metal ions and 50.01 mW m^-2 maximum power density
@@ -442,4 +457,12 @@ curation_history:
   changes: Created CommunityMech:000527 (SO3-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium) from PMID:42733304
     / doi:10.1002/advs.77699 for the engineered two-member SO3ΔomcA-BS3 outer-membrane cytochrome perturbation consortium
     (50.01 mW m^-2 EET power density, 18.7 mg L^-1 NCM metal leaching).
+  llm_assisted: true
+- timestamp: '2026-11-08T06:45:02Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed both COMMUNITY_LEVEL interaction nodes, the 1 directed downstream edge (Ethanol Removal and Riboflavin
+    Shuttle Provision by Bacillus subtilis BS3 -> OmcA-Deficient Extracellular Electron Transfer and Attenuated Cathode Bioleaching
+    by Shewanella oneidensis SO3ΔomcA), and 1 MECHANISM_GAP discussion against PMID:42733304 (PMC13572860); enriched interaction
+    evidence from 5 to 7 non-overlapping, bracket-free verbatim snippets.
   llm_assisted: true
