@@ -79,6 +79,9 @@ def test_try_zotero_local_resolves_pdf_by_doi_and_pmid(
     miss = fulltext_access.try_zotero_local(doi="10.1038/nonexistent")
     assert miss is None
 
+    monkeypatch.delenv("ZOTERO_DATA_DIR", raising=False)
+    assert fulltext_access.try_zotero_local(doi="10.1038/s41564-024-01234-5") is None
+
 
 def test_try_openalex_oa_rejects_doi_resolver_and_picks_real_oa_url(
     monkeypatch: pytest.MonkeyPatch,

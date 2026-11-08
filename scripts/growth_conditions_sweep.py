@@ -136,6 +136,7 @@ def _write_bundle(
             f"- **Full-text access:** `{method}` — OA full text available",
             f"- **Methods URL (fetch this):** {url}",
             "  - Europe PMC XML: fetch with `curl --compressed <url>` and read the Methods.",
+            f"  - TDM / authenticated / local: stage to `.temp/` with `uv run python scripts/fulltext_access.py --doi {doi or '<doi>'} --fetch-to .temp/{stem}.xml`.",
         ]
     else:
         lines += [

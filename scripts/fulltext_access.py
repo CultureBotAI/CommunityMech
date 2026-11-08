@@ -132,7 +132,10 @@ def try_zotero_local(pmid: str | None = None, doi: str | None = None) -> str | N
     if not clean_doi and not clean_pmid:
         return None
 
-    zotero_dir = Path(os.environ.get("ZOTERO_DATA_DIR", str(Path.home() / "Zotero")))
+    zotero_env = os.environ.get("ZOTERO_DATA_DIR", "").strip()
+    if not zotero_env:
+        return None
+    zotero_dir = Path(zotero_env)
     db_path = zotero_dir / "zotero.sqlite"
     storage_dir = zotero_dir / "storage"
     if not db_path.is_file() or not storage_dir.is_dir():
@@ -481,7 +484,13 @@ def main(argv: list[str] | None = None) -> int:
     )
     missing_keys = [
         k
-        for k in ("ELSEVIER_API_KEY", "SPRINGER_API_KEY", "WILEY_TDM_TOKEN", "CORE_API_KEY")
+        for k in (
+            "ZOTERO_DATA_DIR",
+            "ELSEVIER_API_KEY",
+            "SPRINGER_API_KEY",
+            "WILEY_TDM_TOKEN",
+            "CORE_API_KEY",
+        )
         if not os.environ.get(k)
     ]
     if missing_keys:

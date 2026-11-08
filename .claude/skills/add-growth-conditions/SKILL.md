@@ -89,7 +89,8 @@ a sealed serum bottle whose seal was the entire mechanism.
    `$SPRINGER_API_KEY`, `$WILEY_TDM_TOKEN`) → **CORE** (`$CORE_API_KEY`) → and
    if none, prints an **author-request email draft**.
    - `ACCESS <method> <url>` → fetch that URL for the Methods (`curl --compressed`
-     for EPMC XML, or read the local `file://` PDF from Zotero).
+     for EPMC XML, read the local `file://` PDF from Zotero, or stage authenticated
+     TDM/OA content into `.temp/` via `uv run python scripts/fulltext_access.py --doi <doi> --fetch-to .temp/<stem>.xml`).
    - `NO_LEGAL_OA` → the paper has no reachable legal copy; use only
      abstract-level conditions, and surface the author-request draft to the
      curator. **Never** use Sci-Hub or other gray-area sources, and **never**
