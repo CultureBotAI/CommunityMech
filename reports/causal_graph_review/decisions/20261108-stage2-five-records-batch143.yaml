@@ -1,0 +1,762 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c3f3870d3b94266858c89e18c229e41893c5495e
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 9
+  removed_nodes: 0
+  retained_arrows: 3
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 32
+  discussion_quotations: 5
+limitations:
+- 'Source-based causal-graph and taxon-grounding curation and review for all 5 newly added Cycle 11 Stage
+  1 MicrobialCommunity records (CommunityMech:000526 through CommunityMech:000530 from PR #2728).'
+- Other 519 MicrobialCommunity records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (465 reviewed, 54 needs_research preserved unchanged) plus 2 CommonTaxon records in kb/taxa/.
+records:
+- path: kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000526
+  original_sha256: 2f6bb5bb8629deb73c33dd19e057e61ba5893f97e562788c0e8609330ba5a4ee
+  record_sha256: 8ce45b8ea2b6e7f966aecf7b30e8508aa427316ac92c53ab788e858a708ea968
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch143.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and directed
+    downstream causal edge verified against cached open-access full text and abstract (PMID:42733304,
+    PMC13572860, doi:10.1002/advs.77699) and sibling records CommunityMech:000385, CommunityMech:000527,
+    CommunityMech:000528, and CommunityMech:000529.
+  summary: Reviewed and enriched the 2-node, 1-edge COMMUNITY_LEVEL causal interaction graph for the MtrC-deficient
+    Shewanella oneidensis SO3ΔmtrC + Bacillus subtilis BS3 spent LIB NCM bioleaching consortium in PMID:42733304
+    with 2 additional non-overlapping verbatim snippets (5 -> 7 interaction EvidenceItems) while retaining
+    the directed downstream edge.
+  node_decisions:
+  - node: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrC
+    rationale: Supported by primary source (PMID:42733304, Fig. 5f, Section 2.5, Section 3) with COMMUNITY_LEVEL
+      scope covering S. oneidensis SO3ΔmtrC and B. subtilis BS3.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔmtrC
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When catalyzing the brewing wastewater‐mediated reduction of NCM for metal oxide leaching,
+        strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on EET of S. oneidensis
+        by converting residual ethanol in the brewing wastewater into acetate via the Adh‐AldH dual enzyme
+        cascade reaction. Also, strain BS3 synthesized riboflavin, which was employed as an electron shuttle
+        for promoting the EET of S. oneidensis.
+      explanation: Establishes the ethanol-to-acetate detoxification and riboflavin shuttle supply performed
+        by strain BS3 in the SO3-series consortia.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Confirms that SO3ΔmtrC retains the pHG13-Ptac-ribADEHC-irrE riboflavin and IrrE expression
+        module while lacking outer-membrane decaheme c-type cytochrome gene mtrC.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the process of the brewing wastewater‐mediated reduction of NCM catalyzed by the SO3‐BS3
+        consortium, strain BS3 eliminated the ethanol inhibition on the EET of S. oneidensis by removing
+        residual ethanol and synthesized riboflavin as the electron shuttle.
+      explanation: Confirms the upstream division-of-labor function of Bacillus subtilis BS3 in eliminating
+        ethanol inhibition and supplying riboflavin as an electron shuttle.
+  - node: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrC-BS3 Consortium
+    rationale: Supported by primary source (PMID:42733304, Fig. 5c-d, Section 2.5, Section 5.12) with
+      COMMUNITY_LEVEL scope covering S. oneidensis SO3ΔmtrC and B. subtilis BS3.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔmtrC
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 47.67 mW m^-2 maximum power density (9.50-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrC-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 16.7 mg L^-1 total leached metal ion yield (6.13-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrC-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of strain SO3ΔmtrC carrying pHG13-Ptac-ribADEHC-irrE
+        for the downstream MtrC-deficient EET node.
+  edges_before:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrC
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrC-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome gene mtrC in SO3ΔmtrC severely restricts electron
+      delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET power density to
+      47.67 mW m^-2 and total leached metals to 16.7 mg L^-1.
+  edges_after:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrC
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrC-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome gene mtrC in SO3ΔmtrC severely restricts electron
+      delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET power density to
+      47.67 mW m^-2 and total leached metals to 16.7 mg L^-1.
+  retained_edge_decisions:
+  - edge: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrC -> Attenuated EET and
+      NCM Metal Oxide Leaching in SO3ΔmtrC-BS3 Consortium
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 Section 2.5 (Fig. 5c-d,f) demonstrates that while B. subtilis BS3 eliminates
+      ethanol inhibition and supplies riboflavin in SO3ΔmtrC-BS3, deleting mtrC in S. oneidensis SO3 reduces
+      EET power density 9.50-fold (452.90 -> 47.67 mW m^-2) and total leached NCM metal ions 6.13-fold
+      (102.4 -> 16.7 mg L^-1), remaining above sole BS3 monoculture (13.4 mg L^-1) via residual OmcA-mediated
+      EET.
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 47.67 mW m^-2 maximum power density (9.50-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrC-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 16.7 mg L^-1 total leached metal ion yield (6.13-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrC-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of strain SO3ΔmtrC carrying pHG13-Ptac-ribADEHC-irrE
+        for the downstream MtrC-deficient EET node.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium/2026-11-08T064501Z-antigravity-c11s201.yaml
+- path: kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000527
+  original_sha256: 26a8290f4cf7bfd217c45b3ca599a5b5d0dfcf89c4a8204b17e8a53cad9008a3
+  record_sha256: 568d6b743edb421494036d68981dfb3c6a812d24992119d49f802fee5400aba7
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch143.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and directed
+    downstream causal edge verified against cached open-access full text and abstract (PMID:42733304,
+    PMC13572860, doi:10.1002/advs.77699) and sibling records CommunityMech:000385, CommunityMech:000526,
+    CommunityMech:000528, and CommunityMech:000529.
+  summary: Reviewed and enriched the 2-node, 1-edge COMMUNITY_LEVEL causal interaction graph for the OmcA-deficient
+    Shewanella oneidensis SO3ΔomcA + Bacillus subtilis BS3 spent LIB NCM bioleaching consortium in PMID:42733304
+    with 2 additional non-overlapping verbatim snippets (5 -> 7 interaction EvidenceItems) while retaining
+    the directed downstream edge.
+  node_decisions:
+  - node: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔomcA
+    rationale: Supported by primary source (PMID:42733304, Fig. 5f, Section 2.5, Section 3) with COMMUNITY_LEVEL
+      scope covering S. oneidensis SO3ΔomcA and B. subtilis BS3.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔomcA
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When catalyzing the brewing wastewater‐mediated reduction of NCM for metal oxide leaching,
+        strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on EET of S. oneidensis
+        by converting residual ethanol in the brewing wastewater into acetate via the Adh‐AldH dual enzyme
+        cascade reaction. Also, strain BS3 synthesized riboflavin, which was employed as an electron shuttle
+        for promoting the EET of S. oneidensis.
+      explanation: Establishes the ethanol-to-acetate detoxification and riboflavin shuttle supply performed
+        by strain BS3 in the SO3-series consortia.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Confirms that SO3ΔomcA retains the pHG13-Ptac-ribADEHC-irrE riboflavin and IrrE expression
+        module while lacking outer-membrane decaheme c-type cytochrome gene omcA.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the process of the brewing wastewater‐mediated reduction of NCM catalyzed by the SO3‐BS3
+        consortium, strain BS3 eliminated the ethanol inhibition on the EET of S. oneidensis by removing
+        residual ethanol and synthesized riboflavin as the electron shuttle.
+      explanation: Confirms the upstream division-of-labor function of Bacillus subtilis BS3 in eliminating
+        ethanol inhibition and supplying riboflavin as an electron shuttle.
+  - node: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔomcA-BS3 Consortium
+    rationale: Supported by primary source (PMID:42733304, Fig. 5c-d, Section 2.5, Section 5.12) with
+      COMMUNITY_LEVEL scope covering S. oneidensis SO3ΔomcA and B. subtilis BS3.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔomcA
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 50.01 mW m^-2 maximum power density (9.05-fold decrease vs SO3-BS3)
+        of the SO3ΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 18.7 mg L^-1 total leached metal ion yield (5.48-fold decrease vs SO3-BS3)
+        of the SO3ΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of strain SO3ΔomcA carrying pHG13-Ptac-ribADEHC-irrE
+        for the downstream OmcA-deficient EET node.
+  edges_before:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔomcA
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔomcA-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome gene omcA in SO3ΔomcA severely restricts electron
+      delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET power density to
+      50.01 mW m^-2 and total leached metals to 18.7 mg L^-1.
+  edges_after:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔomcA
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔomcA-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome gene omcA in SO3ΔomcA severely restricts electron
+      delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET power density to
+      50.01 mW m^-2 and total leached metals to 18.7 mg L^-1.
+  retained_edge_decisions:
+  - edge: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔomcA -> Attenuated EET and
+      NCM Metal Oxide Leaching in SO3ΔomcA-BS3 Consortium
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 Section 2.5 (Fig. 5c-d,f) demonstrates that while B. subtilis BS3 eliminates
+      ethanol inhibition and supplies riboflavin in SO3ΔomcA-BS3, deleting omcA in S. oneidensis SO3 reduces
+      EET power density 9.05-fold (452.90 -> 50.01 mW m^-2) and total leached NCM metal ions 5.48-fold
+      (102.4 -> 18.7 mg L^-1), remaining above sole BS3 monoculture (13.4 mg L^-1) via residual MtrC-mediated
+      EET.
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 50.01 mW m^-2 maximum power density (9.05-fold decrease vs SO3-BS3)
+        of the SO3ΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 18.7 mg L^-1 total leached metal ion yield (5.48-fold decrease vs SO3-BS3)
+        of the SO3ΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of strain SO3ΔomcA carrying pHG13-Ptac-ribADEHC-irrE
+        for the downstream OmcA-deficient EET node.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium/2026-11-08T064502Z-antigravity-c11s202.yaml
+- path: kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000528
+  original_sha256: e1207bef98d13ee304a806d784ad308333a36a39ff3c9d8098f4c21ded905b26
+  record_sha256: c83966d6d3c59f5aa614dfe035ae3dc483531e2da8e08d4f886b11fa77984f43
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch143.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and directed
+    downstream causal edge verified against cached open-access full text and abstract (PMID:42733304,
+    PMC13572860, doi:10.1002/advs.77699) and sibling records CommunityMech:000385, CommunityMech:000526,
+    CommunityMech:000527, and CommunityMech:000529.
+  summary: Reviewed and enriched the 2-node, 1-edge COMMUNITY_LEVEL causal interaction graph for the double-knockout
+    Shewanella oneidensis SO3ΔmtrCΔomcA + Bacillus subtilis BS3 spent LIB NCM bioleaching consortium in
+    PMID:42733304 with 2 additional non-overlapping verbatim snippets (5 -> 7 interaction EvidenceItems)
+    while retaining the directed downstream edge.
+  node_decisions:
+  - node: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrCΔomcA
+    rationale: Supported by primary source (PMID:42733304, Fig. 5f, Section 2.5, Section 3) with COMMUNITY_LEVEL
+      scope covering S. oneidensis SO3ΔmtrCΔomcA and B. subtilis BS3.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔmtrCΔomcA
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When catalyzing the brewing wastewater‐mediated reduction of NCM for metal oxide leaching,
+        strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on EET of S. oneidensis
+        by converting residual ethanol in the brewing wastewater into acetate via the Adh‐AldH dual enzyme
+        cascade reaction. Also, strain BS3 synthesized riboflavin, which was employed as an electron shuttle
+        for promoting the EET of S. oneidensis.
+      explanation: Establishes the ethanol-to-acetate detoxification and riboflavin shuttle supply performed
+        by strain BS3 in the SO3-series consortia.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Confirms that SO3ΔmtrCΔomcA retains the pHG13-Ptac-ribADEHC-irrE riboflavin and IrrE
+        expression module while lacking outer-membrane decaheme c-type cytochrome genes mtrC and omcA.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the process of the brewing wastewater‐mediated reduction of NCM catalyzed by the SO3‐BS3
+        consortium, strain BS3 eliminated the ethanol inhibition on the EET of S. oneidensis by removing
+        residual ethanol and synthesized riboflavin as the electron shuttle.
+      explanation: Confirms the upstream division-of-labor function of Bacillus subtilis BS3 in eliminating
+        ethanol inhibition and supplying riboflavin as an electron shuttle.
+  - node: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrCΔomcA-BS3 Consortium
+    rationale: Supported by primary source (PMID:42733304, Fig. 5c-d, Section 2.5, Section 5.12) with
+      COMMUNITY_LEVEL scope covering S. oneidensis SO3ΔmtrCΔomcA and B. subtilis BS3.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO3ΔmtrCΔomcA
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 28.39 mW m^-2 maximum power density (15.95-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrCΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 13.4 mg L^-1 total leached metal ion yield (7.64-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrCΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of double-knockout strain SO3ΔmtrCΔomcA
+        carrying pHG13-Ptac-ribADEHC-irrE for the downstream EET-abrogated node.
+  edges_before:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrCΔomcA
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrCΔomcA-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome genes mtrC and omcA in SO3ΔmtrCΔomcA severely
+      restricts electron delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET
+      power density to 28.39 mW m^-2 and total leached metals to 13.4 mg L^-1.
+  edges_after:
+  - source: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrCΔomcA
+    target: Attenuated EET and NCM Metal Oxide Leaching in SO3ΔmtrCΔomcA-BS3 Consortium
+    description: Despite intact ethanol removal, riboflavin synthesis, and IrrE-mediated Ni2+/Co2+ tolerance,
+      deletion of outer-membrane decaheme c-type cytochrome genes mtrC and omcA in SO3ΔmtrCΔomcA severely
+      restricts electron delivery from lactate catabolism to NCM and riboflavin, reducing consortium EET
+      power density to 28.39 mW m^-2 and total leached metals to 13.4 mg L^-1.
+  retained_edge_decisions:
+  - edge: BS3 Ethanol Detoxification and Riboflavin Shuttle Supply with SO3ΔmtrCΔomcA -> Attenuated EET
+      and NCM Metal Oxide Leaching in SO3ΔmtrCΔomcA-BS3 Consortium
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 Section 2.5 (Fig. 5c-d,f) demonstrates that even when B. subtilis BS3 removes
+      ethanol inhibition and synthesizes riboflavin in SO3ΔmtrCΔomcA-BS3, simultaneous deletion of mtrC
+      and omcA in S. oneidensis SO3 reduces EET power density 15.95-fold (452.90 -> 28.39 mW m^-2) and
+      collapses NCM metal oxide leaching 7.64-fold (102.4 -> 13.4 mg L^-1) to the exact level of sole
+      BS3 monoculture (13.4 mg L^-1).
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that the SO3∆mtrC‐BS3 consortium (47.67 mW m−2), the SO3∆omcA‐BS3 consortium
+        (50.01 mW m−2), and the SO3∆mtrC∆omcA‐BS3 consortium (28.39 mW m−2) showed 9.50‐, 9.05‐, and 15.95‐fold
+        decreases in the EET rate compared to the SO3‐BS3 consortium (452.90 mW m−2), respectively (Figure
+        5c ), confirming that the disruption of MtrC and OmcA significantly inhibited the EET process
+        in strain SO3.
+      explanation: Quantifies the 28.39 mW m^-2 maximum power density (15.95-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrCΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Quantifies the 13.4 mg L^-1 total leached metal ion yield (7.64-fold decrease vs SO3-BS3)
+        of the SO3ΔmtrCΔomcA-BS3 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Demonstrates that deleting both MtrC and OmcA reduces consortium metal leaching to
+        the 13.4 mg L^-1 sole-strain BS3 baseline.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The deletion of the genes mtrC and omcA was performed in the wild‐type strain S. oneidensis
+        MR‐1, which was subsequently transformed with the plasmid pHG13‐Ptac‐ribADEHC‐irrE, resulting
+        in the mutant strains SO3∆mtrC, SO3∆omcA, and SO3∆mtrC∆omcA.
+      explanation: Documents the homologous-recombination construction of double-knockout strain SO3ΔmtrCΔomcA
+        carrying pHG13-Ptac-ribADEHC-irrE for the downstream EET-abrogated node.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium/2026-11-08T064503Z-antigravity-c11s203.yaml
+- path: data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml
+  id: CommunityMech:000529
+  original_sha256: 0f30458127b3b8c83fae13e6a27028aa84589af27e5941d4eb3338e128085880
+  record_sha256: 42834ab5f80c67edd88527a323dfa94514b440d63891e4fd88790b50a230cf28
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch143.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and zero-edge
+    boundary verified against cached open-access full text and abstract (PMID:42733304, PMC13572860, doi:10.1002/advs.77699)
+    and sibling records CommunityMech:000385, CommunityMech:000525, CommunityMech:000526, CommunityMech:000527,
+    and CommunityMech:000528.
+  summary: Reviewed and enriched the 2-node, 0-edge COMMUNITY_LEVEL isolate-baseline representation for
+    Bacillus subtilis 168 BS3 monoculture Ni2+/Co2+ stress tolerance and background NCM bioleaching in
+    PMID:42733304 with 3 additional non-overlapping verbatim snippets (4 -> 7 interaction EvidenceItems)
+    while preserving 0 unsupported downstream edges.
+  node_decisions:
+  - node: IrrE-Mediated DNA Repair, ROS Scavenging, and Growth Recovery under Ni2+ and Co2+ Stress in
+      BS3
+    rationale: Supported by primary source (PMID:42733304, Fig. 4b,f-g, Section 2.4, Section 3) with COMMUNITY_LEVEL
+      scope for the single-strain isolate baseline (B. subtilis 168 BS3).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results revealed that irrE overexpression significantly relieved DNA damage, reducing
+        DNA tail lengths by 63.9% (from 13.3 to 4.8 µm) in S. oneidensis and 54.2% (from 31.0 to 14.2
+        µm) in B. subtilis (Figure 4c and Figure S3 ).
+      explanation: Quantifies the 54.2% reduction in DNA tail length (31.0 to 14.2 um) in IrrE-expressing
+        B. subtilis BS3 under Ni2+/Co2+ stress.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: demonstrated that irrE overexpression effectively scavenged intracellular ROS, decreasing
+        fluorescence intensity by 67.8% and 67.4% in S. oneidensis and B. subtilis, respectively (Figure
+        4d ).
+      explanation: Quantifies the 67.4% reduction in intracellular ROS fluorescence in B. subtilis BS3
+        under Ni2+/Co2+ exposure.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Likewise, strain BS2 experienced growth inhibition under 6 mg L−1 Ni2+ and 3 mg L−1 Co2+
+        stress, whereas the introduction of IrrE into strain BS3 relieved the cytotoxicity of Ni2+ and
+        Co2+, increasing the maximum cell density of strain BS3 to 1.175 from 0.830 (strain BS2 exposed
+        to Ni2+(6 mg L−1) and Co2+(3 mg L−1); Figure 4f ).
+      explanation: Demonstrates that IrrE expression increases B. subtilis BS3 maximum OD600 from 0.830
+        (BS2) to 1.175 under 6 mg L^-1 Ni2+ and 3 mg L^-1 Co2+.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Consequently, the presence of IrrE significantly enhanced the resistance of strains SO3
+        and BS3 to Ni2+‐ and Co2+‐induced cytotoxicity (Figure 4b,c ).
+      explanation: Confirms that IrrE overexpression confers Ni2+ and Co2+ cytotoxicity resistance in
+        Bacillus subtilis BS3.
+  - node: Sole-Strain BS3 Monoculture NCM Metal Oxide Leaching Baseline
+    rationale: Supported by primary source (PMID:42733304, Fig. 5d, Section 2.5) with COMMUNITY_LEVEL
+      scope for the single-strain isolate baseline (B. subtilis 168 BS3).
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis 168 BS3
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the leached metal ions catalyzed by the SO3∆mtrC∆omcA‐BS3 consortium (13.4 mg
+        L−1) exhibited negligible difference from that catalyzed by the sole strain BS3 (13.4 mg L−1),
+        suggesting that MtrC and OmcA in S. oneidensis were essential for NCM reduction in metal oxide
+        leaching.
+      explanation: Quantifies the 13.4 mg L^-1 total leached metal ion yield of sole strain BS3 monoculture
+        in Figure 5d.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Concentrations of total leached metal ions from NCM catalyzed by strain BS3, and consortia
+        of SO3∆mtrC‐BS3, SO3∆omcA‐BS3, SO3∆mtrC∆omcA‐BS3, and SO3‐BS3.
+      explanation: Documents the Figure 5d experimental assay comparing sole strain BS3 monoculture NCM
+        leaching against the SO3-BS3 and cytochrome-mutant consortia.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Correspondingly, compared with the total leached metal ions catalyzed by the SO3‐BS3 microbial
+        consortium (102.4 mg L−1), the contents of leached metal ions catalyzed by the SO3∆mtrC‐BS3 consortium
+        (16.7 mg L−1), the SO3∆omcA‐BS3 microbial consortium (18.7 mg L−1), and the SO3∆mtrC∆omcA‐BS3
+        consortium (13.4 mg L−1) were dramatically decreased by 6.13‐, 5.48‐, and 7.64‐fold, respectively
+        (Figure 5d ).
+      explanation: Provides the Figure 5d quantitative comparison context for the 13.4 mg L^-1 background
+        NCM metal leaching level matched by sole strain BS3 monoculture.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline/2026-11-08T064504Z-antigravity-c11s204.yaml
+- path: data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml
+  id: CommunityMech:000530
+  original_sha256: b060b7eabef4b87d2625e38eb9473b3924402bf09da997b2c16076b1e32b7d09
+  record_sha256: 452de842b34bb5c9073f31331ddef8f120323f5a934257e9a9db1e5e8f043f43
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch143.yaml
+  scope: Whole record read; single graph node, COMMUNITY_LEVEL scope, participating_taxa, and zero-edge
+    boundary verified against cached open-access full text and abstract (PMID:42733304, PMC13572860, doi:10.1002/advs.77699)
+    and sibling isolate record CommunityMech:000525.
+  summary: Reviewed and enriched the 1-node, 0-edge COMMUNITY_LEVEL isolate-baseline representation for
+    wild-type Bacillus subtilis 168 BS0 (pCE2 empty-vector control) endogenous ethanol removal and growth
+    in brewing wastewater in PMID:42733304 with 2 additional non-overlapping verbatim snippets (2 -> 4
+    interaction EvidenceItems) while preserving 0 unsupported downstream edges.
+  node_decisions:
+  - node: Incomplete Native Ethanol Catabolism and Growth of Wild-Type B. subtilis BS0 in Brewing Wastewater
+    rationale: Supported by primary source (PMID:42733304, Fig. 2a-b, Table 1, Section 2.1-2.2) with COMMUNITY_LEVEL
+      scope for the single-strain isolate baseline (B. subtilis 168 BS0).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis 168 BS0
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When cultivated with the brewing wastewater, strain BS1 achieved a higher maximum cell
+        density (OD600, max of 0.884), while the wild‐type B. subtilis (BS0, Table 1 ) exhibited OD600,
+        max of 0.641 (Figure 2a ).
+      explanation: Quantifies the maximum cell density (OD600,max = 0.641) of wild-type B. subtilis BS0
+        in brewing wastewater.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In contrast, the wild‐type strain BS0 removed only approximately 35.6% of ethanol within
+        48 h, lowering the ethanol concentration from 1.8% to 1.16% (v/v) (Figure 2b ).
+      explanation: Quantifies the 35.6% ethanol removal (from 1.8% to 1.16% v/v over 48 h) by wild-type
+        strain BS0.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Cell growth profiles of the wild‐type strain B. subtilis 168 (BS0) and the recombinant
+        B. subtilis 168 (BS1) that overexpressed alcohol dehydrogenase Adh and aldehyde dehydrogenase
+        AldH.
+      explanation: Documents the Figure 2a experimental comparison of wild-type Bacillus subtilis 168
+        (BS0) cell growth in brewing wastewater against Adh-AldH strain BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Volume fraction of ethanol in brewing wastewater treated with the strain BS0, strain BS1,
+        and the SO1‐BS1 consortium.
+      explanation: Documents the Figure 2b experimental measurement of residual ethanol volume fraction
+        in brewing wastewater treated with wild-type strain BS0.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline/2026-11-08T064505Z-antigravity-c11s205.yaml
