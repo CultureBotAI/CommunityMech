@@ -30,7 +30,7 @@ EXPECTED_BATCH145_RECORDS = {
     "CommunityMech:000536": {
         "path": "data/isolates/Pseudomonas_ZM1_Prometryn_Degrading_Isolate_Baseline.yaml",
         "original_sha256": "67480cb95671fc3ac087c6c939796a7898089493ea3eddb23904f4efa9d83807",
-        "record_sha256": "e600a10abb5375a5f013fd189c67d16b0ae8cedebc1032c5c28526f206e786f1",
+        "record_sha256": "61b09aef22790ae6960d309edc1a1a51fffca8c659ed04be36fa08fecdd2ccf9",
         "nodes": 1,
         "edges": 0,
         "evidence_counts": [6],
@@ -38,7 +38,7 @@ EXPECTED_BATCH145_RECORDS = {
     "CommunityMech:000537": {
         "path": "data/isolates/Achromobacter_ZM2_Prometryn_Degrading_Isolate_Baseline.yaml",
         "original_sha256": "e023b1735aa37a14b5a81a476d44c5c69c767224be161e2b19a27e93983a2821",
-        "record_sha256": "1473199ef62f7ecfc0cef4a07469f452050a512ce973c24ddc0d049587feeb7e",
+        "record_sha256": "54d10773f390acfaf392996a1ce4bb25978fb6f0d3cc1d10657c4626fef56819",
         "nodes": 1,
         "edges": 0,
         "evidence_counts": [6],
@@ -46,7 +46,7 @@ EXPECTED_BATCH145_RECORDS = {
     "CommunityMech:000538": {
         "path": "data/isolates/Stenotrophomonas_ZM3_Prometryn_Degrading_Isolate_Baseline.yaml",
         "original_sha256": "ce4fa1d8c26084c9eb66071499a18a0409b1c23533a33719b2cd66eae421fac4",
-        "record_sha256": "d8d5b3564c9a94a868e278f7d04b23999b02ddfeda1e72b89495ec8402a35fa3",
+        "record_sha256": "c41cdba4bbbd54b987db9e8f901658ae1e76c79524a8cf9b2ac8ae271044bc4f",
         "nodes": 1,
         "edges": 0,
         "evidence_counts": [6],
