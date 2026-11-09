@@ -139,6 +139,19 @@ ecological_interactions:
       0.98 3.7 ± 1.2
     explanation: Quantifies the soil microcosm prometryn half-life reduction to 14.1 days (k = 0.0492 d^-1, R^2 = 0.95, 17.6
       ± 2.3% residual at 30 d) by single-strain ZM-2 bioaugmentation.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ZM-2 30 7 5 0.91 (28 h) 85.1 ± 1.5 (48 h) 0.040 17.3 0.956
+    explanation: Documents the single-factor optimized culture parameters (30 °C, pH 7, 5% inoculum) and first-order kinetic
+      fit (R2 = 0.956) for Achromobacter sp. ZM-2 monoculture prometryn degradation.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pure-culture growth curves showed that strain ZM-2 enters the logarithmic phase earliest and reaches stationary
+      phase at 28 h, allowing it to rapidly initiate prometryn transformation in the early stage
+    explanation: Directly links ZM-2 early logarithmic growth entry and 28 h stationary phase peak to its early-stage prometryn
+      transformation role.
 environmental_factors:
 - name: 48-h liquid BSM prometryn degradation kinetics of axenic Achromobacter sp. ZM-2
   value: 85.1 ± 1.5% degradation at 48 h; k = 0.040 h^-1; t1/2 = 17.3 h; R^2 = 0.956; max OD600 = 0.91 at 28 h
@@ -223,4 +236,13 @@ curation_history:
   changes: Created CommunityMech:000537 (Achromobacter sp. ZM-2 Prometryn-Degrading Isolate Baseline) in data/isolates/ from
     PMID:42795638 / PMC13609637 for the axenic Achromobacter sp. ZM-2 monoculture baseline (max OD600 = 0.91 at 28 h; 85.1
     ± 1.5% prometryn degradation at 48 h in BSM, t1/2 = 17.3 h; soil microcosm t1/2 = 14.1 d).
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 1-node, 0-edge COMMUNITY_LEVEL prometryn catabolism
+    representation for Achromobacter sp. ZM-2 against PMID:42795638, enriched the interaction node with 2 non-overlapping
+    verbatim snippets (4 -> 6 EvidenceItems) covering Table 2 optimal culture parameters/R2 fit and early-stage logarithmic
+    transformation initiation, verified NCBITaxon:222 -> GTDB:g__Achromobacter (GROUNDED) grounding, and confirmed 1 KNOWLEDGE_GAP
+    discussion (zm2_fast_biomass_vs_lower_prometryn_degradation_efficiency).'
   llm_assisted: true

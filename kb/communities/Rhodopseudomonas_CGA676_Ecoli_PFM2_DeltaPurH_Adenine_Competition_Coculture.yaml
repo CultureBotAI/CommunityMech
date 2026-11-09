@@ -274,6 +274,23 @@ ecological_interactions:
       population ( 25 , 26 ).
     explanation: Establishes that R. palustris externalizes sufficient adenine to support an E. coli adenine auxotroph population
       in coculture.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures were started from various initial frequencies (targeting 0.01–0.99) of each E. coli strain (WT vs
+      ΔpurH or WT vs. ΔpurH::kmR) for a total initial cell density of ~106 colony-forming units (CFU)/mL. R. palustris CGA676
+      was inoculated to an initial density of ~106 CFU/mL. Frequencies were determined upon inoculation and after 5 days.
+    explanation: Specifies the experimental three-member mutual-invasion inoculation design (~10^6 CFU/mL R. palustris CGA676
+      paired with ~10^6 CFU/mL mixed E. coli PFM2 WT and ΔpurH across 0.01-0.99 initial frequencies).
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We verified that the same is true for E. coli PFM2 by RT-qPCR quantification of purH transcript; coculture PFM2
+      purH levels were 20% of those in monoculture ( Fig. 3C ). Adding adenine to monocultures resulted in a purH transcript
+      level that was 12% of that observed without adenine, suggesting that the low expression in coculture was due to adenine
+      availability ( Fig. 3C ).
+    explanation: Directly supports the outgoing downstream causal edge to Node 2 by proving that R. palustris-excreted adenine
+      in coculture represses E. coli PFM2 purH transcription to 20% of monoculture levels.
 - name: Repression of Prototrophic E. coli purH Expression Eliminating Fitness Advantage of PFM2 ΔpurH in Mutual-Invasion
     Competition
   description: In 5-day mutual-invasion competition assays across initial frequencies targeting 0.01 to 0.99 in coculture
@@ -338,6 +355,21 @@ ecological_interactions:
       agar and then determining ΔpurH populations from the difference.
     explanation: Details the selective M9 glucose agar vs permissive LB agar CFU enumeration used to measure relative frequencies
       of WT PFM2 and PFM2 ΔpurH.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The E. coli ΔpurH mutant required adenine for growth, but despite the availability of adenine, the ΔpurH mutant
+      did not grow faster than the parent ( Fig. S1A and B ).
+    explanation: Confirms that adenine auxotrophy via ΔpurH deletion confers no growth-rate advantage over prototrophic PFM2
+      when exogenous adenine is present.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli MG1655 is inhibited by adenine due to an rph mutation that disrupts pyrE regulation ( 38 ), leading to
+      suboptimal precursor distribution between purine and pyrimidine synthesis in the presence of adenine ( 39 ). E. coli
+      PFM2 does not experience this toxicity because the rph mutation is repaired ( 28 , 29 ).
+    explanation: Explains why the rph-repaired E. coli PFM2 genetic background was chosen for testing the Black Queen Hypothesis
+      without confounding adenine toxicity.
 environmental_factors:
 - name: 5-day mutual-invasion competition outcome of E. coli PFM2 ΔpurH vs prototrophic PFM2 in coculture with R. palustris
     CGA676
@@ -449,4 +481,13 @@ curation_history:
   changes: Created CommunityMech:000541 (Rhodopseudomonas palustris CGA676 and Escherichia coli PFM2/PFM2 ΔpurH Adenine Competition
     Coculture) in kb/communities/ from PMID:42117636 / PMC13274399 for the defined three-strain mutual-invasion competition
     coculture testing Black Queen selection under adenine cross-feeding.
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 2-node, 1-edge (COMMUNITY_LEVEL CROSS_FEEDING
+    -> COMMUNITY_LEVEL COMPETITION mutual-invasion outcome) representation for the R. palustris CGA676 + E. coli PFM2 WT + E. coli
+    PFM2 ΔpurH competition coculture against PMID:42117636, enriched Node 1 (2 -> 4 EvidenceItems) and Node 2 (3 -> 5 EvidenceItems)
+    with 4 non-overlapping verbatim snippets, verified NCBITaxon:1076 (AMBIGUOUS GTDB candidates) and NCBITaxon:562 -> GTDB:s__Escherichia_coli
+    (GROUNDED) groundings across all 3 strain entries, and confirmed 1 EMERGING_HYPOTHESIS discussion (rph_frameshift_adenine_toxicity_vs_bqh_cost_saving_in_ecoli).'
   llm_assisted: true

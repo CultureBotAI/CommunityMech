@@ -173,6 +173,20 @@ ecological_interactions:
     snippet: In support of this idea, the E. coli PFM2 siderophore entF transcript level was 3.3-fold higher in coculture
       than in monoculture ( Fig. 5D ), perhaps in response to iron loss to R. palustris.
     explanation: Quantifies the 3.3-fold difference in E. coli PFM2 entF transcript levels between monoculture and coculture.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When considering commonly mutated genes and intergenic regions, 19 were mutated in monoculture vs. five in coculture
+      for R. palustris ( Fig. 2C ), and six were mutated in monoculture vs. 19 in coculture for E. coli ( Fig. 2D ).
+    explanation: Quantifies the contrast in parallel mutation targets between E. coli PFM2 monoculture (6 commonly mutated
+      genes/intergenic regions) and coculture (19 commonly mutated targets).
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The E. coli ΔpurH mutant required adenine for growth, but despite the availability of adenine, the ΔpurH mutant
+      did not grow faster than the parent ( Fig. S1A and B ).
+    explanation: Confirms in monoculture control assays that adenine supplementation represses de novo purine synthesis in
+      prototrophic E. coli PFM2 enough that an engineered ΔpurH auxotroph gains no growth-rate advantage.
 environmental_factors:
 - name: Frequency of emergent auxotrophic isolates in evolved E. coli PFM2 monocultures
   value: 10/40 isolates auxotrophic at generation 650 (4 adenine auxotrophs in replicates 18 & 20; 6 unknown auxotrophs) vs
@@ -289,4 +303,12 @@ curation_history:
   changes: Created CommunityMech:000540 (Escherichia coli PFM2 Anaerobic Monoculture Baseline) in data/isolates/ from PMID:42117636
     / PMC13274399 for the 650-generation evolved E. coli PFM2 monoculture baseline (31 mutations across 6 loci, 5-fold higher
     purH expression, 10/40 emergent auxotrophs including 4 adenine auxotrophs).
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 1-node, 0-edge COMMUNITY_LEVEL high de novo
+    purine expression and emergent adenine auxotrophy representation for evolved E. coli PFM2 monoculture against PMID:42117636,
+    enriched the interaction node with 2 non-overlapping verbatim snippets (5 -> 7 EvidenceItems), verified NCBITaxon:562
+    -> GTDB:s__Escherichia_coli (GROUNDED) grounding, and confirmed 1 KNOWLEDGE_GAP discussion (pfm2_monoculture_rpoc_polyauxotrophy_and_subpopulation_crossfeeding).'
   llm_assisted: true
