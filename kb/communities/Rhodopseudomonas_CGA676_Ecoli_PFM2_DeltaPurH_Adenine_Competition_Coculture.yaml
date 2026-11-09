@@ -1,0 +1,452 @@
+id: CommunityMech:000541
+name: Rhodopseudomonas palustris CGA676 and Escherichia coli PFM2/PFM2 ΔpurH Adenine Competition Coculture
+description: Defined three-strain synthetic bacterial mutual-invasion competition coculture pairing phototrophic nitrogen-fixing
+  and adenine-excreting Rhodopseudomonas palustris CGA676 (~10^6 CFU/mL) with prototrophic Escherichia coli PFM2 and engineered
+  adenine-auxotrophic Escherichia coli PFM2 ΔpurH (~10^6 CFU/mL total initial E. coli density across initial frequencies from
+  0.01 to 0.99) in anaerobic M9-derived coculture medium (MDC) supplemented with 25 mM glucose under N2 headspace and constant
+  illumination at 30 degrees C by Chuang et al. 2026 (PMID:42117636). Constructed to directly test the Black Queen Hypothesis
+  prediction that adenine cross-feeding from R. palustris should confer a fitness advantage on E. coli purine-biosynthesis
+  loss-of-function mutants, 5-day invasion-from-rare competition assays demonstrated that E. coli ΔpurH did not increase in
+  frequency relative to ancestral prototrophic PFM2 across the 0.01–0.99 initial frequency gradient (Fig. S1C), because partner-supplied
+  adenine represses purH transcription in prototrophic PFM2 to 20% of monoculture levels (Figure 3C), lowering ancestral gene
+  expression cost and eliminating selective advantage for purH deletion.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Directly test whether an engineered adenine auxotroph (Escherichia coli PFM2 ΔpurH) gains a Black Queen fitness
+    advantage over prototrophic E. coli PFM2 when coinoculated in coculture with ammonium- and adenine-excreting Rhodopseudomonas
+    palustris NifA* (CGA676).
+  assembly_strategy: Construct E. coli PFM2 ΔpurH via lambda Red recombination using constructs amplified from the ΔpurH::kmR
+    KEIO mutant JW3970 followed by FLP-mediated excision of the km resistance cassette, and coinoculate R. palustris CGA676
+    (~10^6 CFU/mL) with mixed E. coli WT (PFM2) and ΔpurH (~10^6 CFU/mL total) across initial frequencies targeting 0.01–0.99.
+  inoculation_strategy: Start cocultures from various initial frequencies (targeting 0.01–0.99) of each E. coli strain (WT
+    vs ΔpurH) for a total initial E. coli cell density of ~10^6 CFU/mL alongside R. palustris CGA676 at an initial density
+    of ~10^6 CFU/mL.
+  perturbation_design: Vary the initial frequency of E. coli PFM2 ΔpurH relative to prototrophic E. coli PFM2 from 0.01 to
+    0.99 in invasion-from-rare competition cocultures with R. palustris CGA676 over 5 days and determine frequencies by counting
+    CFUs on M9 agar with cations and 25 mM glucose vs LB agar (Fig. S1C).
+  measurement_endpoints:
+  - CFU counts upon inoculation and after 5 days on LB agar (WT + ΔpurH)
+  - CFU counts upon inoculation and after 5 days on M9 agar with cations and 25 mM glucose (WT only)
+  - change in E. coli ΔpurH frequency across 0.01-0.99 initial frequencies
+  - RT-qPCR quantification of purH transcript levels in monoculture vs coculture
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676). We used a range of initial frequencies to simultaneously test for possible coexistence
+      by mutual invasion, where an equilibrium frequency can be extrapolated from the x-intercept by linear regression analysis
+      ( 10 , 32 – 34 ). Although there was poor linear correlation in the assay, the E. coli ΔpurH mutant did not increase
+      in frequency relative to the parent ( Fig. S1C ).
+    explanation: Documents the design and result of the three-strain mutual-invasion competition experiment pairing R. palustris
+      CGA676, E. coli PFM2, and E. coli PFM2 ΔpurH.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Competition assays were conducted in an invasion-from-rare format to consider coexistence by the mutual invasion
+      criterion, where each population can increase when rare ( 32 , 34 ). Cocultures were started from various initial frequencies
+      (targeting 0.01–0.99) of each E. coli strain (WT vs ΔpurH or WT vs. ΔpurH::kmR) for a total initial cell density of
+      ~106 colony-forming units (CFU)/mL. R. palustris CGA676 was inoculated to an initial density of ~106 CFU/mL. Frequencies
+      were determined upon inoculation and after 5 days.
+    explanation: Specifies the ~10^6 CFU/mL initial densities, 0.01–0.99 frequency gradient, and 5-day duration of the competition
+      assay.
+environment_term:
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Sealed 27-mL anaerobic test tubes containing 10 mL minimal M9-derived coculture medium (MDC) supplemented with 25
+    mM glucose under N2 headspace and constant illumination at 30 degrees C for 5 days.
+related_communities:
+- identifier: CommunityMech:000539
+  relation: MEMBER_SUPERSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The three-strain CGA676 + PFM2 + PFM2 ΔpurH competition coculture is a member superset of the single-strain
+    Rhodopseudomonas palustris CGA676 monoculture baseline (CommunityMech:000539).
+- identifier: CommunityMech:000539
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The three-strain CGA676 + PFM2 + PFM2 ΔpurH competition coculture and the Rhodopseudomonas palustris CGA676
+    monoculture baseline (CommunityMech:000539) were characterized in PMID:42117636.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676).
+    explanation: Links the three-strain competition coculture and R. palustris CGA676 in PMID:42117636.
+- identifier: CommunityMech:000540
+  relation: MEMBER_SUPERSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The three-strain CGA676 + PFM2 + PFM2 ΔpurH competition coculture is a member superset of the single-strain
+    Escherichia coli PFM2 monoculture baseline (CommunityMech:000540).
+- identifier: CommunityMech:000540
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The three-strain CGA676 + PFM2 + PFM2 ΔpurH competition coculture and the Escherichia coli PFM2 monoculture
+    baseline (CommunityMech:000540) were characterized in PMID:42117636.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676).
+    explanation: Links the three-strain competition coculture and E. coli PFM2 in PMID:42117636.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+    notes: Phototrophic purple non-sulfur bacterium carrying the NifA* mutation that excretes NH4+ from N2 fixation and externalizes
+      enough adenine to support an E. coli adenine auxotroph population.
+    gtdb_candidates:
+    - GTDB:s__Rhodopseudomonas_palustris_C
+    - GTDB:s__Rhodopseudomonas_palustris_F
+    - GTDB:s__Rhodopseudomonas_palustris_G
+    - GTDB:s__Rhodopseudomonas_palustris_J
+    - GTDB:s__Rhodopseudomonas_pseudopalustris
+    gtdb_grounding_status: AMBIGUOUS
+  strain_designation:
+    strain_name: CGA676
+    genetic_modification: Derived from R. palustris CGA0092 carrying a nifA* mutation that causes NH4+ excretion under N2-fixing
+      conditions.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris CGA676 is derived from CGA0092 ( 59 ) and carries a nifA* mutation that causes NH4+ excretion under
+      N2-fixing conditions ( 20 , 27 ).
+    explanation: Identifies R. palustris CGA676 as the nitrogen-fixing, ammonium-excreting partner.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris CGA676 was inoculated to an initial density of ~106 CFU/mL.
+    explanation: Supports the inoculation of R. palustris CGA676 (~10^6 CFU/mL) in the three-strain competition coculture.
+- taxon_term:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Ancestral prototrophic Escherichia coli MG1655 derivative (rpoS+ rph+) that ferments glucose to organic acids and
+      represses endogenous purH expression to 20% of monoculture levels upon receiving cross-fed adenine from R. palustris
+      CGA676.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  strain_designation:
+    strain_name: PFM2
+    genetic_modification: Escherichia coli MG1655 derivative with repaired rpoS and rph genes.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli PFM2 was a gift from P. Foster and is an E. coli MG1655 derivative with repaired rpoS and rph genes (
+      28 , 29 ).
+    explanation: Identifies prototrophic Escherichia coli strain PFM2.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676).
+    explanation: Supports the coinoculation of prototrophic E. coli PFM2 in the competition coculture.
+- taxon_term:
+    preferred_term: Escherichia coli PFM2 ΔpurH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Engineered adenine-auxotrophic Escherichia coli PFM2 mutant lacking purH (constructed by lambda Red recombination
+      from KEIO mutant JW3970 and FLP excision of kmR) that requires adenine excreted by R. palustris CGA676 for growth.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  strain_designation:
+    strain_name: PFM2 ΔpurH
+    genetic_modification: In-frame purH deletion in Escherichia coli PFM2 made via lambda Red recombination using constructs
+      amplified from the ΔpurH::kmR KEIO mutant JW3970 followed by FLP-mediated excision of the km resistance cassette.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The ΔpurH mutant was made via lambda Red recombination ( 64 ) using constructs amplified from the ΔpurH::kmR
+      KEIO mutant JW3970 ( 65 ) using primers YCC29 and YCC30. FLP-mediated excision was used to remove the km resistance
+      cassette ( 64 ).
+    explanation: Details the exact genetic construction of E. coli PFM2 ΔpurH.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To directly test whether adenine auxotrophs would have an advantage in coculture, we compared E. coli PFM2 growth
+      versus that of a ΔpurH mutant, with and without adenine. The E. coli ΔpurH mutant required adenine for growth, but despite
+      the availability of adenine, the ΔpurH mutant did not grow faster than the parent ( Fig. S1A and B ).
+    explanation: Demonstrates that the E. coli ΔpurH mutant is an obligate adenine auxotroph whose growth is supported by
+      adenine.
+ecological_interactions:
+- name: Ammonium and Adenine Cross-Feeding from R. palustris CGA676 to Prototrophic E. coli PFM2 and Auxotrophic PFM2 ΔpurH
+  description: In anaerobic MDC medium containing 25 mM glucose as the sole carbon source and N2 as the sole nitrogen source,
+    phototrophic Rhodopseudomonas palustris CGA676 fixes N2 into excreted ammonium (NH4+) and externalizes the purine adenine
+    at levels sufficient to support an E. coli adenine auxotroph (ΔpurH) population alongside prototrophic E. coli PFM2, while
+    both E. coli strains ferment glucose into organic acids that provide essential carbon to R. palustris.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  - preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Escherichia coli PFM2 ΔpurH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Repression of Prototrophic E. coli purH Expression Eliminating Fitness Advantage of PFM2 ΔpurH in Mutual-Invasion
+      Competition
+    description: Extracellular adenine externalized by R. palustris CGA676 represses purH transcription in prototrophic E.
+      coli PFM2 to 20% of monoculture levels, removing the biosynthetic expression cost advantage of PFM2 ΔpurH during competition.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using anoxic conditions, E. coli ferments glucose into organic acids that provide essential carbon to R. palustris
+      while R. palustris converts N2 into NH4+, providing essential nitrogen to E. coli; NH4+ excretion is due to an engineered
+      NifA* mutation ( 20 ).
+    explanation: Establishes the obligate bidirectional organic-acid and ammonium cross-feeding coupling R. palustris CGA676
+      and E. coli.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For example, R. palustris externalizes enough of the purine, adenine, to support an E. coli adenine auxotroph
+      population ( 25 , 26 ).
+    explanation: Establishes that R. palustris externalizes sufficient adenine to support an E. coli adenine auxotroph population
+      in coculture.
+- name: Repression of Prototrophic E. coli purH Expression Eliminating Fitness Advantage of PFM2 ΔpurH in Mutual-Invasion
+    Competition
+  description: In 5-day mutual-invasion competition assays across initial frequencies targeting 0.01 to 0.99 in coculture
+    with R. palustris CGA676, engineered adenine-auxotrophic E. coli PFM2 ΔpurH did not increase in frequency relative to
+    prototrophic E. coli PFM2 (Fig. S1C). Because adenine cross-fed from R. palustris CGA676 represses purH transcript levels
+    in prototrophic E. coli PFM2 to 20% of monoculture levels (Figure 3C), the ancestral strain lowers its purine synthesis
+    gene expression cost without gene loss, eliminating any competitive fitness advantage for PFM2 ΔpurH.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Escherichia coli PFM2 ΔpurH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  metabolites:
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although there was poor linear correlation in the assay, the E. coli ΔpurH mutant did not increase in frequency
+      relative to the parent ( Fig. S1C ). Thus, our results suggest that a ΔpurH mutant does not have a competitive advantage
+      over E. coli PFM2 in the presence of adenine, thus verifying that there was no benefit for PFM2 adenine auxotrophs in
+      coculture.
+    explanation: Proves that E. coli PFM2 ΔpurH fails to gain a competitive advantage over prototrophic PFM2 across initial
+      frequencies 0.01–0.99 in coculture with R. palustris CGA676.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One reason why E. coli PFM2 adenine auxotrophs would not have an advantage in coculture is if adenine availability
+      repressed gene expression, thereby decreasing gene cost for the ancestor.
+    explanation: Explains why cross-fed adenine eliminates the selective benefit of purH loss-of-function by repressing ancestral
+      gene expression.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: WT and ΔpurH mutants were distinguished by counting CFUs on M9 agar with cations and 25 mM glucose and on LB
+      agar and then determining ΔpurH populations from the difference.
+    explanation: Details the selective M9 glucose agar vs permissive LB agar CFU enumeration used to measure relative frequencies
+      of WT PFM2 and PFM2 ΔpurH.
+environmental_factors:
+- name: 5-day mutual-invasion competition outcome of E. coli PFM2 ΔpurH vs prototrophic PFM2 in coculture with R. palustris
+    CGA676
+  value: PFM2 ΔpurH fails to increase in frequency across initial frequencies targeting 0.01 to 0.99 (~10^6 CFU/mL initial
+    inoculum each)
+  unit: relative frequency
+  description: Invasion-from-rare competition assay over 5 days in anaerobic MDC medium with 25 mM glucose pairing R. palustris
+    CGA676 with mixed E. coli PFM2 and PFM2 ΔpurH (Fig. S1C).
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although there was poor linear correlation in the assay, the E. coli ΔpurH mutant did not increase in frequency
+      relative to the parent ( Fig. S1C ).
+    explanation: Supports the absence of a selective fitness advantage for PFM2 ΔpurH across the 0.01–0.99 invasion gradient.
+growth_media:
+- name: M9-derived coculture medium (MDC) supplemented with 25 mM glucose (three-strain mutual-invasion competition)
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  headspace_gas: 100% N2
+  light_regime: constant illumination (45 W halogen bulb, 430 lumens)
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  inoculum_size: ~10^6 CFU/mL R. palustris CGA676 + ~10^6 CFU/mL combined E. coli (WT PFM2 + PFM2 ΔpurH)
+  inoculum_unit: CFU/mL (initial PFM2 ΔpurH frequency targeting 0.01 to 0.99)
+  incubation_time: '5'
+  incubation_time_unit: days
+  vessel_type: 27-mL anaerobic test tube
+  composition:
+  - name: glucose
+    concentration: '25'
+    unit: mM
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  preparation_notes: 10 mL MDC supplemented with 25 mM glucose and cation solution in 27-mL anaerobic test tubes under N2
+    headspace; inoculated with ~10^6 CFU/mL R. palustris CGA676 and ~10^6 CFU/mL combined E. coli (WT PFM2 + ΔpurH at initial
+    frequencies targeting 0.01 to 0.99) and incubated for 5 days at 30 °C.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Monocultures and cocultures were grown horizontally at 30°C with light from a 45 W halogen bulb (430 lumens)
+      and shaking at 150 rpm in minimal M9-derived coculture medium (MDC) ( 20 ), with 10 mM glucose, 10 mM NH4Cl, and cation
+      solution (100× stock: 100 mM MgSO4 and 10 mM CaCl2) for E. coli monocultures; 20 mM sodium acetate and 10 mM NH4Cl for
+      R. palustris monocultures; or 25 mM glucose and cation solution for cocultures.'
+    explanation: Specifies the MDC + 25 mM glucose + cation solution coculture medium and 30 °C, 45 W halogen illumination
+      conditions.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures were started from various initial frequencies (targeting 0.01–0.99) of each E. coli strain (WT vs
+      ΔpurH or WT vs. ΔpurH::kmR) for a total initial cell density of ~106 colony-forming units (CFU)/mL. R. palustris CGA676
+      was inoculated to an initial density of ~106 CFU/mL. Frequencies were determined upon inoculation and after 5 days.
+    explanation: Specifies the ~10^6 CFU/mL inoculation densities, 0.01–0.99 initial frequency range, and 5-day incubation.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  working_volume: 10.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  notes: 27-mL anaerobic test tubes sealed with rubber stoppers and aluminum crimps under N2 headspace containing 10 mL MDC
+    with 25 mM glucose at 30 °C.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anoxic media in test tubes were prepared by bubbling N2 through 10 mL of media in 27-mL anaerobic test tubes,
+      then sealing with rubber stoppers and aluminum crimps prior to autoclaving.
+    explanation: Supports the batch 27-mL anaerobic tube cultivation setup.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal transformation is assayed in the three-strain PFM2 vs PFM2 ΔpurH adenine mutual-invasion competition
+  experiment.
+discussions:
+- discussion_id: rph_frameshift_adenine_toxicity_vs_bqh_cost_saving_in_ecoli
+  prompt: Why did purine biosynthesis mutations emerge at low frequency in earlier cocultures pairing R. palustris with Escherichia
+    coli MG1655 (Figure 4A) whereas E. coli PFM2 ΔpurH gained no competitive advantage over prototrophic PFM2 in coculture
+    with R. palustris CGA676?
+  kind: EMERGING_HYPOTHESIS
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Repression of Prototrophic E. coli purH Expression Eliminating Fitness Advantage of PFM2 ΔpurH
+    in Mutual-Invasion Competition
+  rationale: PMID:42117636 shows that E. coli MG1655 carries an rph frameshift mutation that causes pyrimidine starvation
+    and growth inhibition in the presence of adenine, which is alleviated by deleting purH (Figure 4B); in contrast, E. coli
+    PFM2 has a repaired rph+ allele and represses purH transcription 5-fold in coculture, eliminating both adenine toxicity
+    and BQH gene-cost selection.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli MG1655 is inhibited by adenine due to an rph mutation that disrupts pyrE regulation ( 38 ), leading to
+      suboptimal precursor distribution between purine and pyrimidine synthesis in the presence of adenine ( 39 ). E. coli
+      PFM2 does not experience this toxicity because the rph mutation is repaired ( 28 , 29 ).
+    explanation: Explains the strain-specific rph difference between E. coli MG1655 and PFM2 that governs whether purH deletion
+      is beneficial in the presence of adenine.
+  posed_by: antigravity
+  posed_date: '2026-11-09'
+curation_history:
+- timestamp: '2026-11-09T12:25:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000541 (Rhodopseudomonas palustris CGA676 and Escherichia coli PFM2/PFM2 ΔpurH Adenine Competition
+    Coculture) in kb/communities/ from PMID:42117636 / PMC13274399 for the defined three-strain mutual-invasion competition
+    coculture testing Black Queen selection under adenine cross-feeding.
+  llm_assisted: true
