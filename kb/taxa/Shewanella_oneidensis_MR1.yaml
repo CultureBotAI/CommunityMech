@@ -177,6 +177,17 @@ genes:
     explanation: Explicitly identifies Shewanella oneidensis MR-1 MtrB by its canonical locus tag SO_1776 (UniProtKB:Q8EG34,
       GCF_000146165.2) as the reference outer-membrane porin protein used to build profile HMMs for porin-cytochrome complex
       (PCC) extracellular electron-transfer conduits in CommunityMech:000241.
+  - reference: PMID:34986141
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: (A) EET systems in gram-negative bacteria involve membrane-bound quinol:cytochrome c oxidoreductases (CbcL, ImcH,
+      CymA, NetD), small soluble cytochromes apparently involved in electron transport through the periplasmic space (PpcA,
+      Stc, PdsA), and a beta-barrel/decaheme cytochrome c protein complex (MtrCAB) that acts as an electron conduit by which
+      electrons can transit through the outer membrane to the extracellular space filled with additional cytochrome c such
+      as OmcZ and filaments of OmcS.
+    explanation: Identifies the beta-barrel/decaheme cytochrome c outer-membrane complex MtrCAB (comprising the MtrB beta-barrel
+      porin and decaheme cytochromes MtrA/MtrC) as a core outer-membrane extracellular electron-transfer conduit in Gram-negative
+      bacteria.
 - gene_id: UniProtKB:Q8EG35
   gene_symbol: mtrA
   locus_tag: SO_1777
@@ -234,6 +245,15 @@ genes:
     explanation: Comparative multiheme c-type cytochrome sequence alignment in PMID:32849356 (CommunityMech:000241, Figure
       4A) uses the decaheme cytochrome MtrA from Shewanella oneidensis MR-1 (SO_1777, UniProtKB:Q8EG35, GCF_000146165.2) as
       the reference sequence length and heme-packing benchmark.
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In model electroactive bacteria such as Geobacter and Shewanella, cytochromes such as PpcA, OmcS, OmcZ, MtrA,
+      and MtrC exhibit redox-active windows spanning several hundred millivolts ( Fig. 4, A and B ), enabling them to transfer
+      electrons to acceptors with more negative midpoint potentials, such as anthraquinone-2,6-disulfonate (AQDS; −186 mV)
+      and flavins (−210 mV) ( 52 – 57 ).
+    explanation: Establishes that the periplasmic decaheme cytochrome MtrA in Shewanella exhibits a broad multi-hundred-millivolt
+      redox-active window supporting electron transfer to low-potential acceptors and flavin shuttles.
 - gene_id: UniProtKB:Q8EG32
   gene_symbol: omcA
   locus_tag: SO_1779
@@ -395,6 +415,13 @@ genes:
     explanation: Comparative EET pathway analysis in PMID:34986141 (CommunityMech:000134) notes that CymA (SO_4591, UniProtKB:Q8E945,
       GCF_000146165.2) knockouts in Shewanella oneidensis MR-1 can be functionally rescued by suppressor mutations activating
       alternative quinol oxidoreductase complexes.
+  - reference: PMID:37747940
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: (A) The presence of CymA, CbcL, CbcAB, and NetBCD, commonly used electron donors to the EET conduits in Shewanella
+      and Geobacter are mapped on to the classes Thermodesulfobacteria and Desulfobulbia.
+    explanation: Identifies CymA as a canonical inner-membrane electron donor to extracellular electron-transfer (EET) conduits
+      in Shewanella.
 notes: 'Reusable taxon record capturing the verified UniProtKB protein accessions for the Mtr extracellular-electron-transfer
   pathway genes (mtrC/Q8EG33, mtrB/Q8EG34, mtrA/Q8EG35, omcA/Q8EG32, cymA/Q8E945) in the Shewanella oneidensis MR-1 reference
   assembly (GCF_000146165.2) that underpin S. oneidensis MR-1''s electron-donor, electrogenic, and syntrophic-partner roles
@@ -483,4 +510,14 @@ curation_history:
     NCM bioleaching perturbation assays across SO3∆mtrC-BS3 CommunityMech:000526, SO3∆omcA-BS3 CommunityMech:000527, SO3∆mtrC∆omcA-BS3
     CommunityMech:000528, parental SO3-BS3 CommunityMech:000385, and sole-strain BS3 monoculture baseline CommunityMech:000529)
     to mtrC (UniProtKB:Q8EG33, SO_1778) and omcA (UniProtKB:Q8EG32, SO_1779).
+  llm_assisted: true
+- timestamp: '2026-11-09T02:10:00Z'
+  curator: antigravity
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: Added verified full-text EvidenceItem entries to mtrB (UniProtKB:Q8EG34, SO_1776; PMID:34986141 COMPUTATIONAL SUPPORT
+    for the outer-membrane beta-barrel/decaheme cytochrome c MtrCAB conduit in CommunityMech:000134), mtrA (UniProtKB:Q8EG35,
+    SO_1777; PMID:40845095 IN_VITRO SUPPORT for the multi-hundred-millivolt redox-active window of MtrA enabling electron
+    transfer to flavins and AQDS in CommunityMech:000134 and CommunityMech:000276), and cymA (UniProtKB:Q8E945, SO_4591; PMID:37747940
+    COMPUTATIONAL SUPPORT for CymA as a canonical inner-membrane electron donor to EET conduits in CommunityMech:000134 and
+    CommunityMech:000276).
   llm_assisted: true
