@@ -3,14 +3,21 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 from pathlib import Path
 
 import pytest
 import yaml
 
-from reports.causal_graph_review.build_inventory import index_reviews, review_status
-
 ROOT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location(
+    "causal_review_inventory", ROOT / "reports/causal_graph_review/build_inventory.py"
+)
+assert SPEC is not None and SPEC.loader is not None
+_inventory = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(_inventory)
+index_reviews = _inventory.index_reviews
+review_status = _inventory.review_status
 BATCH144_LEDGER = (
     ROOT
     / "reports"
