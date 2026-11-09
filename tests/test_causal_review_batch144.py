@@ -23,7 +23,7 @@ EXPECTED_BATCH144_RECORDS = {
     "CommunityMech:000531": {
         "path": "data/isolates/Microbacterium_BR1_Sulfadiazine_Cleaving_Isolate_Baseline.yaml",
         "original_sha256": "149a6ab7149a19719ff9e73f58a650b744327ec2306350af2f495cbd85e81531",
-        "record_sha256": "5965fcdc4339472b062db3e80b73f336c75328591666049a1ce05e6df94be7c7",
+        "record_sha256": "c0326c5cdaf678c922659c33dbe4fe1b5717be2bf79dab54d672f160574c0fe5",
         "nodes": 1,
         "edges": 0,
         "evidence_count": 5,
@@ -31,7 +31,7 @@ EXPECTED_BATCH144_RECORDS = {
     "CommunityMech:000532": {
         "path": "data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml",
         "original_sha256": "677193069c629cbbecdaad6e13fb53881e3ead1c644725acab370fe1cfdd2b5c",
-        "record_sha256": "1f8686e5878cea0ab2f49f34bf3964dc23bafab6814ee9048a0301d5a735713a",
+        "record_sha256": "81c8fd983bc57050595d7a4d51b64acdf2617ce9fea0f03f7ec9db4fa617c05e",
         "nodes": 1,
         "edges": 0,
         "evidence_count": 5,
@@ -39,7 +39,7 @@ EXPECTED_BATCH144_RECORDS = {
     "CommunityMech:000533": {
         "path": "data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml",
         "original_sha256": "9570a1bcd8115e59d8dedd2a31760f6acccdbb030f0d98f5670cd0af203c556f",
-        "record_sha256": "106192c3aff58a26aca56f6d42ca90054dc0e6ae03bbc0a6dea29eaebd2d58e8",
+        "record_sha256": "0680fbc0c1ee94f3a79ce13d9c6b3d8b91317022addca4c095195a37974b6d0e",
         "nodes": 1,
         "edges": 0,
         "evidence_count": 6,
@@ -47,7 +47,7 @@ EXPECTED_BATCH144_RECORDS = {
     "CommunityMech:000534": {
         "path": "data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml",
         "original_sha256": "e35dcd4e7772a4525d707fe454bdd188c2500e8bfc8024fb1ec0d989b290cb0f",
-        "record_sha256": "fdc54a3c28bbda72e51690583fabd2fd1441f32b7d2d4bb8ead59558c9a54904",
+        "record_sha256": "68a2f6ea9b523e7db0eacf6ef1a87af5227cd3f6c7e93be14facffc265232796",
         "nodes": 1,
         "edges": 0,
         "evidence_count": 6,
@@ -55,7 +55,7 @@ EXPECTED_BATCH144_RECORDS = {
     "CommunityMech:000535": {
         "path": "kb/communities/Ogataea_Str3_Leu2_Auxotrophic_CrossFeeding_Coculture.yaml",
         "original_sha256": "cf4a1289c42b61654ff9fa1407a55cad4bf9b22f0c829235b26c8705c2ffe282",
-        "record_sha256": "ee3d60ffa29820d717dcb8a7f60e855d04cefb85fd71e580c57cf14a466a2637",
+        "record_sha256": "be16aa69ef1611a0d1d452da9e20ccea58a5497d912ce167819f706fdb57a401",
         "nodes": 1,
         "edges": 0,
         "evidence_count": 6,
