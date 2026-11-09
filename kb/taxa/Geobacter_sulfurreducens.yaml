@@ -95,7 +95,7 @@ genes:
     evidence_source: COMPUTATIONAL
     snippet: 'To identify putative electrically conductive e-pili, we used the e-pilin protein sequence from Geobacter sulfurreducens
       PCA (GenBank accession: AAR34870.1 ) as a reference'
-    explanation: Comparative genomic analysis of extracellular electron-transfer pathways in PMID:41876513 (CommunityMech:000462)
+    explanation: Comparative genomic analysis of extracellular electron-transfer pathways in PMID:41876513 (CommunityMech:000349)
       uses the canonical Geobacter sulfurreducens PCA conductive e-pilin protein sequence (GenBank AAR34870.1, corresponding
       to locus GSU1496 / UniProtKB:Q74BW5 in reference assembly GCF_000007985.2) as the reference sequence to identify putative
       electrically conductive e-pili.
@@ -105,7 +105,7 @@ genes:
     snippet: Also, deletion of the pilA gene abolished DIET between Geobacter and a type II Methanosarcina (M. acetivorans)
       and GAC could compensate for this loss suggesting that the role of pili in the interaction with GAC and the methanogenic
       partner is not crucial
-    explanation: PARTIAL - comparative DIET discussion in PMID:41876513 (CommunityMech:000462) notes that deletion of pilA
+    explanation: PARTIAL - comparative DIET discussion in PMID:41876513 (CommunityMech:000349) notes that deletion of pilA
       (GSU1496, UniProtKB:Q74BW5, GCF_000007985.2) abolishes unamended direct interspecies electron transfer between Geobacter
       and Methanosarcina acetivorans while granular activated carbon (GAC) can compensate for e-pili loss.
 - gene_id: UniProtKB:Q749X9
@@ -256,6 +256,15 @@ genes:
       with additional cytochrome c such as OmcZ and filaments of OmcS.
     explanation: Documents extracellular cytochrome c OmcZ (GSU2076) alongside OmcS filaments in the Geobacter sulfurreducens
       extracellular space as the reference electron-transfer architecture compared with ANME-SRB syntrophic consortia (CommunityMech:000134).
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In model electroactive bacteria such as Geobacter and Shewanella, cytochromes such as PpcA, OmcS, OmcZ, MtrA,
+      and MtrC exhibit redox-active windows spanning several hundred millivolts ( Fig. 4, A and B ), enabling them to transfer
+      electrons to acceptors with more negative midpoint potentials, such as anthraquinone-2,6-disulfonate (AQDS; −186 mV)
+      and flavins (−210 mV) ( 52 – 57 ).
+    explanation: Demonstrates that the Geobacter octaheme cytochrome OmcZ exhibits a broad multi-hundred-millivolt redox-active
+      window enabling extracellular electron transfer to low-potential acceptors.
 - gene_id: UniProtKB:Q74A86
   gene_symbol: omcB
   locus_tag: GSU2737
@@ -302,16 +311,23 @@ genes:
     evidence_source: COMPUTATIONAL
     snippet: In Ca. Geosyntrophus, both PCCs mirrored the gene organization of G. sulfurreducens PCCs 35 , a porin followed
       by a periplasmic facing MHC (penta- or octaheme) and an outer-membrane duodecaheme MHC (Fig.  4 ).
-    explanation: Comparative genomic analysis in PMID:41876513 (CommunityMech:000462, Figure 4) benchmarks the conserved Geobacter
+    explanation: Comparative genomic analysis in PMID:41876513 (CommunityMech:000349, Figure 4) benchmarks the conserved Geobacter
       sulfurreducens PCA porin-cytochrome-cytochrome (PCC, OmbB-OmaB-OmcB) gene cluster architecture culminating in the outer-membrane
       dodecaheme c-type cytochrome OmcB (GSU2737, UniProtKB:Q74A86, GCF_000007985.2).
   - reference: PMID:41876513
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Top OmcB hits were collected and used to assemble a dedicated Geobacteraceae OmcB reference database.
-    explanation: Methods and phylogenetic benchmarking in PMID:41876513 (CommunityMech:000462) assemble a dedicated Geobacteraceae
+    explanation: Methods and phylogenetic benchmarking in PMID:41876513 (CommunityMech:000349) assemble a dedicated Geobacteraceae
       OmcB reference protein sequence database including canonical Geobacter sulfurreducens PCA OmcB (GSU2737, UniProtKB:Q74A86,
       GCF_000007985.2) for MAFFT/RAxML maximum-likelihood phylogeny of porin-cytochrome-cytochrome (PCC) conduits.
+  - reference: PMID:41876513
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: To determine OmcB evolutionary relationships, the Ca. Geosyntrophus OmcB sequence was used as a BLASTP query
+      to identify homologs from related species.
+    explanation: Supports comparative phylogenetic analysis of OmcB outer-membrane porin-cytochrome conduit (PCC) homologs
+      across Geobacterales and related syntrophic Desulfuromonadales.
 notes: 'Reusable taxon record capturing the verified UniProtKB protein accessions for the conductive-pili and multiheme-cytochrome
   genes (pilA/Q74BW5, omcS/Q749X9, omcZ/Q74A90, omcB/Q74A86) in the Geobacter sulfurreducens PCA reference assembly (GCF_000007985.2)
   that underpin G. sulfurreducens'' electron-transfer and syntrophic-partner roles in DIET cocultures, Fe(III)-reduction,
@@ -409,4 +425,14 @@ curation_history:
   changes: Added verified full-text COMPUTATIONAL EvidenceItem entries from PMID:41876513 (CommunityMech:000462) to pilA (UniProtKB:Q74BW5,
     GSU1496; PARTIAL for pilA deletion abolishing unamended DIET with Methanosarcina acetivorans and GAC compensation) and
     omcB (UniProtKB:Q74A86, GSU2737; SUPPORT for Geobacteraceae OmcB reference protein sequence database assembly).
+  llm_assisted: true
+- timestamp: '2026-11-09T02:10:00Z'
+  curator: antigravity
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: Added verified full-text EvidenceItem entries to omcZ (UniProtKB:Q74A90, GSU2076; PMID:40845095 IN_VITRO SUPPORT
+    for the multi-hundred-millivolt redox-active window of Geobacter OmcZ supporting electron transfer to low-potential acceptors
+    in CommunityMech:000134 and CommunityMech:000276) and omcB (UniProtKB:Q74A86, GSU2737; PMID:41876513 COMPUTATIONAL SUPPORT
+    for BLASTP homolog identification and evolutionary analysis of Geobacterales OmcB outer-membrane PCC cytochromes in CommunityMech:000349),
+    and corrected CommunityMech:000462 to CommunityMech:000349 (Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml) in the
+    four PMID:41876513 EvidenceItem explanations on pilA and omcB.
   llm_assisted: true

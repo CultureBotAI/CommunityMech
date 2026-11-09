@@ -65,19 +65,31 @@ def test_taxa_record_structure():
         } == refs
         assert len(genes[sym]["evidence"]) == 10
         assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 7
-    for sym in ("mtrB", "mtrA"):
-        refs = {ev["reference"] for ev in genes[sym]["evidence"]}
-        assert {"PMID:42733304", "PMID:41210787", "PMID:31537786", "PMID:32849356"} == refs
-    assert len(genes["mtrB"]["evidence"]) == 4
-    assert len(genes["mtrA"]["evidence"]) == 5
+    assert {
+        "PMID:42733304",
+        "PMID:41210787",
+        "PMID:31537786",
+        "PMID:32849356",
+        "PMID:34986141",
+    } == {ev["reference"] for ev in genes["mtrB"]["evidence"]}
+    assert len(genes["mtrB"]["evidence"]) == 5
+    assert {
+        "PMID:42733304",
+        "PMID:41210787",
+        "PMID:31537786",
+        "PMID:32849356",
+        "PMID:40845095",
+    } == {ev["reference"] for ev in genes["mtrA"]["evidence"]}
+    assert len(genes["mtrA"]["evidence"]) == 6
     assert sum(1 for ev in genes["mtrA"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
     assert {
         "PMID:42733304",
         "PMID:39504696",
         "PMID:31537786",
         "PMID:34986141",
+        "PMID:37747940",
     } == {ev["reference"] for ev in genes["cymA"]["evidence"]}
-    assert len(genes["cymA"]["evidence"]) == 5
+    assert len(genes["cymA"]["evidence"]) == 6
     assert sum(1 for ev in genes["cymA"]["evidence"] if ev["reference"] == "PMID:34986141") == 2
 
     geo = yaml.safe_load((TAXA_DIR / "Geobacter_sulfurreducens.yaml").read_text())
@@ -109,16 +121,19 @@ def test_taxa_record_structure():
     } == {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
     assert len(geo_genes["omcS"]["evidence"]) == 9
     assert sum(1 for ev in geo_genes["omcS"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
-    assert {"PMID:41210787", "PMID:28992596", "PMID:34986141"} == {
-        ev["reference"] for ev in geo_genes["omcZ"]["evidence"]
-    }
-    assert len(geo_genes["omcZ"]["evidence"]) == 5
+    assert {
+        "PMID:41210787",
+        "PMID:28992596",
+        "PMID:34986141",
+        "PMID:40845095",
+    } == {ev["reference"] for ev in geo_genes["omcZ"]["evidence"]}
+    assert len(geo_genes["omcZ"]["evidence"]) == 6
     assert sum(1 for ev in geo_genes["omcZ"]["evidence"] if ev["reference"] == "PMID:34986141") == 3
     assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} == {
         ev["reference"] for ev in geo_genes["omcB"]["evidence"]
     }
-    assert len(geo_genes["omcB"]["evidence"]) == 5
-    assert sum(1 for ev in geo_genes["omcB"]["evidence"] if ev["reference"] == "PMID:41876513") == 3
+    assert len(geo_genes["omcB"]["evidence"]) == 6
+    assert sum(1 for ev in geo_genes["omcB"]["evidence"] if ev["reference"] == "PMID:41876513") == 4
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
