@@ -13,7 +13,7 @@
 
 ## 2. Infrastructure Regression & Decoupled Suite Verification
 
-Executed the full Stage 6 infrastructure regression and count-decoupled test suites against the expanded 531-record Cycle 12 corpus (`513` communities, `16` isolates, `2` taxa):
+Executed the full Stage 6 infrastructure regression and count-decoupled test suites against the expanded 531-record Cycle 12 corpus (`511` communities, `18` isolates, `2` taxa):
 
 - `tests/test_stage6_infrastructure.py`, `tests/test_community_level_connectivity_credit.py`, `tests/test_causal_review_batch109.py`, `tests/test_participating_taxa.py`, `tests/test_okeke_participant_census.py`, `tests/test_gtdb_coherence_validator.py` (with `UV_NO_SYNC=1`), `tests/test_is_reclassified_semantics.py`, `tests/test_transwell_participants.py`, and `tests/test_record_review_contract.py` -> **138 passed, 1 skipped** (exit code `0`).
 
@@ -32,5 +32,5 @@ Executed the full Stage 6 infrastructure regression and count-decoupled test sui
 - **Static Analysis & Formatting**:
   - `./.venv/bin/ruff check --no-cache src/ tests/ scripts/` -> **All checks passed!** (exit code `0`).
   - `./.venv/bin/black --check src/ tests/ scripts/` -> **478 files would be left unchanged** (exit code `0`).
-  - `./.venv/bin/mypy --cache-dir=/tmp/mypy_cache src/` -> **Success: no issues found in 50 source files** (exit code `0`).
+  - `./.venv/bin/mypy --cache-dir=.temp/mypy_cache src/` -> **Success: no issues found in 50 source files** (exit code `0`).
   - `git diff --check` -> **Clean** (exit code `0`).

@@ -28,5 +28,5 @@ Because zero `note`, `open`, or `deferred` infrastructure tasks exist at the `20
 2. **New GitHub Issues Required**: None (`[]`) — no unlinked or open infrastructure tasks exist.
 3. **Carry-Forward / Deferred Tasks**: None (`[]`).
 4. **Verification Scope**:
-   - Confirm that the 4 previously resolved infrastructure deliverables (`communitymech-infra-0001` through `0004`) continue to pass all regression tests and CLI execution gates against the expanded Cycle 12 corpus (`531` records: `513` communities, `16` isolates, `2` taxa) at `bf8e8626114487765f67879cc6040cdc412e7c4f`.
+   - Confirm that the 4 previously resolved infrastructure deliverables (`communitymech-infra-0001` through `0004`) continue to pass all regression tests and CLI execution gates against the expanded Cycle 12 corpus (`531` records: `511` communities, `18` isolates, `2` taxa) at `bf8e8626114487765f67879cc6040cdc412e7c4f`.
    - Record the frozen snapshot (`infra_snapshot.md`), this explicit empty implementation plan (`implementation_plan.md`), the verification report (`validation.md`), and the Stage 6 workflow evidence manifest (`evidence.yaml`).
