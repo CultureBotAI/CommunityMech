@@ -1,0 +1,147 @@
+reviewer: antigravity-c12s5
+review_mode: stage5_remediation_reattestation
+independent_approval: false
+base_commit: ca9dbe25f372ef8eeebc77eeca4c91982085581d
+baseline_commit: ca9dbe25f372ef8eeebc77eeca4c91982085581d
+issues:
+- 2740
+unresolved_research_issues: []
+unresolved_non_graph_issues: []
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  dry_runs: []
+  repair_scope: Stage 5 review remediation of TaxonomicComposition.abundance_level
+    and supporting EvidenceItem entries on CommunityMech:000115 and CommunityMech:000116;
+    no causal graph node or downstream edge topology changes.
+records:
+- path: kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml
+  id: CommunityMech:000115
+  original_sha256: 91bebb0e6765cb47335cb04931e7b62995b04a900d2cf7a9b296e9033c236980
+  record_sha256: d45dd828e525441e15d7e1270a4706fa476abf442ee5410ed73d2fcd12ccf8ed
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261109-c12s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+    record_sha256: 91bebb0e6765cb47335cb04931e7b62995b04a900d2cf7a9b296e9033c236980
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all 20261005-seven-records causal graph
+    decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:38277828 division-of-labor
+    evidence to Acinetobacter baumannii N1, Pseudomonas aeruginosa N2, and Aeromonas
+    hydrophila while preserving 20261005-seven-records causal graph decisions.
+  node_decisions:
+  - node: Aeromonas quorum quenching of 3OC12-HSL
+    rationale: Retain the author-reported sequence with abstract-scope uncertainty;
+      remove the unestablished mutual-benefit label.
+  - node: Pyocyanine-stimulated electron transfer
+    rationale: Preserve the proposed nitrite-reduction contribution as PARTIAL; do
+      not equate redox mediation with nutritional exchange.
+  - node: Efficient nitrate reduction by the three-member SMC
+    rationale: Retain the measured nitrate-removal endpoint without asserting thermodynamic
+      syntrophy.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: &id001
+  - &id002
+    source: Aeromonas quorum quenching of 3OC12-HSL
+    target: Pyocyanine-stimulated electron transfer
+    description: PARTIAL - the abstract reports that Aeromonas-associated 3OC12-HSL
+      decline stimulates pyocyanin excretion, but does not describe mediator-specific
+      disruption or rescue controls.
+  - &id003
+    source: Pyocyanine-stimulated electron transfer
+    target: Efficient nitrate reduction by the three-member SMC
+    description: PARTIAL - pyocyanin-associated electron transfer could support the
+      nitrite-reduction component of the community endpoint. The abstract also describes
+      nitrate-reduction and energy-metabolism routes, so this is not a sole explanation
+      of nitrate removal.
+  edges_after: *id001
+  retained_edge_decisions:
+  - before: *id002
+    after: *id002
+    rationale: Unchanged from 20261005-seven-records.yaml.
+  - before: *id003
+    after: *id003
+    rationale: Unchanged from 20261005-seven-records.yaml.
+  removed_edge_decisions: []
+  references:
+  - PMID:38277828
+  issues:
+  - 1236
+  - 2740
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Aerobic_Denitrification_QQ_SynCom/2026-11-09T080000Z-antigravity-2740a1.yaml
+- path: kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml
+  id: CommunityMech:000116
+  original_sha256: c9cefea6036c2e4564079cfa0950e49c2282eff63dfe120835adb0c92fbbdbb0
+  record_sha256: e7a486e4abb424637759596d8c740e5ca519305cb740a4cb33f8151ff3872a82
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261109-c12s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+    record_sha256: c9cefea6036c2e4564079cfa0950e49c2282eff63dfe120835adb0c92fbbdbb0
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all 20261004-four-records causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:40020349 three-member SMC
+    composition and functional-dominance evidence to Pseudomonas aeruginosa N2, Acinetobacter
+    baumannii N1, and Aeromonas hydrophila while preserving 20261004-four-records
+    causal graph decisions.
+  node_decisions:
+  - node: AHL-mediated interspecific communication under disturbance
+    rationale: 'Retain the observed communication node; qualify its causal contribution
+      to the endpoint as PARTIAL at abstract scope. Remove the +/+ classification:
+      communication alone does not establish both partners benefit.'
+  - node: DBP-stimulated phenazine electron transfer
+    rationale: Retain explicit DBP-to-phenazine-to-electron-transfer claim; omit cross-feeding
+      classification because a donor/recipient metabolite transfer is not established.
+  - node: Disturbance-stable aerobic denitrification
+    rationale: 'Retain the measured approximately 93% denitrification endpoint under
+      DBP or LOFX; do not generalize the DBP mediator to LOFX. Remove the syntrophy
+      classification: the abstract does not establish product removal making partner
+      metabolism favorable.'
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: &id004
+  - &id005
+    source: AHL-mediated interspecific communication under disturbance
+    target: Disturbance-stable aerobic denitrification
+    description: PARTIAL - the authors attribute disturbance stability in part to
+      interspecific communication and identify C4-HSL/3OC12-HSL in the corresponding
+      treatments. The accessible abstract does not report signal-blocking or rescue
+      experiments that isolate an AHL effect on denitrification.
+  - &id006
+    source: DBP-stimulated phenazine electron transfer
+    target: Disturbance-stable aerobic denitrification
+    description: PARTIAL - DBP-induced phenazine-1-carboxylic acid accelerates electron
+      transfer, a route the authors associate with maintained SMC function under DBP.
+      The abstract does not quantify its independent contribution to the approximately
+      93% denitrification endpoint or extend this phenazine mechanism to LOFX.
+  edges_after: *id004
+  retained_edge_decisions:
+  - before: *id005
+    after: *id005
+    rationale: Unchanged from 20261004-four-records.yaml.
+  - before: *id006
+    after: *id006
+    rationale: Unchanged from 20261004-four-records.yaml.
+  removed_edge_decisions: []
+  references:
+  - PMID:40020349
+  issues:
+  - 1232
+  - 1235
+  - 2740
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-11-09T080000Z-antigravity-2740a2.yaml
