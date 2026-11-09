@@ -1,0 +1,173 @@
+batch: 20261108-stage2-five-records-batch144
+review_date: '2026-11-08'
+reviewer: antigravity
+criteria:
+- Every reviewed record was checked against committed references_cache full-text evidence.
+- Single-strain axenic isolate baselines (CommunityMech:000531, CommunityMech:000532, CommunityMech:000533,
+  CommunityMech:000534) and the screening-stage cross-pathway Ogataea polymorpha str3Δ-leu2Δ co-culture
+  (CommunityMech:000535) are represented as single COMMUNITY_LEVEL nodes with 0 downstream edges and enriched
+  with non-overlapping, bracket-free verbatim snippets.
+- Source-backed experimental and evidence boundaries are preserved in record-level discussions and source_backed_gaps
+  without inventing unsupported intermediate nodes or edges.
+records:
+- id: CommunityMech:000531
+  path: data/isolates/Microbacterium_BR1_Sulfadiazine_Cleaving_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  status: reviewed
+  original_sha256: 149a6ab7149a19719ff9e73f58a650b744327ec2306350af2f495cbd85e81531
+  record_sha256: c0326c5cdaf678c922659c33dbe4fe1b5717be2bf79dab54d672f160574c0fe5
+  references:
+  - PMID:42598292
+  scope: Axenic Microbacterium sp. strain BR1 monoculture baseline in mineral salt medium (MSM Brunner)
+    supplemented with vitamins and 1.0 mM pyrimidine-13C,15N3-labeled sulfadiazine at 28 C on an orbital
+    shaker for 4 days (Xue et al. 2026, PMID:42598292 / doi:10.1021/acs.estlett.6c00474).
+  node_decisions:
+  - node: Ipso-Substitution Sulfadiazine Cleavage and Dead-End 2-Aminopyrimidine Accumulation by Axenic
+      Microbacterium BR1
+    decision: amended
+    rationale: PMID:42598292 Table 1, Figure 1, Figure 2b, and Figure 3a characterize axenic Microbacterium
+      sp. strain BR1 as a single COMMUNITY_LEVEL monoculture baseline that completely cleaves 1.0 +- 0.1
+      mM sulfadiazine within 2 days to 0.0 mM, assimilates the released 4-aminophenol (aniline) moiety
+      for maintenance (sustaining 1067 +- 206 to 832 +- 89 cells/uL by Day 2 with no 13C/15N-pyrimidine
+      Raman shift at 1000 cm-1), and accumulates 1.0 +- 0.1 mM 2-aminopyrimidine as an unmineralized dead-end
+      metabolite through Day 4; enriched node evidence from 3 to 5 non-overlapping verbatim snippets without
+      adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - No downstream causal edges are curated on CommunityMech:000531 because PMID:42598292 measures axenic
+    Microbacterium sp. BR1 sulfadiazine cleavage (1.0 +- 0.1 mM to 0.0 mM by Day 2), dead-end 2-aminopyrimidine
+    accumulation (1.0 +- 0.1 mM on Days 2 and 4), and flow-cytometric cell counts (1067 +- 206 to 832
+    +- 89 cells/uL) as co-occurring monoculture endpoints without resolving sequential multi-step intracellular
+    enzyme kinetics or inter-taxon cross-feeding (which requires Terrabacter sp. 2APm3 in co-culture CommunityMech:000462).
+  - The reason axenic Microbacterium sp. BR1 cell counts declined from 1067 +- 206 to 832 +- 89 cells/uL
+    between Day 0 and Day 2 despite complete cleavage of 1.0 +- 0.1 mM sulfadiazine and subsistence on
+    the 4-AP moiety (and faster Day 2-4 decline than in coculture where 2-AP is removed) is recorded in
+    the KNOWLEDGE_GAP discussion (br1_4ap_assimilation_vs_cell_number_decline).
+- id: CommunityMech:000532
+  path: data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  status: reviewed
+  original_sha256: 677193069c629cbbecdaad6e13fb53881e3ead1c644725acab370fe1cfdd2b5c
+  record_sha256: 81c8fd983bc57050595d7a4d51b64acdf2617ce9fea0f03f7ec9db4fa617c05e
+  references:
+  - PMID:42598292
+  scope: Axenic Terrabacter sp. strain 2APm3 (DSM 28514) monoculture negative control baseline in mineral
+    salt medium (MSM Brunner) supplemented with vitamins and 1.0 mM pyrimidine-13C,15N3-labeled sulfadiazine
+    at 28 C on an orbital shaker for 4 days (Xue et al. 2026, PMID:42598292 / doi:10.1021/acs.estlett.6c00474).
+  node_decisions:
+  - node: Inability of Axenic Terrabacter sp. 2APm3 to Cleave Intact Sulfadiazine Without Upstream Ipso-Substitution
+    decision: amended
+    rationale: PMID:42598292 Table 1, Figure 1, and Figure 3a establish that axenic Terrabacter sp. 2APm3
+      (DSM 28514) leaves 1.0 +- 0.1 mM sulfadiazine completely unaltered at Days 0, 2, and 4 with 0.0
+      mM 2-aminopyrimidine formed, exhibits no 13C/15N-induced Raman shift at 1000 cm-1 in axenic culture,
+      and undergoes a rapid population decline from 775 +- 10 cells/uL (Day 0) to 474 +- 44 cells/uL (Day
+      2) due to nutrient limitation and antibiotic stress; enriched node evidence from 3 to 5 non-overlapping
+      verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - No downstream causal edges are curated on CommunityMech:000532 because axenic Terrabacter sp. 2APm3
+    catalyzes zero sulfadiazine transformation in monoculture; downstream hydroxylation and pyrimidine-ring
+    cleavage of 2-aminopyrimidine to 2-amino-4-hydroxypyrimidine, guanidine, malonate, and CO2 occur only
+    when upstream ipso-substitution by Microbacterium sp. BR1 supplies free 2-AP (curated in co-culture
+    CommunityMech:000462).
+  - The specific monooxygenase or amidohydrolase enzymes in Terrabacter sp. 2APm3 (DSMZ 28514) that initiate
+    hydroxylation and ring cleavage of free 2-aminopyrimidine (and why they are inactive toward intact
+    sulfadiazine) are not identified in PMID:42598292; recorded in the KNOWLEDGE_GAP discussion (terrabacter_2apm3_enzymatic_pathway_for_2ap_ring_cleavage).
+- id: CommunityMech:000533
+  path: data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  status: reviewed
+  original_sha256: 9570a1bcd8115e59d8dedd2a31760f6acccdbb030f0d98f5670cd0af203c556f
+  record_sha256: 0680fbc0c1ee94f3a79ce13d9c6b3d8b91317022addca4c095195a37974b6d0e
+  references:
+  - PMID:42307251
+  scope: Axenic Achromobacter sp. SL8 (curated as Achromobacter insuavis SL8, GenBank PZ429300) monoculture
+    baseline in liquid LB medium supplemented with 50 mg/L or 100 mg/L Cd2+ at 30 C and 200 rpm for 7
+    days (Tao et al. 2026, PMID:42307251 / doi:10.1128/spectrum.01081-26).
+  node_decisions:
+  - node: Cadmium Immobilization, Alkalinization, and N-H Surface Coordination by Achromobacter sp. SL8
+      Monoculture
+    decision: amended
+    rationale: PMID:42307251 Table 2 and Figures 2-5 characterize axenic Achromobacter sp. SL8 as a single
+      COMMUNITY_LEVEL monoculture baseline exhibiting a Cd(II) MIC of 600 mg/L, medium alkalinization
+      from pH ~6.5 to 8.0-8.5 within 2 days, 82.6% Cd2+ removal at 50 mg/L declining to 69.55% (69.5%
+      in abstract) at 100 mg/L Cd2+ over 7 days, FTIR-resolved N-H, phosphate, and hydroxyl surface coordination,
+      predominant bioprecipitation, and TEM cell-membrane thinning and blurring; enriched node evidence
+      from 4 to 6 non-overlapping verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - No downstream causal edges are curated on CommunityMech:000533 because PMID:42307251 explicitly notes
+    that proteomic and metabolomic profiles of Cd-exposed SL8 (Group A) are correlative without gene-knockout
+    causal validation, and monoculture pH elevation, FTIR surface binding, and bioprecipitation were assayed
+    as parallel 7-day endpoints rather than a resolved multi-step causal chain.
+  - The mechanistic basis for the 15.8% drop in SL8 monoculture Cd2+ removal efficiency from 82.6% at
+    50 mg/L to 69.55% at 100 mg/L Cd2+ (and its rescue to 80.9% in the SL8 + SL12 coculture CommunityMech:000374)
+    is recorded in the KNOWLEDGE_GAP discussion (sl8_high_cd_removal_drop_mechanism).
+- id: CommunityMech:000534
+  path: data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  status: reviewed
+  original_sha256: e35dcd4e7772a4525d707fe454bdd188c2500e8bfc8024fb1ec0d989b290cb0f
+  record_sha256: 68a2f6ea9b523e7db0eacf6ef1a87af5227cd3f6c7e93be14facffc265232796
+  references:
+  - PMID:42307251
+  scope: Axenic Enterobacter sp. SL12 (curated as Enterobacter cancerogenus SL12, GenBank PZ429301) monoculture
+    baseline in liquid LB medium supplemented with 50 mg/L or 100 mg/L Cd2+ at 30 C and 200 rpm for 7
+    days (Tao et al. 2026, PMID:42307251 / doi:10.1128/spectrum.01081-26).
+  node_decisions:
+  - node: High-Cadmium Induced Immobilization and Amide C=O Surface Binding by Enterobacter sp. SL12 Monoculture
+    decision: amended
+    rationale: PMID:42307251 Table 2 and Figures 2-5 characterize axenic Enterobacter sp. SL12 as a single
+      COMMUNITY_LEVEL monoculture baseline exhibiting a Cd(II) MIC of 400 mg/L, medium alkalinization
+      from pH ~6.5 to 8.0-8.5 within 2 days, an adaptive increase in Cd2+ removal efficiency from 63.4%
+      at 50 mg/L to 70.8% at 100 mg/L Cd2+ (+11.6% relative improvement), FTIR-resolved amide C=O, phosphate,
+      and hydroxyl surface binding, predominant bioprecipitation, and preserved SEM/TEM cell wall thickness
+      and cellular outlines under 100 mg/L Cd2+; enriched node evidence from 4 to 6 non-overlapping verbatim
+      snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - No downstream causal edges are curated on CommunityMech:000534 because PMID:42307251 explicitly notes
+    that proteomic and metabolomic profiles of Cd-exposed SL12 (Group B) are correlative without gene-knockout
+    causal validation, and monoculture pH elevation, FTIR amide C=O coordination, and bioprecipitation
+    were measured as parallel 7-day endpoints rather than a resolved multi-step causal chain.
+  - The inducible resistance or amide C=O surface-matrix response enabling Enterobacter sp. SL12 monoculture
+    to increase its 7-day Cd2+ removal efficiency from 63.4% at 50 mg/L to 70.8% at 100 mg/L Cd2+ (and
+    its synergy in the SL8 + SL12 coculture CommunityMech:000374) is recorded in the KNOWLEDGE_GAP discussion
+    (sl12_high_cd_induced_removal_increase).
+- id: CommunityMech:000535
+  path: kb/communities/Ogataea_Str3_Leu2_Auxotrophic_CrossFeeding_Coculture.yaml
+  review_file: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  status: reviewed
+  original_sha256: cf4a1289c42b61654ff9fa1407a55cad4bf9b22f0c829235b26c8705c2ffe282
+  record_sha256: be16aa69ef1611a0d1d452da9e20ccea58a5497d912ce167819f706fdb57a401
+  references:
+  - PMID:42318495
+  scope: Synthetic 1:1 co-culture of Ogataea polymorpha str3Δ (cystathionine beta-lyase deletion) and
+    leu2Δ (beta-isopropylmalate dehydrogenase deletion) auxotrophic mutants in Delft minimal medium containing
+    20 g/L glucose at 37 C and 220 rpm (Fan et al. 2026, PMID:42318495 / doi:10.1016/j.synbio.2026.05.008).
+  node_decisions:
+  - node: STR3-LEU2 Cross-Pathway Auxotrophic Complementation and Biomass Restoration on Glucose
+    decision: amended
+    rationale: PMID:42318495 Section 3.2 and Figure 2a-d demonstrate that co-culturing Ogataea polymorpha
+      str3Δ and leu2Δ at a 1:1 ratio (initial total OD600 = 0.2) in minimal glucose medium achieves strong
+      reciprocal complementation (Recovery Index >= 0.8) and reproducible shake-flask maximum biomass
+      (OD600 = 27.3-28.5 vs prototrophic FY00 OD600 = 26.8, p > 0.1, n = 4) after an extended lag phase
+      (p < 10^-4) required for metabolite exchange; because PMID:42318495 did not perform single-intermediate
+      cross-supplementation or fluorescent ratio tracking on str3Δ-leu2Δ (which were conducted exclusively
+      for met10Δ-str3Δ in Sections 3.3-3.5), representing str3Δ-leu2Δ as a single COMMUNITY_LEVEL mutualism
+      node with 0 downstream edges and 6 non-overlapping verbatim snippets avoids fabricating unverified
+      directional metabolite-transfer steps.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - No downstream causal edges are curated on CommunityMech:000535 because PMID:42318495 Section 3.2 measured
+    96-well Recovery Index and shake-flask glucose growth curves (maximum OD600 27.3-28.5 and lag phase)
+    for str3Δ-leu2Δ as an emergent co-culture endpoint without separately resolving directional secretion
+    vs uptake kinetics of homocysteine/methionine vs leucine/alpha-ketoisocaproate between str3Δ and leu2Δ.
+  - Why str3Δ-leu2Δ outperformed met10Δ-leu2Δ on glucose and how str3Δ-leu2Δ performs on methanol or across
+    initial inoculation ratios (which were characterized in Sections 3.3-3.5 for met10Δ-str3Δ, CommunityMech:000450)
+    are recorded in the KNOWLEDGE_GAP discussion (str3_leu2_methanol_and_ratio_stability_untested).
