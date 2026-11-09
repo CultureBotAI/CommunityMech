@@ -106,7 +106,7 @@ All **531** canonical YAML records across the three repository record roots were
 ### 3.2 `kb/taxa/Geobacter_sulfurreducens.yaml` (`CommunityMech:taxon:000002`)
 
 - **Pre-Stage-3 SHA-256**: `ab3bcd9639241391f25a20b5bbdb3a40ee6e907d441f696355ce16745e3c4b92`
-- **Post-Stage-3 SHA-256**: `08edb6b5409c2b77ab7ddfdb32f85fdf3292674c9333263b4271985f0be2ca78`
+- **Post-Stage-3 SHA-256**: `aeddfc60dfc34c721e1b2355aeddcd1b809da8196e449d360ce509f0af0c76dc`
 - **History Sidecar**: `history/records/Geobacter_sulfurreducens/2026-11-09T021000Z-antigravity-c12s302.yaml`
 - **Total Gene-Level `EvidenceItem`s**: `27 -> 29` (`4` curated `UniProtKB:` genes: `pilA` `8`, `omcS` `9`, `omcZ` `6`, `omcB` `6`)
 - **Added `EvidenceItem`s (`+2`)**:
@@ -116,7 +116,7 @@ All **531** canonical YAML records across the three repository record roots were
      - `evidence_source`: `IN_VITRO`
      - `snippet`: `"In model electroactive bacteria such as Geobacter and Shewanella, cytochromes such as PpcA, OmcS, OmcZ, MtrA, and MtrC exhibit redox-active windows spanning several hundred millivolts ( Fig. 4, A and B ), enabling them to transfer electrons to acceptors with more negative midpoint potentials, such as anthraquinone-2,6-disulfonate (AQDS; −186 mV) and flavins (−210 mV) ( 52 – 57 )."`
   2. **`omcB` (`UniProtKB:Q74A86`, locus tag `GSU2737`, `GCF_000007985.2`) — `EvidenceItem` #6**:
-     - `reference`: `PMID:41876513` (`references_cache/PMID_41876513.txt`, primary reference for `CommunityMech:000462`)
+     - `reference`: `PMID:41876513` (`references_cache/PMID_41876513.txt`, primary reference for `CommunityMech:000349`)
      - `supports`: `SUPPORT`
      - `evidence_source`: `COMPUTATIONAL`
      - `snippet`: `"To determine OmcB evolutionary relationships, the Ca. Geosyntrophus OmcB sequence was used as a BLASTP query to identify homologs from related species."`
