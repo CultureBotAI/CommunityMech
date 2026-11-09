@@ -1,0 +1,292 @@
+id: CommunityMech:000540
+name: Escherichia coli PFM2 Anaerobic Monoculture Baseline
+description: Long-term evolved anaerobic fermentative bacterial monoculture baseline Escherichia coli strain PFM2 (NCBITaxon:562;
+  GTDB:s__Escherichia_coli; MG1655 derivative with repaired rpoS and rph genes) evolved across 10 replicate serial-transfer
+  lineages for 650 generations in M9-derived coculture medium (MDC) supplemented with 10 mM glucose, cation solution, 25 mM
+  NaCl, and 2.3 mM NH4Cl under N2 headspace at 30 degrees C by Chuang et al. 2026 (PMID:42117636; BioProject PRJNA1079325).
+  Benchmarked alongside evolved Rhodopseudomonas palustris CGA676 monoculture (CommunityMech:000539), the obligate cross-feeding
+  coculture (CommunityMech:000469), and the three-strain adenine mutual-invasion competition coculture (CommunityMech:000541),
+  evolved E. coli PFM2 monocultures accumulated 31 differentially enriched mutations across 6 commonly mutated genes and intergenic
+  regions (Figure 2A, D), exhibited 5-fold higher purH transcript levels (coculture PFM2 purH levels were 20% of monoculture,
+  Figure 3C) and 3.3-fold lower entF enterobactin siderophore transcript levels than cocultures (Figure 5D), and uniquely
+  evolved emergent metabolic dependencies (10 of 40 screened generation-650 monoculture isolates unable to grow in minimal
+  medium vs 0 of 40 coculture isolates, including 4 adenine-rescued auxotrophs in replicates 18 and 20 and 6 non-adenine auxotrophs,
+  Figure 3B).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Sealed 27-mL anaerobic test tubes containing 10 mL minimal M9-derived coculture medium (MDC) supplemented with 10
+    mM glucose and NH4Cl (2.3 mM during 650-generation experimental evolution; 10 mM in standard monoculture assays) under
+    N2 headspace at 30 degrees C.
+related_communities:
+- identifier: CommunityMech:000539
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Escherichia coli PFM2 monocultures (650 generations) and Rhodopseudomonas palustris CGA676 monocultures (803
+    generations, CommunityMech:000539) were evolved and sequenced in parallel as the two single-species monoculture evolution
+    arms in PMID:42117636.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Founder monocultures of E. coli PFM2 and R. palustris NifA* CGA676 were each grown from a single colony in anoxic
+      MDC with either 10 mM glucose, cation solution, and 3 mM NH4Cl for PFM2 or 20 mM sodium acetate for CGA676. A single-founder
+      monoculture was then used to inoculate 10 monocultures and 10 cocultures.
+    explanation: Documents the parallel experimental evolution of E. coli PFM2 monocultures and R. palustris CGA676 monocultures
+      in PMID:42117636.
+- identifier: CommunityMech:000541
+  relation: MEMBER_SUBSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The single-strain Escherichia coli PFM2 monoculture baseline is a member subset of the three-strain adenine
+    mutual-invasion competition coculture (CGA676, PFM2, PFM2 ΔpurH; CommunityMech:000541).
+- identifier: CommunityMech:000541
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Escherichia coli PFM2 monoculture and the three-strain CGA676 + PFM2 + PFM2 ΔpurH mutual-invasion competition
+    coculture (CommunityMech:000541) were characterized in the same study (PMID:42117636).
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676).
+    explanation: Shows that E. coli PFM2 is paired with PFM2 ΔpurH and R. palustris CGA676 in the competition coculture of
+      PMID:42117636.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Prototrophic fermentative Escherichia coli MG1655 derivative with repaired rpoS and rph genes used as the ancestral
+      strain in 650-generation anaerobic monoculture evolution.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  strain_designation:
+    strain_name: PFM2
+    genetic_modification: Escherichia coli MG1655 derivative with repaired rpoS and rph genes.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli PFM2 was a gift from P. Foster and is an E. coli MG1655 derivative with repaired rpoS and rph genes (
+      28 , 29 ).
+    explanation: Verifies the identity and genotype of Escherichia coli strain PFM2.
+ecological_interactions:
+- name: High De Novo Purine Expression and Emergent Adenine Auxotrophy in Evolved E. coli PFM2 Monoculture
+  description: Across 650 generations of anaerobic glucose fermentation in MDC medium supplemented with 10 mM glucose, 25
+    mM NaCl, and 2.3 mM NH4Cl (10 replicate lineages), Escherichia coli PFM2 monocultures accumulated 31 differentially enriched
+    mutations across 6 commonly mutated genes and intergenic regions (Figure 2A, D). Because E. coli monocultures lacked partner-supplied
+    extracellular adenine, ancestral E. coli PFM2 expressed purH at 5-fold higher transcript levels in monoculture than in
+    coculture (coculture purH levels were 20% of monoculture, and exogenous adenine reduced monoculture purH expression to
+    12%, Figure 3C). Under this high biosynthetic expression cost, 10 of 40 screened generation-650 monoculture E. coli isolates
+    failed to grow in minimal medium (vs 0 of 40 coculture isolates), including four adenine-rescued auxotrophs from replicates
+    18 and 20 and six unknown auxotrophs (Figure 3B). Conversely, E. coli PFM2 entF siderophore transcript levels were 3.3-fold
+    lower in monoculture than in coculture (Figure 5D).
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  - preferred_term: iron cation
+    term:
+      id: CHEBI:24875
+      label: iron cation
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These criteria resulted in a list of 167 mutations from R. palustris monocultures, 31 from E. coli monocultures,
+      43 from R. palustris in cocultures, and 132 from E. coli in cocultures ( Fig. 2A ; Tables S1 through S5 ).
+    explanation: Quantifies the 31 differentially enriched mutations in evolved E. coli PFM2 monocultures.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, no E. coli PFM2 purine biosynthesis gene (pur) mutations were observed in cocultures ( Fig. 3A ) nor
+      were adenine auxotrophs observed among 40 coculture isolates screened ( Fig. 3B ). Unexpectedly, four E. coli monoculture
+      isolates, two in each of replicates 18 and 20, appeared to be adenine auxotrophs, showing similar growth trends to the
+      ΔpurH auxotroph control ( Fig. 3B ).
+    explanation: Demonstrates that four E. coli PFM2 monoculture isolates in replicates 18 and 20 evolved adenine auxotrophy,
+      whereas 0 of 40 coculture isolates did.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Perhaps similar to R. palustris siderophore mutant enrichment in monocultures, several E. coli PFM2 evolved isolates
+      with unknown dependencies were observed in monoculture but not in coculture; 10 of the 40 evolved monoculture PFM2 isolates
+      that we screened could not grow in a minimal medium ( Fig. 3B ). Four isolates were rescued by adenine, but the rest
+      were not ( Fig. 3B ).
+    explanation: Quantifies the 10 of 40 evolved monoculture E. coli PFM2 isolates unable to grow in minimal medium (4 adenine-rescued
+      and 6 non-adenine auxotrophs).
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We verified that the same is true for E. coli PFM2 by RT-qPCR quantification of purH transcript; coculture PFM2
+      purH levels were 20% of those in monoculture ( Fig. 3C ). Adding adenine to monocultures resulted in a purH transcript
+      level that was 12% of that observed without adenine, suggesting that the low expression in coculture was due to adenine
+      availability ( Fig. 3C ).
+    explanation: Proves that E. coli purH transcript levels in coculture are 20% of monoculture levels (5-fold higher in monoculture)
+      and are repressed to 12% by exogenous adenine.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In support of this idea, the E. coli PFM2 siderophore entF transcript level was 3.3-fold higher in coculture
+      than in monoculture ( Fig. 5D ), perhaps in response to iron loss to R. palustris.
+    explanation: Quantifies the 3.3-fold difference in E. coli PFM2 entF transcript levels between monoculture and coculture.
+environmental_factors:
+- name: Frequency of emergent auxotrophic isolates in evolved E. coli PFM2 monocultures
+  value: 10/40 isolates auxotrophic at generation 650 (4 adenine auxotrophs in replicates 18 & 20; 6 unknown auxotrophs) vs
+    0/40 in coculture
+  unit: isolates
+  description: Auxotrophy screening of 40 generation-650 E. coli PFM2 monoculture isolates vs 40 coculture isolates in minimal
+    MDC medium with or without 50 uM adenine supplementation (Figure 3B).
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 of the 40 evolved monoculture PFM2 isolates that we screened could not grow in a minimal medium ( Fig. 3B
+      ). Four isolates were rescued by adenine, but the rest were not ( Fig. 3B ).
+    explanation: Supports the 10/40 monoculture auxotroph frequency (4 adenine auxotrophs and 6 unknown auxotrophs).
+- name: Monoculture-to-coculture purH and entF transcript ratios in E. coli PFM2
+  value: Coculture purH transcript 20% of monoculture (12% with 100 uM adenine); coculture entF transcript 3.3-fold higher
+    than monoculture
+  unit: '% and fold change'
+  description: RT-qPCR expression levels of purH (Figure 3C) and entF (Figure 5D) in ancestral E. coli PFM2 grown in monoculture
+    vs coculture.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture PFM2 purH levels were 20% of those in monoculture ( Fig. 3C ).
+    explanation: Supports the 5-fold (20% in coculture vs monoculture) purH transcript ratio.
+growth_media:
+- name: M9-derived coculture medium (MDC) supplemented with 10 mM glucose and NH4Cl for E. coli monoculture
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  headspace_gas: 100% N2
+  light_regime: constant illumination (45 W halogen bulb, 430 lumens)
+  inoculum_size: 2.5% vol/vol (0.25 mL into 10 mL)
+  inoculum_unit: v/v every 7 days
+  vessel_type: 27-mL anaerobic test tube
+  composition:
+  - name: glucose
+    concentration: '10'
+    unit: mM
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: ammonium chloride
+    concentration: '2.3'
+    unit: mM
+    chebi_term:
+      preferred_term: ammonium chloride
+      term:
+        id: CHEBI:31206
+        label: ammonium chloride
+  preparation_notes: 10 mL MDC in 27-mL anaerobic test tubes under N2 headspace; for E. coli PFM2 experimental evolution monocultures,
+    MDC was supplemented with 10 mM glucose, cation solution, 25 mM NaCl, and 2.3 mM NH4Cl (10 mM glucose and 10 mM NH4Cl
+    in standard monoculture growth assays) and serially transferred at 0.25 mL (2.5% vol/vol) every 7 days for 650 generations.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli PFM2 monocultures were supplemented with 10 mM glucose, cation solution, 25 mM NaCl, and 2.3 mM NH4Cl.
+    explanation: Specifies the 10 mM glucose, cation solution, 25 mM NaCl, and 2.3 mM NH4Cl supplementation for evolved E.
+      coli PFM2 monocultures.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Every 7 days, cultures were vortexed, and 0.25 mL was transferred to fresh medium.
+    explanation: Specifies the 0.25 mL every 7 days serial transfer regime.
+external_resources:
+- name: NCBI BioProject PRJNA1079325 - Whole-genome sequencing of evolved R. palustris and E. coli monocultures and cocultures
+  repository: OTHER
+  resource_id: PRJNA1079325
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1079325
+  description: Illumina NextSeq 500 whole-population sequencing reads for evolved R. palustris CGA676 and E. coli PFM2 monocultures
+    and cocultures.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genome sequence reads are in the NCBI Sequence Read Archive under BioProject accession number PRJNA1079325
+    explanation: Verifies BioProject accession PRJNA1079325.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: Enterobactin siderophore synthase (entF) transcript levels in E. coli PFM2 monoculture were 3.3-fold lower than
+  in coculture.
+discussions:
+- discussion_id: pfm2_monoculture_rpoc_polyauxotrophy_and_subpopulation_crossfeeding
+  prompt: Did the six non-adenine auxotrophic E. coli PFM2 isolates and four adenine auxotrophs recovered at generation 650
+    in monoculture arise from rpoC RNA polymerase β'-subunit mutations and survive via intraspecific cross-feeding between
+    E. coli subpopulations?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#High De Novo Purine Expression and Emergent Adenine Auxotrophy in Evolved E. coli PFM2 Monoculture
+  rationale: PMID:42117636 observes 10 auxotrophic isolates among 40 generation-650 E. coli monoculture clones (4 rescued
+    by adenine, 6 unknown) and notes that rpoC mutations (enriched in monocultures) are known to cause polyauxotrophy, while
+    leaving the exact metabolite identities of the 6 non-adenine auxotrophs open.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although we did not investigate these possible E. coli monoculture cross-feeding relationships, we speculate
+      that a source of the auxotrophies could be mutations in rpoC, encoding the RNA polymerase β'-subunit. RpoC mutations
+      are known to result in polyauxotrophs ( 42 ).
+    explanation: Documents the authors' rpoC hypothesis for the monoculture auxotrophies.
+  posed_by: antigravity
+  posed_date: '2026-11-09'
+curation_history:
+- timestamp: '2026-11-09T12:25:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000540 (Escherichia coli PFM2 Anaerobic Monoculture Baseline) in data/isolates/ from PMID:42117636
+    / PMC13274399 for the 650-generation evolved E. coli PFM2 monoculture baseline (31 mutations across 6 loci, 5-fold higher
+    purH expression, 10/40 emergent auxotrophs including 4 adenine auxotrophs).
+  llm_assisted: true

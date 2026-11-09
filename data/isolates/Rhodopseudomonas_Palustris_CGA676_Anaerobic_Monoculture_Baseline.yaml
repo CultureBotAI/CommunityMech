@@ -1,0 +1,327 @@
+id: CommunityMech:000539
+name: Rhodopseudomonas palustris CGA676 Anaerobic Monoculture Baseline
+description: Long-term evolved anaerobic phototrophic bacterial monoculture baseline Rhodopseudomonas palustris NifA* strain
+  CGA676 (NCBITaxon:1076; derived from CGA0092 and carrying a nifA* mutation that causes NH4+ excretion under N2-fixing conditions
+  alongside wild-type adenine excretion) evolved across 10 replicate serial-transfer lineages for 803 generations in M9-derived
+  coculture medium (MDC) supplemented with 25 mM glucose, cation solution, 8 mM disodium succinate, 7.3 mM sodium acetate,
+  0.25 mM sodium formate, 1.4 mM sodium lactate, and 6.3 mM ethanol under N2 headspace and constant illumination at 30 degrees
+  C by Chuang et al. 2026 (PMID:42117636; BioProject PRJNA1079325). Benchmarked alongside evolved Escherichia coli PFM2 monoculture
+  (CommunityMech:000540), the obligate cross-feeding coculture (CommunityMech:000469), and the three-strain adenine mutual-invasion
+  competition coculture (CommunityMech:000541), evolved R. palustris CGA676 monocultures accumulated 167 differentially enriched
+  mutations across 19 commonly mutated genes and intergenic regions (Figure 2A, C), exhibited 5-fold higher siderophore synthase
+  RPA2390 transcript levels (coculture levels were 20% of monoculture, Figure 5C) and 2-fold higher purH transcript levels
+  (coculture levels were 50% of monoculture, Figure 3D), enriched siderophore synthesis cluster RPA2382-90 cheater mutants
+  (Figure 5A), and evolved parallel 5-bp hoxJ deletions in seven replicate monocultures (reconstructed as strain CGA4065)
+  that derepress HoxA to enable H2 oxidation (Figure 7A, C, D).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Sealed 27-mL anaerobic test tubes containing 10 mL minimal M9-derived coculture medium (MDC) supplemented with organic
+    acids, ethanol, and 25 mM glucose under N2 headspace and constant illumination at 30 degrees C.
+related_communities:
+- identifier: CommunityMech:000540
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Rhodopseudomonas palustris CGA676 monocultures (803 generations) and Escherichia coli PFM2 monocultures (650
+    generations, CommunityMech:000540) were evolved and sequenced in parallel as the two single-species monoculture evolution
+    arms in PMID:42117636.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Founder monocultures of E. coli PFM2 and R. palustris NifA* CGA676 were each grown from a single colony in anoxic
+      MDC with either 10 mM glucose, cation solution, and 3 mM NH4Cl for PFM2 or 20 mM sodium acetate for CGA676. A single-founder
+      monoculture was then used to inoculate 10 monocultures and 10 cocultures.
+    explanation: Documents the parallel experimental evolution of R. palustris CGA676 monocultures and E. coli PFM2 monocultures
+      in PMID:42117636.
+- identifier: CommunityMech:000541
+  relation: MEMBER_SUBSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The single-strain Rhodopseudomonas palustris CGA676 monoculture baseline is a member subset of the three-strain
+    adenine mutual-invasion competition coculture (CGA676, PFM2, PFM2 ΔpurH; CommunityMech:000541).
+- identifier: CommunityMech:000541
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Rhodopseudomonas palustris CGA676 monoculture and the three-strain CGA676 + PFM2 + PFM2 ΔpurH mutual-invasion
+    competition coculture (CommunityMech:000541) were characterized in the same study (PMID:42117636).
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We also directly compared the fitness of E. coli PFM2 versus a ΔpurH mutant by coinoculating them in coculture
+      with R. palustris NifA* (CGA676).
+    explanation: Shows that R. palustris CGA676 is paired with E. coli PFM2 and PFM2 ΔpurH in the competition coculture of
+      PMID:42117636.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+    notes: Phototrophic purple non-sulfur bacterium derived from CGA0092 carrying a nifA* mutation that causes NH4+ excretion
+      under N2-fixing conditions and excretes adenine.
+    gtdb_candidates:
+    - GTDB:s__Rhodopseudomonas_palustris_C
+    - GTDB:s__Rhodopseudomonas_palustris_F
+    - GTDB:s__Rhodopseudomonas_palustris_G
+    - GTDB:s__Rhodopseudomonas_palustris_J
+    - GTDB:s__Rhodopseudomonas_pseudopalustris
+    gtdb_grounding_status: AMBIGUOUS
+  strain_designation:
+    strain_name: CGA676
+    genetic_modification: Derived from R. palustris CGA0092 carrying a nifA* mutation that causes constitutive nitrogenase
+      activity and NH4+ excretion under N2-fixing conditions.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris CGA676 is derived from CGA0092 ( 59 ) and carries a nifA* mutation that causes NH4+ excretion under
+      N2-fixing conditions ( 20 , 27 ).
+    explanation: Identifies strain CGA676, its derivation from CGA0092, and its nifA* ammonium-excretion phenotype.
+ecological_interactions:
+- name: High Siderophore Expression, Cheater Selection, and H2 Oxidation in Evolved R. palustris CGA676 Monoculture
+  description: Across 803 generations of anaerobic phototrophic evolution in MDC medium supplemented with organic acids, ethanol,
+    and 25 mM glucose (10 replicate lineages), Rhodopseudomonas palustris CGA676 monocultures accumulated 167 differentially
+    enriched mutations across 19 commonly mutated genes and intergenic regions (Figure 2A, C). Because monocultures lacked
+    the iron facilitation present in coculture, ancestral R. palustris CGA676 expressed the siderophore synthesis gene RPA2390
+    at 5-fold higher levels in monoculture than in coculture (coculture RPA2390 transcript was 20% of monoculture, Figure
+    5C) and purH at 2-fold higher levels (coculture purH transcript was 50% of monoculture, Figure 3D), driving enrichment
+    of siderophore synthesis cluster RPA2382-90 cheater mutants in monoculture (Figure 5A). In parallel, seven replicate monocultures
+    acquired a 5-bp deletion in the hoxJ sensor kinase gene (reconstructed as strain CGA4065), relieving HoxJ repression of
+    HoxA and activating uptake hydrogenase so that no H2 accumulated in stationary phase (Figure 7A, C, D).
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  metabolites:
+  - preferred_term: iron cation
+    term:
+      id: CHEBI:24875
+      label: iron cation
+  - preferred_term: siderophore
+    term:
+      id: CHEBI:26672
+      label: siderophore
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These criteria resulted in a list of 167 mutations from R. palustris monocultures, 31 from E. coli monocultures,
+      43 from R. palustris in cocultures, and 132 from E. coli in cocultures ( Fig. 2A ; Tables S1 through S5 ).
+    explanation: Quantifies the 167 differentially enriched mutations in evolved R. palustris monocultures.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When considering commonly mutated genes and intergenic regions, 19 were mutated in monoculture vs. five in coculture
+      for R. palustris ( Fig. 2C ), and six were mutated in monoculture vs. 19 in coculture for E. coli ( Fig. 2D ).
+    explanation: Quantifies the 19 commonly mutated genes and intergenic regions in R. palustris monocultures vs 5 in cocultures.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A frequently mutated gene cluster in R. palustris monocultures was RPA2382-90 for siderophore synthesis ( Fig.
+      2C, 5A and B ). We speculate that these mutations gave rise to a subpopulation of “cheaters” of varying frequencies
+      ( Fig. 5A ) that scavenged siderophores from the siderophore-producing subpopulation.
+    explanation: Documents the frequent mutation of siderophore synthesis cluster RPA2382-90 and emergence of siderophore
+      cheater subpopulations in R. palustris monocultures.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We verified that this trend was also true for R. palustris in coculture with E. coli PFM2; RT-qPCR analysis showed
+      that the RPA2390 transcript level in coculture was 20% of that in monoculture ( Fig. 5C ). Adding soluble iron to monocultures
+      decreased RPA2390 expression to 3% of that observed without added iron, suggesting that the low expression in coculture
+      was in response to higher iron availability ( Fig. 5C ).
+    explanation: Demonstrates that RPA2390 transcript levels are 5-fold higher in monoculture than in coculture (20% of monoculture)
+      and are repressed to 3% by soluble iron addition.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on the above, we hypothesized that our hoxJ mutants also permitted H2 oxidation. To test this hypothesis,
+      we introduced a 5-bp hoxJ deletion, observed in seven replicate monocultures, into the NifA* ancestor. Indeed, the mutant
+      did not accumulate H2 ( Fig. 7D ). Thus, we reason that hoxJ mutations that were enriched in monoculture allowed R.
+      palustris to use H2 as an electron source.
+    explanation: Proves that the 5-bp hoxJ deletion observed across seven replicate R. palustris monocultures enables H2 oxidation
+      and prevents H2 accumulation.
+environmental_factors:
+- name: Differentially enriched mutations and parallel loci in evolved R. palustris CGA676 monocultures
+  value: 167 differentially enriched mutations across 19 commonly mutated genes/intergenic regions (803 generations, 10 replicates)
+  unit: mutations and loci
+  description: Whole-population genome sequencing at generations 781 and 803 across 10 replicate R. palustris CGA676 monocultures
+    (Figure 2A, C).
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These criteria resulted in a list of 167 mutations from R. palustris monocultures, 31 from E. coli monocultures,
+      43 from R. palustris in cocultures, and 132 from E. coli in cocultures ( Fig. 2A ; Tables S1 through S5 ).
+    explanation: Supports the 167 differentially enriched mutations in R. palustris monocultures.
+- name: Monoculture-to-coculture RPA2390 and purH transcript ratios in R. palustris CGA676
+  value: Coculture RPA2390 transcript 20% of monoculture (3% with soluble Fe); coculture purH transcript 50% of monoculture
+  unit: '% of monoculture transcript level'
+  description: RT-qPCR expression comparisons of RPA2390 (Figure 5C) and purH (Figure 3D) in R. palustris CGA676 monoculture
+    vs coculture.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris also had less purH transcript in coculture, 50% of that in monoculture ( Fig. 3D ).
+    explanation: Quantifies the 50% purH transcript level in coculture relative to monoculture.
+growth_media:
+- name: M9-derived coculture medium (MDC) supplemented with organic acids, ethanol, and 25 mM glucose for R. palustris monoculture
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  headspace_gas: 100% N2
+  light_regime: constant illumination (45 W halogen bulb, 430 lumens)
+  inoculum_size: 2.5% vol/vol (0.25 mL into 10 mL)
+  inoculum_unit: v/v every 7 days
+  vessel_type: 27-mL anaerobic test tube
+  composition:
+  - name: succinate
+    concentration: '8'
+    unit: mM
+    chebi_term:
+      preferred_term: succinate
+      term:
+        id: CHEBI:26806
+        label: succinate
+  - name: acetate
+    concentration: '7.3'
+    unit: mM
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  - name: formate
+    concentration: '0.25'
+    unit: mM
+    chebi_term:
+      preferred_term: formate
+      term:
+        id: CHEBI:15740
+        label: formate
+  - name: lactate
+    concentration: '1.4'
+    unit: mM
+    chebi_term:
+      preferred_term: lactate
+      term:
+        id: CHEBI:24996
+        label: lactate
+  - name: ethanol
+    concentration: '6.3'
+    unit: mM
+    chebi_term:
+      preferred_term: ethanol
+      term:
+        id: CHEBI:16236
+        label: ethanol
+  - name: glucose
+    concentration: '25'
+    unit: mM
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  preparation_notes: 10 mL MDC in 27-mL anaerobic test tubes prepared by bubbling N2 and sealing with rubber stoppers and
+    aluminum crimps; for CGA676 experimental evolution monocultures, MDC was supplemented with 25 mM glucose, cation solution,
+    8 mM disodium succinate, 7.3 mM sodium acetate, 0.25 mM sodium formate, 1.4 mM sodium lactate, and 6.3 mM ethanol, laid
+    flat without shaking under constant illumination at 30 °C, and transferred at 0.25 mL (2.5% vol/vol) every 7 days for
+    803 generations.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anoxic media in test tubes were prepared by bubbling N2 through 10 mL of media in 27-mL anaerobic test tubes,
+      then sealing with rubber stoppers and aluminum crimps prior to autoclaving.
+    explanation: Specifies 10 mL media in 27-mL anaerobic test tubes under N2.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CGA676 monocultures were supplemented with 25 mM glucose, cation solution, 8 mM disodium succinate, 7.3 mM sodium
+      acetate, 0.25 mM sodium formate, 1.4 mM sodium lactate, and 6.3 mM ethanol; glucose was provided for consistency with
+      other conditions but R. palustris cannot consume glucose.
+    explanation: Specifies the exact organic acid, ethanol, and 25 mM glucose composition for evolved R. palustris CGA676
+      monocultures.
+external_resources:
+- name: NCBI BioProject PRJNA1079325 - Whole-genome sequencing of evolved R. palustris and E. coli monocultures and cocultures
+  repository: OTHER
+  resource_id: PRJNA1079325
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1079325
+  description: Illumina NextSeq 500 whole-population sequencing reads for evolved R. palustris CGA676 and E. coli PFM2 monocultures
+    and cocultures.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genome sequence reads are in the NCBI Sequence Read Archive under BioProject accession number PRJNA1079325
+    explanation: Verifies BioProject accession PRJNA1079325.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: High siderophore synthase (RPA2390) transcription under iron scarcity in R. palustris CGA676 monoculture selects
+  for RPA2382-90 siderophore cheater mutants.
+discussions:
+- discussion_id: cga676_monoculture_vs_coculture_hoxj_selection_asymmetry
+  prompt: Why were 5-bp hoxJ deletions enabling H2 oxidation enriched in seven replicate R. palustris CGA676 monocultures
+    but not in cocultures, even though reconstructed ΔhoxJ and hupV+ mutants actively oxidize H2 in both monoculture and coculture
+    (Figure 7E)?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#High Siderophore Expression, Cheater Selection, and H2 Oxidation in Evolved R. palustris CGA676
+    Monoculture
+  rationale: PMID:42117636 proposes that unexhausted organic acids at transfer time or competition with E. coli for trace
+    nickel required for uptake hydrogenase activity may have prevented low-frequency hoxJ mutants from sweeping in coculture.
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: First, consumable organic acids, which remained available at the time of transfer in cocultures, could have allowed
+      the general R. palustris population to remain competitive against hoxJ mutants, preventing their enrichment. A second
+      possibility is that E. coli outcompeted R. palustris for nickel, which is required for hydrogenase activity.
+    explanation: Documents the two mechanistic hypotheses proposed by the authors for monoculture-specific hoxJ enrichment.
+  posed_by: antigravity
+  posed_date: '2026-11-09'
+curation_history:
+- timestamp: '2026-11-09T12:25:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000539 (Rhodopseudomonas palustris CGA676 Anaerobic Monoculture Baseline) in data/isolates/
+    from PMID:42117636 / PMC13274399 for the 803-generation evolved R. palustris CGA676 monoculture baseline (167 mutations
+    across 19 loci, 5-fold higher RPA2390 expression, RPA2382-90 siderophore cheaters, and 7/10 parallel hoxJ 5-bp deletions).
+  llm_assisted: true
