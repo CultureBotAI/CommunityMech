@@ -64,6 +64,13 @@ Four new verbatim, bracket-free `EvidenceItem` entries were verified against com
 | `kb/taxa/Geobacter_sulfurreducens.yaml` | `omcZ` | `UniProtKB:Q74A90` | `GSU2076` | `GCF_000007985.2` | **6** | `PMID:41210787` (1), `PMID:28992596` (1), `PMID:34986141` (3), `PMID:40845095` (1) |
 | `kb/taxa/Geobacter_sulfurreducens.yaml` | `omcB` | `UniProtKB:Q74A86` | `GSU2737` | `GCF_000007985.2` | **7** | `PMID:41876513` (5), `PMID:37650614` (1), `PMID:37747940` (1) |
 
+### `CommonTaxon` SHA-256 Provenance Chain Across Cycles 11–13
+
+| CommonTaxon Record | Cycle 11 Stage 3 SHA-256 | Cycle 12 Stage 3 SHA-256 | Cycle 13 Stage 3 SHA-256 |
+|---|---|---|---|
+| `kb/taxa/Shewanella_oneidensis_MR1.yaml` (`CommunityMech:taxon:000001`) | `3bb69ddaa4d9064fe6340d04dff7bd9bac375fb08495580e369ba239b71bdd75` | `5666e10e654de62d43df48c97be2215b1b24e7c94b471b3ece95bb248b7f41f5` | `5994b4b237f3d87d16dcbb47edfd6a9fa88fc3898100457ce39036e712cccdf6` |
+| `kb/taxa/Geobacter_sulfurreducens.yaml` (`CommunityMech:taxon:000002`) | `ab3bcd9639241391f25a20b5bbdb3a40ee6e907d441f696355ce16745e3c4b92` | `aeddfc60dfc34c721e1b2355aeddcd1b809da8196e449d360ce509f0af0c76dc` | `413329d881e1bcfcf692ffcd76a3839d183e9abd64952703233f6e786b918d7e` |
+
 ---
 
 ## 4. Documented Representation, Writer, and Offline-Proteome Boundaries
