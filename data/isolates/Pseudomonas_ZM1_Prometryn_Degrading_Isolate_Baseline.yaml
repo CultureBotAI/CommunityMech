@@ -143,6 +143,21 @@ ecological_interactions:
       0.98 3.7 ± 1.2
     explanation: Reports the Table 6 soil microcosm kinetic parameters for single-strain ZM-1 (k = 0.0564 d^-1, t1/2 = 12.3
       d, R^2 = 0.94, 11.4 ± 1.8% residual at 30 d).
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Optimal Temp (°C) Optimal pH Optimal Inoculum (%) Max OD600 Max Degradation Rate (%) k (h − 1) t1/2 (h)
+      R 2 ZM-1 30 7 7 0.86 (36 h) 97.3 ± 1.2 (48 h) 0.075 9.2 0.978
+    explanation: Reports the single-factor optimized culture parameters (30 °C, pH 7, 7% inoculum) and first-order kinetic
+      fit (R2 = 0.978) for Pseudomonas sp. ZM-1 monoculture prometryn degradation.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strain ZM-1 dominates mid-stage degradation with its high specific degradation activity; while the slower-growing
+      but longer-persisting strain ZM-3 maintains degradation function into the late stage, extending the effective degradation
+      window and avoiding intense resource competition that would occur if all strains grew synchronously.
+    explanation: Establishes the mid-stage high specific prometryn degradation functional niche of Pseudomonas sp. ZM-1 that
+      motivates its pairing with early-stage ZM-2 and late-stage ZM-3 in CommunityMech:000503.
 environmental_factors:
 - name: 48-h liquid BSM prometryn degradation kinetics of axenic Pseudomonas sp. ZM-1
   value: 97.3 ± 1.2% degradation at 48 h; k = 0.075 h^-1; t1/2 = 9.2 h; R^2 = 0.978; max OD600 = 0.86 at 36 h
@@ -233,4 +248,12 @@ curation_history:
   changes: Created CommunityMech:000536 (Pseudomonas sp. ZM-1 Prometryn-Degrading Isolate Baseline) in data/isolates/ from
     PMID:42795638 / PMC13609637 for the axenic Pseudomonas sp. ZM-1 monoculture baseline (97.3 ± 1.2% degradation of 100 mg/L
     prometryn at 48 h in BSM, t1/2 = 9.2 h; soil microcosm t1/2 = 12.3 d).
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 1-node, 0-edge COMMUNITY_LEVEL prometryn catabolism
+    representation for Pseudomonas sp. ZM-1 against PMID:42795638, enriched the interaction node with 2 non-overlapping verbatim
+    snippets (4 -> 6 EvidenceItems) covering Table 1 optimal culture parameters/R2 fit and the mid-stage specific degradation
+    niche, verified NCBITaxon:286 -> GTDB:g__Pseudomonas (GROUNDED) grounding, and confirmed 1 KNOWLEDGE_GAP discussion (zm1_specific_prometryn_transformation_enzymes_unresolved).'
   llm_assisted: true

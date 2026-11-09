@@ -142,6 +142,28 @@ ecological_interactions:
       dropped to 9.5 days, and 92.1% ± 1.5% was removed.
     explanation: Demonstrates that ZM-3 achieves the fastest single-strain soil microcosm prometryn degradation (t1/2 = 9.5
       d, 92.1 ± 1.5% removal at 30 d).
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ZM-3 30–32 6.5–7.5 5–6 0.79 (44 h) 92.8 ± 1.1 (48 h) 0.055 12.6 0.969
+    explanation: Reports the single-factor optimized culture parameters (30-32 °C, pH 6.5-7.5, 5-6% inoculum) and first-order
+      kinetic fit (R2 = 0.969) for Stenotrophomonas sp. ZM-3 monoculture in mineral medium.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth curves ( Figure 2 A) showed that ZM-2 grew the fastest, reaching stationary phase at 28 h with an OD 600
+      of 0.91. ZM-1 peaked at 36 h with an OD 600 of 0.86. ZM-3 grew more slowly but kept going longer, reaching its highest
+      OD 600 of 0.79 at 44 h.
+    explanation: Directly contrasts the slower, longer-persisting growth trajectory of Stenotrophomonas sp. ZM-3 (peak OD600
+      = 0.79 at 44 h) against ZM-2 and ZM-1.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Treatment k (d − 1) Half-Life (d) R 2 Residual at 30 d (%) Natural control 0.0119 58.2 0.96 67.6 ± 2.1 ZM-1 0.0564
+      12.3 0.94 11.4 ± 1.8 ZM-2 0.0492 14.1 0.95 17.6 ± 2.3 ZM-3 0.073 9.5 0.97 7.9 ± 1.5 Synthetic consortium 0.0889 7.8
+      0.98 3.7 ± 1.2
+    explanation: Provides the full Table 2 30-day soil microcosm kinetic dataset showing that ZM-3 achieves the fastest single-strain
+      soil rate constant (k = 0.073 d^-1, R2 = 0.97) and lowest residual prometryn (7.9 +/- 1.5%) among the three monocultures.
 environmental_factors:
 - name: 48-h liquid BSM prometryn degradation kinetics of axenic Stenotrophomonas sp. ZM-3
   value: 92.8 ± 1.1% degradation at 48 h; k = 0.055 h^-1; t1/2 = 12.6 h; R^2 = 0.969; max OD600 = 0.79 at 44 h
@@ -225,4 +247,13 @@ curation_history:
   changes: Created CommunityMech:000538 (Stenotrophomonas sp. ZM-3 Prometryn-Degrading Isolate Baseline) in data/isolates/
     from PMID:42795638 / PMC13609637 for the first reported prometryn-degrading Stenotrophomonas pure-culture isolate baseline
     (92.8 ± 1.1% degradation at 48 h in BSM, t1/2 = 12.6 h; 92.1 ± 1.5% soil microcosm removal at 30 d, t1/2 = 9.5 d).
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 1-node, 0-edge COMMUNITY_LEVEL prometryn catabolism
+    representation for Stenotrophomonas sp. ZM-3 against PMID:42795638, enriched the interaction node with 3 non-overlapping
+    verbatim snippets (3 -> 6 EvidenceItems) covering Table 1 optimal parameters/R2 fit, Figure 2A 44 h growth persistence,
+    and Table 2 30-day soil microcosm kinetics, verified NCBITaxon:40323 -> GTDB:g__Stenotrophomonas (GROUNDED) grounding,
+    and confirmed 1 KNOWLEDGE_GAP discussion (zm3_acid_alkali_tolerance_and_triazine_pathway_genes_unresolved).'
   llm_assisted: true

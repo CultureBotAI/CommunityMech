@@ -173,6 +173,22 @@ ecological_interactions:
       palustris to use H2 as an electron source.
     explanation: Proves that the 5-bp hoxJ deletion observed across seven replicate R. palustris monocultures enables H2 oxidation
       and prevents H2 accumulation.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris also had less purH transcript in coculture, 50% of that in monoculture ( Fig. 3D ).
+    explanation: Quantifies the baseline purH transcript abundance in R. palustris CGA676 monoculture relative to coculture
+      (2-fold higher in monoculture).
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A commonly mutated gene in R. palustris monocultures was hoxJ, which encodes a sensor kinase that governs H2-oxidizing
+      hydrogenase by repressing the transcriptional activator HoxA ( Fig. 7C and 2C ). Normally, HoxJ repression of HoxA is
+      relieved when HupUV senses H2. However, the R. palustris ancestor had a hupV mutation, causing HoxJ to constitutively
+      repress HoxA ( 51 ). Deleting HoxJ leads to hydrogenase activity ( 51 ).
+    explanation: Provides the mechanistic explanation for why hoxJ mutations are strongly selected during anaerobic photoheterotrophic
+      monoculture evolution of R. palustris CGA676 (restoring H2-oxidizing hydrogenase activity to recycle H2 produced by
+      constitutively active NifA* nitrogenase).
 environmental_factors:
 - name: Differentially enriched mutations and parallel loci in evolved R. palustris CGA676 monocultures
   value: 167 differentially enriched mutations across 19 commonly mutated genes/intergenic regions (803 generations, 10 replicates)
@@ -324,4 +340,13 @@ curation_history:
   changes: Created CommunityMech:000539 (Rhodopseudomonas palustris CGA676 Anaerobic Monoculture Baseline) in data/isolates/
     from PMID:42117636 / PMC13274399 for the 803-generation evolved R. palustris CGA676 monoculture baseline (167 mutations
     across 19 loci, 5-fold higher RPA2390 expression, RPA2382-90 siderophore cheaters, and 7/10 parallel hoxJ 5-bp deletions).
+  llm_assisted: true
+- timestamp: '2026-11-09T19:10:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Stage 2 causal-graph review and curation (Batch 145): verified the 1-node, 0-edge COMMUNITY_LEVEL siderophore
+    expression, cheater selection, and H2 oxidation representation for evolved R. palustris CGA676 monoculture against PMID:42117636,
+    enriched the interaction node with 2 non-overlapping verbatim snippets (5 -> 7 EvidenceItems) covering baseline purH expression
+    and the hoxJ/HoxA hydrogenase regulatory mechanism, verified NCBITaxon:1076 (AMBIGUOUS GTDB candidates) grounding, and
+    confirmed 1 KNOWLEDGE_GAP discussion (cga676_monoculture_vs_coculture_hoxj_selection_asymmetry).'
   llm_assisted: true
