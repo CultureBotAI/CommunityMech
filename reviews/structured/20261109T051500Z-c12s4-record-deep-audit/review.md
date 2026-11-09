@@ -11,11 +11,11 @@
 
 ## Summary
 
-Deep per-record scientific and structural audit of 28 records (all 18 data/isolates/*.yaml records including newly curated 000531, 000532, 000533, and 000534, both kb/taxa/*.yaml reusable taxon records updated in Cycle 12 Stage 3, newly curated and causal-graph-reviewed community record 000535 in Cycle 12 Stage 1/2, all 3 community records remediated in Cycle 11 Stage 5 [000069, 000181, 000213], representative CommonTaxon-linked community 000385, and 3 kb/communities/*.yaml records with newly identified actionable completeness gaps [000115, 000116, 000374]) at frozen Git revision 828e05eb304c574577164460a9633c13e0524b8f.
+Deep per-record scientific and structural audit of 28 records (all 18 data/isolates/*.yaml records including newly curated 000531, 000532, 000533, and 000534, both kb/taxa/*.yaml reusable taxon records updated in Cycle 12 Stage 3, newly curated and causal-graph-reviewed community record 000535 in Cycle 12 Stage 1/2, all 3 community records remediated in Cycle 11 Stage 5 [000069, 000181, 000213], representative CommonTaxon-linked community 000385, and 3 kb/communities/*.yaml records [000115, 000116, 000374] plus 2 isolate baselines [000533, 000534] with newly identified actionable completeness gaps) at frozen Git revision 828e05eb304c574577164460a9633c13e0524b8f.
 
 ## Scope And Provenance
 
-Focused per-record deep audit of all isolate baselines (18), all reusable taxon records (2), the newly curated and causal-graph-reviewed community record in Cycle 12 (1), all Cycle 11 Stage 5 remediated community records (3), representative CommonTaxon-linked community (1), and all community records with new actionable Stage 5 remediation findings (3).
+Focused per-record deep audit of all isolate baselines (18, including 2 with newly identified actionable functional_role findings: 000533 and 000534), all reusable taxon records (2), the newly curated and causal-graph-reviewed community record in Cycle 12 (1), all Cycle 11 Stage 5 remediated community records (3), representative CommonTaxon-linked community (1), and 3 community records with new actionable Stage 5 remediation findings (000115, 000116, 000374).
 
 Selection: All 18 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 1 new/causal-graph-reviewed kb/communities/*.yaml record (000535), 3 Cycle 11 Stage 5 remediated records (000069, 000181, 000213), representative CommonTaxon-linked record (000385), and 3 kb/communities/*.yaml records (000115, 000116, 000374) surfaced by completeness audits.
 Coverage: full; 28 reviewed / 28 in the declared population.
@@ -72,13 +72,13 @@ Record CommunityMech:000069 (kb/communities/Syntrophobacter_Methanospirillum_Syn
 
 completeness: concern. Targets: CommunityMech:000115.
 
-Record CommunityMech:000115 (kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml) in cohort BIOREMEDIATION has Completeness Score 100/100, 3 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+Record CommunityMech:000115 (kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml) in cohort BIOREMEDIATION has Completeness Score 95/100, 3 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
 ### Deep per-record audit of CommunityMech:000116 (Aerobic Denitrification Disturbance-Stable SynCom)
 
 completeness: concern. Targets: CommunityMech:000116.
 
-Record CommunityMech:000116 (kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml) in cohort BIOREMEDIATION has Completeness Score 98/100, 3 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+Record CommunityMech:000116 (kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml) in cohort BIOREMEDIATION has Completeness Score 93/100, 3 taxa, 3 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
 ### Deep per-record audit of CommunityMech:000181 (Pseudomonas-Rhodococcus Chloronitrobenzene Coculture)
 
@@ -202,15 +202,15 @@ Record CommunityMech:000532 (data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolat
 
 ### Deep per-record audit of CommunityMech:000533 (Achromobacter sp. SL8 Cadmium Immobilization Isolate Baseline)
 
-completeness: supported. Targets: CommunityMech:000533.
+completeness: concern. Targets: CommunityMech:000533.
 
-Record CommunityMech:000533 (data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+Record CommunityMech:000533 (data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 85/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
 ### Deep per-record audit of CommunityMech:000534 (Enterobacter sp. SL12 Cadmium Immobilization Isolate Baseline)
 
-completeness: supported. Targets: CommunityMech:000534.
+completeness: concern. Targets: CommunityMech:000534.
 
-Record CommunityMech:000534 (data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
+Record CommunityMech:000534 (data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml) in cohort ISOLATES:BIOREMEDIATION has Completeness Score 85/100, 1 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
 ### Deep per-record audit of CommunityMech:000535 (Ogataea Str3-Leu2 Auxotrophic Cross-Feeding Coculture)
 
@@ -236,19 +236,31 @@ Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml) in coh
 
 major / open / confirmed; issue key: c12s4-000115-aerobic-denitrification-qq-syncom-abundance-levels.
 
-In kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml (CommunityMech:000115), Acinetobacter baumannii (taxonomy[0], NCBITaxon:470, functional_role: [CROSS_FEEDER]), Pseudomonas aeruginosa (taxonomy[1], NCBITaxon:287, functional_role: [CROSS_FEEDER]), and Aeromonas hydrophila (taxonomy[2], NCBITaxon:644, functional_role: [CROSS_FEEDER]) all omit abundance_level. The cited primary study (PMID:38277828, doi:10.1016/j.watres.2024.121162) explicitly establishes that 'To improve denitrification efficiency, a synthetic microbial community (SMC) composed of denitrifiers Acinetobacter baumannii N1 (AC), Pseudomonas aeruginosa N2 (PA) and Aeromonas hydrophila (AH) were constructed. The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little nitrite (NO2--N) accumulation, compared to the single-culture systems and co-culture systems.' Setting abundance_level: DOMINANT on taxonomy[0], taxonomy[1], and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level).
+In kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml (CommunityMech:000115), Acinetobacter baumannii (taxonomy[0], NCBITaxon:470, functional_role: [CROSS_FEEDER]), Pseudomonas aeruginosa (taxonomy[1], NCBITaxon:287, functional_role: [CROSS_FEEDER]), and Aeromonas hydrophila (taxonomy[2], NCBITaxon:644, functional_role: [CROSS_FEEDER]) all omit abundance_level. The cited primary study (PMID:38277828, doi:10.1016/j.watres.2024.121162) explicitly establishes that 'To improve denitrification efficiency, a synthetic microbial community (SMC) composed of denitrifiers Acinetobacter baumannii N1 (AC), Pseudomonas aeruginosa N2 (PA) and Aeromonas hydrophila (AH) were constructed. The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little nitrite (NO2--N) accumulation, compared to the single-culture systems and co-culture systems.' Setting abundance_level: DOMINANT on taxonomy[0], taxonomy[1], and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level; proportional Completeness Score 95/100 -&gt; 100/100).
 
 ### c12s4-000116-aerobic-denitrification-disturbance-syncom-abundance-levels: All three disturbance-stable denitrifying SMC members in Aerobic_Denitrification_Disturbance_SynCom (CommunityMech:000116) omit abundance_level despite defined three-member synthetic community support in PMID:40020349
 
 major / open / confirmed; issue key: c12s4-000116-aerobic-denitrification-disturbance-syncom-abundance-levels.
 
-In kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml (CommunityMech:000116), Pseudomonas aeruginosa (taxonomy[0], NCBITaxon:287, functional_role: [CROSS_FEEDER]), Acinetobacter baumannii (taxonomy[1], NCBITaxon:470, functional_role: [CROSS_FEEDER]), and Aeromonas hydrophila (taxonomy[2], NCBITaxon:644, functional_role: [CROSS_FEEDER]) all omit abundance_level. The cited primary study (PMID:40020349, doi:10.1016/j.watres.2025.123270) explicitly establishes that 'Here, dibutyl phthalate (DBP) and levofloxacin (LOFX) were used as environmental disturbances to study their effects on the aerobic denitrification functional stability of SMC composed of Pseudomonas aeruginosa N2 (PA), Acinetobacter baumannii N1(AC) and Aeromonas hydrophila (AH).' Setting abundance_level: DOMINANT on taxonomy[0], taxonomy[1], and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level).
+In kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml (CommunityMech:000116), Pseudomonas aeruginosa (taxonomy[0], NCBITaxon:287, functional_role: [CROSS_FEEDER]), Acinetobacter baumannii (taxonomy[1], NCBITaxon:470, functional_role: [CROSS_FEEDER]), and Aeromonas hydrophila (taxonomy[2], NCBITaxon:644, functional_role: [CROSS_FEEDER]) all omit abundance_level. The cited primary study (PMID:40020349, doi:10.1016/j.watres.2025.123270) explicitly establishes that 'Here, dibutyl phthalate (DBP) and levofloxacin (LOFX) were used as environmental disturbances to study their effects on the aerobic denitrification functional stability of SMC composed of Pseudomonas aeruginosa N2 (PA), Acinetobacter baumannii N1(AC) and Aeromonas hydrophila (AH).' Setting abundance_level: DOMINANT on taxonomy[0], taxonomy[1], and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level; proportional Completeness Score 93/100 -&gt; 98/100).
 
 ### c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles: Both cadmium-immobilizing coculture members in Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture (CommunityMech:000374) omit functional_role despite direct Cd-detoxification support in PMID:42307251
 
 major / open / confirmed; issue key: c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles.
 
-In kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml (CommunityMech:000374), both Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222, abundance_level: DOMINANT) and Enterobacter sp. SL12 (taxonomy[1], NCBITaxon:547, abundance_level: DOMINANT) omit functional_role, even though their corresponding single-strain isolate baselines (CommunityMech:000533 and CommunityMech:000534) carry functional_role: [PRIMARY_DEGRADER] backed by the same open-access study (PMID:42307251, doi:10.1128/spectrum.01081-26: 'After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.'). Setting functional_role: [PRIMARY_DEGRADER] on both taxonomy[0] and taxonomy[1] raises the review-communities s_fr functional_role rubric component from 0/10 to 10/10 (Completeness Score 90/100 -&gt; 100/100) and raises scripts/audit_completeness.py:calculate_completeness() from 40/100 to 90/100.
+In kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml (CommunityMech:000374), both Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222, abundance_level: DOMINANT) and Enterobacter sp. SL12 (taxonomy[1], NCBITaxon:547, abundance_level: DOMINANT) omit functional_role, despite direct Cd-detoxification and Cd-immobilization support in the cited open-access study (PMID:42307251, doi:10.1128/spectrum.01081-26: 'After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.'). Setting functional_role: [PRIMARY_DEGRADER] on both taxonomy[0] and taxonomy[1] raises the review-communities s_fr functional_role rubric component from 0/10 to 10/10 (Completeness Score 90/100 -&gt; 100/100) and raises scripts/audit_completeness.py:calculate_completeness() from 40/100 to 90/100.
+
+### c12s4-000533-achromobacter-sl8-isolate-functional-role: Achromobacter sp. SL8 monoculture isolate baseline Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline (CommunityMech:000533) omits functional_role on taxonomy[0] despite direct Cd-immobilization support in PMID:42307251
+
+major / open / confirmed; issue key: c12s4-000533-achromobacter-sl8-isolate-functional-role.
+
+In data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml (CommunityMech:000533), Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222, abundance_level: DOMINANT) omits functional_role despite direct monoculture cadmium-detoxification and Cd-immobilization support in PMID:42307251 (doi:10.1128/spectrum.01081-26: 'After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.'). Setting functional_role: [PRIMARY_DEGRADER] on taxonomy[0] raises the review-communities s_fr functional_role rubric component from 0/10 to 10/10 (Completeness Score 85/100 -&gt; 95/100) and raises scripts/audit_completeness.py:calculate_completeness() from 25/100 to 75/100.
+
+### c12s4-000534-enterobacter-sl12-isolate-functional-role: Enterobacter sp. SL12 monoculture isolate baseline Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline (CommunityMech:000534) omits functional_role on taxonomy[0] despite direct Cd-immobilization support in PMID:42307251
+
+major / open / confirmed; issue key: c12s4-000534-enterobacter-sl12-isolate-functional-role.
+
+In data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml (CommunityMech:000534), Enterobacter sp. SL12 (taxonomy[0], NCBITaxon:547, abundance_level: DOMINANT) omits functional_role despite direct monoculture cadmium-detoxification and Cd-immobilization support in PMID:42307251 (doi:10.1128/spectrum.01081-26: 'After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.'). Setting functional_role: [PRIMARY_DEGRADER] on taxonomy[0] raises the review-communities s_fr functional_role rubric component from 0/10 to 10/10 (Completeness Score 85/100 -&gt; 95/100) and raises scripts/audit_completeness.py:calculate_completeness() from 25/100 to 75/100.
 
 ## Recommended Actions And Acceptance Checks
 
@@ -273,6 +285,20 @@ Add functional_role: [PRIMARY_DEGRADER] to both Achromobacter sp. SL8 (taxonomy[
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
 - just validate-history history
 
+### act-populate-achromobacter-sl8-isolate-functional-role
+
+Add functional_role: [PRIMARY_DEGRADER] to Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222) backed by PMID:42307251 (doi:10.1128/spectrum.01081-26) on CommunityMech:000533, and append curation_history.
+
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+- just validate-history history
+
+### act-populate-enterobacter-sl12-isolate-functional-role
+
+Add functional_role: [PRIMARY_DEGRADER] to Enterobacter sp. SL12 (taxonomy[0], NCBITaxon:547) backed by PMID:42307251 (doi:10.1128/spectrum.01081-26) on CommunityMech:000534, and append curation_history.
+
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
+- just validate-history history
+
 ## Category Boundaries
 
 
@@ -281,13 +307,13 @@ Add functional_role: [PRIMARY_DEGRADER] to both Achromobacter sp. SL8 (taxonomy[
 | Evidence | Reference / locator | Support | Observation |
 | --- | --- | --- | --- |
 | ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and CommonTaxon classes | supports | All 511 kb/communities/*.yaml, 18 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records (531 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
-| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 531 records | supports | Proportional 100-point review-communities Completeness Score audit across all 529 MicrobialCommunity records (min 50, median 94, mean 91.33, max 100; CommunityMech:000115 = 100/100, CommunityMech:000116 = 98/100, CommunityMech:000374 = 90/100) and 2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (529/529), while scripts/audit_completeness.py:calculate_completeness() scores 000115 at 80/100, 000116 at 80/100, and 000374 at 40/100 (due to missing taxonomy[].functional_role on 000374). |
+| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 531 records | supports | Proportional 100-point review-communities Completeness Score audit across all 529 MicrobialCommunity records (min 50, median 93, mean 91.28, max 100; CommunityMech:000115 = 95/100 [s_ab = 0/5], CommunityMech:000116 = 93/100 [s_ab = 0/5], CommunityMech:000374 = 90/100 [s_fr = 0/10], CommunityMech:000533 = 85/100 [s_fr = 0/10, external_resources = 0/5], CommunityMech:000534 = 85/100 [s_fr = 0/10, external_resources = 0/5]) and 2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (529/529), while scripts/audit_completeness.py:calculate_completeness() scores 000115 at 80/100, 000116 at 80/100, 000374 at 40/100, 000533 at 25/100, and 000534 at 25/100 (because missing taxonomy[].functional_role causes all_required_fields_present() to return False on 000374, 000533, and 000534). |
 | ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 511 kb/communities and 18 data/isolates records found 494/511 communities and 18/18 isolates with 0 warnings (including all 26/26 MicrobialCommunity records in the 28-record deep audit) and 17 community records with 48 non-fatal warnings (46 DISCONNECTED across 16 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-530 | supports | Corpus-wide causal graph inventory covers all 529 MicrobialCommunity records (511 kb/communities/*.yaml and 18 data/isolates/*.yaml) through CommunityMech:000535 with 100% SHA-256 attestation in verify_causal_graph_reviews.py after Cycle 12 Stage 2 (#2736, PR #2737). |
 | ev-common-taxon-linkage-audit | kb/taxa/Shewanella_oneidensis_MR1.yaml; TaxonomicComposition.common_taxon cross-references and kb/taxa/*.yaml EvidenceItem entries | supports | Corpus-wide audit of reusable taxon cross-references confirmed 22 TaxonomicComposition.common_taxon links across 21 MicrobialCommunity records (20 kb/communities/*.yaml records and 1 data/isolates/*.yaml record: 6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes with 29 verified EvidenceItems] and 15 Shewanella oneidensis communities plus isolate baseline CommunityMech:000524 linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes with 37 verified EvidenceItems], with CommunityMech:000177 linking to both) after Cycle 12 Stage 3 (#2738). |
 | ev-aerobic-denitrification-qq-pmid38277828 | PMID:38277828; kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml | supports | PMID:38277828 (doi:10.1016/j.watres.2024.121162) establishes that Acinetobacter baumannii N1 (NCBITaxon:470), Pseudomonas aeruginosa N2 (NCBITaxon:287), and Aeromonas hydrophila (NCBITaxon:644) were constructed as a defined three-member synthetic microbial community (SMC) driving efficient aerobic denitrification. |
 | ev-aerobic-denitrification-disturbance-pmid40020349 | PMID:40020349; kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml | supports | PMID:40020349 (doi:10.1016/j.watres.2025.123270) establishes that Pseudomonas aeruginosa N2 (NCBITaxon:287), Acinetobacter baumannii N1 (NCBITaxon:470), and Aeromonas hydrophila (NCBITaxon:644) form a defined three-member synthetic microbial community (SMC) that maintains ~93% aerobic denitrification efficiency under dibutyl phthalate and levofloxacin disturbances. |
-| ev-achromobacter-enterobacter-sl8-sl12-pmid42307251 | PMID:42307251; kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml | supports | PMID:42307251 (doi:10.1128/spectrum.01081-26) establishes that Achromobacter sp. SL8 (NCBITaxon:222) and Enterobacter sp. SL12 (NCBITaxon:547) are primary cadmium-detoxifying and cadmium-immobilizing bacterial partners in the defined SL8-SL12 coculture (and in their corresponding single-strain isolate baselines CommunityMech:000533 and CommunityMech:000534). |
+| ev-achromobacter-enterobacter-sl8-sl12-pmid42307251 | PMID:42307251; kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml, data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml, data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml | supports | PMID:42307251 (doi:10.1128/spectrum.01081-26) establishes that Achromobacter sp. SL8 (NCBITaxon:222) and Enterobacter sp. SL12 (NCBITaxon:547) are primary cadmium-detoxifying and cadmium-immobilizing bacteria in both the defined SL8-SL12 coculture (CommunityMech:000374) and the single-strain monoculture isolate baselines (CommunityMech:000533 and CommunityMech:000534). |
 | ev-prior-structured-reviews | reviews/structured; 268 retained structured review bundles through 20261108T150500Z-c11s5-remediation-verification | context_only | Lineage inspection of all 268 prior structured reviews and Cycle 11 Stage 5 evidence.yaml confirmed that all 3 Cycle 11 Stage 4 open findings across CommunityMech:000069, 000181, and 000213 were resolved in Cycle 11 Stage 5 (#2732, PR #2733) and 7 record-scoped source-limited findings remain deferred at commit 828e05eb304c574577164460a9633c13e0524b8f. |
 
 ## Limits And Additional Notes
@@ -317,17 +343,18 @@ reviewer:
 skill: review-yaml-record
 completion: completed
 verdict: needs_curation
-native_verdict: NEEDS_CURATION (3 P2 major findings across CommunityMech:000115, 000116,
-  and 000374; 25 isolate/taxon/new-community/C11S5-remediated/CommonTaxon-linked records
-  pass with 0 defects)
+native_verdict: NEEDS_CURATION (5 P2 major findings across CommunityMech:000115, 000116,
+  000374, 000533, and 000534; 23 isolate/taxon/new-community/C11S5-remediated/CommonTaxon-linked
+  records pass with 0 defects)
 scientific_review: true
 summary: Deep per-record scientific and structural audit of 28 records (all 18 data/isolates/*.yaml
   records including newly curated 000531, 000532, 000533, and 000534, both kb/taxa/*.yaml
   reusable taxon records updated in Cycle 12 Stage 3, newly curated and causal-graph-reviewed
   community record 000535 in Cycle 12 Stage 1/2, all 3 community records remediated
   in Cycle 11 Stage 5 [000069, 000181, 000213], representative CommonTaxon-linked
-  community 000385, and 3 kb/communities/*.yaml records with newly identified actionable
-  completeness gaps [000115, 000116, 000374]) at frozen Git revision 828e05eb304c574577164460a9633c13e0524b8f.
+  community 000385, and 3 kb/communities/*.yaml records [000115, 000116, 000374] plus
+  2 isolate baselines [000533, 000534] with newly identified actionable completeness
+  gaps) at frozen Git revision 828e05eb304c574577164460a9633c13e0524b8f.
 source:
   git_revision: 828e05eb304c574577164460a9633c13e0524b8f
   state: git_commit
@@ -435,11 +462,12 @@ source:
     sha256: 37156f064fc33829bd81cd7427b3b65f82ef624b79c252dceff94ec18a9dbb31
     role: context
 scope:
-  description: Focused per-record deep audit of all isolate baselines (18), all reusable
-    taxon records (2), the newly curated and causal-graph-reviewed community record
-    in Cycle 12 (1), all Cycle 11 Stage 5 remediated community records (3), representative
-    CommonTaxon-linked community (1), and all community records with new actionable
-    Stage 5 remediation findings (3).
+  description: 'Focused per-record deep audit of all isolate baselines (18, including
+    2 with newly identified actionable functional_role findings: 000533 and 000534),
+    all reusable taxon records (2), the newly curated and causal-graph-reviewed community
+    record in Cycle 12 (1), all Cycle 11 Stage 5 remediated community records (3),
+    representative CommonTaxon-linked community (1), and 3 community records with
+    new actionable Stage 5 remediation findings (000115, 000116, 000374).'
   selection: All 18 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 1 new/causal-graph-reviewed
     kb/communities/*.yaml record (000535), 3 Cycle 11 Stage 5 remediated records (000069,
     000181, 000213), representative CommonTaxon-linked record (000385), and 3 kb/communities/*.yaml
@@ -756,12 +784,15 @@ evidence:
   accessed_at: '2026-11-09T05:12:00Z'
   support: supports
   summary: Proportional 100-point review-communities Completeness Score audit across
-    all 529 MicrobialCommunity records (min 50, median 94, mean 91.33, max 100; CommunityMech:000115
-    = 100/100, CommunityMech:000116 = 98/100, CommunityMech:000374 = 90/100) and 2
-    CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level
-    environment_term coverage (529/529), while scripts/audit_completeness.py:calculate_completeness()
-    scores 000115 at 80/100, 000116 at 80/100, and 000374 at 40/100 (due to missing
-    taxonomy[].functional_role on 000374).
+    all 529 MicrobialCommunity records (min 50, median 93, mean 91.28, max 100; CommunityMech:000115
+    = 95/100 [s_ab = 0/5], CommunityMech:000116 = 93/100 [s_ab = 0/5], CommunityMech:000374
+    = 90/100 [s_fr = 0/10], CommunityMech:000533 = 85/100 [s_fr = 0/10, external_resources
+    = 0/5], CommunityMech:000534 = 85/100 [s_fr = 0/10, external_resources = 0/5])
+    and 2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100%
+    top-level environment_term coverage (529/529), while scripts/audit_completeness.py:calculate_completeness()
+    scores 000115 at 80/100, 000116 at 80/100, 000374 at 40/100, 000533 at 25/100,
+    and 000534 at 25/100 (because missing taxonomy[].functional_role causes all_required_fields_present()
+    to return False on 000374, 000533, and 000534).
 - evidence_id: ev-network-integrity-audit
   kind: validation
   reference: src/communitymech/network/auditor.py
@@ -812,7 +843,7 @@ evidence:
   quote: To improve denitrification efficiency, a synthetic microbial community (SMC)
     composed of denitrifiers Acinetobacter baumannii N1 (AC), Pseudomonas aeruginosa
     N2 (PA) and Aeromonas hydrophila (AH) were constructed. The nitrate (NO3--N) reduction
-    efficiency of the SMC reached 97 % with little nitrite (NO2--N) accumulation,
+    efficiency of the SMC reached 97 % with little nitrite (NO2--N) accumulation,
     compared to the single-culture systems and co-culture systems.
 - evidence_id: ev-aerobic-denitrification-disturbance-pmid40020349
   kind: primary_source
@@ -832,14 +863,16 @@ evidence:
 - evidence_id: ev-achromobacter-enterobacter-sl8-sl12-pmid42307251
   kind: primary_source
   reference: PMID:42307251
-  locator: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+  locator: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml,
+    data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml,
+    data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
   accessed_at: '2026-11-09T05:14:30Z'
   support: supports
   summary: PMID:42307251 (doi:10.1128/spectrum.01081-26) establishes that Achromobacter
     sp. SL8 (NCBITaxon:222) and Enterobacter sp. SL12 (NCBITaxon:547) are primary
-    cadmium-detoxifying and cadmium-immobilizing bacterial partners in the defined
-    SL8-SL12 coculture (and in their corresponding single-strain isolate baselines
-    CommunityMech:000533 and CommunityMech:000534).
+    cadmium-detoxifying and cadmium-immobilizing bacteria in both the defined SL8-SL12
+    coculture (CommunityMech:000374) and the single-strain monoculture isolate baselines
+    (CommunityMech:000533 and CommunityMech:000534).
   quote: After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for
     SL8, 63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains
     at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.
@@ -883,7 +916,7 @@ assessments:
     SynCom)
   outcome: concern
   summary: Record CommunityMech:000115 (kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml)
-    in cohort BIOREMEDIATION has Completeness Score 100/100, 3 taxa, 3 interactions,
+    in cohort BIOREMEDIATION has Completeness Score 95/100, 3 taxa, 3 interactions,
     2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
     network warnings.
   target_ids:
@@ -895,7 +928,7 @@ assessments:
   - ev-common-taxon-linkage-audit
   metrics:
   - name: completeness_score
-    value: 100.0
+    value: 95.0
     unit: points
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
@@ -906,7 +939,7 @@ assessments:
     SynCom)
   outcome: concern
   summary: Record CommunityMech:000116 (kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml)
-    in cohort BIOREMEDIATION has Completeness Score 98/100, 3 taxa, 3 interactions,
+    in cohort BIOREMEDIATION has Completeness Score 93/100, 3 taxa, 3 interactions,
     2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
     network warnings.
   target_ids:
@@ -918,7 +951,7 @@ assessments:
   - ev-common-taxon-linkage-audit
   metrics:
   - name: completeness_score
-    value: 98.0
+    value: 93.0
     unit: points
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
@@ -1387,9 +1420,9 @@ assessments:
   area: completeness
   topic: Deep per-record audit of CommunityMech:000533 (Achromobacter sp. SL8 Cadmium
     Immobilization Isolate Baseline)
-  outcome: supported
+  outcome: concern
   summary: Record CommunityMech:000533 (data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml)
-    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 1 interactions,
+    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 85/100, 1 taxa, 1 interactions,
     0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
     network warnings.
   target_ids:
@@ -1401,7 +1434,7 @@ assessments:
   - ev-common-taxon-linkage-audit
   metrics:
   - name: completeness_score
-    value: 95.0
+    value: 85.0
     unit: points
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
@@ -1410,9 +1443,9 @@ assessments:
   area: completeness
   topic: Deep per-record audit of CommunityMech:000534 (Enterobacter sp. SL12 Cadmium
     Immobilization Isolate Baseline)
-  outcome: supported
+  outcome: concern
   summary: Record CommunityMech:000534 (data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml)
-    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 95/100, 1 taxa, 1 interactions,
+    in cohort ISOLATES:BIOREMEDIATION has Completeness Score 85/100, 1 taxa, 1 interactions,
     0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
     network warnings.
   target_ids:
@@ -1424,7 +1457,7 @@ assessments:
   - ev-common-taxon-linkage-audit
   metrics:
   - name: completeness_score
-    value: 95.0
+    value: 85.0
     unit: points
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
@@ -1515,11 +1548,12 @@ findings:
     explicitly establishes that ''To improve denitrification efficiency, a synthetic
     microbial community (SMC) composed of denitrifiers Acinetobacter baumannii N1
     (AC), Pseudomonas aeruginosa N2 (PA) and Aeromonas hydrophila (AH) were constructed.
-    The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little
+    The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little
     nitrite (NO2--N) accumulation, compared to the single-culture systems and co-culture
     systems.'' Setting abundance_level: DOMINANT on taxonomy[0], taxonomy[1], and
     taxonomy[2] raises the review-communities s_ab abundance_level rubric component
-    from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level).'
+    from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level; proportional Completeness
+    Score 95/100 -> 100/100).'
   target_ids:
   - CommunityMech:000115
   field_paths:
@@ -1533,7 +1567,7 @@ findings:
   native_severity: P2
   normalization_reason: Missing source-backed abundance_level on all three defined
     synthetic microbial community members leaves the review-communities s_ab rubric
-    component at 0/5 (Completeness Score 100/100; scripts/audit_completeness.py score
+    component at 0/5 (Completeness Score 95/100; scripts/audit_completeness.py score
     80/100) and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
@@ -1564,7 +1598,8 @@ findings:
     SMC composed of Pseudomonas aeruginosa N2 (PA), Acinetobacter baumannii N1(AC)
     and Aeromonas hydrophila (AH).'' Setting abundance_level: DOMINANT on taxonomy[0],
     taxonomy[1], and taxonomy[2] raises the review-communities s_ab abundance_level
-    rubric component from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level).'
+    rubric component from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level; proportional
+    Completeness Score 93/100 -> 98/100).'
   target_ids:
   - CommunityMech:000116
   field_paths:
@@ -1578,7 +1613,7 @@ findings:
   native_severity: P2
   normalization_reason: Missing source-backed abundance_level on all three defined
     disturbance-stable denitrifying SMC members leaves the review-communities s_ab
-    rubric component at 0/5 (Completeness Score 98/100; scripts/audit_completeness.py
+    rubric component at 0/5 (Completeness Score 93/100; scripts/audit_completeness.py
     score 80/100) and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
@@ -1601,16 +1636,15 @@ findings:
   description: 'In kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
     (CommunityMech:000374), both Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222,
     abundance_level: DOMINANT) and Enterobacter sp. SL12 (taxonomy[1], NCBITaxon:547,
-    abundance_level: DOMINANT) omit functional_role, even though their corresponding
-    single-strain isolate baselines (CommunityMech:000533 and CommunityMech:000534)
-    carry functional_role: [PRIMARY_DEGRADER] backed by the same open-access study
-    (PMID:42307251, doi:10.1128/spectrum.01081-26: ''After a 7-day incubation period,
-    RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and 82.6%
-    and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L
-    and 100 mg/L, respectively.''). Setting functional_role: [PRIMARY_DEGRADER] on
-    both taxonomy[0] and taxonomy[1] raises the review-communities s_fr functional_role
-    rubric component from 0/10 to 10/10 (Completeness Score 90/100 -> 100/100) and
-    raises scripts/audit_completeness.py:calculate_completeness() from 40/100 to 90/100.'
+    abundance_level: DOMINANT) omit functional_role, despite direct Cd-detoxification
+    and Cd-immobilization support in the cited open-access study (PMID:42307251, doi:10.1128/spectrum.01081-26:
+    ''After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8,
+    63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial
+    Cd concentrations of 50 mg/L and 100 mg/L, respectively.''). Setting functional_role:
+    [PRIMARY_DEGRADER] on both taxonomy[0] and taxonomy[1] raises the review-communities
+    s_fr functional_role rubric component from 0/10 to 10/10 (Completeness Score 90/100
+    -> 100/100) and raises scripts/audit_completeness.py:calculate_completeness()
+    from 40/100 to 90/100.'
   target_ids:
   - CommunityMech:000374
   field_paths:
@@ -1628,6 +1662,89 @@ findings:
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - functional-role
+  - completeness
+- finding_id: c12s4-000533-achromobacter-sl8-isolate-functional-role
+  issue_key: c12s4-000533-achromobacter-sl8-isolate-functional-role
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Achromobacter sp. SL8 monoculture isolate baseline Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline
+    (CommunityMech:000533) omits functional_role on taxonomy[0] despite direct Cd-immobilization
+    support in PMID:42307251
+  description: 'In data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+    (CommunityMech:000533), Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222, abundance_level:
+    DOMINANT) omits functional_role despite direct monoculture cadmium-detoxification
+    and Cd-immobilization support in PMID:42307251 (doi:10.1128/spectrum.01081-26:
+    ''After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8,
+    63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial
+    Cd concentrations of 50 mg/L and 100 mg/L, respectively.''). Setting functional_role:
+    [PRIMARY_DEGRADER] on taxonomy[0] raises the review-communities s_fr functional_role
+    rubric component from 0/10 to 10/10 (Completeness Score 85/100 -> 95/100) and
+    raises scripts/audit_completeness.py:calculate_completeness() from 25/100 to 75/100.'
+  target_ids:
+  - CommunityMech:000533
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-achromobacter-enterobacter-sl8-sl12-pmid42307251
+  rule_id: review-yaml-record:taxonomy-functional-role-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed functional_role on the Achromobacter
+    sp. SL8 isolate baseline leaves the review-communities s_fr rubric component at
+    0/10 (Completeness Score 85/100) and causes all_required_fields_present() in scripts/audit_completeness.py
+    to return False (score 25/100), mapping to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - functional-role
+  - completeness
+- finding_id: c12s4-000534-enterobacter-sl12-isolate-functional-role
+  issue_key: c12s4-000534-enterobacter-sl12-isolate-functional-role
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Enterobacter sp. SL12 monoculture isolate baseline Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline
+    (CommunityMech:000534) omits functional_role on taxonomy[0] despite direct Cd-immobilization
+    support in PMID:42307251
+  description: 'In data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
+    (CommunityMech:000534), Enterobacter sp. SL12 (taxonomy[0], NCBITaxon:547, abundance_level:
+    DOMINANT) omits functional_role despite direct monoculture cadmium-detoxification
+    and Cd-immobilization support in PMID:42307251 (doi:10.1128/spectrum.01081-26:
+    ''After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8,
+    63.4% and 70.8% for SL12, and 82.6% and 80.9% for the co-cultured strains at initial
+    Cd concentrations of 50 mg/L and 100 mg/L, respectively.''). Setting functional_role:
+    [PRIMARY_DEGRADER] on taxonomy[0] raises the review-communities s_fr functional_role
+    rubric component from 0/10 to 10/10 (Completeness Score 85/100 -> 95/100) and
+    raises scripts/audit_completeness.py:calculate_completeness() from 25/100 to 75/100.'
+  target_ids:
+  - CommunityMech:000534
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-achromobacter-enterobacter-sl8-sl12-pmid42307251
+  rule_id: review-yaml-record:taxonomy-functional-role-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed functional_role on the Enterobacter
+    sp. SL12 isolate baseline leaves the review-communities s_fr rubric component
+    at 0/10 (Completeness Score 85/100) and causes all_required_fields_present() in
+    scripts/audit_completeness.py to return False (score 25/100), mapping to major
+    (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
     role: canonical_record
   tags:
   - actionable
@@ -1685,6 +1802,38 @@ actions:
   acceptance_checks:
   - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
     MicrobialCommunity kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+  - just validate-history history
+- action_id: act-populate-achromobacter-sl8-isolate-functional-role
+  description: 'Add functional_role: [PRIMARY_DEGRADER] to Achromobacter sp. SL8 (taxonomy[0],
+    NCBITaxon:222) backed by PMID:42307251 (doi:10.1128/spectrum.01081-26) on CommunityMech:000533,
+    and append curation_history.'
+  finding_ids:
+  - c12s4-000533-achromobacter-sl8-isolate-functional-role
+  target_ids:
+  - CommunityMech:000533
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+    role: canonical_record
+  acceptance_checks:
+  - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
+    MicrobialCommunity data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
+  - just validate-history history
+- action_id: act-populate-enterobacter-sl12-isolate-functional-role
+  description: 'Add functional_role: [PRIMARY_DEGRADER] to Enterobacter sp. SL12 (taxonomy[0],
+    NCBITaxon:547) backed by PMID:42307251 (doi:10.1128/spectrum.01081-26) on CommunityMech:000534,
+    and append curation_history.'
+  finding_ids:
+  - c12s4-000534-enterobacter-sl12-isolate-functional-role
+  target_ids:
+  - CommunityMech:000534
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
+    role: canonical_record
+  acceptance_checks:
+  - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
+    MicrobialCommunity data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml
   - just validate-history history
 related_reviews:
 - repository: CultureBotAI/CommunityMech
