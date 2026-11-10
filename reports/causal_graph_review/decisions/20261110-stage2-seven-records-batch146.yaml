@@ -1,0 +1,217 @@
+batch: 20261110-stage2-seven-records-batch146
+review_date: '2026-11-10'
+reviewer: antigravity
+criteria:
+- Every reviewed record was checked against committed references_cache full-text evidence (PMID_42038008.txt / PMC13109302,
+  PMID_42655156.txt / PMC13515949, and PMID_42478817.txt / PMC13426707).
+- Single-strain axenic isolate baselines (CommunityMech:000542, CommunityMech:000543, CommunityMech:000544, CommunityMech:000545,
+  CommunityMech:000546, CommunityMech:000547, and CommunityMech:000548) are represented as single COMMUNITY_LEVEL nodes with
+  0 downstream edges and enriched with non-overlapping, bracket-free verbatim snippets.
+- Source-backed experimental and evidence boundaries are preserved in record-level discussions and source_backed_gaps without
+  inventing unsupported intermediate nodes or edges.
+records:
+- id: CommunityMech:000542
+  path: data/isolates/Escherichia_Coli_GL10_Glucose_D_Lactate_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: 12e55314ccdfb2fdf6753f3c22654d25670a6e2d5fcd84209a503506fbe7c19c
+  record_sha256: a747c09cf287a252aa4e8fc66485fd6aa337d320cb7903c8a92d101a44855dc0
+  references:
+  - PMID:42038008
+  scope: Axenic Escherichia coli GL10 (E. coli BL21(DE3) Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA; NCBITaxon:562 ->
+    GTDB:s__Escherichia_coli, GROUNDED) glucose-specialized monoculture baseline in single-sugar (5 g/L glucose or 5 g/L xylose)
+    and mixed-sugar (5 g/L glucose + 5 g/L xylose) M9 medium at 37 °C and 150 rpm (initial OD600 = 0.1) over 72 h (PMID:42038008
+    / PMC13109302).
+  node_decisions:
+  - node: PTS-Mediated Glucose Specialization, CCR-Driven Xylose Exclusion, and Homofermentative D-Lactate Production by E.
+      coli GL10 Monoculture
+    decision: amended
+    rationale: PMID:42038008 Sections 3.3.1-3.3.2, Figures 5-6, Figures S7-S9, and Table S4 characterize axenic E. coli GL10
+      as a single COMMUNITY_LEVEL monoculture baseline that depletes 5 g/L glucose within 12 h to produce 3.15 g/L D-lactate
+      at 36 h on sole glucose (63% conversion, 0.09 g/L/h; 3.92-fold higher conversion than 0.64 g/L on sole xylose) and 3.45
+      g/L optically pure (100%) D-lactate on mixed 5 g/L glucose + 5 g/L xylose (34.5% conversion, 0.10 g/L/h, 8.32-fold over
+      WT) with CCR-mediated exclusion of xylose and zero detectable succinate, formate, acetate, or ethanol; enriched node
+      evidence from 4 to 6 non-overlapping verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42038008 reports that E. coli GL10 exhibits growth and xylose consumption kinetics nearly identical to wild-type
+    E. coli on sole xylose (Figure 5A) yet produces 3.92-fold less D-lactate (0.64 g/L vs 3.15 g/L on glucose) without resolving
+    the intracellular flux split on sole xylose (documented in KNOWLEDGE_GAP discussion gl10_xylose_d_lactate_conversion_bottleneck).
+  - Division-of-labor sugar co-utilization with xylose-specialized E. coli XL12 (CommunityMech:000543) occurs only in the
+    two-strain co-culture (CommunityMech:000357), so no inter-taxon downstream causal edge belongs on this single-strain isolate
+    baseline.
+- id: CommunityMech:000543
+  path: data/isolates/Escherichia_Coli_XL12_Xylose_D_Lactate_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: f5573eb7c8d6718b478066b8fb6952e6a759ddd3db8632a67cee971342b96bf0
+  record_sha256: c19c097c6068fa07ecdd2e9533d2d6a2225637a5a594ff14b21ef3a86f6d2e9f
+  references:
+  - PMID:42038008
+  scope: Axenic Escherichia coli XL12 (E. coli BL21(DE3) Δglk ΔptsI Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA; NCBITaxon:562
+    -> GTDB:s__Escherichia_coli, GROUNDED) xylose-specialized monoculture baseline in single-sugar (5 g/L glucose or 5 g/L
+    xylose) and mixed-sugar (5 g/L glucose + 5 g/L xylose) M9 medium at 37 °C and 150 rpm (initial OD600 = 0.1) over 72 h
+    (PMID:42038008 / PMC13109302).
+  node_decisions:
+  - node: PTS/Glk Deletion-Mediated Xylose Specialization, Relieved Carbon Catabolite Repression, and D-Lactate Synthesis
+      by E. coli XL12 Monoculture
+    decision: amended
+    rationale: PMID:42038008 Sections 3.1 and 3.2.2-3.2.3, Figures 3-4, Figures S2 and S4-S6, and Table S4 characterize axenic
+      E. coli XL12 as a single COMMUNITY_LEVEL monoculture baseline with down-regulated pgi (70.95%), ppc (37.52%), and ackA
+      (59.75%) expression that produces 2.66 g/L D-lactate at 36 h on sole xylose (53.2% conversion, 0.07 g/L/h; 7.87-fold
+      over 0.30 g/L on sole glucose) and co-utilizes glucose and xylose simultaneously in mixed sugars (56.57% xylose utilization
+      at 72 h) to yield 1.27 g/L D-lactate at 36 h (100% optical purity, 0.72 g/L succinate, and zero formate, acetate, or
+      ethanol); enriched node evidence from 4 to 6 non-overlapping verbatim snippets without adding unsupported downstream
+      edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42038008 detects residual glucose consumption and 0.72 g/L succinate at 36 h in E. coli XL12 mixed-sugar fermentation
+    (Figure S6) despite deletion of ptsI, glk, and frdABC without experimentally identifying the responsible alternative hexose
+    transporters/kinases or oxidative TCA/glyoxylate succinate route (documented in KNOWLEDGE_GAP discussion xl12_residual_glucose_uptake_and_succinate_leak).
+  - Division-of-labor co-fermentation with glucose-specialized E. coli GL10 (CommunityMech:000542) is represented on the two-strain
+    synthetic consortium record (CommunityMech:000357).
+- id: CommunityMech:000544
+  path: data/isolates/Escherichia_Coli_XL5_PTS_Deficient_D_Lactate_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: 2c8b31a3d82c238314608825e0308d7ca16c350d8bb26db99d2e9c07f3976585
+  record_sha256: 4105ae978347925a7541a5bd66f6ceadc35bd4bda35683f70bffca35b36ab79f
+  references:
+  - PMID:42038008
+  scope: Axenic Escherichia coli XL5 (E. coli BL21(DE3) Δglk ΔptsI Δpps ΔpoxB ΔpflB; NCBITaxon:562 -> GTDB:s__Escherichia_coli,
+    GROUNDED) 5-gene knockout intermediate monoculture baseline in single-sugar M9 medium (5 g/L glucose or 5 g/L xylose)
+    at 37 °C and 150 rpm (initial OD600 = 0.1) over 72 h (PMID:42038008 / PMC13109302).
+  node_decisions:
+  - node: Delayed Non-PTS Glucose Utilization and Low Sole-Xylose D-Lactate Yield in Intermediate E. coli XL5 Monoculture
+    decision: amended
+    rationale: PMID:42038008 Section 3.2.1 and Figure 2A-B characterize axenic E. coli XL5 as a single COMMUNITY_LEVEL intermediate
+      monoculture baseline in which ptsI and glk deletion delays exponential growth on 5 g/L glucose by 24 h (OD600 = 1.46
+      at 36 h via alternative GalP/Mgl transport) while pps, poxB, and pflB deletion yields 2.66 g/L D-lactate at 36 h on
+      sole glucose (53.2% conversion, 0.07 g/L/h; 28.56-fold over WT at 0.09 g/L) but only 0.21 g/L D-lactate (4.2% conversion)
+      on sole xylose despite 48-h complete xylose consumption; enriched node evidence from 4 to 6 non-overlapping verbatim
+      snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42038008 does not resolve why deleting pta, frdABC, adhE, dld, and mgsA in E. coli XL5 (to generate XL12) inverted
+    single-sugar D-lactate conversion from 2.66 g/L on glucose and 0.21 g/L on xylose in XL5 to 0.30 g/L on glucose and 2.66
+    g/L on xylose in XL12 (documented in KNOWLEDGE_GAP discussion xl5_to_xl12_glucose_lactate_switch_mechanism).
+  - Step-wise genetic derivation from XL5 to XL12 (CommunityMech:000543) is a strain-construction lineage relation rather
+    than an ecological interaction edge.
+- id: CommunityMech:000545
+  path: data/isolates/Bifidobacterium_Bifidum_JCM1254_2FL_FOS_Monoculture_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: 188b2c8b44448da8a202bcf02736499ce936f3b1f3710d9d84219fa8c2eafabe
+  record_sha256: 8190e352c3a803e85e2ab6b64a1791a6f14b2ea93dab2173c1ef653ea9e0a216
+  references:
+  - PMID:42655156
+  scope: Axenic Bifidobacterium bifidum JCM1254 (NCBITaxon:1681 -> GTDB:s__Bifidobacterium_bifidum, GROUNDED) anaerobic monoculture
+    baseline in sugar- and VFA-free YCFA− medium supplemented with 0.5% (w/v) total carbohydrate across 0:100 to 100:0 2′-fucosyllactose
+    (2′-FL) to fructooligosaccharide (FOS) weight ratios in 48-well plates at 37 °C for 24 h (PMID:42655156 / PMC13515949).
+  node_decisions:
+  - node: 2′-FL Proportion-Dependent Growth, Lactate/Acetate Fermentation, and Absence of Butyrate Synthesis in B. bifidum
+      JCM1254 Monoculture
+    decision: amended
+    rationale: PMID:42655156 Section 3.2 and Figure 2a-d characterize axenic B. bifidum JCM1254 as a single COMMUNITY_LEVEL
+      anaerobic monoculture baseline whose 24-h OD600, extracellular lactate, and extracellular acetate increase progressively
+      with increasing 2′-FL fraction and peak under 100% 2′-FL, with zero detectable butyrate across all tested 2′-FL/FOS
+      ratios; enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42655156 did not quantify residual 2′-FL, liberated L-fucose, or 1,2-propanediol after 24 h in B. bifidum JCM1254
+    monoculture (documented in KNOWLEDGE_GAP discussion bbifidum_jcm1254_fucose_and_12propanediol_fate).
+  - Interspecies acetate/lactate cross-feeding to Faecalibacterium prausnitzii A2-165 (CommunityMech:000546) occurs only in
+    the two-species co-culture (CommunityMech:000401), so no inter-taxon downstream edge belongs on this single-strain monoculture
+    baseline.
+- id: CommunityMech:000546
+  path: data/isolates/Faecalibacterium_Prausnitzii_A2_165_2FL_FOS_Monoculture_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: 7a4f13515e398c841e8d9289b276f3ebcfaa3480fa8ac130c1d7607747645019
+  record_sha256: b6dc768bf6f705611933fc50882d91957225ef1e32c61330e1adb717fe175790
+  references:
+  - PMID:42655156
+  scope: Axenic Faecalibacterium prausnitzii A2-165 (JCM31915; NCBITaxon:853, UNRESOLVED GTDB grounding) anaerobic monoculture
+    baseline in sugar- and VFA-free YCFA− medium supplemented with 0.5% (w/v) total carbohydrate across 0:100 to 100:0 2′-fucosyllactose
+    (2′-FL) to fructooligosaccharide (FOS) weight ratios in 48-well plates at 37 °C for 24 h (PMID:42655156 / PMC13515949).
+  node_decisions:
+  - node: FOS-Dependent Growth and Butyrate/Lactate Fermentation Without Direct 2′-FL Utilization by F. prausnitzii A2-165
+      Monoculture
+    decision: amended
+    rationale: PMID:42655156 Section 3.1 and Figure 1a-d characterize axenic F. prausnitzii A2-165 as a single COMMUNITY_LEVEL
+      anaerobic monoculture baseline that shows no growth, lactate, or butyrate on 100% 2′-FL, grows and produces statistically
+      significant (though small in absolute magnitude) lactate and butyrate across 0–90% 2′-FL (100–10% FOS), and exhibits
+      limited acetate production under all conditions; enriched node evidence from 3 to 5 non-overlapping verbatim snippets
+      without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42655156 did not measure 13C metabolic flux or endogenous acetyl-CoA cycling through butyryl-CoA:acetate CoA-transferase
+    during F. prausnitzii A2-165 monoculture growth on FOS in VFA-free YCFA− broth (documented in KNOWLEDGE_GAP discussion
+    fprausnitzii_a2165_butyrate_without_exogenous_acetate_in_ycfa_minus).
+  - Nonlinear butyrate enhancement at 10:90 2′-FL/FOS via B. bifidum JCM1254 (CommunityMech:000545) metabolite supply is represented
+    on the two-species co-culture record (CommunityMech:000401).
+- id: CommunityMech:000547
+  path: data/isolates/Ramichloridium_Apiculatum_CMS1_Wollastonite_Bioleaching_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: 3335d6f85de2f74993a0939861ec17b507e879891fca3cc5413193c072a33e8d
+  record_sha256: 51488eb2b3634242b8e7d7f0a455f24d58cda968242831f830c1e10dfae9fded
+  references:
+  - PMID:42478817
+  scope: Axenic fungal isolate Ramichloridium apiculatum CMS-1 (NCBITaxon:470080, NO_GTDB_EQUIVALENT) 100% CMS-1 pure-culture
+    wollastonite bioleaching baseline in 100 mL modified Czapek liquid medium with 0.5 g wollastonite at 30 °C and 150 rpm
+    over 14 days (PMID:42478817 / PMC13426707).
+  node_decisions:
+  - node: Oxalic Acid-Dominated Organic Acid Secretion, Extracellular Polymer Accumulation, and Selective Si4+ Complexation
+      Leaching by R. apiculatum CMS-1 Pure Culture
+    decision: amended
+    rationale: PMID:42478817 Figures 3-6 characterize the 100% R. apiculatum CMS-1 pure-culture baseline as a single COMMUNITY_LEVEL
+      node that secretes oxalic acid (0.66 ± 0.033 mg/mL) > malic acid (0.050 ± 0.0022 mg/mL) > glycolic acid (0.046 ± 0.0016
+      mg/mL) > gluconic acid (0.045 ± 0.0013 mg/mL), reaches a minimum suspension pH of ~6.9 ± 0.12, achieves 2.46% (2.65%
+      in Abstract) Ca2+ leaching and 13.70% Si4+ leaching via R-COO− complexation, and accumulates net extracellular polysaccharide
+      (days 6–10), 13.21 ± 0.66 µg/mL protein (day 14), and 9.63 ± 0.46 µg/mL L-glutamic acid; enriched node evidence from
+      4 to 6 non-overlapping verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42478817 reports 2.65% Ca2+ leaching efficiency for CMS-1 pure culture in the Abstract and 2.46% Ca2+ alongside 13.70%
+    Si4+ in Results without explicitly reconciling whether the two values reflect day-12 vs day-14 sampling points (documented
+    in KNOWLEDGE_GAP discussion cms1_abstract_vs_results_ca_leaching_discrepancy).
+  - Synergistic isocitric acid induction (0.33 ± 0.0166 mg/mL), pH-driven oxalate suppression, and L-glutamic acid -> L-glutamine
+    division of labor with Talaromyces pseudofuniculosus hzt-3′ (CommunityMech:000548) occur only in the 20:80 mixed fungal
+    consortium (CommunityMech:000404).
+- id: CommunityMech:000548
+  path: data/isolates/Talaromyces_Pseudofuniculosus_Hzt3_Wollastonite_Bioleaching_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch146.yaml
+  status: reviewed
+  original_sha256: e669bcf94e266f41adb84d0a3fd3b6b1977b4e6908cbce5197c4834dccaafb1f
+  record_sha256: 209e5fe1388451b952502b2ca65a621d155e8d6542a0095152fe2d6935bf716f
+  references:
+  - PMID:42478817
+  scope: Axenic fungal isolate Talaromyces pseudofuniculosus hzt-3′ (NCBITaxon:2015341, NO_GTDB_EQUIVALENT) 100% hzt-3′ pure-culture
+    wollastonite bioleaching baseline in 100 mL modified Czapek liquid medium with 0.5 g wollastonite at 30 °C and 150 rpm
+    over 14 days (PMID:42478817 / PMC13426707).
+  node_decisions:
+  - node: Gluconic Acid-Driven Broth Acidification, Wollastonite Ca2+/Si4+ Dissolution, and Secondary Weddellite Precipitation
+      by T. pseudofuniculosus hzt-3′ Pure Culture
+    decision: amended
+    rationale: PMID:42478817 Figures 3-7 characterize the 100% T. pseudofuniculosus hzt-3′ pure-culture baseline as a single
+      COMMUNITY_LEVEL node that rapidly consumes medium sucrose during days 0–2, secretes 1.60 ± 0.0798 mg/mL gluconic acid
+      (~35.35-fold higher than CMS-1) alongside succinic (0.033 ± 0.0017 mg/mL), malonic (0.031 ± 0.0015 mg/mL), and glycolic
+      (0.026 ± 0.013 mg/mL) acids to acidify the suspension below pH 4, reaches 27.68 ± 1.38 µg/mL protein and 9.26 ± 0.46
+      µg/mL L-glutamine, removes the 1,428 cm−1 carbonate FT-IR band, and precipitates secondary weddellite (PDF#17-0541)
+      in the leaching residue; enriched node evidence from 3 to 6 non-overlapping verbatim snippets without adding unsupported
+      downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42478817 detects secondary weddellite (calcium oxalate dihydrate, PDF#17-0541) XRD peaks in the 100% hzt-3′ leaching
+    residue (Figure 7b) without quantifying how much leached Ca2+ and fungal oxalate were sequestered into the solid weddellite
+    phase (documented in KNOWLEDGE_GAP discussion hzt3_weddellite_precipitation_vs_soluble_oxalate_depletion).
+  - Multi-strain metabolic synergy with Ramichloridium apiculatum CMS-1 (CommunityMech:000547) is represented on the 20% CMS-1
+    + 80% hzt-3′ mixed fungal consortium record (CommunityMech:000404).
