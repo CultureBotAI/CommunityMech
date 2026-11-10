@@ -75,7 +75,7 @@ EXPECTED_BATCH146_RECORDS = {
             "Ramichloridium_Apiculatum_CMS1_Wollastonite_Bioleaching_Isolate_Baseline.yaml"
         ),
         "original_sha256": "3335d6f85de2f74993a0939861ec17b507e879891fca3cc5413193c072a33e8d",
-        "record_sha256": "51488eb2b3634242b8e7d7f0a455f24d58cda968242831f830c1e10dfae9fded",
+        "record_sha256": "d772c9002f1af1474616567beadbdd148c9724daf6e910b5a242621d04cc1f30",
         "nodes": 1,
         "edges": 0,
         "evidence_counts": [6],
@@ -86,7 +86,7 @@ EXPECTED_BATCH146_RECORDS = {
             "Talaromyces_Pseudofuniculosus_Hzt3_Wollastonite_Bioleaching_Isolate_Baseline.yaml"
         ),
         "original_sha256": "e669bcf94e266f41adb84d0a3fd3b6b1977b4e6908cbce5197c4834dccaafb1f",
-        "record_sha256": "209e5fe1388451b952502b2ca65a621d155e8d6542a0095152fe2d6935bf716f",
+        "record_sha256": "5963957669bdfef206891e57c3b354d0ef934edb13e840651edd73f113d3d900",
         "nodes": 1,
         "edges": 0,
         "evidence_counts": [6],
