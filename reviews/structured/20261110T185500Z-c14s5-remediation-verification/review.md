@@ -11,7 +11,7 @@
 
 ## Summary
 
-Post-remediation scientific and structural verification review of all 12 finding-bearing community and isolate records from Cycle 14 Stage 4 (2 community records resolved in GitHub issue #2755, 3 cadmium-immobilization coculture and isolate baseline records deduplicated under open vocabulary-gap issue #2194, and 7 source-limited deferred community records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847). CommunityMech:000106 (Tobacco_Chemotactic_Biocontrol_SynCom.yaml) now populates abundance_level: DOMINANT, abundance_value: '5% (v/w) equal-ratio strain inoculation into composite organic fertilizer', and verbatim equal-ratio inoculation evidence from PMID:40670700 (doi:10.1007/s00253-025-13547-6) across Pseudomonas sp. (taxonomy[0], NCBITaxon:306) and Bacillus sp. (taxonomy[1], NCBITaxon:1386) while preserving discussions[0], raising its review-communities s_ab rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level; Completeness Score 83/100 -&gt; 88/100; scripts/audit_completeness.py score 45/100 -&gt; 85/100). CommunityMech:000110 (Rice_P_Uptake_Intercropping_SynCom4.yaml) now populates abundance_level: DOMINANT, abundance_value: '1 x 10^8 CFU/g equal-density four-strain SynCom suspension (15 mL injected into sterilized soil)', and verbatim isolate selection and equal-density inoculation evidence from PMID:39684532 (doi:10.3389/fmicb.2024.1507960) across Variovorax paradoxus (taxonomy[0], NCBITaxon:34073), Novosphingobium subterraneum (taxonomy[1], NCBITaxon:48936), Hydrogenophaga pseudoflava (taxonomy[2], NCBITaxon:47421), and Acidovorax sp. (taxonomy[3], NCBITaxon:12916) while preserving discussions[0], raising review-communities s_ab from 0/5 to 5/5 (0/4 -&gt; 4/4 taxa with abundance_level; Completeness Score 90/100 -&gt; 95/100; scripts/audit_completeness.py score 60/100 -&gt; 100/100). Both modified records are re-attested in reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml.
+Post-remediation scientific and structural verification review of all 12 finding-bearing community and isolate records from Cycle 14 Stage 4 (2 community records resolved in GitHub issue #2755, 3 cadmium-immobilization coculture and isolate baseline records deduplicated under open vocabulary-gap issue #2194, and 7 source-limited deferred community records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847). CommunityMech:000106 (Tobacco_Chemotactic_Biocontrol_SynCom.yaml) now populates abundance_level: DOMINANT, abundance_value: '5% (v/w) equal-ratio strain inoculation into composite organic fertilizer', and verbatim equal-ratio inoculation evidence from PMID:40670700 (doi:10.1007/s00253-025-13547-6) across Pseudomonas sp. (taxonomy[0], NCBITaxon:306) and Bacillus sp. (taxonomy[1], NCBITaxon:1386) while preserving discussions[0], raising its review-communities s_ab rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level; Completeness Score 87/100 -&gt; 92/100; scripts/audit_completeness.py score 80/100). CommunityMech:000110 (Rice_P_Uptake_Intercropping_SynCom4.yaml) now populates abundance_level: DOMINANT, abundance_value: '1 x 10^8 CFU/g equal-density four-strain SynCom suspension (15 mL injected into sterilized soil)', and verbatim isolate selection and equal-density inoculation evidence from PMID:39684532 (doi:10.3390/ijms252312819) across Variovorax paradoxus (taxonomy[0], NCBITaxon:34073), Novosphingobium subterraneum (taxonomy[1], NCBITaxon:48936), Hydrogenophaga pseudoflava (taxonomy[2], NCBITaxon:47421), and Acidovorax sp. (taxonomy[3], NCBITaxon:12916) while preserving discussions[0], raising review-communities s_ab from 0/5 to 5/5 (0/4 -&gt; 4/4 taxa with abundance_level; Completeness Score 92/100 -&gt; 97/100; scripts/audit_completeness.py score 80/100). Both modified records are re-attested in reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml.
 
 ## Scope And Provenance
 
@@ -19,7 +19,7 @@ Full post-remediation verification of all 12 community and isolate records refer
 
 Selection: All 12 records referenced by carry_forward_ids and owner_paths in Cycle 14 Stage 4 evidence.yaml.
 Coverage: full; 12 reviewed / 12 in the declared population.
-Source: working_tree at Git base f8be056c7cd6c2daa11658470a0d99d189aedb1f.
+Source: working_tree at Git base 7e7fc7e05b5979b283b76ecca384a58665efabe9.
 Working-tree hashes do not imply those bytes were committed.
 
 | Target | Path / selector | Kind | Label |
@@ -50,7 +50,7 @@ Working-tree hashes do not imply those bytes were committed.
 
 completeness: supported. Targets: CommunityMech:000106, CommunityMech:000110.
 
-CommunityMech:000106 (review-communities s_ab 0/5 -&gt; 5/5, Completeness Score 83/100 -&gt; 88/100; scripts/audit_completeness.py score 45/100 -&gt; 85/100) and CommunityMech:000110 (review-communities s_ab 0/5 -&gt; 5/5, Completeness Score 90/100 -&gt; 95/100; scripts/audit_completeness.py score 60/100 -&gt; 100/100) now populate source-backed functional_role, abundance_level, abundance_value, and verbatim abundance evidence across all 6/6 TaxonomicComposition entries while preserving all record-level discussions.
+CommunityMech:000106 (review-communities s_ab 0/5 -&gt; 5/5, Completeness Score 87/100 -&gt; 92/100; scripts/audit_completeness.py score 80/100) and CommunityMech:000110 (review-communities s_ab 0/5 -&gt; 5/5, Completeness Score 92/100 -&gt; 97/100; scripts/audit_completeness.py score 80/100) now populate source-backed functional_role, abundance_level, abundance_value, and verbatim abundance evidence across all 6/6 TaxonomicComposition entries while preserving all record-level discussions.
 
 ### Verification of schema-policy and abstract-grounded integrity on 3 vocabulary-blocked (#2194) and 7 source-limited (#765, #1467, #1657, #1681, #1699, #1841, #1847) records
 
@@ -64,7 +64,7 @@ CommunityMech:000374, 000533, and 000534 preserve accurate inorganic Cd2+ immobi
 
 major / resolved / confirmed; issue key: c14s4-000106-tobacco-chemotactic-syncom-abundance-levels.
 
-In kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml (CommunityMech:000106), Pseudomonas sp. (taxonomy[0], NCBITaxon:306, functional_role: [CROSS_FEEDER]) and Bacillus sp. (taxonomy[1], NCBITaxon:1386, functional_role: [CROSS_FEEDER]) both omit controlled abundance_level and direct equal-inoculation evidence in taxonomy[].evidence. The cited open-access study (PMID:40670700, doi:10.1007/s00253-025-13561-8) explicitly establishes in Materials and Methods ('Creation of bacterial fertilizer for chemotactic SynCom') that 'Each strain used in the chemotactic SynCom was inoculated into the composite nutrient at a 5% (v/w) ratio, along with the corresponding prebiotics screened in the previous experiment.' Setting abundance_level: DOMINANT and attaching this verbatim PMID:40670700 equal-inoculation snippet on taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level; proportional Completeness Score 87/100 -&gt; 92/100; scripts/audit_completeness.py score 80/100 -&gt; 95/100).
+In kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml (CommunityMech:000106), Pseudomonas sp. (taxonomy[0], NCBITaxon:306, functional_role: [CROSS_FEEDER]) and Bacillus sp. (taxonomy[1], NCBITaxon:1386, functional_role: [CROSS_FEEDER]) both omit controlled abundance_level and direct equal-inoculation evidence in taxonomy[].evidence. The cited open-access study (PMID:40670700, doi:10.1007/s00253-025-13547-6) explicitly establishes in Materials and Methods ('Creation of bacterial fertilizer for chemotactic SynCom') that 'Each strain used in the chemotactic SynCom was inoculated into the composite nutrient at a 5% (v/w) ratio, along with the corresponding prebiotics screened in the previous experiment.' Setting abundance_level: DOMINANT and attaching this verbatim PMID:40670700 equal-inoculation snippet on taxonomy[0] and taxonomy[1] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level; proportional Completeness Score 87/100 -&gt; 92/100; scripts/audit_completeness.py score 80/100 -&gt; 95/100).
 
 Disposition: Resolved in Issue #2755: populated abundance_level: DOMINANT, abundance_value: '5% (v/w) equal-ratio strain inoculation into composite organic fertilizer', and verbatim equal-ratio inoculation evidence from PMID:40670700 (doi:10.1007/s00253-025-13547-6) on Pseudomonas sp. (NCBITaxon:306) and Bacillus sp. (NCBITaxon:1386).
 
@@ -74,7 +74,7 @@ major / resolved / confirmed; issue key: c14s4-000110-rice-p-uptake-intercroppin
 
 In kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml (CommunityMech:000110), Variovorax paradoxus (taxonomy[0], NCBITaxon:34073, functional_role: [CROSS_FEEDER]), Novosphingobium subterraneum (taxonomy[1], NCBITaxon:48936, functional_role: [CROSS_FEEDER]), Hydrogenophaga pseudoflava (taxonomy[2], NCBITaxon:47421, functional_role: [CROSS_FEEDER]), and Acidovorax sp. (taxonomy[3], NCBITaxon:12916, functional_role: [CROSS_FEEDER]) all omit controlled abundance_level and direct equal-density inoculation evidence in taxonomy[].evidence. The cited open-access study (PMID:39684532, doi:10.3390/ijms252312819) explicitly establishes in Section 2.1 ('Four isolates were selected from enriched genera that closely matched their corresponding ASV sequences; i.e., Novosphingobium subterraneum (ASV995, 98.02%), Hydrogenophaga pseudoflava ( ASV44940 , 99.07%), Acidovorax sp. ( ASV57550 , 100%), and Variovorax paradoxus (ASV7847, 97.22%).') and in Section 4.4 ('Glasshouse Pot Experiments') that 'The concentration of the cultured bacterial strain was adjusted to 1 × 108 CFU/g with sterilized water. A 15 mL suspension of this SynCom was injected into the sterilized soil; sterilized water served as a control.' Setting abundance_level: DOMINANT and attaching this verbatim PMID:39684532 equal-density SynCom inoculation snippet on taxonomy[0..3] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/4 -&gt; 4/4 taxa with abundance_level; proportional Completeness Score 92/100 -&gt; 97/100; scripts/audit_completeness.py score 80/100 -&gt; 95/100).
 
-Disposition: Resolved in Issue #2755: populated abundance_level: DOMINANT, abundance_value: '1 x 10^8 CFU/g equal-density four-strain SynCom suspension (15 mL injected into sterilized soil)', and verbatim isolate selection and equal-density inoculation evidence from PMID:39684532 (doi:10.3389/fmicb.2024.1507960) on Variovorax paradoxus (NCBITaxon:34073), Novosphingobium subterraneum (NCBITaxon:48936), Hydrogenophaga pseudoflava (NCBITaxon:47421), and Acidovorax sp. (NCBITaxon:12916).
+Disposition: Resolved in Issue #2755: populated abundance_level: DOMINANT, abundance_value: '1 x 10^8 CFU/g equal-density four-strain SynCom suspension (15 mL injected into sterilized soil)', and verbatim isolate selection and equal-density inoculation evidence from PMID:39684532 (doi:10.3390/ijms252312819) on Variovorax paradoxus (NCBITaxon:34073), Novosphingobium subterraneum (NCBITaxon:48936), Hydrogenophaga pseudoflava (NCBITaxon:47421), and Acidovorax sp. (NCBITaxon:12916).
 
 ### c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles: Both cadmium-immobilizing coculture members in Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture (CommunityMech:000374) omit functional_role despite direct Cd-detoxification support in PMID:42307251
 
@@ -174,7 +174,7 @@ Retain the 3 cadmium-immobilization functional_role findings under open vocabula
 | --- | --- | --- | --- |
 | ev-c14s5-schema-validation | src/communitymech/schema/communitymech.yaml; MicrobialCommunity | supports | All 12 Cycle 14 Stage 5 target YAML records validate cleanly against src/communitymech/schema/communitymech.yaml with 0 LinkML errors, 0 GTDB coherence errors, 0 scalar errors, and 0 ontology term label errors. |
 | ev-c14s5-causal-inventory | reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml; records[0..1] | supports | Successor causal review ledger 20261110-c14s5-review-remediation.yaml re-attests both modified community records (CommunityMech:000106 and CommunityMech:000110); reports/causal_graph_review/inventory.tsv passes all 32 inventory integrity checks. |
-| ev-c14s5-primary-sources | references_cache/; PMID:40670700, PMID:39684532, PMID:42307251 | supports | Primary source caches in references_cache/ support abundance_level: DOMINANT and verbatim 5% (v/w) equal-ratio inoculation evidence on CommunityMech:000106 (PMID:40670700, doi:10.1007/s00253-025-13547-6) and abundance_level: DOMINANT plus verbatim isolate selection and 1 x 10^8 CFU/g equal-density inoculation evidence on CommunityMech:000110 (PMID:39684532, doi:10.3389/fmicb.2024.1507960) (#2755), while confirming that inorganic Cd2+ immobilization in PMID:42307251 (CommunityMech:000374, 000533, 000534) is blocked on FunctionalRoleEnum vocabulary expansion (#2194, #301) and the 7 source-limited records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded to abstract-verified claims. |
+| ev-c14s5-primary-sources | references_cache/; PMID:40670700, PMID:39684532, PMID:42307251 | supports | Primary source caches in references_cache/ support abundance_level: DOMINANT and verbatim 5% (v/w) equal-ratio inoculation evidence on CommunityMech:000106 (PMID:40670700, doi:10.1007/s00253-025-13547-6) and abundance_level: DOMINANT plus verbatim isolate selection and 1 x 10^8 CFU/g equal-density inoculation evidence on CommunityMech:000110 (PMID:39684532, doi:10.3390/ijms252312819) (#2755), while confirming that inorganic Cd2+ immobilization in PMID:42307251 (CommunityMech:000374, 000533, 000534) is blocked on FunctionalRoleEnum vocabulary expansion (#2194, #301) and the 7 source-limited records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded to abstract-verified claims. |
 
 ## Limits And Additional Notes
 
@@ -221,20 +221,19 @@ summary: 'Post-remediation scientific and structural verification review of all 
   inoculation evidence from PMID:40670700 (doi:10.1007/s00253-025-13547-6) across
   Pseudomonas sp. (taxonomy[0], NCBITaxon:306) and Bacillus sp. (taxonomy[1], NCBITaxon:1386)
   while preserving discussions[0], raising its review-communities s_ab rubric component
-  from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level; Completeness Score 83/100
-  -> 88/100; scripts/audit_completeness.py score 45/100 -> 85/100). CommunityMech:000110
-  (Rice_P_Uptake_Intercropping_SynCom4.yaml) now populates abundance_level: DOMINANT,
-  abundance_value: ''1 x 10^8 CFU/g equal-density four-strain SynCom suspension (15
-  mL injected into sterilized soil)'', and verbatim isolate selection and equal-density
-  inoculation evidence from PMID:39684532 (doi:10.3389/fmicb.2024.1507960) across
-  Variovorax paradoxus (taxonomy[0], NCBITaxon:34073), Novosphingobium subterraneum
+  from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level; Completeness Score 87/100
+  -> 92/100; scripts/audit_completeness.py score 80/100). CommunityMech:000110 (Rice_P_Uptake_Intercropping_SynCom4.yaml)
+  now populates abundance_level: DOMINANT, abundance_value: ''1 x 10^8 CFU/g equal-density
+  four-strain SynCom suspension (15 mL injected into sterilized soil)'', and verbatim
+  isolate selection and equal-density inoculation evidence from PMID:39684532 (doi:10.3390/ijms252312819)
+  across Variovorax paradoxus (taxonomy[0], NCBITaxon:34073), Novosphingobium subterraneum
   (taxonomy[1], NCBITaxon:48936), Hydrogenophaga pseudoflava (taxonomy[2], NCBITaxon:47421),
   and Acidovorax sp. (taxonomy[3], NCBITaxon:12916) while preserving discussions[0],
   raising review-communities s_ab from 0/5 to 5/5 (0/4 -> 4/4 taxa with abundance_level;
-  Completeness Score 90/100 -> 95/100; scripts/audit_completeness.py score 60/100
-  -> 100/100). Both modified records are re-attested in reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml.'
+  Completeness Score 92/100 -> 97/100; scripts/audit_completeness.py score 80/100).
+  Both modified records are re-attested in reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml.'
 source:
-  git_revision: f8be056c7cd6c2daa11658470a0d99d189aedb1f
+  git_revision: 7e7fc7e05b5979b283b76ecca384a58665efabe9
   state: working_tree
   inputs:
   - path: data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml
@@ -280,7 +279,7 @@ source:
     sha256: 05fbd542d92c9fc17a9538e9ab69804f5a0a4771488110aaee7c70e1d8c4539f
     role: target
   - path: reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml
-    sha256: 65a8859be23c7532088062bbefa235dacdf484624d1b6862952396129cc65b4c
+    sha256: d3ed8d624a3aa4f33e2c3dcbb4323c7031544fd4d5ab81eb80c932411ffc0c29
     role: context
   - path: reports/causal_graph_review/inventory.tsv
     sha256: 301fe04f778a729c1b0ac07e38d6f7950ccf4add6a7cee7da8824200b65d42a3
@@ -477,8 +476,8 @@ evidence:
     and verbatim 5% (v/w) equal-ratio inoculation evidence on CommunityMech:000106
     (PMID:40670700, doi:10.1007/s00253-025-13547-6) and abundance_level: DOMINANT
     plus verbatim isolate selection and 1 x 10^8 CFU/g equal-density inoculation evidence
-    on CommunityMech:000110 (PMID:39684532, doi:10.3389/fmicb.2024.1507960) (#2755),
-    while confirming that inorganic Cd2+ immobilization in PMID:42307251 (CommunityMech:000374,
+    on CommunityMech:000110 (PMID:39684532, doi:10.3390/ijms252312819) (#2755), while
+    confirming that inorganic Cd2+ immobilization in PMID:42307251 (CommunityMech:000374,
     000533, 000534) is blocked on FunctionalRoleEnum vocabulary expansion (#2194,
     #301) and the 7 source-limited records (#765, #1467, #1657, #1681, #1699, #1841,
     #1847) remain bounded to abstract-verified claims.'
@@ -490,12 +489,11 @@ assessments:
     (Issue #2755)'
   outcome: supported
   summary: CommunityMech:000106 (review-communities s_ab 0/5 -> 5/5, Completeness
-    Score 83/100 -> 88/100; scripts/audit_completeness.py score 45/100 -> 85/100)
-    and CommunityMech:000110 (review-communities s_ab 0/5 -> 5/5, Completeness Score
-    90/100 -> 95/100; scripts/audit_completeness.py score 60/100 -> 100/100) now populate
-    source-backed functional_role, abundance_level, abundance_value, and verbatim
-    abundance evidence across all 6/6 TaxonomicComposition entries while preserving
-    all record-level discussions.
+    Score 87/100 -> 92/100; scripts/audit_completeness.py score 80/100) and CommunityMech:000110
+    (review-communities s_ab 0/5 -> 5/5, Completeness Score 92/100 -> 97/100; scripts/audit_completeness.py
+    score 80/100) now populate source-backed functional_role, abundance_level, abundance_value,
+    and verbatim abundance evidence across all 6/6 TaxonomicComposition entries while
+    preserving all record-level discussions.
   target_ids:
   - CommunityMech:000106
   - CommunityMech:000110
@@ -551,7 +549,7 @@ findings:
     Pseudomonas sp. (taxonomy[0], NCBITaxon:306, functional_role: [CROSS_FEEDER])
     and Bacillus sp. (taxonomy[1], NCBITaxon:1386, functional_role: [CROSS_FEEDER])
     both omit controlled abundance_level and direct equal-inoculation evidence in
-    taxonomy[].evidence. The cited open-access study (PMID:40670700, doi:10.1007/s00253-025-13561-8)
+    taxonomy[].evidence. The cited open-access study (PMID:40670700, doi:10.1007/s00253-025-13547-6)
     explicitly establishes in Materials and Methods (''Creation of bacterial fertilizer
     for chemotactic SynCom'') that ''Each strain used in the chemotactic SynCom was
     inoculated into the composite nutrient at a 5% (v/w) ratio, along with the corresponding
@@ -661,7 +659,7 @@ findings:
   disposition_reason: 'Resolved in Issue #2755: populated abundance_level: DOMINANT,
     abundance_value: ''1 x 10^8 CFU/g equal-density four-strain SynCom suspension
     (15 mL injected into sterilized soil)'', and verbatim isolate selection and equal-density
-    inoculation evidence from PMID:39684532 (doi:10.3389/fmicb.2024.1507960) on Variovorax
+    inoculation evidence from PMID:39684532 (doi:10.3390/ijms252312819) on Variovorax
     paradoxus (NCBITaxon:34073), Novosphingobium subterraneum (NCBITaxon:48936), Hydrogenophaga
     pseudoflava (NCBITaxon:47421), and Acidovorax sp. (NCBITaxon:12916).'
   external_issues:
