@@ -163,13 +163,18 @@ def test_ledger_binds_topology_history_and_narrow_cache_append():
     successor_files = [
         ROOT / "reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml",
         ROOT / "reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml",
+        ROOT / "reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml",
     ]
     successor_by_id = {
         r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
     }
     for row, doc in zip(rows, docs, strict=True):
         latest = row
-        if row["id"] in {"CommunityMech:000360", "CommunityMech:000404"}:
+        if row["id"] in {
+            "CommunityMech:000360",
+            "CommunityMech:000404",
+            "CommunityMech:000438",
+        }:
             latest = successor_by_id[row["id"]]
             assert latest["supersedes_review"] == {
                 "review_file": str(LEDGER.relative_to(ROOT)),

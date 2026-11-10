@@ -68,12 +68,28 @@ def test_every_existing_node_and_removed_arrow_has_a_disposition():
     assert sum(len(r["node_decisions"]) for r in rows) == 5
     assert sum(len(r["edges_before"]) for r in rows) == 1
     assert sum(len(r["removed_edge_decisions"]) for r in rows) == 1
+    successor_files = [
+        ROOT / "reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml",
+    ]
+    successor_by_id = {
+        r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
+    }
     for row, doc in zip(rows, docs, strict=True):
         assert not row["edges_after"] and not row["removed_node_decisions"]
         assert {r["node"] for r in row["node_decisions"]} == {
             n["name"] for n in doc["ecological_interactions"]
         }
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000424":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
 
 
 def test_provenance_does_not_disguise_selected_excerpts_as_independent_sources():
