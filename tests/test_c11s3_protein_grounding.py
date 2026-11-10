@@ -1,4 +1,4 @@
-"""Regression and mutation-proof gate tests for Cycle 11/12/13 Stage 3 (protein_examples)."""
+"""Regression and mutation-proof gate tests for Cycle 11/12/13/14 Stage 3 (protein_examples)."""
 
 from __future__ import annotations
 
@@ -14,7 +14,8 @@ SHEW_PATH = REPO / "kb/taxa/Shewanella_oneidensis_MR1.yaml"
 GEO_PATH = REPO / "kb/taxa/Geobacter_sulfurreducens.yaml"
 C11_REPORT_PATH = REPO / "reports/c11s3_uniprot_protein_corpus_review_20261108.md"
 C12_REPORT_PATH = REPO / "reports/c12s3_uniprot_protein_corpus_review_20261108.md"
-REPORT_PATH = REPO / "reports/c13s3_uniprot_protein_corpus_review_20261109.md"
+C13_REPORT_PATH = REPO / "reports/c13s3_uniprot_protein_corpus_review_20261109.md"
+REPORT_PATH = REPO / "reports/c14s3_uniprot_protein_corpus_review_20261110.md"
 
 
 def _sha256(path: Path) -> str:
@@ -35,10 +36,10 @@ def verify_c11s3_protein_contract(
     """Validate Stage 3 CommonTaxon UniProtKB evidence, SHA-256 ledger, and links."""
     expected_taxa_hashes = {
         "CommunityMech:taxon:000001": (
-            "5994b4b237f3d87d16dcbb47edfd6a9fa88fc3898100457ce39036e712cccdf6"
+            "e7c38a51a1769c01b7f930f1bd67b8910d0db1fedae0093256435bf438e3eaf5"
         ),
         "CommunityMech:taxon:000002": (
-            "413329d881e1bcfcf692ffcd76a3839d183e9abd64952703233f6e786b918d7e"
+            "cdde2dcc8804f32aea582cd32f6e0933923bf70a2909aaa0aa0cccf008502730"
         ),
     }
     for tid, exp_sha in expected_taxa_hashes.items():
@@ -46,20 +47,20 @@ def verify_c11s3_protein_contract(
         if actual_sha != exp_sha:
             raise AssertionError(f"{tid} SHA-256 mismatch: expected {exp_sha}, got {actual_sha}")
         if exp_sha not in report_text:
-            raise AssertionError(f"{tid} SHA-256 {exp_sha} missing from c13s3 report")
+            raise AssertionError(f"{tid} SHA-256 {exp_sha} missing from c14s3 report")
 
     expected_gene_counts = {
         "CommunityMech:taxon:000001": {
-            "mtrC": ("UniProtKB:Q8EG33", "SO_1778", 11),
+            "mtrC": ("UniProtKB:Q8EG33", "SO_1778", 12),
             "mtrB": ("UniProtKB:Q8EG34", "SO_1776", 5),
-            "mtrA": ("UniProtKB:Q8EG35", "SO_1777", 6),
+            "mtrA": ("UniProtKB:Q8EG35", "SO_1777", 7),
             "omcA": ("UniProtKB:Q8EG32", "SO_1779", 11),
             "cymA": ("UniProtKB:Q8E945", "SO_4591", 6),
         },
         "CommunityMech:taxon:000002": {
-            "pilA": ("UniProtKB:Q74BW5", "GSU1496", 8),
+            "pilA": ("UniProtKB:Q74BW5", "GSU1496", 9),
             "omcS": ("UniProtKB:Q749X9", "GSU2504", 10),
-            "omcZ": ("UniProtKB:Q74A90", "GSU2076", 6),
+            "omcZ": ("UniProtKB:Q74A90", "GSU2076", 7),
             "omcB": ("UniProtKB:Q74A86", "GSU2737", 7),
         },
     }
@@ -109,8 +110,8 @@ def verify_c11s3_protein_contract(
                 f"{tid} latest curation_history action must be ADD_UNIPROT_PROTEIN_EXAMPLES"
             )
 
-    if total_evs != 70:
-        raise AssertionError(f"Expected 70 total CommonTaxon EvidenceItems, got {total_evs}")
+    if total_evs != 74:
+        raise AssertionError(f"Expected 74 total CommonTaxon EvidenceItems, got {total_evs}")
 
     expected_mr1_ids = {
         "CommunityMech:000177",
@@ -211,16 +212,27 @@ def test_c11s3_protein_grounding_contract_and_corpus_ledger() -> None:
 
     c11_report = C11_REPORT_PATH.read_text()
     c12_report = C12_REPORT_PATH.read_text()
+    c13_report = C13_REPORT_PATH.read_text()
     for c11_sha in (
         "3bb69ddaa4d9064fe6340d04dff7bd9bac375fb08495580e369ba239b71bdd75",
         "ab3bcd9639241391f25a20b5bbdb3a40ee6e907d441f696355ce16745e3c4b92",
     ):
-        assert c11_sha in c11_report and c11_sha in c12_report and c11_sha in report_text
+        assert (
+            c11_sha in c11_report
+            and c11_sha in c12_report
+            and c11_sha in c13_report
+            and c11_sha in report_text
+        )
     for c12_sha in (
         "5666e10e654de62d43df48c97be2215b1b24e7c94b471b3ece95bb248b7f41f5",
         "aeddfc60dfc34c721e1b2355aeddcd1b809da8196e449d360ce509f0af0c76dc",
     ):
-        assert c12_sha in c12_report and c12_sha in report_text
+        assert c12_sha in c12_report and c12_sha in c13_report and c12_sha in report_text
+    for c13_sha in (
+        "5994b4b237f3d87d16dcbb47edfd6a9fa88fc3898100457ce39036e712cccdf6",
+        "413329d881e1bcfcf692ffcd76a3839d183e9abd64952703233f6e786b918d7e",
+    ):
+        assert c13_sha in c13_report and c13_sha in report_text
 
     for hrel in (
         "history/records/Shewanella_oneidensis_MR1/2026-11-08T083200Z-antigravity-c11s301.yaml",
@@ -229,6 +241,8 @@ def test_c11s3_protein_grounding_contract_and_corpus_ledger() -> None:
         "history/records/Geobacter_sulfurreducens/2026-11-09T021000Z-antigravity-c12s302.yaml",
         "history/records/Shewanella_oneidensis_MR1/2026-11-09T214500Z-antigravity-c13s301.yaml",
         "history/records/Geobacter_sulfurreducens/2026-11-09T214500Z-antigravity-c13s302.yaml",
+        "history/records/Shewanella_oneidensis_MR1/2026-11-10T142000Z-antigravity-c14s301.yaml",
+        "history/records/Geobacter_sulfurreducens/2026-11-10T142000Z-antigravity-c14s302.yaml",
     ):
         assert (REPO / hrel).is_file(), f"Missing Stage 3 history sidecar: {hrel}"
 
