@@ -1,0 +1,298 @@
+id: CommunityMech:000543
+name: Escherichia coli XL12 Xylose-Specialized D-Lactate Isolate Baseline
+description: Single-strain engineered bacterial isolate baseline Escherichia coli XL12 (E. coli BL21(DE3) Δglk ΔptsI Δpps
+  ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA; NCBITaxon:562; GTDB:s__Escherichia_coli) constructed from intermediate strain
+  XL5 (CommunityMech:000544) by deleting pta, frdABC, adhE, dld, and mgsA and evaluated alongside glucose-specialized E. coli
+  GL10 (CommunityMech:000542) and the GL10-XL12 consortium (CommunityMech:000357) by Tan et al. 2026 (PMID:42038008). Relative
+  to wild-type E. coli, XL12 down-regulated pgi, ppc, and ackA expression by 70.95%, 37.52%, and 59.75% (Fig. S2). In single-sugar
+  M9 fermentation (Fig. 3), XL12 began utilizing glucose at 12 h and completed consumption by 36 h (OD600 = 2.89 at 36 h)
+  but produced only 0.30 g/L D-lactate (6% conversion), whereas on sole xylose XL12 initiated consumption at 12 h (12 h earlier
+  than XL5) and produced 2.66 g/L D-lactate at 36 h (53.2% conversion, 0.07 g/L/h productivity, 7.87-fold increase over its
+  glucose performance). In mixed-sugar medium (5 g/L glucose + 5 g/L xylose, Fig. 4), XL12 co-utilized glucose and xylose
+  simultaneously (56.57% xylose utilization at 72 h) and produced 1.27 g/L D-lactate at 36 h (12.7% conversion, 0.04 g/L/h
+  productivity, 100% optical purity, with 0.72 g/L residual succinate and zero formate, acetate, or ethanol).
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Eliminate competing fermentation and D-lactate degradation pathways in the PTS/glucokinase-deficient E. coli
+    XL5 chassis to generate a xylose-specialized strain (XL12) relieved of carbon catabolite repression for optically pure
+    D-lactate production.
+  assembly_strategy: Delete pta, frdABC, adhE, dld, and mgsA via CRISPR/Cas9 in E. coli XL5 (Δglk ΔptsI Δpps ΔpoxB ΔpflB)
+    to construct the 10-locus knockout strain XL12.
+  perturbation_design: Evaluate E. coli XL12 monoculture in M9 medium containing 5 g/L glucose, 5 g/L xylose, or 5 g/L glucose
+    + 5 g/L xylose at 37 °C and 150 rpm (initial OD600 = 0.1), and measure qRT-PCR expression of pgi, ppc, and ackA relative
+    to wild-type E. coli BL21(DE3).
+  measurement_endpoints:
+  - bacterial growth by OD600
+  - glucose and xylose consumption kinetics
+  - D-lactate titer, conversion rate, and productivity at 36 h
+  - succinate, formate, acetate, and ethanol byproduct concentrations
+  - qRT-PCR transcript levels of pgi, ppc, and ackA
+  - chiral optical purity of D-lactate
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Documents the step-wise construction of strain XL12 from XL5.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugars, WT produced 0.17 g/L D-lactate when the fermentation proceeded for 36 h, while XL12 produced
+      1.27 g/L D-lactate with a conversion rate of 12.7% and productivity of 0.04 g/L/h
+    explanation: Summarizes mixed-sugar D-lactate output by XL12 monoculture relative to WT.
+environment_term:
+  preferred_term: engineered E. coli M9 shake-flask monoculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled laboratory batch monoculture in M9 minimal salts medium supplemented with 5 g/L glucose, 5 g/L xylose,
+    or 5 g/L glucose + 5 g/L xylose at 37 °C and 150 rpm.
+related_communities:
+- identifier: CommunityMech:000542
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Xylose-specialized E. coli XL12 monoculture and glucose-specialized E. coli GL10 monoculture (CommunityMech:000542)
+    were constructed and characterized in parallel as the two division-of-labor partner baselines in PMID:42038008.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed and characterized in terms
+      of sugar utilization and D-lactate synthesis capabilities.
+    explanation: Directly links XL12 and GL10 as the two engineered partner baselines characterized in PMID:42038008.
+- identifier: CommunityMech:000544
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Xylose-specialized E. coli XL12 monoculture was derived directly from intermediate 5-gene knockout strain E.
+    coli XL5 (CommunityMech:000544) by deleting pta, frdABC, adhE, dld, and mgsA in PMID:42038008.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Directly links strain XL12 to its parental intermediate strain XL5.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli XL12
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Escherichia coli BL21(DE3) 10-locus knockout derivative (Δglk ΔptsI Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA)
+      engineered for relieved CCR and preferential D-lactate synthesis from xylose.
+  strain_designation:
+    strain_name: XL12
+    genetic_modification: E. coli BL21 (DE3) Δglk ΔptsI Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Identifies engineered strain XL12 and the five additional knockouts introduced into XL5.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To redirect carbon flux, the ptsI gene (disabling the phosphotransferase system for glucose uptake) and glk gene
+      (eliminating glucose phosphorylation) were deleted.
+    explanation: Documents the ptsI and glk deletions carried by the XL5/XL12 lineage.
+ecological_interactions:
+- name: PTS/Glk Deletion-Mediated Xylose Specialization, Relieved Carbon Catabolite Repression, and D-Lactate Synthesis by
+    E. coli XL12 Monoculture
+  description: In Escherichia coli XL12 (Δglk ΔptsI Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA), qRT-PCR analysis showed
+    that expression of pgi, ppc, and ackA was down-regulated by 70.95%, 37.52%, and 59.75% relative to wild-type E. coli (Fig.
+    S2). In sole-glucose M9 medium (Fig. 3), XL12 began utilizing glucose at 12 h and completed consumption by 36 h (OD600
+    = 2.89 at 36 h) and produced 0.30 g/L D-lactate (6% conversion). In sole-xylose M9 medium (Fig. 3), XL12 initiated xylose
+    utilization at 12 h (12 h earlier than XL5) and produced 2.66 g/L D-lactate at 36 h (53.2% conversion yield, 0.07 g/L/h
+    productivity, a 7.87-fold increase over its own performance in glucose medium). In mixed-sugar medium (5 g/L glucose +
+    5 g/L xylose, Fig. 4), relieved CCR allowed XL12 to co-utilize glucose and xylose simultaneously (56.57% xylose utilization
+    at 72 h) and produce 1.27 g/L D-lactate at 36 h (12.7% conversion, 0.04 g/L/h productivity, 100% optical purity, 0.72
+    g/L succinate, and zero formate, acetate, or ethanol).
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli XL12
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When glucose was used as the sole carbon source, WT produced 0.03 g/L D-lactate, while XL12 produced 0.30 g/L
+      D-lactate with a conversion rate of 6%. When xylose was used as the sole carbon source, D-lactate was not detected in
+      the WT culture, whereas XL12 produced 2.66 g/L of D-lactate, representing a 53.2% conversion yield and a productivity
+      of 0.07 g/L/h–a 7.87-fold increase over its own performance in glucose medium ( Fig. 3 B).
+    explanation: Quantifies XL12 monoculture 36-h D-lactate production on sole glucose (0.30 g/L, 6% conversion) and sole
+      xylose (2.66 g/L, 53.2% conversion, 0.07 g/L/h; 7.87-fold over sole glucose).
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The genes pgi, ppc and ackA in strain XL12 was down-regulated by 70.95%, 37.52% and 59.75% respectively compared
+      to the wild-type (WT) ( Fig. S2 ).
+    explanation: Documents the qRT-PCR down-regulation of pgi, ppc, and ackA in XL12 relative to wild-type E. coli.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, XL12 co-utilized glucose and xylose simultaneously in the mixed sugar medium. Although XL12
+      consumed glucose slowly in comparison with WT, XL12 utilized 56.57% of xylose at 72 h ( Fig. 4 A). More importantly,
+      the optical purity of D-lactate reached 100% ( Table S4 ).
+    explanation: Demonstrates relieved CCR, simultaneous glucose/xylose co-utilization (56.57% xylose consumption at 72 h),
+      and 100% D-lactate optical purity in XL12 monoculture.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugars, WT produced 0.17 g/L D-lactate when the fermentation proceeded for 36 h, while XL12 produced
+      1.27 g/L D-lactate with a conversion rate of 12.7% and productivity of 0.04 g/L/h ( Fig. 4 B). Formate, acetate, and
+      ethanol were not detected in XL12 culture but 0.72 g/L succinate was detected at 36 h ( Fig. S6 ).
+    explanation: Quantifies 36-h mixed-sugar D-lactate production (1.27 g/L) and byproduct profile (0.72 g/L succinate; zero
+      formate, acetate, ethanol) in XL12 monoculture.
+environmental_factors:
+- name: Single-sugar xylose vs glucose fermentation performance of XL12
+  value: 2.66 g/L D-lactate (53.2% yield) on 5 g/L xylose vs 0.30 g/L (6% yield) on 5 g/L glucose
+  description: In single-sugar M9 media, XL12 produced 7.87-fold more D-lactate from 5 g/L xylose (2.66 g/L at 36 h) than
+    from 5 g/L glucose (0.30 g/L).
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When xylose was used as the sole carbon source, D-lactate was not detected in the WT culture, whereas XL12 produced
+      2.66 g/L of D-lactate, representing a 53.2% conversion yield and a productivity of 0.07 g/L/h–a 7.87-fold increase over
+      its own performance in glucose medium ( Fig. 3 B).
+    explanation: Quantifies sole-xylose vs sole-glucose D-lactate production by XL12.
+- name: Mixed-sugar (5 g/L glucose + 5 g/L xylose) fermentation performance of XL12
+  value: 1.27 g/L D-lactate at 36 h (12.7% conversion, 0.04 g/L/h) and 56.57% xylose utilization at 72 h
+  description: In M9 medium containing 5 g/L glucose and 5 g/L xylose, XL12 co-utilized both sugars simultaneously, consuming
+    56.57% of xylose by 72 h and producing 1.27 g/L D-lactate at 36 h with 100% optical purity.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugars, WT produced 0.17 g/L D-lactate when the fermentation proceeded for 36 h, while XL12 produced
+      1.27 g/L D-lactate with a conversion rate of 12.7% and productivity of 0.04 g/L/h ( Fig. 4 B).
+    explanation: Quantifies mixed-sugar D-lactate synthesis by XL12 monoculture.
+growth_media:
+- name: M9 single-sugar and mixed-sugar fermentation media (XL12 monoculture)
+  composition:
+  - name: glucose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+    from_source: community_curated
+  - name: xylose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: xylose
+      term:
+        id: CHEBI:18222
+        label: xylose
+    from_source: community_curated
+  - name: Na2HPO4
+    concentration: '6.8'
+    unit: g/L
+  - name: KH2PO4
+    concentration: '3.4'
+    unit: g/L
+  - name: NH4Cl
+    concentration: '1'
+    unit: g/L
+  - name: NaCl
+    concentration: '0.5'
+    unit: g/L
+  - name: MgSO4
+    concentration: '0.24'
+    unit: g/L
+  - name: CaCl2
+    concentration: '0.011'
+    unit: g/L
+  temperature: '37'
+  temperature_unit: °C
+  inoculum_source: E. coli XL12 seed culture adjusted to initial OD600 = 0.1
+  inoculum_size: '0.1'
+  inoculum_unit: initial OD600
+  incubation_time: '72'
+  incubation_time_unit: h
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: unspecified shaking liquid culture
+  preparation_notes: E. coli XL12 was inoculated at an initial OD600 of 0.1 into M9 medium containing 5 g/L glucose, 5 g/L
+    xylose, or 5 g/L glucose + 5 g/L xylose and incubated at 37 °C and 150 rpm.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For single carbon source fermentation, strains were cultured in M9 medium containing either 5 g/L glucose or
+      5 g/L xylose as the sole carbon source. For mixed sugar fermentations, M9 medium was supplemented with 5 g/L glucose
+      and 5 g/L xylose. The initial OD600 was adjust to 0.1. Cultures were incubated at 37 °C with shaking at 150 rpm.
+    explanation: Specifies the M9 single-sugar and mixed-sugar fermentation conditions.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No heavy metal or rare-earth element transformation is involved in D-lactate fermentation by E. coli XL12 in
+  PMID:42038008.
+discussions:
+- discussion_id: xl12_residual_glucose_uptake_and_succinate_leak
+  prompt: Which alternative hexose transporters (e.g., GalP or MglBAC) and fumarate/succinate pathways (e.g., glyoxylate shunt
+    or glutamate catabolism) sustain residual glucose consumption and 0.72 g/L succinate accumulation in E. coli XL12 (Δglk
+    ΔptsI ΔfrdABC) during mixed-sugar fermentation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#PTS/Glk Deletion-Mediated Xylose Specialization, Relieved Carbon Catabolite Repression, and D-Lactate
+    Synthesis by E. coli XL12 Monoculture
+  rationale: Despite deleting ptsI, glk, and frdABC, XL12 still consumed glucose in single-sugar medium, co-utilized glucose
+    alongside xylose in mixed-sugar medium, and accumulated 0.72 g/L succinate at 36 h (Fig. S6), indicating activity of non-PTS
+    hexose transport/phosphorylation and non-FrdABC succinate formation.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Formate, acetate, and ethanol were not detected in XL12 culture but 0.72 g/L succinate was detected at 36 h (
+      Fig. S6 ).
+    explanation: Documents the residual 0.72 g/L succinate produced by XL12 in mixed-sugar fermentation.
+  posed_by: antigravity
+  posed_date: '2026-11-10'
+curation_history:
+- timestamp: '2026-11-10T08:50:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000543 (Escherichia coli XL12 Xylose-Specialized D-Lactate Isolate Baseline) in data/isolates/
+    from PMID:42038008 / doi:10.1016/j.bidere.2026.100072 for the 10-locus knockout strain XL12 (2.66 g/L D-lactate on sole
+    xylose, 0.30 g/L on sole glucose, and 1.27 g/L with simultaneous 56.57% xylose co-utilization on mixed glucose-xylose).
+  llm_assisted: true

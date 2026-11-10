@@ -1,0 +1,228 @@
+id: CommunityMech:000546
+name: Faecalibacterium prausnitzii A2-165 2'-FL/FOS Anaerobic Monoculture Baseline
+description: Single-strain anaerobic gut bacterial monoculture baseline Faecalibacterium prausnitzii A2-165 (JCM31915; NCBITaxon:853)
+  evaluated across 2′-fucosyllactose (2′-FL) and fructooligosaccharide (FOS) weight ratios at a fixed total carbohydrate concentration
+  of 0.5% (w/v) in sugar- and volatile-fatty-acid-free YCFA− broth (808 μL final volume in 48-well plates, 37 °C, 24 h anaerobic
+  incubation) alongside Bifidobacterium bifidum JCM1254 monoculture (CommunityMech:000545) and the B. bifidum–F. prausnitzii
+  coculture (CommunityMech:000401) by Iguchi et al. 2026 (PMID:42655156). In monoculture (Figure 1), F. prausnitzii A2-165
+  did not grow when 2′-FL was provided as the sole carbohydrate source (100% 2′-FL), whereas growth (OD600), lactate production,
+  and butyrate production occurred across mixed substrates containing 0–90% 2′-FL (100–10% FOS, Figure 1a,b,d) with limited
+  acetate production under all conditions (Figure 1c).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Determine the monoculture growth and butyrate/lactate/acetate fermentation profile of the human gut commensal
+    Faecalibacterium prausnitzii A2-165 across varying 2′-FL/FOS weight ratios to establish its direct FOS utilization and
+    inability to grow on sole 2′-FL.
+  assembly_strategy: Revive F. prausnitzii A2-165 (JCM31915) on glucose-supplemented YCFA medium, wash twice in sugar- and
+    VFA-free YCFA− medium, adjust OD600 to 1.0, and inoculate 8 μL into 800 μL of 2′-FL/FOS-supplemented YCFA− medium in 48-well
+    microplates.
+  perturbation_design: Vary the weight ratio of 2′-fucosyllactose (2′-FL) to fructooligosaccharides (FOS) from 0:100 to 100:0
+    while maintaining total carbohydrate at 0.5% (w/v), alongside a no-substrate negative control, under 24-h anaerobic incubation
+    at 37 °C.
+  measurement_endpoints:
+  - OD600 at 600 nm after 24 h anaerobic incubation
+  - lactate, acetate, and butyrate concentrations by 2-nitrophenylhydrazine derivatization HPLC at 400 nm (YMC-Pack FA column)
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: F. prausnitzii did not grow when 2′-FL was provided as the sole carbohydrate source (100% 2′-FL). In contrast,
+      growth was observed in media containing mixed substrates with 0–90% 2′-FL, corresponding to 100–10% FOS (Figure 1a).
+    explanation: Documents the monoculture assay and the inability of F. prausnitzii A2-165 to grow on 100% 2′-FL vs growth
+      on 0–90% 2′-FL (100–10% FOS).
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactate and butyrate were detected only under substrate conditions containing 0–90% 2′-FL, in which growth of
+      F. prausnitzii was also observed ( Figure 1 b,d).
+    explanation: Documents FOS-dependent lactate and butyrate synthesis across 0–90% 2′-FL (100–10% FOS) in F. prausnitzii
+      A2-165 monoculture.
+environment_term:
+  preferred_term: anaerobic 48-well gut-bacterium monoculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled 24-h anaerobic microplate monoculture in YCFA− broth supplemented with 0.5% (w/v) 2′-FL/FOS mixtures inside
+    a Whitley A25 anaerobic workstation at 37 °C.
+modeled_environment:
+- preferred_term: adult intestine environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: Models the prebiotic fermentation response of the adult human colonic butyrate producer Faecalibacterium prausnitzii
+    A2-165.
+related_communities:
+- identifier: CommunityMech:000545
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Faecalibacterium prausnitzii A2-165 monoculture and Bifidobacterium bifidum JCM1254 monoculture (CommunityMech:000545)
+    were evaluated in parallel across the same 2′-FL/FOS substrate ratio series in PMID:42655156.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In monoculture, F. prausnitzii grew under FOS-containing conditions, and B. bifidum growth increased as the proportion
+      of 2′-FL increased.
+    explanation: Directly compares the parallel monoculture baselines of F. prausnitzii A2-165 and B. bifidum JCM1254 in PMID:42655156.
+taxonomy:
+- taxon_term:
+    preferred_term: Faecalibacterium prausnitzii A2-165
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+    gtdb_grounding_status: UNRESOLVED
+    notes: Faecalibacterium prausnitzii A2-165 (JCM31915) obtained from the Japan Collection of Microorganisms; grounded at
+      NCBI species rank to match CommunityMech:000401.
+  strain_designation:
+    strain_name: A2-165
+    culture_collections:
+    - collection: JCM
+      accession: '31915'
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii A2-165 (JCM31915) and Bifidobacterium bifidum JCM1254 were provided by the Japan
+      Collection of Microorganisms, RIKEN BioResource Research Center, which participated in the National BioResource Project
+      of the Ministry of Education, Culture, Sports, Science and Technology, Japan (Tsukuba, Japan).
+    explanation: Identifies Faecalibacterium prausnitzii strain A2-165 (JCM31915).
+ecological_interactions:
+- name: FOS-Dependent Growth and Butyrate/Lactate Fermentation Without Direct 2′-FL Utilization by F. prausnitzii A2-165 Monoculture
+  description: In 24-h anaerobic YCFA− monocultures supplemented with 0.5% (w/v) total carbohydrate across varying 2′-FL/FOS
+    weight ratios (Figure 1), Faecalibacterium prausnitzii A2-165 did not grow when 2′-fucosyllactose (100% 2′-FL) was supplied
+    as the sole carbohydrate source and produced no detectable lactate or butyrate (Figure 1a,b,d). In contrast, across FOS-containing
+    mixtures (0–90% 2′-FL, corresponding to 100–10% FOS), F. prausnitzii A2-165 grew and produced both butyrate and lactate
+    (Figure 1a,b,d), while acetate production was limited under all the conditions (Figure 1c) in the VFA-free YCFA− basal
+    medium.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Faecalibacterium prausnitzii A2-165
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+  metabolites:
+  - preferred_term: 2′-fucosyllactose
+    term:
+      id: CHEBI:147155
+      label: 2'-fucosyllactose
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbohydrate fermentation
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: F. prausnitzii did not grow when 2′-FL was provided as the sole carbohydrate source (100% 2′-FL). In contrast,
+      growth was observed in media containing mixed substrates with 0–90% 2′-FL, corresponding to 100–10% FOS (Figure 1a).
+    explanation: Demonstrates absence of F. prausnitzii A2-165 monoculture growth on 100% 2′-FL and growth across 0–90% 2′-FL
+      (100–10% FOS).
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactate and butyrate were detected only under substrate conditions containing 0–90% 2′-FL, in which growth of
+      F. prausnitzii was also observed ( Figure 1 b,d).
+    explanation: Demonstrates lactate and butyrate synthesis by F. prausnitzii A2-165 monoculture across 0–90% 2′-FL (100–10%
+      FOS) and zero synthesis on 100% 2′-FL.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetate production was limited under all the conditions ( Figure 1 c).
+    explanation: Documents limited acetate accumulation across all 2′-FL/FOS ratios in F. prausnitzii A2-165 monoculture.
+environmental_factors:
+- name: 2′-FL/FOS carbohydrate ratio response of F. prausnitzii A2-165 monoculture
+  value: No growth or butyrate on 100% 2′-FL; active growth, butyrate, and lactate across 0–90% 2′-FL (100–10% FOS)
+  description: F. prausnitzii A2-165 monoculture required at least 10% FOS (0–90% 2′-FL within 0.5% w/v carbohydrate) for
+    growth and butyrate/lactate formation, and was unable to grow on sole 2′-FL.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In monoculture, F. prausnitzii grew under FOS-containing conditions, and B. bifidum growth increased as the proportion
+      of 2′-FL increased.
+    explanation: Summarizes the FOS requirement for F. prausnitzii A2-165 monoculture growth.
+growth_media:
+- name: YCFA− medium supplemented with 0.5% (w/v) 2′-FL/FOS mixtures (F. prausnitzii monoculture)
+  composition:
+  - name: 2′-fucosyllactose
+    concentration: 0-0.5
+    unit: '% w/v within 0.5% total carbohydrate'
+    chebi_term:
+      preferred_term: 2′-fucosyllactose
+      term:
+        id: CHEBI:147155
+        label: 2'-fucosyllactose
+    from_source: community_curated
+  - name: fructooligosaccharides
+    concentration: 0-0.5
+    unit: '% w/v within 0.5% total carbohydrate'
+    from_source: community_curated
+  temperature: 37.0
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_source: OD600 = 1.0 washed suspension of F. prausnitzii A2-165 in YCFA−
+  inoculum_size: 8 μL into 800 μL medium
+  incubation_time: '24'
+  incubation_time_unit: hours
+  vessel_type: 48-well plate
+  preparation_notes: F. prausnitzii A2-165 was pre-cultured anaerobically in YCFA with 0.5% glucose for 24 h at 37 °C, washed
+    twice in sugar- and VFA-free YCFA−, adjusted to OD600 = 1.0, and inoculated at 8 μL into 800 μL YCFA− containing 0.5%
+    (w/v) 2′-FL/FOS in 48-well plates.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequently, 8 μL of each bacterial suspension was inoculated into 800 μL of YCFA− supplemented with 0.5% (w/v)
+      carbohydrate in 48-well plates. For co-culture experiments, 8 μL of the OD600-adjusted suspension of each species was
+      added to the same well, whereas monocultures were inoculated with 8 μL of the respective strain suspension alone.
+    explanation: Specifies the OD600 = 1.0 inoculum, 8 μL into 800 μL YCFA− volume, 0.5% (w/v) carbohydrate concentration,
+      and 48-well plate format for monoculture.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth element transformation is involved in anaerobic prebiotic fermentation by F. prausnitzii
+  A2-165 in PMID:42655156.
+discussions:
+- discussion_id: fprausnitzii_a2165_butyrate_without_exogenous_acetate_in_ycfa_minus
+  prompt: How much endogenous acetyl-CoA is routed to butyrate via butyryl-CoA:acetate CoA-transferase in F. prausnitzii A2-165
+    monoculture when grown on FOS in VFA-free YCFA− broth without exogenous acetate supplementation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#FOS-Dependent Growth and Butyrate/Lactate Fermentation Without Direct 2′-FL Utilization by F.
+    prausnitzii A2-165 Monoculture
+  rationale: Although F. prausnitzii is classically stimulated by exogenous acetate, Figure 1d shows that F. prausnitzii A2-165
+    monoculture produced measurable butyrate and lactate from 0–90% 2′-FL (100–10% FOS) in VFA-free YCFA− medium with limited
+    net acetate accumulation (Figure 1c), prior to receiving B. bifidum-derived acetate in coculture.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetate production was limited under all the conditions ( Figure 1 c). Lactate and butyrate were detected only
+      under substrate conditions containing 0–90% 2′-FL, in which growth of F. prausnitzii was also observed ( Figure 1 b,d).
+    explanation: Documents monoculture butyrate and lactate formation alongside limited acetate in VFA-free YCFA− medium.
+  posed_by: antigravity
+  posed_date: '2026-11-10'
+curation_history:
+- timestamp: '2026-11-10T08:52:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000546 (Faecalibacterium prausnitzii A2-165 2'-FL/FOS Anaerobic Monoculture Baseline) in
+    data/isolates/ from PMID:42655156 / doi:10.3390/microorganisms14081812 for the F. prausnitzii A2-165 (JCM31915) monoculture
+    baseline showing no growth or acid production on 100% 2′-FL and FOS-dependent growth, butyrate, and lactate production
+    across 0–90% 2′-FL.
+  llm_assisted: true

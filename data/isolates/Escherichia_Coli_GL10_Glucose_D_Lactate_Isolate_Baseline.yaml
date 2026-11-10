@@ -1,0 +1,302 @@
+id: CommunityMech:000542
+name: Escherichia coli GL10 Glucose-Specialized D-Lactate Isolate Baseline
+description: Single-strain engineered bacterial isolate baseline Escherichia coli GL10 (E. coli BL21(DE3) Δpps ΔpoxB ΔpflB
+  Δpta ΔfrdABC ΔadhE Δdld ΔmgsA; NCBITaxon:562; GTDB:s__Escherichia_coli) constructed via CRISPR/Cas9 and characterized in
+  single-sugar (5 g/L glucose or 5 g/L xylose) and mixed-sugar (5 g/L glucose + 5 g/L xylose) M9 medium at 37 °C and 150 rpm
+  (initial OD600 = 0.1) alongside the xylose-specialized partner E. coli XL12 (CommunityMech:000543), intermediate knockout
+  strain E. coli XL5 (CommunityMech:000544), and the GL10-XL12 synthetic consortium (CommunityMech:000357) by Tan et al. 2026
+  (PMID:42038008). In single-sugar M9 fermentation (Fig. 5), GL10 fully consumed 5 g/L glucose within 12 h and produced 3.15
+  g/L D-lactate at 36 h (63% conversion rate, 0.09 g/L/h productivity, 3.92-fold higher conversion rate than on sole xylose
+  at 0.64 g/L and 0.018 g/L/h). In mixed-sugar fermentation (5 g/L glucose + 5 g/L xylose, Fig. 6), GL10 fully consumed 5
+  g/L glucose within 12 h with negligible xylose utilization due to preserved PTS-mediated carbon catabolite repression, producing
+  3.45 g/L D-lactate at 36 h (8.32-fold over wild-type E. coli, 34.5% conversion rate, 0.10 g/L/h productivity, 100% optical
+  purity) with no detectable succinate, formate, acetate, or ethanol.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct and benchmark a glucose-specialized, byproduct-free Escherichia coli BL21(DE3) knockout chassis (GL10)
+    for optically pure D-lactate synthesis in single-sugar and mixed glucose-xylose fermentation prior to co-culture assembly
+    with XL12.
+  assembly_strategy: Delete eight competing and D-lactate-degrading genes (pps, poxB, pflB, pta, frdABC, adhE, dld, and mgsA)
+    in E. coli BL21(DE3) via CRISPR/Cas9 while retaining native PTS glucose uptake (ptsI and glk intact).
+  perturbation_design: Compare E. coli GL10 monoculture against wild-type E. coli BL21(DE3), XL5, and XL12 in M9 medium supplemented
+    with 5 g/L glucose alone, 5 g/L xylose alone, or mixed 5 g/L glucose + 5 g/L xylose at 37 °C and 150 rpm from an initial
+    OD600 of 0.1.
+  measurement_endpoints:
+  - bacterial growth by OD600
+  - glucose and xylose consumption kinetics
+  - D-lactate titer, conversion rate, and productivity at 36 h
+  - byproduct accumulation (succinate, formate, acetate, ethanol)
+  - chiral optical purity of D-lactate
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a glucose-specialized strain, designated GL10, was constructed by deleting pps, poxB, pflB, pta, frdABC, adhE,
+      dld, and mgsA genes
+    explanation: Documents the exact eight-locus knockout genotype of glucose-specialized E. coli strain GL10.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 36 h, GL10 produced 3.45 g/L D-lactate in mixed sugars, representing an 8.32-fold increase over WT, with
+      a conversion rate of 34.5% and productivity of 0.10 g/L/h
+    explanation: Summarizes the 36-h mixed-sugar monoculture performance of E. coli GL10 relative to wild-type E. coli.
+environment_term:
+  preferred_term: engineered E. coli M9 shake-flask monoculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled laboratory batch monoculture in M9 minimal salts medium supplemented with 5 g/L glucose, 5 g/L xylose,
+    or 5 g/L glucose + 5 g/L xylose at 37 °C and 150 rpm.
+related_communities:
+- identifier: CommunityMech:000543
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Glucose-specialized E. coli GL10 monoculture and xylose-specialized E. coli XL12 monoculture (CommunityMech:000543)
+    were constructed and characterized in parallel as the two division-of-labor partner baselines in PMID:42038008.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed and characterized in terms
+      of sugar utilization and D-lactate synthesis capabilities.
+    explanation: Directly links GL10 and XL12 as the two engineered partner baselines characterized in PMID:42038008.
+- identifier: CommunityMech:000544
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Glucose-specialized E. coli GL10 monoculture and intermediate 5-gene knockout strain E. coli XL5 monoculture
+    (CommunityMech:000544) were constructed and evaluated in the same metabolic engineering study (PMID:42038008).
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequent knockout of pps, poxB, and pflB in the base strain yielded strain XL5 (ΔglkΔptsIΔppsΔpoxBΔpflB). Further
+      knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Links the knockout strain lineage (XL5 and XL12) constructed alongside GL10 in Section 2.1 of PMID:42038008.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli GL10
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Escherichia coli BL21(DE3) derivative carrying Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA deletions while retaining
+      intact ptsI and glk glucose transport/phosphorylation.
+  strain_designation:
+    strain_name: GL10
+    genetic_modification: E. coli BL21 (DE3) Δpps ΔpoxB ΔpflB Δpta ΔfrdABC ΔadhE Δdld ΔmgsA
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a glucose-specialized strain, designated GL10, was constructed by deleting pps, poxB, pflB, pta, frdABC, adhE,
+      dld, and mgsA genes
+    explanation: Identifies engineered E. coli strain GL10 and its eight deleted genes.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E coli BL21 (DE3) was used as a parental strain for generating knockout mutants.
+    explanation: Identifies E. coli BL21 (DE3) as the parental chassis for strain GL10.
+ecological_interactions:
+- name: PTS-Mediated Glucose Specialization, CCR-Driven Xylose Exclusion, and Homofermentative D-Lactate Production by E.
+    coli GL10 Monoculture
+  description: In single-sugar M9 batch fermentations (37 °C, 150 rpm, Fig. 5), Escherichia coli GL10 retained rapid native
+    PTS glucose uptake, consuming 5 g/L glucose completely within 12 h and producing 3.15 g/L D-lactate at 36 h (63% conversion
+    rate, 0.09 g/L/h productivity), whereas in sole-xylose medium GL10 produced only 0.64 g/L D-lactate at 36 h (0.018 g/L/h
+    productivity; 3.92-fold lower conversion rate than on glucose). In mixed-sugar medium (5 g/L glucose + 5 g/L xylose, Fig.
+    6), intact PTS-mediated carbon catabolite repression (CCR) in GL10 restricted xylose consumption to negligible levels
+    after 5 g/L glucose was depleted within 12 h, yielding 3.45 g/L D-lactate at 36 h (8.32-fold over WT, 34.5% conversion
+    rate, 0.10 g/L/h productivity, 100% optical purity) with no detectable succinate, formate, acetate, or ethanol.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli GL10
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under single carbon source conditions, GL10 produced 3.15 g/L D-lactate from glucose with a 63% conversion rate
+      and productivity of 0.09 g/L/h after 36 h, whereas no D-lactate was detected in WT.
+    explanation: Quantifies GL10 monoculture D-lactate synthesis (3.15 g/L, 63% conversion, 0.09 g/L/h) on sole glucose.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When xylose was used as the sole carbon source, GL10 produced 0.64 g/L D-lactate with a productivity of 0.018
+      g/L/h at 36 h ( Fig. 5 B). These results indicates that GL10 exhibits superior D-lactate synthesis capability in glucose,
+      with a 3.92-fold higher conversion rate compared to xylose.
+    explanation: Quantifies GL10 monoculture D-lactate output (0.64 g/L, 0.018 g/L/h) in sole-xylose medium and the 3.92-fold
+      higher conversion rate on glucose.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugar medium, GL10 exhibited improved growth over WT, with consistently higher OD600 values throughout
+      fermentation. Both WT and GL10 fully consumed 5 g/L glucose within 12 h. Whereas WT and GL10 showed negligible xylose
+      utilization ( Fig. 6 A).
+    explanation: Demonstrates complete glucose depletion within 12 h and CCR-mediated exclusion of xylose utilization by GL10
+      in mixed glucose-xylose medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 36 h, GL10 produced 3.45 g/L D-lactate in mixed sugars, representing an 8.32-fold increase over WT, with
+      a conversion rate of 34.5% and productivity of 0.10 g/L/h ( Fig. 6 B). As expected, the optical purity of D-lactate
+      generated from GL10 also reached 100% ( Table S4 ). No detectable succinate, formate, acetate, or ethanol was observed
+      ( Fig. S9 ).
+    explanation: Quantifies 36-h mixed-sugar D-lactate production (3.45 g/L, 100% optical purity) and complete byproduct elimination
+      in GL10 monoculture.
+environmental_factors:
+- name: Single-sugar glucose vs xylose fermentation performance of GL10
+  value: 3.15 g/L D-lactate (63% yield) on 5 g/L glucose vs 0.64 g/L on 5 g/L xylose
+  description: In single-sugar M9 media, GL10 achieved a 3.92-fold higher conversion rate on 5 g/L glucose (3.15 g/L at 36
+    h) than on 5 g/L xylose (0.64 g/L).
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These results indicates that GL10 exhibits superior D-lactate synthesis capability in glucose, with a 3.92-fold
+      higher conversion rate compared to xylose.
+    explanation: Directly compares single-sugar glucose vs xylose D-lactate conversion in GL10.
+- name: Mixed-sugar (5 g/L glucose + 5 g/L xylose) fermentation performance of GL10
+  value: 3.45 g/L D-lactate at 36 h (34.5% conversion, 0.10 g/L/h, 100% optical purity)
+  description: In M9 medium containing 5 g/L glucose and 5 g/L xylose, GL10 depleted glucose within 12 h with negligible xylose
+    consumption and produced 3.45 g/L optically pure D-lactate without detectable acid/alcohol byproducts.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 36 h, GL10 produced 3.45 g/L D-lactate in mixed sugars, representing an 8.32-fold increase over WT, with
+      a conversion rate of 34.5% and productivity of 0.10 g/L/h
+    explanation: Quantifies GL10 mixed-sugar D-lactate titer, conversion rate, and productivity.
+growth_media:
+- name: M9 single-sugar and mixed-sugar fermentation media (GL10 monoculture)
+  composition:
+  - name: glucose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+    from_source: community_curated
+  - name: xylose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: xylose
+      term:
+        id: CHEBI:18222
+        label: xylose
+    from_source: community_curated
+  - name: Na2HPO4
+    concentration: '6.8'
+    unit: g/L
+  - name: KH2PO4
+    concentration: '3.4'
+    unit: g/L
+  - name: NH4Cl
+    concentration: '1'
+    unit: g/L
+  - name: NaCl
+    concentration: '0.5'
+    unit: g/L
+  - name: MgSO4
+    concentration: '0.24'
+    unit: g/L
+  - name: CaCl2
+    concentration: '0.011'
+    unit: g/L
+  temperature: '37'
+  temperature_unit: °C
+  inoculum_source: E. coli GL10 seed culture adjusted to initial OD600 = 0.1
+  inoculum_size: '0.1'
+  inoculum_unit: initial OD600
+  incubation_time: '72'
+  incubation_time_unit: h
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: unspecified shaking liquid culture
+  preparation_notes: For single-strain fermentations, E. coli GL10 was inoculated at an initial OD600 of 0.1 into M9 medium
+    containing 5 g/L glucose, 5 g/L xylose, or 5 g/L glucose + 5 g/L xylose and incubated at 37 °C and 150 rpm.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M9 medium consisted of 6.8 g/L Na2HPO4, 3.4 g/L KH2PO4, 1 g/L NH4Cl, 0.5 g/L NaCl to which a 0.24 g/L MgSO4、0.011
+      g/L CaCl2
+    explanation: Specifies the M9 basal salt composition.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For single carbon source fermentation, strains were cultured in M9 medium containing either 5 g/L glucose or
+      5 g/L xylose as the sole carbon source. For mixed sugar fermentations, M9 medium was supplemented with 5 g/L glucose
+      and 5 g/L xylose. The initial OD600 was adjust to 0.1. Cultures were incubated at 37 °C with shaking at 150 rpm.
+    explanation: Specifies the initial OD600 = 0.1, 37 °C / 150 rpm incubation, and the single-sugar and mixed-sugar regimens
+      tested for single-strain characterization.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No heavy metal or rare-earth element transformation is involved in D-lactate fermentation by E. coli GL10 in
+  PMID:42038008.
+discussions:
+- discussion_id: gl10_xylose_d_lactate_conversion_bottleneck
+  prompt: Why does E. coli GL10 convert 5 g/L sole xylose into only 0.64 g/L D-lactate (0.018 g/L/h) despite exhibiting growth
+    and xylose consumption rates nearly identical to wild-type E. coli?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#PTS-Mediated Glucose Specialization, CCR-Driven Xylose Exclusion, and Homofermentative D-Lactate
+    Production by E. coli GL10 Monoculture
+  rationale: In sole-xylose medium, GL10 exhibited growth and xylose consumption kinetics nearly identical to WT (Fig. 5A)
+    but yielded 3.92-fold lower D-lactate conversion (0.64 g/L) than on sole glucose (3.15 g/L), whereas deleting ptsI and
+    glk in the same eight-gene knockout background (strain XL12) increased sole-xylose D-lactate to 2.66 g/L (53.2% conversion).
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When xylose was used as the sole carbon source, GL10 produced 0.64 g/L D-lactate with a productivity of 0.018
+      g/L/h at 36 h ( Fig. 5 B).
+    explanation: Documents low D-lactate yield (0.64 g/L, 0.018 g/L/h) in GL10 sole-xylose monoculture.
+  posed_by: antigravity
+  posed_date: '2026-11-10'
+curation_history:
+- timestamp: '2026-11-10T08:50:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000542 (Escherichia coli GL10 Glucose-Specialized D-Lactate Isolate Baseline) in data/isolates/
+    from PMID:42038008 / doi:10.1016/j.bidere.2026.100072 for the 8-locus knockout strain GL10 (3.15 g/L D-lactate on sole
+    glucose, 0.64 g/L on sole xylose, and 3.45 g/L with 100% optical purity on mixed glucose-xylose).
+  llm_assisted: true
