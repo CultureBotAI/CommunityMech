@@ -1,0 +1,149 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 14
+stage: 4
+revision: 1
+outcome: completed
+summary: 'Reviewed all 544 eligible records in the frozen CommunityMech inventory
+  at commit c44f4b14c7bd2723af5c3c86bba43a446eaf3efc across all 3 declared record
+  roots (512 kb/communities/*.yaml, 30 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and
+  24 domain cohorts using review-yaml-record and review-yaml-category. Saved immutable
+  structured review bundles (20261110T164500Z-c14s4-record-deep-audit and 20261110T164600Z-c14s4-frozen-cohort-review)
+  and preserved 2 new actionable open findings across 2 records (CommunityMech:000106
+  and 000110), 3 carried-forward FunctionalRoleEnum vocabulary-blocked deferred findings
+  across 3 records (CommunityMech:000374, 000533, 000534 under #2194), and 7 carried-forward
+  source-limited deferred findings (12 total carry_forward_ids) for Cycle 14 Stage
+  5 grouped remediation.'
+source_revision: c44f4b14c7bd2723af5c3c86bba43a446eaf3efc
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000013/stage-05/revision-0001/evidence.yaml
+  sha256: 06d4cad244fd57f8d505d7759c288c0f8a6ee7a7dd4334a86b620b4f2153c62e
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000014/stage-04/revision-0001/review_report.md
+  sha256: 804eda8ad9c398286b9085d6177743d48bca49bee0a6c0346bc6d188fe577711
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000014/stage-04/revision-0001/review_findings.yaml
+  sha256: c16db308cdb42e5aa8535b78f2064cfeb7eddbb92aea61348b73f896220e3c14
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000014/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: 8fec09456b6478b70de80e72c87d871d24ece5d460b3c7d9d2ec24d2689112a5
+  kind: supporting
+findings:
+- finding_id: c14s4-000106-tobacco-chemotactic-syncom-abundance-levels
+  status: open
+  summary: 'CommunityMech:000106 (kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml)
+    omits controlled abundance_level: DOMINANT and direct equal-inoculation evidence
+    on Pseudomonas sp. (taxonomy[0], NCBITaxon:306) and Bacillus sp. (taxonomy[1],
+    NCBITaxon:1386) despite verbatim 5% (v/w) equal-ratio strain inoculation support
+    in PMID:40670700 (doi:10.1007/s00253-025-13561-8).'
+- finding_id: c14s4-000110-rice-p-uptake-intercropping-syncom4-abundance-levels
+  status: open
+  summary: 'CommunityMech:000110 (kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml)
+    omits controlled abundance_level: DOMINANT and direct equal-density inoculation
+    evidence on Variovorax paradoxus (taxonomy[0], NCBITaxon:34073), Novosphingobium
+    subterraneum (taxonomy[1], NCBITaxon:48936), Hydrogenophaga pseudoflava (taxonomy[2],
+    NCBITaxon:47421), and Acidovorax sp. (taxonomy[3], NCBITaxon:12916) despite verbatim
+    1 x 10^8 CFU/g equal-density SynCom assembly support in PMID:39684532 (doi:10.3390/ijms252312819).'
+- finding_id: c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles
+  status: deferred
+  carried_from: c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles
+  summary: 'CommunityMech:000374 (kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml)
+    omits functional_role on Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222) and
+    Enterobacter sp. SL12 (taxonomy[1], NCBITaxon:547) because inorganic Cd2+ immobilization
+    (PMID:42307251) requires a metal-immobilizer / metal-detoxifier FunctionalRoleEnum
+    value rather than PRIMARY_DEGRADER (#2194, #301).'
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2194
+  disposition: 'Deferred: tracked in GitHub issue #2194 (#301) pending FunctionalRoleEnum
+    expansion for inorganic heavy-metal immobilization.'
+- finding_id: c12s4-000533-achromobacter-sl8-isolate-functional-role
+  status: deferred
+  carried_from: c12s4-000533-achromobacter-sl8-isolate-functional-role
+  summary: 'CommunityMech:000533 (data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml)
+    omits functional_role on Achromobacter sp. SL8 (taxonomy[0], NCBITaxon:222) because
+    inorganic Cd2+ immobilization (PMID:42307251) requires a metal-immobilizer / metal-detoxifier
+    FunctionalRoleEnum value rather than PRIMARY_DEGRADER (#2194, #301).'
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2194
+  disposition: 'Deferred: tracked in GitHub issue #2194 (#301) pending FunctionalRoleEnum
+    expansion for inorganic heavy-metal immobilization.'
+- finding_id: c12s4-000534-enterobacter-sl12-isolate-functional-role
+  status: deferred
+  carried_from: c12s4-000534-enterobacter-sl12-isolate-functional-role
+  summary: 'CommunityMech:000534 (data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml)
+    omits functional_role on Enterobacter sp. SL12 (taxonomy[0], NCBITaxon:547) because
+    inorganic Cd2+ immobilization (PMID:42307251) requires a metal-immobilizer / metal-detoxifier
+    FunctionalRoleEnum value rather than PRIMARY_DEGRADER (#2194, #301).'
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2194
+  disposition: 'Deferred: tracked in GitHub issue #2194 (#301) pending FunctionalRoleEnum
+    expansion for inorganic heavy-metal immobilization.'
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
+groups: []
+carry_forward_ids:
+- c14s4-000106-tobacco-chemotactic-syncom-abundance-levels
+- c14s4-000110-rice-p-uptake-intercropping-syncom4-abundance-levels
+- c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles
+- c12s4-000533-achromobacter-sl8-isolate-functional-role
+- c12s4-000534-enterobacter-sl12-isolate-functional-role
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []
