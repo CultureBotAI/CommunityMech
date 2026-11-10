@@ -178,6 +178,23 @@ ecological_interactions:
       ethanol were not detected in XL12 culture but 0.72 g/L succinate was detected at 36 h ( Fig. S6 ).
     explanation: Quantifies 36-h mixed-sugar D-lactate production (1.27 g/L) and byproduct profile (0.72 g/L succinate; zero
       formate, acetate, ethanol) in XL12 monoculture.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When glucose was used as the sole carbon source, XL12 demonstrated improved growth compared to the WT. XL12 reached
+      an OD600 of 2.89 at 36 h. WT depleted 5 g/L of glucose within 12 h, whereas XL12 began utilizing glucose at 12 h and
+      completed consumption by 36 h. When xylose was used as the sole carbon source, XL12 exhibited slower growth compared
+      to WT. WT consumed 5 g/L of xylose within 36 h, while XL12 initiated xylose utilization at 12 h ( Fig. 3 A).
+    explanation: Quantifies the single-sugar growth (OD600 = 2.89 at 36 h on glucose) and substrate uptake onset (12 h for
+      both glucose and xylose) of E. coli XL12.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These results demonstrates that the knockout of the glk and ptsI genes successfully reprogrammed XL12 into a
+      xylose-preferring D-lactate producer. Meanwhile, deletion of competing pathway genes reduced byproducts such as succinate,
+      formate, acetate, and ethanol ( Fig. S4 and S5 ), enhancing carbon flux from xylose to D-lactate.
+    explanation: Confirms that glk/ptsI deletion and competing-pathway knockouts reprogrammed XL12 into a xylose-preferring
+      D-lactate producer with reduced acid/alcohol byproducts.
 environmental_factors:
 - name: Single-sugar xylose vs glucose fermentation performance of XL12
   value: 2.66 g/L D-lactate (53.2% yield) on 5 g/L xylose vs 0.30 g/L (6% yield) on 5 g/L glucose
@@ -295,4 +312,11 @@ curation_history:
   changes: Created CommunityMech:000543 (Escherichia coli XL12 Xylose-Specialized D-Lactate Isolate Baseline) in data/isolates/
     from PMID:42038008 / doi:10.1016/j.bidere.2026.100072 for the 10-locus knockout strain XL12 (2.66 g/L D-lactate on sole
     xylose, 0.30 g/L on sole glucose, and 1.27 g/L with simultaneous 56.57% xylose co-utilization on mixed glucose-xylose).
+  llm_assisted: true
+- timestamp: '2026-11-10T11:35:02Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the COMMUNITY_LEVEL causal-graph node on CommunityMech:000543 (E. coli XL12 monoculture baseline)
+    from 4 to 6 non-overlapping verbatim snippets from PMID:42038008 (PMC13109302) covering 36-h single-sugar OD600 = 2.89,
+    12-h xylose/glucose uptake onset, and byproduct elimination (Batch 146, Cycle 14 Stage 2).
   llm_assisted: true

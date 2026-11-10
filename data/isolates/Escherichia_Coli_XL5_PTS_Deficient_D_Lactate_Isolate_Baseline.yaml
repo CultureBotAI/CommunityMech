@@ -156,6 +156,22 @@ ecological_interactions:
     snippet: When xylose was used as the sole carbon source, D-lactate was not detected in the WT culture, while XL5 produced
       0.21 g/L D-lactate, achieving a conversion rate of 4.2% ( Fig. 2 B).
     explanation: Quantifies the low 36-h D-lactate titer (0.21 g/L, 4.2% conversion) of XL5 in sole-xylose medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Deletion of ptsI and glk in XL5 disrupted the phosphotransferase system (PTS), impairing glucose utilization.
+      Residual glucose consumption indicated the involvement of alternative transporters, such as galactose—H+ symport protein
+      GalP and methylgalactoside transport system Mgl, which are inherently less efficient than PTS, causing slower glucose
+      assimilation and growth delay
+    explanation: Explains how ptsI and glk deletion in E. coli XL5 shifts glucose uptake to slower GalP/Mgl transport systems,
+      delaying glucose assimilation and exponential growth by 24 h.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The low D-lactate yield from xylose suggests that knocking out pps, poxB, and pflB is insufficient to fully redirect
+      metabolic flux.
+    explanation: Establishes that deleting only pps, poxB, and pflB in the Δglk ΔptsI background (XL5) is insufficient to
+      redirect xylose flux into D-lactate, motivating the additional knockouts in XL12.
 environmental_factors:
 - name: Sole-glucose vs sole-xylose D-lactate yield inversion in intermediate strain XL5
   value: 2.66 g/L D-lactate (53.2% yield) on 5 g/L glucose vs 0.21 g/L (4.2% yield) on 5 g/L xylose
@@ -260,4 +276,11 @@ curation_history:
   changes: Created CommunityMech:000544 (Escherichia coli XL5 PTS/Glucokinase-Deficient Intermediate Isolate Baseline) in
     data/isolates/ from PMID:42038008 / doi:10.1016/j.bidere.2026.100072 for the 5-gene knockout intermediate strain XL5 (2.66
     g/L D-lactate on sole glucose after a 24-h lag vs 0.21 g/L on sole xylose).
+  llm_assisted: true
+- timestamp: '2026-11-10T11:35:03Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the COMMUNITY_LEVEL causal-graph node on CommunityMech:000544 (E. coli XL5 intermediate monoculture
+    baseline) from 4 to 6 non-overlapping verbatim snippets from PMID:42038008 (PMC13109302) covering GalP/Mgl non-PTS glucose
+    transport and the insufficiency of pps/poxB/pflB deletion alone on sole xylose (Batch 146, Cycle 14 Stage 2).
   llm_assisted: true
