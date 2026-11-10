@@ -1,0 +1,209 @@
+reviewer: antigravity-c14s5
+review_mode: stage5_remediation_reattestation
+independent_approval: false
+base_commit: f8be056c7cd6c2daa11658470a0d99d189aedb1f
+baseline_commit: f8be056c7cd6c2daa11658470a0d99d189aedb1f
+issues:
+- 2755
+unresolved_research_issues: []
+unresolved_non_graph_issues:
+- 1937
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  dry_runs: []
+  repair_scope: Stage 5 review remediation of TaxonomicComposition.abundance_level, abundance_value, and
+    supporting EvidenceItem entries on CommunityMech:000106 and CommunityMech:000110; no causal graph
+    node or downstream edge topology changes.
+records:
+- path: kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml
+  id: CommunityMech:000106
+  original_sha256: 2d1851c88c385f813706b923eeb0754bf70bbac4dd94fb15369bf5e45317e371
+  record_sha256: 05fbd542d92c9fc17a9538e9ab69804f5a0a4771488110aaee7c70e1d8c4539f
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+    record_sha256: 2d1851c88c385f813706b923eeb0754bf70bbac4dd94fb15369bf5e45317e371
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261008-four-records-batch120 causal graph decisions.
+  summary: Add DOMINANT abundance_level, 5% (v/w) equal-ratio strain inoculation abundance_value, and
+    verbatim PMID:40670700 inoculation evidence to Pseudomonas sp. (Y364, Y832) and Bacillus sp. (Y878)
+    while preserving 20261008-four-records-batch120 causal graph decisions.
+  node_decisions:
+  - node: Strain-specific prebiotic enhancement
+    rationale: Retain positive compound responses with isolate-specific limits and the Y878 null result.
+  - node: Antagonism by cheA-positive SynCom isolates
+    rationale: Keep antagonism and compatibility distinct from cheA-based potential and unmeasured colonization.
+  - node: Tobacco Field Protection and Yield Enhancement
+    rationale: Preserve the positive field co-treatment outcome while bounding qPCR, Tax4Fun and mechanistic
+      attribution.
+  removed_node_decisions: []
+  renamed_nodes:
+    Root-Exudate Prebiotic Enhancement: Strain-specific prebiotic enhancement
+    Chemotactic Bacterial Wilt Suppression: Antagonism by cheA-positive SynCom isolates
+  edges_before:
+  - source: Strain-specific prebiotic enhancement
+    target: Antagonism by cheA-positive SynCom isolates
+    description: 'Selected compound additions enhanced broth antagonism in particular isolate assays.
+      PARTIAL for growth as the mediator: growth, broth chemistry and residual additives were not selectively
+      separated. The Y878 null enhancement result prevents generalizing this effect to all three members,
+      and the comparison does not establish enhanced chemotaxis or root colonization.'
+  - source: Antagonism by cheA-positive SynCom isolates
+    target: Tobacco Field Protection and Yield Enhancement
+    description: 'PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of the
+      formulated SynCom fertilizer. The field contrast combined strains, prebiotics and an organic matrix
+      against conventional cow-manure fertilization; it did not isolate chemotaxis, colonization or broth
+      antagonism as the mediator. The authors explicitly identify non-chemotactic SynCom controls as future
+      work.'
+  edges_after:
+  - source: Strain-specific prebiotic enhancement
+    target: Antagonism by cheA-positive SynCom isolates
+    description: 'Selected compound additions enhanced broth antagonism in particular isolate assays.
+      PARTIAL for growth as the mediator: growth, broth chemistry and residual additives were not selectively
+      separated. The Y878 null enhancement result prevents generalizing this effect to all three members,
+      and the comparison does not establish enhanced chemotaxis or root colonization.'
+  - source: Antagonism by cheA-positive SynCom isolates
+    target: Tobacco Field Protection and Yield Enhancement
+    description: 'PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of the
+      formulated SynCom fertilizer. The field contrast combined strains, prebiotics and an organic matrix
+      against conventional cow-manure fertilization; it did not isolate chemotaxis, colonization or broth
+      antagonism as the mediator. The authors explicitly identify non-chemotactic SynCom controls as future
+      work.'
+  retained_edge_decisions:
+  - before:
+      source: Root-Exudate Prebiotic Enhancement
+      target: Chemotactic Bacterial Wilt Suppression
+      description: Prebiotic-stimulated SynCom growth and antagonistic bioactivity strengthen the chemotactic
+        consortium's suppression of Ralstonia.
+    after:
+      source: Strain-specific prebiotic enhancement
+      target: Antagonism by cheA-positive SynCom isolates
+      description: 'Selected compound additions enhanced broth antagonism in particular isolate assays.
+        PARTIAL for growth as the mediator: growth, broth chemistry and residual additives were not selectively
+        separated. The Y878 null enhancement result prevents generalizing this effect to all three members,
+        and the comparison does not establish enhanced chemotaxis or root colonization.'
+    rationale: 'Selected compound additions enhanced broth antagonism in particular isolate assays. PARTIAL
+      for growth as the mediator: growth, broth chemistry and residual additives were not selectively
+      separated. The Y878 null enhancement result prevents generalizing this effect to all three members,
+      and the comparison does not establish enhanced chemotaxis or root colonization.'
+  - before:
+      source: Chemotactic Bacterial Wilt Suppression
+      target: Tobacco Field Protection and Yield Enhancement
+      description: Rhizosphere colonization and antagonism by the chemotactic SynCom carry through the
+        bioorganic fertilizer into lower field Ralstonia invasion and higher tobacco yield.
+    after:
+      source: Antagonism by cheA-positive SynCom isolates
+      target: Tobacco Field Protection and Yield Enhancement
+      description: 'PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of
+        the formulated SynCom fertilizer. The field contrast combined strains, prebiotics and an organic
+        matrix against conventional cow-manure fertilization; it did not isolate chemotaxis, colonization
+        or broth antagonism as the mediator. The authors explicitly identify non-chemotactic SynCom controls
+        as future work.'
+    rationale: 'PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of the
+      formulated SynCom fertilizer. The field contrast combined strains, prebiotics and an organic matrix
+      against conventional cow-manure fertilization; it did not isolate chemotaxis, colonization or broth
+      antagonism as the mediator. The authors explicitly identify non-chemotactic SynCom controls as future
+      work.'
+  removed_edge_decisions: []
+  references:
+  - PMID:40670700
+  issues:
+  - 1934
+  - 1937
+  - 2755
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Tobacco_Chemotactic_Biocontrol_SynCom/2026-11-10T185000Z-antigravity-2755a1.yaml
+- path: kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml
+  id: CommunityMech:000110
+  original_sha256: 9a5de564abd6e776d8f8eb5717c5d11d60cdf85a27414c0b58df620fae74dd9e
+  record_sha256: 2f705e42f3bb09abc227b96b636a133d3c82f612203782eb31412be6bea54a0e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch95.yaml
+    record_sha256: 9a5de564abd6e776d8f8eb5717c5d11d60cdf85a27414c0b58df620fae74dd9e
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261007-four-records-batch95 causal graph decisions.
+  summary: Add DOMINANT abundance_level, 1 x 10^8 CFU/g equal-density inoculation abundance_value, and
+    verbatim PMID:39684532 isolate selection and inoculation evidence to Variovorax paradoxus, Novosphingobium
+    subterraneum, Hydrogenophaga pseudoflava, and Acidovorax sp. while preserving 20261007-four-records-batch95
+    causal graph decisions.
+  node_decisions:
+  - node: Soil Available Phosphorus Activation
+    rationale: Retain measured available-P response without MUTUALISM and qualify existing acquisition
+      arrow.
+  - node: Phosphorus Acquisition Promotion
+    rationale: Retain transport-associated root observations as PARTIAL, not measured transporter flux
+      or necessary mediation.
+  - node: Rice Biomass and Phosphorus Uptake Increase
+    rationale: Retain positive pot biomass/P outcome, distinguish the adverse field comparison and remove
+      elemental-phosphorus grounding.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Soil Available Phosphorus Activation
+    target: Phosphorus Acquisition Promotion
+    description: 'PARTIAL: greater soil phosphorus availability is a proposed contributor to improved
+      rice phosphorus acquisition. The comparisons do not isolate this contribution from root architectural
+      and transport-associated responses.'
+  - source: Phosphorus Acquisition Promotion
+    target: Rice Biomass and Phosphorus Uptake Increase
+    description: 'PARTIAL: improved phosphorus access, root architecture and transport-associated responses
+      are proposed contributors to the positive pot biomass/phosphorus outcome. Their separate contributions
+      and necessity for that outcome remain unresolved.'
+  edges_after:
+  - source: Soil Available Phosphorus Activation
+    target: Phosphorus Acquisition Promotion
+    description: 'PARTIAL: greater soil phosphorus availability is a proposed contributor to improved
+      rice phosphorus acquisition. The comparisons do not isolate this contribution from root architectural
+      and transport-associated responses.'
+  - source: Phosphorus Acquisition Promotion
+    target: Rice Biomass and Phosphorus Uptake Increase
+    description: 'PARTIAL: improved phosphorus access, root architecture and transport-associated responses
+      are proposed contributors to the positive pot biomass/phosphorus outcome. Their separate contributions
+      and necessity for that outcome remain unresolved.'
+  retained_edge_decisions:
+  - before:
+      source: Soil Available Phosphorus Activation
+      target: Phosphorus Acquisition Promotion
+      description: SynCom-driven phosphate activation contributes to the belowground phosphorus-acquisition
+        program that also changes root morphology and up-regulates rice Pi transporter genes.
+    after:
+      source: Soil Available Phosphorus Activation
+      target: Phosphorus Acquisition Promotion
+      description: 'PARTIAL: greater soil phosphorus availability is a proposed contributor to improved
+        rice phosphorus acquisition. The comparisons do not isolate this contribution from root architectural
+        and transport-associated responses.'
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  - before:
+      source: Phosphorus Acquisition Promotion
+      target: Rice Biomass and Phosphorus Uptake Increase
+      description: Better available-phosphorus access, larger root absorptive surface, and higher root-to-shoot
+        Pi transporter expression drive the measured increases in potted rice biomass and phosphorus uptake.
+    after:
+      source: Phosphorus Acquisition Promotion
+      target: Rice Biomass and Phosphorus Uptake Increase
+      description: 'PARTIAL: improved phosphorus access, root architecture and transport-associated responses
+        are proposed contributors to the positive pot biomass/phosphorus outcome. Their separate contributions
+        and necessity for that outcome remain unresolved.'
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  removed_edge_decisions: []
+  references:
+  - PMID:39684532
+  issues:
+  - 1761
+  - 2755
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Rice_P_Uptake_Intercropping_SynCom4/2026-11-10T185005Z-antigravity-2755a2.yaml
