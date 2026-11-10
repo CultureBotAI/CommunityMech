@@ -189,13 +189,16 @@ def test_review_accounts_for_all_nodes_arrows_and_preserves_caches():
     assert (counts["graph_quotations"], counts["discussion_quotations"]) == (27, 6)
     assert ledger["cache_changes"] == [] and not ledger["independent_approval"]
     assert ledger["edison"]["new_nodes_or_directions"] == 0
-    successor_file = (
-        ROOT / "reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml"
-    )
-    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
+    successor_files = [
+        ROOT / "reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml",
+        ROOT / "reports/causal_graph_review/decisions/20261110-c14s5-review-remediation.yaml",
+    ]
+    successor_by_id = {
+        r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
+    }
     for row, doc in zip(rows, docs, strict=True):
         latest = row
-        if row["id"] == "CommunityMech:000454":
+        if row["id"] in ("CommunityMech:000454", "CommunityMech:000106"):
             latest = successor_by_id[row["id"]]
             assert latest["supersedes_review"] == {
                 "review_file": str(LEDGER.relative_to(ROOT)),
