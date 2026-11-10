@@ -108,6 +108,17 @@ genes:
     explanation: PARTIAL - comparative DIET discussion in PMID:41876513 (CommunityMech:000349) notes that deletion of pilA
       (GSU1496, UniProtKB:Q74BW5, GCF_000007985.2) abolishes unamended direct interspecies electron transfer between Geobacter
       and Methanosarcina acetivorans while granular activated carbon (GAC) can compensate for e-pili loss.
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'Among the genomes with EET-related genes, 16/31 contained pili meeting the strict criteria used by Bray et al.
+      (2020) : ≥9.8% aromatic amino acids (at least between residues 1 and 59 of the mature pilin sequence), no gap between
+      aromatic residues greater than 22, and aromatic residues at positions 1, 24, 27, 50 and/or 51, and 32 and/or 57 that
+      were found to be essential for conductivity in G. sulfurreducens e-pili by Walker et al. (2018 , 2020) ( Table 1 ).'
+    explanation: Comparative metagenomic screening of Rifle bioanode genomes in PMID:32849356 (CommunityMech:000241, Table
+      1) benchmarks aromatic residue density (≥9.8% between mature pilin residues 1–59) and conserved aromatic positions (1,
+      24, 27, 50/51, 32/57) established as essential for conductivity in Geobacter sulfurreducens PCA conductive type IV e-pili
+      (PilA, GSU1496, UniProtKB:Q74BW5, GCF_000007985.2).
 - gene_id: UniProtKB:Q749X9
   gene_symbol: omcS
   locus_tag: GSU2504
@@ -275,6 +286,15 @@ genes:
       and flavins (−210 mV) ( 52 – 57 ).
     explanation: Demonstrates that the Geobacter octaheme cytochrome OmcZ exhibits a broad multi-hundred-millivolt redox-active
       window enabling extracellular electron transfer to low-potential acceptors.
+  - reference: PMID:34986141
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Fig 10 OmcZ homologs in ANME archaea. Protein sequence alignment of OmcZ homologs from various Geobacter species
+      and ANME genomes reported here using muscle 3.8.31 with default settings. The 8 CxxCH-binding motifs are highlighted
+      in gray.
+    explanation: Figure 10 MUSCLE 3.8.31 protein sequence alignment in PMID:34986141 (CommunityMech:000134) aligns the 8 conserved
+      CxxCH heme-binding motifs of Geobacter octaheme c-type cytochrome OmcZ (GSU2076, UniProtKB:Q74A90, GCF_000007985.2)
+      with ANME archaeal OmcZ homologs.
 - gene_id: UniProtKB:Q74A86
   gene_symbol: omcB
   locus_tag: GSU2737
@@ -463,4 +483,12 @@ curation_history:
     acceptors in CommunityMech:000134 and CommunityMech:000276) and omcB (UniProtKB:Q74A86, GSU2737; PMID:41876513 COMPUTATIONAL
     SUPPORT for Figure 4c 1,323-amino-acid RAxML maximum-likelihood phylogenetic analysis of Geobacterales OmcB outer-membrane
     PCC cytochromes in CommunityMech:000349).
+  llm_assisted: true
+- timestamp: '2026-11-10T14:20:00Z'
+  curator: antigravity
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: Added verified full-text COMPUTATIONAL EvidenceItem entries to pilA (UniProtKB:Q74BW5, GSU1496; PMID:32849356 SUPPORT
+    for conserved aromatic residue positions 1, 24, 27, 50/51, and 32/57 essential for conductivity in G. sulfurreducens e-pili
+    benchmarked in CommunityMech:000241) and omcZ (UniProtKB:Q74A90, GSU2076; PMID:34986141 SUPPORT for Figure 10 MUSCLE 3.8.31
+    protein sequence alignment of the 8 CxxCH heme-binding motifs of Geobacter OmcZ with ANME homologs in CommunityMech:000134).
   llm_assisted: true

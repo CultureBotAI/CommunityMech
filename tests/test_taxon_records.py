@@ -61,10 +61,12 @@ def test_taxa_record_structure():
         "PMID:39504696",
         "PMID:31537786",
         "PMID:40845095",
+        "PMID:41210787",
     } == {ev["reference"] for ev in genes["mtrC"]["evidence"]}
-    assert len(genes["mtrC"]["evidence"]) == 11
+    assert len(genes["mtrC"]["evidence"]) == 12
     assert sum(1 for ev in genes["mtrC"]["evidence"] if ev["reference"] == "PMID:42733304") == 7
     assert sum(1 for ev in genes["mtrC"]["evidence"] if ev["reference"] == "PMID:40845095") == 1
+    assert sum(1 for ev in genes["mtrC"]["evidence"] if ev["reference"] == "PMID:41210787") == 1
     assert {
         "PMID:42733304",
         "PMID:41236292",
@@ -87,9 +89,11 @@ def test_taxa_record_structure():
         "PMID:31537786",
         "PMID:32849356",
         "PMID:40845095",
+        "PMID:34986141",
     } == {ev["reference"] for ev in genes["mtrA"]["evidence"]}
-    assert len(genes["mtrA"]["evidence"]) == 6
+    assert len(genes["mtrA"]["evidence"]) == 7
     assert sum(1 for ev in genes["mtrA"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
+    assert sum(1 for ev in genes["mtrA"]["evidence"] if ev["reference"] == "PMID:34986141") == 1
     assert {
         "PMID:42733304",
         "PMID:39504696",
@@ -114,9 +118,11 @@ def test_taxa_record_structure():
         "PMID:28287150",
         "PMID:32265334",
         "PMID:41876513",
+        "PMID:32849356",
     } == {ev["reference"] for ev in geo_genes["pilA"]["evidence"]}
-    assert len(geo_genes["pilA"]["evidence"]) == 8
+    assert len(geo_genes["pilA"]["evidence"]) == 9
     assert sum(1 for ev in geo_genes["pilA"]["evidence"] if ev["reference"] == "PMID:41876513") == 2
+    assert sum(1 for ev in geo_genes["pilA"]["evidence"] if ev["reference"] == "PMID:32849356") == 1
     assert {
         "PMID:41210787",
         "PMID:37650614",
@@ -137,8 +143,8 @@ def test_taxa_record_structure():
         "PMID:34986141",
         "PMID:40845095",
     } == {ev["reference"] for ev in geo_genes["omcZ"]["evidence"]}
-    assert len(geo_genes["omcZ"]["evidence"]) == 6
-    assert sum(1 for ev in geo_genes["omcZ"]["evidence"] if ev["reference"] == "PMID:34986141") == 3
+    assert len(geo_genes["omcZ"]["evidence"]) == 7
+    assert sum(1 for ev in geo_genes["omcZ"]["evidence"] if ev["reference"] == "PMID:34986141") == 4
     assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} == {
         ev["reference"] for ev in geo_genes["omcB"]["evidence"]
     }
