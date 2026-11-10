@@ -1,0 +1,263 @@
+id: CommunityMech:000544
+name: Escherichia coli XL5 PTS/Glucokinase-Deficient Intermediate Isolate Baseline
+description: Single-strain engineered bacterial isolate baseline Escherichia coli XL5 (E. coli BL21(DE3) Δglk ΔptsI Δpps ΔpoxB
+  ΔpflB; NCBITaxon:562; GTDB:s__Escherichia_coli) constructed via CRISPR/Cas9 as the 5-gene knockout intermediate preceding
+  E. coli XL12 (CommunityMech:000543) and evaluated alongside E. coli GL10 (CommunityMech:000542) and wild-type E. coli BL21(DE3)
+  by Tan et al. 2026 (PMID:42038008). In sole-glucose M9 medium (5 g/L glucose, 37 °C, 150 rpm, initial OD600 = 0.1, Fig.
+  2), deletion of ptsI and glk delayed the exponential growth phase of XL5 by 24 h (reaching OD600 = 1.46 at 36 h via alternative
+  GalP/Mgl transport), while deletions of pps, poxB, and pflB redirected carbon flux to produce 2.66 g/L D-lactate at 36 h
+  (53.2% conversion yield, 0.07 g/L/h productivity, 28.56-fold higher than wild-type E. coli at 0.09 g/L). In sole-xylose
+  M9 medium (5 g/L xylose, Fig. 2), XL5 achieved 0.46-fold higher maximum biomass than in glucose-grown cultures and fully
+  consumed 5 g/L xylose within 48 h, but produced only 0.21 g/L D-lactate (4.2% conversion rate), motivating the subsequent
+  deletion of pta, frdABC, adhE, dld, and mgsA to generate strain XL12.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test whether disabling PTS glucose uptake (ptsI), glucokinase (glk), phosphoenolpyruvate synthase (pps), pyruvate
+    oxidase (poxB), and pyruvate formate-lyase (pflB) in E. coli BL21(DE3) is sufficient to redirect xylose flux into D-lactate.
+  assembly_strategy: Delete glk, ptsI, pps, poxB, and pflB in E. coli BL21(DE3) via CRISPR/Cas9 to create the five-gene knockout
+    intermediate strain XL5.
+  perturbation_design: Compare E. coli XL5 monoculture against wild-type E. coli BL21(DE3) in M9 medium containing either
+    5 g/L glucose or 5 g/L xylose at 37 °C and 150 rpm (initial OD600 = 0.1) over 72 h.
+  measurement_endpoints:
+  - bacterial growth curves (OD600) on 5 g/L glucose and 5 g/L xylose
+  - glucose and xylose depletion kinetics
+  - D-lactate titer, conversion rate, and productivity at 36 h
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Prior to XL12 construction, XL5 was constructed as an intermediate step to investigate whether the deletion of
+      glk, ptsI, pps, poxB, and pflB could disrupt glucose metabolism and boost carbon flux to D-lactate. Strain XL5 (ΔglkΔptsIΔppsΔpoxBΔpflB)
+      was successfully constructed via CRISPR/Cas9 ( Fig. S3 ).
+    explanation: Documents the CRISPR/Cas9 construction and five-gene knockout genotype of intermediate strain XL5.
+environment_term:
+  preferred_term: engineered E. coli M9 shake-flask monoculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled laboratory batch monoculture in M9 minimal salts medium supplemented with 5 g/L glucose or 5 g/L xylose
+    at 37 °C and 150 rpm.
+related_communities:
+- identifier: CommunityMech:000542
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Intermediate 5-gene knockout strain E. coli XL5 monoculture and glucose-specialized E. coli GL10 monoculture
+    (CommunityMech:000542) were constructed and evaluated in the same study (PMID:42038008).
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequent knockout of pps, poxB, and pflB in the base strain yielded strain XL5 (ΔglkΔptsIΔppsΔpoxBΔpflB). Further
+      knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Links intermediate strain XL5 to the knockout lineage in Section 2.1 of PMID:42038008.
+- identifier: CommunityMech:000543
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Intermediate 5-gene knockout strain E. coli XL5 monoculture served as the direct parental strain for xylose-specialized
+    10-locus knockout strain E. coli XL12 (CommunityMech:000543) in PMID:42038008.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Directly links parental intermediate strain XL5 to strain XL12.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli XL5
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Escherichia coli BL21(DE3) 5-gene knockout intermediate (Δglk ΔptsI Δpps ΔpoxB ΔpflB) retaining pta, frdABC, adhE,
+      dld, and mgsA prior to construction of XL12.
+  strain_designation:
+    strain_name: XL5
+    genetic_modification: E. coli BL21 (DE3) Δglk ΔptsI Δpps ΔpoxB ΔpflB
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequent knockout of pps, poxB, and pflB in the base strain yielded strain XL5 (ΔglkΔptsIΔppsΔpoxBΔpflB).
+    explanation: Identifies recombinant E. coli strain XL5 and its five deleted genes.
+ecological_interactions:
+- name: Delayed Non-PTS Glucose Utilization and Low Sole-Xylose D-Lactate Yield in Intermediate E. coli XL5 Monoculture
+  description: In sole-glucose M9 fermentation (5 g/L glucose, 37 °C, 150 rpm, Fig. 2), deletion of ptsI and glk in E. coli
+    XL5 delayed the exponential growth phase by 24 h (reaching OD600 = 1.46 at 36 h, 24 h later than WT, via alternative GalP/Mgl
+    transport), while deletion of pps, poxB, and pflB elevated 36-h D-lactate production on sole glucose to 2.66 g/L (53.2%
+    conversion yield, 0.07 g/L/h productivity; 28.56-fold higher than wild-type E. coli at 0.09 g/L). In sole-xylose M9 fermentation
+    (5 g/L xylose, Fig. 2), XL5 reached a maximum biomass 0.46-fold higher than in glucose-grown cultures and fully consumed
+    5 g/L xylose within 48 h, but produced only 0.21 g/L D-lactate (4.2% conversion rate) because competing byproduct pathways
+    (pta, frdABC, adhE, mgsA) and D-lactate dehydrogenase (dld) remained intact.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli XL5
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With glucose as the sole carbon source, XL5 exhibited a significantly delayed exponential growth phase, reaching
+      an OD600 of 1.46 at 36 h–24 h later than WT. WT consumed most glucose within 12 h and leaving 0.67 g/L residual glucose.
+      XL5 initiated glucose utilization after 24 h and depleted it by 36 h.
+    explanation: Documents the 24-h delayed exponential phase, glucose depletion between 24 and 36 h, and 36-h OD600 (1.46)
+      of XL5 in sole-glucose medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When glucose as the sole carbon source, WT produced 0.09 g/L D-lactate after 36 h. XL5 produced 2.66 g/L of D-lactate,
+      corresponding to a 53.2% conversion yield and a productivity of 0.07 g/L/h, which was 28.56-fold higher than that of
+      the WT.
+    explanation: Quantifies 36-h sole-glucose D-lactate synthesis by XL5 (2.66 g/L, 53.2% conversion, 0.07 g/L/h; 28.56-fold
+      over WT).
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With xylose as the sole carbon source, XL5 reached a maximum biomass 0.46-fold higher than in glucose-grown cultures.
+      Both WT and XL5 fully consumed 5 g/L xylose within 36 h and 48 h, respectively ( Fig. 2 A).
+    explanation: Quantifies XL5 biomass increase and 48-h xylose depletion in sole-xylose medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When xylose was used as the sole carbon source, D-lactate was not detected in the WT culture, while XL5 produced
+      0.21 g/L D-lactate, achieving a conversion rate of 4.2% ( Fig. 2 B).
+    explanation: Quantifies the low 36-h D-lactate titer (0.21 g/L, 4.2% conversion) of XL5 in sole-xylose medium.
+environmental_factors:
+- name: Sole-glucose vs sole-xylose D-lactate yield inversion in intermediate strain XL5
+  value: 2.66 g/L D-lactate (53.2% yield) on 5 g/L glucose vs 0.21 g/L (4.2% yield) on 5 g/L xylose
+  description: Before deletion of pta, frdABC, adhE, dld, and mgsA, intermediate strain XL5 produced 2.66 g/L D-lactate on
+    5 g/L glucose after a 24-h lag, but only 0.21 g/L D-lactate on 5 g/L xylose.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When xylose was used as the sole carbon source, D-lactate was not detected in the WT culture, while XL5 produced
+      0.21 g/L D-lactate, achieving a conversion rate of 4.2% ( Fig. 2 B).
+    explanation: Documents the low 4.2% xylose-to-D-lactate conversion rate in XL5 that motivated constructing XL12.
+growth_media:
+- name: M9 single-sugar glucose and xylose fermentation media (XL5 monoculture)
+  composition:
+  - name: glucose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+    from_source: community_curated
+  - name: xylose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: xylose
+      term:
+        id: CHEBI:18222
+        label: xylose
+    from_source: community_curated
+  - name: Na2HPO4
+    concentration: '6.8'
+    unit: g/L
+  - name: KH2PO4
+    concentration: '3.4'
+    unit: g/L
+  - name: NH4Cl
+    concentration: '1'
+    unit: g/L
+  - name: NaCl
+    concentration: '0.5'
+    unit: g/L
+  - name: MgSO4
+    concentration: '0.24'
+    unit: g/L
+  - name: CaCl2
+    concentration: '0.011'
+    unit: g/L
+  temperature: '37'
+  temperature_unit: °C
+  inoculum_source: E. coli XL5 seed culture adjusted to initial OD600 = 0.1
+  inoculum_size: '0.1'
+  inoculum_unit: initial OD600
+  incubation_time: '72'
+  incubation_time_unit: h
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: unspecified shaking liquid culture
+  preparation_notes: E. coli XL5 was inoculated at an initial OD600 of 0.1 into M9 medium containing 5 g/L glucose or 5 g/L
+    xylose and incubated at 37 °C and 150 rpm.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For single carbon source fermentation, strains were cultured in M9 medium containing either 5 g/L glucose or
+      5 g/L xylose as the sole carbon source. For mixed sugar fermentations, M9 medium was supplemented with 5 g/L glucose
+      and 5 g/L xylose. The initial OD600 was adjust to 0.1. Cultures were incubated at 37 °C with shaking at 150 rpm.
+    explanation: Specifies the M9 fermentation conditions used for XL5 characterization.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No heavy metal or rare-earth element transformation is involved in D-lactate fermentation by E. coli XL5 in PMID:42038008.
+discussions:
+- discussion_id: xl5_to_xl12_glucose_lactate_switch_mechanism
+  prompt: Why did deleting pta, frdABC, adhE, dld, and mgsA in E. coli XL5 (to generate XL12) increase sole-xylose D-lactate
+    12.7-fold (from 0.21 to 2.66 g/L) while simultaneously reducing sole-glucose D-lactate 8.9-fold (from 2.66 to 0.30 g/L)
+    despite higher 36-h glucose biomass (OD600 = 2.89 vs 1.46)?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Delayed Non-PTS Glucose Utilization and Low Sole-Xylose D-Lactate Yield in Intermediate E. coli
+    XL5 Monoculture
+  rationale: 'Comparing Figure 2 (XL5) with Figure 3 (XL12) reveals a complete inversion of substrate-specific D-lactate yield
+    between the 5-gene and 10-locus knockouts: XL5 produced 2.66 g/L on glucose and 0.21 g/L on xylose, whereas XL12 produced
+    0.30 g/L on glucose and 2.66 g/L on xylose.'
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When glucose was used as the sole carbon source, WT produced 0.03 g/L D-lactate, while XL12 produced 0.30 g/L
+      D-lactate with a conversion rate of 6%.
+    explanation: Documents the decrease in sole-glucose D-lactate from 2.66 g/L in XL5 to 0.30 g/L in XL12.
+  posed_by: antigravity
+  posed_date: '2026-11-10'
+curation_history:
+- timestamp: '2026-11-10T08:50:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000544 (Escherichia coli XL5 PTS/Glucokinase-Deficient Intermediate Isolate Baseline) in
+    data/isolates/ from PMID:42038008 / doi:10.1016/j.bidere.2026.100072 for the 5-gene knockout intermediate strain XL5 (2.66
+    g/L D-lactate on sole glucose after a 24-h lag vs 0.21 g/L on sole xylose).
+  llm_assisted: true
