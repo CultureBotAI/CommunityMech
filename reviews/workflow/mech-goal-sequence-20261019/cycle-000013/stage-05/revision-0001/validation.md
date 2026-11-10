@@ -1,0 +1,29 @@
+# Cycle 13 Stage 5 Remediation Validation Report
+
+- **Run ID**: `mech-goal-sequence-20261019`
+- **Cycle**: `13` (`cycle-000013`)
+- **Stage**: `5` (`resolve_review_findings`, `revision-0001`)
+- **Repository**: `CultureBotAI/CommunityMech`
+
+## 1. Executed Validation Gates
+
+| Validation Gate | Command | Exit Code | Result Summary |
+|---|---|---|---|
+| Strict Corpus & Schema Validation | `PYTHONPATH=src .venv/bin/python scripts/validate_strict.py --out .temp/instance_validation_failures.tsv kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml` | `0` | Both remediated `kb/communities/` YAML records validate cleanly against `src/communitymech/schema/communitymech.yaml` with `0` errors, `0` GTDB coherence errors, `0` scalar errors, and `0` ontology term label errors. |
+| Reference & Snippet Verification | `.venv/bin/linkml-reference-validator validate data kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml` (and `000438`) | `0` | Both modified community YAML records pass `linkml-reference-validator` with `0` snippet mismatches against `references_cache/`. |
+| Bracketed Snippet Guard | `.venv/bin/pytest tests/test_no_new_bracketed_snippets.py -v` | `0` | `4 passed` (`0` new bracketed snippets introduced). |
+| Writer Bypass & History Sidecar Validation | `.venv/bin/linkml-validate --schema src/communitymech/schema/history.yaml --target-class HistoryRecord history/records/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium/2026-11-10T032200Z-antigravity-2747a1.yaml history/records/Wine_Yeast_ThreeSpecies_Contact_Consortium/2026-11-10T032205Z-antigravity-2747a2.yaml` | `0` | Both modified community YAML records were written through `record_curation_event(..., llm_assisted=True)` + `write_validated_community` and carry schema-valid `HistoryRecord` sidecars (`No issues found`). |
+| Causal Review Inventory & Participating Taxa Suite | `.venv/bin/pytest tests/test_causal_review_inventory.py tests/test_participating_taxa.py -v` | `0` | All `32` causal review inventory integrity checks (`535` records, `479` reviewed, `56` `needs_research`, `0` stale, `0` structural defects) and all `9` participating-taxa checks pass. |
+| HTML Community Site Currency Gate | `.venv/bin/pytest tests/test_docs_do_not_contradict_the_kb.py tests/test_published_pages_name_real_records.py -v` | `0` | Updated `docs/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.html` and `docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html`; all HTML consistency checks pass (`512` communities rendered cleanly). |
+| Structured Review Validation Gate | `.venv/bin/python scripts/record_review.py validate reviews/structured/20261110T032500Z-c13s5-remediation-verification/review.yaml --render && .venv/bin/python scripts/record_review.py check --require-reviews --base e6c179330ed043975eaf7f353342766b59a4cd02` | `0` | Post-remediation structured review bundle validates and renders cleanly. |
+| Lint & Static Typing Gate | `.venv/bin/black --check src/ tests/ scripts/ && .venv/bin/ruff check src/ tests/ scripts/ && .venv/bin/mypy src/` | `0` | All formatting, lint, and static typing checks pass with `0` issues. |
+| Workflow Evidence Contract Validation | `PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/culturebotai-claw/src /Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/culturebotai-claw/.venv/bin/python -m kg_microbe_workflows validate-evidence --root . --previous reviews/workflow/mech-goal-sequence-20261019/cycle-000013/stage-04/revision-0001/evidence.yaml --required-output issue_map --required-output validation reviews/workflow/mech-goal-sequence-20261019/cycle-000013/stage-05/revision-0001/evidence.yaml` | `0` | Validated `FindingGroupResolution` schema and ancestor evidence graph (`stage: 5`, `12` findings, `9` groups, `10` `carry_forward_ids`). |
+
+## 2. Remediated Record Metrics
+
+- **`CommunityMech:000424` (`kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml`, `#2747`)**:
+  - Added `abundance_level: DOMINANT` and verbatim phylum/genus dominance evidence (`PMID:42511722`, `doi:10.3390/ijms27146379`) on `Dehalogenimonas` (`NCBITaxon:670486`, `taxonomy[0]`), `Clostridium` (`NCBITaxon:1485`, `taxonomy[1]`), `Sedimentibacter` (`NCBITaxon:190972`, `taxonomy[2]`), and `Methanoculleus` (`NCBITaxon:45989`, `taxonomy[3]`).
+  - `review-communities` `s_ab` rubric component: `0/5` -> `5/5` (`0/4` -> `4/4` taxa with `abundance_level`); proportional Completeness Score: `95/100` -> `100/100`; `scripts/audit_completeness.py` score: `90/100`.
+- **`CommunityMech:000438` (`kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml`, `#2747`)**:
+  - Added `abundance_level: DOMINANT` on `Saccharomyces cerevisiae VIN13` (`NCBITaxon:4932`, `taxonomy[0]`) and `abundance_level: COMMON` on `Lachancea thermotolerans IWBT Y1240` (`NCBITaxon:381046`, `taxonomy[1]`) and `Torulaspora delbrueckii LO544` (`NCBITaxon:4950`, `taxonomy[2]`), along with treatment-resolved `abundance_value` strings and verbatim equimolar inoculation and 12-h direct/indirect-contact population evidence (`PMID:42176030`, `doi:10.1007/s00253-026-13856-4`).
+  - `review-communities` `s_ab` rubric component: `0/5` -> `5/5` (`0/3` -> `3/3` taxa with `abundance_level`); proportional Completeness Score: `83/100` -> `88/100`; `scripts/audit_completeness.py` score: `85/100`.

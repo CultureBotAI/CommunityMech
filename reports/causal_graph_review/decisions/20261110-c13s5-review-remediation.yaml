@@ -1,0 +1,97 @@
+reviewer: antigravity-c13s5
+review_mode: stage5_remediation_reattestation
+independent_approval: false
+base_commit: e6c179330ed043975eaf7f353342766b59a4cd02
+baseline_commit: e6c179330ed043975eaf7f353342766b59a4cd02
+issues:
+- 2747
+unresolved_research_issues: []
+unresolved_non_graph_issues: []
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  dry_runs: []
+  repair_scope: Stage 5 review remediation of TaxonomicComposition.abundance_level, abundance_value, and
+    supporting EvidenceItem entries on CommunityMech:000424 and CommunityMech:000438; no causal graph
+    node or downstream edge topology changes.
+records:
+- path: kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
+  id: CommunityMech:000424
+  original_sha256: a634e28075ce72c27b0bb6348b68bde7ece13d970a0457281aacb8f48710ae3c
+  record_sha256: 2eede18215821618a8acacbe5d47754774d268e044e47b80368100e8e4927fc0
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml
+    record_sha256: a634e28075ce72c27b0bb6348b68bde7ece13d970a0457281aacb8f48710ae3c
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261007-four-records-batch92 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:42511722 phylum/genus dominance evidence to
+    Dehalogenimonas, Clostridium, Sedimentibacter, and Methanoculleus while preserving 20261007-four-records-batch92
+    causal graph decisions.
+  node_decisions:
+  - node: Fermenter-Methanogen Support for Dehalogenimonas RDase Activity
+    rationale: Qualify the existing support network as HYPOTHESIZED/PARTIAL, distinguish proposed methanogen
+      hydrogen consumption from donor provision, and remove categorical SYNTROPHY without requiring obligacy.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42511722
+  issues:
+  - 1746
+  - 2747
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium/2026-11-10T032200Z-antigravity-2747a1.yaml
+- path: kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
+  id: CommunityMech:000438
+  original_sha256: ba42e79fb1133d49ce6280562566ffedd6bcf37306ce42b97473e7cfdc1b017f
+  record_sha256: 16e610d3f506c025d952d08666dceb99d94b774deef5578d5fb6f3e9d5f22d5a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+    record_sha256: ba42e79fb1133d49ce6280562566ffedd6bcf37306ce42b97473e7cfdc1b017f
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261008-four-records-batch123 causal graph decisions.
+  summary: Add DOMINANT/COMMON abundance_level, treatment-resolved abundance_value, and verbatim PMID:42176030
+    inoculation and 12-h population evidence to Saccharomyces cerevisiae VIN13, Lachancea thermotolerans
+    IWBT Y1240, and Torulaspora delbrueckii LO544 while preserving 20261008-four-records-batch123 causal
+    graph decisions.
+  node_decisions:
+  - node: Direct-contact S. cerevisiae growth advantage
+    rationale: Retain the positive contact-treatment growth phenotype without necessary-gene attribution.
+  - node: Indirect-contact Torulaspora growth shift
+    rationale: Mark proposed Torulaspora-mediated suppression as partial and hypothetical, not a demonstrated
+      toxin mechanism.
+  - node: Contact-dependent amino acid profile shift
+    rationale: Preserve the 5 h amino-acid difference and 9 h null without inferring transfer, secretion
+      or uptake direction.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42176030
+  issues:
+  - 1955
+  - 1959
+  - 2747
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Wine_Yeast_ThreeSpecies_Contact_Consortium/2026-11-10T032205Z-antigravity-2747a2.yaml
