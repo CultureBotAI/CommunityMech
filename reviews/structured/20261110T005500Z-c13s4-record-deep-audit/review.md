@@ -264,13 +264,13 @@ Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml) in coh
 
 major / open / confirmed; issue key: c13s4-000424-qy2s1-bfr-consortium-abundance-levels.
 
-In kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:870430, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]), Clostridium (taxonomy[1], NCBITaxon:1485, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), Sedimentibacter (taxonomy[2], NCBITaxon:171692, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), and Methanoculleus (taxonomy[3], NCBITaxon:2202, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) all populate free-text abundance_value strings but omit the controlled abundance_level enum. The cited open-access study (PMID:42511722, doi:10.1016/j.jhazmat.2026.143678) explicitly establishes that 'More detailed analysis revealed a consistent microbial community composition among different systems, predominantly composed of the phyla Bacillota (formerly Firmicutes; 43.84 ± 3.76%~54.15 ± 7.28%), Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%), and Halobacteriota (11.72 ± 4.57%~27.33 ± 9.08%). At the genus level, these phyla were mainly represented by Clostridium and Sedimentibacter (class Clostridia) as the dominant fermenters, along with Dehalogenimonas (class Dehalococcoidia) as the key functional OHRB, and Methanoculleus (class Methanomicrobia) as the primary methanogens.' Setting abundance_level: DOMINANT on taxonomy[0..3] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/4 -&gt; 4/4 taxa with abundance_level; proportional Completeness Score 95/100 -&gt; 100/100; scripts/audit_completeness.py score 90/100).
+In kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:670486, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]), Clostridium (taxonomy[1], NCBITaxon:1485, functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]), Sedimentibacter (taxonomy[2], NCBITaxon:190972, functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]), and Methanoculleus (taxonomy[3], NCBITaxon:45989, functional_role: [SYNTROPHIC_PARTNER, ELECTRON_ACCEPTOR]) all populate free-text abundance_value strings but omit the controlled abundance_level enum. The cited open-access study (PMID:42511722, doi:10.3390/ijms27146379) explicitly establishes that 'More detailed analysis revealed a consistent microbial community composition among different systems, predominantly composed of the phyla Bacillota (formerly Firmicutes; 43.84 ± 3.76%~54.15 ± 7.28%), Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%), and Halobacteriota (11.72 ± 4.57%~27.33 ± 9.08%). At the genus level, these phyla were mainly represented by Clostridium and Sedimentibacter (class Clostridia) as the dominant fermenters, along with Dehalogenimonas (class Dehalococcoidia) as the key functional OHRB, and Methanoculleus (class Methanomicrobia) as the primary methanogens.' Setting abundance_level: DOMINANT on taxonomy[0..3] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/4 -&gt; 4/4 taxa with abundance_level; proportional Completeness Score 95/100 -&gt; 100/100; scripts/audit_completeness.py score 90/100).
 
 ### c13s4-000438-wine-yeast-contact-consortium-abundance-levels: All three defined wine-yeast consortium members in Wine_Yeast_ThreeSpecies_Contact_Consortium (CommunityMech:000438) omit abundance_level despite explicit equimolar inoculation and 12-h population measurements in PMID:42176030
 
 major / open / confirmed; issue key: c13s4-000438-wine-yeast-contact-consortium-abundance-levels.
 
-In kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml (CommunityMech:000438), Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932, functional_role: [PRIMARY_PRODUCER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1], NCBITaxon:4956, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]), and Torulaspora delbrueckii LO544 (taxonomy[2], NCBITaxon:4980, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]) all omit abundance_level. The cited open-access study (PMID:42176030, doi:10.1186/s12915-026-02641-6) explicitly establishes that each species was inoculated at ca. 5 × 10^6 cells/mL (total 1.6 × 10^7 cells/mL) and that at 12 h in direct physical contact 'S. cerevisiae reached maximum cell numbers of 3.7 × 107 cells/mL, while both non-Saccharomyces species reached ca. 2.5 × 107 cells/mL (Fig. 3 b).' Setting abundance_level: DOMINANT on taxonomy[0] (numerical majority at 3.7 × 10^7 cells/mL in direct contact and 3 × 10^7 cells/mL in indirect contact) and abundance_level: COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level; proportional Completeness Score 83/100 -&gt; 88/100; scripts/audit_completeness.py score 85/100).
+In kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml (CommunityMech:000438), Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932, functional_role: [SECONDARY_FERMENTER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1], NCBITaxon:381046, functional_role: [SECONDARY_FERMENTER]), and Torulaspora delbrueckii LO544 (taxonomy[2], NCBITaxon:4950, functional_role: [SECONDARY_FERMENTER]) all omit abundance_level. The cited open-access study (PMID:42176030, doi:10.1007/s00253-026-13856-4) explicitly establishes that each species was inoculated at ca. 5 × 10^6 cells/mL (total 1.6 × 10^7 cells/mL) and that in direct physical contact at 12 h 'S. cerevisiae reached maximum cell numbers of 3.7 × 107 cells/mL, while both non-Saccharomyces species reached ca. 2.5 × 107 cells/mL (Fig. 3 b)', establishing sole numerical dominance of S. cerevisiae in the direct-contact consortium (whereas in indirect contact, T. delbrueckii showed rapid growth and early numerical dominance before T. delbrueckii and S. cerevisiae both reached ca. 3 × 10^7 cells/mL compared to ca. 1 × 10^7 cells/mL for L. thermotolerans). Setting abundance_level: DOMINANT on taxonomy[0] (anchored to the direct physical contact consortium where S. cerevisiae is the sole numerical majority at 3.7 × 10^7 cells/mL, p &lt; 0.05) and abundance_level: COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level; proportional Completeness Score 83/100 -&gt; 88/100; scripts/audit_completeness.py score 85/100).
 
 ### c12s4-000374-achromobacter-enterobacter-sl8-sl12-functional-roles: Both cadmium-immobilizing coculture members in Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture (CommunityMech:000374) omit functional_role despite direct Cd-detoxification support in PMID:42307251
 
@@ -300,14 +300,14 @@ Disposition: Deferred under existing open GitHub issue #2194 (and schema policy 
 
 ### act-populate-qy2s1-bfr-consortium-abundance-levels
 
-Add abundance_level: DOMINANT to Dehalogenimonas (taxonomy[0], NCBITaxon:870430), Clostridium (taxonomy[1], NCBITaxon:1485), Sedimentibacter (taxonomy[2], NCBITaxon:171692), and Methanoculleus (taxonomy[3], NCBITaxon:2202) backed by PMID:42511722 (doi:10.1016/j.jhazmat.2026.143678) on CommunityMech:000424, and append curation_history.
+Add abundance_level: DOMINANT to Dehalogenimonas (taxonomy[0], NCBITaxon:670486), Clostridium (taxonomy[1], NCBITaxon:1485), Sedimentibacter (taxonomy[2], NCBITaxon:190972), and Methanoculleus (taxonomy[3], NCBITaxon:45989) backed by PMID:42511722 (doi:10.3390/ijms27146379) on CommunityMech:000424, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
 - just validate-history history
 
 ### act-populate-wine-yeast-contact-consortium-abundance-levels
 
-Add abundance_level: DOMINANT to Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932) and abundance_level: COMMON (or DOMINANT) to Lachancea thermotolerans IWBT Y1240 (taxonomy[1], NCBITaxon:4956) and Torulaspora delbrueckii LO544 (taxonomy[2], NCBITaxon:4980) backed by PMID:42176030 (doi:10.1186/s12915-026-02641-6) on CommunityMech:000438, and append curation_history.
+Add abundance_level: DOMINANT to Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932) and abundance_level: COMMON (or DOMINANT) to Lachancea thermotolerans IWBT Y1240 (taxonomy[1], NCBITaxon:381046) and Torulaspora delbrueckii LO544 (taxonomy[2], NCBITaxon:4950) backed by PMID:42176030 (doi:10.1007/s00253-026-13856-4) on CommunityMech:000438, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
 - just validate-history history
@@ -330,8 +330,8 @@ Retain deferred FunctionalRoleEnum vocabulary-gap findings on CommunityMech:0003
 | ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 512 kb/communities and 23 data/isolates records found 495/512 communities and 23/23 isolates with 0 warnings (including all 30/30 MicrobialCommunity records in the 32-record deep audit) and 17 community records with 48 non-fatal warnings (46 DISCONNECTED across 16 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-536 | supports | Corpus-wide causal graph inventory covers all 535 MicrobialCommunity records (512 kb/communities/*.yaml and 23 data/isolates/*.yaml) through CommunityMech:000541 with 100% SHA-256 attestation in verify_causal_graph_reviews.py after Cycle 13 Stage 2 (#2744). |
 | ev-common-taxon-linkage-audit | kb/taxa/Shewanella_oneidensis_MR1.yaml; TaxonomicComposition.common_taxon cross-references and kb/taxa/*.yaml EvidenceItem entries | supports | Corpus-wide audit of reusable taxon cross-references confirmed 22 TaxonomicComposition.common_taxon links across 21 MicrobialCommunity records (20 kb/communities/*.yaml records and 1 data/isolates/*.yaml record: 6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes with 33 verified EvidenceItems] and 15 Shewanella oneidensis communities plus isolate baseline CommunityMech:000524 linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes with 42 verified EvidenceItems], with CommunityMech:000177 linking to both) after Cycle 13 Stage 3 (#2745). |
-| ev-qy2s1-bfr-consortium-pmid42511722 | PMID:42511722; kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml | supports | PMID:42511722 (doi:10.1016/j.jhazmat.2026.143678) establishes that the QY2S1 reductive dehalogenation consortium is predominantly composed of Bacillota (43.84 ± 3.76%~54.15 ± 7.28%, represented by Clostridium and Sedimentibacter as dominant fermenters), Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%, represented by Dehalogenimonas as the key functional OHRB), and Halobacteriota (11.72 ± 4.57%~27.33 ± 9.08%, represented by Methanoculleus as the primary methanogens). |
-| ev-wine-yeast-contact-consortium-pmid42176030 | PMID:42176030; kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml | supports | PMID:42176030 (doi:10.1186/s12915-026-02641-6) establishes that Saccharomyces cerevisiae VIN13 (NCBITaxon:4932), Lachancea thermotolerans IWBT Y1240 (NCBITaxon:4956), and Torulaspora delbrueckii LO544 (NCBITaxon:4980) were co-inoculated at equal initial cell densities (ca. 5 × 10^6 cells/mL each; total 1.6 × 10^7 cells/mL), with S. cerevisiae reaching 3.7 × 10^7 cells/mL and both non-Saccharomyces species reaching ca. 2.5 × 10^7 cells/mL in direct physical contact. |
+| ev-qy2s1-bfr-consortium-pmid42511722 | PMID:42511722; kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml | supports | PMID:42511722 (doi:10.3390/ijms27146379) establishes that the QY2S1 reductive dehalogenation consortium is predominantly composed of Bacillota (43.84 ± 3.76%~54.15 ± 7.28%, represented by Clostridium and Sedimentibacter as dominant fermenters), Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%, represented by Dehalogenimonas as the key functional OHRB), and Halobacteriota (11.72 ± 4.57%~27.33 ± 9.08%, represented by Methanoculleus as the primary methanogens). |
+| ev-wine-yeast-contact-consortium-pmid42176030 | PMID:42176030; kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml | supports | PMID:42176030 (doi:10.1007/s00253-026-13856-4) establishes that Saccharomyces cerevisiae VIN13 (NCBITaxon:4932), Lachancea thermotolerans IWBT Y1240 (NCBITaxon:381046), and Torulaspora delbrueckii LO544 (NCBITaxon:4950) were co-inoculated at equal initial cell densities (ca. 5 × 10^6 cells/mL each; total 1.6 × 10^7 cells/mL), with S. cerevisiae establishing sole numerical dominance in direct physical contact (reaching 3.7 × 10^7 cells/mL at 12 h while both non-Saccharomyces species reached ca. 2.5 × 10^7 cells/mL). |
 | ev-achromobacter-enterobacter-sl8-sl12-pmid42307251 | PMID:42307251; kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml, data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml, data/isolates/Enterobacter_SL12_Cadmium_Immobilization_Isolate_Baseline.yaml | supports | PMID:42307251 (doi:10.1128/spectrum.01081-26) establishes that Achromobacter sp. SL8 (NCBITaxon:222) and Enterobacter sp. SL12 (NCBITaxon:547) are primary cadmium-detoxifying and cadmium-immobilizing bacteria in both the defined SL8-SL12 coculture (CommunityMech:000374) and the single-strain monoculture isolate baselines (CommunityMech:000533 and CommunityMech:000534); inorganic Cd2+ immobilization remains deferred under open issue #2194 (#301) until FunctionalRoleEnum adds a metal-immobilizer / metal-detoxifier value. |
 | ev-prior-structured-reviews | reviews/structured; 271 retained structured review bundles through 20261109T080500Z-c12s5-remediation-verification | context_only | Lineage inspection of all 271 prior structured reviews and Cycle 12 Stage 5 evidence.yaml confirmed that both Cycle 12 Stage 4 abundance_level findings across CommunityMech:000115 and 000116 were resolved in Cycle 12 Stage 5 (#2740, PR #2741), 3 FunctionalRoleEnum vocabulary-gap findings across CommunityMech:000374, 000533, and 000534 remain deferred under #2194, and 7 record-scoped source-limited findings remain deferred at commit acd658dac45d0d64d5903cd8289e72925b8ffa13. |
 
@@ -912,12 +912,12 @@ evidence:
   locator: kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
   accessed_at: '2026-11-10T00:54:00Z'
   support: supports
-  summary: PMID:42511722 (doi:10.1016/j.jhazmat.2026.143678) establishes that the
-    QY2S1 reductive dehalogenation consortium is predominantly composed of Bacillota
-    (43.84 ± 3.76%~54.15 ± 7.28%, represented by Clostridium and Sedimentibacter as
-    dominant fermenters), Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%, represented
-    by Dehalogenimonas as the key functional OHRB), and Halobacteriota (11.72 ± 4.57%~27.33
-    ± 9.08%, represented by Methanoculleus as the primary methanogens).
+  summary: PMID:42511722 (doi:10.3390/ijms27146379) establishes that the QY2S1 reductive
+    dehalogenation consortium is predominantly composed of Bacillota (43.84 ± 3.76%~54.15
+    ± 7.28%, represented by Clostridium and Sedimentibacter as dominant fermenters),
+    Chloroflexota (19.70 ± 4.90%~29.33 ± 5.27%, represented by Dehalogenimonas as
+    the key functional OHRB), and Halobacteriota (11.72 ± 4.57%~27.33 ± 9.08%, represented
+    by Methanoculleus as the primary methanogens).
   quote: More detailed analysis revealed a consistent microbial community composition
     among different systems, predominantly composed of the phyla Bacillota (formerly
     Firmicutes; 43.84 ± 3.76%~54.15 ± 7.28%), Chloroflexota (19.70 ± 4.90%~29.33 ±
@@ -932,12 +932,13 @@ evidence:
   locator: kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
   accessed_at: '2026-11-10T00:54:15Z'
   support: supports
-  summary: PMID:42176030 (doi:10.1186/s12915-026-02641-6) establishes that Saccharomyces
-    cerevisiae VIN13 (NCBITaxon:4932), Lachancea thermotolerans IWBT Y1240 (NCBITaxon:4956),
-    and Torulaspora delbrueckii LO544 (NCBITaxon:4980) were co-inoculated at equal
+  summary: PMID:42176030 (doi:10.1007/s00253-026-13856-4) establishes that Saccharomyces
+    cerevisiae VIN13 (NCBITaxon:4932), Lachancea thermotolerans IWBT Y1240 (NCBITaxon:381046),
+    and Torulaspora delbrueckii LO544 (NCBITaxon:4950) were co-inoculated at equal
     initial cell densities (ca. 5 × 10^6 cells/mL each; total 1.6 × 10^7 cells/mL),
-    with S. cerevisiae reaching 3.7 × 10^7 cells/mL and both non-Saccharomyces species
-    reaching ca. 2.5 × 10^7 cells/mL in direct physical contact.
+    with S. cerevisiae establishing sole numerical dominance in direct physical contact
+    (reaching 3.7 × 10^7 cells/mL at 12 h while both non-Saccharomyces species reached
+    ca. 2.5 × 10^7 cells/mL).
   quote: S. cerevisiae reached maximum cell numbers of 3.7 × 107 cells/mL, while both
     non-Saccharomyces species reached ca. 2.5 × 107 cells/mL (Fig. 3 b).
 - evidence_id: ev-achromobacter-enterobacter-sl8-sl12-pmid42307251
@@ -1717,13 +1718,13 @@ findings:
     (CommunityMech:000424) populate free-text abundance_value but omit controlled
     abundance_level despite explicit phylum and genus dominance in PMID:42511722
   description: 'In kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
-    (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:870430, functional_role:
+    (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:670486, functional_role:
     [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]), Clostridium (taxonomy[1], NCBITaxon:1485,
-    functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), Sedimentibacter (taxonomy[2],
-    NCBITaxon:171692, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), and Methanoculleus
-    (taxonomy[3], NCBITaxon:2202, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER])
-    all populate free-text abundance_value strings but omit the controlled abundance_level
-    enum. The cited open-access study (PMID:42511722, doi:10.1016/j.jhazmat.2026.143678)
+    functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]), Sedimentibacter (taxonomy[2],
+    NCBITaxon:190972, functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]),
+    and Methanoculleus (taxonomy[3], NCBITaxon:45989, functional_role: [SYNTROPHIC_PARTNER,
+    ELECTRON_ACCEPTOR]) all populate free-text abundance_value strings but omit the
+    controlled abundance_level enum. The cited open-access study (PMID:42511722, doi:10.3390/ijms27146379)
     explicitly establishes that ''More detailed analysis revealed a consistent microbial
     community composition among different systems, predominantly composed of the phyla
     Bacillota (formerly Firmicutes; 43.84 ± 3.76%~54.15 ± 7.28%), Chloroflexota (19.70
@@ -1771,20 +1772,24 @@ findings:
     and 12-h population measurements in PMID:42176030
   description: 'In kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
     (CommunityMech:000438), Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932,
-    functional_role: [PRIMARY_PRODUCER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1],
-    NCBITaxon:4956, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]), and Torulaspora
-    delbrueckii LO544 (taxonomy[2], NCBITaxon:4980, functional_role: [PRIMARY_PRODUCER,
-    CROSS_FEEDER]) all omit abundance_level. The cited open-access study (PMID:42176030,
-    doi:10.1186/s12915-026-02641-6) explicitly establishes that each species was inoculated
-    at ca. 5 × 10^6 cells/mL (total 1.6 × 10^7 cells/mL) and that at 12 h in direct
-    physical contact ''S. cerevisiae reached maximum cell numbers of 3.7 × 107 cells/mL,
-    while both non-Saccharomyces species reached ca. 2.5 × 107 cells/mL (Fig. 3 b).''
-    Setting abundance_level: DOMINANT on taxonomy[0] (numerical majority at 3.7 ×
-    10^7 cells/mL in direct contact and 3 × 10^7 cells/mL in indirect contact) and
-    abundance_level: COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the
-    review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3
-    -> 3/3 taxa with abundance_level; proportional Completeness Score 83/100 -> 88/100;
-    scripts/audit_completeness.py score 85/100).'
+    functional_role: [SECONDARY_FERMENTER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1],
+    NCBITaxon:381046, functional_role: [SECONDARY_FERMENTER]), and Torulaspora delbrueckii
+    LO544 (taxonomy[2], NCBITaxon:4950, functional_role: [SECONDARY_FERMENTER]) all
+    omit abundance_level. The cited open-access study (PMID:42176030, doi:10.1007/s00253-026-13856-4)
+    explicitly establishes that each species was inoculated at ca. 5 × 10^6 cells/mL
+    (total 1.6 × 10^7 cells/mL) and that in direct physical contact at 12 h ''S. cerevisiae
+    reached maximum cell numbers of 3.7 × 107 cells/mL, while both non-Saccharomyces
+    species reached ca. 2.5 × 107 cells/mL (Fig. 3 b)'', establishing sole numerical
+    dominance of S. cerevisiae in the direct-contact consortium (whereas in indirect
+    contact, T. delbrueckii showed rapid growth and early numerical dominance before
+    T. delbrueckii and S. cerevisiae both reached ca. 3 × 10^7 cells/mL compared to
+    ca. 1 × 10^7 cells/mL for L. thermotolerans). Setting abundance_level: DOMINANT
+    on taxonomy[0] (anchored to the direct physical contact consortium where S. cerevisiae
+    is the sole numerical majority at 3.7 × 10^7 cells/mL, p < 0.05) and abundance_level:
+    COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the review-communities
+    s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level;
+    proportional Completeness Score 83/100 -> 88/100; scripts/audit_completeness.py
+    score 85/100).'
   target_ids:
   - CommunityMech:000438
   field_paths:
@@ -2000,9 +2005,9 @@ findings:
     finding_id: c12s4-000534-enterobacter-sl12-isolate-functional-role
 actions:
 - action_id: act-populate-qy2s1-bfr-consortium-abundance-levels
-  description: 'Add abundance_level: DOMINANT to Dehalogenimonas (taxonomy[0], NCBITaxon:870430),
-    Clostridium (taxonomy[1], NCBITaxon:1485), Sedimentibacter (taxonomy[2], NCBITaxon:171692),
-    and Methanoculleus (taxonomy[3], NCBITaxon:2202) backed by PMID:42511722 (doi:10.1016/j.jhazmat.2026.143678)
+  description: 'Add abundance_level: DOMINANT to Dehalogenimonas (taxonomy[0], NCBITaxon:670486),
+    Clostridium (taxonomy[1], NCBITaxon:1485), Sedimentibacter (taxonomy[2], NCBITaxon:190972),
+    and Methanoculleus (taxonomy[3], NCBITaxon:45989) backed by PMID:42511722 (doi:10.3390/ijms27146379)
     on CommunityMech:000424, and append curation_history.'
   finding_ids:
   - c13s4-000424-qy2s1-bfr-consortium-abundance-levels
@@ -2019,8 +2024,8 @@ actions:
 - action_id: act-populate-wine-yeast-contact-consortium-abundance-levels
   description: 'Add abundance_level: DOMINANT to Saccharomyces cerevisiae VIN13 (taxonomy[0],
     NCBITaxon:4932) and abundance_level: COMMON (or DOMINANT) to Lachancea thermotolerans
-    IWBT Y1240 (taxonomy[1], NCBITaxon:4956) and Torulaspora delbrueckii LO544 (taxonomy[2],
-    NCBITaxon:4980) backed by PMID:42176030 (doi:10.1186/s12915-026-02641-6) on CommunityMech:000438,
+    IWBT Y1240 (taxonomy[1], NCBITaxon:381046) and Torulaspora delbrueckii LO544 (taxonomy[2],
+    NCBITaxon:4950) backed by PMID:42176030 (doi:10.1007/s00253-026-13856-4) on CommunityMech:000438,
     and append curation_history.'
   finding_ids:
   - c13s4-000438-wine-yeast-contact-consortium-abundance-levels

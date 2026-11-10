@@ -18,13 +18,13 @@ findings:
     (CommunityMech:000424) populate free-text abundance_value but omit controlled
     abundance_level despite explicit phylum and genus dominance in PMID:42511722
   description: 'In kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
-    (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:870430, functional_role:
+    (CommunityMech:000424), Dehalogenimonas (taxonomy[0], NCBITaxon:670486, functional_role:
     [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]), Clostridium (taxonomy[1], NCBITaxon:1485,
-    functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), Sedimentibacter (taxonomy[2],
-    NCBITaxon:171692, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]), and Methanoculleus
-    (taxonomy[3], NCBITaxon:2202, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER])
-    all populate free-text abundance_value strings but omit the controlled abundance_level
-    enum. The cited open-access study (PMID:42511722, doi:10.1016/j.jhazmat.2026.143678)
+    functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]), Sedimentibacter (taxonomy[2],
+    NCBITaxon:190972, functional_role: [SECONDARY_FERMENTER, SYNTROPHIC_PARTNER]),
+    and Methanoculleus (taxonomy[3], NCBITaxon:45989, functional_role: [SYNTROPHIC_PARTNER,
+    ELECTRON_ACCEPTOR]) all populate free-text abundance_value strings but omit the
+    controlled abundance_level enum. The cited open-access study (PMID:42511722, doi:10.3390/ijms27146379)
     explicitly establishes that ''More detailed analysis revealed a consistent microbial
     community composition among different systems, predominantly composed of the phyla
     Bacillota (formerly Firmicutes; 43.84 ± 3.76%~54.15 ± 7.28%), Chloroflexota (19.70
@@ -76,20 +76,24 @@ findings:
     and 12-h population measurements in PMID:42176030
   description: 'In kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
     (CommunityMech:000438), Saccharomyces cerevisiae VIN13 (taxonomy[0], NCBITaxon:4932,
-    functional_role: [PRIMARY_PRODUCER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1],
-    NCBITaxon:4956, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]), and Torulaspora
-    delbrueckii LO544 (taxonomy[2], NCBITaxon:4980, functional_role: [PRIMARY_PRODUCER,
-    CROSS_FEEDER]) all omit abundance_level. The cited open-access study (PMID:42176030,
-    doi:10.1186/s12915-026-02641-6) explicitly establishes that each species was inoculated
-    at ca. 5 × 10^6 cells/mL (total 1.6 × 10^7 cells/mL) and that at 12 h in direct
-    physical contact ''S. cerevisiae reached maximum cell numbers of 3.7 × 107 cells/mL,
-    while both non-Saccharomyces species reached ca. 2.5 × 107 cells/mL (Fig. 3 b).''
-    Setting abundance_level: DOMINANT on taxonomy[0] (numerical majority at 3.7 ×
-    10^7 cells/mL in direct contact and 3 × 10^7 cells/mL in indirect contact) and
-    abundance_level: COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the
-    review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3
-    -> 3/3 taxa with abundance_level; proportional Completeness Score 83/100 -> 88/100;
-    scripts/audit_completeness.py score 85/100).'
+    functional_role: [SECONDARY_FERMENTER]), Lachancea thermotolerans IWBT Y1240 (taxonomy[1],
+    NCBITaxon:381046, functional_role: [SECONDARY_FERMENTER]), and Torulaspora delbrueckii
+    LO544 (taxonomy[2], NCBITaxon:4950, functional_role: [SECONDARY_FERMENTER]) all
+    omit abundance_level. The cited open-access study (PMID:42176030, doi:10.1007/s00253-026-13856-4)
+    explicitly establishes that each species was inoculated at ca. 5 × 10^6 cells/mL
+    (total 1.6 × 10^7 cells/mL) and that in direct physical contact at 12 h ''S. cerevisiae
+    reached maximum cell numbers of 3.7 × 107 cells/mL, while both non-Saccharomyces
+    species reached ca. 2.5 × 107 cells/mL (Fig. 3 b)'', establishing sole numerical
+    dominance of S. cerevisiae in the direct-contact consortium (whereas in indirect
+    contact, T. delbrueckii showed rapid growth and early numerical dominance before
+    T. delbrueckii and S. cerevisiae both reached ca. 3 × 10^7 cells/mL compared to
+    ca. 1 × 10^7 cells/mL for L. thermotolerans). Setting abundance_level: DOMINANT
+    on taxonomy[0] (anchored to the direct physical contact consortium where S. cerevisiae
+    is the sole numerical majority at 3.7 × 10^7 cells/mL, p < 0.05) and abundance_level:
+    COMMON (or DOMINANT) on taxonomy[1] and taxonomy[2] raises the review-communities
+    s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level;
+    proportional Completeness Score 83/100 -> 88/100; scripts/audit_completeness.py
+    score 85/100).'
   target_ids:
   - CommunityMech:000438
   field_paths:
