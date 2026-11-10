@@ -1793,10 +1793,10 @@ limitations:
   (#1847) remain deferred pending full-text table or supplement ingestion.
 related_reviews:
 - repository: CultureBotAI/CommunityMech
-  review_id: 20261110T011500Z-c13s4-record-deep-audit
+  review_id: 20261110T005500Z-c13s4-record-deep-audit
   relationship: supersedes_stage4_deep_audit
 - repository: CultureBotAI/CommunityMech
-  review_id: 20261110T011600Z-c13s4-frozen-cohort-review
+  review_id: 20261110T005600Z-c13s4-frozen-cohort-review
   relationship: supersedes_stage4_cohort_review
 tags:
 - cycle13
