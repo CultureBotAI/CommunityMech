@@ -136,6 +136,22 @@ ecological_interactions:
       resulting in its accumulation.
     explanation: Explains the biochemical basis of 2,4-DBP accumulation in YL-JM2C via the substrate specificity of purified
       RwTfdB.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The degradation of BDE-47 by strain YL-JM2C was accompanied by the stoichiometric formation of 2,4-DBP, which
+      was considered a dead-end product ( Fig. 1c ). The accumulation of this monocyclic compound suggests that cleavage of
+      the ether bond in BDE-47 occurred during the biodegradation process.
+    explanation: Demonstrates stoichiometric 2,4-DBP accumulation via diphenyl ether bond cleavage during whole-cell BDE-47
+      biotransformation by strain YL-JM2C.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To confirm this, we assessed the transformation ability of E. coli BL21(DE3) cells harboring the recombinant
+      plasmid pET-tcsAaAb toward BDE-47. As expected, the recombinant cells converted BDE-47 into two intermediates, which
+      were identified as 2,4-DBP and 3,5-DBC by GC–MS through comparison with authentic standards ( Fig. S3 ).
+    explanation: Confirms by recombinant E. coli BL21(DE3)/pET-tcsAaAb whole-cell biotransformation and GC-MS that TcsAaAb
+      converts BDE-47 into 2,4-DBP and 3,5-DBC.
 environmental_factors:
 - name: Triclosan pre-induction of BDE-47 degradation in strain YL-JM2C
   value: 10 uM triclosan (TCS) vs glucose pre-cultivation in R2A
@@ -233,4 +249,12 @@ curation_history:
   changes: Created CommunityMech:000554 (Rhizorhabdus wittichii YL-JM2C BDE-47 Dioxygenase Isolate Baseline) in data/isolates/
     from PMID:42364169 / doi:10.1093/ismejo/wrag163 (TcsAaAb BDE-47 cleavage to 3,5-DBC and dead-end 2,4-DBP accumulation
     due to RwTfdB substrate specificity).
+  llm_assisted: true
+- timestamp: '2026-11-11T08:00:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed single-strain causal graph for CommunityMech:000554 in Cycle 15 Stage 2 (Batch 147) against PMID:42364169
+    (PMC13440307); verified NCBITaxon:160791 (Rhizorhabdus wittichii, UNRESOLVED GTDB grounding) and enriched the single COMMUNITY_LEVEL
+    TcsAaAb BDE-47 dioxygenation / dead-end 2,4-DBP node from 3 to 5 non-overlapping, bracket-free verbatim snippets without
+    inventing unsupported downstream edges.
   llm_assisted: true
