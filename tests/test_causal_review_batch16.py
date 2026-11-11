@@ -67,9 +67,23 @@ def test_batch16_ledger_covers_all_structure_and_unchanged_isodca():
     assert unchanged["history_files"] == []
     assert unchanged["allowed_changed_fields"] == []
     assert unchanged["edges_after"] == []
+    successor_files = [
+        ROOT / "reports/causal_graph_review/decisions/20261111-c15s5-review-remediation.yaml",
+    ]
+    successor_by_id = {
+        r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
+    }
     for row in ledger["records"]:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000396":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert hashlib.sha256(raw).hexdigest() == latest["record_sha256"]
         doc = yaml.safe_load(raw)
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(
             n["name"] for n in doc["ecological_interactions"]

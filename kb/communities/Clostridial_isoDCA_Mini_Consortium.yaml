@@ -88,6 +88,7 @@ taxonomy:
     gtdb_grounding_status: UNRESOLVED
     notes: NCBI species identity was verified locally by exact Taxonomy search; the inspected preprint did not report a strain
       designation for the P. hiranonis member.
+  abundance_level: DOMINANT
   abundance_value: Defined isoDCA-positive consortium member
   functional_role:
   - CROSS_FEEDER
@@ -97,6 +98,11 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: a consortium of P. hiranonis and R. gnavus WT (isoDCA+ consortium) can produce isoDCA
     explanation: Names P. hiranonis as a member of the isoDCA-positive two-member consortium.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 mL of P. hiranonis culture (OD600 = 0.800) was mixed with 10 mL of R. gnavus WT or KO culture
+    explanation: 'Supports equal-volume (10 mL : 10 mL at OD600 = 0.800) core inoculation of the two-member isoDCA+ consortium.'
 - taxon_term:
     preferred_term: Ruminococcus gnavus VPI C7-9 WT
     term:
@@ -121,6 +127,7 @@ taxonomy:
     - collection: ATCC
       accession: '29149'
     notes: Wild-type parent used in the isoDCA-positive consortium.
+  abundance_level: DOMINANT
   abundance_value: Defined isoDCA-positive consortium member
   functional_role:
   - CROSS_FEEDER
@@ -135,6 +142,11 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: R. gnavus (VPI C7-9, originally acquired from ATCC (29149)
     explanation: Supports the source strain and ATCC accession for the R. gnavus parent strain.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 mL of P. hiranonis culture (OD600 = 0.800) was mixed with 10 mL of R. gnavus WT or KO culture
+    explanation: 'Supports equal-volume (10 mL : 10 mL at OD600 = 0.800) core inoculation of the two-member isoDCA+ consortium.'
 ecological_interactions:
 - name: P. hiranonis and R. gnavus WT isoDCA production
   description: Peptacetobacter hiranonis first converts taurocholic acid through cholic acid to deoxycholic acid; R. gnavus
@@ -296,4 +308,10 @@ curation_history:
   action: ADDRESS_REVIEW_ISSUES
   changes: 'Addressed #974 and #975 by adding methods snippets for BHI-S/YCFAC cultivation, glycerol-stock construction, qPCR
     engraftment, lamina propria pTreg, and CD45RBhi adoptive-transfer endpoints.'
+  llm_assisted: true
+- timestamp: '2026-11-11T14:30:05Z'
+  curator: antigravity
+  action: CURATE_TAXONOMY_ABUNDANCE_EVIDENCE
+  changes: 'Populate abundance_level: DOMINANT and verbatim doi:10.64898/2026.08.11.743107 equal-volume (10 mL : 10 mL, OD600
+    = 0.800) consortium assembly evidence on Peptacetobacter hiranonis and Ruminococcus gnavus VPI C7-9 WT (#2764).'
   llm_assisted: true
