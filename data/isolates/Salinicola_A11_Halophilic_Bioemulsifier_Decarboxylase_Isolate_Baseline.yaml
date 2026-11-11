@@ -1,0 +1,249 @@
+id: CommunityMech:000553
+name: Salinicola sp. A11 Halophilic Bioemulsifier and Decarboxylase Isolate Baseline
+description: Single-strain halophilic bacterial isolate baseline Salinicola sp. A11 (NCBITaxon:404432; SRA accession SRR38848454;
+  4.37 Mb draft genome, 18 contigs, 64.29% GC, 100.0% CheckM2 completeness) isolated on 5% sea-salt defined medium agar with
+  100 mg/L yeast extract (SSDM-Y) from the halophilic PAH-degrading consortium 5H and characterized in pure culture alongside
+  Pelagerythrobacter sp. N7 (CommunityMech:000552) and the two-member PES synthetic consortium (CommunityMech:000340) by Wen
+  et al. 2026 (PMID:42666409). In axenic culture, strain A11 grew on 5% SSDM with 100 mg/L yeast extract (30 °C, 120 rpm)
+  and secreted an extracellular Emulsan-like glycoprotein bioemulsifier (encoded by the wza/wzb/wzc/wzx/wzy/weeABGJ/galUE/mip
+  gene cluster, Table 2) achieving a 24-h soybean-oil emulsification index (E24) of 68% with FTIR peaks at 3419.9, 2924.3,
+  2854.7, 1631.1, and 1128.4 cm-1, showed no direct pyrene degradation when incubated with 50 mg/L pyrene alone (Fig. 2C),
+  and encoded the candidate 4,5-dicarboxyphenanthrene decarboxylase hphtC-5 (596.99 A3 binding pocket, His109-His111-His172
+  zinc triad) plus salicylate hydroxylase and catechol 1,2-dioxygenase (C12O).
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Isolate, genome-sequence, and functionally characterize Salinicola sp. strain A11 in pure culture to establish
+    its axenic PAH-non-degrading baseline, extracellular Emulsan-like bioemulsifier production (E24 = 68%), and candidate
+    hphtC-5 decarboxylase/C12O genetic repertoire prior to pairing with Pelagerythrobacter sp. N7 in consortium PES.
+  assembly_strategy: Spread phenanthrene-enriched consortium 5H onto 5% SSDM agar supplemented with 100 mg/L yeast extract
+    (SSDM-Y), isolate pure colony A11, sequence its whole genome on Illumina PE150 (SRR38848454), and assay pure-culture pyrene
+    degradation and bioemulsifier synthesis.
+  inoculation_strategy: Cultivate pure strain A11 in 20 mL (genome sequencing, 4 days) or 5% SSDM supplemented with 100 mg/L
+    yeast extract (bioemulsifier assay, 5 days) or 50 mg/L pyrene (7-day monoculture control, Fig. 2C) at 30 °C and 120 rpm
+    in darkness.
+  perturbation_design: Compare axenic A11 growth and residual pyrene in 5% SSDM with 50 mg/L pyrene versus 100 mg/L yeast
+    extract (Fig. 2C), assay 24-h soybean-oil emulsification (E24) of A11 cell-free supernatant versus washed cells, characterize
+    ethanol/dichloromethane-extracted bioemulsifier by FTIR, and model HphtC-5 active-site structure with AlphaFold and DoGSiteScorer.
+  measurement_endpoints:
+  - Illumina whole-genome shotgun sequencing (SRR38848454), Unicycler assembly, and CheckM2 QC
+  - HPLC residual pyrene and OD600 growth curves in 5% SSDM with pyrene vs yeast extract
+  - 24-h emulsification index (E24) against soybean oil and FTIR spectroscopy (4000-400 cm-1)
+  - AlphaFold and DoGSiteScorer structural modeling of candidate decarboxylase HphtC-5
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain A11 was detected to be unable to degrade PAHs ( Figure 2C ).
+    explanation: Establishes that Salinicola sp. A11 pure culture cannot directly degrade pyrene on its own.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An emulsification test verified the high efficiency and prolonged stability of the bioemulsifier synthesized
+      by strain A11 ( Figure 6A ). The cell-free fermentation broth achieved a 24-h emulsification index of 68% against soybean
+      oil.
+    explanation: Quantifies the 68% 24-h emulsification index (E24) of the extracellular bioemulsifier produced by strain
+      A11 pure culture.
+environment_term:
+  preferred_term: halophilic 5% sea-salt defined medium monoculture assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled 5% salinity SSDM liquid monoculture supplemented with 100 mg/L yeast extract or 50 mg/L pyrene at 30 °C
+    and 120 rpm.
+modeled_environment:
+- preferred_term: PAH-polluted saline soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Strain A11 was isolated from consortium 5H enriched from PAH-polluted saline soil in Shanxi Province, China.
+related_communities:
+- identifier: CommunityMech:000552
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Salinicola sp. A11 monoculture and Pelagerythrobacter sp. N7 monoculture (CommunityMech:000552) were co-isolated
+    from consortium 5H and characterized in parallel as the two pure-culture baselines of the PES consortium in PMID:42666409.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a halophilic synthetic pyrene-degrading consortium, PES, was constructed by 2 halophilic pure
+      cultures, Pelagerythrobacter sp. N7 and Salinicola sp. A11.
+    explanation: Directly links pure cultures Salinicola sp. A11 and Pelagerythrobacter sp. N7 in PMID:42666409.
+taxonomy:
+- taxon_term:
+    preferred_term: Salinicola sp. A11
+    term:
+      id: NCBITaxon:404432
+      label: Salinicola
+    gtdb_grounding_status: UNRESOLVED
+    notes: Forms a tight phylogenetic cluster with Salinicola sp. N4 (NR_157001); 4.37 Mb draft genome sequenced under SRR38848454.
+  strain_designation:
+    strain_name: A11
+    isolation_source: PAH-degrading consortium 5H enriched from saline PAH-polluted soil in Shanxi Province, China
+    genome_accession: SRR38848454
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Strain A11 exhibited extremely high phylogenetic relatedness with Salinicola sp. N4 ( NR_157001 ), forming a
+      tight cluster on the evolutionary tree, and was formally identified as the genus Salinicola.
+    explanation: Supports genus-level taxonomic assignment of strain A11 to Salinicola.
+ecological_interactions:
+- name: Extracellular Emulsan-Like Bioemulsifier Secretion and Candidate hphtC-5 Decarboxylase / C12O Repertoire in Strain
+    A11 Pure Culture
+  description: When cultivated axenically in 5% salinity SSDM supplemented with 100 mg/L yeast extract (30 °C, 120 rpm in
+    darkness for 5 days), Salinicola sp. A11 secreted an extracellular Emulsan-like glycoprotein bioemulsifier into the cell-free
+    supernatant (24-h soybean-oil emulsification index E24 = 68%; FTIR absorption bands at 3419.9, 2924.3, 2854.7, 1631.1,
+    and 1128.4 cm-1; Wza-Wzb-Wzc export gene cluster FPDNJMPM_01274 to FPDNJMPM_01306, galU FPDNJMPM_01143, galE FPDNJMPM_00824,
+    and mip FPDNJMPM_03717). In 5% SSDM with 50 mg/L pyrene as sole carbon source, A11 showed no direct PAH degradation, while
+    its 4.37 Mb genome encoded six candidate decarboxylases (hphtC 1-6, notably hphtC-5 with a 596.99 A3 binding pocket and
+    His109-His111-His172 catalytic triad) plus salicylate hydroxylase and catechol 1,2-dioxygenase (C12O).
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Salinicola sp. A11
+    term:
+      id: NCBITaxon:404432
+      label: Salinicola
+  metabolites:
+  - preferred_term: pyrene
+    term:
+      id: CHEBI:39106
+      label: pyrene
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cell-free fermentation broth achieved a 24-h emulsification index of 68% against soybean oil. Notably, a
+      clear aqueous phase remained at the bottom, accompanied by a distinct white flocculent polymer network at the oil–water
+      interface.
+    explanation: Quantifies the 68% 24-h emulsification index of the A11 cell-free fermentation broth.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In contrast, the catalytic residues of A11 were integrated into the primary binding pocket, which has a significantly
+      expanded volume of 596.99 Å3, which is consistent with the spatial expansion predicted from the Glu90 to Gly90 substitution.
+    explanation: Characterizes the 596.99 A3 primary active-site binding pocket of candidate decarboxylase HphtC-5 in strain
+      A11.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The presence of genes encoding salicylate hydroxylase and C12O indicated that strain A11 is able to degrade salicylic
+      acid through the C12O pathway, which is an important PAH downstream degradation pathway
+    explanation: Identifies the salicylate hydroxylase and catechol 1,2-dioxygenase (C12O) downstream pathway genes in the
+      A11 genome.
+environmental_factors:
+- name: Cell-free supernatant 24-h emulsification index (E24) of strain A11
+  value: 68% against soybean oil at 25 °C
+  description: Cell-free supernatant from 5-day A11 culture in 5% SSDM + 100 mg/L yeast extract formed a stable emulsion with
+    E24 = 68%.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cell-free fermentation broth achieved a 24-h emulsification index of 68% against soybean oil.
+    explanation: Quantifies the E24 = 68% bioemulsifier activity of strain A11.
+growth_media:
+- name: 5% salinity sea salt-defined medium supplemented with 100 mg/L yeast extract (SSDM-Y)
+  composition:
+  - name: yeast extract
+    concentration: '100'
+    unit: mg/L
+  - name: NaCl
+    concentration: '39.72'
+    unit: g/L
+  - name: MgCl2·6H2O
+    concentration: '3.45'
+    unit: g/L
+  - name: MgSO4·7H2O
+    concentration: '5.22'
+    unit: g/L
+  - name: CaCl2
+    concentration: '0.75'
+    unit: g/L
+  - name: (NH4)2SO4
+    concentration: '2.0'
+    unit: g/L
+  - name: K2HPO4
+    concentration: '0.5'
+    unit: g/L
+  - name: KCl
+    concentration: '2.1'
+    unit: g/L
+  - name: NaHCO3
+    concentration: '0.1'
+    unit: g/L
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '120'
+  shaking_speed_unit: rpm
+  incubation_time: '5'
+  incubation_time_unit: d
+  vessel_type: flask
+  preparation_notes: Pure cultures of strain A11 were grown in 5% SSDM with 100 mg/L yeast extract at 30 °C and 120 rpm for
+    4 days (genome sequencing) or 5 days in darkness (bioemulsifier production).
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain A11 was cultivated in 5% SSDM supplemented with 100 mg/L yeast extract. All cultures were incubated at
+      30°C with shaking at 120 rpm in the dark for 5 days.
+    explanation: Specifies the 5% SSDM + 100 mg/L yeast extract medium and 5-day dark incubation at 30 °C and 120 rpm.
+associated_datasets:
+- title: Salinicola sp. A11 whole-genome shotgun sequencing reads
+  dataset_type: GENOMICS
+  repository: NCBI_SRA
+  accession: SRR38848454
+  url: https://www.ncbi.nlm.nih.gov/sra/?term=SRR38848454
+  description: Illumina PE150 whole-genome sequencing reads (35,246,470 clean reads, 5.298 Gb, 4.37 Mb assembly across 18
+    contigs) for Salinicola sp. A11.
+external_resources:
+- name: Primary publication - Salinicola sp. A11 halophilic bioemulsifier and decarboxylase baseline
+  repository: OTHER
+  resource_id: PMID:42666409
+  url: https://pubmed.ncbi.nlm.nih.gov/42666409/
+  description: Frontiers in Microbiology 2026 study characterizing Salinicola sp. A11 genome, bioemulsifier, and PES consortium.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The syntrophic network of pyrene degradation by the synthetic halophilic consortium PES.
+    explanation: Identifies the primary publication characterizing Salinicola sp. A11.
+discussions:
+- discussion_id: a11_axenic_45dcp_growth_and_decarboxylation
+  prompt: Can Salinicola sp. A11 decarboxylate purified 4,5-dicarboxyphenanthrene in axenic culture without Pelagerythrobacter
+    sp. N7?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Extracellular Emulsan-Like Bioemulsifier Secretion and Candidate hphtC-5 Decarboxylase / C12O
+    Repertoire in Strain A11 Pure Culture
+  rationale: While authentic 4,5-dicarboxyphenanthrene was purchased as an analytical standard and hphtC-5 was structurally
+    modeled and quantified by RT-qPCR in PES coculture, axenic incubation of A11 with exogenous 4,5-dicarboxyphenanthrene
+    was not reported.
+  evidence:
+  - reference: PMID:42666409
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Therefore, enzyme encoded by hphtC-5 was proposed to be the candidate decarboxylase for the decarboxylation process
+      of 4,5-dicarboxyphenanthrene.
+    explanation: Confirms that HphtC-5 decarboxylase activity in A11 remains a proposed candidate function.
+  posed_by: antigravity
+  posed_date: '2026-11-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-11-11T00:12:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000553 (Salinicola sp. A11 Halophilic Bioemulsifier and Decarboxylase Isolate Baseline) in
+    data/isolates/ from PMID:42666409 / doi:10.3389/fmicb.2026.1899654 (4.37 Mb genome SRR38848454, E24 = 68% Emulsan-like
+    bioemulsifier, candidate hphtC-5 decarboxylase, and C12O pathway).
+  llm_assisted: true
