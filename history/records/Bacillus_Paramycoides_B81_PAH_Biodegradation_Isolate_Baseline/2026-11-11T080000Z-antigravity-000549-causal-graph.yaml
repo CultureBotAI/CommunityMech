@@ -1,34 +1,29 @@
-schema_version: 1
-id: history:communitymech-Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline-2026-11-11T080000Z-antigravity-000549-causal-graph
-repo: CommunityMech
-record_id: CommunityMech:000549
-record_path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
-timestamp: '2026-11-11T08:00:00Z'
-operation: update
-actor:
-  type: agent
-  name: antigravity
-  session_id: a5da6ac4-3288-4df9-9462-4a08b32cbe60
-  model: claude-opus-4-6
-intent: Curate and enrich causal-graph evidence on CommunityMech:000549 (Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline)
-  in Cycle 15 Stage 2 (Batch 147) from PMID:42587276.
-rationale: PMID:42587276 Figures 2, 4, 6, and 8a-b characterize axenic B. paramycoides B8-1 as a single
-  COMMUNITY_LEVEL monoculture baseline that achieves 77.94% phenanthrene removal (>50% across pH 6-8;
-  37 °C optimum) and 98.43% naphthalene removal (>55% across pH 5-8; 92.09%, 98.43%, 95.73%, and 71.36%
-  at 30, 37, 40, and 50 °C) in planktonic culture and 60.72% phenanthrene removal in 7-day static glass-tube
-  biofilm mode, outperforming all four multi-strain consortia on phenanthrene; enriched node evidence
-  from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream edges.
-BeforeAfter:
-  before_sha256: a1862a927c0ca56a7e40609f59363639ed5a26d069fa5b7bd2c99eb3b58d6d6c
-  after_sha256: cb226c9c70b14d042991de11ef4a7b3677790ffd8a93549332e213dc4946b04e
-  changed_paths:
-  - ecological_interactions[0].evidence
-  - curation_history
-  summary: Reviewed single-strain causal graph for CommunityMech:000549 in Cycle 15 Stage 2 (Batch 147)
-    against PMID:42587276 (PMC13471667); verified NCBITaxon:2026194 (Bacillus paramycoides, UNRESOLVED
-    GTDB grounding) and enriched the single COMMUNITY_LEVEL PAH-biodegradation node from 3 to 5 non-overlapping,
-    bracket-free verbatim snippets without inventing unsupported downstream edges.
-evidence:
-- reference_id: PMID:42587276
-status_after: DRAFT
-pr: https://github.com/CultureBotAI/CommunityMech/pull/2759
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  slug: Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline
+session:
+  id: 2026-11-11T080000Z-antigravity-000549-causal-graph
+  timestamp: '2026-11-11T08:00:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2761
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - provenance
+  summary: Reviewed and enriched the COMMUNITY_LEVEL causal-graph node on CommunityMech:000549
+    (Bacillus paramycoides B8-1 monoculture baseline) from 3 to 5 non-overlapping
+    verbatim snippets from PMID:42587276 (PMC13471667) covering the 37 °C temperature
+    optimum for phenanthrene degradation (77.94%) and B8-1's highest phenanthrene
+    degrading capacity relative to all four multi-strain consortia (Batch 147, Cycle
+    15 Stage 2).
+  details: Source-based Stage 2 causal graph curation; reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml

@@ -1,36 +1,28 @@
-schema_version: 1
-id: history:communitymech-Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline-2026-11-11T080000Z-antigravity-000552-causal-graph
-repo: CommunityMech
-record_id: CommunityMech:000552
-record_path: data/isolates/Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline.yaml
-timestamp: '2026-11-11T08:00:00Z'
-operation: update
-actor:
-  type: agent
-  name: antigravity
-  session_id: a5da6ac4-3288-4df9-9462-4a08b32cbe60
-  model: claude-opus-4-6
-intent: Curate and enrich causal-graph evidence on CommunityMech:000552 (Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline)
-  in Cycle 15 Stage 2 (Batch 147) from PMID:42666409.
-rationale: PMID:42666409 Sections 3.2-3.3 and 3.5-3.7, Figures 2A, 4, 6A, and 8, and Table 1 characterize
-  axenic Pelagerythrobacter sp. N7 as a single COMMUNITY_LEVEL monoculture baseline that oxidizes pyrene
-  via pahA (RHD), pahB, and pahC to 4,5-dihydroxypyrene (40.25 min) and 4,5-dicarboxyphenanthrene (38.10
-  min), reaching a 49.95% pyrene removal plateau after 14 days and accumulating 12.17 mg/L 4,5-dicarboxyphenanthrene
-  by day 9 without detectable downstream decarboxylation products or extracellular bioemulsifier synthesis;
-  enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream
-  edges.
-BeforeAfter:
-  before_sha256: 114c68f88dd909ca39612f3b4929585abad575a980eecdf98f14d74ed10f683f
-  after_sha256: 16d14ed3792a286afedaa4f17ba1c1773ebb04c6a7e8fc622cb7d946ce4c9610
-  changed_paths:
-  - ecological_interactions[0].evidence
-  - curation_history
-  summary: Reviewed single-strain causal graph for CommunityMech:000552 in Cycle 15 Stage 2 (Batch 147)
-    against PMID:42666409 (PMC13522185); verified NCBITaxon:2800685 (Pelagerythrobacter, UNRESOLVED GTDB
-    grounding) and enriched the single COMMUNITY_LEVEL upstream pyrene oxidation / 4,5-dicarboxyphenanthrene
-    bottleneck node from 3 to 5 non-overlapping, bracket-free verbatim snippets without inventing unsupported
-    downstream edges.
-evidence:
-- reference_id: PMID:42666409
-status_after: DRAFT
-pr: https://github.com/CultureBotAI/CommunityMech/pull/2759
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline.yaml
+  slug: Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline
+session:
+  id: 2026-11-11T080000Z-antigravity-000552-causal-graph
+  timestamp: '2026-11-11T08:00:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2761
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - provenance
+  summary: Reviewed and enriched the COMMUNITY_LEVEL causal-graph node on CommunityMech:000552
+    (Pelagerythrobacter sp. N7 monoculture baseline) from 3 to 5 non-overlapping verbatim
+    snippets from PMID:42666409 (PMC13522185) covering GC-MS identification of 4,5-dihydroxypyrene
+    (40.25 min) and 4,5-dicarboxyphenanthrene (38.10 min) and upstream pahA/pahB/pahC
+    ring oxidation (Batch 147, Cycle 15 Stage 2).
+  details: Source-based Stage 2 causal graph curation; reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml

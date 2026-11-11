@@ -1,37 +1,28 @@
-schema_version: 1
-id: history:communitymech-Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline-2026-11-11T080000Z-antigravity-000553-causal-graph
-repo: CommunityMech
-record_id: CommunityMech:000553
-record_path: data/isolates/Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline.yaml
-timestamp: '2026-11-11T08:00:00Z'
-operation: update
-actor:
-  type: agent
-  name: antigravity
-  session_id: a5da6ac4-3288-4df9-9462-4a08b32cbe60
-  model: claude-opus-4-6
-intent: Curate and enrich causal-graph evidence on CommunityMech:000553 (Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline)
-  in Cycle 15 Stage 2 (Batch 147) from PMID:42666409.
-rationale: PMID:42666409 Sections 3.1-3.2 and 3.4-3.6, Figures 1, 2C, 5, and 6, and Table 2 characterize
-  axenic Salinicola sp. A11 as a single COMMUNITY_LEVEL monoculture baseline that shows no direct pyrene
-  degradation alone (Figure 2C), secretes an extracellular Emulsan-like glycoprotein bioemulsifier with
-  a 24-h soybean-oil emulsification index (E24) of 68% and FTIR bands at 3419.9, 2924.3, 2854.7, 1631.1,
-  and 1128.4 cm-1 (Wza-Wzb-Wzc export cluster), and encodes the candidate 4,5-dicarboxyphenanthrene decarboxylase
-  HphtC-5 (596.99 A3 binding pocket; His109-His111-His172 triad) plus salicylate hydroxylase and C12O;
-  enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream
-  edges.
-BeforeAfter:
-  before_sha256: a23fb3d2c224143a308222c8f06715211d6ab811eb37245f74c1cda08ed8f526
-  after_sha256: 82b65eee0a1216e8a26c875a17206c3060b2304223a3eac2fcb1171de79aee4b
-  changed_paths:
-  - ecological_interactions[0].evidence
-  - curation_history
-  summary: Reviewed single-strain causal graph for CommunityMech:000553 in Cycle 15 Stage 2 (Batch 147)
-    against PMID:42666409 (PMC13522185); verified NCBITaxon:404432 (Salinicola, UNRESOLVED GTDB grounding)
-    and enriched the single COMMUNITY_LEVEL Emulsan-like bioemulsifier / candidate hphtC-5 decarboxylase
-    node from 3 to 5 non-overlapping, bracket-free verbatim snippets without inventing unsupported downstream
-    edges.
-evidence:
-- reference_id: PMID:42666409
-status_after: DRAFT
-pr: https://github.com/CultureBotAI/CommunityMech/pull/2759
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline.yaml
+  slug: Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline
+session:
+  id: 2026-11-11T080000Z-antigravity-000553-causal-graph
+  timestamp: '2026-11-11T08:00:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2761
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - provenance
+  summary: Reviewed and enriched the COMMUNITY_LEVEL causal-graph node on CommunityMech:000553
+    (Salinicola sp. A11 monoculture baseline) from 3 to 5 non-overlapping verbatim
+    snippets from PMID:42666409 (PMC13522185) covering Emulsan-like glycoprotein FTIR
+    absorption bands (3419.9, 1128.4, 2924.3, 2854.7, 1631.1 cm-1) and the HphtC-5
+    His109-His111-His172 catalytic triad (Batch 147, Cycle 15 Stage 2).
+  details: Source-based Stage 2 causal graph curation; reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
