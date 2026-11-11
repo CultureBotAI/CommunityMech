@@ -1,0 +1,151 @@
+reviewer: antigravity-c15s5
+review_mode: stage5_remediation_reattestation
+independent_approval: false
+base_commit: 9a4d365ff379709b8aa929c06ae12b58f7c4f233
+baseline_commit: 9a4d365ff379709b8aa929c06ae12b58f7c4f233
+issues:
+- 2764
+unresolved_research_issues: []
+unresolved_non_graph_issues:
+- 1943
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  dry_runs: []
+  repair_scope: Stage 5 review remediation of TaxonomicComposition.abundance_level, abundance_value, and
+    supporting EvidenceItem entries on CommunityMech:000107 and CommunityMech:000396; no causal graph
+    node or downstream edge topology changes.
+records:
+- path: kb/communities/Tomato_Oxylipin_SynCom3.yaml
+  id: CommunityMech:000107
+  original_sha256: 228468ac43630c33939dd4b0708476ef4006c9af7dbf1f108e7f88c36b0962c3
+  record_sha256: 669727f7a8769544676e97fed7dc5f26c4b8532364d530aad06922d166766586
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261111-c15s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+    record_sha256: 228468ac43630c33939dd4b0708476ef4006c9af7dbf1f108e7f88c36b0962c3
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261008-four-records-batch121 causal graph decisions.
+  summary: Add DOMINANT abundance_level, simplified three-species SynCom abundance_value, and verbatim
+    PMID:37549573 three-species simplification evidence to Asticcacaulis sp., Arachidicoccus sp., and
+    Phenylobacterium sp. while preserving 20261008-four-records-batch121 causal graph decisions.
+  node_decisions:
+  - node: SynCom3-associated biofilm and host defense
+    rationale: Retain complementary biofilm and defense phenotypes without asserting reciprocal microbial
+      benefit.
+  - node: SynCom3-induced leaf oxylipin responses
+    rationale: Keep treatment-induced host oxylipin activation distinct from bacterial production or transfer.
+  - node: Divinyl Ether-Dependent Botrytis Protection
+    rationale: Preserve biosynthesis-inhibition and overexpression evidence at pathway rather than individual-compound
+      scope.
+  removed_node_decisions: []
+  renamed_nodes:
+    Simplified Community Synergistic Protection: SynCom3-associated biofilm and host defense
+    Oxylipin-Mediated Disease Resistance: SynCom3-induced leaf oxylipin responses
+  edges_before:
+  - source: SynCom3-associated biofilm and host defense
+    target: SynCom3-induced leaf oxylipin responses
+    description: 'SynCom3 treatment intensified oxylipin responses in infected tomato leaves. PARTIAL
+      for biofilm formation as the mediator: the abstract links complementary community functions to protection
+      but does not isolate biofilm formation as the unique cause of leaf pathway activation.'
+  - source: SynCom3-induced leaf oxylipin responses
+    target: Divinyl Ether-Dependent Botrytis Protection
+    description: 'The host oxylipin branch supplies divinyl ethers implicated in protection: inhibiting
+      their biosynthesis abolished the community-induced resistance, while SlLOX5/SlDES1 overexpression
+      with higher divinyl-ether levels increased resistance. Retain this pathway-level perturbation evidence
+      without claiming separate necessity of each compound or bacterial-to-plant transfer.'
+  edges_after:
+  - source: SynCom3-associated biofilm and host defense
+    target: SynCom3-induced leaf oxylipin responses
+    description: 'SynCom3 treatment intensified oxylipin responses in infected tomato leaves. PARTIAL
+      for biofilm formation as the mediator: the abstract links complementary community functions to protection
+      but does not isolate biofilm formation as the unique cause of leaf pathway activation.'
+  - source: SynCom3-induced leaf oxylipin responses
+    target: Divinyl Ether-Dependent Botrytis Protection
+    description: 'The host oxylipin branch supplies divinyl ethers implicated in protection: inhibiting
+      their biosynthesis abolished the community-induced resistance, while SlLOX5/SlDES1 overexpression
+      with higher divinyl-ether levels increased resistance. Retain this pathway-level perturbation evidence
+      without claiming separate necessity of each compound or bacterial-to-plant transfer.'
+  retained_edge_decisions:
+  - before:
+      source: Simplified Community Synergistic Protection
+      target: Oxylipin-Mediated Disease Resistance
+      description: The synergistic three-species community intensifies oxylipin pathway activation in
+        phytopathogen-infected tomato leaves.
+    after:
+      source: SynCom3-associated biofilm and host defense
+      target: SynCom3-induced leaf oxylipin responses
+      description: 'SynCom3 treatment intensified oxylipin responses in infected tomato leaves. PARTIAL
+        for biofilm formation as the mediator: the abstract links complementary community functions to
+        protection but does not isolate biofilm formation as the unique cause of leaf pathway activation.'
+    rationale: 'SynCom3 treatment intensified oxylipin responses in infected tomato leaves. PARTIAL for
+      biofilm formation as the mediator: the abstract links complementary community functions to protection
+      but does not isolate biofilm formation as the unique cause of leaf pathway activation.'
+  - before:
+      source: Oxylipin-Mediated Disease Resistance
+      target: Divinyl Ether-Dependent Botrytis Protection
+      description: Intensified oxylipin-pathway activation feeds production of antimicrobial divinyl ethers
+        required for community-induced protection against Botrytis cinerea.
+    after:
+      source: SynCom3-induced leaf oxylipin responses
+      target: Divinyl Ether-Dependent Botrytis Protection
+      description: 'The host oxylipin branch supplies divinyl ethers implicated in protection: inhibiting
+        their biosynthesis abolished the community-induced resistance, while SlLOX5/SlDES1 overexpression
+        with higher divinyl-ether levels increased resistance. Retain this pathway-level perturbation
+        evidence without claiming separate necessity of each compound or bacterial-to-plant transfer.'
+    rationale: 'The host oxylipin branch supplies divinyl ethers implicated in protection: inhibiting
+      their biosynthesis abolished the community-induced resistance, while SlLOX5/SlDES1 overexpression
+      with higher divinyl-ether levels increased resistance. Retain this pathway-level perturbation evidence
+      without claiming separate necessity of each compound or bacterial-to-plant transfer.'
+  removed_edge_decisions: []
+  references:
+  - PMID:37549573
+  issues:
+  - 1939
+  - 1943
+  - 2764
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Tomato_Oxylipin_SynCom3/2026-11-11T143000Z-antigravity-2764a1.yaml
+- path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  id: CommunityMech:000396
+  original_sha256: bb785ba51ceecbd2b3eccdee982413f11baf5df7f5f33f180dc9a9a49ef4363d
+  record_sha256: 29b4497d74eb6468140ad7bd01f17abbfe16454de2aa15db866daf89f4f33566
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261111-c15s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml
+    record_sha256: bb785ba51ceecbd2b3eccdee982413f11baf5df7f5f33f180dc9a9a49ef4363d
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation
+    preserves all 20261005-two-records-batch16 causal graph decisions.
+  summary: 'Add DOMINANT abundance_level and verbatim doi:10.64898/2026.08.11.743107 equal-volume (10
+    mL : 10 mL at OD600 = 0.800) consortium assembly evidence to Peptacetobacter hiranonis and Ruminococcus
+    gnavus VPI C7-9 WT while preserving 20261005-two-records-batch16 causal graph decisions.'
+  node_decisions:
+  - node: P. hiranonis and R. gnavus WT isoDCA production
+    rationale: Retain the existing sequential bile-acid conversion interaction. Primary Figure 1 and the
+      sterile spent-medium Methods support P. hiranonis to R. gnavus WT conversion; no new host-response
+      nodes or arrows are required to repair this valid graph.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - doi:10.64898/2026.08.11.743107
+  issues:
+  - 2764
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Clostridial_isoDCA_Mini_Consortium/2026-11-11T143005Z-antigravity-2764a2.yaml
