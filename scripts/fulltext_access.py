@@ -15,7 +15,9 @@ author-request email. Routes (all legal; Sci-Hub etc. deliberately excluded):
                                `$SPRINGER_API_KEY` (10.1007/*, 10.1038/*, 10.1186/*),
                                `$WILEY_TDM_TOKEN`  (10.1002/*, 10.1111/*).
   7. CORE full text          — free for public-research orgs; needs `$CORE_API_KEY`.
-  8. Author-request draft    — corresponding author + a templated email asking
+  8. ACS Figshare SI         — free, anonymous; open `10.1021/*.s001` Supporting Information
+                               landing page on Figshare for ACS articles.
+  9. Author-request draft    — corresponding author + a templated email asking
                                for the Methods/cultivation section (legal, often effective).
 
 All external API requests run anonymously without disclosing any user email
@@ -356,6 +358,24 @@ def try_core(doi: str | None, title: str | None) -> str | None:
     return None
 
 
+def try_acs_figshare_si(doi: str | None) -> str | None:
+    """Resolve open ACS Supporting Information (`10.1021/*.s001`) on Figshare."""
+    cleaned = _clean_doi(doi)
+    if not cleaned or not cleaned.startswith("10.1021/"):
+        return None
+    si_doi = cleaned if cleaned.endswith(".s001") else f"{cleaned}.s001"
+    handle_url = f"https://doi.org/api/handles/{urllib.parse.quote(si_doi, safe='/')}"
+    data = _get_json(handle_url) or {}
+    if data.get("responseCode") != 1:
+        return None
+    for val in data.get("values") or []:
+        if val.get("type") == "URL":
+            target = (val.get("data") or {}).get("value")
+            if isinstance(target, str) and target.startswith("https://"):
+                return target
+    return None
+
+
 def access_ladder(
     rec: dict,
     doi: str | None,
@@ -375,6 +395,7 @@ def access_ladder(
         ("springer_tdm", lambda: try_springer_tdm(resolved_doi)),
         ("wiley_tdm", lambda: try_wiley_tdm(resolved_doi)),
         ("core", lambda: try_core(resolved_doi, title)),
+        ("acs_figshare_si", lambda: try_acs_figshare_si(resolved_doi)),
     ):
         url = fn()
         if url:

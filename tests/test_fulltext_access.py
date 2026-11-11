@@ -256,3 +256,24 @@ def test_fetch_to_staging_attaches_tdm_headers(
         k.lower() == "wiley-tdm-client-token" and v == "wiley-tok-888"
         for k, v in captured_headers[-1].items()
     )
+
+
+def test_try_acs_figshare_si_resolves_handle(monkeypatch: pytest.MonkeyPatch) -> None:
+    assert fulltext_access.try_acs_figshare_si("10.1016/j.biortech.2026.1") is None
+    monkeypatch.setattr(
+        fulltext_access,
+        "_get_json",
+        lambda url, headers=None: {
+            "responseCode": 1,
+            "values": [
+                {
+                    "type": "URL",
+                    "data": {"value": "https://ACS.figshare.com/articles/journal_contribution/x/1"},
+                }
+            ],
+        },
+    )
+    assert (
+        fulltext_access.try_acs_figshare_si("10.1021/acschembio.5b00001")
+        == "https://ACS.figshare.com/articles/journal_contribution/x/1"
+    )
