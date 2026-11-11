@@ -1,0 +1,229 @@
+batch: 20261110-stage2-seven-records-batch147
+review_date: '2026-11-10'
+reviewer: antigravity
+criteria:
+- Every reviewed record was checked against committed references_cache full-text evidence (PMID_42587276.txt
+  / PMC13471667, PMID_42666409.txt / PMC13522185, and PMID_42364169.txt / PMC13440307).
+- Single-strain axenic isolate baselines (CommunityMech:000549, CommunityMech:000550, CommunityMech:000551,
+  CommunityMech:000552, CommunityMech:000553, CommunityMech:000554, and CommunityMech:000555) are represented
+  as single COMMUNITY_LEVEL nodes with 0 downstream edges and enriched with 5 non-overlapping, bracket-free
+  verbatim snippets each.
+- Source-backed experimental and evidence boundaries are preserved in record-level discussions and source_backed_gaps
+  without inventing unsupported intermediate nodes or edges.
+records:
+- id: CommunityMech:000549
+  path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: a1862a927c0ca56a7e40609f59363639ed5a26d069fa5b7bd2c99eb3b58d6d6c
+  record_sha256: cb226c9c70b14d042991de11ef4a7b3677790ffd8a93549332e213dc4946b04e
+  references:
+  - PMID:42587276
+  scope: Axenic Bacillus paramycoides B8-1 (NCBITaxon:2026194, UNRESOLVED GTDB grounding) planktonic (50
+    mL or 7 mL MSM, 200 mg/L phenanthrene or naphthalene, pH 5-9, 25-50 °C, 150 rpm, 7 days) and 48-h
+    TSB-preformed static glass-tube biofilm monoculture baseline (PMID:42587276 / PMC13471667).
+  node_decisions:
+  - node: Planktonic and Biofilm Phenanthrene and Naphthalene Biodegradation by Isolate B8-1
+    decision: amended
+    rationale: PMID:42587276 Figures 2, 4, 6, and 8a-b characterize axenic B. paramycoides B8-1 as a single
+      COMMUNITY_LEVEL monoculture baseline that achieves 77.94% phenanthrene removal (>50% across pH 6-8;
+      37 °C optimum) and 98.43% naphthalene removal (>55% across pH 5-8; 92.09%, 98.43%, 95.73%, and 71.36%
+      at 30, 37, 40, and 50 °C) in planktonic culture and 60.72% phenanthrene removal in 7-day static
+      glass-tube biofilm mode, outperforming all four multi-strain consortia on phenanthrene; enriched
+      node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream
+      edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42587276 states that planktonic naphthalene degradation by isolate B8-1 (98.43%) exceeded its
+    biofilm naphthalene degradation (Figure 8b) without reporting the exact inline numeric percentage
+    for B8-1 biofilm naphthalene removal (documented in KNOWLEDGE_GAP discussion b81_biofilm_naphthalene_numeric_value).
+  - Antagonistic phenanthrene interactions and synergistic naphthalene interactions with Bacillus paranthracis
+    A1 (CommunityMech:000550) and Bacillus licheniformis A3 (CommunityMech:000551) occur only in multi-strain
+    Consortia 1, 2, and 4 (CommunityMech:000502, 000503, 000504), so no inter-taxon downstream causal
+    edge belongs on this single-strain isolate baseline.
+- id: CommunityMech:000550
+  path: data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: 00fd3bda9890bf7019498d875a3232c172626e73b843154abad6c87839917440
+  record_sha256: 3b4fa9c9579fe2f3c0b94f2c1c55ec6b8f36bb5e22d4c5f9718aeb798cc15988
+  references:
+  - PMID:42587276
+  scope: Axenic Bacillus paranthracis A1 (NCBITaxon:2026186, UNRESOLVED GTDB grounding) planktonic MSM
+    (200 mg/L phenanthrene or naphthalene, 37 °C, pH 7, 150 rpm, 7 days), 48-h TSB-preformed static glass-tube
+    biofilm, and 48-h flask-wall biofilm soil microcosm (5 g soil, 200 mg/g phenanthrene, 7 days at 37
+    °C) monoculture baseline (PMID:42587276 / PMC13471667).
+  node_decisions:
+  - node: Biofilm-Enhanced Phenanthrene and Naphthalene Biodegradation by Isolate A1 in Liquid and Soil
+      Microcosms
+    decision: amended
+    rationale: PMID:42587276 Figures 2, 7, 8a-b, 10a, and 11 characterize axenic B. paranthracis A1 as
+      a single COMMUNITY_LEVEL monoculture baseline that increases phenanthrene removal from 31.82% (planktonic)
+      to 70.22% (glass-tube biofilm, highest among all tested isolates and consortia) and 60.98% (soil
+      microcosm biofilm) and increases naphthalene removal >2-fold from 41.01% (planktonic) to 87.72%
+      (biofilm); enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported
+      downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42587276 reports three 16S rRNA GenBank accessions (PV848451, PV848453, and PV848454) for the
+    three selected isolates without mapping which specific accession belongs to Bacillus paranthracis
+    A1 in the article text (documented in KNOWLEDGE_GAP discussion a1_genbank_accession_assignment).
+  - Multi-strain PAH co-degradation interactions with Bacillus paramycoides B8-1 (CommunityMech:000549)
+    and Bacillus licheniformis A3 (CommunityMech:000551) are represented on Consortia 1, 3, and 4 (CommunityMech:000502,
+    000358, 000504).
+- id: CommunityMech:000551
+  path: data/isolates/Bacillus_Licheniformis_A3_PAH_Biofilm_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: 41dbfbc369e49f004c9db2f31dcb3191c3a65eaca5d2b96fb6d6d85d456521c8
+  record_sha256: de118e18969d2bfaddac33e51e49d5481ec224427441cf90d1faa5c18438d73b
+  references:
+  - PMID:42587276
+  scope: Axenic Bacillus licheniformis A3 (NCBITaxon:1402 -> GTDB:s__Bacillus_licheniformis, GROUNDED)
+    planktonic MSM (200 mg/L phenanthrene or naphthalene, 37 °C, pH 7, 150 rpm, 7 days) and 48-h TSB-preformed
+    static glass-tube biofilm monoculture baseline (PMID:42587276 / PMC13471667).
+  node_decisions:
+  - node: Biofilm-Enhanced Phenanthrene and Naphthalene Biodegradation by Isolate A3
+    decision: amended
+    rationale: PMID:42587276 Figures 2, 7, and 8a-b characterize axenic B. licheniformis A3 as a single
+      COMMUNITY_LEVEL monoculture baseline that increases phenanthrene removal from 28.40% (planktonic)
+      to 63.29% (glass-tube biofilm, exceeding all four multi-strain consortia at 20.79-53.51%) and increases
+      naphthalene removal from 38.92% (planktonic) to 64.57% (biofilm); enriched node evidence from 2
+      to 5 non-overlapping verbatim snippets without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42587276 reports three 16S rRNA GenBank accessions (PV848451, PV848453, and PV848454) for the
+    three selected isolates without mapping which specific accession belongs to Bacillus licheniformis
+    A3 in the article text (documented in KNOWLEDGE_GAP discussion a3_genbank_accession_assignment).
+  - Synergistic naphthalene co-degradation and antagonistic phenanthrene interactions with Bacillus paramycoides
+    B8-1 (CommunityMech:000549) and Bacillus paranthracis A1 (CommunityMech:000550) are represented on
+    Consortia 2, 3, and 4 (CommunityMech:000503, 000358, 000504).
+- id: CommunityMech:000552
+  path: data/isolates/Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: 114c68f88dd909ca39612f3b4929585abad575a980eecdf98f14d74ed10f683f
+  record_sha256: 16d14ed3792a286afedaa4f17ba1c1773ebb04c6a7e8fc622cb7d946ce4c9610
+  references:
+  - PMID:42666409
+  scope: Axenic Pelagerythrobacter sp. N7 (NCBITaxon:2800685, UNRESOLVED GTDB grounding) halophilic pyrene
+    monoculture baseline in 200 mL 5% salinity SSDM with 50 mg/L pyrene (initial OD600 = 0.015, 30 °C,
+    120 rpm in darkness, 14 days; PMID:42666409 / PMC13522185).
+  node_decisions:
+  - node: Upstream Pyrene Dioxygenation and 4,5-Dicarboxyphenanthrene Bottleneck in Strain N7 Pure Culture
+    decision: amended
+    rationale: PMID:42666409 Sections 3.2-3.3 and 3.5-3.7, Figures 2A, 4, 6A, and 8, and Table 1 characterize
+      axenic Pelagerythrobacter sp. N7 as a single COMMUNITY_LEVEL monoculture baseline that oxidizes
+      pyrene via pahA (RHD), pahB, and pahC to 4,5-dihydroxypyrene (40.25 min) and 4,5-dicarboxyphenanthrene
+      (38.10 min), reaching a 49.95% pyrene removal plateau after 14 days and accumulating 12.17 mg/L
+      4,5-dicarboxyphenanthrene by day 9 without detectable downstream decarboxylation products or extracellular
+      bioemulsifier synthesis; enriched node evidence from 3 to 5 non-overlapping verbatim snippets without
+      adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42666409 annotates downstream phenanthrene/salicylate ring-cleavage genes (pahA/pahB, G12O, C12O)
+    in Pelagerythrobacter sp. N7, but in axenic culture its pathway is completely arrested at 4,5-dicarboxyphenanthrene
+    due to the absence of 4,5-dicarboxyphenanthrene decarboxylase (documented in KNOWLEDGE_GAP discussion
+    n7_downstream_pathway_expression_without_a11).
+  - Syntrophic 4,5-dicarboxyphenanthrene decarboxylation and Emulsan-mediated pyrene solubilization with
+    Salinicola sp. A11 (CommunityMech:000553) occur only in the two-member PES consortium (CommunityMech:000340),
+    so no inter-taxon downstream edge belongs on this single-strain isolate baseline.
+- id: CommunityMech:000553
+  path: data/isolates/Salinicola_A11_Halophilic_Bioemulsifier_Decarboxylase_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: a23fb3d2c224143a308222c8f06715211d6ab811eb37245f74c1cda08ed8f526
+  record_sha256: 82b65eee0a1216e8a26c875a17206c3060b2304223a3eac2fcb1171de79aee4b
+  references:
+  - PMID:42666409
+  scope: Axenic Salinicola sp. A11 (NCBITaxon:404432, UNRESOLVED GTDB grounding; 4.37 Mb draft genome
+    SRR38848454) halophilic monoculture baseline in 5% salinity SSDM supplemented with 100 mg/L yeast
+    extract (5 days, 30 °C, 120 rpm in darkness) or 50 mg/L pyrene (7 days; PMID:42666409 / PMC13522185).
+  node_decisions:
+  - node: Extracellular Emulsan-Like Bioemulsifier Secretion and Candidate hphtC-5 Decarboxylase / C12O
+      Repertoire in Strain A11 Pure Culture
+    decision: amended
+    rationale: PMID:42666409 Sections 3.1-3.2 and 3.4-3.6, Figures 1, 2C, 5, and 6, and Table 2 characterize
+      axenic Salinicola sp. A11 as a single COMMUNITY_LEVEL monoculture baseline that shows no direct
+      pyrene degradation alone (Figure 2C), secretes an extracellular Emulsan-like glycoprotein bioemulsifier
+      with a 24-h soybean-oil emulsification index (E24) of 68% and FTIR bands at 3419.9, 2924.3, 2854.7,
+      1631.1, and 1128.4 cm-1 (Wza-Wzb-Wzc export cluster), and encodes the candidate 4,5-dicarboxyphenanthrene
+      decarboxylase HphtC-5 (596.99 A3 binding pocket; His109-His111-His172 triad) plus salicylate hydroxylase
+      and C12O; enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported
+      downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42666409 proposes HphtC-5 as a candidate 4,5-dicarboxyphenanthrene decarboxylase based on AlphaFold/DoGSiteScorer
+    modeling and RT-qPCR in PES coculture, but did not test axenic incubation of Salinicola sp. A11 with
+    purified exogenous 4,5-dicarboxyphenanthrene (documented in KNOWLEDGE_GAP discussion a11_axenic_45dcp_growth_and_decarboxylation).
+  - Syntrophic pyrene mineralization with Pelagerythrobacter sp. N7 (CommunityMech:000552) is represented
+    on the two-member PES consortium record (CommunityMech:000340).
+- id: CommunityMech:000554
+  path: data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: f1dc3f787b96588c6145262ee6f8b19d872536d1f8ecd880e35cddd869e97af7
+  record_sha256: e70a8434bd8db3852302899814f08a19d97c0e9d73a6636cb7715295642fdf59
+  references:
+  - PMID:42364169
+  scope: Axenic Rhizorhabdus wittichii YL-JM2C (NCBITaxon:160791, UNRESOLVED GTDB grounding; complete
+    genome BioProject PRJNA1397584) aerobic BDE-47 monoculture (18 uM BDE-47 + 0.04% w/v yeast extract
+    in pH 7.0 MSM) and resting-cell biotransformation (OD600 = 4.0, 50 uM BDE-47, 30 °C, 180 rpm) baseline
+    (PMID:42364169 / PMC13440307).
+  node_decisions:
+  - node: TcsAaAb-Catalyzed BDE-47 Angular Dioxygenation, 3,5-DBC Ortho-Cleavage, and Dead-End 2,4-DBP
+      Accumulation in Strain YL-JM2C
+    decision: amended
+    rationale: PMID:42364169 Figures 1-3 and Figures S1-S6 and S8-S9 characterize axenic R. wittichii
+      YL-JM2C as a single COMMUNITY_LEVEL monoculture baseline that initiates BDE-47 cleavage via the
+      two-component Rieske dioxygenase TcsAaAb into 3,5-dibromocatechol (mineralized via TcsC, TcsDEF,
+      PcaIJ, and PcaF) and stoichiometric dead-end 2,4-dibromophenol (2,4-DBP) because its native flavin
+      monooxygenase RwTfdB is active on 2-bromophenol and 2-hydroxybiphenyl but inactive toward 2,4-DBP;
+      enriched node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported
+      downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42364169 demonstrates that purified RwTfdB (>50% identity to JMP134 TfdB) is catalytically active
+    on 2-bromophenol and 2-hydroxybiphenyl but inactive toward 2,4-dibromophenol without resolving the
+    active-site structural determinants responsible for para-bromine exclusion (documented in KNOWLEDGE_GAP
+    discussion yl_jm2c_rwtfdb_structural_determinants).
+  - Diffusible 2,4-DBP cross-feeding and TfdBI/TfdBII-mediated metabolic relay with Cupriavidus necator
+    JMP134 (CommunityMech:000555) occur only in the two-strain synthetic consortium (CommunityMech:000388),
+    so no inter-taxon downstream edge belongs on this single-strain isolate baseline.
+- id: CommunityMech:000555
+  path: data/isolates/Cupriavidus_Necator_JMP134_24DBP_Hydroxylase_Isolate_Baseline.yaml
+  review_file: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+  status: reviewed
+  original_sha256: c97c0c57afa5f49062a9a7a0e61cc029fe7ed08161103118847a340fa836e9b8
+  record_sha256: 429964cbf945c41b2e89b57a072718158cf674e03786ef34b1ef96fe9247995e
+  references:
+  - PMID:42364169
+  scope: Axenic Cupriavidus necator JMP134 (canonical NCBI strain taxon Cupriavidus pinatubonensis JMP134,
+    NCBITaxon:264198, UNRESOLVED GTDB grounding; plasmid pJP4 tfdA/tfdBI/tfdCIDIEIFI/tfdBII/tfdDIICIIEIIFII)
+    purified TfdBI/TfdBII enzyme assay (pH 7.4 Tris-HCl) and aerobic pH 7.0 MSM 2,4-dibromophenol sole-carbon-source
+    growth baseline (PMID:42364169 / PMC13440307).
+  node_decisions:
+  - node: Plasmid pJP4-Encoded TfdBI/TfdBII Hydroxylation of 2,4-Dibromophenol and Sole-Carbon-Source
+      Growth by Strain JMP134
+    decision: amended
+    rationale: PMID:42364169 Figures 2-3 and Figures S7-S10 characterize axenic C. necator JMP134 as a
+      single COMMUNITY_LEVEL monoculture baseline whose plasmid pJP4-encoded flavin monooxygenases TfdBI
+      and TfdBII hydroxylate 2,4-dibromophenol (2,4-DBP) to 3,5-dibromocatechol (3,5-DBC) across all tested
+      halophenols except 2-hydroxybiphenyl and enable axenic growth on 2,4-DBP as sole carbon source via
+      downstream tfdCDEF ortho-cleavage; enriched node evidence from 2 to 5 non-overlapping verbatim snippets
+      without adding unsupported downstream edges.
+  edges_before: []
+  edges_after: []
+  source_backed_gaps:
+  - PMID:42364169 demonstrates that both purified TfdBI and TfdBII convert 2,4-DBP to 3,5-DBC in vitro
+    and in recombinant E. coli, but does not quantify the relative in vivo expression or flux contributions
+    of the two pJP4 paralogs (tfdBI vs tfdBII) during 2,4-DBP growth by strain JMP134 (documented in KNOWLEDGE_GAP
+    discussion jmp134_tfdbi_vs_tfdbii_in_vivo_contribution).
+  - Upstream BDE-47 diphenyl ether cleavage by Rhizorhabdus wittichii YL-JM2C (CommunityMech:000554) and
+    interspecies 2,4-DBP cross-feeding are represented on the two-strain synthetic consortium record (CommunityMech:000388).

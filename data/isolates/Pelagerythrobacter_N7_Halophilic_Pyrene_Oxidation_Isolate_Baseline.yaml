@@ -129,6 +129,21 @@ ecological_interactions:
     snippet: Using the HADEG database ( Dams-Kozlowska et al., 2008 ), no relevant bioemulsifier-producing genes were annotated
       in the genome of strain N7.
     explanation: Confirms the absence of annotated bioemulsifier biosynthesis genes in the genome of strain N7.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The metabolite detected at 40.25 min with major ions 380 (M+), 365, 290, 218, and 73 was determined to be 4,5-dihydroxypyrene.
+      The metabolite detected at 38.10 min, with major ions at 411, 381, 294, 205, 177, and 73, was proposed to be 4,5-dicarboxyphenanthrene.
+    explanation: 'Identifies the two GC-MS pyrene oxidation intermediates detected in strain N7 pure culture: 4,5-dihydroxypyrene
+      (40.25 min) and 4,5-dicarboxyphenanthrene (38.10 min).'
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pyrene was initially transformed into 4,5-dihydroxy-4,5-dihydropyrene under the action of RHD encoded by the
+      pahA gene in strain N7 and was subsequently converted to 4,5-dihydroxypyrene and 4,5-dicarboxyphenanthrene by the enzymes
+      encoded by pahB and pahC. However, strain N7 lacked the capacity to further transfer 4,5-dicarboxyphenanthrene.
+    explanation: Specifies the upstream pahA (RHD), pahB, and pahC enzymatic steps catalyzing pyrene conversion to 4,5-dicarboxyphenanthrene
+      in strain N7.
 environmental_factors:
 - name: 5% sea-salt defined medium pyrene monoculture bottleneck
   value: 49.95% pyrene removal at 14 days; 12.17 mg/L 4,5-dicarboxyphenanthrene accumulated at 9 days
@@ -235,4 +250,12 @@ curation_history:
   changes: Created CommunityMech:000552 (Pelagerythrobacter sp. N7 Halophilic Pyrene Oxidation Isolate Baseline) in data/isolates/
     from PMID:42666409 / doi:10.3389/fmicb.2026.1899654 (49.95% 14-day pyrene degradation plateau and 12.17 mg/L 4,5-dicarboxyphenanthrene
     accumulation at 5% salinity).
+  llm_assisted: true
+- timestamp: '2026-11-11T08:00:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed single-strain causal graph for CommunityMech:000552 in Cycle 15 Stage 2 (Batch 147) against PMID:42666409
+    (PMC13522185); verified NCBITaxon:2800685 (Pelagerythrobacter, UNRESOLVED GTDB grounding) and enriched the single COMMUNITY_LEVEL
+    upstream pyrene oxidation / 4,5-dicarboxyphenanthrene bottleneck node from 3 to 5 non-overlapping, bracket-free verbatim
+    snippets without inventing unsupported downstream edges.
   llm_assisted: true

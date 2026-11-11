@@ -131,6 +131,28 @@ ecological_interactions:
       strain JMP134 was able to utilize 2,4-DBP as the sole carbon source for growth ( Fig. S10 ), indicating that TfdB is
       active in vivo and that the downstream catabolic pathway is functional.
     explanation: Demonstrates TfdBI/TfdBII catalytic activity and axenic growth of strain JMP134 on 2,4-DBP.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To evaluate their possible catalytic capabilities toward 2,4-DBP, whole-cell biotransformation assays were performed
+      using E. coli cells expressing TfdBI (BL21-TfdBI), TfdBII (BL21-TfdBII), or RwTfdB (BL21-RwTfdB). The HPLC chromatogram
+      revealed the appearance of a new peak in the reaction mixtures of BL21-TfdBI and BL21-TfdBII, corresponding to the retention
+      time of authentic 3,5-DBC ( Fig. S8 ).
+    explanation: Demonstrates by whole-cell biotransformation and HPLC that both TfdBI and TfdBII from C. necator JMP134 convert
+      2,4-DBP into authentic 3,5-dibromocatechol (3,5-DBC).
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Because both strains possess downstream gene clusters responsible for 3,5-DBC degradation (tcsCDEF in strain
+      YL-JM2C and tfdCDEF in strain JMP134), their combined catabolic capacities enabled the complete mineralization of BDE-47.
+    explanation: Identifies the plasmid pJP4-encoded tfdCDEF downstream ortho-cleavage gene cluster responsible for 3,5-DBC
+      catabolism in C. necator JMP134.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cooperative action of TfdB in JMP134 efficiently funneled this toxic intermediate 2,4-DBP into the 3,5-DBC
+      catabolic pathway, thereby preventing its accumulation and ensuring complete degradation.
+    explanation: Confirms that JMP134 TfdB funnels 2,4-DBP into the 3,5-DBC ortho-cleavage pathway.
 environmental_factors:
 - name: Soil origin of TfdB-harboring strain JMP134
   value: soil-derived chloroaromatic degrader
@@ -204,4 +226,12 @@ curation_history:
   changes: Created CommunityMech:000555 (Cupriavidus necator JMP134 2,4-Dibromophenol Hydroxylase Isolate Baseline) in data/isolates/
     from PMID:42364169 / doi:10.1093/ismejo/wrag163 (pJP4-encoded TfdBI/TfdBII 2,4-DBP hydroxylation to 3,5-DBC and sole-carbon-source
     growth on 2,4-DBP).
+  llm_assisted: true
+- timestamp: '2026-11-11T08:00:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed single-strain causal graph for CommunityMech:000555 in Cycle 15 Stage 2 (Batch 147) against PMID:42364169
+    (PMC13440307); verified NCBITaxon:264198 (Cupriavidus pinatubonensis JMP134, UNRESOLVED GTDB grounding) and enriched the
+    single COMMUNITY_LEVEL pJP4-encoded TfdBI/TfdBII 2,4-DBP hydroxylation node from 2 to 5 non-overlapping, bracket-free
+    verbatim snippets without inventing unsupported downstream edges.
   llm_assisted: true

@@ -1,0 +1,33 @@
+schema_version: 1
+id: history:communitymech-Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline-2026-11-11T080000Z-antigravity-000550-causal-graph
+repo: CommunityMech
+record_id: CommunityMech:000550
+record_path: data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml
+timestamp: '2026-11-11T08:00:00Z'
+operation: update
+actor:
+  type: agent
+  name: antigravity
+  session_id: a5da6ac4-3288-4df9-9462-4a08b32cbe60
+  model: claude-opus-4-6
+intent: Curate and enrich causal-graph evidence on CommunityMech:000550 (Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline)
+  in Cycle 15 Stage 2 (Batch 147) from PMID:42587276.
+rationale: PMID:42587276 Figures 2, 7, 8a-b, 10a, and 11 characterize axenic B. paranthracis A1 as a single
+  COMMUNITY_LEVEL monoculture baseline that increases phenanthrene removal from 31.82% (planktonic) to
+  70.22% (glass-tube biofilm, highest among all tested isolates and consortia) and 60.98% (soil microcosm
+  biofilm) and increases naphthalene removal >2-fold from 41.01% (planktonic) to 87.72% (biofilm); enriched
+  node evidence from 3 to 5 non-overlapping verbatim snippets without adding unsupported downstream edges.
+BeforeAfter:
+  before_sha256: 00fd3bda9890bf7019498d875a3232c172626e73b843154abad6c87839917440
+  after_sha256: 3b4fa9c9579fe2f3c0b94f2c1c55ec6b8f36bb5e22d4c5f9718aeb798cc15988
+  changed_paths:
+  - ecological_interactions[0].evidence
+  - curation_history
+  summary: Reviewed single-strain causal graph for CommunityMech:000550 in Cycle 15 Stage 2 (Batch 147)
+    against PMID:42587276 (PMC13471667); verified NCBITaxon:2026186 (Bacillus paranthracis, UNRESOLVED
+    GTDB grounding) and enriched the single COMMUNITY_LEVEL biofilm-enhanced PAH-biodegradation node from
+    3 to 5 non-overlapping, bracket-free verbatim snippets without inventing unsupported downstream edges.
+evidence:
+- reference_id: PMID:42587276
+status_after: DRAFT
+pr: https://github.com/CultureBotAI/CommunityMech/pull/2759
