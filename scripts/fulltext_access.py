@@ -359,19 +359,35 @@ def try_core(doi: str | None, title: str | None) -> str | None:
 
 
 def try_acs_figshare_si(doi: str | None) -> str | None:
-    """Resolve open ACS Supporting Information (`10.1021/*.s001`) on Figshare."""
+    """Resolve open ACS Supporting Information (`10.1021/*.s001`) on Figshare (preferring PDF)."""
     cleaned = _clean_doi(doi)
-    if not cleaned or not cleaned.startswith("10.1021/"):
+    if not cleaned or not cleaned.lower().startswith("10.1021/"):
         return None
-    si_doi = cleaned if cleaned.endswith(".s001") else f"{cleaned}.s001"
+    base_doi = re.sub(r"\.s\d{3}$", "", cleaned, flags=re.IGNORECASE)
+    si_doi = f"{base_doi}.s001"
     handle_url = f"https://doi.org/api/handles/{urllib.parse.quote(si_doi, safe='/')}"
     data = _get_json(handle_url) or {}
-    if data.get("responseCode") != 1:
+    if not isinstance(data, dict) or data.get("responseCode") != 1:
         return None
     for val in data.get("values") or []:
         if val.get("type") == "URL":
             target = (val.get("data") or {}).get("value")
             if isinstance(target, str) and target.startswith("https://"):
+                m = re.search(r"figshare\.com/articles/[^?#]+/(\d+)(?:[/?#]|$)", target, re.I)
+                if m:
+                    art = _get_json(f"https://api.figshare.com/v2/articles/{m.group(1)}")
+                    files = (art or {}).get("files") if isinstance(art, dict) else None
+                    if isinstance(files, list) and files:
+                        for f in files:
+                            if (
+                                isinstance(f, dict)
+                                and f.get("download_url")
+                                and str(f.get("name") or "").lower().endswith(".pdf")
+                            ):
+                                return str(f["download_url"])
+                        for f in files:
+                            if isinstance(f, dict) and f.get("download_url"):
+                                return str(f["download_url"])
                 return target
     return None
 

@@ -260,10 +260,24 @@ def test_fetch_to_staging_attaches_tdm_headers(
 
 def test_try_acs_figshare_si_resolves_handle(monkeypatch: pytest.MonkeyPatch) -> None:
     assert fulltext_access.try_acs_figshare_si("10.1016/j.biortech.2026.1") is None
-    monkeypatch.setattr(
-        fulltext_access,
-        "_get_json",
-        lambda url, headers=None: {
+    probed_urls: list[str] = []
+
+    def fake_get_json(url: str, headers: dict | None = None):
+        probed_urls.append(url)
+        if "api.figshare.com/v2/articles/1" in url:
+            return {
+                "files": [
+                    {
+                        "name": "table.xlsx",
+                        "download_url": "https://ndownloader.figshare.com/files/10",
+                    },
+                    {
+                        "name": "supp.pdf",
+                        "download_url": "https://ndownloader.figshare.com/files/11",
+                    },
+                ]
+            }
+        return {
             "responseCode": 1,
             "values": [
                 {
@@ -271,9 +285,11 @@ def test_try_acs_figshare_si_resolves_handle(monkeypatch: pytest.MonkeyPatch) ->
                     "data": {"value": "https://ACS.figshare.com/articles/journal_contribution/x/1"},
                 }
             ],
-        },
-    )
+        }
+
+    monkeypatch.setattr(fulltext_access, "_get_json", fake_get_json)
     assert (
-        fulltext_access.try_acs_figshare_si("10.1021/acschembio.5b00001")
-        == "https://ACS.figshare.com/articles/journal_contribution/x/1"
+        fulltext_access.try_acs_figshare_si("10.1021/acschembio.5b00001.s002")
+        == "https://ndownloader.figshare.com/files/11"
     )
+    assert any("10.1021/acschembio.5b00001.s001" in u for u in probed_urls)
