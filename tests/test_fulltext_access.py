@@ -267,8 +267,14 @@ def test_try_acs_figshare_si_resolves_handle(monkeypatch: pytest.MonkeyPatch) ->
         if "api.figshare.com/v2/articles/1" in url:
             return {
                 "files": [
-                    {"name": "table.xlsx", "download_url": "https://ndownloader.figshare.com/files/10"},
-                    {"name": "supp.pdf", "download_url": "https://ndownloader.figshare.com/files/11"},
+                    {
+                        "name": "table.xlsx",
+                        "download_url": "https://ndownloader.figshare.com/files/10",
+                    },
+                    {
+                        "name": "supp.pdf",
+                        "download_url": "https://ndownloader.figshare.com/files/11",
+                    },
                 ]
             }
         return {
