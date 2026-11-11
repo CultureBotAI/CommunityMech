@@ -1,0 +1,237 @@
+id: CommunityMech:000554
+name: Rhizorhabdus wittichii YL-JM2C BDE-47 Dioxygenase Isolate Baseline
+description: Single-strain aerobic organobromine-degrading bacterial isolate baseline Rhizorhabdus wittichii YL-JM2C (NCBITaxon:160791;
+  complete hybrid Nanopore/Illumina genome assembly BioProject PRJNA1397584, ~97% ANIb with R. wittichii RW1) isolated from
+  a wastewater treatment plant as a triclosan degrader and characterized in pure culture and whole-cell biotransformation
+  assays alongside Cupriavidus necator JMP134 (CommunityMech:000555) and the YL-JM2C/JMP134 synthetic consortium (CommunityMech:000388)
+  by Pan and Zhou 2026 (PMID:42364169). In MSM containing 18 uM BDE-47 and 0.04% (w/v) yeast extract (pH 7.0, 30 °C, 180 rpm),
+  strain YL-JM2C grew from OD600 0.05 to 0.15 within 24 h while depleting BDE-47 from 18 uM to 4 uM (Fig. 1b); in resting-cell
+  assays (OD600 = 4.0, 50 uM BDE-47), YL-JM2C depleted BDE-47 within 20 h via the two-component Rieske dioxygenase TcsAaAb
+  (forming 3,5-dibromocatechol, catabolized via TcsC, TcsDEF, PcaIJ, and PcaF, plus 2,4-dibromophenol), but accumulated stoichiometric
+  2,4-dibromophenol (LC-MS retention time 12.0 min, m/z 250.8514) as a dead-end product because its native TfdB homolog RwTfdB
+  is active on 2-bromophenol and 2-hydroxybiphenyl but inactive toward 2,4-dibromophenol.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Characterize the aerobic BDE-47 degradation kinetics, whole-genome taxonomy, and enzymatic pathway (TcsAaAb,
+    TcsCDEF, PcaIJ/PcaF, and RwTfdB substrate specificity) of Rhizorhabdus wittichii strain YL-JM2C in pure culture as the
+    donor baseline for the YL-JM2C/JMP134 metabolic-relay consortium.
+  assembly_strategy: Pre-grow wastewater isolate R. wittichii YL-JM2C to exponential phase in R2A (with optional 10 uM triclosan
+    or glucose induction), wash in 50 mM Tris-HCl (pH 7.4), and assay growth-coupled degradation (18 uM BDE-47 + 0.04% w/v
+    yeast extract) and resting-cell biotransformation (OD600 = 4.0, 50 uM BDE-47) in pH 7.0 MSM.
+  inoculation_strategy: Inoculate 1% (v/v) exponential-phase R2A washed cells into MSM (pH 7.0) with 18 uM BDE-47 and 0.04%
+    (w/v) yeast extract, or resuspend harvested cells to OD600 = 4.0 in MSM with 50 uM BDE-47.
+  perturbation_design: Compare BDE-47 dissipation and 2,4-DBP accumulation in YL-JM2C monoculture versus uninoculated controls
+    and versus the YL-JM2C + JMP134 coculture, compare triclosan- versus glucose-pretreated cells, and functionally verify
+    recombinant TcsAaAb, TcsC, TcsDEF, PcaIJ, PcaF, and purified RwTfdB.
+  measurement_endpoints:
+  - hybrid Nanopore/Illumina whole-genome assembly (PRJNA1397584) and ANIb phylogeny
+  - OD600 growth and HPLC quantification of BDE-47 (226 nm) and 2,4-DBP (280 nm)
+  - LC-MS and GC-MS identification of 2,4-DBP and 3,5-DBC intermediates
+  - in vitro NADPH consumption assays (340 nm) of purified His-tagged RwTfdB
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When strain YL-JM2C was cultivated in yeast extract (0.04%, w/v)-containing MSM supplemented with BDE-47, its
+      biomass concentration (OD600) increased from 0.05 to 0.15 within the first 24 h and then slightly declined to 0.14 at
+      the end of cultivation ( Fig. 1b ). Concurrently, the concentration of BDE-47 decreased from 18 to 4 μM
+    explanation: Quantifies pure-culture growth (OD600 0.05 to 0.15) and BDE-47 removal (18 to 4 uM) by strain YL-JM2C.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, when strain YL-JM2C was inoculated alone, BDE-47 disappeared within 20 h but accompanying by stoichiometric
+      accumulation of 2,4-DBP.
+    explanation: Demonstrates 20-h BDE-47 depletion accompanied by stoichiometric 2,4-DBP accumulation in YL-JM2C monoculture.
+environment_term:
+  preferred_term: aerobic minimal salts medium BDE-47 monoculture assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled aerobic pH 7.0 MSM batch growth and resting-cell biotransformation assays at 30 °C and 180 rpm.
+modeled_environment:
+- preferred_term: wastewater treatment plant
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: Strain YL-JM2C was isolated from a wastewater treatment plant as a triclosan degrader.
+related_communities:
+- identifier: CommunityMech:000555
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134 (CommunityMech:000555) were characterized in
+    parallel as the two constituent isolate baselines of the aerobic BDE-47 metabolic-relay consortium in PMID:42364169.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we decipher an aerobic catabolic pathway of BDE-47 mediated by metabolic relay within a synthetic consortium
+      composed of two environmental isolates, Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134.
+    explanation: Directly links Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134 in PMID:42364169.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+    gtdb_grounding_status: UNRESOLVED
+    notes: Reclassified from Sphingomonas to Rhizorhabdus wittichii YL-JM2C based on ~97% whole-genome ANIb with R. wittichii
+      RW1.
+  strain_designation:
+    strain_name: YL-JM2C
+    isolation_source: wastewater treatment plant
+    genome_accession: PRJNA1397584
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: However, whole-genome analysis revealed that strain YL-JM2C shared the highest ANI value (∼97%) with R. wittichii
+      RW1 ( Fig. 1a ), whereas the ANI values with several representative members of the genus Sphingomonas were all below
+      80% ( Table S6 ). Hence, strain YL-JM2C was reclassified as R. wittichii YL-JM2C.
+    explanation: Supports whole-genome ANI reclassification of isolate YL-JM2C as Rhizorhabdus wittichii.
+ecological_interactions:
+- name: TcsAaAb-Catalyzed BDE-47 Angular Dioxygenation, 3,5-DBC Ortho-Cleavage, and Dead-End 2,4-DBP Accumulation in Strain
+    YL-JM2C
+  description: In aerobic pH 7.0 MSM assays at 30 °C and 180 rpm, Rhizorhabdus wittichii YL-JM2C initiated BDE-47 catabolism
+    via the two-component NAD(P)H-dependent Rieske dioxygenase TcsAaAb, cleaving the diphenyl ether bond to generate 3,5-dibromocatechol
+    (3,5-DBC) and 2,4-dibromophenol (2,4-DBP). While 3,5-DBC was rapidly mineralized via adjacent chlorocatechol 1,2-dioxygenase
+    TcsC, TcsDEF, PcaIJ, and PcaF into the beta-ketoadipate/TCA pathway, 2,4-DBP accumulated stoichiometrically as a dead-end
+    product (LC-MS retention time 12.0 min, m/z 250.8514 [M-H]-) because the native flavin monooxygenase homolog RwTfdB (>50%
+    identity to TfdB) is active on 2-bromophenol and 2-hydroxybiphenyl but has no catalytic activity toward 2,4-DBP.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Taken together, these results demonstrate that TcsAaAb is responsible for the initial step of BDE-47 degradation,
+      catalyzing its conversion into 3,5-DBC and 2,4-DBP. The intermediate 3,5-DBC can be further catabolized, whereas 2,4-DBP
+      accumulates as a dead-end metabolic product in strain YL-JM2C.
+    explanation: Establishes TcsAaAb-mediated BDE-47 cleavage to 3,5-DBC and dead-end 2,4-DBP in strain YL-JM2C.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TcsC converted 3,5-DBC into the corresponding muconic acid ( Fig. S4 ), which was further catabolized by TcsDEF
+      ( Fig. S5 ) and subsequently channeled into the TCA cycle via the β-ketoadipate pathway catalyzed by PcaIJ and PcaF
+      ( Fig. S6 ).
+    explanation: Demonstrates complete enzymatic catabolism of 3,5-DBC via TcsC, TcsDEF, PcaIJ, and PcaF in strain YL-JM2C.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results demonstrated that RwTfdB was indeed active but towards 2-bromophenol (2BP) and 2-hydroxybiphenyl
+      (2HBP), rather than 2,4-DBP ( Fig. 2 ). This observation further confirms inability of the strain to degrade 2,4-DBP,
+      resulting in its accumulation.
+    explanation: Explains the biochemical basis of 2,4-DBP accumulation in YL-JM2C via the substrate specificity of purified
+      RwTfdB.
+environmental_factors:
+- name: Triclosan pre-induction of BDE-47 degradation in strain YL-JM2C
+  value: 10 uM triclosan (TCS) vs glucose pre-cultivation in R2A
+  description: Pre-treating strain YL-JM2C with 10 uM triclosan significantly accelerated subsequent BDE-47 biotransformation
+    compared with glucose-pretreated cells.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Moreover, the degradation rate of BDE-47 was significantly accelerated when strain YL-JM2C was pretreated with
+      TCS compared with glucose-pretreated cells ( Fig. S2 ), further supporting the involvement of TCS catabolic genes in
+      BDE-47 degradation.
+    explanation: Documents accelerated BDE-47 degradation following 10 uM triclosan induction in strain YL-JM2C.
+growth_media:
+- name: Minimal salts medium (MSM) BDE-47 growth and whole-cell biotransformation assays
+  composition:
+  - name: BDE-47
+    concentration: '18'
+    unit: uM
+  - name: yeast extract
+    concentration: '0.04'
+    unit: percent w/v
+  ph: '7.0'
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '180'
+  shaking_speed_unit: rpm
+  inoculum_size: '1'
+  inoculum_unit: '% (v/v)'
+  vessel_type: flask
+  preparation_notes: Exponential-phase R2A cells of R. wittichii YL-JM2C were washed with 50 mM Tris-HCl (pH 7.4) and inoculated
+    at 1% (v/v) into MSM (pH 7.0) with 18 uM BDE-47 and 0.04% (w/v) yeast extract, or resuspended to OD600 = 4.0 in MSM with
+    50 uM BDE-47 for 20-h whole-cell biotransformation at 30 °C and 180 rpm.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. wittichii YL-JM2C [ 43 ] was pre-grown to exponential phase in R2A, washed with 50 mM Tris–HCl buffer (pH
+      7.4), and inoculated (1%, v/v) into minimal salts medium (MSM, pH 7.0) containing BDE-47 (18 μM) and yeast extract (0.04%,
+      w/v) [ 44 ].
+    explanation: Specifies the R2A pre-growth, Tris-HCl wash, and 1% v/v MSM growth-coupled degradation medium.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The induced cells were then harvested, washed, and resuspended in MSM (OD600 = 4.0) containing 50 μM BDE-47.
+      The assay was conducted at 30°C with shaking at 180 rpm
+    explanation: Specifies the OD600 = 4.0 resting-cell biotransformation assay with 50 uM BDE-47 at 30 °C and 180 rpm.
+associated_datasets:
+- title: Rhizorhabdus wittichii YL-JM2C complete genome assembly
+  accession: PRJNA1397584
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1397584
+  description: Hybrid Nanopore and Illumina complete genome assembly of Rhizorhabdus wittichii YL-JM2C.
+  publication: PMID:42364169
+external_resources:
+- name: Primary publication - Rhizorhabdus wittichii YL-JM2C BDE-47 dioxygenase baseline
+  repository: OTHER
+  resource_id: PMID:42364169
+  url: https://pubmed.ncbi.nlm.nih.gov/42364169/
+  description: ISME Journal 2026 study characterizing R. wittichii YL-JM2C TcsAaAb/TcsCDEF/RwTfdB BDE-47 catabolism.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metabolic interactions enable aerobic degradation of the environmental pollutant BDE-47.
+    explanation: Identifies the primary publication characterizing R. wittichii YL-JM2C.
+discussions:
+- discussion_id: yl_jm2c_rwtfdb_structural_determinants
+  prompt: Which active-site residues in RwTfdB exclude 2,4-dibromophenol while permitting hydroxylation of 2-bromophenol and
+    2-hydroxybiphenyl?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#TcsAaAb-Catalyzed BDE-47 Angular Dioxygenation, 3,5-DBC Ortho-Cleavage, and Dead-End 2,4-DBP Accumulation
+    in Strain YL-JM2C
+  rationale: Purified RwTfdB shares >50% sequence identity with JMP134 TfdB and is catalytically active on 2BP and 2HBP, but
+    inactive on 2,4-DBP; mutagenesis or crystal structures comparing the para-bromine binding pocket were not reported.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results demonstrated that RwTfdB was indeed active but towards 2-bromophenol (2BP) and 2-hydroxybiphenyl
+      (2HBP), rather than 2,4-DBP ( Fig. 2 ).
+    explanation: Documents the contrasting substrate specificity of purified RwTfdB versus JMP134 TfdBI/TfdBII.
+  posed_by: antigravity
+  posed_date: '2026-11-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-11-11T00:12:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000554 (Rhizorhabdus wittichii YL-JM2C BDE-47 Dioxygenase Isolate Baseline) in data/isolates/
+    from PMID:42364169 / doi:10.1093/ismejo/wrag163 (TcsAaAb BDE-47 cleavage to 3,5-DBC and dead-end 2,4-DBP accumulation
+    due to RwTfdB substrate specificity).
+  llm_assisted: true

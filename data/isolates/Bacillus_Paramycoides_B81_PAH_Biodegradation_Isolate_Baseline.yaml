@@ -1,0 +1,234 @@
+id: CommunityMech:000549
+name: Bacillus paramycoides B8-1 PAH Biodegradation Isolate Baseline
+description: Single-strain PAH-degrading bacterial isolate baseline Bacillus paramycoides B8-1 (NCBITaxon:2026194) enriched
+  from petroleum-contaminated subsurface soil from General Petroleum Company, Ras Gharib, Egypt on mineral salt medium (MSM,
+  pH 7.0 +/- 0.2) with 1000 mg/L phenanthrene or naphthalene and characterized in both planktonic and glass-tube biofilm modes
+  alongside Bacillus paranthracis A1 (CommunityMech:000550), Bacillus licheniformis A3 (CommunityMech:000551), and Consortia
+  1-4 (CommunityMech:000502, CommunityMech:000503, CommunityMech:000358, CommunityMech:000504) by Ashraf et al. 2026 (PMID:42587276).
+  Isolate B8-1 achieved the highest single-strain planktonic degradation efficiency at 37 °C, 150 rpm, and pH 7 (200 mg/L
+  initial PAH, 7 days), removing 77.94% of phenanthrene and 98.43% of naphthalene, maintained >50% phenanthrene removal across
+  pH 6-8 and >55% naphthalene removal across pH 5-8 (92.09%, 98.43%, 95.73%, and 71.36% naphthalene degradation at 30, 37,
+  40, and 50 °C), and degraded 60.72% of phenanthrene in 7-day static glass-tube biofilm mode, outperforming all four multi-strain
+  consortia on phenanthrene.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Isolate, optimize, and benchmark indigenous Bacillus paramycoides strain B8-1 in planktonic and glass-attached
+    biofilm modes for 7-day biodegradation of 200 mg/L phenanthrene and naphthalene as a single-strain baseline for Consortia
+    1, 2, and 4.
+  assembly_strategy: Enrich 5.0 g petroleum-contaminated subsurface soil in 100 mL MSM with 1000 mg/L phenanthrene or naphthalene
+    across three successive 7-day transfers at 37 °C and 150 rpm, screen purified colonies by DCPIP reduction and HPLC at
+    200 mg/L PAH, and select isolate B8-1.
+  inoculation_strategy: Standardize washed overnight Nutrient Broth cells in 0.9% NaCl to OD600 = 1.0 (1 mL into 50 mL MSM
+    for screening; overnight inoculum in 7 mL MSM tubes for planktonic comparison) or dilute fresh cultures to OD550 = 0.2
+    in TSB for 48-h static biofilm formation.
+  perturbation_design: Optimize pH (5-9 at 37 °C, 150 rpm, 7 days) and temperature (25, 30, 37, 40, and 50 °C at pH 7, 150
+    rpm, 7 days) for isolate B8-1, and compare planktonic versus 48-h preformed glass-tube biofilm degradation of 200 mg/L
+    phenanthrene and naphthalene.
+  measurement_endpoints:
+  - DCPIP redox indicator reduction at OD600
+  - HPLC quantification of residual phenanthrene and naphthalene at 254 nm
+  - biofilm formation by crystal violet OD595 assay
+  - 16S rRNA phylogenetic identification
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among them, isolate B8-1 showed the highest degradation efficiency, with 77.94% phenanthrene degradation and
+      98.43% naphthalene degradation.
+    explanation: Establishes the single-strain planktonic degradation rates of isolate B8-1 at 200 mg/L PAH.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, the isolate B8-1 exhibited a biodegradation rate, in the planktonic mode, of 77.94% that relatively
+      higher than that obtained in its biofilm mode, 60.72% (see Fig. 8 a).
+    explanation: Compares planktonic (77.94%) versus biofilm (60.72%) phenanthrene biodegradation for isolate B8-1.
+environment_term:
+  preferred_term: laboratory PAH-degradation planktonic and biofilm monoculture assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled MSM liquid flask/tube monoculture and glass-tube static biofilm assays at 200 mg/L PAH.
+modeled_environment:
+- preferred_term: petroleum-contaminated soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Isolate B8-1 was enriched from subsurface petroleum-contaminated soil from Ras Gharib, Egypt.
+related_communities:
+- identifier: CommunityMech:000550
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Bacillus paramycoides B8-1 and Bacillus paranthracis A1 (CommunityMech:000550) were co-isolated and characterized
+    in parallel as single-strain PAH-degrading baselines in PMID:42587276.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three isolates (A1, A3, and B8-1) were selected as the most potent phenanthrene and naphthalene degraders.
+    explanation: Directly links B8-1 and A1 as two of the three characterized PAH-degrading isolates in PMID:42587276.
+- identifier: CommunityMech:000551
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Bacillus paramycoides B8-1 and Bacillus licheniformis A3 (CommunityMech:000551) were co-isolated and characterized
+    in parallel as single-strain PAH-degrading baselines in PMID:42587276.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three isolates (A1, A3, and B8-1) were selected as the most potent phenanthrene and naphthalene degraders.
+    explanation: Directly links B8-1 and A3 as two of the three characterized PAH-degrading isolates in PMID:42587276.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus paramycoides B8-1
+    term:
+      id: NCBITaxon:2026194
+      label: Bacillus paramycoides
+    gtdb_grounding_status: UNRESOLVED
+    notes: Identified by 16S rRNA sequence analysis as Bacillus paramycoides isolate B8-1.
+  strain_designation:
+    strain_name: B8-1
+    isolation_source: petroleum-contaminated subsurface soil
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B8-1(Bacillus paramycoides), A1(Bacillus paranthracis), and A3(Bacillus licheniformis).
+    explanation: Identifies isolate B8-1 as Bacillus paramycoides by 16S rRNA phylogenetic analysis.
+ecological_interactions:
+- name: Planktonic and Biofilm Phenanthrene and Naphthalene Biodegradation by Isolate B8-1
+  description: In 7-day MSM monoculture assays at 200 mg/L PAH (37 °C, pH 7, 150 rpm), Bacillus paramycoides B8-1 degraded
+    77.94% of phenanthrene and 98.43% of naphthalene, maintaining >50% phenanthrene degradation across pH 6-8, >55% naphthalene
+    degradation across pH 5-8, and 92.09%, 98.43%, 95.73%, and 71.36% naphthalene degradation at 30, 37, 40, and 50 °C. In
+    7-day static glass-tube biofilm mode, B8-1 degraded 60.72% of phenanthrene (lower than its 77.94% planktonic rate, attributed
+    to delayed phenanthrene diffusion across the EPS matrix) while outperforming all four multi-strain consortia on phenanthrene.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus paramycoides B8-1
+    term:
+      id: NCBITaxon:2026194
+      label: Bacillus paramycoides
+  metabolites:
+  - preferred_term: phenanthrene
+    term:
+      id: CHEBI:28851
+      label: phenanthrene
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The degradation results showed that phenanthrene degradation exceeded 50% within the pH range of 6–8, with the
+      maximum degradation rate (77.94%) observed at pH 7 (Fig. 4 ). Similarly, naphthalene degradation exceeded 55% between
+      pH 5–8, reaching a maximum degradation rate of 98.43% at pH 7 (Fig. 4 ).
+    explanation: Quantifies the pH range and pH 7 maxima for phenanthrene (77.94%) and naphthalene (98.43%) removal by B8-1.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the case of naphthalene, isolate B8-1 showed a great biodegradation rate of 92.09%, 98.43%, and 95.73% of
+      naphthalene at temperatures of 30, 37, and 40 °C, respectively (see Fig. 6 ). Moreover, at a high temperature of 50
+      °C, the isolate B8-1 has displayed a naphthalene biodegradation rate of 71.36%.
+    explanation: Quantifies naphthalene biodegradation by isolate B8-1 across 30, 37, 40, and 50 °C.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, the isolate B8-1 exhibited a biodegradation rate, in the planktonic mode, of 77.94% that relatively
+      higher than that obtained in its biofilm mode, 60.72% (see Fig. 8 a).
+    explanation: Documents the higher planktonic (77.94%) than biofilm (60.72%) phenanthrene removal in isolate B8-1.
+environmental_factors:
+- name: pH tolerance of isolate B8-1 PAH degradation
+  value: '>50% phenanthrene removal at pH 6-8 (77.94% at pH 7); >55% naphthalene removal at pH 5-8 (98.43% at pH 7)'
+  description: Isolate B8-1 degraded both PAHs across pH 5-9 with maximal degradation at neutral pH 7.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The degradation results showed that phenanthrene degradation exceeded 50% within the pH range of 6–8, with the
+      maximum degradation rate (77.94%) observed at pH 7 (Fig. 4 ).
+    explanation: Quantifies pH-dependent phenanthrene degradation by isolate B8-1.
+- name: Temperature tolerance of isolate B8-1 naphthalene degradation
+  value: 92.09% at 30 °C, 98.43% at 37 °C, 95.73% at 40 °C, and 71.36% at 50 °C
+  description: Isolate B8-1 maintained high naphthalene biodegradation across 30-50 °C at pH 7.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the case of naphthalene, isolate B8-1 showed a great biodegradation rate of 92.09%, 98.43%, and 95.73% of
+      naphthalene at temperatures of 30, 37, and 40 °C, respectively (see Fig. 6 ).
+    explanation: Quantifies temperature-dependent naphthalene degradation by isolate B8-1.
+growth_media:
+- name: Mineral salt medium PAH degradation assay
+  composition: []
+  ph: '7.0'
+  temperature: '37'
+  temperature_unit: °C
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  incubation_time: '7'
+  incubation_time_unit: d
+  vessel_type: 250 mL Erlenmeyer flasks and 7 mL glass tubes
+  preparation_notes: For quantitative screening and optimization, 1 mL of washed OD600 = 1.0 B8-1 suspension was inoculated
+    into 50 mL MSM with 200 mg/L phenanthrene or naphthalene; planktonic vs 48-h TSB-preformed biofilm comparisons used 7
+    mL MSM with 200 mg/L PAH for 7 days at 37 °C.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cell suspension was adjusted to an optical density of OD₆₀₀ = 1.0, and 1 mL of this standardized inoculum
+      was used to inoculate 50 mL MSM containing the target PAH.
+    explanation: Specifies the standardized OD600 = 1.0 inoculum and 50 mL MSM screening setup.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For planktonic–mediated biodegradation, individual isolates and consortia were grown overnight and inoculated
+      in tubes containing 7 mL MSM medium supplemented with 200 mg L⁻¹phenanthrene.
+    explanation: Specifies the 7 mL MSM tube setup with 200 mg/L PAH.
+external_resources:
+- name: Primary publication - Bacillus paramycoides B8-1 PAH biodegradation baseline
+  repository: OTHER
+  resource_id: PMID:42587276
+  url: https://pubmed.ncbi.nlm.nih.gov/42587276/
+  description: BMC Microbiology 2026 study characterizing isolate B8-1 and derived PAH-degrading consortia.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enhancing biodegradation of polycyclic aromatic hydrocarbons using bacterial consortia and biofilm
+    explanation: Identifies the primary publication characterizing isolate B8-1.
+discussions:
+- discussion_id: b81_biofilm_naphthalene_numeric_value
+  prompt: What is the exact numeric biofilm naphthalene degradation percentage for isolate B8-1 plotted in Figure 8b?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Planktonic and Biofilm Phenanthrene and Naphthalene Biodegradation by Isolate B8-1
+  rationale: The text states that planktonic naphthalene degradation by B8-1 (98.43%) was higher than that of its biofilm
+    culture (Fig. 8b) and lists exact numeric values for A1, A3, and Consortia 1-4, but omits the inline number for B8-1 biofilm
+    naphthalene removal.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, as occurred with phenanthrene, the degradation rate of naphthalene by the planktonic culture of B8-1
+      was higher than that of its biofilm culture.
+    explanation: Documents the qualitative planktonic > biofilm naphthalene comparison for B8-1.
+  posed_by: antigravity
+  posed_date: '2026-11-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-11-11T00:10:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000549 (Bacillus paramycoides B8-1 PAH Biodegradation Isolate Baseline) in data/isolates/
+    from PMID:42587276 / doi:10.1186/s12866-026-05144-y (77.94% planktonic / 60.72% biofilm phenanthrene and 98.43% planktonic
+    naphthalene degradation).
+  llm_assisted: true

@@ -1,0 +1,202 @@
+id: CommunityMech:000555
+name: Cupriavidus necator JMP134 2,4-Dibromophenol Hydroxylase Isolate Baseline
+description: Single-strain chloro-/bromoaromatic-mineralizing bacterial isolate baseline Cupriavidus necator JMP134 (canonical
+  NCBI strain taxon Cupriavidus pinatubonensis JMP134, NCBITaxon:264198) harboring plasmid pJP4 (tfdA, tfdBI, tfdCIDIEIFI,
+  tfdBII, tfdDIICIIEIIFII) and characterized in pure culture and purified-enzyme assays alongside Rhizorhabdus wittichii YL-JM2C
+  (CommunityMech:000554) and the YL-JM2C/JMP134 synthetic consortium (CommunityMech:000388) by Pan and Zhou 2026 (PMID:42364169).
+  Purified FAD/NADPH-dependent hydroxylases TfdBI and TfdBII (15 ug protein, 200 uM NADPH, 10 uM FAD, 200 uM substrate in
+  pH 7.4 Tris-HCl) and recombinant cells (BL21-TfdBI, BL21-TfdBII) hydroxylated 2,4-dibromophenol (2,4-DBP) to 3,5-dibromocatechol
+  (3,5-DBC) and were active across all tested halophenol substrates except 2-hydroxybiphenyl (Fig. 2, Fig. S8-S9), and axenic
+  strain JMP134 utilized 2,4-DBP as a sole carbon and energy source for growth via TfdBI/TfdBII and the downstream pJP4-encoded
+  tfdCDEF ortho-cleavage pathway (Fig. 3a, Fig. S10).
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Validate the 2,4-dibromophenol hydroxylase activities of plasmid pJP4-encoded TfdBI and TfdBII and the axenic
+    2,4-DBP growth capability of Cupriavidus necator JMP134 as the downstream metabolic-relay partner for Rhizorhabdus wittichii
+    YL-JM2C.
+  assembly_strategy: Clone and purify His-tagged TfdBI and TfdBII from C. necator JMP134 in E. coli BL21(DE3) for in vitro
+    NADPH-oxidation and whole-cell biotransformation assays, and cultivate axenic strain JMP134 in R2A and in minimal salts
+    medium (MSM, pH 7.0) with 2,4-DBP as sole carbon source.
+  inoculation_strategy: Pre-grow C. necator JMP134 in R2A at 30 °C to exponential phase, harvest and wash cells into pH 7.0
+    MSM (OD600 = 4.0 for resting-cell assays or OD600 = 1.0 at 5% v/v for wastewater microcosms) or inoculate into MSM containing
+    2,4-DBP as sole carbon source.
+  perturbation_design: Compare substrate specificity of purified TfdBI and TfdBII against YL-JM2C RwTfdB across 2,4-DBP, 2BP,
+    2HBP, and chlorinated/brominated phenols at 340 nm, verify 3,5-DBC product formation by HPLC, and test axenic growth of
+    JMP134 on 2,4-DBP as sole carbon source.
+  measurement_endpoints:
+  - spectrophotometric NADPH oxidation assay at 340 nm (epsilon = 6220 M-1 cm-1) for purified TfdBI and TfdBII
+  - HPLC detection of 2,4-DBP conversion to 3,5-DBC at 280 nm
+  - axenic growth of strain JMP134 on 2,4-DBP as sole carbon source (Fig. S10)
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, TfdBI and TfdBII from strain JMP134 were active against all tested substrates except 2HBP. Furthermore,
+      strain JMP134 was able to utilize 2,4-DBP as the sole carbon source for growth ( Fig. S10 ), indicating that TfdB is
+      active in vivo and that the downstream catabolic pathway is functional.
+    explanation: Establishes purified TfdBI/TfdBII activity on 2,4-DBP and axenic growth of strain JMP134 on 2,4-DBP as sole
+      carbon source.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The HPLC chromatogram revealed the appearance of a new peak in the reaction mixtures of BL21-TfdBI and BL21-TfdBII,
+      corresponding to the retention time of authentic 3,5-DBC ( Fig. S8 ).
+    explanation: Confirms conversion of 2,4-DBP into 3,5-dibromocatechol (3,5-DBC) by JMP134 TfdBI and TfdBII.
+environment_term:
+  preferred_term: aerobic minimal salts medium 2,4-dibromophenol monoculture and enzyme assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled aerobic pH 7.0 MSM axenic growth and pH 7.4 Tris-HCl enzymatic assays.
+modeled_environment:
+- preferred_term: soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The article notes the soil origin of the pJP4/TfdB-harboring strain C. necator JMP134.
+related_communities:
+- identifier: CommunityMech:000554
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Cupriavidus necator JMP134 and Rhizorhabdus wittichii YL-JM2C (CommunityMech:000554) were characterized in
+    parallel as the two constituent isolate baselines of the aerobic BDE-47 metabolic-relay consortium in PMID:42364169.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we decipher an aerobic catabolic pathway of BDE-47 mediated by metabolic relay within a synthetic consortium
+      composed of two environmental isolates, Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134.
+    explanation: Directly links Cupriavidus necator JMP134 and Rhizorhabdus wittichii YL-JM2C in PMID:42364169.
+taxonomy:
+- taxon_term:
+    preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+    gtdb_grounding_status: UNRESOLVED
+    notes: Reported as Cupriavidus necator JMP134 in PMID:42364169; resolves to canonical NCBI strain taxon Cupriavidus pinatubonensis
+      JMP134.
+  strain_designation:
+    strain_name: JMP134
+    isolation_source: soil
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. necator JMP134 is a well-characterized bacterial strain known for its ability to mineralize the herbicide
+      2,4-dichlorophenoxyacetic acid (2,4-D) [ 63 ]. The genes responsible for 2,4-D catabolism are located on the plasmid
+      pJP4, including tfdA, tfdBI, tfdCIDIEIFI, tfdBII, and tfdDIICIIEIIFII
+    explanation: Identifies strain C. necator JMP134 and its plasmid pJP4 catabolic gene clusters.
+ecological_interactions:
+- name: Plasmid pJP4-Encoded TfdBI/TfdBII Hydroxylation of 2,4-Dibromophenol and Sole-Carbon-Source Growth by Strain JMP134
+  description: Cupriavidus necator JMP134 harbors plasmid pJP4 encoding two FAD/NADPH-dependent halophenol hydroxylases (TfdBI
+    and TfdBII) and two downstream ortho-cleavage modules (tfdCIDIEIFI and tfdDIICIIEIIFII). In purified enzyme assays (15
+    ug TfdBI or TfdBII, 200 uM NADPH, 10 uM FAD, 200 uM substrate in pH 7.4 Tris-HCl) and whole-cell biotransformations, both
+    TfdBI and TfdBII hydroxylated 2,4-dibromophenol (2,4-DBP) into 3,5-dibromocatechol (3,5-DBC) and showed broad activity
+    across halophenols (excluding 2-hydroxybiphenyl), enabling axenic strain JMP134 to grow on 2,4-DBP as a sole carbon and
+    energy source.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enzyme assays of TfdB homologs were conducted in Tris–HCl buffer (pH 7.4) containing 15 μg purified TfdB, 200
+      μM NADPH, and 10 μM flavin adenine dinucleotide (FAD), and the reaction was initiated by adding 200 μM substrate.
+    explanation: Specifies the in vitro enzyme assay conditions for purified TfdBI and TfdBII.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, TfdBI and TfdBII from strain JMP134 were active against all tested substrates except 2HBP. Furthermore,
+      strain JMP134 was able to utilize 2,4-DBP as the sole carbon source for growth ( Fig. S10 ), indicating that TfdB is
+      active in vivo and that the downstream catabolic pathway is functional.
+    explanation: Demonstrates TfdBI/TfdBII catalytic activity and axenic growth of strain JMP134 on 2,4-DBP.
+environmental_factors:
+- name: Soil origin of TfdB-harboring strain JMP134
+  value: soil-derived chloroaromatic degrader
+  description: Consistent with the soil origin of strain JMP134, soil is a dominant environmental reservoir of TfdB homologs.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Consistent with the soil origin of the TfdB-harboring strain JMP134, we found that soil is a dominant source
+      for TfdB homologs.
+    explanation: Documents the soil origin of strain JMP134.
+growth_media:
+- name: R2A pre-growth and minimal salts medium (MSM, pH 7.0) 2,4-DBP / BDE-47 assay medium
+  composition:
+  - name: minimal salts medium
+  - name: 2,4-dibromophenol
+  ph: '7.0'
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '180'
+  shaking_speed_unit: rpm
+  vessel_type: flask
+  preparation_notes: C. necator JMP134 was pre-grown in R2A to exponential phase, harvested, and resuspended in MSM (pH 7.0)
+    at 30 °C and 180 rpm for 2,4-DBP sole-carbon-source growth and resting-cell assays.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. wittichii YL-JM2C and C. necator JMP134 were grown separately in R2A to exponential phase, harvested, and
+      resuspended in MSM (pH 7.0) to an OD600 of 4.0.
+    explanation: Specifies the R2A pre-growth and pH 7.0 MSM resuspension protocol for strain JMP134.
+external_resources:
+- name: Primary publication - Cupriavidus necator JMP134 2,4-DBP hydroxylase baseline
+  repository: OTHER
+  resource_id: PMID:42364169
+  url: https://pubmed.ncbi.nlm.nih.gov/42364169/
+  description: ISME Journal 2026 study characterizing C. necator JMP134 TfdBI/TfdBII 2,4-DBP hydroxylation and growth.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metabolic interactions enable aerobic degradation of the environmental pollutant BDE-47.
+    explanation: Identifies the primary publication characterizing C. necator JMP134 in BDE-47 catabolism.
+discussions:
+- discussion_id: jmp134_tfdbi_vs_tfdbii_in_vivo_contribution
+  prompt: What are the relative in vivo expression and flux contributions of plasmid pJP4 paralogs tfdBI versus tfdBII during
+    2,4-dibromophenol growth by strain JMP134?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Plasmid pJP4-Encoded TfdBI/TfdBII Hydroxylation of 2,4-Dibromophenol and Sole-Carbon-Source Growth
+    by Strain JMP134
+  rationale: Both purified TfdBI and TfdBII hydroxylated 2,4-DBP to 3,5-DBC in vitro and in E. coli, but paralog-specific
+    knockout or transcript quantification in JMP134 during 2,4-DBP growth was not reported.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, TfdBI and TfdBII from strain JMP134 were active against all tested substrates except 2HBP.
+    explanation: Documents that both TfdBI and TfdBII are catalytically active on 2,4-DBP in vitro.
+  posed_by: antigravity
+  posed_date: '2026-11-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-11-11T00:12:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000555 (Cupriavidus necator JMP134 2,4-Dibromophenol Hydroxylase Isolate Baseline) in data/isolates/
+    from PMID:42364169 / doi:10.1093/ismejo/wrag163 (pJP4-encoded TfdBI/TfdBII 2,4-DBP hydroxylation to 3,5-DBC and sole-carbon-source
+    growth on 2,4-DBP).
+  llm_assisted: true

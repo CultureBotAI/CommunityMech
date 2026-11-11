@@ -1,0 +1,238 @@
+id: CommunityMech:000552
+name: Pelagerythrobacter sp. N7 Halophilic Pyrene Oxidation Isolate Baseline
+description: Single-strain halophilic bacterial isolate baseline Pelagerythrobacter sp. N7 (NCBITaxon:2800685) isolated on
+  solid 5% sea-salt defined medium with 10 mg phenanthrene (SSDM-P) from the halophilic PAH-degrading consortium 5H (enriched
+  from PAH-polluted saline soil in Shanxi Province, China) and characterized in 5% salinity SSDM with 50 mg/L pyrene alongside
+  Salinicola sp. A11 (CommunityMech:000553) and the two-member PES synthetic consortium (CommunityMech:000340) by Wen et al.
+  2026 (PMID:42666409). In 14-day pure-culture flask assays (200 mL 5% SSDM, 50 mg/L pyrene, initial OD600 = 0.015, 30 °C,
+  120 rpm in darkness), strain N7 initiated upstream pyrene oxidation via ring-hydroxylating dioxygenase (pahA/RHD), pahB,
+  and pahC, but pyrene removal plateaued at 49.95% after 14 days while accumulating 4,5-dihydroxypyrene (GC-MS peak 40.25
+  min) and 12.17 mg/L of the dead-end intermediate 4,5-dicarboxyphenanthrene (GC-MS peak 38.10 min) after 9 days due to the
+  lack of 4,5-dicarboxyphenanthrene decarboxylase and extracellular bioemulsifier synthesis.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Isolate and benchmark the upstream halophilic pyrene-oxidizing bacterium Pelagerythrobacter sp. N7 in pure culture
+    to identify the metabolic bottleneck (4,5-dicarboxyphenanthrene accumulation) resolved by Salinicola sp. A11 in the PES
+    consortium.
+  assembly_strategy: Enrich consortium 5H in 5% SSDM with 100 mg/L phenanthrene at 30 °C and 120 rpm for 72 h, plate onto
+    solid SSDM containing 10 mg phenanthrene (SSDM-P), and select colony N7 forming a clear phenanthrene degradation zone.
+  inoculation_strategy: Wash pure-culture N7 cells in fresh 5% SSDM to OD600 = 0.2 and inoculate 200 mL of 5% salinity SSDM
+    containing 50 mg/L pyrene at an initial OD600 of 0.015.
+  perturbation_design: Monitor 14-day residual pyrene, OD600 growth, and 4,5-dicarboxyphenanthrene accumulation in N7 monoculture
+    (30 °C, 120 rpm in darkness), profile day-5/day-10 intracellular and extracellular intermediates by GC-MS, and compare
+    24-h soybean-oil emulsification of N7 cell-free supernatant and washed cells against A11 and PES.
+  measurement_endpoints:
+  - HPLC quantification of residual pyrene and accumulated 4,5-dicarboxyphenanthrene at 254 nm
+  - bacterial growth by OD600
+  - GC-MS identification of TMS-derivatized pyrene transformation intermediates
+  - 24-h soybean-oil emulsification index (E24) assay and HADEG genome mining
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain N7 was selected from SSDM-P plate with clear degradation zone around the colony.
+    explanation: Documents the isolation of Pelagerythrobacter sp. N7 on phenanthrene-containing SSDM-P agar.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 14 days of cultivation, the degradation rate plateaued at 49.95%, and a low value of cell growth, indicating
+      that strain N7 was not able to complete remove pyrene. Moreover, intermediate 4,5-dihydroxypyrene were also detected
+      accumulated in the degradation process. After 9 days degradation, the concentration of 4,5-dicarboxyphenanthrene was
+      riched to 12.17 mg/L, indicating the limited ability of strain N7 in the degradation of pyrene.
+    explanation: Quantifies the 14-day 49.95% pyrene removal plateau and 9-day 12.17 mg/L 4,5-dicarboxyphenanthrene accumulation
+      in N7 pure culture.
+environment_term:
+  preferred_term: halophilic 5% sea-salt defined medium pyrene monoculture assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled 200 mL 5% salinity SSDM batch flask monoculture with 50 mg/L pyrene.
+modeled_environment:
+- preferred_term: PAH-polluted saline soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Strain N7 was isolated from consortium 5H enriched from PAH-polluted saline soil in Shanxi Province, China.
+related_communities:
+- identifier: CommunityMech:000553
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Pelagerythrobacter sp. N7 monoculture and Salinicola sp. A11 monoculture (CommunityMech:000553) were co-isolated
+    from consortium 5H and characterized in parallel as the two pure-culture baselines of the PES consortium in PMID:42666409.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a halophilic synthetic pyrene-degrading consortium, PES, was constructed by 2 halophilic pure
+      cultures, Pelagerythrobacter sp. N7 and Salinicola sp. A11.
+    explanation: Directly links pure cultures Pelagerythrobacter sp. N7 and Salinicola sp. A11 in PMID:42666409.
+taxonomy:
+- taxon_term:
+    preferred_term: Pelagerythrobacter sp. N7
+    term:
+      id: NCBITaxon:2800685
+      label: Pelagerythrobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: Clusters within the same core branch as Pelagerythrobacter sp. Ery1 (NR_171421).
+  strain_designation:
+    strain_name: N7
+    isolation_source: PAH-degrading consortium 5H enriched from saline PAH-polluted soil in Shanxi Province, China
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the core degrading strain N7 clustered within the same core branch as Pelagerythrobacter sp. Ery1 ( NR_171421
+      ), thereby being unambiguously identified as the genus Pelagerythrobacter
+    explanation: Supports genus-level taxonomic assignment of strain N7 to Pelagerythrobacter.
+ecological_interactions:
+- name: Upstream Pyrene Dioxygenation and 4,5-Dicarboxyphenanthrene Bottleneck in Strain N7 Pure Culture
+  description: In 200 mL 5% salinity SSDM containing 50 mg/L pyrene (initial OD600 = 0.015, 30 °C, 120 rpm in darkness), Pelagerythrobacter
+    sp. N7 pure culture oxidized pyrene via ring-hydroxylating dioxygenase (pahA/RHD), pahB, and pahC to 4,5-dihydroxypyrene
+    (GC-MS retention time 40.25 min; m/z 380, 365, 290, 218, 147, 73) and 4,5-dicarboxyphenanthrene (GC-MS retention time
+    38.10 min; m/z 411, 381, 294, 205, 177, 73), reaching a 49.95% pyrene removal plateau at day 14 and accumulating 12.17
+    mg/L 4,5-dicarboxyphenanthrene by day 9 without detectable downstream 4-carboxyphenanthrene, phthalate, salicylic acid,
+    or gentisate or extracellular soybean-oil emulsification.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pelagerythrobacter sp. N7
+    term:
+      id: NCBITaxon:2800685
+      label: Pelagerythrobacter
+  metabolites:
+  - preferred_term: pyrene
+    term:
+      id: CHEBI:39106
+      label: pyrene
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Owing to the inability to further transfer 4,5-dicarboxyphenanthrene, the metabolic pathway was disrupted, leading
+      to the significant accumulation of 4,5-dicarboxyphenanthrene during pyrene degradation by the pure culture of strain
+      N7.
+    explanation: Establishes the 4,5-dicarboxyphenanthrene decarboxylation bottleneck in strain N7 pure culture.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, no comparable stable emulsification was observed in the N7 supernatant, any of the washed-cell suspensions,
+      or fresh SSDM.
+    explanation: Demonstrates that neither N7 cell-free supernatant nor washed cells produced stable emulsification in the
+      24-h soybean-oil assay.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Using the HADEG database ( Dams-Kozlowska et al., 2008 ), no relevant bioemulsifier-producing genes were annotated
+      in the genome of strain N7.
+    explanation: Confirms the absence of annotated bioemulsifier biosynthesis genes in the genome of strain N7.
+environmental_factors:
+- name: 5% sea-salt defined medium pyrene monoculture bottleneck
+  value: 49.95% pyrene removal at 14 days; 12.17 mg/L 4,5-dicarboxyphenanthrene accumulated at 9 days
+  description: In 5% salinity SSDM with 50 mg/L pyrene, strain N7 monoculture incomplete pyrene removal coincided with 4,5-dicarboxyphenanthrene
+    accumulation.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 14 days of cultivation, the degradation rate plateaued at 49.95%, and a low value of cell growth, indicating
+      that strain N7 was not able to complete remove pyrene.
+    explanation: Quantifies the 14-day pyrene degradation plateau (49.95%) in strain N7 monoculture.
+growth_media:
+- name: 5% salinity sea salt-defined medium (SSDM) with 50 mg/L pyrene
+  composition:
+  - name: pyrene
+    concentration: '50'
+    unit: mg/L
+    chebi_term:
+      preferred_term: pyrene
+      term:
+        id: CHEBI:39106
+        label: pyrene
+  - name: NaCl
+    concentration: '39.72'
+    unit: g/L
+  - name: MgCl2·6H2O
+    concentration: '3.45'
+    unit: g/L
+  - name: MgSO4·7H2O
+    concentration: '5.22'
+    unit: g/L
+  - name: CaCl2
+    concentration: '0.75'
+    unit: g/L
+  - name: (NH4)2SO4
+    concentration: '2.0'
+    unit: g/L
+  - name: K2HPO4
+    concentration: '0.5'
+    unit: g/L
+  - name: KCl
+    concentration: '2.1'
+    unit: g/L
+  - name: NaHCO3
+    concentration: '0.1'
+    unit: g/L
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '120'
+  shaking_speed_unit: rpm
+  incubation_time: '14'
+  incubation_time_unit: d
+  inoculum_size: '0.015'
+  inoculum_unit: OD600
+  vessel_type: flask
+  preparation_notes: 200 mL of 5% salinity SSDM with 50 mg/L pyrene incubated at 30 °C and 120 rpm in darkness for 14 days
+    in triplicate.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three independent flasks were prepared for each treatment and incubated at 30°C with shaking at 120 rpm in darkness.
+      Strain N7 and the synthetic consortium PES were incubated for 14 and 10 days, respectively.
+    explanation: Specifies the 14-day dark shaking flask incubation at 30 °C and 120 rpm for strain N7 monoculture.
+external_resources:
+- name: Primary publication - Pelagerythrobacter sp. N7 halophilic pyrene oxidation baseline
+  repository: OTHER
+  resource_id: PMID:42666409
+  url: https://pubmed.ncbi.nlm.nih.gov/42666409/
+  description: Frontiers in Microbiology 2026 study characterizing Pelagerythrobacter sp. N7 monoculture and the PES consortium.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The syntrophic network of pyrene degradation by the synthetic halophilic consortium PES.
+    explanation: Identifies the primary publication characterizing Pelagerythrobacter sp. N7.
+discussions:
+- discussion_id: n7_downstream_pathway_expression_without_a11
+  prompt: Why do the annotated pahA/pahB/G12O/C12O downstream genes in Pelagerythrobacter sp. N7 remain blocked at 4,5-dicarboxyphenanthrene
+    in axenic culture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Upstream Pyrene Dioxygenation and 4,5-Dicarboxyphenanthrene Bottleneck in Strain N7 Pure Culture
+  rationale: Strain N7 carries RHD, G12O, and C12O genes for phenanthrene and downstream ring cleavage, but lacks a functional
+    4,5-dicarboxyphenanthrene decarboxylase to convert 4,5-dicarboxyphenanthrene into 4-carboxyphenanthrene.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, strain N7 lacked the capacity to further transfer 4,5-dicarboxyphenanthrene.
+    explanation: Documents the enzymatic block at 4,5-dicarboxyphenanthrene in strain N7.
+  posed_by: antigravity
+  posed_date: '2026-11-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-11-11T00:12:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000552 (Pelagerythrobacter sp. N7 Halophilic Pyrene Oxidation Isolate Baseline) in data/isolates/
+    from PMID:42666409 / doi:10.3389/fmicb.2026.1899654 (49.95% 14-day pyrene degradation plateau and 12.17 mg/L 4,5-dicarboxyphenanthrene
+    accumulation at 5% salinity).
+  llm_assisted: true
