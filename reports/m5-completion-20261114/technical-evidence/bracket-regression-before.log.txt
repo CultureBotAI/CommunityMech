@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_unchanged_asgard_nife_quote_matches_its_committed_article ________
+
+validator = <linkml_reference_validator.validation.supporting_text_validator.SupportingTextValidator object at 0x10be62f90>
+
+    def test_unchanged_asgard_nife_quote_matches_its_committed_article(validator):
+        path = REPO / "kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml"
+        record = yaml.safe_load(path.read_text(encoding="utf-8"))
+        evidence = record["related_ingredients"][2]["evidence"][0]
+        assert "[NiFe]" in evidence["snippet"]
+        content = (REPO / "references_cache/PMID_39085194.md").read_text(encoding="utf-8")
+        reference = ReferenceContent(reference_id=evidence["reference"], content=content)
+>       assert validator.find_text_in_reference(evidence["snippet"], reference).found
+E       assert False
+E        +  where False = SupportingTextMatch(found=False, similarity_score=1.0, matched_text=None, match_location=None, error_message="Text par...iffers - try: "expression of genes for [NiFe]-hydrogenases"', best_match='expression of genes for [NiFe]-hydrogenases').found
+E        +    where SupportingTextMatch(found=False, similarity_score=1.0, matched_text=None, match_location=None, error_message="Text par...iffers - try: "expression of genes for [NiFe]-hydrogenases"', best_match='expression of genes for [NiFe]-hydrogenases') = find_text_in_reference('expression of genes for [NiFe]-hydrogenases', ReferenceContent(reference_id='PMID:39085194', title=None, content="---\nreference_id: PMID:39085194\ntitle: Asgard ar..._type='unknown', authors=None, journal=None, year=None, doi=None, keywords=None, supplementary_files=None, metadata={}))
+E        +      where find_text_in_reference = <linkml_reference_validator.validation.supporting_text_validator.SupportingTextValidator object at 0x10be62f90>.find_text_in_reference
+
+tests/test_no_new_bracketed_snippets.py:76: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_no_new_bracketed_snippets.py::test_unchanged_asgard_nife_quote_matches_its_committed_article
+1 failed in 0.38s

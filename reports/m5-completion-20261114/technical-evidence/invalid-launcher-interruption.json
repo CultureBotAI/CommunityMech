@@ -1,0 +1,35 @@
+{
+  "source_sha256": "b40e5966454bff5633ccdcddfc95d6b408fab7b7f1eea4b7641d3a9b819da362",
+  "receipt": {
+    "time": "2026-11-14T21:31:57+00:00",
+    "pid": 26403,
+    "signal": "SIGINT",
+    "ancestry": [
+      {
+        "pid": 26403,
+        "ppid": 26402,
+        "command": "<REPO>/.venv/bin/python <REPO>/.venv/bin/pytest tests/ -v"
+      },
+      {
+        "pid": 26402,
+        "ppid": 26333,
+        "command": "uv run pytest tests/ -v"
+      },
+      {
+        "pid": 26333,
+        "ppid": 26326,
+        "command": "/opt/homebrew/bin/just --verbose --no-dotenv --color never qc-references"
+      },
+      {
+        "pid": 26326,
+        "ppid": 26325,
+        "command": ".venv/bin/python scripts/adhoc/m5_completion_checks.py qc-references"
+      }
+    ],
+    "reason": "JUST_NO_DOTENV=1 is invalid; just requires true/false. Preserve this attempt and rerun after a canary.",
+    "git_status_before": "?? reports/m5-completion-20261114/\n?? reviews/structured/20261114T212137Z-m5-ecofab-completion-canary/\n?? scripts/adhoc/m5_completion_checks.py"
+  },
+  "redactions": {
+    "repository_absolute_path": 2
+  }
+}
