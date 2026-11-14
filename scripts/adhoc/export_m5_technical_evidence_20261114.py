@@ -60,12 +60,18 @@ def main():
         "--name", action="append", help="export only this completed run; repeatable"
     )
     args = parser.parse_args()
-    OUT.mkdir(parents=True, exist_ok=True)
-    index = []
+    completed = []
     for checkpoint in sorted(STATE.glob("*.json")):
         result = json.loads(checkpoint.read_text(encoding="utf-8"))
         if "command" not in result or "exit_code" not in result:
             continue
+        completed.append(result)
+    if args.name:
+        unknown = set(args.name) - {result["name"] for result in completed}
+        if unknown:
+            parser.error("unknown or incomplete run names: " + ", ".join(sorted(unknown)))
+    OUT.mkdir(parents=True, exist_ok=True)
+    for result in completed:
         name = result["name"]
         if args.name and name not in args.name:
             continue
@@ -82,6 +88,11 @@ def main():
         public_result["log"] = f"reports/m5-completion-20261114/technical-evidence/{name}.log.txt"
         if name == "qc-references" and (STATE / "invalid-launcher-interruption.json").exists():
             public_result["attempt_disposition"] = "INVALID LAUNCHER; INTERRUPTED"
+        if (
+            name == "diagnostic-validate-terms-all"
+            and (STATE / "baseline-diagnostic-interruption.json").exists()
+        ):
+            public_result["attempt_disposition"] = "SUPERSEDED BASELINE; INTERRUPTED"
         public_result["public_evidence"] = {
             "original_log_sha256": digest(raw),
             "public_log_sha256": digest(public_log),
@@ -96,9 +107,18 @@ def main():
             OUT / f"{name}.receipt.json",
             (json.dumps(public_result, indent=2) + "\n").encode("utf-8"),
         )
-        index.append(public_result)
     for name in (
-        () if args.name else ("historical-bases-verified", "invalid-launcher-interruption")
+        ()
+        if args.name
+        else (
+            "historical-bases-verified",
+            "invalid-launcher-interruption",
+            "baseline-diagnostic-interruption",
+            "baseline-diagnostic-termination",
+            "final-sync-plan",
+            "final-sync-receipt",
+            "final-orchestration-inputs",
+        )
     ):
         source = STATE / f"{name}.json"
         if source.exists():
@@ -110,6 +130,10 @@ def main():
                 "redactions": {key: value for key, value in sorted(counts.items()) if value},
             }
             immutable(OUT / f"{name}.json", (json.dumps(receipt, indent=2) + "\n").encode())
+    # Selection limits new exports, never the index of already published evidence.
+    index = [
+        json.loads(path.read_text(encoding="utf-8")) for path in sorted(OUT.glob("*.receipt.json"))
+    ]
     lines = [
         "# Durable technical evidence",
         "",
@@ -177,9 +201,13 @@ def main():
                     *result["pytest_summaries"],
                 ]
             )
-            if result.get("attempt_disposition"):
+            if result.get("attempt_disposition") == "INVALID LAUNCHER; INTERRUPTED":
                 report_lines.append(
                     "Invalid launcher environment; deliberately interrupted. This is not a repository-failure conclusion."
+                )
+            elif result.get("attempt_disposition") == "SUPERSEDED BASELINE; INTERRUPTED":
+                report_lines.append(
+                    "Superseded baseline; deliberately interrupted before final-revision validation. This is not a repository-failure conclusion."
                 )
             if result.get("skip_markers"):
                 report_lines.extend(["", "```text", *result["skip_markers"], "```"])

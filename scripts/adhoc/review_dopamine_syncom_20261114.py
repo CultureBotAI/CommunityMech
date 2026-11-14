@@ -48,6 +48,17 @@ def fetch(name):
     destination = STATE / "dopamine-syncom-sources"
     destination.mkdir(exist_ok=True)
     path = destination / name
+    artifacts = [path, path.with_suffix(path.suffix + ".source.json")]
+    if path.suffix in {".pdf", ".xlsx"}:
+        artifacts.append(path.with_suffix(".txt"))
+    existing = [artifact for artifact in artifacts if artifact.exists() or artifact.is_symlink()]
+    if existing:
+        state = "partial" if len(existing) < len(artifacts) else "complete"
+        raise ValueError(
+            f"Refusing to replace retained {state} source capture: "
+            + ", ".join(artifact.name for artifact in existing)
+            + "; use a new versioned capture path."
+        )
     request = urllib.request.Request(
         SOURCES[name], headers={"User-Agent": "CommunityMech-source-review/1.0"}
     )

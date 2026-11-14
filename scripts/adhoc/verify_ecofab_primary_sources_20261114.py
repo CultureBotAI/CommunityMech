@@ -82,6 +82,17 @@ def main():
     args = parser.parse_args()
     DEST.mkdir(parents=True, exist_ok=True)
     path = DEST / args.source
+    artifacts = [path, path.with_suffix(path.suffix + ".source.json")]
+    if path.suffix in {".xml", ".xlsx"}:
+        artifacts.append(path.with_suffix(".txt"))
+    existing = [artifact for artifact in artifacts if artifact.exists() or artifact.is_symlink()]
+    if existing:
+        state = "partial" if len(existing) < len(artifacts) else "complete"
+        raise ValueError(
+            f"Refusing to replace retained {state} source capture: "
+            + ", ".join(artifact.name for artifact in existing)
+            + "; use a new versioned capture path."
+        )
     url = SOURCES[args.source]
     request = urllib.request.Request(
         url, headers={"User-Agent": "CommunityMech-primary-source-review/1.0"}

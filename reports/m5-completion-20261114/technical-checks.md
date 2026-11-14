@@ -14,6 +14,7 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [diagnostic-validate-scalars](technical-evidence/diagnostic-validate-scalars.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [diagnostic-validate-strict](technical-evidence/diagnostic-validate-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [diagnostic-validate-taxa](technical-evidence/diagnostic-validate-taxa.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [diagnostic-validate-terms-all](technical-evidence/diagnostic-validate-terms-all.receipt.json) | SUPERSEDED BASELINE; INTERRUPTED | 143 | FAILED: 1 |
 | [diagnostic-validate-terms-taxa](technical-evidence/diagnostic-validate-terms-taxa.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [dopamine-syncom-domain](technical-evidence/dopamine-syncom-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [dopamine-syncom-gtdb](technical-evidence/dopamine-syncom-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
@@ -30,6 +31,9 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [ecofab-schema](technical-evidence/ecofab-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [ecofab-strict](technical-evidence/ecofab-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [ecofab-terms](technical-evidence/ecofab-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-environment-canary](technical-evidence/final-environment-canary.receipt.json) | PASSED | 0 |  |
+| [final-frozen-install](technical-evidence/final-frozen-install.receipt.json) | PASSED | 0 |  |
+| [final-plan-qc-references](technical-evidence/final-plan-qc-references.receipt.json) | PASSED | 0 | DRY RUN: 13 |
 | [historical-bases-fetch](technical-evidence/historical-bases-fetch.receipt.json) | PASSED | 0 |  |
 | [historical-case-canary](technical-evidence/historical-case-canary.receipt.json) | PASSED | 0 |  |
 | [historical-cases-remaining](technical-evidence/historical-cases-remaining.receipt.json) | PASSED | 0 |  |
@@ -45,10 +49,21 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [local-bracket-native-after](technical-evidence/local-bracket-native-after.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-bracket-regression-canary](technical-evidence/local-bracket-regression-canary.receipt.json) | PASSED | 0 |  |
 | [local-bracket-regressions](technical-evidence/local-bracket-regressions.receipt.json) | PASSED | 0 |  |
+| [local-c2-helper-integration](technical-evidence/local-c2-helper-integration.receipt.json) | PASSED | 0 |  |
+| [local-c2-lint](technical-evidence/local-c2-lint.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-cache-canary-references](technical-evidence/local-cache-canary-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-curation-audit-writers](technical-evidence/local-curation-audit-writers.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-curation-canary-history](technical-evidence/local-curation-canary-history.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-curation-canary-schema](technical-evidence/local-curation-canary-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-curation-canary-strict](technical-evidence/local-curation-canary-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-curation-gen-html](technical-evidence/local-curation-gen-html.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-curation-history-all](technical-evidence/local-curation-history-all.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-export-index-after](technical-evidence/local-export-index-after.receipt.json) | PASSED | 0 |  |
+| [local-export-index-before](technical-evidence/local-export-index-before.receipt.json) | FAILED | 1 |  |
+| [local-postcuration-gate-regression](technical-evidence/local-postcuration-gate-regression.receipt.json) | PASSED | 0 |  |
+| [local-successor-before](technical-evidence/local-successor-before.receipt.json) | FAILED | 1 |  |
+| [local-successor-canary](technical-evidence/local-successor-canary.receipt.json) | PASSED | 0 |  |
+| [local-successor-regressions](technical-evidence/local-successor-regressions.receipt.json) | PASSED | 0 |  |
 | [nested-just-canary](technical-evidence/nested-just-canary.receipt.json) | PASSED | 0 |  |
 | [plan-qc-references](technical-evidence/plan-qc-references.receipt.json) | PASSED | 0 | DRY RUN: 13 |
 | [plan-qc](technical-evidence/plan-qc.receipt.json) | PASSED | 0 | DRY RUN: 11 |
@@ -148,6 +163,18 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never --no-deps v
 | Native recipe | Status |
 |---|---|
 | validate-taxa | PASSED |
+
+## diagnostic-validate-terms-all
+
+[Native output](technical-evidence/diagnostic-validate-terms-all.log.txt) · [Exact exit](technical-evidence/diagnostic-validate-terms-all.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never --no-deps validate-terms-all`
+
+Superseded baseline; deliberately interrupted before final-revision validation. This is not a repository-failure conclusion.
+
+| Native recipe | Status |
+|---|---|
+| validate-terms-all | FAILED |
 
 ## diagnostic-validate-terms-taxa
 
@@ -325,6 +352,49 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-te
 |---|---|
 | validate-terms | PASSED |
 
+## final-environment-canary
+
+[Native output](technical-evidence/final-environment-canary.log.txt) · [Exact exit](technical-evidence/final-environment-canary.exit.txt)
+
+Command: `uv run pytest tests/test_no_new_bracketed_snippets.py::test_unchanged_asgard_nife_quote_matches_its_committed_article -q`
+
+1 passed in 0.39s
+
+## final-frozen-install
+
+[Native output](technical-evidence/final-frozen-install.log.txt) · [Exact exit](technical-evidence/final-frozen-install.exit.txt)
+
+Command: `uv sync --frozen --extra dev --python <REPO>/.venv/bin/python`
+
+
+## final-plan-qc-references
+
+[Native output](technical-evidence/final-plan-qc-references.log.txt) · [Exact exit](technical-evidence/final-plan-qc-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never --dry-run qc-references`
+
+
+```text
+    echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+    echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+```
+
+| Native recipe | Status |
+|---|---|
+| lint | DRY RUN |
+| test | DRY RUN |
+| validate-all | DRY RUN |
+| validate-taxa | DRY RUN |
+| validate-strict | DRY RUN |
+| validate-gtdb-all | DRY RUN |
+| validate-scalars | DRY RUN |
+| validate-scalars-idiomatic | DRY RUN |
+| validate-terms-all | DRY RUN |
+| validate-terms-taxa | DRY RUN |
+| qc | DRY RUN |
+| validate-references-all | DRY RUN |
+| qc-references | DRY RUN |
+
 ## historical-bases-fetch
 
 [Native output](technical-evidence/historical-bases-fetch.log.txt) · [Exact exit](technical-evidence/historical-bases-fetch.exit.txt)
@@ -466,6 +536,25 @@ Command: `uv run pytest tests/test_no_new_bracketed_snippets.py tests/test_refer
 
 27 passed, 12 warnings in 71.55s (0:01:11)
 
+## local-c2-helper-integration
+
+[Native output](technical-evidence/local-c2-helper-integration.log.txt) · [Exact exit](technical-evidence/local-c2-helper-integration.exit.txt)
+
+Command: `uv run pytest tests/test_m5_completion_evidence_export.py tests/test_m5_source_capture_guards.py tests/test_m5_postcuration_gates.py tests/test_m5_attempt_provenance.py tests/test_m5_review_successor.py -q`
+
+53 passed in 11.20s
+
+## local-c2-lint
+
+[Native output](technical-evidence/local-c2-lint.log.txt) · [Exact exit](technical-evidence/local-c2-lint.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never lint`
+
+
+| Native recipe | Status |
+|---|---|
+| lint | PASSED |
+
 ## local-cache-canary-references
 
 [Native output](technical-evidence/local-cache-canary-references.log.txt) · [Exact exit](technical-evidence/local-cache-canary-references.exit.txt)
@@ -476,6 +565,17 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-re
 | Native recipe | Status |
 |---|---|
 | validate-references-explained | PASSED |
+
+## local-curation-audit-writers
+
+[Native output](technical-evidence/local-curation-audit-writers.log.txt) · [Exact exit](technical-evidence/local-curation-audit-writers.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never audit-writers`
+
+
+| Native recipe | Status |
+|---|---|
+| audit-writers | PASSED |
 
 ## local-curation-canary-history
 
@@ -509,6 +609,76 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-st
 | Native recipe | Status |
 |---|---|
 | validate-strict | PASSED |
+
+## local-curation-gen-html
+
+[Native output](technical-evidence/local-curation-gen-html.log.txt) · [Exact exit](technical-evidence/local-curation-gen-html.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never gen-html`
+
+
+| Native recipe | Status |
+|---|---|
+| gen-html | PASSED |
+
+## local-curation-history-all
+
+[Native output](technical-evidence/local-curation-history-all.log.txt) · [Exact exit](technical-evidence/local-curation-history-all.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## local-export-index-after
+
+[Native output](technical-evidence/local-export-index-after.log.txt) · [Exact exit](technical-evidence/local-export-index-after.exit.txt)
+
+Command: `uv run pytest tests/test_m5_completion_evidence_export.py -q`
+
+3 passed in 0.11s
+
+## local-export-index-before
+
+[Native output](technical-evidence/local-export-index-before.log.txt) · [Exact exit](technical-evidence/local-export-index-before.exit.txt)
+
+Command: `uv run pytest tests/test_m5_completion_evidence_export.py::test_filtered_export_preserves_previous_index_entries -q`
+
+1 failed in 0.11s
+
+## local-postcuration-gate-regression
+
+[Native output](technical-evidence/local-postcuration-gate-regression.log.txt) · [Exact exit](technical-evidence/local-postcuration-gate-regression.exit.txt)
+
+Command: `uv run pytest tests/test_m5_postcuration_gates.py -q`
+
+10 passed in 0.21s
+
+## local-successor-before
+
+[Native output](technical-evidence/local-successor-before.log.txt) · [Exact exit](technical-evidence/local-successor-before.exit.txt)
+
+Command: `uv run pytest tests/test_causal_review_batch36.py::test_batch36_canonical_participants_anchors_history_and_hashes -q`
+
+1 failed in 0.50s
+
+## local-successor-canary
+
+[Native output](technical-evidence/local-successor-canary.log.txt) · [Exact exit](technical-evidence/local-successor-canary.exit.txt)
+
+Command: `uv run pytest tests/test_causal_review_batch36.py::test_batch36_canonical_participants_anchors_history_and_hashes -q`
+
+1 passed in 0.51s
+
+## local-successor-regressions
+
+[Native output](technical-evidence/local-successor-regressions.log.txt) · [Exact exit](technical-evidence/local-successor-regressions.exit.txt)
+
+Command: `uv run pytest tests/test_causal_review_batch36.py tests/test_causal_review_batch141.py tests/test_m5_review_successor.py -q`
+
+20 passed in 8.06s
 
 ## nested-just-canary
 

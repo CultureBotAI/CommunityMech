@@ -15,6 +15,7 @@ Separate diagnostics do not change an aggregate failure or its NOT RUN stages.
 | diagnostic-validate-scalars | PASSED | 0 | [diagnostic-validate-scalars.log.txt](diagnostic-validate-scalars.log.txt) | [JSON](diagnostic-validate-scalars.receipt.json) |
 | diagnostic-validate-strict | PASSED | 0 | [diagnostic-validate-strict.log.txt](diagnostic-validate-strict.log.txt) | [JSON](diagnostic-validate-strict.receipt.json) |
 | diagnostic-validate-taxa | PASSED | 0 | [diagnostic-validate-taxa.log.txt](diagnostic-validate-taxa.log.txt) | [JSON](diagnostic-validate-taxa.receipt.json) |
+| diagnostic-validate-terms-all | SUPERSEDED BASELINE; INTERRUPTED | 143 | [diagnostic-validate-terms-all.log.txt](diagnostic-validate-terms-all.log.txt) | [JSON](diagnostic-validate-terms-all.receipt.json) |
 | diagnostic-validate-terms-taxa | PASSED | 0 | [diagnostic-validate-terms-taxa.log.txt](diagnostic-validate-terms-taxa.log.txt) | [JSON](diagnostic-validate-terms-taxa.receipt.json) |
 | dopamine-syncom-domain | PASSED | 0 | [dopamine-syncom-domain.log.txt](dopamine-syncom-domain.log.txt) | [JSON](dopamine-syncom-domain.receipt.json) |
 | dopamine-syncom-gtdb | PASSED | 0 | [dopamine-syncom-gtdb.log.txt](dopamine-syncom-gtdb.log.txt) | [JSON](dopamine-syncom-gtdb.receipt.json) |
@@ -31,6 +32,9 @@ Separate diagnostics do not change an aggregate failure or its NOT RUN stages.
 | ecofab-schema | PASSED | 0 | [ecofab-schema.log.txt](ecofab-schema.log.txt) | [JSON](ecofab-schema.receipt.json) |
 | ecofab-strict | PASSED | 0 | [ecofab-strict.log.txt](ecofab-strict.log.txt) | [JSON](ecofab-strict.receipt.json) |
 | ecofab-terms | PASSED | 0 | [ecofab-terms.log.txt](ecofab-terms.log.txt) | [JSON](ecofab-terms.receipt.json) |
+| final-environment-canary | PASSED | 0 | [final-environment-canary.log.txt](final-environment-canary.log.txt) | [JSON](final-environment-canary.receipt.json) |
+| final-frozen-install | PASSED | 0 | [final-frozen-install.log.txt](final-frozen-install.log.txt) | [JSON](final-frozen-install.receipt.json) |
+| final-plan-qc-references | PASSED | 0 | [final-plan-qc-references.log.txt](final-plan-qc-references.log.txt) | [JSON](final-plan-qc-references.receipt.json) |
 | historical-bases-fetch | PASSED | 0 | [historical-bases-fetch.log.txt](historical-bases-fetch.log.txt) | [JSON](historical-bases-fetch.receipt.json) |
 | historical-case-canary | PASSED | 0 | [historical-case-canary.log.txt](historical-case-canary.log.txt) | [JSON](historical-case-canary.receipt.json) |
 | historical-cases-remaining | PASSED | 0 | [historical-cases-remaining.log.txt](historical-cases-remaining.log.txt) | [JSON](historical-cases-remaining.receipt.json) |
@@ -46,10 +50,21 @@ Separate diagnostics do not change an aggregate failure or its NOT RUN stages.
 | local-bracket-native-after | PASSED | 0 | [local-bracket-native-after.log.txt](local-bracket-native-after.log.txt) | [JSON](local-bracket-native-after.receipt.json) |
 | local-bracket-regression-canary | PASSED | 0 | [local-bracket-regression-canary.log.txt](local-bracket-regression-canary.log.txt) | [JSON](local-bracket-regression-canary.receipt.json) |
 | local-bracket-regressions | PASSED | 0 | [local-bracket-regressions.log.txt](local-bracket-regressions.log.txt) | [JSON](local-bracket-regressions.receipt.json) |
+| local-c2-helper-integration | PASSED | 0 | [local-c2-helper-integration.log.txt](local-c2-helper-integration.log.txt) | [JSON](local-c2-helper-integration.receipt.json) |
+| local-c2-lint | PASSED | 0 | [local-c2-lint.log.txt](local-c2-lint.log.txt) | [JSON](local-c2-lint.receipt.json) |
 | local-cache-canary-references | PASSED | 0 | [local-cache-canary-references.log.txt](local-cache-canary-references.log.txt) | [JSON](local-cache-canary-references.receipt.json) |
+| local-curation-audit-writers | PASSED | 0 | [local-curation-audit-writers.log.txt](local-curation-audit-writers.log.txt) | [JSON](local-curation-audit-writers.receipt.json) |
 | local-curation-canary-history | PASSED | 0 | [local-curation-canary-history.log.txt](local-curation-canary-history.log.txt) | [JSON](local-curation-canary-history.receipt.json) |
 | local-curation-canary-schema | PASSED | 0 | [local-curation-canary-schema.log.txt](local-curation-canary-schema.log.txt) | [JSON](local-curation-canary-schema.receipt.json) |
 | local-curation-canary-strict | PASSED | 0 | [local-curation-canary-strict.log.txt](local-curation-canary-strict.log.txt) | [JSON](local-curation-canary-strict.receipt.json) |
+| local-curation-gen-html | PASSED | 0 | [local-curation-gen-html.log.txt](local-curation-gen-html.log.txt) | [JSON](local-curation-gen-html.receipt.json) |
+| local-curation-history-all | PASSED | 0 | [local-curation-history-all.log.txt](local-curation-history-all.log.txt) | [JSON](local-curation-history-all.receipt.json) |
+| local-export-index-after | PASSED | 0 | [local-export-index-after.log.txt](local-export-index-after.log.txt) | [JSON](local-export-index-after.receipt.json) |
+| local-export-index-before | FAILED | 1 | [local-export-index-before.log.txt](local-export-index-before.log.txt) | [JSON](local-export-index-before.receipt.json) |
+| local-postcuration-gate-regression | PASSED | 0 | [local-postcuration-gate-regression.log.txt](local-postcuration-gate-regression.log.txt) | [JSON](local-postcuration-gate-regression.receipt.json) |
+| local-successor-before | FAILED | 1 | [local-successor-before.log.txt](local-successor-before.log.txt) | [JSON](local-successor-before.receipt.json) |
+| local-successor-canary | PASSED | 0 | [local-successor-canary.log.txt](local-successor-canary.log.txt) | [JSON](local-successor-canary.receipt.json) |
+| local-successor-regressions | PASSED | 0 | [local-successor-regressions.log.txt](local-successor-regressions.log.txt) | [JSON](local-successor-regressions.receipt.json) |
 | nested-just-canary | PASSED | 0 | [nested-just-canary.log.txt](nested-just-canary.log.txt) | [JSON](nested-just-canary.receipt.json) |
 | plan-qc-references | PASSED | 0 | [plan-qc-references.log.txt](plan-qc-references.log.txt) | [JSON](plan-qc-references.receipt.json) |
 | plan-qc | PASSED | 0 | [plan-qc.log.txt](plan-qc.log.txt) | [JSON](plan-qc.receipt.json) |

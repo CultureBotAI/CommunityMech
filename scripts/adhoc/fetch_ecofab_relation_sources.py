@@ -16,6 +16,8 @@ from pathlib import Path
 
 from defusedxml import ElementTree
 
+OUT = Path(__file__).resolve().parents[2] / ".temp/m5-completion-20261114/ecofab-relations"
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -23,8 +25,21 @@ def main() -> None:
     args = parser.parse_args()
     if not args.pmcid.startswith("PMC") or not args.pmcid[3:].isdigit():
         parser.error("Expected a PMCID")
-    out = Path(__file__).resolve().parents[2] / ".temp/m5-completion-20261114/ecofab-relations"
+    out = OUT
     out.mkdir(parents=True, exist_ok=True)
+    artifacts = [
+        out / f"{args.pmcid}.xml",
+        out / f"{args.pmcid}-paragraphs.json",
+        out / f"{args.pmcid}-retrieval.json",
+    ]
+    existing = [artifact for artifact in artifacts if artifact.exists() or artifact.is_symlink()]
+    if existing:
+        state = "partial" if len(existing) < len(artifacts) else "complete"
+        raise ValueError(
+            f"Refusing to replace retained {state} source capture: "
+            + ", ".join(artifact.name for artifact in existing)
+            + "; use a new versioned capture path."
+        )
     url = f"https://www.ebi.ac.uk/europepmc/webservices/rest/{args.pmcid}/fullTextXML"
     request = urllib.request.Request(
         url, headers={"User-Agent": "CommunityMech source verification"}

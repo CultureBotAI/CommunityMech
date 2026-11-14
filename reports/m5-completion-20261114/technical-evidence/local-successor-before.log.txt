@@ -1,0 +1,52 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_batch36_canonical_participants_anchors_history_and_hashes ________
+
+    def test_batch36_canonical_participants_anchors_history_and_hashes():
+        ledger, docs = records()
+        successor_file = (
+            ROOT / "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml"
+        )
+        successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
+        for row, doc in zip(ledger["records"], docs, strict=True):
+            latest = row
+            if row["id"] == "CommunityMech:000357":
+                latest = successor_by_id[row["id"]]
+                assert latest["supersedes_review"] == {
+                    "review_file": str(LEDGER.relative_to(ROOT)),
+                    "record_sha256": row["record_sha256"],
+                }
+                assert latest["original_sha256"] == row["record_sha256"]
+            canonical = {
+                (t["taxon_term"]["term"]["id"], t["taxon_term"]["preferred_term"]): t["taxon_term"]
+                for t in doc["taxonomy"]
+            }
+            names = {n["name"] for n in doc["ecological_interactions"]}
+            for node in doc["ecological_interactions"]:
+                terms = node.get("participating_taxa", []) + [
+                    node[k] for k in ["source_taxon", "target_taxon"] if k in node
+                ]
+                for term in terms:
+                    assert (
+                        term["term"] == canonical[(term["term"]["id"], term["preferred_term"])]["term"]
+                    )
+                assert all(
+                    e["target"] in names and e["target"] != node["name"]
+                    for e in node.get("downstream", [])
+                )
+            for gap in doc["discussions"]:
+                assert gap["kind"] == "KNOWLEDGE_GAP" and gap["status"] == "OPEN"
+                assert set(gap["attaches_to"]) <= {"ecological_interactions#" + n for n in names}
+            assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
+            assert doc["curation_history"][-1]["llm_assisted"] is True
+            expected = latest["record_sha256"] if latest is not row else latest_record_sha256(row)
+>           assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
+E           AssertionError: assert '77625f064af7...bb502a6865348' == '9e12c7f4836c...ff90b52750d9c'
+E             
+E             - 9e12c7f4836ceaf6a6192a56af0267bfa41e30b550429a516b3ff90b52750d9c
+E             + 77625f064af7946f875460cb321e450b6bfcd667d0ad9ec1ebabb502a6865348
+
+tests/test_causal_review_batch36.py:163: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_causal_review_batch36.py::test_batch36_canonical_participants_anchors_history_and_hashes
+1 failed in 0.50s

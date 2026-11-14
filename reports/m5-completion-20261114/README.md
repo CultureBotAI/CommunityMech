@@ -6,7 +6,8 @@ on branch `review/m5-completion-20261114`, starting from current main
 `76aa644cd6803ea2c9545d4c704276ede219d354`.
 
 This checkpoint preserves completed primary-source assessments and bounded
-corrections. **Final technical QC and post-curation acceptance are pending.**
+corrections. **Final technical QC is running on M5 at
+`76686e5b03335baec13885196d0f736511b6a04a`; post-curation acceptance is pending.**
 The records are not collectively scientifically approved: retained findings
 below continue to block that claim. No PR has been merged.
 
@@ -59,6 +60,26 @@ public reviews retain source identifiers, locators, quotations and hashes.
 Public technical logs redact private paths and credential-shaped text while
 retaining original and derivative hashes. The original checkout is not a
 resumption workspace.
+
+The saved reviews' captured working inputs were rechecked without fetching or
+rewriting them: [EcoFAB](retained-inputs/ecofab.json),
+[Yolo](retained-inputs/yolo.json), [LBNL](retained-inputs/lbnl.json),
+[dopamine SynCom](retained-inputs/dopamine.json), and
+[LBNL environment addendum](retained-inputs/lbnl-environment.json).
+Every listed source/check input matches its saved SHA-256. These audits prove
+retention of the assessed inputs; they do not constitute another scientific review.
+
+Three builder/source helpers were formatted after their reviews were saved;
+one XML parser was also changed to the hardened equivalent. No builder was
+rerun and no saved review hash was changed. The immutable review inputs retain
+the earlier working-tree helper hashes as historical attestations, rather than
+claiming that later formatting reproduces those exact helper bytes. Subsequent
+helper fixes are independently tested and reported separately from the frozen
+M5 scientific/QC revision.
+
+`git diff --check` passes for source and documentation changes when retained
+native `*.log.txt` files are excluded. Those logs deliberately preserve native
+trailing whitespace; an unrestricted whitespace check reports it.
 
 PR: [CommunityMech #2775](https://github.com/CultureBotAI/CommunityMech/pull/2775).
 Only a completed final QC receipt and post-curation review can replace the
