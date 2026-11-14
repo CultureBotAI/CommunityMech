@@ -6,9 +6,19 @@ on branch `review/m5-completion-20261114`, starting from current main
 `76aa644cd6803ea2c9545d4c704276ede219d354`.
 
 This checkpoint preserves completed primary-source assessments and bounded
-post-curation acceptance. **Full technical QC remains incomplete.** The first
+post-curation acceptance. **Full `qc` and reference validation for all four
+scoped records passed. The full-corpus reference gate remains blocked.** The first
 corrected-revision run at `76686e5b03335baec13885196d0f736511b6a04a` failed its
-test stage; a retry with independently reviewed test/infrastructure fixes is next.
+test stage. The full M5 retry at
+`e9ae9dee132ab210c87f76460c5d6247af9ea99c`, with independently reviewed repairs,
+a clean tracked checkout, frozen dependencies and generated KGX prerequisites,
+completed every native `qc` stage before starting separate reference validation.
+The reference sweep completed all 549 expected records: 535 passed and 14 had
+103 native errors (102 excerpt mismatches and one unavailable source). There were
+no missing, extra, duplicate or unfinished targets. The `qc-references` invocation
+exited 1; its final success-summary recipe remained `NOT RUN` after the failed
+reference dependency. The [complete reference inventory](reference-sweep-final.json)
+binds these results to the exact Git tree, native command, receipt and log hash.
 The records are not collectively scientifically approved: retained findings
 below continue to block that claim. No PR has been merged.
 
@@ -50,6 +60,29 @@ attempts remain visible; a later individual check does not change an earlier
 aggregate's `NOT RUN` stages. Receipts distinguish M5 runs from local checks
 and record revision, source status and relevant hashes.
 
+The final M5 run tested `e9ae9dee132ab210c87f76460c5d6247af9ea99c` from a clean
+tracked checkout with frozen dependencies. Later reporting-only work does not
+change that tested revision. The read-only
+[reference-summary helper](../../scripts/adhoc/summarize_m5_native_references_20261114.py)
+and its tests were added afterward to reconcile evidence; its
+[27 regression checks](technical-evidence/local-native-reference-summary-guards.log.txt)
+passed, and the exact-Git-inventory/command-binding fixes (#2791, #2792) passed
+independent read-only review. They do not rerun or replace native validation.
+
+| Final check | Result |
+|---|---|
+| Full native `qc` | **Passed**: 5,457 tests passed, 102 skipped, 8 deselected; all subsequent schema, strict, GTDB, scalar and ontology stages passed |
+| Full corpus reference sweep | **Failed**, exit 1: all 549 targets completed; 103 errors across 14 records; all four scoped records passed |
+| Three changed records: schema, strict, terms, references, GTDB, domain and history | **21/21 passed** |
+| Generated pages (`check-docs-current`) | **Passed** |
+| Unscoped `validate-history` | **Passed** |
+| Product validation with generated KGX prerequisites | **Passed**: 11,245 canonical matches, 4 synonyms, 5 explicit exceptions and 1,065 intentional non-ontology/prefixless exclusions |
+
+Product exclusions are outside ontology-lookup scope, not canonical-label passes.
+No configured ontology outage was reported. The final `qc-references` success
+summary remains `NOT RUN` because its reference dependency failed; later focused
+checks are independent diagnostics and do not change that aggregate result.
+
 The initial full QC exposed missing historical Git objects required by existing
 tests. The exact CI-listed objects were fetched and the failed cases rerun.
 Reference validation separately reproduced #622: the old dependency discarded
@@ -62,16 +95,19 @@ The C1 aggregate completed with exit 1: 7 failed, 5,392 passed, 102 skipped,
 failures identify historical-current hash assumptions (#2782), a PDF inventory
 that included ignored source captures (#2786), a static scope-scanner variable
 collision (#2787), and missing classifications for noncanonical review writers
-(#2788). Each has a bounded independently reviewed fix; the next full run must
-verify them together. The [append-only successor provenance](successor-provenance.yaml)
+(#2788). Each has a bounded independently reviewed fix. C2 verified them together:
+5,457 tests passed, 102 skipped and 8 deselected, followed by all remaining native
+`qc` stages. The [append-only successor provenance](successor-provenance.yaml)
 retains the older observation and does not itself grant scientific approval.
 
 Separate C1 diagnostics passed all 21 focused checks, generated pages, full
 history and 60 cache tests. Product validation failed because the fresh clone
 had not generated required `output/kgx/nodes.tsv`; it reported 10,254 canonical
-matches, 5 exceptions and 553 adapter skips. KGX generation and a fresh product
-check are required before interpreting that diagnostic. Adapter skips remain
-unverified lookups. The duplicate C1 corpus-reference fallback was explicitly
+matches, 5 exceptions and 553 adapter skips. C2 generated and strictly validated
+the KGX prerequisites, then passed the product check as reported above. The 553 skips identify
+non-ontology or prefixless identifiers deliberately outside ontology-lookup
+scope; they are not canonical-label passes or unavailable configured adapters.
+The saved summary does not provide a per-prefix breakdown. The duplicate C1 corpus-reference fallback was explicitly
 left `NOT RUN` in favor of the frozen retry.
 
 The broader schema/export/render findings #2429, #2430 and #2700–#2707 remain
@@ -84,6 +120,35 @@ bracket-stripping diagnosis predates the literal-preserving configuration.
 Native matching and exit codes determine validation status; that explanatory
 heuristic is not accepted as scientific evidence or used to clear a failed gate.
 
+During C2, native full-text enrichment exposed a separate source-identity defect
+(#2790): an Anubis CAPTCHA page was appended to an unrelated cached source and
+classified as article full text. The old cached text was preserved. Runtime
+cache changes are retained privately and are not reviewed curation changes.
+Matching against preserved passages remains informative; an automated pass
+cannot certify the identity or completeness of newly fetched pages.
+
+The [runtime-cache capture](runtime-cache-effects.md) preserves both the tested
+baseline and the final cache tree in both completion clones. Native fetching
+modified 136 tracked cache files and created 31 acquisition files; no tracked
+changes occurred outside the cache. All five direct cache inputs used by the six
+scientific reviews still match their C2 baseline hashes. The M5 runtime changes
+remain uncommitted and are excluded from this PR; their private archives retain
+the exact fetched bytes, including the known challenge-page defect.
+
+The native `Total checks` summary counts retained validation issues, not compared
+excerpts (the residual wording is documented in #257). Zero therefore means no
+reported issues; it does not measure excerpt coverage. Actual matching and schema
+annotation discovery were exercised by positive and fabricated-excerpt controls.
+The separate SupportingReference traversal gap (#476) remains open.
+
+The [reference-failure triage](reference-failure-triage-20261114.md) retains exact
+native diagnostics, source/record hashes and existing issue ownership. Earlier
+checkpoint counts remain explicitly partial; the complete inventory above is
+the final corpus result. Source access and matching failures are not silently
+converted to scientific verdicts.
+The [parser-snapshot persistence proof](persistence-20261114/parser-snapshots-20261114.md)
+records the missing-only copy and hash verification of its immutable inputs.
+
 ## Persistence and resumption
 
 All new review bundles and append-only history are committed with their helper
@@ -94,13 +159,34 @@ Public technical logs redact private paths and credential-shaped text while
 retaining original and derivative hashes. The original checkout is not a
 resumption workspace.
 
+The [dated persistence audit](persistence-20261114/README.md) corrects the
+premature "both clones" location claim in two earlier immutable receipts
+(#2789). Missing-only replication then established both copies: all six reviews'
+268 retained-input checks, 33 native logs and 99 raw JSON/log/exit files matched.
+The prior receipts remain unchanged, and one differing private PR-body draft was
+preserved. That earlier audit excluded active C2 files. The later
+[final reference persistence audit](persistence-20261114/final-reference-persistence-20261114.md)
+verified all 25 immutable parser artifacts and all 105 local raw files (35
+complete JSON/log/exit triplets) on M5 before final publication. The exporter's
+unconditional location wording remains a follow-up.
+
 The saved reviews' captured working inputs were rechecked without fetching or
 rewriting them: [EcoFAB](retained-inputs/ecofab.json),
 [Yolo](retained-inputs/yolo.json), [LBNL](retained-inputs/lbnl.json),
 [dopamine SynCom](retained-inputs/dopamine.json), and
-[LBNL environment addendum](retained-inputs/lbnl-environment.json).
+[LBNL environment addendum](retained-inputs/lbnl-environment.json), followed by
+the [post-curation successor](retained-inputs/postcuration.json).
 Every listed source/check input matches its saved SHA-256. These audits prove
 retention of the assessed inputs; they do not constitute another scientific review.
+
+The final native `check-record-reviews` run passed for all 286 saved reviews,
+with `coverage: declared_scopes_only`. `RECORD_REVIEW_BASE` was explicitly set
+to the initial current-main revision `76aa644cd6803ea2c9545d4c704276ede219d354`.
+Its [log](technical-evidence/local-final-native-reviews.log.txt) and
+[receipt](technical-evidence/local-final-native-reviews.receipt.json) preserve
+the local working-tree check; all saved bundle bytes remained unchanged through
+the subsequent commit. This validates the review contract, not all scientific
+claims in the corpus.
 
 Three builder/source helpers were formatted after their reviews were saved;
 one XML parser was also changed to the hardened equivalent. No builder was
@@ -115,5 +201,5 @@ native `*.log.txt` files are excluded. Those logs deliberately preserve native
 trailing whitespace; an unrestricted whitespace check reports it.
 
 PR: [CommunityMech #2775](https://github.com/CultureBotAI/CommunityMech/pull/2775).
-Only a completed final QC receipt can replace the pending technical status
-above; green focused checks and scientific acceptance cannot do so.
+The corpus-reference failure and retained scientific findings remain blockers;
+green focused checks and bounded scientific acceptance do not clear them.

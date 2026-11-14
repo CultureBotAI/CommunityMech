@@ -52,6 +52,36 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [final-000516-schema](technical-evidence/final-000516-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-000516-strict](technical-evidence/final-000516-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-000516-terms](technical-evidence/final-000516-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-domain](technical-evidence/final-c2-000025-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-gtdb](technical-evidence/final-c2-000025-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-history](technical-evidence/final-c2-000025-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-references](technical-evidence/final-c2-000025-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-schema](technical-evidence/final-c2-000025-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-strict](technical-evidence/final-c2-000025-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000025-terms](technical-evidence/final-c2-000025-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-domain](technical-evidence/final-c2-000515-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-gtdb](technical-evidence/final-c2-000515-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-history](technical-evidence/final-c2-000515-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-references](technical-evidence/final-c2-000515-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-schema](technical-evidence/final-c2-000515-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-strict](technical-evidence/final-c2-000515-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000515-terms](technical-evidence/final-c2-000515-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-domain](technical-evidence/final-c2-000516-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-gtdb](technical-evidence/final-c2-000516-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-history](technical-evidence/final-c2-000516-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-references](technical-evidence/final-c2-000516-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-schema](technical-evidence/final-c2-000516-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-strict](technical-evidence/final-c2-000516-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-000516-terms](technical-evidence/final-c2-000516-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-check-docs-current](technical-evidence/final-c2-check-docs-current.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-environment-canary](technical-evidence/final-c2-environment-canary.receipt.json) | PASSED | 0 |  |
+| [final-c2-frozen-install](technical-evidence/final-c2-frozen-install.receipt.json) | PASSED | 0 |  |
+| [final-c2-history-all](technical-evidence/final-c2-history-all.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-kgx-export](technical-evidence/final-c2-kgx-export.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-kgx-validate](technical-evidence/final-c2-kgx-validate.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-c2-plan-qc-references](technical-evidence/final-c2-plan-qc-references.receipt.json) | PASSED | 0 | DRY RUN: 13 |
+| [final-c2-qc-references](technical-evidence/final-c2-qc-references.receipt.json) | FAILED | 1 | PASSED: 11; FAILED: 1; NOT RUN: 1 |
+| [final-c2-validate-products](technical-evidence/final-c2-validate-products.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-cache-tests-diagnostic](technical-evidence/final-cache-tests-diagnostic.receipt.json) | PASSED | 0 |  |
 | [final-check-docs-current](technical-evidence/final-check-docs-current.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-environment-canary](technical-evidence/final-environment-canary.receipt.json) | PASSED | 0 |  |
@@ -89,6 +119,9 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [local-curation-history-all](technical-evidence/local-curation-history-all.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-export-index-after](technical-evidence/local-export-index-after.receipt.json) | PASSED | 0 |  |
 | [local-export-index-before](technical-evidence/local-export-index-before.receipt.json) | FAILED | 1 |  |
+| [local-final-native-reviews](technical-evidence/local-final-native-reviews.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-native-reference-summary-guards](technical-evidence/local-native-reference-summary-guards.receipt.json) | PASSED | 0 |  |
+| [local-native-reference-summary-regressions](technical-evidence/local-native-reference-summary-regressions.receipt.json) | PASSED | 0 |  |
 | [local-pdf-guard-before](technical-evidence/local-pdf-guard-before.receipt.json) | FAILED | 1 |  |
 | [local-pdf-guard-canary](technical-evidence/local-pdf-guard-canary.receipt.json) | PASSED | 0 |  |
 | [local-pdf-guard-regressions](technical-evidence/local-pdf-guard-regressions.receipt.json) | PASSED | 0 |  |
@@ -622,6 +655,359 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-te
 |---|---|
 | validate-terms | PASSED |
 
+## final-c2-000025-domain
+
+[Native output](technical-evidence/final-c2-000025-domain.log.txt) · [Exact exit](technical-evidence/final-c2-000025-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-c2-000025-gtdb
+
+[Native output](technical-evidence/final-c2-000025-gtdb.log.txt) · [Exact exit](technical-evidence/final-c2-000025-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-c2-000025-history
+
+[Native output](technical-evidence/final-c2-000025-history.log.txt) · [Exact exit](technical-evidence/final-c2-000025-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/EcoFAB_Ring_Trial_SynCom17`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-c2-000025-references
+
+[Native output](technical-evidence/final-c2-000025-references.log.txt) · [Exact exit](technical-evidence/final-c2-000025-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-c2-000025-schema
+
+[Native output](technical-evidence/final-c2-000025-schema.log.txt) · [Exact exit](technical-evidence/final-c2-000025-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-c2-000025-strict
+
+[Native output](technical-evidence/final-c2-000025-strict.log.txt) · [Exact exit](technical-evidence/final-c2-000025-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml --out .temp/m5-completion-20261114/final-c2-000025-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-c2-000025-terms
+
+[Native output](technical-evidence/final-c2-000025-terms.log.txt) · [Exact exit](technical-evidence/final-c2-000025-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-c2-000515-domain
+
+[Native output](technical-evidence/final-c2-000515-domain.log.txt) · [Exact exit](technical-evidence/final-c2-000515-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-c2-000515-gtdb
+
+[Native output](technical-evidence/final-c2-000515-gtdb.log.txt) · [Exact exit](technical-evidence/final-c2-000515-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-c2-000515-history
+
+[Native output](technical-evidence/final-c2-000515-history.log.txt) · [Exact exit](technical-evidence/final-c2-000515-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-c2-000515-references
+
+[Native output](technical-evidence/final-c2-000515-references.log.txt) · [Exact exit](technical-evidence/final-c2-000515-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-c2-000515-schema
+
+[Native output](technical-evidence/final-c2-000515-schema.log.txt) · [Exact exit](technical-evidence/final-c2-000515-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-c2-000515-strict
+
+[Native output](technical-evidence/final-c2-000515-strict.log.txt) · [Exact exit](technical-evidence/final-c2-000515-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml --out .temp/m5-completion-20261114/final-c2-000515-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-c2-000515-terms
+
+[Native output](technical-evidence/final-c2-000515-terms.log.txt) · [Exact exit](technical-evidence/final-c2-000515-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-c2-000516-domain
+
+[Native output](technical-evidence/final-c2-000516-domain.log.txt) · [Exact exit](technical-evidence/final-c2-000516-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-c2-000516-gtdb
+
+[Native output](technical-evidence/final-c2-000516-gtdb.log.txt) · [Exact exit](technical-evidence/final-c2-000516-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-c2-000516-history
+
+[Native output](technical-evidence/final-c2-000516-history.log.txt) · [Exact exit](technical-evidence/final-c2-000516-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-c2-000516-references
+
+[Native output](technical-evidence/final-c2-000516-references.log.txt) · [Exact exit](technical-evidence/final-c2-000516-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-c2-000516-schema
+
+[Native output](technical-evidence/final-c2-000516-schema.log.txt) · [Exact exit](technical-evidence/final-c2-000516-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-c2-000516-strict
+
+[Native output](technical-evidence/final-c2-000516-strict.log.txt) · [Exact exit](technical-evidence/final-c2-000516-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml --out .temp/m5-completion-20261114/final-c2-000516-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-c2-000516-terms
+
+[Native output](technical-evidence/final-c2-000516-terms.log.txt) · [Exact exit](technical-evidence/final-c2-000516-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-c2-check-docs-current
+
+[Native output](technical-evidence/final-c2-check-docs-current.log.txt) · [Exact exit](technical-evidence/final-c2-check-docs-current.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never check-docs-current`
+
+
+| Native recipe | Status |
+|---|---|
+| check-docs-current | PASSED |
+
+## final-c2-environment-canary
+
+[Native output](technical-evidence/final-c2-environment-canary.log.txt) · [Exact exit](technical-evidence/final-c2-environment-canary.exit.txt)
+
+Command: `uv run pytest tests/test_no_new_bracketed_snippets.py::test_unchanged_asgard_nife_quote_matches_its_committed_article -q`
+
+1 passed in 0.34s
+
+## final-c2-frozen-install
+
+[Native output](technical-evidence/final-c2-frozen-install.log.txt) · [Exact exit](technical-evidence/final-c2-frozen-install.exit.txt)
+
+Command: `uv sync --frozen --extra dev --python <REPO>/.venv/bin/python`
+
+
+## final-c2-history-all
+
+[Native output](technical-evidence/final-c2-history-all.log.txt) · [Exact exit](technical-evidence/final-c2-history-all.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-c2-kgx-export
+
+[Native output](technical-evidence/final-c2-kgx-export.log.txt) · [Exact exit](technical-evidence/final-c2-kgx-export.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never kgx-export`
+
+
+| Native recipe | Status |
+|---|---|
+| kgx-export | PASSED |
+
+## final-c2-kgx-validate
+
+[Native output](technical-evidence/final-c2-kgx-validate.log.txt) · [Exact exit](technical-evidence/final-c2-kgx-validate.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never kgx-validate`
+
+
+| Native recipe | Status |
+|---|---|
+| kgx-validate | PASSED |
+
+## final-c2-plan-qc-references
+
+[Native output](technical-evidence/final-c2-plan-qc-references.log.txt) · [Exact exit](technical-evidence/final-c2-plan-qc-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never --dry-run qc-references`
+
+
+```text
+    echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+    echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+```
+
+| Native recipe | Status |
+|---|---|
+| lint | DRY RUN |
+| test | DRY RUN |
+| validate-all | DRY RUN |
+| validate-taxa | DRY RUN |
+| validate-strict | DRY RUN |
+| validate-gtdb-all | DRY RUN |
+| validate-scalars | DRY RUN |
+| validate-scalars-idiomatic | DRY RUN |
+| validate-terms-all | DRY RUN |
+| validate-terms-taxa | DRY RUN |
+| qc | DRY RUN |
+| validate-references-all | DRY RUN |
+| qc-references | DRY RUN |
+
+## final-c2-qc-references
+
+[Native output](technical-evidence/final-c2-qc-references.log.txt) · [Exact exit](technical-evidence/final-c2-qc-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never qc-references`
+
+=== 5457 passed, 102 skipped, 8 deselected, 18 warnings in 952.85s (0:15:52) ===
+
+| Native recipe | Status |
+|---|---|
+| lint | PASSED |
+| test | PASSED |
+| validate-all | PASSED |
+| validate-taxa | PASSED |
+| validate-strict | PASSED |
+| validate-gtdb-all | PASSED |
+| validate-scalars | PASSED |
+| validate-scalars-idiomatic | PASSED |
+| validate-terms-all | PASSED |
+| validate-terms-taxa | PASSED |
+| qc | PASSED |
+| validate-references-all | FAILED |
+| qc-references | NOT RUN |
+
+## final-c2-validate-products
+
+[Native output](technical-evidence/final-c2-validate-products.log.txt) · [Exact exit](technical-evidence/final-c2-validate-products.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-products`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-products | PASSED |
+
 ## final-cache-tests-diagnostic
 
 [Native output](technical-evidence/final-cache-tests-diagnostic.log.txt) · [Exact exit](technical-evidence/final-cache-tests-diagnostic.exit.txt)
@@ -1009,6 +1395,33 @@ Command: `uv run pytest tests/test_m5_completion_evidence_export.py -q`
 Command: `uv run pytest tests/test_m5_completion_evidence_export.py::test_filtered_export_preserves_previous_index_entries -q`
 
 1 failed in 0.11s
+
+## local-final-native-reviews
+
+[Native output](technical-evidence/local-final-native-reviews.log.txt) · [Exact exit](technical-evidence/local-final-native-reviews.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never check-record-reviews`
+
+
+| Native recipe | Status |
+|---|---|
+| check-record-reviews | PASSED |
+
+## local-native-reference-summary-guards
+
+[Native output](technical-evidence/local-native-reference-summary-guards.log.txt) · [Exact exit](technical-evidence/local-native-reference-summary-guards.exit.txt)
+
+Command: `uv run pytest tests/test_m5_native_reference_summary.py -q`
+
+27 passed in 17.48s
+
+## local-native-reference-summary-regressions
+
+[Native output](technical-evidence/local-native-reference-summary-regressions.log.txt) · [Exact exit](technical-evidence/local-native-reference-summary-regressions.exit.txt)
+
+Command: `uv run pytest tests/test_m5_native_reference_summary.py -q`
+
+16 passed in 0.32s
 
 ## local-pdf-guard-before
 
