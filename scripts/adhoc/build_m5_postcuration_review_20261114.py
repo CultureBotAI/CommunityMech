@@ -38,6 +38,8 @@ RECIPES = {
     "docs-current": "check-docs-current",
     "history-all": "validate-history",
     "gen-html": "gen-html",
+    "aggregate-qc": "qc-references",
+    "products": "validate-products",
 }
 CACHE_TESTS = (
     "tests/test_reference_cache_names_are_case_exact.py",
@@ -361,7 +363,7 @@ def main():
         supplied[key] = path
     required = {short + "." + gate for short in ("000025", "000515", "000516") for gate in GATES}
     required.update({"all.docs-current", "all.history-all", "all.cache-tests"})
-    if not set(supplied) <= required | {"all.gen-html"}:
+    if not set(supplied) <= required | {"all.gen-html", "all.aggregate-qc", "all.products"}:
         raise ValueError("Unexpected gate key")
     checks = []
     verified_revisions = set()
@@ -819,6 +821,7 @@ def main():
             "Five unresolved predecessor keys remain open: two EcoFAB major causal/study-scope findings and three minor grounding/genome-provenance findings across EcoFAB and dopamine SynCom. Unchanged000087 findings1548/2776 remain outside this review.",
             "Original source interpretations and unchanged nodes/edges are preserved. No new raw sequencing/metabolomics reanalysis, strain identification, paid provider call or functional inference was performed.",
             "Generated documentation and native checks prove bounded technical properties, not primary scientific support. Full repository QC and reference backlog are reported separately and can remain incomplete despite this review's scoped acceptance.",
+            "The C1 aggregate QC failed its native test stage; required later aggregate stages were not thereby completed. The separate product diagnostic failed because generated output/kgx/nodes.tsv was missing and reported553 SKIPPED_NO_ADAPTER entries. These observed technical limitations remain explicit optional context and are not converted into passes by the24 scoped acceptance gates.",
             "Terminal dispositions reconcile exact prior structured occurrences only. Issues2777/2778 are directly verified issue-linked corrections without fabricated predecessor findings. No GitHub issue is automatically closed.",
         ],
         "related_reviews": [

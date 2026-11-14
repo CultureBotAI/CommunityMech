@@ -1,0 +1,34 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________ test_every_sweeping_test_declares_its_scope __________________
+
+    def test_every_sweeping_test_declares_its_scope():
+        """A new corpus sweep must say which roots it means, when it is written."""
+        unclassified = sorted(
+            name
+            for name in _sweeping_test_modules()
+            if name not in _COMMUNITY_ONLY and name not in _OWED_BOTH_ROOTS
+        )
+>       assert unclassified == [], (
+            "these test modules sweep kb/communities and never mention the other "
+            "root, and are in neither list:\n"
+            + "\n".join(f"  {name}" for name in unclassified)
+            + "\n\nPrefer fixing it to recording it: sweep `default_record_roots()` "
+            "(or `taxon_descriptor_roots()` for a GTDB check). If kb/communities "
+            "alone is genuinely right, add it to `_COMMUNITY_ONLY` with the reason; "
+            "if it should cover both and does not yet, add it to `_OWED_BOTH_ROOTS` "
+            "with what is being missed (#689)."
+        )
+E       AssertionError: these test modules sweep kb/communities and never mention the other root, and are in neither list:
+E           test_no_new_bracketed_snippets.py
+E         
+E         Prefer fixing it to recording it: sweep `default_record_roots()` (or `taxon_descriptor_roots()` for a GTDB check). If kb/communities alone is genuinely right, add it to `_COMMUNITY_ONLY` with the reason; if it should cover both and does not yet, add it to `_OWED_BOTH_ROOTS` with what is being missed (#689).
+E       assert ['test_no_new..._snippets.py'] == []
+E         
+E         Left contains one more item: 'test_no_new_bracketed_snippets.py'
+E         Use -v to get more diff
+
+tests/test_record_roots_are_shared.py:409: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_record_roots_are_shared.py::test_every_sweeping_test_declares_its_scope
+1 failed in 0.23s

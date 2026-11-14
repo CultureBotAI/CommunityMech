@@ -67,8 +67,10 @@ def test_every_curated_bracket_content_survives_query_splitting(validator):
 
 
 def test_unchanged_asgard_nife_quote_matches_its_committed_article(validator):
-    path = REPO / "kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml"
-    record = yaml.safe_load(path.read_text(encoding="utf-8"))
+    asgard_record = (
+        REPO / "kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml"
+    )
+    record = yaml.safe_load(asgard_record.read_text(encoding="utf-8"))
     evidence = record["related_ingredients"][2]["evidence"][0]
     assert "[NiFe]" in evidence["snippet"]
     content = (REPO / "references_cache/PMID_39085194.md").read_text(encoding="utf-8")

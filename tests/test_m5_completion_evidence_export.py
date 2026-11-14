@@ -87,3 +87,29 @@ def test_superseded_baseline_is_not_a_repository_failure(exporter):
     assert "Invalid launcher environment" not in report
     for name in ("baseline-diagnostic-interruption", "baseline-diagnostic-termination"):
         assert (exporter.OUT / f"{name}.json").stat().st_size > 0
+
+
+def test_named_attempt_controls_preserve_both_versions(exporter):
+    names = (
+        "final-sync-plan",
+        "final-sync-receipt",
+        "final-orchestration-inputs",
+    )
+    for name in names:
+        (exporter.STATE / f"{name}.json").write_text(json.dumps({"attempt": "first"}))
+    exporter.main()
+    first = snapshot(exporter.OUT)
+    later = [name.replace("final-", "final-c2-", 1) for name in names]
+    later.append("c1-reference-supersession")
+    for name in later:
+        (exporter.STATE / f"{name}.json").write_text(json.dumps({"attempt": "second"}))
+    exporter.main()
+    for name in later:
+        source = exporter.STATE / f"{name}.json"
+        published = json.loads((exporter.OUT / f"{name}.json").read_text())
+        assert published["source_sha256"] == hashlib.sha256(source.read_bytes()).hexdigest()
+        assert published["receipt"] == {"attempt": "second"}
+    for name, retained in first.items():
+        if name != "README.md":
+            path = exporter.OUT / name
+            assert (path.read_bytes(), path.stat().st_mtime_ns) == retained

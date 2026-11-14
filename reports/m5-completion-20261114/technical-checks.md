@@ -31,9 +31,36 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [ecofab-schema](technical-evidence/ecofab-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [ecofab-strict](technical-evidence/ecofab-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [ecofab-terms](technical-evidence/ecofab-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-domain](technical-evidence/final-000025-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-gtdb](technical-evidence/final-000025-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-history](technical-evidence/final-000025-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-references](technical-evidence/final-000025-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-schema](technical-evidence/final-000025-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-strict](technical-evidence/final-000025-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000025-terms](technical-evidence/final-000025-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-domain](technical-evidence/final-000515-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-gtdb](technical-evidence/final-000515-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-history](technical-evidence/final-000515-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-references](technical-evidence/final-000515-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-schema](technical-evidence/final-000515-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-strict](technical-evidence/final-000515-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000515-terms](technical-evidence/final-000515-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-domain](technical-evidence/final-000516-domain.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-gtdb](technical-evidence/final-000516-gtdb.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-history](technical-evidence/final-000516-history.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-references](technical-evidence/final-000516-references.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-schema](technical-evidence/final-000516-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-strict](technical-evidence/final-000516-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-000516-terms](technical-evidence/final-000516-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-cache-tests-diagnostic](technical-evidence/final-cache-tests-diagnostic.receipt.json) | PASSED | 0 |  |
+| [final-check-docs-current](technical-evidence/final-check-docs-current.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-environment-canary](technical-evidence/final-environment-canary.receipt.json) | PASSED | 0 |  |
 | [final-frozen-install](technical-evidence/final-frozen-install.receipt.json) | PASSED | 0 |  |
+| [final-history-all](technical-evidence/final-history-all.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [final-history-canary](technical-evidence/final-history-canary.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [final-plan-qc-references](technical-evidence/final-plan-qc-references.receipt.json) | PASSED | 0 | DRY RUN: 13 |
+| [final-qc-references](technical-evidence/final-qc-references.receipt.json) | FAILED | 1 | PASSED: 1; FAILED: 1; NOT RUN: 11 |
+| [final-validate-products](technical-evidence/final-validate-products.receipt.json) | FAILED | 2 | FAILED: 1 |
 | [historical-bases-fetch](technical-evidence/historical-bases-fetch.receipt.json) | PASSED | 0 |  |
 | [historical-case-canary](technical-evidence/historical-case-canary.receipt.json) | PASSED | 0 |  |
 | [historical-cases-remaining](technical-evidence/historical-cases-remaining.receipt.json) | PASSED | 0 |  |
@@ -44,6 +71,8 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [lbnl-schema](technical-evidence/lbnl-schema.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [lbnl-strict](technical-evidence/lbnl-strict.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [lbnl-terms](technical-evidence/lbnl-terms.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-attempt-export-after](technical-evidence/local-attempt-export-after.receipt.json) | PASSED | 0 |  |
+| [local-attempt-export-before](technical-evidence/local-attempt-export-before.receipt.json) | FAILED | 1 |  |
 | [local-bracket-install](technical-evidence/local-bracket-install.receipt.json) | PASSED | 0 |  |
 | [local-bracket-lock](technical-evidence/local-bracket-lock.receipt.json) | PASSED | 0 |  |
 | [local-bracket-native-after](technical-evidence/local-bracket-native-after.receipt.json) | PASSED | 0 | PASSED: 1 |
@@ -60,10 +89,20 @@ The original baseline is 76aa644cd6803ea2c9545d4c704276ede219d354; each receipt 
 | [local-curation-history-all](technical-evidence/local-curation-history-all.receipt.json) | PASSED | 0 | PASSED: 1 |
 | [local-export-index-after](technical-evidence/local-export-index-after.receipt.json) | PASSED | 0 |  |
 | [local-export-index-before](technical-evidence/local-export-index-before.receipt.json) | FAILED | 1 |  |
+| [local-pdf-guard-before](technical-evidence/local-pdf-guard-before.receipt.json) | FAILED | 1 |  |
+| [local-pdf-guard-canary](technical-evidence/local-pdf-guard-canary.receipt.json) | PASSED | 0 |  |
+| [local-pdf-guard-regressions](technical-evidence/local-pdf-guard-regressions.receipt.json) | PASSED | 0 |  |
 | [local-postcuration-gate-regression](technical-evidence/local-postcuration-gate-regression.receipt.json) | PASSED | 0 |  |
+| [local-record-scope-before](technical-evidence/local-record-scope-before.receipt.json) | FAILED | 1 |  |
+| [local-record-scope-canary](technical-evidence/local-record-scope-canary.receipt.json) | PASSED | 0 |  |
+| [local-record-scope-regressions](technical-evidence/local-record-scope-regressions.receipt.json) | PASSED | 0 |  |
 | [local-successor-before](technical-evidence/local-successor-before.receipt.json) | FAILED | 1 |  |
 | [local-successor-canary](technical-evidence/local-successor-canary.receipt.json) | PASSED | 0 |  |
 | [local-successor-regressions](technical-evidence/local-successor-regressions.receipt.json) | PASSED | 0 |  |
+| [local-writer-audit](technical-evidence/local-writer-audit.receipt.json) | PASSED | 0 | PASSED: 1 |
+| [local-writer-classification-before](technical-evidence/local-writer-classification-before.receipt.json) | FAILED | 1 |  |
+| [local-writer-classification-canary](technical-evidence/local-writer-classification-canary.receipt.json) | PASSED | 0 |  |
+| [local-writer-classification-regressions](technical-evidence/local-writer-classification-regressions.receipt.json) | PASSED | 0 |  |
 | [nested-just-canary](technical-evidence/nested-just-canary.receipt.json) | PASSED | 0 |  |
 | [plan-qc-references](technical-evidence/plan-qc-references.receipt.json) | PASSED | 0 | DRY RUN: 13 |
 | [plan-qc](technical-evidence/plan-qc.receipt.json) | PASSED | 0 | DRY RUN: 11 |
@@ -352,6 +391,256 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-te
 |---|---|
 | validate-terms | PASSED |
 
+## final-000025-domain
+
+[Native output](technical-evidence/final-000025-domain.log.txt) · [Exact exit](technical-evidence/final-000025-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-000025-gtdb
+
+[Native output](technical-evidence/final-000025-gtdb.log.txt) · [Exact exit](technical-evidence/final-000025-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-000025-history
+
+[Native output](technical-evidence/final-000025-history.log.txt) · [Exact exit](technical-evidence/final-000025-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/EcoFAB_Ring_Trial_SynCom17`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-000025-references
+
+[Native output](technical-evidence/final-000025-references.log.txt) · [Exact exit](technical-evidence/final-000025-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-000025-schema
+
+[Native output](technical-evidence/final-000025-schema.log.txt) · [Exact exit](technical-evidence/final-000025-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-000025-strict
+
+[Native output](technical-evidence/final-000025-strict.log.txt) · [Exact exit](technical-evidence/final-000025-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml --out .temp/m5-completion-20261114/final-000025-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-000025-terms
+
+[Native output](technical-evidence/final-000025-terms.log.txt) · [Exact exit](technical-evidence/final-000025-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-000515-domain
+
+[Native output](technical-evidence/final-000515-domain.log.txt) · [Exact exit](technical-evidence/final-000515-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-000515-gtdb
+
+[Native output](technical-evidence/final-000515-gtdb.log.txt) · [Exact exit](technical-evidence/final-000515-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-000515-history
+
+[Native output](technical-evidence/final-000515-history.log.txt) · [Exact exit](technical-evidence/final-000515-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-000515-references
+
+[Native output](technical-evidence/final-000515-references.log.txt) · [Exact exit](technical-evidence/final-000515-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-000515-schema
+
+[Native output](technical-evidence/final-000515-schema.log.txt) · [Exact exit](technical-evidence/final-000515-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-000515-strict
+
+[Native output](technical-evidence/final-000515-strict.log.txt) · [Exact exit](technical-evidence/final-000515-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml --out .temp/m5-completion-20261114/final-000515-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-000515-terms
+
+[Native output](technical-evidence/final-000515-terms.log.txt) · [Exact exit](technical-evidence/final-000515-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-000516-domain
+
+[Native output](technical-evidence/final-000516-domain.log.txt) · [Exact exit](technical-evidence/final-000516-domain.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb-domain | PASSED |
+
+## final-000516-gtdb
+
+[Native output](technical-evidence/final-000516-gtdb.log.txt) · [Exact exit](technical-evidence/final-000516-gtdb.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-gtdb kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-gtdb | PASSED |
+
+## final-000516-history
+
+[Native output](technical-evidence/final-000516-history.log.txt) · [Exact exit](technical-evidence/final-000516-history.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-000516-references
+
+[Native output](technical-evidence/final-000516-references.log.txt) · [Exact exit](technical-evidence/final-000516-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-references-explained kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-references-explained | PASSED |
+
+## final-000516-schema
+
+[Native output](technical-evidence/final-000516-schema.log.txt) · [Exact exit](technical-evidence/final-000516-schema.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate | PASSED |
+
+## final-000516-strict
+
+[Native output](technical-evidence/final-000516-strict.log.txt) · [Exact exit](technical-evidence/final-000516-strict.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-strict kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml --out .temp/m5-completion-20261114/final-000516-strict.tsv`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-strict | PASSED |
+
+## final-000516-terms
+
+[Native output](technical-evidence/final-000516-terms.log.txt) · [Exact exit](technical-evidence/final-000516-terms.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-terms kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-terms | PASSED |
+
+## final-cache-tests-diagnostic
+
+[Native output](technical-evidence/final-cache-tests-diagnostic.log.txt) · [Exact exit](technical-evidence/final-cache-tests-diagnostic.exit.txt)
+
+Command: `uv run pytest tests/test_reference_cache_names_are_case_exact.py tests/test_no_case_conflicting_cache_pairs.py tests/test_cache_is_source_text_not_notes.py tests/test_cache_supplements.py -q`
+
+60 passed in 0.76s
+
+## final-check-docs-current
+
+[Native output](technical-evidence/final-check-docs-current.log.txt) · [Exact exit](technical-evidence/final-check-docs-current.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never check-docs-current`
+
+
+| Native recipe | Status |
+|---|---|
+| check-docs-current | PASSED |
+
 ## final-environment-canary
 
 [Native output](technical-evidence/final-environment-canary.log.txt) · [Exact exit](technical-evidence/final-environment-canary.exit.txt)
@@ -366,6 +655,28 @@ Command: `uv run pytest tests/test_no_new_bracketed_snippets.py::test_unchanged_
 
 Command: `uv sync --frozen --extra dev --python <REPO>/.venv/bin/python`
 
+
+## final-history-all
+
+[Native output](technical-evidence/final-history-all.log.txt) · [Exact exit](technical-evidence/final-history-all.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
+
+## final-history-canary
+
+[Native output](technical-evidence/final-history-canary.log.txt) · [Exact exit](technical-evidence/final-history-canary.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-history history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-14T213828Z-codex-b2be80.yaml`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-history | PASSED |
 
 ## final-plan-qc-references
 
@@ -394,6 +705,41 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never --dry-run q
 | qc | DRY RUN |
 | validate-references-all | DRY RUN |
 | qc-references | DRY RUN |
+
+## final-qc-references
+
+[Native output](technical-evidence/final-qc-references.log.txt) · [Exact exit](technical-evidence/final-qc-references.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never qc-references`
+
+= 7 failed, 5392 passed, 102 skipped, 8 deselected, 18 warnings in 968.46s (0:16:08) =
+
+| Native recipe | Status |
+|---|---|
+| lint | PASSED |
+| test | FAILED |
+| validate-all | NOT RUN |
+| validate-taxa | NOT RUN |
+| validate-strict | NOT RUN |
+| validate-gtdb-all | NOT RUN |
+| validate-scalars | NOT RUN |
+| validate-scalars-idiomatic | NOT RUN |
+| validate-terms-all | NOT RUN |
+| validate-terms-taxa | NOT RUN |
+| qc | NOT RUN |
+| validate-references-all | NOT RUN |
+| qc-references | NOT RUN |
+
+## final-validate-products
+
+[Native output](technical-evidence/final-validate-products.log.txt) · [Exact exit](technical-evidence/final-validate-products.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-products`
+
+
+| Native recipe | Status |
+|---|---|
+| validate-products | FAILED |
 
 ## historical-bases-fetch
 
@@ -494,6 +840,22 @@ Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never validate-te
 | Native recipe | Status |
 |---|---|
 | validate-terms | PASSED |
+
+## local-attempt-export-after
+
+[Native output](technical-evidence/local-attempt-export-after.log.txt) · [Exact exit](technical-evidence/local-attempt-export-after.exit.txt)
+
+Command: `uv run pytest tests/test_m5_completion_evidence_export.py -q`
+
+4 passed in 0.16s
+
+## local-attempt-export-before
+
+[Native output](technical-evidence/local-attempt-export-before.log.txt) · [Exact exit](technical-evidence/local-attempt-export-before.exit.txt)
+
+Command: `uv run pytest tests/test_m5_completion_evidence_export.py::test_named_attempt_controls_preserve_both_versions -q`
+
+1 failed in 0.23s
 
 ## local-bracket-install
 
@@ -648,6 +1010,30 @@ Command: `uv run pytest tests/test_m5_completion_evidence_export.py::test_filter
 
 1 failed in 0.11s
 
+## local-pdf-guard-before
+
+[Native output](technical-evidence/local-pdf-guard-before.log.txt) · [Exact exit](technical-evidence/local-pdf-guard-before.exit.txt)
+
+Command: `uv run pytest tests/test_no_paywalled_text_in_repo.py::test_no_publication_pdfs_are_committed -q`
+
+1 failed in 1.36s
+
+## local-pdf-guard-canary
+
+[Native output](technical-evidence/local-pdf-guard-canary.log.txt) · [Exact exit](technical-evidence/local-pdf-guard-canary.exit.txt)
+
+Command: `uv run pytest tests/test_no_paywalled_text_in_repo.py::test_no_publication_pdfs_are_committed -q`
+
+1 passed in 0.30s
+
+## local-pdf-guard-regressions
+
+[Native output](technical-evidence/local-pdf-guard-regressions.log.txt) · [Exact exit](technical-evidence/local-pdf-guard-regressions.exit.txt)
+
+Command: `uv run pytest tests/test_no_paywalled_text_in_repo.py -q`
+
+5 passed in 2.54s
+
 ## local-postcuration-gate-regression
 
 [Native output](technical-evidence/local-postcuration-gate-regression.log.txt) · [Exact exit](technical-evidence/local-postcuration-gate-regression.exit.txt)
@@ -655,6 +1041,30 @@ Command: `uv run pytest tests/test_m5_completion_evidence_export.py::test_filter
 Command: `uv run pytest tests/test_m5_postcuration_gates.py -q`
 
 10 passed in 0.21s
+
+## local-record-scope-before
+
+[Native output](technical-evidence/local-record-scope-before.log.txt) · [Exact exit](technical-evidence/local-record-scope-before.exit.txt)
+
+Command: `uv run pytest tests/test_record_roots_are_shared.py::test_every_sweeping_test_declares_its_scope -q`
+
+1 failed in 0.23s
+
+## local-record-scope-canary
+
+[Native output](technical-evidence/local-record-scope-canary.log.txt) · [Exact exit](technical-evidence/local-record-scope-canary.exit.txt)
+
+Command: `uv run pytest tests/test_record_roots_are_shared.py::test_every_sweeping_test_declares_its_scope -q`
+
+1 passed in 0.23s
+
+## local-record-scope-regressions
+
+[Native output](technical-evidence/local-record-scope-regressions.log.txt) · [Exact exit](technical-evidence/local-record-scope-regressions.exit.txt)
+
+Command: `uv run pytest tests/test_no_new_bracketed_snippets.py tests/test_record_roots_are_shared.py -q`
+
+23 passed, 12 warnings in 43.00s
 
 ## local-successor-before
 
@@ -679,6 +1089,41 @@ Command: `uv run pytest tests/test_causal_review_batch36.py::test_batch36_canoni
 Command: `uv run pytest tests/test_causal_review_batch36.py tests/test_causal_review_batch141.py tests/test_m5_review_successor.py -q`
 
 20 passed in 8.06s
+
+## local-writer-audit
+
+[Native output](technical-evidence/local-writer-audit.log.txt) · [Exact exit](technical-evidence/local-writer-audit.exit.txt)
+
+Command: `/opt/homebrew/bin/just --verbose --no-dotenv --color never audit-writers`
+
+
+| Native recipe | Status |
+|---|---|
+| audit-writers | PASSED |
+
+## local-writer-classification-before
+
+[Native output](technical-evidence/local-writer-classification-before.log.txt) · [Exact exit](technical-evidence/local-writer-classification-before.exit.txt)
+
+Command: `uv run pytest tests/test_writers_leave_a_trace.py::test_every_writer_is_classified -q`
+
+1 failed in 0.32s
+
+## local-writer-classification-canary
+
+[Native output](technical-evidence/local-writer-classification-canary.log.txt) · [Exact exit](technical-evidence/local-writer-classification-canary.exit.txt)
+
+Command: `uv run pytest tests/test_writers_leave_a_trace.py::test_every_writer_is_classified -q`
+
+1 passed in 0.34s
+
+## local-writer-classification-regressions
+
+[Native output](technical-evidence/local-writer-classification-regressions.log.txt) · [Exact exit](technical-evidence/local-writer-classification-regressions.exit.txt)
+
+Command: `uv run pytest tests/test_writers_leave_a_trace.py -q`
+
+7 passed in 10.16s
 
 ## nested-just-canary
 

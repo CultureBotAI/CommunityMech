@@ -98,3 +98,13 @@ def test_failed_qc_test_stage_is_not_pass(verifier):
         {"recipe": "validate-all", "status": "FAILED"},
     ]
     assert check(verifier, "all.cache-tests", value)
+
+
+def test_context_diagnostics_retain_failure(verifier):
+    for key, command in (
+        ("all.aggregate-qc", JUST + ["qc-references"]),
+        ("all.products", JUST + ["validate-products"]),
+    ):
+        value = receipt(command)
+        value["exit_code"] = 1
+        assert not check(verifier, key, value)

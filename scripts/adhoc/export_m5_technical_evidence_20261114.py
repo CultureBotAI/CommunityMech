@@ -107,19 +107,25 @@ def main():
             OUT / f"{name}.receipt.json",
             (json.dumps(public_result, indent=2) + "\n").encode("utf-8"),
         )
-    for name in (
-        ()
-        if args.name
-        else (
-            "historical-bases-verified",
-            "invalid-launcher-interruption",
-            "baseline-diagnostic-interruption",
-            "baseline-diagnostic-termination",
-            "final-sync-plan",
-            "final-sync-receipt",
-            "final-orchestration-inputs",
+    controls = {
+        "historical-bases-verified",
+        "invalid-launcher-interruption",
+        "baseline-diagnostic-interruption",
+        "baseline-diagnostic-termination",
+        "final-sync-plan",
+        "final-sync-receipt",
+        "final-orchestration-inputs",
+        "c1-reference-supersession",
+    }
+    controls.update(
+        path.stem
+        for path in STATE.glob("*.json")
+        if re.fullmatch(
+            r"final-[a-z0-9][a-z0-9_-]{0,31}-(?:sync-plan|sync-receipt|orchestration-inputs)",
+            path.stem,
         )
-    ):
+    )
+    for name in (() if args.name else sorted(controls)):
         source = STATE / f"{name}.json"
         if source.exists():
             counts = Counter()

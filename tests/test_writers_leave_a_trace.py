@@ -42,6 +42,56 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/build_dopamine_syncom_review_20261114.py": (
+        "writes inspection JSON, a structured-review candidate and metric/checkpoint "
+        "JSON under .temp/m5-completion-20261114; verifies input hashes and reads "
+        "canonical 000516 without editing it (#2788)"
+    ),
+    "scripts/adhoc/build_ecofab_completion_review_20261114.py": (
+        "writes final inspection, review candidate and metrics under "
+        ".temp/m5-completion-20261114; checks input hashes/identity and reads "
+        "canonical 000025 and prior findings without curating a record (#2788)"
+    ),
+    "scripts/adhoc/build_lbnl_completion_review_20261114.py": (
+        "writes inspection/review/metrics scratch artifacts under "
+        ".temp/m5-completion-20261114; verifies initial hashes, identity and "
+        "three-node/no-edge scope without editing canonical 000087 (#2788)"
+    ),
+    "scripts/adhoc/build_lbnl_environment_addendum_20261114.py": (
+        "writes scratch inspection JSON and a partial structured-review addendum "
+        "under .temp/m5-completion-20261114; requires the unchanged canonical "
+        "000087 predecessor hash and does not change record or history (#2788)"
+    ),
+    "scripts/adhoc/build_m5_postcuration_review_20261114.py": (
+        "writes inspection/reassessment JSON and a structured scientific-delta "
+        "candidate under .temp/m5-completion-20261114; binds native receipts and "
+        "current inputs to the reviewed revision without editing records (#2788)"
+    ),
+    "scripts/adhoc/build_m5_successor_provenance_20261114.py": (
+        "writes only reports/m5-completion-20261114/successor-provenance.yaml, "
+        "refusing an existing output; verifies predecessor/receipt/current hashes "
+        "and exact cache-body equality, never editing records or history (#2788)"
+    ),
+    "scripts/adhoc/build_yolo_completion_review_20261114.py": (
+        "writes final inspection JSON and a structured-review candidate under "
+        ".temp/m5-completion-20261114; checks initial hashes and reads canonical "
+        "000515, primary evidence and receipts without curated output (#2788)"
+    ),
+    "scripts/adhoc/inspect_m5_postcuration_20261114.py": (
+        "writes a scratch target manifest and one source-inspection JSON under "
+        ".temp/m5-completion-20261114; refuses an existing inspection and invokes "
+        "native inspect only, never editing records or history (#2788)"
+    ),
+    "scripts/adhoc/recover_m5_completion_scope.py": (
+        "writes public scope JSON/Markdown under reports/m5-completion-20261114 "
+        "and an exclusive private .temp capture; session/Git/GitHub operations "
+        "read evidence and never write canonical records or history (#2788)"
+    ),
+    "scripts/adhoc/review_dopamine_syncom_20261114.py": (
+        "writes .temp source captures/extracts/renders, target/inspection files "
+        "and issue drafts and collects pinned native-check receipts; guarded "
+        "fetches preserve captures and canonical 000516 stays read-only (#2788)"
+    ),
     "scripts/adhoc/pr2034_273_audit.py": (
         "writes a target manifest and audit receipts under .temp/pr2034/273; "
         "reads canonical records for review and never edits them"
@@ -184,6 +234,16 @@ def test_the_exemptions_have_reasons():
     blank = sorted(path for path, why in _EXEMPT.items() if not (why or "").strip())
     assert blank == [], f"exemptions need a reason: {blank}"
     assert not (set(_EXEMPT) & _OWED), "a writer cannot be both exempt and owed"
+
+
+def test_m5_curation_writer_keeps_its_trace_and_write_guards(audit):
+    """Review-only classifications must not exempt the actual curation helper (#2788)."""
+    path = "scripts/adhoc/apply_m5_completion_corrections_20261114.py"
+    row = next(item for item in audit if item["path"] == path)
+    assert path not in _EXEMPT and path not in _OWED
+    assert row["appends_curation_history"] == "yes"
+    assert row["has_write_safeguard"] == "yes"
+    assert row["validates_before_write"] == "yes"
 
 
 def test_the_owed_backlog_has_not_grown(audit):
