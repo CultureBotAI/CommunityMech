@@ -3,8 +3,8 @@
 SCOPED_GTDB_PROOF_ROOT optionally selects its published sibling checkout during
 pre-integration development; CI/default uses this repository. Tests copy only
 public artifacts into isolated fixtures and never edit the actual evidence.
-SCOPED_GTDB_PROOF_CASES selects explicit comma-separated cases. The pending 401
-case runs only when requested against its actual published evidence checkout.
+SCOPED_GTDB_PROOF_CASES selects explicit comma-separated cases during isolated
+development. All three integrated actual proofs run by default.
 """
 
 import copy
@@ -37,7 +37,7 @@ CASES = {
         False,
     ),
 }
-SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340").split(",")
+SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340,401").split(",")
 assert (
     SELECTED and len(set(SELECTED)) == len(SELECTED) and all(case in CASES for case in SELECTED)
 ), "explicit known proof cases required"
