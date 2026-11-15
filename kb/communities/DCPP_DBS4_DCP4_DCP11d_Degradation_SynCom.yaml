@@ -67,7 +67,17 @@ taxonomy:
     term:
       id: NCBITaxon:165697
       label: Sphingopyxis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingopyxis
+      gtdb_taxon: Sphingopyxis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingopyxis
+      ncbi_source_id: NCBITaxon:165697
+      majority_fraction: 1.0
+      support_genomes: 79
+      total_genomes: 79
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: The source identifies DBS4 at genus level; no species-level assignment is asserted here.
   strain_designation:
     strain_name: DBS4
@@ -87,7 +97,17 @@ taxonomy:
     term:
       id: NCBITaxon:165697
       label: Sphingopyxis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingopyxis
+      gtdb_taxon: Sphingopyxis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingopyxis
+      ncbi_source_id: NCBITaxon:165697
+      majority_fraction: 1.0
+      support_genomes: 79
+      total_genomes: 79
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: The source identifies DCP-4 at genus level and reports (R)-DCPP degradation; no species-level assignment is asserted
       here.
   strain_designation:
@@ -362,3 +382,11 @@ curation_history:
   action: FIX_NETWORK_INTEGRITY
   changes: 'Addressed CI issue #1024 by removing a free-text downstream target from the pairwise 2,4-DCP interaction.'
   llm_assisted: true
+- timestamp: '2026-11-15T08:26:39Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:26:43Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'
