@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import yaml
+from source_note_gtdb_successors import BEFORE, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -136,6 +137,8 @@ def test_crc_retains_only_qualified_metabolic_mediation():
 
 
 def test_calcium_separates_compounds_exudates_and_pots():
+    target = "kb/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.yaml"
+    admit_note_mapping_successor(ROOT, target, BEFORE[target])
     compounds, exudates, pots = nodes("Calcium_Tomato_Bacterial_Wilt_SynCom")
     assert compounds["downstream"][0]["target"] == exudates["name"]
     assert compounds["downstream"][0]["description"].startswith("HYPOTHESIZED")
