@@ -60,7 +60,16 @@ taxonomy:
     term:
       id: NCBITaxon:1148
       label: Synechocystis sp. PCC 6803
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Synechocystis_sp000284455
+      gtdb_taxon: Synechocystis sp000284455
+      gtdb_lineage: d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Microcystaceae_B;g__Synechocystis;s__Synechocystis sp000284455
+      ncbi_source_id: NCBITaxon:1148
+      majority_fraction: 1.0
+      total_genomes: 22
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 'Engineered Synechocystis sp. PCC 6803 derivative optimized for PHB production and used as the introduced core
       phototroph; no GTDB classification block is asserted for this engineered strain-level cyanobacterial member.
 
@@ -505,3 +514,11 @@ curation_history:
     dominated by Proteobacteria and Bacteroidota alongside ~70% Cyanobacteria), resolving c8s4-000359-pphet-heterotroph-abundance-level
     (#2514).'
   llm_assisted: true
+- timestamp: '2026-11-15T22:38:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T22:38:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

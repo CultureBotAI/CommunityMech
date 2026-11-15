@@ -1,0 +1,773 @@
+# PPHET: generic phototroph reference correspondence with engineered-stock limits preserved
+
+- Review: 20261115T224649Z-pphet-359-generic-phototroph-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T22:46:49.237916Z
+- Finished UTC: 2026-11-15T22:46:49.559354Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The existing NCBITaxon:1148 species descriptor now has the exact native Synechocystis sp000284455 correspondence with total_genomes22 and majority_fraction1.0. One block, one status and two native inline events changed. The engineered PCC6803 PPT1 stock, its genotype caveat and no-engineered-strain-classification note, the existing Bacteria descriptor, all biological content and old history remain unchanged. Eight actual native commands and one new sidecar bind the exact application. Open guild, assay and mechanistic questions remain unresolved.
+
+## Scope And Provenance
+
+Only taxonomy[0] GTDB block/status, actual application and appended history, and eight scoped native checks. This reference assignment does not identify an engineered PPT1 assembly or revise the PPHET community's physiology, graph, composition or source claims.
+
+Selection: CommunityMech:000359 is the next single whole-record unit after the completed492 canary was independently reviewed and published. This diagnostic does not apply or approve497/454. Complete immutable persistence and strict historical admission remain required.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base bfef6b2a7684bfc4bb4a22fb1b1234faf797536b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000359 | kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml # taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status; appended native curation_history | maintained | PPHET generic phototroph reference; engineered stock and scientific limits remain preserved |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000359 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Generic species descriptor separated from engineered stock identity
+
+grounding: supported. Targets: CommunityMech:000359.
+
+Primary construction and profiling passages support retaining PPT1, the WCRM heterotroph fraction and the existing generic PCC6803 descriptor. The reference block does not establish an engineered PPT1 assembly, mutation identity, GFP membership or a complete heterotroph roster.
+
+### Exact reference population with scientific and assay limits retained
+
+grounding: supported. Targets: CommunityMech:000359.
+
+The unchanged native exact-ID result supports the22-reference-genome population and fraction1.0 without an explicit numerator. Existing Bacteria provenance, engineered-strain caveats, OPEN1674 and both record discussions remain outside this bounded mapping; no cell fraction, stock equivalence or mediator claim is added.
+
+### Actual application and native checks preserve the historical scientific chain
+
+provenance: supported. Targets: CommunityMech:000359.
+
+Actual f11a-to-d31c persistence, two inline events, one append-only native sidecar and eight completed commands bind the frozen bfef execution. All four nodes, one retained arrow, quotations, discussions, abundance annotations and old history remain unchanged. Strict historical admission, products, measured references and full QC remain separate.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000359-schema | .temp/gtdb-remaining-four-20261115/359-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-strict | .temp/gtdb-remaining-four-20261115/359-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-gtdb | .temp/gtdb-remaining-four-20261115/359-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-domain | .temp/gtdb-remaining-four-20261115/359-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-scalars | .temp/gtdb-remaining-four-20261115/359-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-history | .temp/gtdb-remaining-four-20261115/359-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-new-history | .temp/gtdb-remaining-four-20261115/359-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-terms | .temp/gtdb-remaining-four-20261115/359-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000359-primary | references_cache/PMID_41559821.txt; Retained Methods2.1/2.2/2.10 and Results4.1-4.5/discussion; captured source metadata includes exact anchors for engineered PPT1, WCRM fraction, colony PCR, DADA2, Cyanobacteriales and proposed oxygen mediation. | supports | The paper constructs PPHET with engineered PCC6803 PPT1 plus the retained WCRM heterotroph fraction. It supports preserving this stock/context while distinguishing the generic reference descriptor from unverified engineered-stock genomic placement. |
+| 000359-database | reports/gtdb-remaining-four-20261115/359-source-evidence-001.json; Selected taxonomy index0: full exact-ID native result, total22/fraction1.0, lineage, preserved descriptor/stock and primary locators. | supports | The exact NCBI1148 route maps the generic species descriptor to Synechocystis sp000284455. No explicit numerator or experimental assembly assignment follows; the unselected Bacteria block is outside this correction. |
+| 000359-application | .temp/gtdb-remaining-four-20261115/359-applied-001/receipt.json; Actual applied flag, bfef execution, stage c8150030, beforef11af6a3 and afterd31c14d7, captured source inputs and native operations. | supports | Guarded application persisted exactly one reviewed block/status and two native events. All other taxonomy, source/stock content, biology and older history remain unchanged. |
+| 000359-scientific-boundary | .temp/gtdb-remaining-four-20261115/issue1674-001.json; Captured OPEN guild/non-graph issue, alongside closed1669/2514 snapshots and both OPEN canonical discussions. | context_only | The retained guild/assay and oxygen-mediation limits remain unresolved. Closed graph and abundance repairs are historical provenance, not new scientific clearance from this mapping. |
+| 000359-historical-boundary | reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml; Original359 decision row and the exact20261106-c8s5-review-remediation.yaml successor row; current tests/test_causal_review_batch81.py before caller edits. | context_only | Preserve the original ledger and explicit85af-to-C8S5f11a chain. Later strict admission must bind the actual f11a predecessor and current d31c mapping while retaining all current biological predicates and sibling420/460 proofs. |
+
+## Limits And Additional Notes
+
+- Partial technical diagnostic with scientific_review:false. The native gates do not establish full scientific review, measured snippet validation, current products, corpus QC or campaign completion.
+- Coverage is the whole canonical record and selected retained main-paper construction, identity, 16S profiling, PHB and stress passages. Separate supplementary files, original figure pixels, raw sequences, an experimental assembly and construct-level details were not newly audited.
+- The exact NCBI1148 result supplies total_genomes22 and majority_fraction1.0, without an explicit support_genomes numerator. These are generic reference genomes, not22 study strains, constructs, cell counts, read fractions, an engineered-stock assembly or verification of PPT1 mutations.
+- The retained note declining an engineered-strain classification and the structured genetic-modification caveat remain limits on stock-specific identity. The new block is attached to the generic PCC6803 species descriptor and does not rename or equate the experimental PPT1 stock with a reference assembly. GFP remains a parallel control rather than an extra PPHET member.
+- The unselected Bacteria block, its historical provenance wording and its domain-level population are unchanged and are not newly certified. That broad descriptor does not resolve the WCRM heterotroph roster. Preserve the corrected approximately30% non-cyanobacterial fraction alongside approximately70% Cyanobacteria; do not equate the former with Proteobacteria alone or with absolute cell abundance.
+- Captured issue1674 remains OPEN for guild/non-graph assay limits; historical repairs1669 and2514 are CLOSED. Both OPEN record discussions, four interaction nodes and one positive integration-to-production arrow remain unchanged. Generic reference correspondence does not close the outstanding scientific questions or recertify the historical assessment.
+- Preserve HPLC bulk PHB versus qualitative cell localization, 16S read composition versus absolute abundance, positive community-composition contribution versus exclusive PPT1 flux, the oxygen-scavenging hypothesis, distinct light/dark biomass and titers, small-scale versus4L/8L production, and non-aerated versus anaerobic conditions. No new causal mechanism or competition-reducing niche partitioning is inferred.
+- Actual staging, application and all eight native commands ran at frozen M5 bfef6b2a7684bfc4bb4a22fb1b1234faf797536b with Python3.13.2. The two initial free-stage refusals only identified missing binder/public-issue metadata; their logs are retained. Approved exact metadata copies preceded successful plan003 and actual staging. Mirroring does not relabel execution revisions.
+- Crosswalk761 identifies exact bytes, with release unestablished; file mtime is not a release claim. NCBI authority provenance is file identity/stat rather than a full database digest or certified ontology release.
+- The complete four-record route is retained privately as a frozen source input, including unselected populations. Historical admission must preserve the original batch81 ledger, its85af-to-C8S5f11a supersedes chain, all current biology and sibling420/460 admissions. Checkpoints precede any caller change; integration and aggregate checks remain separate.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T224649Z-pphet-359-generic-phototroph-reference-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'PPHET: generic phototroph reference correspondence with engineered-stock limits
+  preserved'
+started_at: '2026-11-15T22:46:49.237916Z'
+finished_at: '2026-11-15T22:46:49.559354Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The source preparation received independent review against the
+    complete canonical record, retained primary construction and assay passages, batch81
+    and the C8S5 successor. The executing agent reread the complete record, selected
+    retained primary passages, source bindings and actual native outputs. Root independently
+    reviewed the actual M5 candidate and all33 input pins before application, then
+    the actual application and gate/history configuration. This is a partial technical
+    self-review, not a complete new scientific assessment.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The existing NCBITaxon:1148 species descriptor now has the exact native Synechocystis
+  sp000284455 correspondence with total_genomes22 and majority_fraction1.0. One block,
+  one status and two native inline events changed. The engineered PCC6803 PPT1 stock,
+  its genotype caveat and no-engineered-strain-classification note, the existing Bacteria
+  descriptor, all biological content and old history remain unchanged. Eight actual
+  native commands and one new sidecar bind the exact application. Open guild, assay
+  and mechanistic questions remain unresolved.
+source:
+  git_revision: bfef6b2a7684bfc4bb4a22fb1b1234faf797536b
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-environment-four-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-applied-001/before.yaml
+    sha256: f11af6a3d089a413d75e3c07203473f02529734a75c90af1c4c5b33ce2c44243
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-applied-001/receipt.json
+    sha256: 0a523731a6f7d0086e249b3d7bafccbe73c9b8cdb1793f8998a9b9b3e6180c47
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-domain-001/native.log
+    sha256: 93668e6cb4467f1761974258591a113f4019ca23db0c886bb0c4ee739ae822c2
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-domain-001/receipt.json
+    sha256: dc1b3f397acef4a5fb9f0d23e6a7e27c4a8a003d5e5e4f34a4a6be3cabc701f7
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-domain-001/start.json
+    sha256: 9c0d79f1994b5c548b93f382552842b9c311f07764e80fd50c2f0cb63e0468e3
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-gtdb-001/native.log
+    sha256: e9c1437386c1b6550ac153bff715e6cb5a53e85fb43da680f175123728790d90
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-gtdb-001/receipt.json
+    sha256: dbcfbcbea0b53d56713ccb45628c160d14299cf95d51082662e0719b938280d2
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-gtdb-001/start.json
+    sha256: b9212d27b2ae79ee47fee34d040799dca9d0611ca62a4a3ce4b857b530b30559
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-history-001/receipt.json
+    sha256: e89384ba8137fa9abb0e7c0ed01f3685560096aab9ab6e634da3db8a7cece93a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-history-001/start.json
+    sha256: e82bf1a9cfb27859bcaa010103b146ef0cc92db4858723a297b293ecad95da84
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-m5-candidate-001/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+    sha256: d31c14d7cfefae88bfd5476428cdcf63055149c538b5b21ead8b5cefa314469c
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-m5-candidate-001/receipt.json
+    sha256: c8150030d25b2ceb0c38702590800050c5cf8bfd5565820d392684deec183837
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-new-history-001/native.log
+    sha256: 712b7721ba1269e6baa305f9c9c56a19a3e43a9c49f4548aa09189ed01f48011
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-new-history-001/receipt.json
+    sha256: 4e6790120314b4d32e268cbe70acb2548086d099c2b7f3df02d549c3ad44584c
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-new-history-001/start.json
+    sha256: fe39ff21724b6a36f502c492545861a3e188632b06beaf2924feeada21a8757a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-scalars-001/native.log
+    sha256: fb7143ef6322594d5f66b940b4f037a2573380879a58fe43c49761d1925e54e1
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-scalars-001/receipt.json
+    sha256: 95f452042699badd52b1ef01d4d08210f47e5002625c53e2df6ff4920f0ff6ea
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-scalars-001/start.json
+    sha256: 9374bfb7793bafedd11baca78f7f77d51a06dc952507f2243542152479532bcb
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-schema-001/native.log
+    sha256: 1c1e9a0bbaadb988f1204a7eaebefea292424ce66b633cfb4e2810bd00fc43a4
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-schema-001/receipt.json
+    sha256: 728ee8c9c248bf7c577fa977ed27d0e5e599f8ce0094f7a8b65b6bdb93b6dd9a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-schema-001/start.json
+    sha256: a407a63c1f1aae445490cc01cbed4cbf1198aeaf5e4a94c06704aff45c06b620
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-strict-001/native.log
+    sha256: 216b2b04f2329e7b30c23bd7a4e69f5b1d8ca621a654fac89ff550fb67e977f4
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-strict-001/receipt.json
+    sha256: c1b9e486c1b2683feb1fe1881e2e963aed8431fdde2e2a4101c6f7bf1d3d775a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-strict-001/start.json
+    sha256: 7184e796c1796021182da6b12501380e0f7b0c46401e3e8806a22e35bc618dd6
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-terms-001/native.log
+    sha256: f41a916163d7157317d9544f411b780912c96ef4288e3298a3b195cf1f4c32f2
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-terms-001/receipt.json
+    sha256: 3463cfd01847f9aaad6e549eef2d45aa7f79c9f20848ff6902e933147e2eedcf
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/359-terms-001/start.json
+    sha256: e631dac24b12e96d9aaa2e2559ac4baa638eb9116ef334efcc8f908674249714
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/issue1669-001.json
+    sha256: 5262a4dd4a255638381d34909623ff4c8331be10ce39aa2c1469dfca4ffdf7b3
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/issue1674-001.json
+    sha256: 7601617b91a673dd531a61ac301fe38e7965e973e28e8d9acd523bdc6abf833b
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/issue2514-001.json
+    sha256: f99ee40d057ef41bcdf1f4dce500d82af1563db38c9a79b18f44059c16f52230
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-359-source-bind-001.log
+    sha256: c9a4ff41d121cabcdaee6f20a54caf82e879b795edf9b3009275a478f4fd2fff
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.json
+    sha256: 46d03c7e507e4b35b62bbc0d07ad6cad8b59702758ac25317d97ff4d3da35a01
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.log
+    sha256: 2ab2dd66a1ae01d7582f0283aa049b29d873da50b69207ae588398ffd8c60b4e
+    role: context
+  - path: history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-09-13T085515Z-codex-baac96.yaml
+    sha256: 457e1eb6b1cdb78f0179b972e5c9fa0768cc85a2335f93db51a7b074f7236d66
+    role: context
+  - path: history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-10-02T060047Z-codex-pph238.yaml
+    sha256: 1b1e24b7d6b4b27cade6459bd64f46d0e7c16504592dcddb29679627ef1b0e83
+    role: context
+  - path: history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-10-07T061246Z-codex-0e8eb5.yaml
+    sha256: 14049afa0235d0f48caea3ef1a1b971dfb5da6aadee8985be0b3f2b526196084
+    role: context
+  - path: history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-11-06T113500Z-antigravity-2514a2.yaml
+    sha256: ef1f8cfc3a78d9832da9fe19f38fed27536e9ab416b6441137c7698e45b859e5
+    role: context
+  - path: history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-11-15T224409Z-codex-9dd65b.yaml
+    sha256: f13678e9ba3c8f64188e017787683068dee0aca1669081bd38c691308ed0380e
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+    sha256: d31c14d7cfefae88bfd5476428cdcf63055149c538b5b21ead8b5cefa314469c
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_41559821.txt
+    sha256: 288d0e59fa439e8dd089dc2a7b30b503ed4c75d64b0edea55560f89a84a12e5d
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml
+    sha256: 00a6ded249918441aad8233076bff7d99e99472f1e9134ac7d90aa68055fb2ab
+    role: context
+  - path: reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml
+    sha256: ccc2eb5a79a5daadb3348685882a66fc9a0f870a4d8f80b907c568ed06a9f444
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/359-authored-source-context-001.json
+    sha256: 5fa7a93b087983679d39e1f09e70da35166124fec57cb8bf6f95fc26d21d0394
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/359-check-config-001.json
+    sha256: 7cadb8f508eeca2b8a5e1e527c6b71de3b50dc38adf9e47bff37b2e98b2b1afa
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/359-review-config-001.json
+    sha256: 5c5499b2a16e4991ee08a69005f890b6231815a619bb3ac54597ae3210012705
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/359-source-config-001.json
+    sha256: ca8cd903b94bdc713b56fdf4f2d754c1b6190f51b6967bddb7179cd9a3aa9dc8
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/359-source-evidence-001.json
+    sha256: db12d46713de405931c3133b5de1e84a3e06fde87d88759d832c8eea61c66884
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/four-route-plan-001.json
+    sha256: bdcb94a4b3b4bc6599f1a9dcfd13529d04236f3f57681ac091b7ac98d6ce94b8
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch81.py
+    sha256: 96336549067529c352316b211130b1a72446f3eb822d8da839e91bd031f782f9
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000359
+  path: kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  selector: taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status;
+    appended native curation_history
+  label: PPHET generic phototroph reference; engineered stock and scientific limits
+    remain preserved
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Only taxonomy[0] GTDB block/status, actual application and appended
+    history, and eight scoped native checks. This reference assignment does not identify
+    an engineered PPT1 assembly or revise the PPHET community's physiology, graph,
+    composition or source claims.
+  selection: CommunityMech:000359 is the next single whole-record unit after the completed492
+    canary was independently reviewed and published. This diagnostic does not apply
+    or approve497/454. Complete immutable persistence and strict historical admission
+    remain required.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000359
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000359-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+    --out .temp/gtdb-remaining-four-20261115/359-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-history history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    PPHET_Hybrid_Photosynthetic_PHB_Microbiome --target-root kb/communities --event
+    EDIT --outcome changed --sections taxonomy,curation_history --actor-name codex
+    --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Ground the generic PCC 6803 reference descriptor while preserving engineered
+    PPT1 and PPHET guild limits.' --details 'The exact NCBITaxon:1148 route supplies
+    Synechocystis sp000284455 with total_genomes 22 and majority_fraction 1.0, without
+    an explicit support numerator. This reference population does not identify a sequenced
+    engineered PPT1 genome, verify its mutations or establish stock equivalence. Preserve
+    the existing note limiting engineered-strain classification, the separate Bacteria
+    descriptor and all source/stock/biology/history content. One selected reference
+    block, one status and two native inline events change. The paper constructs PPHET
+    from engineered PPT1 plus the selectively retained WCRM heterotroph fraction;
+    the GFP culture is a parallel control. Preserve the corrected broad ~30% heterotroph
+    and ~70% cyanobacterial composition and the distinction from Proteobacteria alone.
+    Issue1674'"'"'s guild/assay limits remain unresolved; closed historical repairs1669/2514
+    are not reopened or treated as scientific clearance. Generic reference mapping
+    does not resolve the causal/mechanistic or member-identity limits. Crosswalk release
+    is unestablished and NCBI provenance is file-stat based. This is partial technical
+    correspondence work, not full scientific review, measured reference validation,
+    generated products or corpus QC. Actual apply receipt .temp/gtdb-remaining-four-20261115/359-applied-001/receipt.json
+    sha256:0a523731a6f7d0086e249b3d7bafccbe73c9b8cdb1793f8998a9b9b3e6180c47.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000359-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000359
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000359-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000359-schema
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-schema-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-strict
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-strict-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-gtdb
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-gtdb-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-domain
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-domain-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-scalars
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-scalars-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-history
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-history-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-new-history
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-new-history-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-terms
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/359-terms-001/native.log
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000359-primary
+  kind: primary_source
+  reference: references_cache/PMID_41559821.txt
+  locator: Retained Methods2.1/2.2/2.10 and Results4.1-4.5/discussion; captured source
+    metadata includes exact anchors for engineered PPT1, WCRM fraction, colony PCR,
+    DADA2, Cyanobacteriales and proposed oxygen mediation.
+  support: supports
+  summary: The paper constructs PPHET with engineered PCC6803 PPT1 plus the retained
+    WCRM heterotroph fraction. It supports preserving this stock/context while distinguishing
+    the generic reference descriptor from unverified engineered-stock genomic placement.
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+- evidence_id: 000359-database
+  kind: database
+  reference: reports/gtdb-remaining-four-20261115/359-source-evidence-001.json
+  locator: 'Selected taxonomy index0: full exact-ID native result, total22/fraction1.0,
+    lineage, preserved descriptor/stock and primary locators.'
+  support: supports
+  summary: The exact NCBI1148 route maps the generic species descriptor to Synechocystis
+    sp000284455. No explicit numerator or experimental assembly assignment follows;
+    the unselected Bacteria block is outside this correction.
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+- evidence_id: 000359-application
+  kind: record_content
+  reference: .temp/gtdb-remaining-four-20261115/359-applied-001/receipt.json
+  locator: Actual applied flag, bfef execution, stage c8150030, beforef11af6a3 and
+    afterd31c14d7, captured source inputs and native operations.
+  support: supports
+  summary: Guarded application persisted exactly one reviewed block/status and two
+    native events. All other taxonomy, source/stock content, biology and older history
+    remain unchanged.
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+- evidence_id: 000359-scientific-boundary
+  kind: prior_review
+  reference: .temp/gtdb-remaining-four-20261115/issue1674-001.json
+  locator: Captured OPEN guild/non-graph issue, alongside closed1669/2514 snapshots
+    and both OPEN canonical discussions.
+  support: context_only
+  summary: The retained guild/assay and oxygen-mediation limits remain unresolved.
+    Closed graph and abundance repairs are historical provenance, not new scientific
+    clearance from this mapping.
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+- evidence_id: 000359-historical-boundary
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml
+  locator: Original359 decision row and the exact20261106-c8s5-review-remediation.yaml
+    successor row; current tests/test_causal_review_batch81.py before caller edits.
+  support: context_only
+  summary: Preserve the original ledger and explicit85af-to-C8S5f11a chain. Later
+    strict admission must bind the actual f11a predecessor and current d31c mapping
+    while retaining all current biological predicates and sibling420/460 proofs.
+  accessed_at: '2026-11-15T22:46:49.237916Z'
+assessments:
+- assessment_id: 000359-source
+  area: grounding
+  topic: Generic species descriptor separated from engineered stock identity
+  outcome: supported
+  target_ids:
+  - CommunityMech:000359
+  evidence_ids:
+  - 000359-primary
+  - 000359-database
+  - 000359-terms
+  summary: Primary construction and profiling passages support retaining PPT1, the
+    WCRM heterotroph fraction and the existing generic PCC6803 descriptor. The reference
+    block does not establish an engineered PPT1 assembly, mutation identity, GFP membership
+    or a complete heterotroph roster.
+- assessment_id: 000359-population
+  area: grounding
+  topic: Exact reference population with scientific and assay limits retained
+  outcome: supported
+  target_ids:
+  - CommunityMech:000359
+  evidence_ids:
+  - 000359-database
+  - 000359-gtdb
+  - 000359-domain
+  - 000359-scientific-boundary
+  summary: The unchanged native exact-ID result supports the22-reference-genome population
+    and fraction1.0 without an explicit numerator. Existing Bacteria provenance, engineered-strain
+    caveats, OPEN1674 and both record discussions remain outside this bounded mapping;
+    no cell fraction, stock equivalence or mediator claim is added.
+- assessment_id: 000359-provenance
+  area: provenance
+  topic: Actual application and native checks preserve the historical scientific chain
+  outcome: supported
+  target_ids:
+  - CommunityMech:000359
+  evidence_ids:
+  - 000359-application
+  - 000359-schema
+  - 000359-strict
+  - 000359-scalars
+  - 000359-new-history
+  - 000359-history
+  - 000359-terms
+  - 000359-historical-boundary
+  - 000359-scientific-boundary
+  summary: Actual f11a-to-d31c persistence, two inline events, one append-only native
+    sidecar and eight completed commands bind the frozen bfef execution. All four
+    nodes, one retained arrow, quotations, discussions, abundance annotations and
+    old history remain unchanged. Strict historical admission, products, measured
+    references and full QC remain separate.
+findings: []
+actions: []
+limitations:
+- Partial technical diagnostic with scientific_review:false. The native gates do not
+  establish full scientific review, measured snippet validation, current products,
+  corpus QC or campaign completion.
+- Coverage is the whole canonical record and selected retained main-paper construction,
+  identity, 16S profiling, PHB and stress passages. Separate supplementary files,
+  original figure pixels, raw sequences, an experimental assembly and construct-level
+  details were not newly audited.
+- The exact NCBI1148 result supplies total_genomes22 and majority_fraction1.0, without
+  an explicit support_genomes numerator. These are generic reference genomes, not22
+  study strains, constructs, cell counts, read fractions, an engineered-stock assembly
+  or verification of PPT1 mutations.
+- The retained note declining an engineered-strain classification and the structured
+  genetic-modification caveat remain limits on stock-specific identity. The new block
+  is attached to the generic PCC6803 species descriptor and does not rename or equate
+  the experimental PPT1 stock with a reference assembly. GFP remains a parallel control
+  rather than an extra PPHET member.
+- The unselected Bacteria block, its historical provenance wording and its domain-level
+  population are unchanged and are not newly certified. That broad descriptor does
+  not resolve the WCRM heterotroph roster. Preserve the corrected approximately30%
+  non-cyanobacterial fraction alongside approximately70% Cyanobacteria; do not equate
+  the former with Proteobacteria alone or with absolute cell abundance.
+- Captured issue1674 remains OPEN for guild/non-graph assay limits; historical repairs1669
+  and2514 are CLOSED. Both OPEN record discussions, four interaction nodes and one
+  positive integration-to-production arrow remain unchanged. Generic reference correspondence
+  does not close the outstanding scientific questions or recertify the historical
+  assessment.
+- Preserve HPLC bulk PHB versus qualitative cell localization, 16S read composition
+  versus absolute abundance, positive community-composition contribution versus exclusive
+  PPT1 flux, the oxygen-scavenging hypothesis, distinct light/dark biomass and titers,
+  small-scale versus4L/8L production, and non-aerated versus anaerobic conditions.
+  No new causal mechanism or competition-reducing niche partitioning is inferred.
+- Actual staging, application and all eight native commands ran at frozen M5 bfef6b2a7684bfc4bb4a22fb1b1234faf797536b
+  with Python3.13.2. The two initial free-stage refusals only identified missing binder/public-issue
+  metadata; their logs are retained. Approved exact metadata copies preceded successful
+  plan003 and actual staging. Mirroring does not relabel execution revisions.
+- Crosswalk761 identifies exact bytes, with release unestablished; file mtime is not
+  a release claim. NCBI authority provenance is file identity/stat rather than a full
+  database digest or certified ontology release.
+- The complete four-record route is retained privately as a frozen source input, including
+  unselected populations. Historical admission must preserve the original batch81
+  ledger, its85af-to-C8S5f11a supersedes chain, all current biology and sibling420/460
+  admissions. Checkpoints precede any caller change; integration and aggregate checks
+  remain separate.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1674
+- https://github.com/CultureBotAI/CommunityMech/issues/1669
+- https://github.com/CultureBotAI/CommunityMech/issues/2514
+- https://github.com/CultureBotAI/CommunityMech/pull/2920
+```
