@@ -288,6 +288,13 @@ including 23 of the historical 126-record partition. Source-note holds and furth
 source plans are not counted as completed. Full M5 QC, final reference outcomes,
 product regeneration and the scientific campaign remain separate requirements.
 
+The [next three-genus integration at 0f2c4915](genus-next-three-integration-0f2c4915.md)
+adds records372/349/424 with all24 actual M5 commands passing, an independently
+verified172-input native review and174-file complete checkpoint. Thirty-nine
+composed tests and native lint pass at the clean recorded revision. There are now
+30 integrated corrections, including26 of126 partition records;100 remain.
+Source-note intermediates and unexecuted plans remain outside that completion count.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
