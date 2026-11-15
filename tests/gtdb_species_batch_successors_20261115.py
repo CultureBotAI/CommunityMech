@@ -89,6 +89,13 @@ ALLOWANCES = {
             "sha256": "74438fa2ad00d085867c574d9b4efd119efe56a114a82624356e1b90e8ef5dda",
         },
     },
+    "kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-fourth-batch-20261115/476-001-successor.json",
+            "sha256": "b70d2a46be03564960011eed981535735b7e459d1f73d460c567211a5c61a1df",
+        },
+    },
     "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {

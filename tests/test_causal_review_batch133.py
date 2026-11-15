@@ -45,6 +45,7 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
             "CommunityMech:000472",
             "CommunityMech:000474",
             "CommunityMech:000475",
+            "CommunityMech:000476",
             "CommunityMech:000477",
             "CommunityMech:000481",
         }:

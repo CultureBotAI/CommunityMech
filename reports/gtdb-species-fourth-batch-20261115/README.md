@@ -1,4 +1,11 @@
-# Four-record species-reference preparation
+# Four-record species-reference preparation and checkpoints
+
+The preparation below records the original unchanged-source intake. The
+[476 canary checkpoint](476-canary-outcome-001.md) now preserves its guarded M5
+application, eight actual native checks, immutable partial diagnostic, complete
+input snapshot and public strict proof. Its 17 proof controls and both batch133
+tests pass, as does native lint. The other three records remain unapplied;
+scientific findings, including 2891, remain explicit.
 
 This isolated lane prepares GTDB correspondence updates for four whole records at
 public revision `85d582fa0dcbb3faea2f92ca2ebfb7a33e79998e`. Their current bytes match

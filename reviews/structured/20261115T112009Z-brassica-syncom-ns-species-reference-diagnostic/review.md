@@ -1,0 +1,742 @@
+# Brassica SynCom-NS: three bounded species-reference correspondences
+
+- Review: 20261115T112009Z-brassica-syncom-ns-species-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T11:20:09.378162Z
+- Finished UTC: 2026-11-15T11:20:09.502439Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Three existing SynCom-NS descriptors now retain native species-ID GTDB correspondences: Pseudomonas_E izuensis with five reference genomes, Ochrobactrum anthropi with 100 and rounded fraction 0.94, and Novosphingobium lindaniclasticum with two. The first and third fractions are 1.0. Source species/stock notes, unresolved Leifsonia and all biological claims remain unchanged. The actual guarded application, two native inline events, one native history sidecar and eight scoped native commands are bound; scientific issue 2891 remains explicit.
+
+## Scope And Provenance
+
+Three selected taxonomy descriptors' GTDB blocks/statuses, source-stock versus reference-population boundaries, and actual application/history/check provenance. All other record claims are preserved without a new scientific approval judgment.
+
+Selection: CommunityMech:000476 is the single end-to-end application canary for four source-prepared whole records. Records 383, 387 and 449 remain unchanged while this canary is assessed, saved and its complete input namespace verified.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 14d95aa224ca0968a5008fb2b07b9500ce30f5bc.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000476 | kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml # taxonomy[0,2,3].taxon_term.gtdb_classification; taxonomy[0,2,3].taxon_term.gtdb_grounding_status | maintained | SynCom-NS three species-reference correspondences |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000476 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Preserved SynCom-NS source stocks and host assay boundary
+
+grounding: supported. Targets: CommunityMech:000476.
+
+Preserve the source's four-member SynCom and the three selected species/stock notes without inventing structured strain or assembly fields. SaPI1, SaOA1 and SaNL1 remain source identities; Leifsonia remains unresolved. The inspected host treatment context does not close scientific issue 2891 or approve reciprocal benefit, feeding or causal mediation.
+
+### Three exact native species-ID reference populations
+
+grounding: supported. Targets: CommunityMech:000476.
+
+The pinned full crosswalk and native resolver support the three encoded reference-taxon correspondences with populations 5, 100 and 2 and fractions 1.0, 0.94 and 1.0 respectively. Retain rounded-fraction and study-stock limits. Pseudomonas_E and Brucella/Ochrobactrum label differences are not formal renaming; the crosswalk release remains unestablished.
+
+### Actual bounded persistence and retained biological findings
+
+provenance: supported. Targets: CommunityMech:000476.
+
+Actual guarded application, one new native history sidecar and eight scoped native commands bind the reviewed before/after bytes. All source quotations, previous history, stock identities and biological fields remain unchanged. Strict historical admission, source-snippet comparison, generated products, aggregate QC and scientific issue 2891 remain separate work.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000476-schema | .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-strict | .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-gtdb | .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-domain | .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-scalars | .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-history | .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-new-history | .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-terms | .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000476-paper | references_cache/PMID_42043130.txt; Retained Methods 2.2 at line 27, Table 1 at line 101; exact primary_contexts offsets 12442, 45400, 45479. Methods 2.3 and 2.5-2.7 provide whole-inoculum host-assay context. | supports | The retained primary identifies the four SynCom-NS species and SaPI1/SaOA1/SaNL1 stocks, with individual IAA/ACC-deaminase/Cd-resistance traits and a whole-inoculum plant comparison. It provides source identity/context rather than an exact study-stock genome or proof of member cross-feeding and host-mediator necessity. |
+| 000476-database | reports/gtdb-species-fourth-batch-20261115/476-source-evidence-001.json; Selected taxonomy indices 0, 2, 3: full native_result and exact_ncbi_id indexes/rows; captured local ncbi_identity_rows and source/crosswalk hashes. | supports | Read-only NCBI authority rows confirm the three current labels at species rank. Native exact-ID routes reproduce GTDB Pseudomonas_E izuensis (5 genomes, fraction 1.0), Ochrobactrum anthropi (100, 0.94) and Novosphingobium lindaniclasticum (2, 1.0). The species-reference support does not assign study assemblies or infer a rounded-fraction numerator. |
+| 000476-application | .temp/gtdb-species-fourth-batch-20261115/476-applied-001/receipt.json; Actual applied flag, execution_revision, before/after hashes, reviewed stage receipt and captured inputs; native history sidecar bound separately. | supports | The actual guarded writer on M5 at 14d95aa2 persisted exact bf415e33 after independent review. Only three GTDB blocks/statuses and two native inline events changed semantically; Leifsonia's status only moved in serialization. A separately persisted native history sidecar identifies the exact application receipt and retained scientific issue 2891. |
+| 000476-prior | reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml; Immutable CommunityMech:000476 row, three retained nodes/two arrows, original record hash and prior CURATE_CAUSAL_GRAPH event. | context_only | The original batch 133 row and its biological predicates remain preserved. Their existence is not new scientific support for the interaction types or mediation; issue 2891 records the bounded source gap separately. Future strict admission must retain existing 472/474/475/477/481 successors and all current scientific checks. |
+
+## Limits And Additional Notes
+
+- Partial technical and provenance diagnostic with scientific_review:false. Native validator success is not full scientific approval, source-snippet certification, aggregate QC completion or closure of unrelated source findings.
+- Primary coverage is the retained Methods 2.2-2.3, Table 1 stock roster and bounded host endpoint/Methods 2.5-2.7 context for PMID:42043130. This pass did not reacquire the article, inspect figure pixels, query sequence archives or exhaustively audit every scientific claim.
+- The three correspondences describe species-ID reference populations. Five, 100 and two genomes do not establish assemblies for SaPI1, SaOA1 or SaNL1 or measure their abundance in the inoculum/host. No exact numerator is inferred from rounded 0.94. The source stock names remain in notes; absent structured strain fields are not filled.
+- Pseudomonas_E and the Brucella/Ochrobactrum label difference are database observations. Native is_reclassified:true is not a formal nomenclatural ruling or study-stock reidentification. The current NCBI labels and primary-source synonym wording remain intact.
+- Leifsonia shinshuensis (NCBITaxon:150026) remains native-null and UNRESOLVED. Equal-volume standardized inoculation, individual physiological traits and host responses do not newly establish viable-stock persistence, member abundance or reciprocal microbial benefit.
+- Issue 2891 remains unresolved: the inspected whole-inoculum plant comparison, host biochemistry, transcriptomics and qPCR do not themselves establish the stored MUTUALISM/SYNTROPHY, all-member cross-feeding roles or directed GSH/HMA4 mediation. Those biological fields remain unchanged in this taxonomy-only correction; full relevant primary-source verification and a separate scientific disposition are still required.
+- The crosswalk SHA256 binds exact bytes but does not establish its upstream release or chronology. Native mapping_source reports file mtime only. Local NCBI authority rows retain file-stat provenance rather than a full database hash/release certification.
+- Local source preparation ran at 85d582fa with Python 3.13.12; actual M5 staging/application/checks ran at 14d95aa224ca0968a5008fb2b07b9500ce30f5bc with Python 3.13.2. Those executions retain their actual revisions and runtimes. The local/M5 candidate difference was only the two native event timestamps, independently reviewed before application.
+- The initial local offline install refused the nonexistent dev dependency group before installation; the native --extra dev path passed. Automatic review initially refused preparation publication, then accepted the same direct push after existing public-source and payload checks; no alternative publication route was used. These events are not validator passes.
+- The eight required commands are native history scaffolding and seven scoped validators. Source-snippet comparison, generated products, strict batch 133 successor admission and combined QC remain separate evidence requirements. Preserve every immutable old ledger/review and existing batch 133 successor while adding only an explicit 476 admission.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T112009Z-brassica-syncom-ns-species-reference-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Brassica SynCom-NS: three bounded species-reference correspondences'
+started_at: '2026-11-15T11:20:09.378162Z'
+finished_at: '2026-11-15T11:20:09.502439Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The complete record and retained primary roster, preparation
+    and host assay passages were read before staging. The parent independently read
+    the authored source context, exact source inputs and both local and actual M5
+    candidate diffs. Another agent independently read the other two assigned source
+    contexts in the four-record preparation. The shared native stage/apply/check/builder
+    machinery was already independently reviewed and exercised end to end. This authored
+    assessment is partial and technical, not a new full scientific review of the SynCom-NS
+    record.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: 'Three existing SynCom-NS descriptors now retain native species-ID GTDB correspondences:
+  Pseudomonas_E izuensis with five reference genomes, Ochrobactrum anthropi with 100
+  and rounded fraction 0.94, and Novosphingobium lindaniclasticum with two. The first
+  and third fractions are 1.0. Source species/stock notes, unresolved Leifsonia and
+  all biological claims remain unchanged. The actual guarded application, two native
+  inline events, one native history sidecar and eight scoped native commands are bound;
+  scientific issue 2891 remains explicit.'
+source:
+  git_revision: 14d95aa224ca0968a5008fb2b07b9500ce30f5bc
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-applied-001/before.yaml
+    sha256: 78eae074be758e4f17f6c4c71b3271d2da3ca46033310ee3d2021a8741d35450
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-applied-001/receipt.json
+    sha256: 44d07e4e2da3ce0bae0fefd5e641d916733f4da909ecd1c04c98d644693755c0
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-m5-candidate-001/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+    sha256: bf415e3328117b25da4a9248c41aaec10766c4fc057f82871ead7a242c01c0a2
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-m5-candidate-001/receipt.json
+    sha256: c463715da59e90b68695aa1c897a09425720c1e906c4101fc303b58166c723ec
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/native.log
+    sha256: c7411bd4936d535fb493941b5dcee9f927c52db278844f39e8ca54c50c9c1330
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/receipt.json
+    sha256: 9ba47272cf7845961a802867a80e06f9d124d552b0fdbda0ceffe8c8bb07b147
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/start.json
+    sha256: 6b737da30083b91953ccf24529b28593bec534ff3de850739ec6d12ce5565a01
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/native.log
+    sha256: e4044805ef34d1d6126c88c5b57efd39bfd4bde2ea8b6780298ed8d7d1ebbaaf
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/receipt.json
+    sha256: ebbef5aae95b735e48548675c0ed71cb98a0b89df9b55778c39030fc757024e1
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/start.json
+    sha256: 3a09a8558103d9ac12883a691a74d7590a70484b1bbec86d7fca79cedaab8e5d
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/receipt.json
+    sha256: 83dbff8ec7f65f39fcc4d0544053176edf93a284e812f62e54c83f952afc7807
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/start.json
+    sha256: 1635c7913e90be94359bfbd3b7cece229665fd35ed9b7e5decd4dc488b62a7b6
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/native.log
+    sha256: a787da0474dcc77249ecf40451be073943cab140c4e3aedb752127be4bf1989b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/receipt.json
+    sha256: 05597cabca63ed0c172abbc3c13e50cb3c24bd28db9f778697fea5561b6ce1ee
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/start.json
+    sha256: ac374748fc57816f56ffffd53a3f673f61f6070d849cc1c919d7187326328b96
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/native.log
+    sha256: 2235df403c46af0d426dfde34ef93471e9e4db0610d939e6502b01a5db4ad59b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/receipt.json
+    sha256: fde28786a3d9bd1c562a5086f9307f3ebdd750b781bc0312c1cf1ed39dfc3c26
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/start.json
+    sha256: 028cf18e71789eba4fd204c8f095e1ce7e52e9eae7ce8e8b11bdc706baf98b0b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/native.log
+    sha256: a5cd6be5037d130e4783443bcfe1b3317890c0c19692d70d36cf612f7467ec60
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/receipt.json
+    sha256: 24a4d5e21a111a2a0f6240389119e3318a2d8f7c3c14229db643d78f7fbc9ef8
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/start.json
+    sha256: 4c83ac8152093cd0ac567fede96c09856b02b7f9f21a1ac0411469a35ce9eb78
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/native.log
+    sha256: 1a9786e5cf008b9dc46608e0bd778eb306246e080c483e0888dd63e4e62a2025
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/receipt.json
+    sha256: 5ac9c64188acd6ab29036bac26ffb609ae3ee3a9b2503a0162a32849070f1558
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/start.json
+    sha256: 270a5ceaa0221d725704885b0a843da663cb00b6242782c2fb4552f896f9bde8
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/native.log
+    sha256: 0d62b32d316a8e9b96e3ce1d1cb86b42d08f17e0696b652e71eb2fd2d734026a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/receipt.json
+    sha256: 21d344ebe29e3856a0ab7fe4fff6bec883020131718d782eb40edd9d9b561556
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/start.json
+    sha256: 0896babae9c08702914ded223f2bff04582171b842c5ce4053d1882b3f185364
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-context-four-001.log
+    sha256: 87bb5efff4102a64031437f4880fd843e0bcd5f854b57cefd39872797e4b16e0
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.json
+    sha256: b24be25a70f5f94daabb584c8a3a4620729f5b79d08d88024e6a6b567fd18327
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.log
+    sha256: 635b16af1fc912433fc1a343d9372f92d7a08116e50a8e8771326824431ed78d
+    role: context
+  - path: history/records/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium/2026-10-19T053000Z-antigravity-73a0.yaml
+    sha256: 7689d7f91808a306d3a5978cb0b3a8f2ba6935ee0e8c020d57946b5dafb1d69f
+    role: context
+  - path: history/records/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium/2026-10-20T041800Z-antigravity-78eae0.yaml
+    sha256: 34e57ddc8f7c19ca3512e208bb20e5dc92f506bdf3f004b11a2d153ed9a8d366
+    role: context
+  - path: history/records/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium/2026-11-15T111459Z-codex-1c85cb.yaml
+    sha256: a42debbedab37e8b4e33989e4d8721dedc26024ea11e2ddd0b1dfd49c90b4d20
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+    sha256: bf415e3328117b25da4a9248c41aaec10766c4fc057f82871ead7a242c01c0a2
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42043130.txt
+    sha256: 31a0f3ffc0726e319a43a3c5f5a890aea4759ad260a678dacce214be395d5815
+    role: context
+  - path: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+    sha256: e9ded35a2333f9994869573f9f952b3af3191ab55528813a7f2c03639a362d3f
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/476-check-config-001.json
+    sha256: 2baeff957450ff140dfbd81bf6ae184f140c8a5c4e93d318d54c39175584b47d
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/476-review-config-001.json
+    sha256: 2e7f7d4337240e6a0199725f02fa0b222228f430d65089514c87abb4be5247ba
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/476-source-evidence-001.json
+    sha256: 53c954f1bafca9ec207c2f19e03b61d3f649eb84548d5397a2f8f08a4a7d3dd5
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-authored-source-context-001.json
+    sha256: a99cddf354924bec87734ea58eb95eed2a2f97efb370b9ddee8f08943487dac9
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-route-plan-001.json
+    sha256: 5d3074d9da6fcaca03a0cfde3aed41bc64369b8e43eaf44b9b9e71e3da7bc30e
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-source-config-001.json
+    sha256: 7093cde38db249d15ced990d86236d94633706b1049e208b5b90e32132335f61
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: 867e974e9c55325fb1b7e32f81dcf6b7a65b6720941fd303040f5570e46ba232
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch133.py
+    sha256: 0c591cbf4c84fc3eeddeb4ea27a0f1d78c49d75c0fac303719db6e661451a0e3
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000476
+  path: kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  selector: taxonomy[0,2,3].taxon_term.gtdb_classification; taxonomy[0,2,3].taxon_term.gtdb_grounding_status
+  label: SynCom-NS three species-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Three selected taxonomy descriptors' GTDB blocks/statuses, source-stock
+    versus reference-population boundaries, and actual application/history/check provenance.
+    All other record claims are preserved without a new scientific approval judgment.
+  selection: CommunityMech:000476 is the single end-to-end application canary for
+    four source-prepared whole records. Records 383, 387 and 449 remain unchanged
+    while this canary is assessed, saved and its complete input namespace verified.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000476
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000476-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+    --out .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-history history/records/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium --target-root
+    kb/communities --event EDIT --outcome changed --sections taxonomy,curation_history
+    --actor-name codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record three native species-reference GTDB correspondences for the
+    Brassica SynCom-NS descriptors.' --details 'The exact NCBI-ID routes reproduce
+    Pseudomonas_E izuensis (five reference genomes, fraction 1.0), Ochrobactrum anthropi
+    (100, rounded 0.94), and Novosphingobium lindaniclasticum (two, fraction 1.0).
+    These are reference-taxon populations, not exact study-stock assemblies or measured
+    abundance; no exact numerator is inferred from 0.94. Preserve canonical species
+    labels, SaPI1/SaOA1/SaNL1 stock notes, Leifsonia'"'"'s null/UNRESOLVED result,
+    all source quotations and every biological field. Native label differences are
+    database correspondences, not formal stock renaming. Only three GTDB blocks/statuses
+    and two native inline events changed. Issue 2891 remains an explicit scientific
+    blocker for the stored interaction types, member cross-feeding roles and directed
+    host-mediator claims; this correction neither changes nor approves those claims.
+    The pinned crosswalk'"'"'s upstream release is unestablished. This bounded technical
+    correction does not complete scientific review or corpus QC. Actual apply receipt
+    .temp/gtdb-species-fourth-batch-20261115/476-applied-001/receipt.json sha256:44d07e4e2da3ce0bae0fefd5e641d916733f4da909ecd1c04c98d644693755c0.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000476-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000476
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000476-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000476-schema
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-schema-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-strict
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-strict-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-gtdb
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-domain
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-domain-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-scalars
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-scalars-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-history-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-new-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-new-history-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-terms
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-run-terms-001/native.log
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000476-paper
+  kind: primary_source
+  reference: references_cache/PMID_42043130.txt
+  locator: Retained Methods 2.2 at line 27, Table 1 at line 101; exact primary_contexts
+    offsets 12442, 45400, 45479. Methods 2.3 and 2.5-2.7 provide whole-inoculum host-assay
+    context.
+  support: supports
+  summary: The retained primary identifies the four SynCom-NS species and SaPI1/SaOA1/SaNL1
+    stocks, with individual IAA/ACC-deaminase/Cd-resistance traits and a whole-inoculum
+    plant comparison. It provides source identity/context rather than an exact study-stock
+    genome or proof of member cross-feeding and host-mediator necessity.
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+- evidence_id: 000476-database
+  kind: database
+  reference: reports/gtdb-species-fourth-batch-20261115/476-source-evidence-001.json
+  locator: 'Selected taxonomy indices 0, 2, 3: full native_result and exact_ncbi_id
+    indexes/rows; captured local ncbi_identity_rows and source/crosswalk hashes.'
+  support: supports
+  summary: Read-only NCBI authority rows confirm the three current labels at species
+    rank. Native exact-ID routes reproduce GTDB Pseudomonas_E izuensis (5 genomes,
+    fraction 1.0), Ochrobactrum anthropi (100, 0.94) and Novosphingobium lindaniclasticum
+    (2, 1.0). The species-reference support does not assign study assemblies or infer
+    a rounded-fraction numerator.
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+- evidence_id: 000476-application
+  kind: record_content
+  reference: .temp/gtdb-species-fourth-batch-20261115/476-applied-001/receipt.json
+  locator: Actual applied flag, execution_revision, before/after hashes, reviewed
+    stage receipt and captured inputs; native history sidecar bound separately.
+  support: supports
+  summary: The actual guarded writer on M5 at 14d95aa2 persisted exact bf415e33 after
+    independent review. Only three GTDB blocks/statuses and two native inline events
+    changed semantically; Leifsonia's status only moved in serialization. A separately
+    persisted native history sidecar identifies the exact application receipt and
+    retained scientific issue 2891.
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+- evidence_id: 000476-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  locator: Immutable CommunityMech:000476 row, three retained nodes/two arrows, original
+    record hash and prior CURATE_CAUSAL_GRAPH event.
+  support: context_only
+  summary: The original batch 133 row and its biological predicates remain preserved.
+    Their existence is not new scientific support for the interaction types or mediation;
+    issue 2891 records the bounded source gap separately. Future strict admission
+    must retain existing 472/474/475/477/481 successors and all current scientific
+    checks.
+  accessed_at: '2026-11-15T11:20:09.378162Z'
+assessments:
+- assessment_id: 000476-source
+  area: grounding
+  topic: Preserved SynCom-NS source stocks and host assay boundary
+  outcome: supported
+  target_ids:
+  - CommunityMech:000476
+  evidence_ids:
+  - 000476-paper
+  - 000476-database
+  - 000476-terms
+  - 000476-prior
+  summary: Preserve the source's four-member SynCom and the three selected species/stock
+    notes without inventing structured strain or assembly fields. SaPI1, SaOA1 and
+    SaNL1 remain source identities; Leifsonia remains unresolved. The inspected host
+    treatment context does not close scientific issue 2891 or approve reciprocal benefit,
+    feeding or causal mediation.
+- assessment_id: 000476-population
+  area: grounding
+  topic: Three exact native species-ID reference populations
+  outcome: supported
+  target_ids:
+  - CommunityMech:000476
+  evidence_ids:
+  - 000476-database
+  - 000476-gtdb
+  - 000476-domain
+  summary: The pinned full crosswalk and native resolver support the three encoded
+    reference-taxon correspondences with populations 5, 100 and 2 and fractions 1.0,
+    0.94 and 1.0 respectively. Retain rounded-fraction and study-stock limits. Pseudomonas_E
+    and Brucella/Ochrobactrum label differences are not formal renaming; the crosswalk
+    release remains unestablished.
+- assessment_id: 000476-provenance
+  area: provenance
+  topic: Actual bounded persistence and retained biological findings
+  outcome: supported
+  target_ids:
+  - CommunityMech:000476
+  evidence_ids:
+  - 000476-application
+  - 000476-schema
+  - 000476-strict
+  - 000476-scalars
+  - 000476-new-history
+  - 000476-history
+  - 000476-prior
+  summary: Actual guarded application, one new native history sidecar and eight scoped
+    native commands bind the reviewed before/after bytes. All source quotations, previous
+    history, stock identities and biological fields remain unchanged. Strict historical
+    admission, source-snippet comparison, generated products, aggregate QC and scientific
+    issue 2891 remain separate work.
+findings: []
+actions: []
+limitations:
+- Partial technical and provenance diagnostic with scientific_review:false. Native
+  validator success is not full scientific approval, source-snippet certification,
+  aggregate QC completion or closure of unrelated source findings.
+- Primary coverage is the retained Methods 2.2-2.3, Table 1 stock roster and bounded
+  host endpoint/Methods 2.5-2.7 context for PMID:42043130. This pass did not reacquire
+  the article, inspect figure pixels, query sequence archives or exhaustively audit
+  every scientific claim.
+- The three correspondences describe species-ID reference populations. Five, 100 and
+  two genomes do not establish assemblies for SaPI1, SaOA1 or SaNL1 or measure their
+  abundance in the inoculum/host. No exact numerator is inferred from rounded 0.94.
+  The source stock names remain in notes; absent structured strain fields are not
+  filled.
+- Pseudomonas_E and the Brucella/Ochrobactrum label difference are database observations.
+  Native is_reclassified:true is not a formal nomenclatural ruling or study-stock
+  reidentification. The current NCBI labels and primary-source synonym wording remain
+  intact.
+- Leifsonia shinshuensis (NCBITaxon:150026) remains native-null and UNRESOLVED. Equal-volume
+  standardized inoculation, individual physiological traits and host responses do
+  not newly establish viable-stock persistence, member abundance or reciprocal microbial
+  benefit.
+- 'Issue 2891 remains unresolved: the inspected whole-inoculum plant comparison, host
+  biochemistry, transcriptomics and qPCR do not themselves establish the stored MUTUALISM/SYNTROPHY,
+  all-member cross-feeding roles or directed GSH/HMA4 mediation. Those biological
+  fields remain unchanged in this taxonomy-only correction; full relevant primary-source
+  verification and a separate scientific disposition are still required.'
+- The crosswalk SHA256 binds exact bytes but does not establish its upstream release
+  or chronology. Native mapping_source reports file mtime only. Local NCBI authority
+  rows retain file-stat provenance rather than a full database hash/release certification.
+- Local source preparation ran at 85d582fa with Python 3.13.12; actual M5 staging/application/checks
+  ran at 14d95aa224ca0968a5008fb2b07b9500ce30f5bc with Python 3.13.2. Those executions
+  retain their actual revisions and runtimes. The local/M5 candidate difference was
+  only the two native event timestamps, independently reviewed before application.
+- The initial local offline install refused the nonexistent dev dependency group before
+  installation; the native --extra dev path passed. Automatic review initially refused
+  preparation publication, then accepted the same direct push after existing public-source
+  and payload checks; no alternative publication route was used. These events are
+  not validator passes.
+- The eight required commands are native history scaffolding and seven scoped validators.
+  Source-snippet comparison, generated products, strict batch 133 successor admission
+  and combined QC remain separate evidence requirements. Preserve every immutable
+  old ledger/review and existing batch 133 successor while adding only an explicit
+  476 admission.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2891
+- https://github.com/CultureBotAI/CommunityMech/issues/2032
+- https://github.com/CultureBotAI/CommunityMech/pull/2893
+```
