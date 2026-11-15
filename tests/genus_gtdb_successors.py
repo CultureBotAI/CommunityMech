@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-410-001-successor.json",
+            "sha256": "a1b18aba24732dc079afcd37a745c3a7a78b352ed1f8971174fd275b522b7251",
+        },
+    },
     "kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml": {
         "baseline_revision": BASE,
         "manifest": {

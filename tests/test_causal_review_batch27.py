@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -124,7 +125,11 @@ def test_batch27_accounts_for_every_node_arrow_history_and_source_limit():
             assert latest["original_sha256"] == row["record_sha256"]
         assert (
             hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
-            == admission(ROOT, row["path"], latest["record_sha256"]).current_sha256
+            == (
+                admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
+                if row["id"] == "CommunityMech:000410"
+                else admission(ROOT, row["path"], latest["record_sha256"])
+            ).current_sha256
         )
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(names)
