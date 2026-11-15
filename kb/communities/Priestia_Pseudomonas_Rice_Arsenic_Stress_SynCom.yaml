@@ -56,7 +56,16 @@ taxonomy:
     term:
       id: NCBITaxon:86664
       label: Priestia flexa
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Priestia_flexa
+      gtdb_taxon: Priestia flexa
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_H;g__Priestia;s__Priestia flexa
+      ncbi_source_id: NCBITaxon:86664
+      majority_fraction: 0.91
+      total_genomes: 46
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
   abundance_level: DOMINANT
   evidence:
   - reference: PMID:42691895
@@ -252,3 +261,11 @@ curation_history:
   changes: 'Preserve reduced arsenic and qualify transporter mediation.; Preserve host physiology without unsupported
     mutualism or new direction. Issue #1720; reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T08:40:22Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:40:23Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
