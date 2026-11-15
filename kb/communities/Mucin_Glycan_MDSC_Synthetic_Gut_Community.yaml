@@ -377,9 +377,20 @@ taxonomy:
       label: Faecalibacterium duncaniae
     gtdb_grounding_status: UNRESOLVED
     notes: >-
-      NCBI species identity verified under the current name Faecalibacterium
-      duncaniae; the source notes that this strain was previously named
-      Faecalibacterium prausnitzii.
+      The primary study names Faecalibacterium duncaniae DSM 17677T and explicitly notes its former name
+      Faecalibacterium prausnitzii. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference
+      correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the
+      exact NCBITaxon:411483 descriptor row to GTDB Faecalibacterium duncaniae, with 5,099 reference genomes
+      and stored majority fraction 1.0. That crosswalk's GTDB release is not established. The independently
+      verified official R232 NCBI-versus-GTDB workbook (SHA-256
+      e401d80c914c727268c184d19201aa35dcd23aabfd027a0d6e5a57476e71f3de), Species worksheet, has no exact
+      NCBI-name row under Faecalibacterium duncaniae; the name occurs in the GTDB result column of five
+      different NCBI-name rows. This is not absence of the GTDB species. Row136's historical-name
+      Faecalibacterium prausnitzii population has 948 genomes and 57 GTDB clusters, including F.duncaniae
+      at8.65%, and must not replace the current descriptor's population. These reference populations neither
+      establish the experimental DSM17677T genome's GTDB assignment nor revise the source's stock identity.
+      The original curation event remains a historical record of its earlier disposition, not a new
+      current-source assertion.
   strain_designation:
     strain_name: DSM 17677T
     culture_collections:
@@ -472,8 +483,20 @@ taxonomy:
     - GTDB:s__Lachnospira_sp963590775
     - GTDB:s__Anaerotignum_A_faecicola
     notes: >-
-      NCBI species identity verified by exact Taxonomy search; GTDB R232 splits
-      the NCBI species across six species clusters, with no majority cluster.
+      The primary study names Desulfovibrio piger DSM 749T as an MDSC member. Separately, the pinned
+      kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the encoded species
+      descriptor through the NCBI-name route to GTDB Desulfovibrio piger, with 156 reference genomes and
+      stored majority fraction 1.0; no exact NCBITaxon:901 row occurs in that crosswalk. Its GTDB release is
+      not established. The independently verified official R232 NCBI-versus-GTDB workbook (SHA-256
+      e401d80c914c727268c184d19201aa35dcd23aabfd027a0d6e5a57476e71f3de), Species worksheet row544, describes a
+      different NCBI-name population: 76 genomes across six GTDB clusters. The unnamed Desulfovibrio
+      sp900556755 cluster has57.89%, named D.piger22.37%, D.piger_A15.79%, and three other clusters1.32% each.
+      Thus that R232 population has a majority cluster; the earlier no-majority wording was inaccurate. The
+      two source populations must not be pooled or described as older/newer without a verified release
+      relationship. Neither population identifies DSM749T's experimental genome or justifies assigning that
+      stock to the unnamed R232 majority. Source stock identity and the original historical curation event
+      remain preserved.
   strain_designation:
     strain_name: DSM 749T
     culture_collections:
@@ -791,4 +814,15 @@ curation_history:
   changes: 'Retain causal substrate response; qualify composition-to-degradation mediation.; Preserve O-glycan versus
     N-glycan and residual-added-glycan distinctions without claiming resolved cross-feeding.; Retain measured metabolite
     profiles and prior analyte fix; pool changes are not transfer flux. Issue #1623; reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml'
+  llm_assisted: true
+- timestamp: '2026-11-15T10:23:53Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: 'Clarified two source-population notes using the separately verified official R232 workbook and pinned
+    native crosswalk (#2877, #2848). R232''s D.piger population has a majority unnamed cluster, while no exact current-name
+    F.duncaniae NCBI row occurs in that worksheet. The native descriptor routes are a separate source with unestablished
+    release; neither route identifies experimental stock genomes. This note-only intermediate preserves current
+    statuses/candidates, four manually curated R232 blocks and all biological/history content, including the original
+    FIX_MDSC_GTDB_GROUNDINGS event. Separate native mapping and strict composite proof remain pending; no whole-record
+    scientific approval is asserted.'
   llm_assisted: true
