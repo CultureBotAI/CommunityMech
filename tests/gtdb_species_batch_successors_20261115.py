@@ -22,6 +22,13 @@ ALLOWANCES = {
             "sha256": "c7c401aa9c4ac9d4bb67ba359297b896ffe8afeee99ee30ab555f5027f4c8833",
         },
     },
+    "kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-nine-347-003-successor.json",
+            "sha256": "7d04740e4d7804b150dd8bd1fbd3ece154c434dc62cefffc17e52d5fa18afb7a",
+        },
+    },
     "kb/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {
