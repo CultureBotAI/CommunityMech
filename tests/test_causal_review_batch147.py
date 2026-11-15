@@ -9,9 +9,20 @@ from pathlib import Path
 import batch147_genus_successor as genus_successor
 import batch147_species_successor as species_successor
 import pytest
+import scoped_gtdb_successor as shared_successor
 import yaml
 
+SHARED_ALLOWANCES = {
+    "data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/yljm2c-001-successor.json",
+            "sha256": "606093a26fbbcbbfb03e1992f971507f2bc06a591cf9747eca1476234afe4a11",
+        },
+    }
+}
 assert not set(genus_successor.TARGETS) & set(species_successor.TARGETS)
+assert not set(SHARED_ALLOWANCES) & (set(genus_successor.TARGETS) | set(species_successor.TARGETS))
 
 
 def current_record_sha256(root, path, predecessor_hash, **kwargs):
@@ -19,6 +30,10 @@ def current_record_sha256(root, path, predecessor_hash, **kwargs):
         return genus_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
     if path in species_successor.TARGETS:
         return species_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
+    if path in SHARED_ALLOWANCES:
+        return shared_successor.current_record_sha256(
+            root, path, predecessor_hash, SHARED_ALLOWANCES, **kwargs
+        )
     raw = kwargs.get("current")
     if raw is None:
         raw = (root / path).read_bytes()
@@ -32,6 +47,13 @@ def historical_bytes(root, path):
         return genus_successor.historical_bytes(root, path)
     if path in species_successor.TARGETS:
         return species_successor.historical_bytes(root, path)
+    if path in SHARED_ALLOWANCES:
+        predecessor = next(
+            row["record_sha256"]
+            for row in EXPECTED_BATCH147_RECORDS.values()
+            if row["path"] == path
+        )
+        return shared_successor.admit(root, path, predecessor, SHARED_ALLOWANCES).historical_bytes
     return (root / path).read_bytes()
 
 
