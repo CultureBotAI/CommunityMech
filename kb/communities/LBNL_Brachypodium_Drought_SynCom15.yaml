@@ -1,62 +1,820 @@
 id: CommunityMech:000088
 name: LBNL Brachypodium Drought SynCom15
-description: A stable 15-member Brachypodium rhizosphere SynCom constructed with network and cultivation-guided
-  methods to promote drought resilience.
+description: The defined 15-stock bacterial inoculum assembled from Brachypodium rhizobiome isolates. In plant
+  experiments it improved measured growth endpoints after drought followed by rewatering; sustained drought did
+  not show those improvements. The administered SynCom is not the complete observed root microbiome, which also
+  contained other bacteria. Liquid-culture persistence was unequal.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: Construct a stable trait-informed bacterial SynCom that improves Brachypodium performance
-    under drought stress.
-  assembly_strategy: Network analysis and cultivation-guided selection of 15 rhizobiome strains spanning
-    five bacterial phyla.
-  perturbation_design: Drought stress and in vitro versus in planta stability testing.
+  objective: Test a network- and cultivation-guided 15-stock bacterial inoculum for persistence and effects on
+    Brachypodium under drought, rewatering and salinity.
+  assembly_strategy: Network analysis and cultivation-guided selection of 15 rhizobiome strains spanning five
+    bacterial phyla.
+  perturbation_design: Separate three-week weekly-transfer liquid assay and host control/drought/rewatered-drought/salinity
+    arms with SynCom or buffer.
   measurement_endpoints:
   - SynCom stability
   - plant recovery from drought
   - root-tip colonization
   - plant growth-promoting traits
   evidence:
-  - &id001
-    reference: PMID:40862137
+  - reference: PMID:40862137
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Here, we present a systematic approach using a combination of network analysis and cultivation-guided
       methods to construct a 15-member SynCom from the rhizobiome of Brachypodium distachyon.
     explanation: Supports the defined synthetic community design and represented community context.
+  inoculation_strategy: 'Distinct preparations: 5 mL liquid-assay inoculum contained 4x10^7 cells of each member
+    and was added to 45 mL 0.2X MS. For plant experiments, individual suspensions were adjusted to 4.1x10^7 cells
+    before final inoculum preparation; plants received 1 mL of mixed inoculum in 30 mM phosphate buffer. The preparation
+    count is not asserted as cells/mL or a per-plant dose.'
 environment_term:
-  preferred_term: rhizosphere
+  preferred_term: laboratory environment
   term:
-    id: ENVO:00005801
-    label: rhizosphere
-  notes: Fifteen-member Brachypodium distachyon rhizobiome SynCom tested under drought stress.
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Physical setting of chamber-grown liquid cultures and potted Brachypodium in autoclaved calcined clay;
+    original rhizobiome provenance is not the liquid assay substrate.
 taxonomy:
-- taxon_term:
-    preferred_term: Brachypodium rhizobiome bacteria
+- member_id: rcc-10
+  taxon_term:
+    preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+    notes: 'Source Table S1 Table S1!A3:J3; exact sequence-record taxon verified through BioSample SAMN42017412
+      with sample name Isolate Caballeronia, stock RCC_10, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:1827195
+      Caballeronia. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Caballeronia;s__Caballeronia
+      grimmiae; not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-10
+    genome_accession: GCA_041360715.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360715.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017412
+      independently links RCC_10 to sample name Isolate Caballeronia, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
   evidence:
-  - *id001
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Caballeronia sp. RCC-10
+    explanation: Table S1 Table S1!A3:J3 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017412 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-12
+  taxon_term:
+    preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+    notes: 'Source Table S1 Table S1!A4:J4; exact sequence-record taxon verified through BioSample SAMN42017413
+      with sample name Isolate Chitinophaga, stock RCC_12, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:79328
+      Chitinophaga. Source GTDB-tk analysis: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Chitinophaga;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-12
+    genome_accession: GCA_041360695.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360695.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017413
+      independently links RCC_12 to sample name Isolate Chitinophaga, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chitinophaga sp. RCC-12
+    explanation: Table S1 Table S1!A4:J4 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017413 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+  - treatment_arm_id: liquid-ms
+    timepoint_id: week-three
+    replicate: reported mean of the two liquid replicates
+    measurement_basis: 16S rRNA amplicon relative abundance; not absolute viable abundance
+    relative_abundance: 8.0
+    relative_abundance_unit: PERCENT
+    description: Rounded mean reported in Results and Figure 3; individual replicate values were not digitized
+      from bars.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: average relative abundance of 60, 26 and 8%
+      explanation: 'Results/SynCom persistence and growth: respectively MA-N2 RCC-150, Paraburkholderia RCC-158
+        and Chitinophaga RCC-12 at week 3.'
+- member_id: rcc-150
+  taxon_term:
+    preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+    notes: 'Source Table S1 Table S1!A5:J5; exact sequence-record taxon verified through BioSample SAMN42017417
+      with sample name Isolate MA-N2, stock RCC_150, host and project PRJNA1127609. NCBI species rank here is
+      a sequence taxon, not formal biological species delineation. Separately verified family context: NCBITaxon:1268
+      Micrococcaceae. Source GTDB-tk analysis: d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Micrococcaceae;g__MA-N2;s__;
+      not a current crosswalk or reanalysis of the linked assembly. MA-N2 is the source GTDB genus label. Table
+      S1!I5 attributes this stock to Micrococcaceae but leaves SILVA genus empty. NCBITaxon:3239231 is bacterium
+      RCC_150 under unclassified Bacteria; the source family classification is not asserted as the NCBI lineage.
+      Biological genus/species remain unresolved; no inferred alias.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-150
+    genome_accession: GCA_041360635.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360635.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017417
+      independently links RCC_150 to sample name Isolate MA-N2, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MA-N2 sp. RCC-150
+    explanation: Table S1 Table S1!A5:J5 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017417 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+  - treatment_arm_id: liquid-ms
+    timepoint_id: week-three
+    replicate: reported mean of the two liquid replicates
+    measurement_basis: 16S rRNA amplicon relative abundance; not absolute viable abundance
+    relative_abundance: 60.0
+    relative_abundance_unit: PERCENT
+    description: Rounded mean reported in Results and Figure 3; individual replicate values were not digitized
+      from bars.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: average relative abundance of 60, 26 and 8%
+      explanation: 'Results/SynCom persistence and growth: respectively MA-N2 RCC-150, Paraburkholderia RCC-158
+        and Chitinophaga RCC-12 at week 3.'
+- member_id: rcc-158
+  taxon_term:
+    preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+    notes: 'Source Table S1 Table S1!A6:J6; exact sequence-record taxon verified through BioSample SAMN42017420
+      with sample name Isolate Paraburkholderia, stock RCC_158, host and project PRJNA1127609. NCBI species rank
+      here is a sequence taxon, not formal biological species delineation. Separately verified genus context:
+      NCBITaxon:1822464 Paraburkholderia. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia;s__Paraburkholderia
+      graminis; not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-158
+    genome_accession: GCA_041355255.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355255.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017420
+      independently links RCC_158 to sample name Isolate Paraburkholderia, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Paraburkholderia sp. RCC-158
+    explanation: Table S1 Table S1!A6:J6 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017420 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+  - treatment_arm_id: liquid-ms
+    timepoint_id: week-three
+    replicate: reported mean of the two liquid replicates
+    measurement_basis: 16S rRNA amplicon relative abundance; not absolute viable abundance
+    relative_abundance: 26.0
+    relative_abundance_unit: PERCENT
+    description: Rounded mean reported in Results and Figure 3; individual replicate values were not digitized
+      from bars.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: average relative abundance of 60, 26 and 8%
+      explanation: 'Results/SynCom persistence and growth: respectively MA-N2 RCC-150, Paraburkholderia RCC-158
+        and Chitinophaga RCC-12 at week 3.'
+- member_id: rcc-161-2
+  taxon_term:
+    preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+    notes: 'Source Table S1 Table S1!A7:J7; exact sequence-record taxon verified through BioSample SAMN42017421
+      with sample name Isolate Rhizobium, stock RCC_161_2, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:379
+      Rhizobium. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Rhizobium;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-161.2
+    genome_accession: GCA_041355235.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355235.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017421
+      independently links RCC_161_2 to sample name Isolate Rhizobium, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhizobium sp. RCC-161.2
+    explanation: Table S1 Table S1!A7:J7 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017421 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-168
+  taxon_term:
+    preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+    notes: 'Source Table S1 Table S1!A8:J8; exact sequence-record taxon verified through BioSample SAMN42017419
+      with sample name Isolate Mucilaginibacter, stock RCC_168, host and project PRJNA1127609. NCBI species rank
+      here is a sequence taxon, not formal biological species delineation. Separately verified genus context:
+      NCBITaxon:423349 Mucilaginibacter. Source GTDB-tk analysis: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Sphingobacteriales;f__Sphingobacteriaceae;g__Mucilaginibacter;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-168
+    genome_accession: GCA_041355315.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355315.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017419
+      independently links RCC_168 to sample name Isolate Mucilaginibacter, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mucilaginibacter sp. RCC-168
+    explanation: Table S1 Table S1!A8:J8 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017419 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-180
+  taxon_term:
+    preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+    notes: 'Source Table S1 Table S1!A9:J9; exact sequence-record taxon verified through BioSample SAMN42017415
+      with sample name Isolate Leifsonia, stock RCC_180, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:110932
+      Leifsonia. Source GTDB-tk analysis: d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Microbacteriaceae;g__Leifsonia;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-180
+    genome_accession: GCA_058138205.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_058138205.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017415
+      independently links RCC_180 to sample name Isolate Leifsonia, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Leifsonia sp. RCC-180
+    explanation: Table S1 Table S1!A9:J9 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017415 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-193
+  taxon_term:
+    preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+    notes: 'Source Table S1 Table S1!A10:J10; exact sequence-record taxon verified through BioSample SAMN42017422
+      with sample name Isolate Terriglobus, stock RCC_193, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:392733
+      Terriglobus. Source GTDB-tk analysis: d__Bacteria;p__Acidobacteriota;c__Acidobacteriae;o__Acidobacteriales;f__Acidobacteriaceae;g__Terriglobus;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-193
+    genome_accession: GCA_041355105.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355105.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017422
+      independently links RCC_193 to sample name Isolate Terriglobus, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Terriglobus sp. RCC-193
+    explanation: Table S1 Table S1!A10:J10 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017422 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-202
+  taxon_term:
+    preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+    notes: 'Source Table S1 Table S1!A11:J11; exact sequence-record taxon verified through BioSample SAMN42017418
+      with sample name Isolate Mesorhizobium, stock RCC_202, host and project PRJNA1127609. NCBI species rank
+      here is a sequence taxon, not formal biological species delineation. Separately verified genus context:
+      NCBITaxon:68287 Mesorhizobium. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Mesorhizobium;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-202
+    genome_accession: GCA_041355295.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355295.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017418
+      independently links RCC_202 to sample name Isolate Mesorhizobium, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mesorhizobium sp. RCC-202
+    explanation: Table S1 Table S1!A11:J11 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017418 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-210
+  taxon_term:
+    preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+    notes: 'Source Table S1 Table S1!A12:J12; exact sequence-record taxon verified through BioSample SAMN42017423
+      with sample name Isolate Variovorax, stock RCC_210, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:34072
+      Variovorax. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Variovorax;s__Variovorax
+      sp003096925; not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-210
+    genome_accession: GCA_041355175.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355175.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017423
+      independently links RCC_210 to sample name Isolate Variovorax, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Variovorax sp. RCC-210
+    explanation: Table S1 Table S1!A12:J12 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017423 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-34
+  taxon_term:
+    preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+    notes: 'Source Table S1 Table S1!A13:J13; exact sequence-record taxon verified through BioSample SAMN42017409
+      with sample name Isolate Arthrobacter, stock RCC_34, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:1663
+      Arthrobacter. Source GTDB-tk analysis: d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Micrococcaceae;g__Arthrobacter_E;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-34
+    genome_accession: GCA_041360795.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360795.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017409
+      independently links RCC_34 to sample name Isolate Arthrobacter, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Arthrobacter sp. RCC-34
+    explanation: Table S1 Table S1!A13:J13 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017409 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-40
+  taxon_term:
+    preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+    notes: 'Source Table S1 Table S1!A14:J14; exact sequence-record taxon verified through BioSample SAMN42017414
+      with sample name Isolate Enterobacter, stock RCC_40, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:547
+      Enterobacter. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__Enterobacter
+      ludwigii; not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-40
+    genome_accession: GCA_041360735.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360735.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017414
+      independently links RCC_40 to sample name Isolate Enterobacter, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enterobacter sp. RCC-40
+    explanation: Table S1 Table S1!A14:J14 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017414 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-6-2
+  taxon_term:
+    preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+    notes: 'Source Table S1 Table S1!A15:J15; exact sequence-record taxon verified through BioSample SAMN42017416
+      with sample name Isolate Luteibacter, stock RCC_6_2, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:242605
+      Luteibacter. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Luteibacter;s__;
+      not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-6.2
+    genome_accession: GCA_041360655.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360655.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017416
+      independently links RCC_6_2 to sample name Isolate Luteibacter, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Luteibacter sp. RCC-6.2
+    explanation: Table S1 Table S1!A15:J15 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017416 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-6-1
+  taxon_term:
+    preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+    notes: 'Source Table S1 Table S1!A16:J16; exact sequence-record taxon verified through BioSample SAMN42017410
+      with sample name Isolate Bacillus, stock RCC_6_1, host and project PRJNA1127609. NCBI species rank here
+      is a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:1386
+      Bacillus <firmicutes>. Source GTDB-tk analysis: d__Bacteria;p__Firmicutes;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A
+      bombysepticus; not a current crosswalk or reanalysis of the linked assembly.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-6.1
+    genome_accession: GCA_041360755.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360755.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017410
+      independently links RCC_6_1 to sample name Isolate Bacillus, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus sp. RCC-6.1
+    explanation: Table S1 Table S1!A16:J16 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017410 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
+- member_id: rcc-152-1
+  taxon_term:
+    preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
+    notes: 'Source Table S1 Table S1!A17:J17; exact sequence-record taxon verified through BioSample SAMN42017411
+      with sample name Isolate Bosea, stock RCC_152_1, host and project PRJNA1127609. NCBI species rank here is
+      a sequence taxon, not formal biological species delineation. Separately verified genus context: NCBITaxon:85413
+      Allobosea. Source GTDB-tk analysis: d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Bosea;s__Bosea
+      vestrisii; not a current crosswalk or reanalysis of the linked assembly. The source names bacterial Bosea;
+      the linked sample''s sequence taxon is Allobosea sp. RCC_152_1. Native Allobosea85413 records synonym Bosea
+      Das et al. 1996 and Bacteria ancestry; unrelated plant homonym Bosea169215 is excluded.'
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: RCC-152.1
+    genome_accession: GCA_041360765.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360765.1/
+    isolation_source: Brachypodium rhizobiome enrichment collection described in Methods/Microbial isolation and
+      identification.
+    notes: Exact paper stock name preserved. Primary BioSample https://www.ncbi.nlm.nih.gov/biosample/SAMN42017411
+      independently links RCC_152_1 to sample name Isolate Bosea, Brachypodium host and the paper's BioProject;
+      linkage is not based on punctuation alone. Assembly is the current project-linked accession verified 2026-11-15,
+      not necessarily the version used in 2025 (particularly Leifsonia RCC-180). Figure 2 closest-reference genomes
+      are not copied to this stock.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bosea sp. RCC-152.1
+    explanation: Table S1 Table S1!A17:J17 lists the stock and source classifications; main tables/figures also
+      name it. This quotation supports the paper stock name. Current taxon/assembly identity is separately supported
+      by BioSample SAMN42017411 and its linked BioProject, as recorded in strain_designation notes; those accessions
+      are not claimed to appear in this paper quotation.
+  abundance_observations:
+  - treatment_arm_id: liquid-ms
+    timepoint_id: inoculum
+    measurement_basis: source-reported cell count in the 5 mL starting inoculum; not a concentration, viable count
+      or 16S read fraction
+    absolute_abundance: 40000000.0
+    absolute_abundance_unit: cells per member in the starting 5 mL inoculum
+    description: Methods reports equal 4x10^7 cells of each member for the liquid assay. This is distinct from
+      the 4.1x10^7 preparation count for plant inoculation.
+    evidence:
+    - reference: PMID:40862137
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: containing equal cell numbers
+      explanation: Methods/Testing the persistence of the SynCom in vitro gives the 4x10^7 cell count in the 5
+        mL inoculum; no concentration conversion is made.
 ecological_interactions:
 - name: Genomic Osmoprotectant and Ion-Transport Prediction
   description: Genome annotations of individual members predict osmoprotectant and ion-transport potential, including
     trehalose/betaine-related genes. PARTIAL - gene presence does not establish expression, synthesis, secretion,
-    transfer to Brachypodium or necessary mediation of drought recovery. This is member functional potential, not
-    demonstrated interstrain cross-feeding.
+    transfer to Brachypodium or necessary mediation of drought recovery. This is member functional potential,
+    not demonstrated interstrain cross-feeding. The panel comprises all 15 sequenced isolates; individual genes
+    and positive traits differ by strain (Table 1), so no trait is assigned uniformly to every member.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: trehalose
@@ -69,16 +827,12 @@ ecological_interactions:
       id: CHEBI:17750
       label: glycine betaine
     notes: Contextual genome-predicted osmoprotectant potential, not measured transfer or host delivery.
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Genomic analysis of the individual strains was performed to reveal encoded plant growth-promoting traits
+    snippet: Genomic analysis of the individual strains was performed to reveal encoded plant growth-promoting
+      traits
     explanation: Supports encoded functional potential; no expression, flux or necessary host-protection mechanism
       is established.
   - reference: PMID:40862137
@@ -88,45 +842,148 @@ ecological_interactions:
     explanation: Supports encoded functional potential; no expression, flux or necessary host-protection mechanism
       is established.
   participating_taxa:
-  - preferred_term: Brachypodium rhizobiome bacteria
+  - preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+  - preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+  - preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+  - preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+  - preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+  - preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+  - preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+  - preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+  - preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+  - preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+  - preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+  - preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+  - preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+  - preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+  - preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
 - name: Member-Level PGP Phenotypes
   description: Individual SynCom isolates showed positive results in selected plant-growth-promoting trait assays,
     including colorimetric and substrate-depletion readouts. These are member-level phenotypes, not direct community
     flux measurements. PARTIAL - their contribution to plant recovery, and the roles of specific metabolites or
-    enzymes in planta, were not selectively established.
+    enzymes in planta, were not selectively established. Table 2 reports strain-specific assay outcomes; inclusion
+    in the screened panel does not mean every member was positive for each trait.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: some predicted traits were validated by laboratory phenotypic assays
-    explanation: Supports positive isolate-level phenotypic assays, not validation of every genomic prediction or
-      a necessary plant-benefit mediator.
+    explanation: Supports positive isolate-level phenotypic assays, not validation of every genomic prediction
+      or a necessary plant-benefit mediator.
   participating_taxa:
-  - preferred_term: Brachypodium rhizobiome bacteria
+  - preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+  - preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+  - preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+  - preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+  - preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+  - preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+  - preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+  - preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+  - preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+  - preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+  - preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+  - preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+  - preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+  - preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+  - preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
 - name: Host-Associated Persistence Compared With Liquid Culture
   description: The 15-member inoculum showed more balanced 16S relative profiles with Brachypodium than in liquid
-    culture. In the three-week weekly-transfer 0.2X MS experiment, six strains were undetectable or below 0.1% relative
-    abundance; three taxa dominated. Plant experiments reported persistence of members, with unequal abundances.
-    These sequencing observations do not establish equal stability of all 15 strains in vitro, absolute viable counts
-    or reciprocal mutualism.
+    culture. In the three-week weekly-transfer 0.2X MS experiment, six strains were undetectable or below 0.1%
+    relative abundance; three taxa dominated. Plant experiments reported persistence of members, with unequal
+    abundances. These sequencing observations do not establish equal stability of all 15 strains in vitro, absolute
+    viable counts or reciprocal mutualism.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
@@ -138,13 +995,75 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: six of the 15 strains were undetectable or had a relative abundance below 0.1% after 3 weeks
-    explanation: 'Direct Results qualification of the broad stability abstract: six strains were undetectable or
-      below 0.1% after three weeks in vitro.'
+    explanation: 'Direct Results qualification of the broad stability abstract: six strains were undetectable
+      or below 0.1% after three weeks in vitro.'
   participating_taxa:
-  - preferred_term: Brachypodium rhizobiome bacteria
+  - preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+  - preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+  - preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+  - preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+  - preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+  - preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+  - preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+  - preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+  - preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+  - preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+  - preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+  - preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+  - preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+  - preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+  - preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
+  treatment_arm_ids:
+  - liquid-ms
+  - host-control-syncom
+  - host-drought-syncom
+  - host-rewatered-syncom
+  - host-salinity-syncom
 - name: Brachypodium Drought Recovery Promotion
   description: SynCom-amended Brachypodium showed better shoot weight, shoot height, root length and leaf-number
     outcomes after drought followed by rewatering than unamended plants. The Results report no significant differences
@@ -164,22 +1083,78 @@ ecological_interactions:
     explanation: Supports positive whole-plant recovery after rewatering, not significant improvement during sustained
       drought or demonstrated gene/metabolite mediation.
   participating_taxa:
-  - preferred_term: Brachypodium rhizobiome bacteria
+  - preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+  - preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+  - preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+  - preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+  - preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+  - preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+  - preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+  - preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+  - preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+  - preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+  - preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+  - preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+  - preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+  - preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+  - preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
+  treatment_arm_ids:
+  - host-rewatered-syncom
+  - host-rewatered-buffer
+  host_participation: HOST_IS_TARGET
 - name: Strain-Dependent Root Spatial Distribution
   description: After 21 days, 16S profiles differed between root tips and bases in a strain- and condition-dependent
     manner. MA-N2 sp. RCC-150 showed root-tip enrichment under drought and salt stress; some other strains were
     instead enriched at the base. HYPOTHESIZED - exudate-guided recruitment and metabolite return could contribute,
-    but isolate carbon-use assays and spatial relative abundance do not trace migration, exchange or selective mediation
-    of recovery.
+    but isolate carbon-use assays and spatial relative abundance do not trace migration, exchange or selective
+    mediation of recovery. The 15 entries identify the sequenced panel, not a uniform root-tip preference. No
+    movement of individually tracked cells was measured.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
     supports: PARTIAL
@@ -194,73 +1169,171 @@ ecological_interactions:
     explanation: Supports the observed spatial pattern and the source-proposed root-metabolite explanation; does
       not establish uniform tip preference, traced migration or metabolic exchange.
   participating_taxa:
-  - preferred_term: Brachypodium rhizobiome bacteria
+  - preferred_term: Caballeronia sp. RCC-10
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3239227
+      label: Caballeronia sp. RCC_10
+  - preferred_term: Chitinophaga sp. RCC-12
+    term:
+      id: NCBITaxon:3239226
+      label: Chitinophaga sp. RCC_12
+  - preferred_term: MA-N2 sp. RCC-150
+    term:
+      id: NCBITaxon:3239231
+      label: bacterium RCC_150
+  - preferred_term: Paraburkholderia sp. RCC-158
+    term:
+      id: NCBITaxon:3239220
+      label: Paraburkholderia sp. RCC_158
+  - preferred_term: Rhizobium sp. RCC-161.2
+    term:
+      id: NCBITaxon:3239219
+      label: Rhizobium sp. RCC_161_2
+  - preferred_term: Mucilaginibacter sp. RCC-168
+    term:
+      id: NCBITaxon:3239221
+      label: Mucilaginibacter sp. RCC_168
+  - preferred_term: Leifsonia sp. RCC-180
+    term:
+      id: NCBITaxon:3239224
+      label: Leifsonia sp. RCC_180
+  - preferred_term: Terriglobus sp. RCC-193
+    term:
+      id: NCBITaxon:3239218
+      label: Terriglobus sp. RCC_193
+  - preferred_term: Mesorhizobium sp. RCC-202
+    term:
+      id: NCBITaxon:3239222
+      label: Mesorhizobium sp. RCC_202
+  - preferred_term: Variovorax sp. RCC-210
+    term:
+      id: NCBITaxon:3239217
+      label: Variovorax sp. RCC_210
+  - preferred_term: Arthrobacter sp. RCC-34
+    term:
+      id: NCBITaxon:3239230
+      label: Arthrobacter sp. RCC_34
+  - preferred_term: Enterobacter sp. RCC-40
+    term:
+      id: NCBITaxon:3239225
+      label: Enterobacter sp. RCC_40
+  - preferred_term: Luteibacter sp. RCC-6.2
+    term:
+      id: NCBITaxon:3239223
+      label: Luteibacter sp. RCC_6_2
+  - preferred_term: Bacillus sp. RCC-6.1
+    term:
+      id: NCBITaxon:3239229
+      label: Bacillus sp. RCC_6_1
+  - preferred_term: Bosea sp. RCC-152.1
+    term:
+      id: NCBITaxon:3239228
+      label: Allobosea sp. RCC_152_1
+  treatment_arm_ids:
+  - host-control-syncom
+  - host-drought-syncom
+  - host-rewatered-syncom
+  - host-salinity-syncom
 environmental_factors:
-- name: defined synthetic community design
-  value: Network analysis and cultivation-guided selection of 15 rhizobiome strains spanning five bacterial
-    phyla.
-  description: Drought stress and in vitro versus in planta stability testing.
+- name: assay context
+  value: distinct liquid persistence and host stress/recovery experiments
+  description: Named treatment_arms preserve schedules and comparators; the host profiles include other bacteria
+    beyond the administered 15-stock SynCom.
   evidence:
-  - *id001
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: while all other bacterial groups are combined into the
+    explanation: Figures 4B and 5B captions identify the separate Others category; this record does not claim
+      complete observed root membership.
 related_ingredients:
 - preferred_term: trehalose
   chebi_term:
     id: CHEBI:27082
     label: trehalose
-  relevance: Osmoprotectant disaccharide whose biosynthesis genes were detected in SynCom-member
-    genomes — implicated in the Brachypodium drought-stress resilience the SynCom confers.
+  relevance: Genome-predicted osmoprotectant biosynthetic potential in the isolate panel. Production, transfer
+    to the host and necessary mediation of recovery were not established.
   evidence:
   - reference: PMID:40862137
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: Genomic analysis of the individual strains was performed to reveal encoded plant growth-promoting
       traits, including genes for the synthesis of osmoprotectants (trehalose and betaine)
-    explanation: Identifies trehalose biosynthesis as an encoded osmoprotectant trait of the SynCom
-      members.
+    explanation: Supports encoded biosynthetic potential only; the paper calls for gene-expression and metabolite-production
+      experiments.
 - preferred_term: glycine betaine
   chebi_term:
     id: CHEBI:17750
     label: glycine betaine
-  relevance: The second of two osmoprotectants whose biosynthesis genes are encoded by SynCom-member
-    genomes — contributes to SynCom-mediated drought tolerance in Brachypodium.
+  relevance: Genome-predicted osmoprotectant biosynthetic potential in the isolate panel. Production, transfer
+    to the host and necessary mediation of recovery were not established.
+  evidence:
+  - reference: PMID:40862137
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: encoded plant growth-promoting traits, including genes for the synthesis of osmoprotectants (trehalose
+      and betaine)
+    explanation: Supports encoded biosynthetic potential only; the paper calls for gene-expression and metabolite-production
+      experiments.
+growth_media:
+- name: 0.1X R2A or supplemented RCH2 agar for original isolation
+  temperature: '30'
+  temperature_unit: °C
+  incubation_time: '7'
+  incubation_time_unit: days
+  light_regime: dark
+  preparation_notes: Methods uses 0.1X R2A and RCH2 minimal medium supplemented with glutamine or mixed carbon
+    to recover colonies on corresponding agar plates. This is the original isolation stage, not the temperature
+    of later individual-isolate preparation.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: encoded plant growth-promoting traits, including genes for the synthesis of osmoprotectants
-      (trehalose and betaine)
-    explanation: Identifies glycine betaine biosynthesis as an encoded osmoprotectant trait of the SynCom
-      members.
-growth_media:
-- name: R2A (SynCom member cultivation); 0.2X MS for in-planta drought assay
+    evidence_source: IN_VITRO
+    snippet: 0.1X R2A
+    explanation: Methods/Microbial isolation and identification specifies corresponding agar plates at 30°C in
+      the dark for seven days.
+- name: R2A for individual-isolate inoculum preparation
+  incubation_time: 24-72
+  incubation_time_unit: h
+  preparation_notes: Individual isolates were grown to log phase, purity checked, washed three times and resuspended
+    in 30 mM phosphate buffer. SYBR-green flow cytometry informed equal cell-number adjustment to 4.1x10^7 cells
+    for the final plant inoculum. The source does not specify the temperature of this preparation step; plant
+    chamber conditions are not borrowed.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Individual SynCom isolates were cultivated in R2A media
+    explanation: Methods/Seed germination and SynCom preparation and Figure S8; duration 24–72 h, not the original
+      seven-day isolation protocol.
+- name: 0.2X MS for weekly-transfer liquid community culture
   temperature: '24'
   temperature_unit: °C
-  incubation_time: '24-72'
-  incubation_time_unit: h
-  light_regime: 16-h light, 8-h dark
-  preparation_notes: SynCom member isolates grown in R2A to log phase, then combined
-    at equal cell numbers (4x10^7 cells each) and applied to Brachypodium distachyon
-    in 0.2X Murashige and Skoog (MS) medium; plants held in a growth chamber at 24°C,
-    16-h light, 50% humidity. Strains were originally isolated on 1X R2A and RCH2
-    minimal media incubated at 30°C in the dark for 7 days.
+  light_regime: 16 h light (reported)
+  preparation_notes: 5 mL inoculum into 45 mL 0.2X MS; weekly 5-to-45 mL transfers for three weeks; 50% relative
+    humidity. Initial inoculum contains 4x10^7 cells per member. Agitation and the unreported dark interval are
+    not inferred.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Individual SynCom isolates were cultivated in R2A media for 24–72 h until
-      they reached log phase
-    explanation: Names R2A medium and 24–72 h cultivation to log phase for the SynCom
-      member strains.
+    snippet: The mixture was incubated in a plant growth chamber
+    explanation: Methods/Testing the persistence of the SynCom in vitro; 16-h light, 24°C and 50% humidity apply
+      to this liquid assay.
+- name: 0.2X MS watering medium for potted Brachypodium
+  temperature: '24'
+  temperature_unit: °C
+  light_regime: 16 h light (reported)
+  preparation_notes: Sterilized pots with autoclaved calcined clay; seedlings germinated separately on 0.5X MS
+    plus 0.4% phytagel for 3–5 days. Pot watering schedules and SynCom/buffer amendment are scoped in treatment_arms.
+    Host chamber humidity was 50%; this temperature is not asserted for isolate preparation.
+  evidence:
   - reference: PMID:40862137
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The mixture was incubated in a plant growth chamber with conditions set
-      at 16-h light, 24°C temperature, and 50% humidity.
-    explanation: Gives the in-planta growth-chamber conditions (24°C, 16-h light,
-      50% humidity) for the SynCom drought assay.
+    evidence_source: IN_VIVO
+    snippet: The clay was saturated with 0.2X MS media
+    explanation: Methods/Seed germination and SynCom preparation establishes the pot substrate and watering medium;
+      following stress Methods gives chamber conditions.
 cultivation_setup:
 - cultivation_mode: SEMI_CONTINUOUS
   system_type: OTHER
@@ -303,6 +1376,20 @@ curation_history:
   changes: 'Bound Brachypodium persistence, recovery and member-function claims to primary assays. Issue #1545;
     reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T02:45:38Z'
+  curator: codex
+  action: EDIT
+  changes: 'Resolved the 15 source-designated inoculum stocks to source-linked BioSamples, current assemblies
+    and verified NCBI sequence-record taxa; RCC-150 retains the source MA-N2 name and attributed Micrococcaceae
+    classification, with an exact unclassified-bacterium taxon and unresolved biological genus/species. Separated
+    isolation, isolate preparation, liquid culture and plant protocols; corrected 0.1X R2A and the two differently
+    scoped inoculum cell counts. Removed unsupported CROSS_FEEDER and realized osmoprotectant mediation claims.
+    Added source-defined arms, explicit host context and three mean 16S abundance observations. Host-arm membership
+    remains NOT_REPORTED because observed root profiles contain other bacteria; taxonomy describes the administered
+    SynCom. Preserved five qualified nodes and zero arrows. Current linked assemblies are not asserted as exact
+    versions used in the paper; later project Pantoea is excluded. Addresses only the 000088 portion of multi-record
+    #1548; biological classification and analysis-version uncertainty remain.'
+  llm_assisted: true
 discussions:
 - discussion_id: lbnl_brachypodium_persistence_and_mediation
   prompt: Which members and functions mediate the post-drought recovery benefit?
@@ -314,12 +1401,436 @@ discussions:
   - ecological_interactions#Host-Associated Persistence Compared With Liquid Culture
   - ecological_interactions#Brachypodium Drought Recovery Promotion
   - ecological_interactions#Strain-Dependent Root Spatial Distribution
-  rationale: 'Remove two assembly/design-only graph nodes; those methodological facts remain in the unchanged design
-    metadata. Preserve positive genomic potential, member assays, host-associated persistence, rewatering benefit
-    and spatial observations. The broad abstract stability statement is qualified by the main Results: six strains
-    were undetectable or below 0.1% after three weeks in vitro. Drought recovery and sustained drought are distinct.
-    Root-exudate recruitment, osmoprotectant transfer and gene mediation remain hypotheses, without invented arrows.
-    The canonical Bacteria entry is an aggregate placeholder, not a resolved 15-strain roster; #1548 tracks non-graph
-    taxonomy/ingredient/protocol gaps. Original figure pixels, separate supplements and raw data were not audited.'
+  rationale: 'Remove two assembly/design-only graph nodes; those methodological facts remain in the unchanged
+    design metadata. Preserve positive genomic potential, member assays, host-associated persistence, rewatering
+    benefit and spatial observations. The broad abstract stability statement is qualified by the main Results:
+    six strains were undetectable or below 0.1% after three weeks in vitro. Drought recovery and sustained drought
+    are distinct. Root-exudate recruitment, osmoprotectant transfer and gene mediation remain hypotheses, without
+    invented arrows. The canonical Bacteria entry is an aggregate placeholder, not a resolved 15-strain roster;
+    #1548 tracks non-graph taxonomy/ingredient/protocol gaps. Original figure pixels, separate supplements and
+    raw data were not audited.'
   posed_by: codex
   posed_date: '2026-10-06'
+- discussion_id: brachypodium_source_stock_identity
+  prompt: What biological genus/species describes MA-N2 RCC-150, and which assembly versions were used in the
+    original analysis?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: 'The 2026-11-15 follow-up inspected the publisher article, Figures 1–6, separate Table S1/supplement
+    captions, linked BioProject and all 15 corresponding BioSamples. It supersedes the older discussion''s historical
+    coverage limitation for those sources. Exact stocks now have verified sequence-record taxa and current project-linked
+    assemblies. RCC-150 is NCBI bacterium RCC_150/3239231, BioSample SAMN42017417 (sample name Isolate MA-N2),
+    assembly GCA_041360635.1; this identifies the sequence record without resolving biological genus/species.
+    Source SILVA Micrococcaceae and GTDB-tk MA-N2 are attributed analyses, not the NCBI unclassified-Bacteria
+    lineage. Current Leifsonia assembly differs in time from the paper; exact analysis versions remain unverified.
+    Figure 2 closest-reference accessions are not study-stock assemblies. #1548 remains open for these boundaries
+    and other records. No raw sequence reanalysis or selective mediation experiment was performed.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MA-N2 sp. RCC-150
+    explanation: 'Table S1!A5/I5/J5: source designation and attributed SILVA/GTDB-tk classifications. Independently
+      inspected BioSample SAMN42017417 links sample name Isolate MA-N2, strain RCC_150, host and project to the
+      exact sequence taxon/assembly; biological classification remains unresolved.'
+  posed_by: codex
+  posed_date: '2026-11-15'
+
+associated_datasets:
+- accession: PRJNA1127609
+  title: A stable 15-member bacterial SynCom promotes Brachypodium growth under drought stress
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1127609
+  publication: PMID:40862137
+  description: Publication-linked sequence project. Fifteen source-stock BioSamples were individually reconciled;
+    current project also contains Pantoea RCC30.1/SAMN57447891, absent from the paper's Table S1 and excluded
+    from this SynCom. Current assembly versions may postdate the paper and are not asserted as exact inputs to
+    its genome analysis.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    snippet: PRJNA1127609
+
+treatment_arms:
+- id: liquid-ms
+  name: Weekly-transfer 0.2X MS liquid culture
+  context: in-vitro three-week liquid persistence assay
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - rcc-10
+  - rcc-12
+  - rcc-150
+  - rcc-158
+  - rcc-161-2
+  - rcc-168
+  - rcc-180
+  - rcc-193
+  - rcc-202
+  - rcc-210
+  - rcc-34
+  - rcc-40
+  - rcc-6-2
+  - rcc-6-1
+  - rcc-152-1
+  conditions:
+  - name: medium
+    value: 0.2X MS
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: inoculum
+    name: Initial inoculum before weekly transfers
+  - id: week-three
+    name: End of week 3
+    reference_event: start of the liquid culture experiment
+  description: Complete administered 15-stock culture roster, not a claim that all members remained detectable.
+    Each week 5 mL was transferred into 45 mL fresh medium. Equal input cell numbers do not imply equal sequencing-read
+    fractions.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At the end of each week
+    explanation: Methods/Testing the persistence of the SynCom in vitro specifies 5 mL into 45 mL, weekly transfer,
+      4x10^7 input cells per member and three-week follow-up.
+- id: host-control-syncom
+  name: Control with SynCom
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-control-buffer
+  conditions:
+  - name: water/stress schedule
+    value: 80% saturation weight throughout
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL mixed SynCom in 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    The administered inoculum comprises the 15 stocks in taxonomy; this does not enumerate every observed root
+    microbe. Complete host-associated microbial membership is NOT_REPORTED: Figures 4B/5B explicitly include Others.
+    Source Supplementary Figure S4 mentions an additional low-salt set whose results were not included; that set
+    is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-control-buffer
+  name: Control with buffer only
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-control-syncom
+  conditions:
+  - name: water/stress schedule
+    value: 80% saturation weight throughout
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    Buffer-only amendment does not establish a microbe-free host. Complete host-associated microbial membership
+    is NOT_REPORTED: Figures 4B/5B explicitly include Others. Source Supplementary Figure S4 mentions an additional
+    low-salt set whose results were not included; that set is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-drought-syncom
+  name: Drought with SynCom
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-drought-buffer
+  conditions:
+  - name: water/stress schedule
+    value: 40% saturation weight for 21 days after stress induction
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL mixed SynCom in 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    The administered inoculum comprises the 15 stocks in taxonomy; this does not enumerate every observed root
+    microbe. Complete host-associated microbial membership is NOT_REPORTED: Figures 4B/5B explicitly include Others.
+    Source Supplementary Figure S4 mentions an additional low-salt set whose results were not included; that set
+    is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-drought-buffer
+  name: Drought with buffer only
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-drought-syncom
+  conditions:
+  - name: water/stress schedule
+    value: 40% saturation weight for 21 days after stress induction
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    Buffer-only amendment does not establish a microbe-free host. Complete host-associated microbial membership
+    is NOT_REPORTED: Figures 4B/5B explicitly include Others. Source Supplementary Figure S4 mentions an additional
+    low-salt set whose results were not included; that set is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-rewatered-syncom
+  name: Rewatered with SynCom
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-rewatered-buffer
+  conditions:
+  - name: water/stress schedule
+    value: 14 days drought at 40% saturation weight, then 80% during the final week
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL mixed SynCom in 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    The administered inoculum comprises the 15 stocks in taxonomy; this does not enumerate every observed root
+    microbe. Complete host-associated microbial membership is NOT_REPORTED: Figures 4B/5B explicitly include Others.
+    Source Supplementary Figure S4 mentions an additional low-salt set whose results were not included; that set
+    is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-rewatered-buffer
+  name: Rewatered with buffer only
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-rewatered-syncom
+  conditions:
+  - name: water/stress schedule
+    value: 14 days drought at 40% saturation weight, then 80% during the final week
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    Buffer-only amendment does not establish a microbe-free host. Complete host-associated microbial membership
+    is NOT_REPORTED: Figures 4B/5B explicitly include Others. Source Supplementary Figure S4 mentions an additional
+    low-salt set whose results were not included; that set is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-salinity-syncom
+  name: Salinity with SynCom
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-salinity-buffer
+  conditions:
+  - name: water/stress schedule
+    value: 80% saturation weight with 60 mM NaCl in 0.2X MS
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL mixed SynCom in 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    The administered inoculum comprises the 15 stocks in taxonomy; this does not enumerate every observed root
+    microbe. Complete host-associated microbial membership is NOT_REPORTED: Figures 4B/5B explicitly include Others.
+    Source Supplementary Figure S4 mentions an additional low-salt set whose results were not included; that set
+    is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+- id: host-salinity-buffer
+  name: Salinity with buffer only
+  context: potted Bd 21–3 stress and recovery experiment
+  membership_status: NOT_REPORTED
+  comparator_arm_ids:
+  - host-salinity-syncom
+  conditions:
+  - name: water/stress schedule
+    value: 80% saturation weight with 60 mM NaCl in 0.2X MS
+  - name: host line
+    value: Bd 21–3
+  - name: amendment
+    value: 1 mL 30 mM phosphate buffer
+  - name: temperature
+    value: '24'
+    unit: degrees Celsius
+  - name: light duration
+    value: '16'
+    unit: hours
+  - name: relative humidity
+    value: '50'
+    unit: percent
+  timepoints:
+  - id: harvest
+    name: Harvest 21 days after stress induction
+    reference_event: stress induction, three days after SynCom or buffer inoculation
+  description: 'Seven plant replicates per set; rewatered 16S analysis had five successful samples (Figure 4 caption).
+    Buffer-only amendment does not establish a microbe-free host. Complete host-associated microbial membership
+    is NOT_REPORTED: Figures 4B/5B explicitly include Others. Source Supplementary Figure S4 mentions an additional
+    low-salt set whose results were not included; that set is not reconstructed here.'
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each experimental set contained 7 plant replicates
+    explanation: Methods/Inoculation of SynCom and induction of environmental stresses; the following paragraph
+      specifies control, drought, rewatering and 60 mM salinity schedules and the harvest anchor.
+
+host:
+  preferred_term: Brachypodium distachyon
+  term:
+    id: NCBITaxon:15368
+    label: Brachypodium distachyon
+  genotypes:
+  - name: Bd 21–3
+  anatomical_sites:
+  - preferred_term: root tip and root base
+    description: Separate 2 cm root-tip and root-base samples after three weeks of stress induction; no unverified
+      anatomical CURIE assigned.
+  microbial_status: NOT_REPORTED
+  description: Seed surface sterilization and sterile materials are reported, but absence of detectable resident
+    microbes before inoculation was not established. Figures 4B/5B include other bacterial groups. This host is
+    not a microbial member.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: seeds were dehusked and sterilized
+    explanation: Methods/Seed germination and SynCom preparation names Brachypodium distachyon (Bd 21–3); sterility
+      procedures alone do not establish an axenic starting host.
+
+modeled_environment:
+- preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Original isolate provenance and the plant-associated ecological context modeled by this administered
+    inoculum.

@@ -1,0 +1,35 @@
+# Brachypodium SynCom15 scientific checkpoint
+
+Record [CommunityMech:000088](../../../kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml) now names the fifteen administered stocks and preserves distinct isolation, inoculum, liquid-culture and host-assay contexts. Actual curation changed SHA-256 `a7e41d95bc05106486f450153065da247369b854b757d68d451bea5e64e0b8e4` to `ee609781b7adaa7305ad9cc16c61aa8f7eb8ac3887f92a15ead26d25f4b3592e`; the [applied receipt](actual-curation.receipt.json) retains the raw receipt hash and source bindings. The [byte-identical metadata-only raw receipt](actual-curation.raw-receipt.json) is bound directly in the scientific review input inventory. No staged receipt is counted as application.
+
+The native full scientific assessment is saved as [YAML](../../../reviews/structured/20261115T025413Z-phase2-brachypodium-drought/review.yaml) and [Markdown](../../../reviews/structured/20261115T025413Z-phase2-brachypodium-drought/review.md). Its verdict is **needs_curation**, with biological classification/original-analysis-version uncertainty and the native SupportingReference coverage limitation at the reviewed base retained. This does not close the multi-record [issue1548](https://github.com/CultureBotAI/CommunityMech/issues/1548) or claim Phase2/full-corpus scientific completion.
+
+Nine fresh local focused native gates passed: schema, strict cross-field rules, GTDB coherence, NCBI/GTDB domain, scalar hygiene, ontology terms, reference snippets, sidecar history and single-record network. Raw logs and private sources remain in this isolated local checkout; M5 replication is not asserted here. Full integrated QC, generated docs and current shared-schema coverage are root integration gates.
+
+The [paper](https://doi.org/10.3389/fmicb.2025.1649750), all six original figures, separate TablesS1/S3 and supplemental captions were inspected. [BioProjectPRJNA1127609](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1127609) and fifteen BioSamples independently establish the following study-stock links through sample-name genus, strain, host and project. The current project also contains PantoeaRCC30.1/SAMN57447891, which is absent from the paper roster and excluded.
+
+| Paper stock | Verified sequence taxon | BioSample | Current assembly |
+|---|---|---|---|
+| Caballeronia sp. RCC-10 | NCBITaxon:3239227 | [SAMN42017412](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017412) | [GCA_041360715.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360715.1/) |
+| Chitinophaga sp. RCC-12 | NCBITaxon:3239226 | [SAMN42017413](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017413) | [GCA_041360695.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360695.1/) |
+| MA-N2 sp. RCC-150 | NCBITaxon:3239231 | [SAMN42017417](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017417) | [GCA_041360635.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360635.1/) |
+| Paraburkholderia sp. RCC-158 | NCBITaxon:3239220 | [SAMN42017420](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017420) | [GCA_041355255.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355255.1/) |
+| Rhizobium sp. RCC-161.2 | NCBITaxon:3239219 | [SAMN42017421](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017421) | [GCA_041355235.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355235.1/) |
+| Mucilaginibacter sp. RCC-168 | NCBITaxon:3239221 | [SAMN42017419](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017419) | [GCA_041355315.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355315.1/) |
+| Leifsonia sp. RCC-180 | NCBITaxon:3239224 | [SAMN42017415](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017415) | [GCA_058138205.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_058138205.1/) |
+| Terriglobus sp. RCC-193 | NCBITaxon:3239218 | [SAMN42017422](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017422) | [GCA_041355105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355105.1/) |
+| Mesorhizobium sp. RCC-202 | NCBITaxon:3239222 | [SAMN42017418](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017418) | [GCA_041355295.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355295.1/) |
+| Variovorax sp. RCC-210 | NCBITaxon:3239217 | [SAMN42017423](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017423) | [GCA_041355175.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041355175.1/) |
+| Arthrobacter sp. RCC-34 | NCBITaxon:3239230 | [SAMN42017409](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017409) | [GCA_041360795.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360795.1/) |
+| Enterobacter sp. RCC-40 | NCBITaxon:3239225 | [SAMN42017414](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017414) | [GCA_041360735.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360735.1/) |
+| Luteibacter sp. RCC-6.2 | NCBITaxon:3239223 | [SAMN42017416](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017416) | [GCA_041360655.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360655.1/) |
+| Bacillus sp. RCC-6.1 | NCBITaxon:3239229 | [SAMN42017410](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017410) | [GCA_041360755.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360755.1/) |
+| Bosea sp. RCC-152.1 | NCBITaxon:3239228 | [SAMN42017411](https://www.ncbi.nlm.nih.gov/biosample/SAMN42017411) | [GCA_041360765.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041360765.1/) |
+
+These are current project-linked assemblies, not a claim that those exact versions were analyzed in2025; Leifsonia's linked assembly is newer. RCC150 has sequence-record identity `NCBITaxon:3239231` (bacteriumRCC_150) while its biological genus/species remain unresolved. Source SILVA Micrococcaceae and GTDB-tk MA-N2 classifications are attributed separately. All fifteen exact sequence taxa remain unresolved in the unchanged native named-species GTDB mapping; genus aggregates were not substituted. Figure2 closest-reference genomes were not copied to study stocks.
+
+All host arms use `NOT_REPORTED` membership because the observed root profiles include other bacteria; the known fifteen-stock inoculum is described explicitly. Buffer-only controls are not asserted microbe-free. Equal input cell counts are distinct from16S read fractions and plant preparation counts. Genome-predicted osmoprotectants are not promoted to demonstrated host mediation. Five qualified biological nodes and zero causal arrows remain.
+
+Original history and the October causal decision are preserved. The staged plant-Bosea homonym failure was caught by the existing [domain guard365](https://github.com/CultureBotAI/CommunityMech/issues/365), and the corrected source ancestry was rechecked. The apply helper rechecks source hashes after native validation; a source-change fault control preserves canonical bytes, with a separate positive application control. Retained failed attempts are diagnostic provenance, not passes.
+
+[Saved-review audit](saved-review-audit.json) confirms every input hash and exact native Markdown rendering. Source article/supplement bodies and database captures are private; this checkpoint publishes metadata and sanitized native logs only. No issue closure, merge or scientific release authorization is implied.
