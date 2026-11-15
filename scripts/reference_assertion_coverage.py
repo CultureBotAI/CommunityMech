@@ -28,12 +28,12 @@ from importlib.metadata import version
 from pathlib import Path
 from unittest.mock import patch
 
-import yaml
 from linkml.validator import Validator
 from linkml_reference_validator.cli.validate import validate_app
 from linkml_reference_validator.etl.reference_fetcher import ReferenceFetcher
 from linkml_reference_validator.plugins.reference_validation_plugin import ReferenceValidationPlugin
 from linkml_reference_validator.validation.supporting_text_validator import SupportingTextValidator
+from ruamel.yaml import YAML
 from typer.testing import CliRunner
 
 from communitymech.paths import REPO_ROOT, default_record_roots
@@ -538,7 +538,10 @@ def run(root, output, selected, canary=False):
         "cases": [],
     }
     write_json(output / "started.json", receipt)
-    documents = [(name, yaml.safe_load((root / name).read_text())) for name in selected]
+    # Match the native CLI's YAML1.2 scalar semantics (#2799). The independent
+    # field census must not coerce ratios such as 1:1:1 into YAML1.1 integers.
+    loader = YAML(typ="safe")
+    documents = [(name, loader.load((root / name).read_text())) for name in selected]
     if any(not isinstance(document, dict) for _, document in documents):
         raise ValueError("Declared records must be YAML mappings")
     cases = ["control", "mutation", "restoration"] if canary else ["measurement"]

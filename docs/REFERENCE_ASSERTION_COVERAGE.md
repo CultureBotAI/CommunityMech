@@ -11,6 +11,8 @@ calls, using the pinned `linkml-reference-validator==0.2.1`. It invokes the real
 Typer `validate data` command and calls the original traversal, validation and
 substring functions. It inventories every `snippet` and `supporting_text` field
 independently, then reconciles those occurrences against the instrumented calls.
+The independent census uses the native CLI's safe YAML1.2 loader so ratios such
+as `1:1:1` keep their native scalar meaning (#2799).
 Each occurrence binds the raw reference (string or native-supported ID mapping)
 to the plugin and actual validator arguments using native identifier normalization.
 A wrong-reference comparison invalidates the measurement even when the other

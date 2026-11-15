@@ -301,3 +301,14 @@ def test_output_refuses_non_temp_and_existing_directory(tmp_path, monkeypatch):
     monkeypatch.setattr(coverage, "input_manifest", lambda root, records: {})
     with pytest.raises(FileExistsError):
         coverage.run(tmp_path, output, ["one"])
+
+
+def test_record_inventory_uses_native_yaml_scalar_semantics(fixture_repo, monkeypatch):
+    """#2799: YAML1.1 sexagesimal coercion must not abort native YAML1.2 dispatch."""
+    path = fixture_repo / "record.yaml"
+    path.write_text("ratio: 1:1:1\nevidence:\n- snippet: alpha\n  reference: PMID:1\n")
+    monkeypatch.setattr(coverage, "declared_records", lambda root: ("revision", ["record.yaml"]))
+    monkeypatch.setattr(coverage, "input_manifest", lambda root, records: {})
+    result = coverage.run(fixture_repo, fixture_repo / ".temp/native-parser", ["record.yaml"])
+    assert result["exit_code"] == 0, result["cases"][0]["errors"]
+    assert result["cases"][0]["counts"]["snippet_occurrences_compared"] == 1
