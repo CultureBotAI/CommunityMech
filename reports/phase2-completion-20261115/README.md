@@ -32,14 +32,23 @@ copied to M5: all 403 files and 64,961,689 bytes were verified, including the
 manifest and verifier. Its earlier gut review was preserved as approved; the
 newer gut successor was not silently substituted.
 
-Six separately executed native stages now pass at the same frozen `c9e151eb`:
+All [eight separately executed native stages](code006-standalone-outcome.md)
+now pass at the same frozen `c9e151eb`:
 community/isolate schema validation (549 records), reusable-taxon validation
 (2 records), strict validation (549 records, zero errors), GTDB coherence
 (551 files, zero issues), scalar checks (551 files) and idiomatic scalar checks
-(1,140 files), both with zero truncations. Their actual canaries and complete
-log/exit/receipt triplets are retained under `technical-evidence/`. Ontology-term
-checks and the new measured reference sweep remain in progress or pending at
-this checkpoint. These separate results do not change the failed aggregate.
+(1,140 files), both with zero truncations, plus ontology-term checks on all 549
+community/isolate paths and both reusable taxa. Their actual canaries and complete
+log/exit/receipt triplets are retained under `technical-evidence/`. These separate
+results do not change the failed aggregate.
+
+The [fresh measured reference run](code006-reference-measurement.md) at `c9e151eb`
+completed all 549 records with 10,836 actual comparisons: 10,728 matched and 108
+mismatched. One Bayan Obo assertion had unavailable source content and could not
+reach the matcher. Native validation exited 1 with 109 issues across 17 records.
+The runtime was Python 3.13.2, inputs remained unchanged, and the actual process
+exit is retained. This evidence closes the zero-comparison accounting gap;
+source mismatches and scientific findings remain unresolved.
 
 The [isolated M5 product canary and full batch](../product-labels-20261115/README.md)
 both passed at `f4715488`: 1,538 KGX nodes, 2,535 edges and zero structural or
