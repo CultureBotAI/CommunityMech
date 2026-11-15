@@ -85,7 +85,16 @@ taxonomy:
     term:
       id: NCBITaxon:2026194
       label: Bacillus paramycoides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_A_paramycoides
+      gtdb_taxon: Bacillus_A paramycoides
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A paramycoides
+      ncbi_source_id: NCBITaxon:2026194
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Identified by 16S rRNA sequence analysis as Bacillus paramycoides isolate B8-1.
   strain_designation:
     strain_name: B8-1
@@ -254,3 +263,11 @@ curation_history:
     PAH-biodegradation node from 3 to 5 non-overlapping, bracket-free verbatim snippets without inventing unsupported downstream
     edges.
   llm_assisted: true
+- timestamp: '2026-11-15T09:38:38Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:38:38Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

@@ -1,0 +1,724 @@
+# B8-1: bounded species-reference GTDB correspondence
+
+- Review: 20261115T094640Z-b81-species-reference-correspondence-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T09:46:40.630136Z
+- Finished UTC: 2026-11-15T09:46:40.744980Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The existing Bacillus paramycoides B8-1 descriptor now records the native species-ID correspondence to GTDB:s__Bacillus_A_paramycoides, with nine reference genomes and majority fraction 1.0. Its NCBI species identity, source stock, marker context and biological claims remain unchanged. Actual guarded M5 persistence, two native inline events, one new history sidecar and eight scoped native commands are bound.
+
+## Scope And Provenance
+
+One selected taxonomy descriptor's GTDB block/status, its source-species and reference-population boundary, and actual application/history/check provenance. This does not assess every scientific claim in the isolate record.
+
+Selection: CommunityMech:000549 is the first complete application canary for the third ten-record species batch. The other nine canonical targets remain unchanged while this canary is saved and its complete input namespace is verified.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base dd97489f4475c6cc6127d1fdd375b4a80f3220b1.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000549 | data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml # taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status | maintained | Bacillus paramycoides B8-1 species-reference correspondence |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000549 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Preserved B8-1 source identity and experimental context
+
+grounding: supported. Targets: CommunityMech:000549.
+
+Retain B8-1 as the source's Bacillus paramycoides single-isolate baseline, distinct from A1, A3 and each consortium. The bounded retained primary passages support this source context. The 16S marker and species descriptor do not establish a genome or genotype for B8-1.
+
+### Exact native species-ID reference population
+
+grounding: supported. Targets: CommunityMech:000549.
+
+The pinned complete crosswalk and native resolver reproduce the species-ID reference correspondence with nine genomes and fraction 1.0. Bacillus_A and is_reclassified:true are classification-label observations, not a formal nomenclatural or study-stock identification claim. No additional population, assembly or pathway is inferred.
+
+### Actual bounded persistence with prior science retained
+
+provenance: supported. Targets: CommunityMech:000549.
+
+Actual guarded application, the appended native history sidecar and all eight native scoped commands bind the reviewed before/after bytes. Previous science, quotations, related records and history remain unchanged. Source-snippet matching, strict historical admission, generated products and aggregate QC require separate evidence.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000549-schema | .temp/gtdb-species-third-batch-20261115/549-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-strict | .temp/gtdb-species-third-batch-20261115/549-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-gtdb | .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-domain | .temp/gtdb-species-third-batch-20261115/549-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-scalars | .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-history | .temp/gtdb-species-third-batch-20261115/549-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-new-history | .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-terms | .temp/gtdb-species-third-batch-20261115/549-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000549-paper | references_cache/PMID_42587276.txt; Flattened main text line 57: isolate-identification anchor at character 6715 and four-consortium roster anchor at character 16722; bounded marker and assay context in the retained source plan | supports | The source distinguishes B8-1 identified as Bacillus paramycoides from A1 and A3, and lists the four different consortium memberships. The stock is characterized by 16S evidence; the marker context supplies no assembly identity. |
+| 000549-database | reports/gtdb-species-third-batch-20261115/549-source-evidence-001.json; occurrences[0] native_result, exact_ncbi_id lookup rows and ncbi_identity_rows; captured route/source/crosswalk hashes | supports | The local NCBI authority identifies 2026194 as Bacillus paramycoides at species rank. The full native species-ID lookup returns GTDB:s__Bacillus_A_paramycoides, nine reference genomes, fraction 1.0 and a label difference, without assigning any study-stock genome. |
+| 000549-application | .temp/gtdb-species-third-batch-20261115/549-applied-001/receipt.json; applied, execution_revision, before_sha256, after_sha256, reviewed_receipt_sha256 and inputs | supports | The actual M5 guarded writer persisted the accepted 78d68bf7 candidate at dd97489f4. The declared block/status and two native inline events are the only semantic changes; one separate native history sidecar records this correction. |
+| 000549-prior | reports/phase2-completion-20261115/pah-six-source-context-001.yaml; Primary coverage/boundaries, record000549 and batch147 guard requirements; inherited 000358 review findings are separate | context_only | The accepted bounded source plan preserves isolate versus consortium, marker versus assembly and assay-specific limits. It also retains the original historical biological predicates and the separate 000358 source findings; no full scientific approval follows from this diagnostic. |
+
+## Limits And Additional Notes
+
+- Partial technical and provenance diagnostic with scientific_review:false. Native validator success is not full scientific approval, aggregate QC completion or permission to retire unrelated source findings.
+- Primary coverage is the retained abstract and bounded flattened main-text passages for PMID:42587276, including isolate identification, distinct consortium rosters and marker/assay context. This pass did not reacquire the article, inspect figure pixels or reread archive sequences.
+- The nine-genome species-ID reference population does not establish an assembly or genotype for study isolate B8-1. PV848451 is a 16S marker accession, not an assembly. Bacillus_A is a GTDB lineage label; native is_reclassified:true records a label difference, not formal renaming or reidentification of B8-1.
+- The exact crosswalk SHA256 binds bytes but does not establish an upstream release or chronology. Read-only NCBI authority rows have captured file-stat provenance, not a full database hash or release certification.
+- The single-isolate baseline remains distinct from A1, A3 and Consortia 1-4. All original source snippets, stocks, biological endpoints, media, environmental factors, related records and prior history remain unchanged. HPLC removal is not newly certified as mineralization or a specific mechanism.
+- The B8-1 biofilm-naphthalene numeric discussion remains open in the record. The separate 000358 source findings 2317-2319 remain outside this correction; the mapping result does not resolve assay, optimization or marker-provenance limitations in another record.
+- Source preparation ran locally at 7ed0013e; actual M5 staging/application/checks ran at dd97489f4475c6cc6127d1fdd375b4a80f3220b1 with Python 3.13.2. Their retained revisions and input hashes are not relabeled as one execution.
+- The initial optional all-extras offline installation failed for an unavailable optional wheel; the maintained frozen dev-only installation then passed. The initial local staging invocation missing the operations argument refused before output. Both failures are preserved; neither is counted as a successful native gate.
+- The eight actual commands are native history scaffolding and seven scoped validators. Source-snippet comparison, generated products, strict historical successor admission and combined full QC are separate. Batch147's immutable rows, existing admitted successors, current biological checks and unknown-target refusal must remain protected during later integration.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T094640Z-b81-species-reference-correspondence-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'B8-1: bounded species-reference GTDB correspondence'
+started_at: '2026-11-15T09:46:40.630136Z'
+finished_at: '2026-11-15T09:46:40.744980Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The complete B8-1 record and retained primary context were inspected
+    before staging. The parent independently read the accepted six-record PAH source
+    plan, the ten-record authored context, the exact local and M5 canary diffs and
+    their input pins. The shared stage/apply/check/builder path was previously independently
+    reviewed and verified end to end. This is a partial technical and provenance assessment
+    of one descriptor correction, not a new full scientific review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The existing Bacillus paramycoides B8-1 descriptor now records the native
+  species-ID correspondence to GTDB:s__Bacillus_A_paramycoides, with nine reference
+  genomes and majority fraction 1.0. Its NCBI species identity, source stock, marker
+  context and biological claims remain unchanged. Actual guarded M5 persistence, two
+  native inline events, one new history sidecar and eight scoped native commands are
+  bound.
+source:
+  git_revision: dd97489f4475c6cc6127d1fdd375b4a80f3220b1
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-species-third-batch-20261115/549-applied-001/before.yaml
+    sha256: cb226c9c70b14d042991de11ef4a7b3677790ffd8a93549332e213dc4946b04e
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-applied-001/receipt.json
+    sha256: 43d3196da095da062aeef485063d19fcf1248a654fcf8a2660b5c41b50d8400b
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-m5-candidate-001/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+    sha256: 78d68bf71c78ed5c50d3e629d40283a41a5eb1b2e5393fa4475fac5b845be4d2
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-m5-candidate-001/receipt.json
+    sha256: df7ca8e48be82c0f5691b7843648180baed263d2ce053a676b6391056be29728
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-domain-001/native.log
+    sha256: 5c632e51824e6d6003021fe245f2feea5079aa4f5620724c7ac363ec8e19d498
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-domain-001/receipt.json
+    sha256: bdab1af41670a039b0348038c736de344b2b4ccab39121284521998357228849
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-domain-001/start.json
+    sha256: 600fbfe5ba32adeae89acda99bd5201219966d7db4135c2694203a10c570411f
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/native.log
+    sha256: 7432ac7fbcc9d5d96679db0f08dfcb1014a901d853f55493843a191e7bd3c1ad
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/receipt.json
+    sha256: df9664aa8aac493420738d5cd55443bab835f119dbc70e6c758e57252508b3cb
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/start.json
+    sha256: 9f95332e7c2230ea3947aac5900e562c3f7b46d1581c19d21a99837ba4c4cf2d
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-history-001/receipt.json
+    sha256: 36c3455401e8ad8f82127a9aeddb8f87dfb16c906b82c32f4816e0dfcd885790
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-history-001/start.json
+    sha256: a50fab85b2c7a9f78726d502cc1a7a6fb71258bc8b273d27b0ee9d1925bbbae7
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/native.log
+    sha256: 75b11149acdf34a43da2e6b474dff856690f816ea7409b341adfe4ce6dd0d578
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/receipt.json
+    sha256: 5c5fd6738338b956b992493a52af3b06362b8ebd56360e308e455a3c278ce8db
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/start.json
+    sha256: 33e285f087021229f2db90c1813c34335066c0c0b72c1ee08173d32a93568b92
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/native.log
+    sha256: d1dc06edee8221799e14ee8dbe57211ee278774cb66c9a41b452e99b0216e304
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/receipt.json
+    sha256: c42e4435b73eaa99df7d78783d8a4d2b117402260023fcb7e92874d9ddfaa51b
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/start.json
+    sha256: 80d32269422edc150b17e47d0e4cb4f8955371c630725760c759b3854913486c
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-schema-001/native.log
+    sha256: 58e626f0594cc73283ff6eea62f69fce99fbf462dc4245ef6b2eb00476b68a2f
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-schema-001/receipt.json
+    sha256: 41f5cf5aa9dab534b00d4a30111fbacdfcb46a5fb7ccb9485f89f4b5e156f8fd
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-schema-001/start.json
+    sha256: 1d82f9d064c5bccbbd345ed717903b35d66c28155f6384ffa45b1da458c26b49
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/native.log
+    sha256: b8d00c2fd29f157da252255675857be7b9bd3aa494275312fbfd4e65f093ab1d
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/receipt.json
+    sha256: 66d9d68a1e862f1eaaa130ee49d507529631cf9b89dcc7c112d087af4c518547
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/start.json
+    sha256: 8c1852825c3e94047d0f12b87d2c2935a35d6d92ec60a40ec729f02e0ce31e79
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-terms-001/native.log
+    sha256: 48b38a80ef78ac7cc8ba45b37bec80654e80c6aaf3e9074caa2cae273e67f7ac
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-terms-001/receipt.json
+    sha256: 5e569cac65fdddfd9963beabde0ee8fe1531d97544f8eb2fc5382bdf280f87c0
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/549-run-terms-001/start.json
+    sha256: 0046efe4b236bf515e127f5a974d1df1af8a92bf07ab193088751b71cc3e0f69
+    role: context
+  - path: .temp/gtdb-species-third-batch-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/species-third-route-ten-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/species-third-route-ten-001.json
+    sha256: 2aad1cf6ba2e14a1fcb623e7338890ec6c79c26d78a16fdb5710a407abd466d7
+    role: context
+  - path: .temp/phase2-schema-20261115/species-third-route-ten-001.log
+    sha256: 3a381f5bc685c7ed486791d177e81b92008d6885f92205416d945f989f0d03d7
+    role: context
+  - path: .temp/phase2-schema-20261115/species-third-ten-source-binding-001.log
+    sha256: 70e449b92347495a1d9b30cb65e0e0fc69a2b53a4ce1fe7dc36be3054e47b88e
+    role: context
+  - path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+    sha256: 78d68bf71c78ed5c50d3e629d40283a41a5eb1b2e5393fa4475fac5b845be4d2
+    role: target
+  - path: history/records/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline/2026-11-11T001000Z-antigravity-000549.yaml
+    sha256: 944ef8e5c2463c3bc183cf4555337e5ae82956832e5eb0ad8802b9a5e66efa97
+    role: context
+  - path: history/records/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline/2026-11-11T080000Z-antigravity-000549-causal-graph.yaml
+    sha256: e0d82df2a835b73e6774d00dc88197964b9dcdce29c2f2df1dce9d3b934e7c51
+    role: context
+  - path: history/records/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline/2026-11-15T094403Z-codex-04c08f.yaml
+    sha256: 0eee049ca7003e0a4fc7a69802ecfcd1d79c218f9dc34c6b35152079ac03adb8
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42587276.txt
+    sha256: 7bb5736b9f958ed0e4ab54005bac19761fa622a36af5e34bc6713241a1415cfd
+    role: context
+  - path: reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml
+    sha256: 732db4d507546996774aca3835d77c4a2b7feba7c2690522700488e2b8c4fe19
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/549-check-config-001.json
+    sha256: 0828e4594391462cfe36b6c5bc27154b84812f6dfbceb61aa74ff22bd74ffcf8
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/549-review-config-001.json
+    sha256: 80db61d0261cb604fc7beda9848447c0aaffb4a1ced4002a490f8cc74c0f22f4
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/549-source-evidence-001.json
+    sha256: 3136703583b333f9e982b6a832b28f7e769e320aa49574cf5d93ed4249eb8998
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/route-plan-001.json
+    sha256: 2bfdb4bfaeb97de98237281111a0219b1e650295c3dfe71a1483fc4ee04e55f1
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/ten-authored-source-context-001.json
+    sha256: 964e4b51e40ead5807af2fb77349a5d5678871db257f27d53a657c5b1af44369
+    role: context
+  - path: reports/gtdb-species-third-batch-20261115/ten-source-config-001.json
+    sha256: 82341cae8b6e6f24a4475b60ef583966514ac6f96d46c4c33268509671a947f6
+    role: context
+  - path: reports/phase2-completion-20261115/pah-six-source-context-001.yaml
+    sha256: 59e50b84f2d6a1ceedd0d85fb2d02d1a7e98f22f1f0ada2aecbfe21e0b60638e
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: 867e974e9c55325fb1b7e32f81dcf6b7a65b6720941fd303040f5570e46ba232
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch147.py
+    sha256: 642c69072f6248fbcef1d30d4b214cf376a2b5fa6b18437d42d5264e215ffa1d
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000549
+  path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  selector: taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status
+  label: Bacillus paramycoides B8-1 species-reference correspondence
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: One selected taxonomy descriptor's GTDB block/status, its source-species
+    and reference-population boundary, and actual application/history/check provenance.
+    This does not assess every scientific claim in the isolate record.
+  selection: CommunityMech:000549 is the first complete application canary for the
+    third ten-record species batch. The other nine canonical targets remain unchanged
+    while this canary is saved and its complete input namespace is verified.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000549
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000549-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-strict data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+    --out .temp/gtdb-species-third-batch-20261115/549-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-gtdb data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-scalars data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-history history/records/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline --target-root data/isolates
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record the native species-reference GTDB correspondence for Bacillus
+    paramycoides B8-1.' --details 'The exact NCBITaxon:2026194 species-ID route reproduces
+    GTDB Bacillus_A paramycoides with nine reference genomes and fraction1.0. Bacillus_A
+    is a database lineage suffix, not a formal source-stock rename. Preserve B8-1'"'"'s
+    16S identity; marker PV848451 is not an assembly and no experimental-stock genome
+    or degradation genotype is assigned. Only the selected taxonomy GTDB block/status
+    and two native inline events changed. All source quotations, distinct single-isolate
+    versus consortium context, planktonic/static-biofilm endpoints, numerical uncertainty
+    and previous events remain unchanged. The pinned table'"'"'s upstream release
+    is unestablished. This bounded technical correction does not complete scientific
+    review or corpus QC. Actual apply receipt .temp/gtdb-species-third-batch-20261115/549-applied-001/receipt.json
+    sha256:43d3196da095da062aeef485063d19fcf1248a654fcf8a2660b5c41b50d8400b.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000549-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000549
+  command: just --verbose --no-dotenv --color never validate-terms data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000549-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000549-schema
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-schema-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-strict
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-strict-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-gtdb
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-domain
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-domain-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-scalars
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-scalars-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-history
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-history-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-new-history
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-new-history-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-terms
+  kind: validation
+  reference: .temp/gtdb-species-third-batch-20261115/549-run-terms-001/native.log
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000549-paper
+  kind: primary_source
+  reference: references_cache/PMID_42587276.txt
+  locator: 'Flattened main text line 57: isolate-identification anchor at character
+    6715 and four-consortium roster anchor at character 16722; bounded marker and
+    assay context in the retained source plan'
+  support: supports
+  summary: The source distinguishes B8-1 identified as Bacillus paramycoides from
+    A1 and A3, and lists the four different consortium memberships. The stock is characterized
+    by 16S evidence; the marker context supplies no assembly identity.
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+- evidence_id: 000549-database
+  kind: database
+  reference: reports/gtdb-species-third-batch-20261115/549-source-evidence-001.json
+  locator: occurrences[0] native_result, exact_ncbi_id lookup rows and ncbi_identity_rows;
+    captured route/source/crosswalk hashes
+  support: supports
+  summary: The local NCBI authority identifies 2026194 as Bacillus paramycoides at
+    species rank. The full native species-ID lookup returns GTDB:s__Bacillus_A_paramycoides,
+    nine reference genomes, fraction 1.0 and a label difference, without assigning
+    any study-stock genome.
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+- evidence_id: 000549-application
+  kind: record_content
+  reference: .temp/gtdb-species-third-batch-20261115/549-applied-001/receipt.json
+  locator: applied, execution_revision, before_sha256, after_sha256, reviewed_receipt_sha256
+    and inputs
+  support: supports
+  summary: The actual M5 guarded writer persisted the accepted 78d68bf7 candidate
+    at dd97489f4. The declared block/status and two native inline events are the only
+    semantic changes; one separate native history sidecar records this correction.
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+- evidence_id: 000549-prior
+  kind: prior_review
+  reference: reports/phase2-completion-20261115/pah-six-source-context-001.yaml
+  locator: Primary coverage/boundaries, record000549 and batch147 guard requirements;
+    inherited 000358 review findings are separate
+  support: context_only
+  summary: The accepted bounded source plan preserves isolate versus consortium, marker
+    versus assembly and assay-specific limits. It also retains the original historical
+    biological predicates and the separate 000358 source findings; no full scientific
+    approval follows from this diagnostic.
+  accessed_at: '2026-11-15T09:46:40.630136Z'
+assessments:
+- assessment_id: 000549-source
+  area: grounding
+  topic: Preserved B8-1 source identity and experimental context
+  outcome: supported
+  target_ids:
+  - CommunityMech:000549
+  evidence_ids:
+  - 000549-paper
+  - 000549-database
+  - 000549-terms
+  - 000549-prior
+  summary: Retain B8-1 as the source's Bacillus paramycoides single-isolate baseline,
+    distinct from A1, A3 and each consortium. The bounded retained primary passages
+    support this source context. The 16S marker and species descriptor do not establish
+    a genome or genotype for B8-1.
+- assessment_id: 000549-population
+  area: grounding
+  topic: Exact native species-ID reference population
+  outcome: supported
+  target_ids:
+  - CommunityMech:000549
+  evidence_ids:
+  - 000549-database
+  - 000549-gtdb
+  - 000549-domain
+  summary: The pinned complete crosswalk and native resolver reproduce the species-ID
+    reference correspondence with nine genomes and fraction 1.0. Bacillus_A and is_reclassified:true
+    are classification-label observations, not a formal nomenclatural or study-stock
+    identification claim. No additional population, assembly or pathway is inferred.
+- assessment_id: 000549-provenance
+  area: provenance
+  topic: Actual bounded persistence with prior science retained
+  outcome: supported
+  target_ids:
+  - CommunityMech:000549
+  evidence_ids:
+  - 000549-application
+  - 000549-schema
+  - 000549-strict
+  - 000549-scalars
+  - 000549-new-history
+  - 000549-history
+  - 000549-prior
+  summary: Actual guarded application, the appended native history sidecar and all
+    eight native scoped commands bind the reviewed before/after bytes. Previous science,
+    quotations, related records and history remain unchanged. Source-snippet matching,
+    strict historical admission, generated products and aggregate QC require separate
+    evidence.
+findings: []
+actions: []
+limitations:
+- Partial technical and provenance diagnostic with scientific_review:false. Native
+  validator success is not full scientific approval, aggregate QC completion or permission
+  to retire unrelated source findings.
+- Primary coverage is the retained abstract and bounded flattened main-text passages
+  for PMID:42587276, including isolate identification, distinct consortium rosters
+  and marker/assay context. This pass did not reacquire the article, inspect figure
+  pixels or reread archive sequences.
+- The nine-genome species-ID reference population does not establish an assembly or
+  genotype for study isolate B8-1. PV848451 is a 16S marker accession, not an assembly.
+  Bacillus_A is a GTDB lineage label; native is_reclassified:true records a label
+  difference, not formal renaming or reidentification of B8-1.
+- The exact crosswalk SHA256 binds bytes but does not establish an upstream release
+  or chronology. Read-only NCBI authority rows have captured file-stat provenance,
+  not a full database hash or release certification.
+- The single-isolate baseline remains distinct from A1, A3 and Consortia 1-4. All
+  original source snippets, stocks, biological endpoints, media, environmental factors,
+  related records and prior history remain unchanged. HPLC removal is not newly certified
+  as mineralization or a specific mechanism.
+- The B8-1 biofilm-naphthalene numeric discussion remains open in the record. The
+  separate 000358 source findings 2317-2319 remain outside this correction; the mapping
+  result does not resolve assay, optimization or marker-provenance limitations in
+  another record.
+- Source preparation ran locally at 7ed0013e; actual M5 staging/application/checks
+  ran at dd97489f4475c6cc6127d1fdd375b4a80f3220b1 with Python 3.13.2. Their retained
+  revisions and input hashes are not relabeled as one execution.
+- The initial optional all-extras offline installation failed for an unavailable optional
+  wheel; the maintained frozen dev-only installation then passed. The initial local
+  staging invocation missing the operations argument refused before output. Both failures
+  are preserved; neither is counted as a successful native gate.
+- The eight actual commands are native history scaffolding and seven scoped validators.
+  Source-snippet comparison, generated products, strict historical successor admission
+  and combined full QC are separate. Batch147's immutable rows, existing admitted
+  successors, current biological checks and unknown-target refusal must remain protected
+  during later integration.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2317
+- https://github.com/CultureBotAI/CommunityMech/issues/2318
+- https://github.com/CultureBotAI/CommunityMech/issues/2319
+- https://github.com/CultureBotAI/CommunityMech/pull/2884
+```

@@ -1,5 +1,12 @@
 # Third species-reference batch preparation
 
+The [completed B8-1 canary](549-canary-outcome-001.md) now has actual M5
+application/history, eight native passes, a saved partial diagnostic, complete
+input checkpoints and strict historical proof. Its fixture-only issue2885 and
+successful refusal-test restoration are retained. The other nine canonical
+applications remain pending. The preparation evidence below records the
+earlier local stage and is preserved with its original execution revision.
+
 This branch prepares twenty selected descriptors in ten whole records using
 the unchanged native route reporter, source-context binder and guarded writer.
 No canonical record has been changed by this preparation. The first application
