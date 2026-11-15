@@ -1,0 +1,76 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.log",
+    "sha256": "2ab2dd66a1ae01d7582f0283aa049b29d873da50b69207ae588398ffd8c60b4e"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.json",
+    "sha256": "46d03c7e507e4b35b62bbc0d07ad6cad8b59702758ac25317d97ff4d3da35a01"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.yaml",
+      "record_id": "CommunityMech:000497",
+      "before_sha256": "6210d91810b668f546c1e2f17c7f2c01ed37bc250d6314f79696ee7e591b063c",
+      "additional_inputs": {
+        "tests/test_causal_review_batch137.py": "2e65dba4506366e93f1020afee404a4e2b821caba7bbb0d0a387f6417defcea3",
+        "reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml": "10d325e5990b4ce70493f31b6c00b0e595685232df40ff8c2bb9fb59964821e5",
+        "reports/gtdb-remaining-four-20261115/497-authored-source-context-001.json": "c7e77eaf65da22eb22c2c65d2ea6b6c088a704cc812a3999546fe3f6e6282572",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42726284",
+          "path": "references_cache/PMID_42726284.txt",
+          "sha256": "08f6953950b650637457d41d36f53fdb161de29b5a4d923f0a3b0b9ec8339af6",
+          "locator": "Retained main article flattened line345: introduction, Materials and methods (strains, plasmids, synthetic consortia), Results and Discussion carbon-specificity caveat.",
+          "coverage": "Whole canonical record and batch137 caller/record row; retained main-text strain construction, inoculation, cultivation and carbon-interpretation passages. No new supplemental TableS1/S2, original figure pixels, plasmid sequence, engineered-genome assembly or isotope-flux audit. This is a partial reference-correspondence assessment, not renewed full scientific approval.",
+          "identity_tokens": [
+            "42726284",
+            "10.1007/s00253-026-14029-z"
+          ],
+          "anchors": [
+            "strain WT_PKPa_RBS_BsPta_Δacs",
+            "The heterotrophic strains used in this study were Escherichia coli BL21 DE3",
+            "E. coli T7 was used as the subcloning strain",
+            "a synthetic O2-tolerant butanol pathway was used, TPC4",
+            "we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1148",
+            "label": "Synechocystis sp. PCC 6803"
+          },
+          "strain_name": "WT_PKPa_RBS_BsPta_Δacs",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The source explicitly names the acetate-producing Synechocystis WT_PKPa_RBS_BsPta_Δacs strain paired with E.coli BL21-derived Pem7_ButOH. The P.taiwanensis pairing is a separate experimental consortium, E.coli T7 is a subcloning host, and the Pthl construct is a separate tested version; none is an additional member of this canonical pair. The exact genotype remains source-supported but no study-strain genome classification was performed here.",
+          "population_scope": "The generic NCBI1148 result has total_genomes22 and majority_fraction1.0, without an explicit support_genomes numerator. This is the same reference population used by another PCC6803 record, not evidence that the distinct engineered strains are interchangeable. It is not22 study constructs, a 5:1 cell-count ratio, viable counts or a sequence-confirmed engineered-stock identity.",
+          "name_scope": "Preserve WT_PKPa_RBS_BsPta_Δacs, its source-described engineering, and the PCC6803 NCBI term. The GTDB sp000284455 placeholder does not rename the strain or establish the introduced gene sequences. Preserve the separate BL21(DE3) Pem7_ButOH descriptor unchanged.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Synechocystis_sp000284455",
+            "gtdb_lineage": "d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Microcystaceae_B;g__Synechocystis;s__Synechocystis sp000284455",
+            "gtdb_taxon": "Synechocystis sp000284455",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1148",
+            "total_genomes": 22,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Only taxonomy[0] GTDB fields and actual native events may change. Preserve the E.coli reference block and old provenance wording without certifying its latest/build date; do not reinterpret its generic166397-genome population as the BL21 experimental stock. Preserve the two nodes, one HYPOTHESIZED/PARTIAL arrow, exact quotations and OPEN carbon-specificity discussion. Lower extracellular acetate and CFU recovery support uptake but do not quantify isotope-resolved acetate-to-butanol flux or exclude carbohydrate/EPS carbon. ATP/NAD(P)H limitation remains a proposed explanation, and possible evaporation/reuptake remain alternatives for product levels. Keep inoculation OD at different wavelengths distinct from cell ratios,30C culture distinct from37C colony recovery, adaptation assays distinct from42-day coculture, two independent pairings distinct from a three-member culture, and bicarbonate/pH refreshes distinct from steady-state concentrations. Preserve all current batch137 biological/cache predicates, T1_498 exact source-intake chain and499/500 admissions. A new exact497 historical predecessor must be admitted only after M5 gates/save/checkpoint, retaining actual node/edge and mutation checks. No scientific promotion or new experimental assembly is authorized."
+    }
+  ]
+}
