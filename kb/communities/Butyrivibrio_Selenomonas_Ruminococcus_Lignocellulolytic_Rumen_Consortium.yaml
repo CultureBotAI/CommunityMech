@@ -53,11 +53,7 @@ taxonomy:
     term:
       id: NCBITaxon:971
       label: Pseudoselenomonas ruminantium
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Selenomonas_A_lactilytica
-    - GTDB:s__Selenomonas_A_ruminantium
-    - GTDB:s__Selenomonas_A_ruminantium_B
+    gtdb_grounding_status: UNRESOLVED
   functional_role:
   - SECONDARY_FERMENTER
   - CROSS_FEEDER
@@ -170,6 +166,10 @@ curation_history:
   changes: 'Remove rumen screening workflow and distinguish enzyme synergy from mutualism; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1265'
   llm_assisted: true
+- timestamp: '2026-11-15T10:57:34Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: rumen_enzyme_synergy_and_partner_fitness
   prompt: Which exchanges and partner responses explain the reported enzymatic synergism?

@@ -3,6 +3,8 @@
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import BEFORE as STATUS_BEFORE
+from ambiguity_gtdb_successors import RUMEN_PATH, admit_status_successor
 from source_note_gtdb_successors import BEFORE, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -106,6 +108,7 @@ def test_buchnera_keeps_evolutionary_hypotheses_not_thermodynamic_syntrophy():
 
 
 def test_yb2_and_rumen_activity_does_not_imply_partitioning_or_mutualism():
+    admit_status_successor(ROOT, RUMEN_PATH, STATUS_BEFORE[RUMEN_PATH])
     complement, loss = nodes("Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium")
     assert complement["downstream"][0]["target"] == loss["name"]
     assert complement["downstream"][0]["description"].startswith("PARTIAL")
