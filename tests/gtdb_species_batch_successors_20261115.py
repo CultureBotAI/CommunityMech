@@ -8,6 +8,13 @@ registry neither changes historical biology predicates nor approves science.
 from scoped_gtdb_successor import admit
 
 ALLOWANCES = {
+    "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-fifth-batch-20261115/377-001-successor.json",
+            "sha256": "ac4a0cb47ca4a1efebe85fd4e1142da33cf02ae56c7c65f3f1ca7027a12c6219",
+        },
+    },
     "kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {

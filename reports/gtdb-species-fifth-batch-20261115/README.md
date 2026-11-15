@@ -1,5 +1,14 @@
 # Apple, Barley and Quinoa GTDB preparation; Wetland held
 
+The [Apple 377 canary outcome](377-canary-outcome-001.md) records its actual M5
+application, eight passed native commands, immutable partial diagnostic,
+independently verified 82-input/84-file checkpoint and strict public proof.
+The focused proof/participant run passed 27 tests and native lint passed.
+Barley 428 and Quinoa 459 remain unapplied; Wetland 471 remains held. This is
+technical correction evidence, not full scientific approval or aggregate QC.
+
+## Historical preparation at 24f0185a
+
 This is source preparation for three whole records, not a completed correction or
 scientific review. The fourth assigned record, Wetland Lindane (000471), is held
 under [#2898](https://github.com/CultureBotAI/CommunityMech/issues/2898) and
