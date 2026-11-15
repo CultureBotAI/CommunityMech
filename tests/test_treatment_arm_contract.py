@@ -13,7 +13,7 @@ native = native_contracts.native
 
 @pytest.fixture
 def arm_record():
-    return yaml.safe_load((REPO_ROOT / "tests/fixtures/treatment_arms.yaml").read_text())
+    return yaml.safe_load((REPO_ROOT / "tests/data/treatment_arms.yaml").read_text())
 
 
 def categories(native, doc):

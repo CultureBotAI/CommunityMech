@@ -10,7 +10,7 @@ Give each referenced canonical taxonomy entry a stable `member_id` such as
 `ecoli`. It is local to the record and identifies a member, not a taxonomic
 CURIE: two strains may share the same taxon. Do not reuse an identifier for a
 different stock. An arm's `id` and each arm-local timepoint's `id` are also stable
-lowercase slugs. The [synthetic structural fixture](../tests/fixtures/treatment_arms.yaml)
+lowercase slugs. The [synthetic structural fixture](../tests/data/treatment_arms.yaml)
 shows the full field contract; its measurements are illustrative, not scientific
 evidence.
 
