@@ -9,9 +9,11 @@ import scoped_gtdb_successor as successor
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 Q5_PATH = "data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml"
 PPHET_PATH = "kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml"
+BUTANOL_PATH = "kb/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.yaml"
 BEFORE = {
     Q5_PATH: "3be922d81b044ad742cd52ae866f3007d2f17141fc7355c4a34ad9f96ca304c4",
     PPHET_PATH: "f11af6a3d089a413d75e3c07203473f02529734a75c90af1c4c5b33ce2c44243",
+    BUTANOL_PATH: "6210d91810b668f546c1e2f17c7f2c01ed37bc250d6314f79696ee7e591b063c",
 }
 ALLOWANCES = {
     Q5_PATH: {
@@ -26,6 +28,13 @@ ALLOWANCES = {
         "manifest": {
             "path": "reports/gtdb-remaining-four-20261115/359-001-successor.json",
             "sha256": "338af167a8140c1aa3008b8355f5406bdbf04e15f42cbc9489d498e5429da9ad",
+        },
+    },
+    BUTANOL_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-remaining-four-20261115/497-001-successor.json",
+            "sha256": "47822a8cb7f752d8f71fe1423897d9a72c1a35974f9f61c63d8ee5ee8b1bc768",
         },
     },
 }

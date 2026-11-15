@@ -1,11 +1,19 @@
 # Four source-bound correspondences
 
+The [acetate-butanol checkpoint](497-outcome-001.md) adds the bounded 497 generic
+reference correspondence while preserving the distinct engineered stock, E. coli
+partner and unresolved carbon specificity. Eight native checks, the partial
+saved pair, 78-input audits, complete 80-file snapshots on both hosts and all
+27 public artifacts are verified. Strict proofs and historical callers passed
+67 composed tests; native lint passed. Record 454's separate M5 application is
+in progress and has not completed its diagnostic or strict admission.
+
 The next [PPHET checkpoint](359-outcome-001.md) records the bounded 359 generic
 PCC 6803 correspondence, preserving engineered PPT1 and open scientific limits.
 Its eight actual native gates, immutable partial review, both-host 84-input
 audits and complete 86-file checkpoints are verified. All 27 public artifacts
 are bound by strict proof; 47 composed proof/caller tests and native lint passed.
-Record 497's separately accepted M5 application is in progress; 454 is unapplied.
+At that earlier checkpoint, 497 was in progress and 454 was unapplied.
 
 The [Q5-1 canary outcome](492-canary-outcome-001.md) records the completed bounded
 492 application on frozen M5 revision `bfef6b2a`: eight native checks, an immutable
