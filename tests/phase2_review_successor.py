@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.record_review import render_markdown, validate_review  # noqa: E402
 
 BASELINE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
-MANIFEST = "reports/phase2-completion-20261115/scientific-successor-provenance.yaml"
+MANIFEST = "reports/phase2-completion-20261115/scientific-successor-provenance-002.yaml"
 TARGETS = {
     "kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml": "CommunityMech:000025",
     "kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml": "CommunityMech:000087",

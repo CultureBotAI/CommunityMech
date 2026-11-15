@@ -75,8 +75,11 @@ retains the full scientific assessment after dating the old aggregate-roster
 discussion to its historical checkpoint. Its 141 retained inputs match and all
 44 current snippets were actually compared and matched. Molecular mechanisms
 and individual-stock genome grounding remain unresolved. The original five-record
-manifest and prior reviews remain immutable; the current successor requires a
-separate numbered provenance manifest.
+manifest and prior reviews remain immutable. The
+[numbered successor manifest](scientific-successor-provenance-002.yaml) binds
+the five current records, three full review bundles, nine actual application
+receipts and eleven new history sidecars at `bb6c71c3`. It records persistence
+and the correction chain without granting independent scientific approval.
 
 ## M5 execution evidence
 
