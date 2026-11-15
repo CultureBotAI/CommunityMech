@@ -12,6 +12,7 @@ CARAGANA = "kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml"
 MULBERRY = "kb/communities/Mulberry_Distillers_Grains_Feed_Consortium.yaml"
 SOYMILK = "kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml"
 MDSC = "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml"
+BL6 = "kb/communities/Chicken_BL6_AntiSalmonella_SynCom.yaml"
 BEFORE = {
     TARGET: "2003158329c3f2113f6239f65b1e6a1b85bd3c19204f7aaf9d90be7f1f5c68f0",
     WHEAT: "613f8b97efa732c213fae320935a4f8cafa8cb899718e6c18a7c1f47f9ba0420",
@@ -19,6 +20,7 @@ BEFORE = {
     MULBERRY: "db5dd094bbd49fba2952851b1d8394c3b30d04cb08440f850ae04cc77614137d",
     SOYMILK: "f8b17ce636bfb8c48470f7664fc1497566777d760886bb9c557c7e5c16fa8cf3",
     MDSC: "4ef5925538ded3549c72fd84eaa0786922b4f9565de33946289104cef18a5d49",
+    BL6: "c45342937de0702f02ed9029b7580823f25e2a59f9cdb75f83c4de6e9177ff1c",
 }
 ALLOWANCES = {
     TARGET: {
@@ -61,6 +63,13 @@ ALLOWANCES = {
         "manifest": {
             "path": "reports/gtdb-source-holds-20261115/mdsc392-composite-successor-001.json",
             "sha256": "6f7070c648500610a3baacb283eb733b308fefb8846c1f09e84bdad822f9f406",
+        },
+    },
+    BL6: {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-source-holds-20261115/bl6346-composite-successor-001.json",
+            "sha256": "eac0af4c2730506c7eba6f29a5b02673d9103059fde4ba172f1ca0beb14af2b9",
         },
     },
 }
