@@ -1,0 +1,187 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/gut-pair-route-001.log", "sha256": "62c6fc611c54ffd7ee480366741f96589179aed2e05b233d7609503111ae8000"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/gut-pair-route-001.json", "sha256": "80ff6bcadcecaf97c32df24ced712f15d892b0a8158aa3c60256e2334d7c804e"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/gut-pair-route-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+      "record_id": "CommunityMech:000382",
+      "before_sha256": "01d41a601dba3f750e87784a28d97ef169dbd17de44d4fbe64f37f3d19d5cf3a",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/amsterdam382-source-context-001.yaml": "a06514371888570c95f356de1742a4c7e28b146d18b24beb84de5198147751c3",
+        "tests/test_site_audit_fixes.py": "d3d65c1ea1e02b4637b6dd84d195d0ee20add931ac99649375583c4847059947",
+        "reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml": "e21a355f676730e8e7e6de6ea663017c9b09e05a824ff383a272ab9f1399fd70",
+        "reviews/structured/20261020T071158Z-amsterdam-gut-panel-metadata-review/review.yaml": "50f4c1150ee45e40e6795bd61ba20099708818cd64cc523ba64740060e03bba9"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41960919",
+          "path": "references_cache/PMID_41960919.txt",
+          "sha256": "c1f6c5bf8a394d6ac0727cfb4ccbe7175410aeb54d777f993f6252c096841609",
+          "locator": "Retained main text, flattened line 75: Bacteria and growth conditions, conditioned-medium preparation, co-culture and invasion Methods, qPCR, endpoint-density results and limitations.",
+          "coverage": "Whole canonical record, prior partial metadata assessment, historical ledger and current renderer guard; selected retained primary passages. No new complete scientific review, supplementary files, figure pixels, pinned data-repository snapshot, stock sequence or assembly placement.",
+          "identity_tokens": ["41960919", "10.1128/msystems.00113-26"],
+          "anchors": [
+            "strains were obtained from the DSMZ culture collection, and their identity was confirmed through 16S rRNA sequencing",
+            "Akkermansia muciniphila (DSM 22959), Bacteroides ovatus (DSM 1896)",
+            "Faecalibacterium prausnitzii (DSM 107838), Lachnospiraceae bacterium (DSM 24404)",
+            "prepared conditioned medium by mixing 60% fresh YCFA medium with 40% of spent medium",
+            "All co-cultures were grown for 24 h in 8 mL flasks"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:239935", "label": "Akkermansia muciniphila"},
+          "strain_name": "DSM 22959",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Akkermansia_muciniphila", "via": "ncbi_name", "total_genomes": 4983, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The primary Methods name DSM 22959 in the ten-stock DSMZ panel and describe 16S identity confirmation. The existing species descriptor has a native species-name correspondence; this is not an exact-ID route or independent placement of the DSM stock genome.",
+          "population_scope": "The 4,983 reference genomes and fraction 1.0 belong to the species-name population. They are not stock counts, inoculum fractions or identity probabilities.",
+          "name_scope": "Retain the existing species label, DSM 22959, source quotations and all original abundance/interaction qualifications. No stock sequence or mechanistic assignment is inferred."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:28116", "label": "Bacteroides ovatus"},
+          "strain_name": "DSM 1896",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacteroides_ovatus", "via": "ncbi_id", "total_genomes": 3107, "majority_fraction": 0.99, "is_reclassified": false},
+          "source_assessment": "The ten-stock Methods roster identifies DSM 1896. The native correspondence is for the existing species ID; its separate role in invasion assays remains a source-qualified experimental context, not a genome assignment.",
+          "population_scope": "The exact species-ID population contains 3,107 reference genomes with rounded majority fraction 0.99. This is not unanimity, a recoverable exact numerator, an experimental member count or DSM 1896 identity probability.",
+          "name_scope": "Keep the stock and species unchanged. Separate conditioned-medium, co-culture and invasion results; no new pathogen or in-vivo behavior is inferred."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:818", "label": "Bacteroides thetaiotaomicron"},
+          "strain_name": "DSM 2079",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacteroides_thetaiotaomicron", "via": "ncbi_id", "total_genomes": 1011, "majority_fraction": 0.99, "is_reclassified": false},
+          "source_assessment": "The primary stock list explicitly includes DSM 2079. The native species-ID reference mapping preserves that source identity without independently checking its assembly.",
+          "population_scope": "The 1,011 reference genomes and rounded fraction 0.99 are not a unanimous population, exact inferred numerator, viable-stock count or identity probability.",
+          "name_scope": "Preserve the stock, notes and evidence. Negative endpoint-density responses remain observations with unresolved mechanisms, not proof of a unique competitive or toxic pathway."
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {"id": "NCBITaxon:1680", "label": "Bifidobacterium adolescentis"},
+          "strain_name": "DSM 20083",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bifidobacterium_adolescentis", "via": "ncbi_id", "total_genomes": 599, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The DSMZ Methods roster names DSM 20083 and reports panel-level 16S identity confirmation. This supports retention of the source stock context while the correspondence concerns the existing species descriptor.",
+          "population_scope": "The exact species-ID result contains 599 reference genomes with fraction 1.0. No study-stock genome, inoculum ratio or experimental abundance is established by that population.",
+          "name_scope": "Keep the current stock and species fields and the distinction between growth rate and endpoint density. No mechanism or functional role is assigned from taxonomy alone."
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {"id": "NCBITaxon:40520", "label": "Blautia obeum"},
+          "strain_name": "DSM 25238",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 2, "gtdb_options": ["GTDB:s__Blautia_A_intestinalis", "GTDB:s__Blautia_A_obeum"]},
+          "source_assessment": "The source explicitly names Blautia obeum DSM 25238. Native species-name lookup returns two alternatives; the stock designation and 16S confirmation do not independently select one of those reference clusters in this pass.",
+          "population_scope": "Retain the complete ordered intestinalis/obeum alternatives and AMBIGUOUS status. No majority, reference denominator, stock assembly or identity probability is supplied by this result.",
+          "name_scope": "Keep the source-preferred species and DSM stock unchanged. Do not choose a cluster by name similarity or infer an experimental biological role."
+        },
+        {
+          "taxonomy_index": 5,
+          "term": {"id": "NCBITaxon:562", "label": "Escherichia coli"},
+          "strain_name": "DSM 18039",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Escherichia_coli", "via": "ncbi_id", "total_genomes": 166397, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The Methods name DSM 18039 in the panel; E. coli is also a separately named invader in another assay scope. The native exact species-ID mapping is not a stock-specific genome determination.",
+          "population_scope": "The 166,397 reference genomes and fraction 1.0 do not count experimental stocks, define an inoculum, quantify invasion success or establish strain identity.",
+          "name_scope": "Preserve stock identity and the separation of observed invasion assays from model predictions. No new pathogen-status or in-vivo assertion is introduced."
+        },
+        {
+          "taxonomy_index": 6,
+          "term": {"id": "NCBITaxon:853", "label": "Faecalibacterium prausnitzii"},
+          "strain_name": "DSM 107838",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 3, "gtdb_options": ["GTDB:s__Faecalibacterium_longum", "GTDB:s__Faecalibacterium_prausnitzii", "GTDB:s__Faecalibacterium_prausnitzii_D"]},
+          "source_assessment": "The paper names F. prausnitzii DSM 107838. Native species-name lookup retains three alternatives; the source name and panel 16S check do not establish a study-stock assembly correspondence.",
+          "population_scope": "Preserve all three ordered alternatives and AMBIGUOUS status. The result supplies no single majority, reference count, exact-stock placement or identity probability.",
+          "name_scope": "Do not rename the source stock or collapse the alternatives. Current abundance evidence and all original uncertainty notes remain unchanged."
+        },
+        {
+          "taxonomy_index": 8,
+          "term": {"id": "NCBITaxon:33959", "label": "Lactobacillus johnsonii"},
+          "strain_name": "DSM 10533",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 3, "gtdb_options": ["GTDB:s__Lactobacillus_johnsonii", "GTDB:s__Lactobacillus_sp945980025", "GTDB:s__Lactobacillus_sp947171515"]},
+          "source_assessment": "The primary stock list names L. johnsonii DSM 10533. Native name lookup yields johnsonii and two unresolved-name clusters; this pass has no independent stock-genome placement that would choose among them.",
+          "population_scope": "Retain the full ordered three-way ambiguity, without a single mapping block, majority fraction or stock-level confidence claim.",
+          "name_scope": "Keep the existing species and stock labels, all notes and source quotations. The unnamed alternatives are database identifiers, not new biological names for DSM 10533."
+        },
+        {
+          "taxonomy_index": 9,
+          "term": {"id": "NCBITaxon:166486", "label": "Roseburia intestinalis"},
+          "strain_name": "DSM 14610",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Roseburia_intestinalis", "via": "ncbi_id", "total_genomes": 78, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "DSM 14610 belongs to the original ten-stock panel. Its later exclusion from the subsequent nine-species model is a separate source scope and must not remove it from the original experimental roster.",
+          "population_scope": "The exact species-ID correspondence covers 78 reference genomes with fraction 1.0. It does not identify the experimental stock genome or count model or co-culture members.",
+          "name_scope": "Keep both original membership and later exclusion qualified by their actual experimental/model contexts. No new invasion or mechanistic claim follows."
+        }
+      ],
+      "historical_guard_assessment": "Only nine selected descriptor GTDB fields and actual appended native events may change. Preserve taxonomy index 7, Lachnospiraceae bacterium DSM 24404, whose current native result is null and status UNRESOLVED; no guessed species or domain-absence claim is authorized. Preserve the one COMMUNITY_LEVEL conditioned-medium node with absent participants and zero arrows, all ten stocks, ninety donor-acceptor conditions, 60% fresh/40% spent YCFA, growth-rate versus endpoint-density distinctions, qPCR DNA-based frequencies versus viable counts and unresolved mechanisms. Keep the ten-stock panel, later nine-species model, two-to-four-species co-cultures and two invaders separate. Preserve the old gLV/invasion-node removals and do not invent member links. The 8 mL flask wording is not evidence of 8 mL working volume; issue 2887 remains unresolved, as do prior partial-review findings 2232/2233 and historical caption/stable-size discrepancies. Original crosswalk-unavailability notes and the old partial review remain historical, not rewritten as current scientific approval. Preserve the exact batch 4 ledger and renderer tests on current bytes; a new strict scoped proof must not replace current biology or manufacture a missing historical caller. This first whole-record canary must complete before the second record."
+    },
+    {
+      "record": "kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml",
+      "record_id": "CommunityMech:000466",
+      "before_sha256": "0ca3ae19e967be3786f5495c5633b088efc2afd4dbe18c322eb2a3a6447d29ef",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/fos466-source-context-001.yaml": "5a35923e6e4b1b168758d8252167958c8e925e655fbb86e676f0774ee302156d",
+        "tests/test_causal_review_batch39.py": "b76b69039c1ae43beb42e957cc0cd508042adfa3d9d2786617eabeccc5c18a81",
+        "reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml": "a1dee2681584def997c377ad6ae941a5595a60c864f2efbd465d907812d1ffe2"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42781020",
+          "path": "references_cache/PMID_42781020.txt",
+          "sha256": "1d7403bbc62cf62cbd5793103be8e00982e4f8e13a53897a334d7ddd8c90201b",
+          "locator": "Retained Methods 2.1 and Table 1 stock roster and DNA-qPCR calibration, flattened line 77; active-compound limitation on line 78.",
+          "coverage": "Complete canonical record, historical batch 39 caller and ledger, selected retained primary stock and assay passages. No new complete scientific review, figure pixels, supplementary-data audit, study-stock sequence or assembly placement; earlier figure observations remain historical.",
+          "identity_tokens": ["42781020", "10.3389/fmicb.2026.1866842"],
+          "anchors": [
+            "Limosilactobacillus reuteri PBS072 (DSM 25175)",
+            "Bacteroides cellulosilyticus CL02T12C19 (HM-726)",
+            "Flavonifractor plautii (previously Clostridium orbiscindens) 1_3_50AFAA (HM-303)",
+            "calibration curves from serial dilutions of strain-specific genomic DNA"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:1598", "label": "Limosilactobacillus reuteri"},
+          "strain_name": "PBS072",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 4, "gtdb_options": ["GTDB:s__Limosilactobacillus_reuteri", "GTDB:s__Limosilactobacillus_reuteri_E", "GTDB:s__Limosilactobacillus_reuteri_G", "GTDB:s__Limosilactobacillus_rodentium"]},
+          "source_assessment": "Methods 2.1 and Table 1 identify the human probiotic PBS072, DSM 25175, separately from the four minimal-core stocks. The existing species descriptor yields a four-way native name ambiguity; its source collection identifier does not independently place a genome in one cluster.",
+          "population_scope": "Keep all four ordered reuteri/reuteri_E/reuteri_G/rodentium alternatives and AMBIGUOUS status. No single mapping, supporting denominator or stock-identity probability is established.",
+          "name_scope": "Preserve PBS072, DSM 25175, original species label and source nomenclature. The three-strain probiotic subset remains distinct from the seven-stock whole community, and no functional or clinical efficacy claim is added."
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {"id": "NCBITaxon:246787", "label": "Bacteroides cellulosilyticus"},
+          "strain_name": "CL02T12C19",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacteroides_cellulosilyticus", "via": "ncbi_name", "total_genomes": 1018, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "Table 1 names the human minimal-core stock CL02T12C19, HM-726. The native correspondence uses a species-name fallback rather than exact-ID coverage or an independently identified study assembly.",
+          "population_scope": "The name-route population contains 1,018 reference genomes with fraction 1.0. These are not experimental inoculum counts, individual stock matches or identity probabilities.",
+          "name_scope": "Retain CL02T12C19 and the BEI/HM collection note without changing its enum representation. The existing abundance observation remains DNA-qPCR-derived and is not newly certified as a viable-cell count."
+        },
+        {
+          "taxonomy_index": 5,
+          "term": {"id": "NCBITaxon:292800", "label": "Flavonifractor plautii"},
+          "strain_name": "1_3_50AFAA",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Flavonifractor_plautii", "via": "ncbi_id", "total_genomes": 142, "majority_fraction": 0.98, "is_reclassified": false},
+          "source_assessment": "Table 1 names 1_3_50AFAA, HM-303, and explicitly gives the former Clostridium orbiscindens name. The exact species-ID reference result preserves this source identity without establishing a stock assembly.",
+          "population_scope": "The 142 reference genomes and rounded fraction 0.98 are not unanimity, an exact inferred numerator, inoculum composition or a strain-membership probability.",
+          "name_scope": "Preserve the complete stock spelling, former-name note and HM-303 provenance. No fermentation mediator, cross-feeding mechanism or host effect is inferred from the mapping."
+        }
+      ],
+      "historical_guard_assessment": "Only indices 2, 3 and 5 and actual appended native events may change. Preserve all four unselected classification blocks exactly, especially curated R232 L. acidophilus PBS066 at 158/0.994 and curated [Clostridium] symbiosum WAL-14673 at 112/0.964; their differing fresh uncurated resolver populations must not overwrite manual pins. This pass does not newly certify those release/source statements. Keep all seven stock names, DSM/ATCC/BEI identifiers, former names, original history and historical missing-crosswalk notes. Preserve three community-level nodes, zero arrows, seven participants for abundance/metabolites and three for expression. DNA-qPCR calibration, viability and RNA/cDNA assays remain distinct; 2% FOS versus 1% glucose is not carbon matched, qualitative GC-MS is not flux, and historical Figure 7C panel-label absence is not physiological absence. Active host compound and Cd36 mediation remain unresolved. The two open discussions, batch 39 needs_research disposition and historical follow-ups 1449/1450 are preserved without a new current-state claim or research job. Keep all eight batch 39 tests, the unrelated Eucalyptus and e-waste records, exact cache pins and current biological/participant predicates. Only old digest/last-LLM expectations may use an exact admitted predecessor after the actual application, native gates and immutable partial diagnostic. Complete the 382 canary before this second record; neither correspondence correction is a whole-record scientific review."
+    }
+  ]
+}
