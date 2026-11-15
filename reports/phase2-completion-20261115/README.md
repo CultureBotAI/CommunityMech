@@ -59,6 +59,8 @@ environment offline. The installation completed with exit 0; its retained
 | `phase2-code002-plan` | Native QC dry run at `3b063f07` | Plan completed; no checks executed | [Receipt](technical-evidence/phase2-code002-plan.receipt.json) |
 | `phase2-code002-canary` | One real strict validation through the same M5 driver at `3b063f07` | Exit 0; persisted proof verified | [Receipt](technical-evidence/phase2-code002-canary.receipt.json) |
 | `phase2-code002-qc` | Full native `just qc` at `3b063f07` | Exit 1: lint passed; tests had 6 failures, 5,628 passes, 103 skips and 8 deselections; every subsequent QC recipe NOT RUN | [Receipt](technical-evidence/phase2-code002-qc.receipt.json) · [log](technical-evidence/phase2-code002-qc.log.txt) |
+| `phase2-code003-history` | Exact native CI historical-base acquisition at `5ea6e658` | Exit 0; five commit/tree identities verified, four newly acquired; HEAD preserved | [Receipt](technical-evidence/phase2-code003-history.receipt.json) |
+| `phase2-code003-regressions` | Six native modules covering every prior full-run failure at `5ea6e658` | Exit 0; 53 tests passed | [Receipt](technical-evidence/phase2-code003-regressions.receipt.json) · [log](technical-evidence/phase2-code003-regressions.log.txt) |
 
 This canary proves the driver, environment, native strict path and persistence
 for that revision. It does not prove later revisions, full QC, scientific review
@@ -73,6 +75,13 @@ directory (#2811); its unchanged bytes have since been moved and the native ID
 guard passes. These diagnostics do not retrospectively change the failed run.
 The raw full-run log is 773,200 bytes, SHA-256
 `7b026b7a3e32da0f9e68431c516a0769a5d00f35111bb0e7fcdd7804cd7b59b3`.
+
+The subsequent focused rerun passes all affected modules. It is not another
+aggregate QC run. Integration of the scientifically corrected records separately
+exposed historical-snapshot checks that must retain their old audited bytes while
+binding the new current assessments and actual curation receipt chains (#2816).
+Those checks remain required; no old review or expected scientific claim is
+rewritten to appear current.
 
 Raw receipts/logs are retained in repository `.temp` on M5 and mirrored locally.
 [The exporter](../../scripts/adhoc/export_phase2_qc_evidence_20261115.py) verifies
