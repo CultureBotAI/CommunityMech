@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml"
@@ -28,8 +29,19 @@ def test_four_isolates_are_not_confused_with_three_taxonomy_entries():
     assert ft["strain_designation"]["strain_name"] == "FT92W"
     assert "Duganella network ASV" in ft["taxon_term"]["notes"]
     assert "stream-water isolate" in ft["taxon_term"]["notes"]
-    assert ft["taxon_term"]["gtdb_grounding_status"] == "UNRESOLVED"
-    assert "gtdb_classification" not in ft["taxon_term"]
+    # Preserve the original mapping limitation after verifying its scoped successor.
+    row = next(
+        row
+        for row in yaml.safe_load(LEDGER.read_text())["records"]
+        if row["id"] == "CommunityMech:000313"
+    )
+    predecessor = yaml.safe_load(
+        admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+    )["taxonomy"][2]["taxon_term"]
+    assert predecessor["gtdb_grounding_status"] == "UNRESOLVED"
+    assert "gtdb_classification" not in predecessor
+    assert ft["taxon_term"]["gtdb_grounding_status"] == "GROUNDED"
+    assert ft["taxon_term"]["gtdb_classification"]["gtdb_id"] == "GTDB:s__Pseudoduganella_rivuli"
     assert brev["taxon_term"]["term"]["id"] == "NCBITaxon:1696"
     assert brev["strain_designation"]["strain_name"] == "REN4"
     assert (
@@ -96,7 +108,10 @@ def test_batch14_ledger_covers_all_structure_and_byte_unchanged_whey():
     assert whey["history_files"] == []
     for row in ledger["records"]:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        assert (
+            hashlib.sha256(raw).hexdigest()
+            == admission(ROOT, row["path"], row["record_sha256"]).current_sha256
+        )
         doc = yaml.safe_load(raw)
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(names)

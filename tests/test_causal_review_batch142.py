@@ -9,6 +9,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 REPO = Path(__file__).resolve().parents[1]
 DECISION_FILE = (
@@ -143,8 +144,13 @@ def _load_real_inputs() -> tuple[dict, dict[str, dict], dict[str, str], dict[str
     record_hashes: dict[str, str] = {}
     for entry in decision_data["records"]:
         path = REPO / entry["path"]
-        records_by_id[entry["id"]] = yaml.safe_load(path.read_text())
-        record_hashes[entry["id"]] = _sha256(path)
+        raw = (
+            admission(REPO, entry["path"], entry["record_sha256"]).historical_bytes
+            if entry["id"] == "CommunityMech:000522"
+            else path.read_bytes()
+        )
+        records_by_id[entry["id"]] = yaml.safe_load(raw)
+        record_hashes[entry["id"]] = hashlib.sha256(raw).hexdigest()
     ref_caches = {
         "PMID:41859451": (REPO / "references_cache/PMID_41859451.txt").read_text(),
         "PMID:42733304": (REPO / "references_cache/PMID_42733304.txt").read_text(),
