@@ -23,8 +23,10 @@ reference validation were **NOT RUN**. Its six issue owners and exact evidence
 are retained. The [code005 rerun](code005-outcome.md) subsequently passed lint
 and 5,777 tests, but failed two ID-inventory checks because they included private
 checkpoint copies. All later QC recipes and reference validation remained
-**NOT RUN**. The narrow repair passes its 28 focused tests and awaits a fresh
-aggregate on `c9e151eb`; neither failed run is relabeled. The explicitly approved
+**NOT RUN**. The [code006 aggregate](code006-outcome.md) on `c9e151eb` then
+passed both ID checks and 5,861 tests, but failed two real-source GTDB
+reproducibility checks. Later aggregate stages remained **NOT RUN**; separate
+native checks retain their own results. No failed run is relabeled. The explicitly approved
 [private five-record checkpoint](private-checkpoint-m5-final-five-001.md) is now
 copied to M5: all 403 files and 64,961,689 bytes were verified, including the
 manifest and verifier. Its earlier gut review was preserved as approved; the
@@ -102,6 +104,7 @@ environment offline. The installation completed with exit 0; its retained
 | `phase2-code003-regressions` | Six native modules covering every prior full-run failure at `5ea6e658` | Exit 0; 53 tests passed | [Receipt](technical-evidence/phase2-code003-regressions.receipt.json) · [log](technical-evidence/phase2-code003-regressions.log.txt) |
 | `phase2-code004-qc` | Full native `just qc-references` at `012d755b` | Exit 1: lint passed; 10 tests failed, 5,751 passed, 103 skipped and 8 deselected; subsequent QC and reference stages NOT RUN | [Outcome](code004-outcome.md) · [receipt](technical-evidence/phase2-code004-qc.receipt.json) |
 | `phase2-code005-qc-references` | Full native `just qc-references` at `63b833d3` | Exit 1: lint passed; 2 tests failed, 5,777 passed, 103 skipped and 8 deselected; subsequent QC and reference stages NOT RUN | [Outcome](code005-outcome.md) · [receipt](technical-evidence/phase2-code005-qc-references.receipt.json) |
+| `phase2-code006-qc-references` | Full native `just qc-references` at `c9e151eb`, with verified crosswalk | Exit 1: lint passed; 2 GTDB tests failed, 5,861 passed, 30 skipped and 8 deselected; subsequent aggregate stages NOT RUN | [Outcome](code006-outcome.md) · [receipt](technical-evidence/phase2-code006-qc-references.receipt.json) |
 
 This canary proves the driver, environment, native strict path and persistence
 for that revision. It does not prove later revisions, full QC, scientific review
