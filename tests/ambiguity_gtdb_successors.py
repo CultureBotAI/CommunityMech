@@ -7,6 +7,7 @@ shared core proves current biology and old history are unchanged.
 import scoped_gtdb_successor as successor
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
+PEPPER_PATH = "kb/communities/Pepper_Phytophthora_SynCom5.yaml"
 TOBACCO_PATH = "kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml"
 BAIJIU_PATH = "kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml"
 AT_PATH = "kb/communities/At_RSPHERE_SynCom.yaml"
@@ -19,6 +20,7 @@ C3_PATH = "kb/communities/Hexamine_Formaldehyde_Consortium_C3.yaml"
 C4_PATH = "kb/communities/Hexamine_Formaldehyde_Consortium_C4.yaml"
 C5_PATH = "kb/communities/Hexamine_Formaldehyde_Consortium_C5.yaml"
 BEFORE = {
+    PEPPER_PATH: "ed26e547580e6b5fa6662c07720f45993a2a5a49e891a8574a635cbf0a44d81e",
     PMSX_PATH: "8dc5ea53ef9ad6dc4469c8e9b4897a77fd9a0c1c6addb73881891884fb4a6e65",
     T2_PATH: "cd6a38668c90338cf89fe2279e1958fffd8b12da401ea0ad82b4faaa08b526f6",
     T3_PATH: "a09fbcc47c0c084facbf9a501bbef519452bc4c70ad31f0071a383d5db144457",
@@ -32,6 +34,13 @@ BEFORE = {
     AT_PATH: "b615c84fa2415eecbf9eb3964ee830fdb3bc573508fbc42ce601fb340f3500c0",
 }
 ALLOWANCES = {
+    PEPPER_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-five-20261115/105-001-successor.json",
+            "sha256": "146bd4fa4e4aa2ac4f3015e0e9788a93b24e4464a5bf6696a7df2babdc1da220",
+        },
+    },
     PMSX_PATH: {
         "baseline_revision": BASE,
         "manifest": {
