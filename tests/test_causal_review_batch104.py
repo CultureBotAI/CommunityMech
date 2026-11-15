@@ -4,6 +4,8 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
+from source_note_gtdb_successors import admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml"
@@ -107,12 +109,24 @@ def test_all_original_nodes_and_directions_have_dispositions():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] == "CommunityMech:000378":
+            assert doc == yaml.safe_load(raw)
+            raw = admit_species_successor(
+                ROOT, row["path"], latest["record_sha256"]
+            ).historical_bytes
+            historical = yaml.safe_load(raw)
+        elif row["id"] == "CommunityMech:000448":
+            assert doc == yaml.safe_load(raw)
+            raw = admit_note_mapping_successor(
+                ROOT, row["path"], latest["record_sha256"]
+            ).historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == latest["record_sha256"]
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"]
+        assert historical["curation_history"][-1]["llm_assisted"]
         assert all(
             "interaction_type" not in n and not n.get("downstream")
             for n in doc["ecological_interactions"]
