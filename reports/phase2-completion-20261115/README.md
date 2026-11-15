@@ -316,6 +316,14 @@ checkpoint there are 32 integrated corrections, including 28 of 126 partition
 records; 98 remain. Concurrent applications and the 393 final mapping are not
 yet included. These partial diagnostics do not complete scientific review.
 
+The [393 final integration at ed77a05a](paenibacillus-final-integration-ed77a05a.md)
+completes the actual note-to-mapping transition with its verified 96-input partial
+review and complete 98-file checkpoints on both machines. All eight final-byte
+M5 commands, 39 composed proof/biology/history-fetch tests and native lint pass.
+There are now 33 integrated corrections, including 29 of 126 partition records;
+97 remain. The earlier note-only checkpoint remains immutable. These results do
+not certify the whole record scientifically or replace final full QC.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
