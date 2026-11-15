@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml"
@@ -166,13 +167,15 @@ def test_scoped_histories_and_issue_lifecycle_remain_explicit():
     assert ledger["issues"] == [1637, 1638, 1639]
     assert ledger["unresolved_non_graph_issues"] == [1642]
     assert sum(r["curation_events_added"] for r in rows) == 3
-    for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+    for row, _doc in zip(rows, docs, strict=True):
+        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        assert hashlib.sha256(admission.historical_bytes).hexdigest() == row["record_sha256"]
         changed = row["outcome"] == "changed"
         assert row["curation_events_added"] == len(row["history_files"]) == int(changed)
         assert row["allowed_changed_fields"] == (
             ["curation_history", "discussions", "ecological_interactions"] if changed else []
         )
         if changed:
-            assert doc["curation_history"][-1]["llm_assisted"] is True
+            historical = yaml.safe_load(admission.historical_bytes)
+            assert historical["curation_history"][-1]["llm_assisted"] is True
         assert all((ROOT / p).exists() for p in row["history_files"])

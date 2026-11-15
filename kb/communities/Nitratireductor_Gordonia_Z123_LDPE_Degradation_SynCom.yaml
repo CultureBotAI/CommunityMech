@@ -77,7 +77,17 @@ taxonomy:
     term:
       id: NCBITaxon:245876
       label: Nitratireductor
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Nitratireductor
+      gtdb_taxon: Nitratireductor
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Nitratireductor
+      ncbi_source_id: NCBITaxon:245876
+      majority_fraction: 0.803
+      support_genomes: 49
+      total_genomes: 61
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
     notes: >-
       The article identifies Z-1 to genus level; NCBI Taxonomy has a genus-level
       Nitratireductor term but no exact Z-1 strain taxon was curated here.
@@ -95,7 +105,17 @@ taxonomy:
     term:
       id: NCBITaxon:2053
       label: Gordonia <high G+C Gram-positive bacteria>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Gordonia
+      gtdb_taxon: Gordonia
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Gordonia
+      ncbi_source_id: NCBITaxon:2053
+      majority_fraction: 0.993
+      support_genomes: 450
+      total_genomes: 453
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: >-
       The article identifies Z-2 to genus level; NCBI Taxonomy has a
       genus-level Gordonia term but no exact Z-2 strain taxon was curated here.
@@ -113,7 +133,17 @@ taxonomy:
     term:
       id: NCBITaxon:2053
       label: Gordonia <high G+C Gram-positive bacteria>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Gordonia
+      gtdb_taxon: Gordonia
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Gordonia
+      ncbi_source_id: NCBITaxon:2053
+      majority_fraction: 0.993
+      support_genomes: 450
+      total_genomes: 453
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: >-
       The article identifies Z-3 to genus level; NCBI Taxonomy has a
       genus-level Gordonia term but no exact Z-3 strain taxon was curated here.
@@ -238,3 +268,11 @@ curation_history:
   changes: 'Qualify proposed genomic/proteomic differentiation without discarding measured polymer and enzyme outcomes;
     missing endpoint topology stays needs_research. Issue #1639; reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:16:09Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:16:10Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'
