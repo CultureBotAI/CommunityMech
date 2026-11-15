@@ -6,9 +6,34 @@ import hashlib
 import importlib.util
 from pathlib import Path
 
+import batch147_genus_successor as genus_successor
+import batch147_species_successor as species_successor
 import pytest
 import yaml
-from batch147_genus_successor import current_record_sha256, historical_bytes
+
+assert not set(genus_successor.TARGETS) & set(species_successor.TARGETS)
+
+
+def current_record_sha256(root, path, predecessor_hash, **kwargs):
+    if path in genus_successor.TARGETS:
+        return genus_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
+    if path in species_successor.TARGETS:
+        return species_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
+    raw = kwargs.get("current")
+    if raw is None:
+        raw = (root / path).read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    assert actual == predecessor_hash, "no successor allowance for other batch147 records"
+    return actual
+
+
+def historical_bytes(root, path):
+    if path in genus_successor.TARGETS:
+        return genus_successor.historical_bytes(root, path)
+    if path in species_successor.TARGETS:
+        return species_successor.historical_bytes(root, path)
+    return (root / path).read_bytes()
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
