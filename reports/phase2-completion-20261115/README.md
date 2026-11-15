@@ -326,12 +326,20 @@ not certify the whole record scientifically or replace final full QC.
 
 The [eighteen-record integration at 25de294d](eighteen-record-integration-25de294d.md)
 adds the completed species and genus batches, wheat 409 and the hexamine C1
-canary. There are now 51 integrated corrections, including 47 of 126 partition
+canary. At that checkpoint there were 51 integrated corrections, including 47 of 126 partition
 records; 79 remain. The clean combined tree passed 138 selected integration
 tests and native lint. Caragana 338 has a preserved note-only intermediate and
 is not counted as completed. Every taxonomy diagnostic remains partial; full
 combined M5 QC, current generated products and scientific completion remain
 separate requirements.
+
+The [ten subsequent integrations at a756411d](ten-record-integration-a756411d.md)
+add dairy384, isolate549, completed Caragana338 and the seven remaining records
+from the ambiguity batch. There are now 61 integrated corrections, including
+57 of the 126 partition records; 69 remain. The clean combined revision passed
+31 affected proof/caller tests and native lint. The note-only435 intermediate is
+not counted as a completed taxonomy correction. Scientific and reference blockers
+remain explicit; this is not final combined M5 QC.
 
 ## Campaign restart
 
