@@ -335,11 +335,18 @@ separate requirements.
 
 The [ten subsequent integrations at a756411d](ten-record-integration-a756411d.md)
 add dairy384, isolate549, completed Caragana338 and the seven remaining records
-from the ambiguity batch. There are now 61 integrated corrections, including
-57 of the 126 partition records; 69 remain. The clean combined revision passed
+from the ambiguity batch. At that checkpoint there were 61 integrated corrections,
+including 57 of the 126 partition records; 69 remained. The clean combined revision passed
 31 affected proof/caller tests and native lint. The note-only435 intermediate is
 not counted as a completed taxonomy correction. Scientific and reference blockers
 remain explicit; this is not final combined M5 QC.
+
+The [four further integrations at 82113fe3](four-record-integration-82113fe3.md)
+add 350, 364, 458 and 456 with their complete M5 evidence and private checkpoints.
+There are now 65 integrated corrections, including 61 of the 126 partition
+records; 65 remain. The clean revision passed 58 affected registry/caller tests
+and native lint. Independent review accepted the composed 338/400/456 batch10
+admissions. Source plans and note-only intermediates remain outside these counts.
 
 ## Campaign restart
 
