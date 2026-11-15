@@ -1,4 +1,4 @@
-"""Proof that `validate-references` checks something, and where it does not (#466).
+"""Cache-only controls for native excerpt validation and reachable slots (#476).
 
 #466 read the validator's output as a vacuous pass:
 
@@ -20,20 +20,14 @@ text that appears in no publication yields
 
 So `EvidenceItem` snippets are genuinely validated against `references_cache/`.
 
-Two real gaps remain, and this file pins the boundary between them so the next
-reader does not have to re-derive it:
+The governed shared-schema repair now exposes SupportingReference snippets and
+references, including Discussion.evidence. The real CLI regression controls in
+test_reference_cli_coverage.py compare every snippet in three actual records and
+reject a planted discussion snippet. Historical gap probes/reports are retained.
 
-1. **A truncated snippet still passes**, because a quote cut mid-word is a
-   substring of the source and substring matching is what the tool promises.
-   That is why the eight snippets in #295/#465 survived — not vacuity.
-   `tests/test_snippets_are_not_truncated.py` covers that class.
-
-2. **`SupportingReference` is never checked at all.** It is the range of
-   `Discussion.evidence`, and unlike `EvidenceItem` its `snippet` and
-   `reference` carry no `implements:` annotation, so the plugin's field
-   detection does not see them. 11 snippets across 8 records are unvalidated.
-   Fixing it means editing `mech_shared.yaml`, which is vendored byte-identical
-   and sha-pinned across the Mech repos, so it is filed rather than done here.
+A truncated snippet can still pass, because a quote cut mid-word is a substring
+of the source. tests/test_snippets_are_not_truncated.py covers that distinct
+class. Neither a match nor complete comparison coverage proves scientific support.
 
 The tests below use the plugin directly rather than the CLI: no subprocess, no
 network, and they read the same `references_cache/` the recipe does.
@@ -42,6 +36,7 @@ network, and they read the same `references_cache/` the recipe does.
 from __future__ import annotations
 
 import pathlib
+from unittest.mock import patch
 
 import pytest
 from linkml_runtime.utils.schemaview import SchemaView
@@ -57,6 +52,7 @@ NONSENSE = "ZZQQ this sentence appears in no publication whatsoever XKCD"
 
 @pytest.fixture(scope="module")
 def plugin():
+    from linkml_reference_validator.etl.reference_fetcher import ReferenceFetcher
     from linkml_reference_validator.models import ReferenceValidationConfig
     from linkml_reference_validator.plugins.reference_validation_plugin import (
         ReferenceValidationPlugin,
@@ -64,7 +60,15 @@ def plugin():
 
     instance = ReferenceValidationPlugin(config=ReferenceValidationConfig(cache_dir=CACHE))
     instance.schema_view = SchemaView(str(SCHEMA))
-    return instance
+
+    # The direct matcher tests also use only committed cache bytes. Do not let
+    # an unsupported canary trigger acquisition or full-text enrichment.
+    def cache_only(fetcher, reference_id, force_refresh=False):
+        assert not force_refresh
+        return fetcher._load_from_disk(fetcher.normalize_reference_id(reference_id))
+
+    with patch.object(ReferenceFetcher, "fetch", cache_only):
+        yield instance
 
 
 def test_a_snippet_in_no_publication_is_rejected(plugin):
@@ -102,54 +106,35 @@ def test_a_real_quote_from_the_cached_source_is_accepted(plugin):
 def test_evidence_item_exposes_the_slots_the_plugin_looks_for(plugin):
     """The annotations are what make the check reachable; without them it is silent.
 
-    This is the difference between EvidenceItem and SupportingReference, and it
-    is invisible in the validator's output — both simply produce no findings.
+    Issue counters alone cannot show that a particular slot was traversed.
     """
     assert plugin._find_excerpt_fields("EvidenceItem") == ["snippet"]
     assert plugin._find_reference_fields("EvidenceItem") == ["reference"]
 
 
-def test_the_supporting_reference_gap_is_still_open(plugin):
-    """Pins a KNOWN GAP, and fails when it is closed — which is the point.
-
-    `Discussion.evidence` has range `SupportingReference`, whose `snippet` and
-    `reference` carry no `implements:`, so the plugin cannot see them and every
-    discussion snippet is unchecked. The fix belongs in `mech_shared.yaml`,
-    which is vendored byte-identical and sha-pinned across the Mech repos.
-
-    Asserting the gap rather than ignoring it means whoever closes it gets a
-    red test pointing at this docstring instead of a silent behaviour change.
-    """
+def test_supporting_reference_exposes_excerpt_and_reference_slots(plugin):
+    """Keep the governed shared-schema repair reachable to native traversal."""
     schema_view = plugin.schema_view
     assert schema_view.get_class("SupportingReference"), "the class has been renamed"
     assert (
         schema_view.induced_slot("evidence", "Discussion").range == "SupportingReference"
     ), "Discussion.evidence no longer ranges on SupportingReference; update this test"
 
-    assert plugin._find_excerpt_fields("SupportingReference") == [], (
-        "SupportingReference now exposes an excerpt slot, so discussion snippets "
-        "are validated and this known gap is closed. Delete this test, update "
-        "the module docstring, and close the follow-up issue from #466."
-    )
+    assert plugin._find_excerpt_fields("SupportingReference") == ["snippet"]
+    assert plugin._find_reference_fields("SupportingReference") == ["reference"]
 
 
-def test_the_gap_is_not_hypothetical(plugin):
-    """Counts what is unchecked, so the follow-up issue has a real scope.
-
-    A gap nobody can size gets deferred forever.
-    """
+def test_discussion_snippet_surfaces_exist_in_actual_records():
+    """Presence makes the slot regression meaningful; it is not a coverage count."""
     import yaml
 
-    unchecked = 0
+    present = 0
     for directory in ("kb/communities", "data/isolates", "kb/taxa"):
         for path in sorted((REPO / directory).glob("*.yaml")):
             document = yaml.safe_load(path.read_text()) or {}
             for discussion in document.get("discussions") or []:
                 for item in (discussion or {}).get("evidence") or []:
                     if isinstance(item, dict) and item.get("snippet"):
-                        unchecked += 1
+                        present += 1
 
-    assert unchecked > 0, (
-        "no discussion snippets remain, so the SupportingReference gap is moot "
-        "and the tests above can be simplified"
-    )
+    assert present > 0, "No discussion snippets remain; reassess the actual-record controls"
