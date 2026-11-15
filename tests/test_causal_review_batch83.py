@@ -4,18 +4,22 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import ALLOWANCES
 from scoped_gtdb_successor import admit
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml"
 GTDB_SUCCESSORS = {
+    "kb/communities/Pepper_Phytophthora_SynCom5.yaml": ALLOWANCES[
+        "kb/communities/Pepper_Phytophthora_SynCom5.yaml"
+    ],
     "kb/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {
             "path": "reports/gtdb-code006-20261115/pes-001-successor.json",
             "sha256": "b44e7040e1bdeacedc63cdb8f45ab4546c30327e357e8c58a0758acfa790c47f",
         },
-    }
+    },
 }
 
 
