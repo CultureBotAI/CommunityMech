@@ -49,6 +49,12 @@ imports:
 
 enums:
 
+  SourceLocatorKindEnum:
+    description: Explicit source selection supported by the reference validator.
+    permissible_values:
+      supplement:
+        description: One cell in a retained supplementary DOCX table.
+
   DiscussionKindEnum:
     description: >-
       Kind of unresolved / in-progress item captured by a Discussion.
@@ -234,12 +240,51 @@ classes:
           consumers should require a full immutable version for newly added links.
         range: string
 
+  SourceLocator:
+    description: >-
+      Select one supplementary DOCX cell for the enclosing citation's reference.
+      A reviewed source catalog must bind that reference, asset_id and version
+      to immutable asset and extraction hashes. Table, row and cell positions
+      count from one in document order, including header rows. The validator
+      must replay the extraction against the retained asset and refuse an
+      unavailable or unsupported selection without falling back to article
+      text. This locator describes source selection, not scientific support.
+    attributes:
+      kind:
+        range: SourceLocatorKindEnum
+        required: true
+      asset_id:
+        description: Exact catalog identifier of the supplementary asset.
+        range: string
+        pattern: '\S'
+        required: true
+      version:
+        description: Exact catalog version key; its asset hash establishes bytes.
+        range: string
+        pattern: '\S'
+        required: true
+      table:
+        description: One-based position among top-level body tables.
+        range: integer
+        minimum_value: 1
+        required: true
+      row:
+        description: One-based direct row position, including header rows.
+        range: integer
+        minimum_value: 1
+        required: true
+      cell:
+        description: One-based direct cell position; merged cells are unsupported.
+        range: integer
+        minimum_value: 1
+        required: true
+
   SupportingReference:
     description: >-
       A lightweight literature/database citation supporting a Discussion or
       Dataset. Self-contained (so this module has no dependency on each repo's
-      EvidenceItem); carries a verbatim `snippet` so the same anti-hallucination
-      snippet-vs-cached-abstract check the Mechs already run can validate it.
+      EvidenceItem); carries a verbatim `snippet` for comparison against the
+      cached reference or an explicitly selected supplementary source.
     attributes:
       reference:
         description: PMID:..., DOI:..., a repository accession/CURIE, or an opaque URL.
@@ -258,6 +303,13 @@ classes:
         description: Verbatim quote from the source supporting the attached claim.
         implements:
           - linkml:excerpt
+      source_locator:
+        description: >-
+          Optional explicit source selection for this snippet. Adoption requires
+          a source-locator-aware reference validator and a reviewed source catalog;
+          schema validation alone does not perform source selection or matching.
+        range: SourceLocator
+        inlined: true
       explanation:
         description: Why this source bears on the claim.
       notes:
