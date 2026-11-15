@@ -81,8 +81,14 @@ taxonomy:
       id: NCBITaxon:158836
       label: Enterobacter hormaechei
     gtdb_grounding_status: UNRESOLVED
-    notes: The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA sequencing; no species-level GTDB classification
-      is asserted here.
+    notes: >-
+      The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA V5-V7 sequencing. Separately,
+      the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) has no exact NCBITaxon:158836 row; its
+      native ncbi_name route returns Enterobacter hoffmannii, E. hormaechei and E. hormaechei_B for this
+      species descriptor. The crosswalk's GTDB release is not established. These alternatives describe
+      reference-taxonomy correspondence, not an assembly-grounded classification of FN0603; no study-stock
+      GTDB species is selected.
   strain_designation:
     strain_name: FN0603
   abundance_level: DOMINANT
@@ -124,8 +130,14 @@ taxonomy:
       id: NCBITaxon:299767
       label: Enterobacter ludwigii
     gtdb_grounding_status: UNRESOLVED
-    notes: The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA sequencing; no species-level GTDB classification
-      is asserted here.
+    notes: >-
+      The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA V5-V7 sequencing. Separately,
+      the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:299767
+      descriptor row to GTDB Enterobacter ludwigii, with 296 reference genomes and stored majority fraction
+      0.95. This is a reference-population correspondence, not 296 genomes from FWP1205 and not an
+      assembly-grounded GTDB classification of that study stock. The crosswalk's GTDB release is not
+      established; the primary 16S identification and stock name are preserved.
   strain_designation:
     strain_name: FWP1205
   abundance_level: DOMINANT
@@ -355,4 +367,11 @@ curation_history:
   changes: Retain measured combined-treatment water retention while marking EPS mediation as hypothesized and coating-confounded.;
     Keep relative DNA-profile shifts distinct from unique-strain colonization, priority effects and predicted metabolic
     causality. Issue#1950; reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
+  llm_assisted: true
+- timestamp: '2026-11-15T08:53:00Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: Clarified the FN0603 and FWP1205 taxonomy notes to distinguish the primary study's 16S-based stock identifications
+    from descriptor-level GTDB reference correspondence (#2848). This note-only intermediate preserves the current
+    statuses pending the separately reviewed native mapping transition; no study-stock genome assignment is asserted.
   llm_assisted: true
