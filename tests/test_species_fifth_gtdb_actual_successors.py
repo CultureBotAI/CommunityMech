@@ -15,6 +15,8 @@ from gtdb_species_batch_successors_20261115 import ALLOWANCES, admission
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "377": "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+    "428": "kb/communities/Barley_DT_Rhizosphere_SynCom.yaml",
+    "459": "kb/communities/Quinoa_SCDY1_Salt_Stress_SynCom.yaml",
 }
 
 
@@ -63,4 +65,16 @@ def test_current_apple_record_has_strict_production_admission():
     assert result.changed
     assert result.current_sha256 == (
         "9c99bb5106378c324d3fc54e96399291a7b408abdef6827f98ac59801f555b0f"
+    )
+
+
+def test_current_barley_record_has_strict_production_admission():
+    result = admission(
+        ROOT,
+        TARGETS["428"],
+        "b4cbe1a4ec5082d224bad75aeefecc74c6cce5bf6f3b3f6a77d41959f8b93e89",
+    )
+    assert result.changed
+    assert result.current_sha256 == (
+        "8e6258c021a3c3629bc59e17d8b9d11234294bbdd3c82d81aa20a5dbce21b47c"
     )

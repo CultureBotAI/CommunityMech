@@ -94,7 +94,7 @@ def test_every_existing_node_and_removed_arrow_has_a_disposition():
             raw = admit_genus_successor(
                 ROOT, row["path"], latest["record_sha256"], current=raw
             ).historical_bytes
-        elif row["id"] == "CommunityMech:000361":
+        elif row["id"] in {"CommunityMech:000361", "CommunityMech:000459"}:
             raw = admit_species_successor(
                 ROOT, row["path"], latest["record_sha256"]
             ).historical_bytes
@@ -135,7 +135,7 @@ def test_repair_history_and_approval_limits_are_explicit():
             latest = next(item for item in successor["records"] if item["id"] == row["id"])
             admission = admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
             historical = yaml.safe_load(admission.historical_bytes)
-        elif row["id"] == "CommunityMech:000361":
+        elif row["id"] in {"CommunityMech:000361", "CommunityMech:000459"}:
             assert doc == yaml.safe_load((ROOT / row["path"]).read_bytes())
             admission = admit_species_successor(ROOT, row["path"], row["record_sha256"])
             historical = yaml.safe_load(admission.historical_bytes)

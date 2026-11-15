@@ -1,11 +1,15 @@
-# Apple, Barley and Quinoa GTDB preparation; Wetland held
+# Apple, Barley and Quinoa bounded GTDB corrections; Wetland held
 
 The [Apple 377 canary outcome](377-canary-outcome-001.md) records its actual M5
 application, eight passed native commands, immutable partial diagnostic,
 independently verified 82-input/84-file checkpoint and strict public proof.
 The focused proof/participant run passed 27 tests and native lint passed.
-Barley 428 and Quinoa 459 remain unapplied; Wetland 471 remains held. This is
-technical correction evidence, not full scientific approval or aggregate QC.
+The [Barley428 and Quinoa459 outcome](remaining-two-outcome-001.md) records their
+sixteen passed native commands, one immutable partial two-record diagnostic,
+independently verified 126-input/128-file checkpoint, 54 exported artifacts and
+strict proofs. The two actual proof runs passed 18 and 17 tests; all 18 historical
+caller tests and native lint passed. Wetland471 remains held. These are bounded
+technical corrections, not full scientific approval or aggregate QC.
 
 ## Historical preparation at 24f0185a
 
