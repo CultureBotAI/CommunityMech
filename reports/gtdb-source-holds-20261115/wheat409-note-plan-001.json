@@ -1,0 +1,70 @@
+{
+  "scope": "taxonomy-notes-only",
+  "scientific_review": false,
+  "target": "kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml",
+  "target_id": "CommunityMech:000409",
+  "before_sha256": "613f8b97efa732c213fae320935a4f8cafa8cb899718e6c18a7c1f47f9ba0420",
+  "event_changes": "Clarified the FN0603 and FWP1205 taxonomy notes to distinguish the primary study's 16S-based stock identifications from descriptor-level GTDB reference correspondence (#2848). This note-only intermediate preserves the current statuses pending the separately reviewed native mapping transition; no study-stock genome assignment is asserted.",
+  "notes": [
+    {
+      "taxonomy_index": 0,
+      "existing_descriptor": {
+        "preferred_term": "Enterobacter hormaechei FN0603",
+        "term": {"id": "NCBITaxon:158836", "label": "Enterobacter hormaechei"},
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA sequencing; no species-level GTDB classification is asserted here."
+      },
+      "existing_stock": {"strain_name": "FN0603"},
+      "before": "The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA sequencing; no species-level GTDB classification is asserted here.",
+      "after": "The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA V5-V7 sequencing. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) has no exact NCBITaxon:158836 row; its native ncbi_name route returns Enterobacter hoffmannii, E. hormaechei and E. hormaechei_B for this species descriptor. The crosswalk's GTDB release is not established. These alternatives describe reference-taxonomy correspondence, not an assembly-grounded classification of FN0603; no study-stock GTDB species is selected."
+    },
+    {
+      "taxonomy_index": 2,
+      "existing_descriptor": {
+        "preferred_term": "Enterobacter ludwigii FWP1205",
+        "term": {"id": "NCBITaxon:299767", "label": "Enterobacter ludwigii"},
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA sequencing; no species-level GTDB classification is asserted here."
+      },
+      "existing_stock": {"strain_name": "FWP1205"},
+      "before": "The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA sequencing; no species-level GTDB classification is asserted here.",
+      "after": "The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA V5-V7 sequencing. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:299767 descriptor row to GTDB Enterobacter ludwigii, with 296 reference genomes and stored majority fraction 0.95. This is a reference-population correspondence, not 296 genomes from FWP1205 and not an assembly-grounded GTDB classification of that study stock. The crosswalk's GTDB release is not established; the primary 16S identification and stock name are preserved."
+    }
+  ],
+  "inputs": {
+    "kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml": "613f8b97efa732c213fae320935a4f8cafa8cb899718e6c18a7c1f47f9ba0420",
+    "references_cache/PMID_42513902.txt": "f36426f264438e022eeed4077aba924504d3192b25fac5b7d7a34ca5d8fd655e",
+    ".temp/gtdb-source-holds-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/wheat409-native-route-001.log": "4675c57ec9ed0064e862aa55397c612e7d603f5b609b0ab188822624ccfe57ec",
+    ".temp/phase2-schema-20261115/wheat409-native-route-001.json": "350418c7d1aa1ee6e86dd709be898194be20fa0ef80f156fd8ad60d72fa37744",
+    ".temp/phase2-schema-20261115/wheat409-native-route-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/gtdb-source-holds-20261115/wheat409-route-plan-001.json": "1d3005a6d6c333beed13f296bc9ec30afd8f8e52d6c778dcc013151dcf7397b8",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "tests/test_causal_review_batch122.py": "00bfbda6721badbc73893b0dbdaea5ec146f84d33e581b86f75df8cfa8ab189e",
+    "reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml": "c77c5eb2fb20969b2f3b50aa34646df937cfb86c2f96c308ea2350f016cf080e"
+  },
+  "source_anchors": [
+    {
+      "path": "references_cache/PMID_42513902.txt",
+      "locator": "Retained primary main text line47, Methods2.1 Strain Activation and Identification",
+      "text": "Five target bacterial strains (E. hormaechei FN0603, E. cloacae FWP0601, E. ludwigii FWP1205, P. putida FWP0405, and S. maltophilia HLPD6)"
+    },
+    {
+      "path": "references_cache/PMID_42513902.txt",
+      "locator": "Methods2.1; source's stated identity method, not independent species-resolution certification",
+      "text": "Species identity was confirmed by 16S rRNA gene sequencing targeting the V5-V7 regions on the Illumina MiSeq platform"
+    },
+    {
+      "path": ".temp/phase2-schema-20261115/wheat409-native-route-001.log",
+      "locator": "records[0].occurrences[0].native_result and lookup_indexes.exact_ncbi_id",
+      "text": "\"GTDB:s__Enterobacter_hoffmannii\""
+    },
+    {
+      "path": ".temp/phase2-schema-20261115/wheat409-native-route-001.log",
+      "locator": "records[0].occurrences[2].native_result and exact NCBI299767 row",
+      "text": "\"total_genomes\": 296"
+    }
+  ],
+  "limits": "Preparation only, not staging/application approval. Reuse the reviewed exact-note writer only after the393 end-to-end composite canary succeeds. The eventual first transition changes only these two notes and one native event; all stocks, other three ambiguity sets, source quotes, biology and old history remain exact. Native grounding/status is a separate subsequent transition from a real committed intermediate, with unchanged shared mapping core. Retain batch122 original ledger/hash/history obligations through explicit composite proof and all current BCC-versus-NC, EPS-hypothesis, amplicon/viability and field-treatment predicates. Existing S1/S2 isolation-trait discussion and live1952 yield/treatment/abundance findings remain unresolved; no supplements or whole-record science newly reviewed. No crosswalk-release or study-stock assembly identity is inferred."
+}
