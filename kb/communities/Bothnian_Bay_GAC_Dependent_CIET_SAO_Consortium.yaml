@@ -82,7 +82,17 @@ taxonomy:
     term:
       id: NCBITaxon:2207
       label: Methanosarcina
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methanosarcina
+      gtdb_taxon: Methanosarcina
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanosarcinia;o__Methanosarcinales;f__Methanosarcinaceae;g__Methanosarcina
+      ncbi_source_id: NCBITaxon:2207
+      majority_fraction: 1.0
+      support_genomes: 301
+      total_genomes: 301
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       Methanosarcina-related MAG GAC.MBAT.2; the article places it in the
       Methanosarcina Type II clade but does not assign a named species.
@@ -118,7 +128,17 @@ taxonomy:
     term:
       id: NCBITaxon:1840214
       label: Lentimicrobium
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Lentimicrobium
+      gtdb_taxon: Lentimicrobium
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Lentimicrobiaceae;g__Lentimicrobium
+      ncbi_source_id: NCBITaxon:1840214
+      majority_fraction: 1.0
+      support_genomes: 3
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       A GAC-specific Lentimicrobium MAG encoding 15 multiheme cytochromes, a
       large porin-multiheme-cytochrome cluster, and acetate uptake and
@@ -196,7 +216,17 @@ taxonomy:
     term:
       id: NCBITaxon:40413
       label: Desulforhopalus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Desulforhopalus
+      gtdb_taxon: Desulforhopalus
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfobulbia;o__Desulfobulbales;f__Desulfocapsaceae;g__Desulforhopalus
+      ncbi_source_id: NCBITaxon:40413
+      majority_fraction: 1.0
+      support_genomes: 6
+      total_genomes: 6
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       GAC-specific MAG with an inferred fermentative role; the article argues
       that it is unlikely to perform syntrophic acetate oxidation because the
@@ -503,3 +533,11 @@ curation_history:
   changes: 'Preserve experimental Bothnian syntrophy while bounding population and molecular claims; decisions:
     reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1264'
   llm_assisted: true
+- timestamp: '2026-11-15T07:44:52Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:44:53Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'

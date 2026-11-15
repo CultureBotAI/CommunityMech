@@ -60,8 +60,6 @@ taxonomy:
       id: NCBITaxon:316
       label: Stutzerimonas stutzeri
     gtdb_grounding_status: AMBIGUOUS
-    notes: The source uses the historical name Pseudomonas stutzeri; the NCBITaxon canonical label for NCBITaxon:316 is Stutzerimonas
-      stutzeri.
     gtdb_candidates:
     - GTDB:s__Stutzerimonas_nitrititolerans
     - GTDB:s__Stutzerimonas_stutzeri
@@ -73,6 +71,8 @@ taxonomy:
     - GTDB:s__Stutzerimonas_stutzeri_G
     - GTDB:s__Stutzerimonas_stutzeri_H
     - GTDB:s__Stutzerimonas_stutzeri_U
+    notes: The source uses the historical name Pseudomonas stutzeri; the NCBITaxon canonical label for NCBITaxon:316 is Stutzerimonas
+      stutzeri.
   abundance_value: One of three members of the Fe2+-regulated nitrogen-removal SynCom; reported as an aerobic denitrifier.
   evidence:
   - reference: PMID:42520901
@@ -87,7 +87,17 @@ taxonomy:
     term:
       id: NCBITaxon:570
       label: Klebsiella
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Klebsiella
+      gtdb_taxon: Klebsiella
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella
+      ncbi_source_id: NCBITaxon:570
+      majority_fraction: 1.0
+      support_genomes: 44527
+      total_genomes: 44529
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: The PubMed abstract identifies this member only at genus rank as Klebsiella sp.; NCBITaxon:570 is the genus-level
       Klebsiella taxon; the local NCBI2GTDB crosswalk was unavailable during curation, so no reproducible GTDB grounding
       was stored.
@@ -106,7 +116,17 @@ taxonomy:
     term:
       id: NCBITaxon:507
       label: Alcaligenes
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Alcaligenes
+      gtdb_taxon: Alcaligenes
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Alcaligenes
+      ncbi_source_id: NCBITaxon:507
+      majority_fraction: 1.0
+      support_genomes: 36
+      total_genomes: 36
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: The PubMed abstract identifies this member only at genus rank as Alcaligenes sp.; NCBI ESearch returned NCBITaxon:507
       for the exact scientific name Alcaligenes.
   abundance_value: One of three members of the Fe2+-regulated nitrogen-removal SynCom; reported as a heterotrophic nitrifying-aerobic
@@ -308,3 +328,11 @@ curation_history:
   changes: 'Preserve nitrate removal and reported abundance shifts without verified flux or niche partitioning.
     Issue #1733; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:44:32Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:44:33Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

@@ -9,6 +9,27 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-next-three-372-001-successor.json",
+            "sha256": "e42825733412ec112ac507502e6a02a8adb8c5426083f17f3ea53ede7ff5d541",
+        },
+    },
+    "kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-next-three-349-001-successor.json",
+            "sha256": "6aabe1afc6fde3be1228191ade21d69dd07e506efa4cb68d8b83952cee443b09",
+        },
+    },
+    "kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-next-three-424-001-successor.json",
+            "sha256": "e6974eccb2ff5e55b7519b88208733d6c2d6dfd14b1b983c1c3cc58ad66ad68b",
+        },
+    },
     "kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml": {
         "baseline_revision": BASE,
         "manifest": {

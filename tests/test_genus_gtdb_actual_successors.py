@@ -13,6 +13,9 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "372": "kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml",
+    "349": "kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml",
+    "424": "kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml",
     "342": "kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml",
     "390": "kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml",
     "406": "kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml",
