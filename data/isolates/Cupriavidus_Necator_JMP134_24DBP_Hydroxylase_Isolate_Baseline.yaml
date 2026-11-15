@@ -75,7 +75,16 @@ taxonomy:
     term:
       id: NCBITaxon:264198
       label: Cupriavidus pinatubonensis JMP134
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Cupriavidus_pinatubonensis
+      gtdb_taxon: Cupriavidus pinatubonensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus;s__Cupriavidus pinatubonensis
+      ncbi_source_id: NCBITaxon:264198
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Reported as Cupriavidus necator JMP134 in PMID:42364169; resolves to canonical NCBI strain taxon Cupriavidus pinatubonensis
       JMP134.
   strain_designation:
@@ -235,3 +244,11 @@ curation_history:
     single COMMUNITY_LEVEL pJP4-encoded TfdBI/TfdBII 2,4-DBP hydroxylation node from 2 to 5 non-overlapping, bracket-free
     verbatim snippets without inventing unsupported downstream edges.
   llm_assisted: true
+- timestamp: '2026-11-15T05:47:34Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T05:47:34Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
