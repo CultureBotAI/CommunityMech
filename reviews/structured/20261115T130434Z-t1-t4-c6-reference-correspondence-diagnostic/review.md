@@ -1,0 +1,1690 @@
+# T1, Fahmy T4 and hexamine C6: scoped reference correspondences and complete ambiguities
+
+- Review: 20261115T130434Z-t1-t4-c6-reference-correspondence-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T13:04:34.535383Z
+- Finished UTC: 2026-11-15T13:04:34.792013Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Three records now preserve nine native reference blocks and eight complete ambiguity sets across seventeen selected descriptors. The existing T1 Re2 descriptor and its twenty-three alternatives remain semantically unchanged. All eighteen study-stock occurrences, source identities, quotations, biological assertions and prior history remain intact. Three actual guarded applications, six native inline events, three native sidecars and twenty-four actual passed checks are bound to this partial diagnostic.
+
+## Scope And Provenance
+
+Selected taxonomy GTDB blocks, grounding statuses and complete candidate lists; source-stock versus reference-population limits; exact guarded applications, append-only history and eight native checks per whole record. Historical successor admission and whole-record scientific judgments remain separate.
+
+Selection: CommunityMech:000498, CommunityMech:000369 and CommunityMech:000405 are the remaining three whole records from the accepted four-record intake. The real KZ344 canary completed application, native checks, immutable save, both-host input checkpoints and strict historical proof before these applications. KZ's saved diagnostic remains separate.
+Coverage: partial; 3 reviewed / 3 in the declared population.
+Source: working_tree at Git base 8ad0caccd37c5903daa0cbcebd4f682bae63449a.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000498 | kb/communities/Cyantraniliprole_Consortium_T1.yaml # taxonomy[0,3].taxon_term.gtdb_classification; taxonomy[0,2,3,4,5].taxon_term.gtdb_grounding_status; taxonomy[2,4,5].taxon_term.gtdb_candidates | maintained | T1 Re1-Re6 source stocks with five selected reference correspondences |
+| CommunityMech:000369 | kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml # taxonomy[0,3,4,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status; taxonomy[1,2].taxon_term.gtdb_candidates | maintained | Fahmy T4 six-stock benchmark: reference mappings and retained ambiguities |
+| CommunityMech:000405 | kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml # taxonomy[2,3,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status; taxonomy[0,1,4].taxon_term.gtdb_candidates | maintained | C6 six distinct partial16S stocks, including repeated species descriptors |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000498 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000369 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000405 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Six MALDI-described stocks remain distinct from reference matches
+
+grounding: supported. Targets: CommunityMech:000498.
+
+Retain Re1-Re6 and all source match qualifications, without aliases, stock-genome inference or new biological approval. Existing scientific claims and limits remain unchanged.
+
+### Two reference blocks and three complete ambiguity sets
+
+grounding: supported. Targets: CommunityMech:000498.
+
+The five selected descriptors now match the pinned native outcomes; all four/two/two alternatives remain unselected. Preserve Re2's existing twenty-three alternatives and note. Counts describe reference populations, not study abundance or identity probability.
+
+### Exact guarded application with preserved biological projection
+
+provenance: supported. Targets: CommunityMech:000498.
+
+The actual receipt, unchanged scientific projection, two native inline events, one sidecar and eight real checks bind the applied bytes. This partial diagnostic precedes strict historical admission and does not replace scientific review or full QC.
+
+### Six partial16S-described benchmark stocks and unresolved cultivation
+
+grounding: supported. Targets: CommunityMech:000369.
+
+Preserve all six stock names, marker accessions and the benchmark context. No assembly or strain alias is inferred, and the three non-GTDB prior findings remain unresolved.
+
+### Four bounded reference blocks and two full ambiguity sets
+
+grounding: supported. Targets: CommunityMech:000369.
+
+All six selected descriptors reproduce the native correspondences and complete alternative sets. Reference counts and rounded fractions preserve their database scope without selecting an ambiguous stock identity or claiming a crosswalk release.
+
+### Actual persistence and checks without scientific waiver
+
+provenance: supported. Targets: CommunityMech:000369.
+
+The guarded actual application, two native events, one sidecar and eight native commands bind the new bytes while all biological claims, quotes and old history remain intact. Later batch28 admission must preserve current predictions/removal limits and the other three records.
+
+### Six study stocks remain distinct despite repeated descriptors
+
+grounding: supported. Targets: CommunityMech:000405.
+
+Retain all six source stocks and genus-only SRCHD06. Shared NCBI and GTDB correspondences do not collapse repeated-stock occurrences or establish exact study genomes. Source assay and causal limitations remain unchanged.
+
+### Three reference blocks and three complete species/genus ambiguities
+
+grounding: supported. Targets: CommunityMech:000405.
+
+The persisted six occurrences reproduce the pinned native results with complete three/three/three ambiguity sets. Reference denominators are not experimental stock numbers, no alternative is chosen, and the upstream release remains unestablished.
+
+### Bounded persistence with unchanged current scientific predicates
+
+provenance: supported. Targets: CommunityMech:000405.
+
+The exact actual application, two native inline events, separate sidecar and eight checks bind the corrected record. All stock, source, graph, discussion and older history content is preserved; saved persistence precedes any strict batch50 caller amendment.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000498-schema | .temp/gtdb-source-intake-four-20261115/498-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-strict | .temp/gtdb-source-intake-four-20261115/498-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-gtdb | .temp/gtdb-source-intake-four-20261115/498-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-domain | .temp/gtdb-source-intake-four-20261115/498-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-scalars | .temp/gtdb-source-intake-four-20261115/498-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-history | .temp/gtdb-source-intake-four-20261115/498-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-new-history | .temp/gtdb-source-intake-four-20261115/498-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-terms | .temp/gtdb-source-intake-four-20261115/498-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000498-paper | references_cache/PMID_42354927.txt; Selected isolate identification/MALDI Methods and Table3 rows Re1-Re6; community design and removal/pathway interpretation passages bound in the source proof | supports | The primary source retains six Re stocks and their MALDI reference matches. The match labels and scores do not establish deposited-stock aliases or exact study genomes. Measured removal and predicted functions retain their distinct original scopes. |
+| 000498-database | reports/gtdb-source-intake-four-20261115/498-source-evidence-001.json; Selected indices0,2,3,4,5: complete native_result/classify_status and captured identity/source inputs | supports | Two species-reference populations support blocks101/1 and9/1; the other selected descriptors retain complete four-, two- and two-option ambiguities. No alternative is selected for a study stock. The unselected Re2 twenty-three-option descriptor remains unchanged. |
+| 000498-application | .temp/gtdb-source-intake-four-20261115/intake498-applied-001/receipt.json; Actual applied flag, execution revision8ad0cacc, reviewed stage receipt, before/after hashes and captured inputs | supports | The accepted96c2e5dc candidate was persisted exactly, changing five descriptors and adding two native inline events. The log processes six taxa while the actual status event counts five changed entries; one separate native sidecar records the bounded application. |
+| 000498-prior | reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml; T1 source/graph disposition, current batch137 invariants and prior deep-audit input47b83251 | context_only | Current two-node, zero-arrow scientific claims, exact removal observations and prediction limitations remain intact. Historical ledgers, sibling499/500 admissions, fabricated-snippet and history mutation controls must survive later strict integration. |
+| 000369-schema | .temp/gtdb-source-intake-four-20261115/369-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-strict | .temp/gtdb-source-intake-four-20261115/369-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-gtdb | .temp/gtdb-source-intake-four-20261115/369-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-domain | .temp/gtdb-source-intake-four-20261115/369-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-scalars | .temp/gtdb-source-intake-four-20261115/369-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-history | .temp/gtdb-source-intake-four-20261115/369-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-new-history | .temp/gtdb-source-intake-four-20261115/369-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-terms | .temp/gtdb-source-intake-four-20261115/369-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000369-paper | references_cache/PMID_42354927.txt; Six-strain T4 benchmark, partial16S identification/accession table and selected removal/predicted-function passages bound in the source proof | supports | The source names AZFS3/AZFS5/AZFS15/AZFS18/KZFS4/KZFS11 and their partial16S markers. The benchmark remains distinct from four-stock designs; parent-removal results and predicted functions do not establish complete mineralization or exact study-stock genomes. |
+| 000369-database | reports/gtdb-source-intake-four-20261115/369-source-evidence-001.json; All six selected native results, exact identity rows, source inputs and reference-population qualifiers | supports | Native reference blocks retain totals101/9/17191/12 with fractions1/1/.99/1. The remaining two descriptors retain all four and two alternatives. These populations are separate from the six experimental stocks and are not candidate probabilities. |
+| 000369-application | .temp/gtdb-source-intake-four-20261115/intake369-applied-001/receipt.json; Actual applied flag, reviewed candidate/receipt, execution8ad0cacc and exact before/after/source hashes | supports | The independently accepted57678380 candidate persisted exactly. Four blocks, two ambiguity sets, six statuses and two native inline events changed; all original study claims and marker strings remain unchanged, with one native sidecar and eight completed checks. |
+| 000369-prior | reviews/structured/20261022T024259Z-cyantraniliprole-fahmy-record-review/review.yaml; Four original findings: reference-mapping issue distinguished from three non-GTDB findings; original batch28 caller/ledger and captured issue1371 response | context_only | Salinity consistency, assay-temperature and protocol-detail findings remain unresolved. The native gates do not supply missing cultivation evidence, validate predicted causal mediation or convert the prior review into a new full scientific approval. |
+| 000405-schema | .temp/gtdb-source-intake-four-20261115/405-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-strict | .temp/gtdb-source-intake-four-20261115/405-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-gtdb | .temp/gtdb-source-intake-four-20261115/405-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-domain | .temp/gtdb-source-intake-four-20261115/405-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-scalars | .temp/gtdb-source-intake-four-20261115/405-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-history | .temp/gtdb-source-intake-four-20261115/405-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-new-history | .temp/gtdb-source-intake-four-20261115/405-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-terms | .temp/gtdb-source-intake-four-20261115/405-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000405-paper | references_cache/PMID_41743136.txt; Table1 C6 stock roster, partial16S identification, Table2 versus biofilm assay observations and retained irradiation/recovery passages | supports | C6 contains six stocks including SRCHD02; repeated species descriptors do not collapse SRCHD03/04 or SRCHD05/07. Genus-only SRCHD06, the source's assay/dose disagreements and limits of community recovery remain explicit. |
+| 000405-database | reports/gtdb-source-intake-four-20261115/405-source-evidence-001.json; All six selected occurrences, native complete results, reference denominators and current identity rows | supports | The two Brucella pseudintermedia occurrences retain separate stock rows with the same Ochrobactrum reference block18/1; Micrococcus retains236/.95. Both Brevundimonas occurrences retain the same three unselected species alternatives; SRCHD06 retains all three genus alternatives. |
+| 000405-application | .temp/gtdb-source-intake-four-20261115/intake405-applied-001/receipt.json; Exact applied d7e0e6ea, execution8ad0cacc, reviewed stage receipt and source/before/after bindings | supports | Only three reference blocks, three complete ambiguity sets, six statuses and two native events changed. The guarded application preserves all six stocks and current biology, with one new native sidecar and eight real passed commands. |
+| 000405-prior | reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml; C6 source/graph and discussion disposition plus literal current batch50 biological/stock/history predicates | context_only | Bulk chemical removal, ammonia production, fresh-medium recovery, unresolved molecular division of labor and the50/100mg/L discrepancy remain bounded. No transfer mechanism, formal equivalence or survival of every original stock is asserted; Hambi and Hanford historical contracts must remain intact. |
+
+## Limits And Additional Notes
+
+- Partial diagnostic with scientific_review:false. Native schema, strict, GTDB, domain, scalar, term and history checks do not establish full scientific approval, reference-snippet coverage, generated-product validation, full-corpus QC or completion of the broader campaign.
+- Retained primary text and the selected identity, roster and assay passages were read. No study-stock genome assembly was independently matched or newly classified. Source MALDI matches, partial16S markers and canonical NCBI descriptors are not interchangeable with exact experimental-stock genomes.
+- The crosswalk761d5537 hash pins retained bytes, not an upstream GTDB release. File mtime, current NCBI labels and the local ontology database stat do not establish a release. Reference denominators and rounded fractions are neither study-stock counts nor identity probabilities. Complete ambiguity sets remain unselected, with no invented denominators.
+- T1 retains all Re1-Re6 stocks and every MALDI best-match note and score. Reference matches such as DSM10, DSM31 and ATCC7061 are not asserted as aliases of the study isolates. Re2's original twenty-three alternatives are unchanged; native YAML serialization moves only the position of its unchanged notes key.
+- The Fahmy six-stock T4 benchmark remains distinct from the four-stock T1-T3 designs in the same source. All six partial16S accession strings are preserved. Predicted functions, recovered parent-removal percentages and native-water microbial context do not establish complete mineralization or causal mediation. The prior full review's three non-GTDB findings and issue1371 salinity, assay-temperature and protocol gaps remain unresolved.
+- C6 retains six separate stocks, including SRCHD02 and both pairs with repeated NCBI IDs. Genus-only SRCHD06 is not assigned a species. The94.41 percent biofilm observation,95.26 percent suspended Table2 result and50 versus100mg/L source discrepancy remain separate; ammonia production is not ammonia removal, and recovery does not establish formal equivalence or survival of every original stock.
+- Every current graph node, participant, evidence snippet, discussion, biological field and old history entry is preserved. Existing source and causal limitations are not repaired or recertified by this mapping-only change.
+- Actual M5 staging, application and native checks ran at frozen8ad0cacc with Python3.13.2; local source reporting used320b21d5/Python3.13.12 and later local evidence inspection used the published KZ checkpoint d54cbc1d. These distinct execution observations are not a clean aggregate QC claim.
+- The first local SSH launcher for the T1 staging plan exited255 during hostname resolution before any remote command. It is retained. The next launcher ran the same actual remote plan successfully; no source bytes or native policy changed to bypass the refusal.
+- Historical callers28,50 and137 remain unchanged at this pre-save checkpoint. Their later strict admissions must retain immutable ledgers, original historical events, current biological predicates and existing sibling-record chains. No caller change is permitted to stand in for an actual saved application proof.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T130434Z-t1-t4-c6-reference-correspondence-diagnostic
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: 'T1, Fahmy T4 and hexamine C6: scoped reference correspondences and complete
+  ambiguities'
+started_at: '2026-11-15T13:04:34.535383Z'
+finished_at: '2026-11-15T13:04:34.792013Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: 'The parent independently read T1 and the global source preparation;
+    the inventory reviewer independently read T4 and C6 against whole records, primary
+    passages, prior findings and historical callers. Actual M5 candidates were independently
+    read before application: T1 and C6 by the parent, T4 by the inventory reviewer.
+    Every stage input hash and full candidate diff was checked. This assessment covers
+    database correspondence and exact native persistence, not full scientific review.'
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Three records now preserve nine native reference blocks and eight complete
+  ambiguity sets across seventeen selected descriptors. The existing T1 Re2 descriptor
+  and its twenty-three alternatives remain semantically unchanged. All eighteen study-stock
+  occurrences, source identities, quotations, biological assertions and prior history
+  remain intact. Three actual guarded applications, six native inline events, three
+  native sidecars and twenty-four actual passed checks are bound to this partial diagnostic.
+source:
+  git_revision: 8ad0caccd37c5903daa0cbcebd4f682bae63449a
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-source-intake-four-20261115/369-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-domain-001/native.log
+    sha256: 206c8613fa36ff701423d090b8287815a73e09c839f0946a7c7c337cafe5da78
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-domain-001/receipt.json
+    sha256: b0aa273db4513e72d5cd061572e6918f9faff90c716e914c38a04a88425ac0de
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-domain-001/start.json
+    sha256: 2706453fc7fa30fd6746a6db804b85b39e98306f02fead669faa20e4ec408f83
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-gtdb-001/native.log
+    sha256: fbd23503630d1d57ea5b84e112cb62ba4fd85f6f0c2f95f85373e9b1000a662f
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-gtdb-001/receipt.json
+    sha256: 961d01e5b472563f86856bace38928c8cf21eb07eb0316b4e217c6d1458c1e2b
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-gtdb-001/start.json
+    sha256: f51a18362ed04e2f03c1c797f287af30b0a1206f4bdd77a95480029943f4dfa6
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-history-001/receipt.json
+    sha256: ca5d4d6ea9838192ea49f32d5336631176e5f550aaf825a425fdcb957382bd8c
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-history-001/start.json
+    sha256: 510169b9f2fbdb6e5c7a135220e4b973afee93856a2d71566c9c162aec43d6f7
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-new-history-001/native.log
+    sha256: ca1281c1003b4e15fe972801ebf646676af736751f5243f2fd452678f71f999b
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-new-history-001/receipt.json
+    sha256: 6e453732ed7073439d952b79329b5e280295df26a9776dbefe774c8a98b7f3a3
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-new-history-001/start.json
+    sha256: 7a999b3928740912b29f57095b7172194c9e2fb809a96c62e480aa1de95d52fc
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-scalars-001/native.log
+    sha256: de95d6381914b3bfe3023c962923a6cefb4d454ad6fa01621945938d6fbdeac2
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-scalars-001/receipt.json
+    sha256: 844d79482ff84c6ac8b2b56727e2c9389ccc360d47ea32d37e4969c576a30dda
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-scalars-001/start.json
+    sha256: a873f8e1c040f82c49d01586191891f47144d75fd709211cc53bd725e8ad358a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-schema-001/native.log
+    sha256: 6b9692139ac297471ec2c32d16b6216bb0e34d775c6f0aaaabe94c576a66ebfe
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-schema-001/receipt.json
+    sha256: d664861c0c1a4c36e8226fddabefd39fdf725fd5fde3e5e903795647aab6bd8c
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-schema-001/start.json
+    sha256: 8054eeede2b942689549bd44202720dd09105c35ea67c45bdba086e33f6373c6
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-strict-001/native.log
+    sha256: 63fc874bbf68931acda809bb98b3f50de0eef56b4851c3c15fa80937790a2151
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-strict-001/receipt.json
+    sha256: a43094106ac6daf3a8874c037ced168b65a6d5aef9c068ea8fd58c18b0ef32a8
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-strict-001/start.json
+    sha256: c43eba23681c3eeb148c9217667ea0a46e8e9d978a230ba41b97913647d2f7b9
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-terms-001/native.log
+    sha256: 84e39c61da877834fe61785266d7fbe3407dac5e0e7ace6f25bbbc800f48df0c
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-terms-001/receipt.json
+    sha256: 93719869b847ab7462abb27647e8fcabd622eecac1da97a426c2770ab53f6d39
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/369-terms-001/start.json
+    sha256: 5911b58827fb1610bbe5f5ae5804df16086972e49cf70c0d4d4a99d19ec0e409
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-domain-001/native.log
+    sha256: bc2ff4eb0220a40ef59531d2534dc5e78722b9f074ef38f50b95ddc8795394ec
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-domain-001/receipt.json
+    sha256: 93bca8b08acaf97358c99a8252cfcd18a80e1e6a398cdc31cbcb51a10f4ff860
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-domain-001/start.json
+    sha256: 774ab4fa52d7f4437b4cc9dc93c4265f0884242dc905ae60cc1104a51e186f47
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-gtdb-001/native.log
+    sha256: 40e1cdf3f83e433ab19284e1534759cef9c04577de5c7f3021db92b05dbb6eee
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-gtdb-001/receipt.json
+    sha256: 654cd0f7f3247a3a22b4f0225bd5f941145894c7dc9dc16ec82aca886dacabfc
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-gtdb-001/start.json
+    sha256: b0e22b62fece95990f4db10638e46719f43df12b5bd58a3a040f4a91ddb62009
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-history-001/receipt.json
+    sha256: 2d8ce06cccbe08bb1613f3de21cdefdebb349dc5b273a0534e33efae3baea131
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-history-001/start.json
+    sha256: 957a0bde8d1a0156c1cdc3b39bf69616ff5959285125a4c91ad8207edecc5ebe
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-new-history-001/native.log
+    sha256: ec47d742cc3df0699c24bd5ffc8d6879ee87ff47f4e9a32a8cb4dbd711a5ef2e
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-new-history-001/receipt.json
+    sha256: 86fcf35bf5a75e7c16188acaea8ccb40b0f0dabfa04b58ecfb6b6ffd8330d8f5
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-new-history-001/start.json
+    sha256: d480246616b36b7c1aab8d60cc505b4a7d3295da95ec034fd6a1125da2989e22
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-scalars-001/native.log
+    sha256: 2fd38a3ea294b09f8245841a5579451cbd66809aa524b59b21c2541269aca689
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-scalars-001/receipt.json
+    sha256: e8ae40d6afbe243856ce75676fa1422a5af5a7cbdc39e5c6fb9ad8158d04f384
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-scalars-001/start.json
+    sha256: 20726ad934c1e6c1a0c5d283e8d8e910add66a900fb31ff01e161f7c19e861d3
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-schema-001/native.log
+    sha256: 2bd1cea1ccfd882017b3b90da2ee65142c815cc13e10438d192690065f6709b6
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-schema-001/receipt.json
+    sha256: 495cad52a65a2981fc74212648ade7146a089f3cd780b20823d510d8f85f860f
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-schema-001/start.json
+    sha256: 1c3a3ff85c0855d83c59c75691dea07a093c475725b00fb13a13f9a91272f932
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-strict-001/native.log
+    sha256: f8b61fb72c6492091eae15ed982d4de7716e1fa91711a68da21b12f3299513a2
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-strict-001/receipt.json
+    sha256: 12afc0fdd0582dfedbfc13eb685fcca144ffc28aa36e1a51430a8f03a01a18c5
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-strict-001/start.json
+    sha256: cb0d2d593b35636e16f86500ae889c2a48e3fb9b092f737b35b1044c49b546ee
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-terms-001/native.log
+    sha256: ee92030bc55f4a74a1f77e91217edc219be432864affe3c09e4d84f35074b929
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-terms-001/receipt.json
+    sha256: 6636ec3afddbe96a82008d5b73f5260bbb91ebb5826633c660823e28df9e87ec
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/405-terms-001/start.json
+    sha256: f9c84127d5132130bf45aa2b5e7008a7f6881ab15b1702b48ea32ae158ff9435
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-domain-001/native.log
+    sha256: 7e4a5bb0de2db26a19f6f9f332bd9111d9c0002dc27776d8c7c093626d06e767
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-domain-001/receipt.json
+    sha256: 7aa62fe8f20c4cfbaff21564c184d61963b36eb5e517b22059e650a20f4c5659
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-domain-001/start.json
+    sha256: 16c7f8db3d70dfff9a79d9ced5edfdde3547292e45100437da2b589ad2b43db9
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-gtdb-001/native.log
+    sha256: 7b0288b8e32849ce5a6259e77fac88bbb0de48ff9509b0c1b767680db65ce39d
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-gtdb-001/receipt.json
+    sha256: 48ae1b46501de0cec3cf463a0951d462f61edb8cef857aee07d3e1e349e30efc
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-gtdb-001/start.json
+    sha256: 3cabc8871dc1e19f55ee6555ded174c415f19e9a93f19422ebd2b8076fcd9f43
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-history-001/receipt.json
+    sha256: 9ac18424e7435ac399f9494abdc1cff946be3b7dd6442942d25904e17a81d99e
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-history-001/start.json
+    sha256: 474a1513aa82eb841994731d86abc40ed231d2a7fe802c05f1a3f72db37942f5
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-new-history-001/native.log
+    sha256: c93881789cfbda4c8a94a34a4e8047c63af67309773e70f424c3b83afcaaa913
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-new-history-001/receipt.json
+    sha256: afa5be7edc1c5b60cb009e2fe542169f5e1676c520883b0b3ee12d82b433bf90
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-new-history-001/start.json
+    sha256: a3b18e8535d1a016526780218f37cba78222e906d2972e8d5bab8a2e081db71a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-scalars-001/native.log
+    sha256: ea1a110e2593e178728b492aedec2a7f1cfccb1ea7da17a749400c5a30462143
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-scalars-001/receipt.json
+    sha256: 15ba0210f012432c9fda0eb765200f48b9f34bced6dd7df66fd3f45be78ee657
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-scalars-001/start.json
+    sha256: ca4006db57ab2e50aa5e6e65ef2d35abb4633b9267b4f665e5680589cff808c4
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-schema-001/native.log
+    sha256: 32f48276b3a1bbcf03c77a3d2acb7756cfc53535ef742cc421608fba8c3e3f0a
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-schema-001/receipt.json
+    sha256: 4f5ecca55a0cb2769fa5c3fba971a906e4e42a71e80d6ca253ced0aa71d188d2
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-schema-001/start.json
+    sha256: bf418f7d5292994c96d0d46a48f880e7dda7820f70cddaf6d3bea53f29d1483b
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-strict-001/native.log
+    sha256: 6ee70878dd854a5d88c87e7a13af6dea6eb6e472695ae650a904fdc2b4a80ec2
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-strict-001/receipt.json
+    sha256: 530a81c9849d12fcdb65863113cd5a544809470d5800e9e5811b27c8835ef35c
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-strict-001/start.json
+    sha256: 47c367972124549ff368f26be5b2b03cca87ed7078a35a300fe18890a2dd5dca
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-terms-001/native.log
+    sha256: a327a4d6d3fa104063bddfbb73bfdd30d9d19e901e6619dd4ce73ea42ba80be5
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-terms-001/receipt.json
+    sha256: a3c3ec32bf70147d9d43a7e7e61a41efa374ce855bb65c07db4465cdf0de0a40
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/498-terms-001/start.json
+    sha256: d7e24f00189f9d2d2354fe0e5847b3a15eff326784cc72b428c5b425bf12e799
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake369-applied-001/before.yaml
+    sha256: 0ecd37ff8b4675764844c6d704c634832fecd8635b80e6f9c5759c217345595c
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake369-applied-001/receipt.json
+    sha256: e6a0977c4c3eacadfbb8439f03d7ff1fdda31222fd0599958f146d350317dbe7
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake369-m5-candidate-001/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+    sha256: 57678380021330f5d0e6f880bbd16c141e020e2c341ef4d61c0a831deeb5e7c9
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake369-m5-candidate-001/receipt.json
+    sha256: c3583aeb26e13d87f5d4d7ffc9da2de2fc4f0f716c06267662906ca6aa4fbd07
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake405-applied-001/before.yaml
+    sha256: 275243762d5d3c3032178fcc68b9005177a5d0f1924ff6ef01e3aeaf114e8d08
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake405-applied-001/receipt.json
+    sha256: 1ae0968aa532563d9236db9da6d0dc4dd304d408182cdc52cb1490d4b656d245
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake405-m5-candidate-001/Hexamine_Formaldehyde_Consortium_C6.yaml
+    sha256: d7e0e6ea175dbdafe54dde46233e341acc82573347a0d1d9c1d71078f0488134
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake405-m5-candidate-001/receipt.json
+    sha256: 80caeeee7f4a9d9b788dbae984f24ba26a5182b4dc804f53f576525a26be31f3
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake498-applied-001/before.yaml
+    sha256: 9ebd2f07ce536e4e92569e93b36f69ac1c3f8efce458c1520a5879000cbb2c90
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake498-applied-001/receipt.json
+    sha256: d685af27ca6688b98a2a4bb0ad398f7efd77d9d03f08ff712758b60d7149cab9
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake498-m5-candidate-001/Cyantraniliprole_Consortium_T1.yaml
+    sha256: 96c2e5dc7633b38de4dbc6cd959ec36476d12c50bb35df19037ad4dd63e17807
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/intake498-m5-candidate-001/receipt.json
+    sha256: f57529b8f8a4edbaa762662ef94d18a03b0f9b8da97bab93cd102e3cb2dab02d
+    role: context
+  - path: .temp/gtdb-source-intake-four-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/source-intake-four-bind-m5-full-001.log
+    sha256: 34bfc178a98d91897dd474a5d0a35690cc41e31c435c2c71c61f4b56cdb2fc64
+    role: context
+  - path: .temp/phase2-schema-20261115/source-intake-four-issue1371-001.log
+    sha256: 2aac4f08612c8b3b1e4af91e327cb8e277297e53280bb127e89bf8f0a7c80a21
+    role: context
+  - path: .temp/phase2-schema-20261115/source-intake-four-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/source-intake-four-routes-001.json
+    sha256: 478be7056c4ee9f35f9f4474fe2305d419aaf4059b5c3680d3389a1b8d2d44c7
+    role: context
+  - path: .temp/phase2-schema-20261115/source-intake-four-routes-001.log
+    sha256: 1872c779ca2039cc698cb7ec8b56d3ec292aedab93f6d324287641c7a7ba793d
+    role: context
+  - path: history/records/Cyantraniliprole_Consortium_T1/2026-11-01T041500Z-antigravity-c5s102.yaml
+    sha256: 4c0cd0cbfe8586a01b0f63e4ba3efbfec1a12bedd718648e56232173682f46bb
+    role: context
+  - path: history/records/Cyantraniliprole_Consortium_T1/2026-11-01T072500Z-antigravity-c5s202.yaml
+    sha256: edb0864e6bf24463e85be2bf5c4a651d3a024dfe9c6e60bb2566784e4cbe6805
+    role: context
+  - path: history/records/Cyantraniliprole_Consortium_T1/2026-11-15T125658Z-codex-4fd616.yaml
+    sha256: 7bb31433814821ef366c3aa3213db4e8d7b8c9e399e257f4818836113d604880
+    role: context
+  - path: history/records/Cyantraniliprole_Fahmy_Consortium_T4/2026-09-13T231325Z-codex-59b4de.yaml
+    sha256: 5acedb3c230b07e11a1dca30a44d69ad6c3d7dd9cd50933a8851a72ef3139d3d
+    role: context
+  - path: history/records/Cyantraniliprole_Fahmy_Consortium_T4/2026-09-13T232259Z-codex-a73a76.yaml
+    sha256: 551588c8c11123deb30f566e62a1cf1622375aa4b7b53f3fd11ff6e0968fc7d9
+    role: context
+  - path: history/records/Cyantraniliprole_Fahmy_Consortium_T4/2026-10-02T054552Z-codex-c7c369.yaml
+    sha256: b8d525a50c34128679ec1803675e4a6d6a82f6742aeef0b3faa9a67277e969af
+    role: context
+  - path: history/records/Cyantraniliprole_Fahmy_Consortium_T4/2026-10-06T045256Z-codex-c09567.yaml
+    sha256: eb8118899b754f7eab9a6b7eb7b12c40d2dfbe97688f9a06cd632593af56f1e2
+    role: context
+  - path: history/records/Cyantraniliprole_Fahmy_Consortium_T4/2026-11-15T125504Z-codex-297c12.yaml
+    sha256: 1441b28d1209bb095165f8eeb8606561d3f0de7d9624cb4c2016a82499f15d1d
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C6/2026-09-21T091800Z-claude-code-8cb5e0.yaml
+    sha256: a1a87e1be86a39abb57a44aa0992b9e430064c676d74d41a92d78d8ded392722
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C6/2026-09-21T092303Z-claude-code-99ec4b.yaml
+    sha256: 86c7e5c9919c9fc556f840a12b35a06d60632799df59de3d21cd74bb8fed7181
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C6/2026-09-21T092922Z-claude-code-1ad66c.yaml
+    sha256: 320c80ccad9fd9c59d7248ea8c54120a7132d50ca58437d36770e53d75aa737e
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C6/2026-10-06T143624Z-codex-a07061.yaml
+    sha256: 8f82f957bbac1a8d7ed3f3bc325636380d1900fe9fb5adb7576d280dc8d7efb0
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C6/2026-11-15T125958Z-codex-17aa83.yaml
+    sha256: d53dd36e99ca05a7ec13dc47bf7c676db7e5d0f29d1fac8b09d5602596ab39e3
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Cyantraniliprole_Consortium_T1.yaml
+    sha256: 96c2e5dc7633b38de4dbc6cd959ec36476d12c50bb35df19037ad4dd63e17807
+    role: target
+  - path: kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+    sha256: 57678380021330f5d0e6f880bbd16c141e020e2c341ef4d61c0a831deeb5e7c9
+    role: target
+  - path: kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+    sha256: d7e0e6ea175dbdafe54dde46233e341acc82573347a0d1d9c1d71078f0488134
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_41743136.txt
+    sha256: 0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6
+    role: context
+  - path: references_cache/PMID_42354927.txt
+    sha256: 2b47a77cf230a1f61781cf3020710ad3e469dfe4fdebe0eb0c1981a457082f43
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml
+    sha256: b6c1f9081c2d4a75c3db896187e3e20dffac6d339c7ad455c03e07719c17a29f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+    sha256: 13a2eed2a8504570b0b7e47e924f4a63d1c7d03714098078abe4a0405ecc7472
+    role: context
+  - path: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+    sha256: 10d325e5990b4ce70493f31b6c00b0e595685232df40ff8c2bb9fb59964821e5
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/369-check-config-001.json
+    sha256: 2ba3c13d8cf29d2c40d6ff20ed97e72630df243822da90e1d720384602331b5d
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/369-source-evidence-001.json
+    sha256: 07291f212cc7319e2f9f226f21e6761c0d505ef61a10667d0ef5257226f50c7e
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/405-check-config-001.json
+    sha256: 143475e82a8ef0f0277437144d093cbb5d2f2777b415177eecc32e9ec6568094
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/405-source-evidence-001.json
+    sha256: dee20be42eb5c7d8c417fdc795ce0e0895d9a01510aa1e8a3502f32caad705a8
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/498-check-config-001.json
+    sha256: 398fd819afa61db98c714f7ad6813e07a40e9413d5c3351afeaa95338fb0848c
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/498-source-evidence-001.json
+    sha256: aefa505d9da6d4157fd190c2dbdd813a20b307391f5a48d6dc64b81b6e9a632b
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/four-authored-source-context-001.json
+    sha256: 449511e60e7db2c2ad160122edbd459d9a88317601c932abbbe8d8eb9f638d5b
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/four-route-plan-001.json
+    sha256: f7c6ff66794514dab3557bc7efe89d65eb6f8ad15c380e760da05eb2ff753c7a
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/four-source-config-001.json
+    sha256: 508acb5faac79f69b5cead606ca0d215d2b48f1a4aafcf34d4e2e8f95890e0f1
+    role: context
+  - path: reports/gtdb-source-intake-four-20261115/remaining-three-review-config-001.json
+    sha256: d73c032aa1dd0d4283d40f4f228dd738078577737552cfb3b489cb2d06ea7a74
+    role: context
+  - path: reviews/structured/20261022T024259Z-cyantraniliprole-fahmy-record-review/review.yaml
+    sha256: e2ecfa53654a7e1e6f5d89c8cb28923031484d46f0ed88b14f36f214e3b899ab
+    role: context
+  - path: reviews/structured/20261104T034000Z-c5s4-record-deep-audit/review.yaml
+    sha256: 47b83251ea42a654fe539b006b8afef9b7f80194351ccefd838ba66054d0488e
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch137.py
+    sha256: 8ef95eddfb9c812877ca873fbaee97639a11c2379652910cef5300c96918edd6
+    role: context
+  - path: tests/test_causal_review_batch28.py
+    sha256: 6e0f1bf11083032868200230d907e72e43df4451cfe9773b98bc74df161939c9
+    role: context
+  - path: tests/test_causal_review_batch50.py
+    sha256: 428e33029e55cd2b58566e8db92cd79ecc502488d59651f019d67672a0848341
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000498
+  path: kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  selector: taxonomy[0,3].taxon_term.gtdb_classification; taxonomy[0,2,3,4,5].taxon_term.gtdb_grounding_status;
+    taxonomy[2,4,5].taxon_term.gtdb_candidates
+  label: T1 Re1-Re6 source stocks with five selected reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000369
+  path: kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  selector: taxonomy[0,3,4,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status;
+    taxonomy[1,2].taxon_term.gtdb_candidates
+  label: 'Fahmy T4 six-stock benchmark: reference mappings and retained ambiguities'
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000405
+  path: kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  selector: taxonomy[2,3,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status;
+    taxonomy[0,1,4].taxon_term.gtdb_candidates
+  label: C6 six distinct partial16S stocks, including repeated species descriptors
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Selected taxonomy GTDB blocks, grounding statuses and complete candidate
+    lists; source-stock versus reference-population limits; exact guarded applications,
+    append-only history and eight native checks per whole record. Historical successor
+    admission and whole-record scientific judgments remain separate.
+  selection: CommunityMech:000498, CommunityMech:000369 and CommunityMech:000405 are
+    the remaining three whole records from the accepted four-record intake. The real
+    KZ344 canary completed application, native checks, immutable save, both-host input
+    checkpoints and strict historical proof before these applications. KZ's saved
+    diagnostic remains separate.
+  coverage: partial
+  population_size: 3
+  reviewed_target_ids:
+  - CommunityMech:000498
+  - CommunityMech:000369
+  - CommunityMech:000405
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000498-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Cyantraniliprole_Consortium_T1.yaml
+    --out .temp/gtdb-source-intake-four-20261115/498-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-history history/records/Cyantraniliprole_Consortium_T1
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Cyantraniliprole_Consortium_T1 --target-root kb/communities --event EDIT --outcome
+    changed --sections taxonomy,curation_history --actor-name codex --model gpt-6
+    --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Ground two T1 reference descriptors and retain three complete ambiguity
+    sets.' --details 'Two native reference blocks and three complete ambiguity sets
+    change five existing descriptors and append two native inline events. The unselected
+    Re2 descriptor, including all 23 old alternatives and its MALDI best-match note,
+    remains semantically unchanged; native YAML serialization only moves that note
+    key. Keep all six Re1-Re6 study stocks, every MALDI score and reference-match
+    qualification, source quotations, biological claims and old history. A MALDI best
+    match is not a deposited-stock alias, and no native alternative or species-reference
+    population establishes a study-stock genome. Preserve measured parent-removal
+    outcomes separately from predicted pathway mediation, and preserve the exact existing
+    graph and historical findings. The native log processes six taxa while the status
+    event correctly records five changed descriptors. The retained crosswalk release
+    is unestablished. This partial technical correction does not complete scientific
+    review or corpus QC. Actual apply receipt .temp/gtdb-source-intake-four-20261115/intake498-applied-001/receipt.json
+    sha256:d685af27ca6688b98a2a4bb0ad398f7efd77d9d03f08ff712758b60d7149cab9.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000498-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000498
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000498-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+    --out .temp/gtdb-source-intake-four-20261115/369-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-history history/records/Cyantraniliprole_Fahmy_Consortium_T4
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Cyantraniliprole_Fahmy_Consortium_T4 --target-root kb/communities --event EDIT
+    --outcome changed --sections taxonomy,curation_history --actor-name codex --model
+    gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Ground four Fahmy T4 reference descriptors and retain two complete
+    ambiguity sets.' --details 'Four native reference blocks and two complete ambiguity
+    sets now describe the six existing NCBI descriptors, with six status changes and
+    two native inline events. Keep the six distinct study stocks AZFS3/AZFS5/AZFS15/AZFS18/KZFS4/KZFS11,
+    their partial16S accessions, all source names, notes, conditions, quotations,
+    biological fields and earlier history. Reference populations are not study-stock
+    genome placements or experimental abundances; the retained crosswalk release remains
+    unestablished. The six-stock T4 benchmark remains distinct from the paper'"'"'s
+    four-stock T1-T3 designs. Predicted functions, HPLC parent removal and native-water
+    context do not establish mineralization or causal mediation. The prior review'"'"'s
+    three non-GTDB findings and issue1371 salinity, assay-temperature and protocol
+    limitations remain unresolved. This partial technical correction does not complete
+    scientific review or corpus QC. Actual apply receipt .temp/gtdb-source-intake-four-20261115/intake369-applied-001/receipt.json
+    sha256:e6a0977c4c3eacadfbb8439f03d7ff1fdda31222fd0599958f146d350317dbe7.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000369-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000369
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000369-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+    --out .temp/gtdb-source-intake-four-20261115/405-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-history history/records/Hexamine_Formaldehyde_Consortium_C6
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Hexamine_Formaldehyde_Consortium_C6 --target-root kb/communities --event EDIT
+    --outcome changed --sections taxonomy,curation_history --actor-name codex --model
+    gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Ground three C6 reference occurrences and retain three complete ambiguity
+    sets.' --details 'Three native reference blocks and three complete ambiguity sets
+    change six existing descriptors and append two native inline events. Preserve
+    all six stocks SRCHD03/04/05/07/06/02, including repeated NCBI species IDs as
+    distinct occurrences; retain genus-only SRCHD06 without a species choice. Partial
+    16S source identification and native generic reference populations do not establish
+    exact study-stock genomes, experimental abundances or candidate probabilities.
+    Preserve all source quotations, conditions, graphs and old history. The 94.41
+    percent biofilm observation, 95.26 percent suspended Table 2 result, 50 versus
+    100 mg/L source discrepancy, ammonia-production distinction and post-irradiation
+    community-recovery limitations remain unchanged. No claim of formal equivalence
+    or survival of every original stock is added. The retained crosswalk release remains
+    unestablished. This partial technical correction does not complete scientific
+    review or corpus QC. Actual apply receipt .temp/gtdb-source-intake-four-20261115/intake405-applied-001/receipt.json
+    sha256:1ae0968aa532563d9236db9da6d0dc4dd304d408182cdc52cb1490d4b656d245.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000405-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000405
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000405-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000498-schema
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-schema-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-strict
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-strict-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-gtdb
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-gtdb-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-domain
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-domain-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-scalars
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-scalars-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-new-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-new-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-terms
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/498-terms-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000498-paper
+  kind: primary_source
+  reference: references_cache/PMID_42354927.txt
+  locator: Selected isolate identification/MALDI Methods and Table3 rows Re1-Re6;
+    community design and removal/pathway interpretation passages bound in the source
+    proof
+  support: supports
+  summary: The primary source retains six Re stocks and their MALDI reference matches.
+    The match labels and scores do not establish deposited-stock aliases or exact
+    study genomes. Measured removal and predicted functions retain their distinct
+    original scopes.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000498-database
+  kind: database
+  reference: reports/gtdb-source-intake-four-20261115/498-source-evidence-001.json
+  locator: 'Selected indices0,2,3,4,5: complete native_result/classify_status and
+    captured identity/source inputs'
+  support: supports
+  summary: Two species-reference populations support blocks101/1 and9/1; the other
+    selected descriptors retain complete four-, two- and two-option ambiguities. No
+    alternative is selected for a study stock. The unselected Re2 twenty-three-option
+    descriptor remains unchanged.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000498-application
+  kind: record_content
+  reference: .temp/gtdb-source-intake-four-20261115/intake498-applied-001/receipt.json
+  locator: Actual applied flag, execution revision8ad0cacc, reviewed stage receipt,
+    before/after hashes and captured inputs
+  support: supports
+  summary: The accepted96c2e5dc candidate was persisted exactly, changing five descriptors
+    and adding two native inline events. The log processes six taxa while the actual
+    status event counts five changed entries; one separate native sidecar records
+    the bounded application.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000498-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+  locator: T1 source/graph disposition, current batch137 invariants and prior deep-audit
+    input47b83251
+  support: context_only
+  summary: Current two-node, zero-arrow scientific claims, exact removal observations
+    and prediction limitations remain intact. Historical ledgers, sibling499/500 admissions,
+    fabricated-snippet and history mutation controls must survive later strict integration.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000369-schema
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-schema-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-strict
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-strict-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-gtdb
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-gtdb-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-domain
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-domain-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-scalars
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-scalars-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-new-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-new-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-terms
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/369-terms-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000369-paper
+  kind: primary_source
+  reference: references_cache/PMID_42354927.txt
+  locator: Six-strain T4 benchmark, partial16S identification/accession table and
+    selected removal/predicted-function passages bound in the source proof
+  support: supports
+  summary: The source names AZFS3/AZFS5/AZFS15/AZFS18/KZFS4/KZFS11 and their partial16S
+    markers. The benchmark remains distinct from four-stock designs; parent-removal
+    results and predicted functions do not establish complete mineralization or exact
+    study-stock genomes.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000369-database
+  kind: database
+  reference: reports/gtdb-source-intake-four-20261115/369-source-evidence-001.json
+  locator: All six selected native results, exact identity rows, source inputs and
+    reference-population qualifiers
+  support: supports
+  summary: Native reference blocks retain totals101/9/17191/12 with fractions1/1/.99/1.
+    The remaining two descriptors retain all four and two alternatives. These populations
+    are separate from the six experimental stocks and are not candidate probabilities.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000369-application
+  kind: record_content
+  reference: .temp/gtdb-source-intake-four-20261115/intake369-applied-001/receipt.json
+  locator: Actual applied flag, reviewed candidate/receipt, execution8ad0cacc and
+    exact before/after/source hashes
+  support: supports
+  summary: The independently accepted57678380 candidate persisted exactly. Four blocks,
+    two ambiguity sets, six statuses and two native inline events changed; all original
+    study claims and marker strings remain unchanged, with one native sidecar and
+    eight completed checks.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000369-prior
+  kind: prior_review
+  reference: reviews/structured/20261022T024259Z-cyantraniliprole-fahmy-record-review/review.yaml
+  locator: 'Four original findings: reference-mapping issue distinguished from three
+    non-GTDB findings; original batch28 caller/ledger and captured issue1371 response'
+  support: context_only
+  summary: Salinity consistency, assay-temperature and protocol-detail findings remain
+    unresolved. The native gates do not supply missing cultivation evidence, validate
+    predicted causal mediation or convert the prior review into a new full scientific
+    approval.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000405-schema
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-schema-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-strict
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-strict-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-gtdb
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-gtdb-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-domain
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-domain-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-scalars
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-scalars-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-new-history
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-new-history-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-terms
+  kind: validation
+  reference: .temp/gtdb-source-intake-four-20261115/405-terms-001/native.log
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000405-paper
+  kind: primary_source
+  reference: references_cache/PMID_41743136.txt
+  locator: Table1 C6 stock roster, partial16S identification, Table2 versus biofilm
+    assay observations and retained irradiation/recovery passages
+  support: supports
+  summary: C6 contains six stocks including SRCHD02; repeated species descriptors
+    do not collapse SRCHD03/04 or SRCHD05/07. Genus-only SRCHD06, the source's assay/dose
+    disagreements and limits of community recovery remain explicit.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000405-database
+  kind: database
+  reference: reports/gtdb-source-intake-four-20261115/405-source-evidence-001.json
+  locator: All six selected occurrences, native complete results, reference denominators
+    and current identity rows
+  support: supports
+  summary: The two Brucella pseudintermedia occurrences retain separate stock rows
+    with the same Ochrobactrum reference block18/1; Micrococcus retains236/.95. Both
+    Brevundimonas occurrences retain the same three unselected species alternatives;
+    SRCHD06 retains all three genus alternatives.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000405-application
+  kind: record_content
+  reference: .temp/gtdb-source-intake-four-20261115/intake405-applied-001/receipt.json
+  locator: Exact applied d7e0e6ea, execution8ad0cacc, reviewed stage receipt and source/before/after
+    bindings
+  support: supports
+  summary: Only three reference blocks, three complete ambiguity sets, six statuses
+    and two native events changed. The guarded application preserves all six stocks
+    and current biology, with one new native sidecar and eight real passed commands.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+- evidence_id: 000405-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+  locator: C6 source/graph and discussion disposition plus literal current batch50
+    biological/stock/history predicates
+  support: context_only
+  summary: Bulk chemical removal, ammonia production, fresh-medium recovery, unresolved
+    molecular division of labor and the50/100mg/L discrepancy remain bounded. No transfer
+    mechanism, formal equivalence or survival of every original stock is asserted;
+    Hambi and Hanford historical contracts must remain intact.
+  accessed_at: '2026-11-15T13:04:34.535383Z'
+assessments:
+- assessment_id: 000498-source
+  area: grounding
+  topic: Six MALDI-described stocks remain distinct from reference matches
+  outcome: supported
+  target_ids:
+  - CommunityMech:000498
+  evidence_ids:
+  - 000498-paper
+  - 000498-database
+  - 000498-terms
+  - 000498-prior
+  summary: Retain Re1-Re6 and all source match qualifications, without aliases, stock-genome
+    inference or new biological approval. Existing scientific claims and limits remain
+    unchanged.
+- assessment_id: 000498-mapping
+  area: grounding
+  topic: Two reference blocks and three complete ambiguity sets
+  outcome: supported
+  target_ids:
+  - CommunityMech:000498
+  evidence_ids:
+  - 000498-database
+  - 000498-gtdb
+  - 000498-domain
+  summary: The five selected descriptors now match the pinned native outcomes; all
+    four/two/two alternatives remain unselected. Preserve Re2's existing twenty-three
+    alternatives and note. Counts describe reference populations, not study abundance
+    or identity probability.
+- assessment_id: 000498-provenance
+  area: provenance
+  topic: Exact guarded application with preserved biological projection
+  outcome: supported
+  target_ids:
+  - CommunityMech:000498
+  evidence_ids:
+  - 000498-application
+  - 000498-schema
+  - 000498-strict
+  - 000498-scalars
+  - 000498-new-history
+  - 000498-history
+  - 000498-prior
+  summary: The actual receipt, unchanged scientific projection, two native inline
+    events, one sidecar and eight real checks bind the applied bytes. This partial
+    diagnostic precedes strict historical admission and does not replace scientific
+    review or full QC.
+- assessment_id: 000369-source
+  area: grounding
+  topic: Six partial16S-described benchmark stocks and unresolved cultivation
+  outcome: supported
+  target_ids:
+  - CommunityMech:000369
+  evidence_ids:
+  - 000369-paper
+  - 000369-database
+  - 000369-terms
+  - 000369-prior
+  summary: Preserve all six stock names, marker accessions and the benchmark context.
+    No assembly or strain alias is inferred, and the three non-GTDB prior findings
+    remain unresolved.
+- assessment_id: 000369-mapping
+  area: grounding
+  topic: Four bounded reference blocks and two full ambiguity sets
+  outcome: supported
+  target_ids:
+  - CommunityMech:000369
+  evidence_ids:
+  - 000369-database
+  - 000369-gtdb
+  - 000369-domain
+  summary: All six selected descriptors reproduce the native correspondences and complete
+    alternative sets. Reference counts and rounded fractions preserve their database
+    scope without selecting an ambiguous stock identity or claiming a crosswalk release.
+- assessment_id: 000369-provenance
+  area: provenance
+  topic: Actual persistence and checks without scientific waiver
+  outcome: supported
+  target_ids:
+  - CommunityMech:000369
+  evidence_ids:
+  - 000369-application
+  - 000369-schema
+  - 000369-strict
+  - 000369-scalars
+  - 000369-new-history
+  - 000369-history
+  - 000369-prior
+  summary: The guarded actual application, two native events, one sidecar and eight
+    native commands bind the new bytes while all biological claims, quotes and old
+    history remain intact. Later batch28 admission must preserve current predictions/removal
+    limits and the other three records.
+- assessment_id: 000405-source
+  area: grounding
+  topic: Six study stocks remain distinct despite repeated descriptors
+  outcome: supported
+  target_ids:
+  - CommunityMech:000405
+  evidence_ids:
+  - 000405-paper
+  - 000405-database
+  - 000405-terms
+  - 000405-prior
+  summary: Retain all six source stocks and genus-only SRCHD06. Shared NCBI and GTDB
+    correspondences do not collapse repeated-stock occurrences or establish exact
+    study genomes. Source assay and causal limitations remain unchanged.
+- assessment_id: 000405-mapping
+  area: grounding
+  topic: Three reference blocks and three complete species/genus ambiguities
+  outcome: supported
+  target_ids:
+  - CommunityMech:000405
+  evidence_ids:
+  - 000405-database
+  - 000405-gtdb
+  - 000405-domain
+  summary: The persisted six occurrences reproduce the pinned native results with
+    complete three/three/three ambiguity sets. Reference denominators are not experimental
+    stock numbers, no alternative is chosen, and the upstream release remains unestablished.
+- assessment_id: 000405-provenance
+  area: provenance
+  topic: Bounded persistence with unchanged current scientific predicates
+  outcome: supported
+  target_ids:
+  - CommunityMech:000405
+  evidence_ids:
+  - 000405-application
+  - 000405-schema
+  - 000405-strict
+  - 000405-scalars
+  - 000405-new-history
+  - 000405-history
+  - 000405-prior
+  summary: The exact actual application, two native inline events, separate sidecar
+    and eight checks bind the corrected record. All stock, source, graph, discussion
+    and older history content is preserved; saved persistence precedes any strict
+    batch50 caller amendment.
+findings: []
+actions: []
+limitations:
+- Partial diagnostic with scientific_review:false. Native schema, strict, GTDB, domain,
+  scalar, term and history checks do not establish full scientific approval, reference-snippet
+  coverage, generated-product validation, full-corpus QC or completion of the broader
+  campaign.
+- Retained primary text and the selected identity, roster and assay passages were
+  read. No study-stock genome assembly was independently matched or newly classified.
+  Source MALDI matches, partial16S markers and canonical NCBI descriptors are not
+  interchangeable with exact experimental-stock genomes.
+- The crosswalk761d5537 hash pins retained bytes, not an upstream GTDB release. File
+  mtime, current NCBI labels and the local ontology database stat do not establish
+  a release. Reference denominators and rounded fractions are neither study-stock
+  counts nor identity probabilities. Complete ambiguity sets remain unselected, with
+  no invented denominators.
+- T1 retains all Re1-Re6 stocks and every MALDI best-match note and score. Reference
+  matches such as DSM10, DSM31 and ATCC7061 are not asserted as aliases of the study
+  isolates. Re2's original twenty-three alternatives are unchanged; native YAML serialization
+  moves only the position of its unchanged notes key.
+- The Fahmy six-stock T4 benchmark remains distinct from the four-stock T1-T3 designs
+  in the same source. All six partial16S accession strings are preserved. Predicted
+  functions, recovered parent-removal percentages and native-water microbial context
+  do not establish complete mineralization or causal mediation. The prior full review's
+  three non-GTDB findings and issue1371 salinity, assay-temperature and protocol gaps
+  remain unresolved.
+- C6 retains six separate stocks, including SRCHD02 and both pairs with repeated NCBI
+  IDs. Genus-only SRCHD06 is not assigned a species. The94.41 percent biofilm observation,95.26
+  percent suspended Table2 result and50 versus100mg/L source discrepancy remain separate;
+  ammonia production is not ammonia removal, and recovery does not establish formal
+  equivalence or survival of every original stock.
+- Every current graph node, participant, evidence snippet, discussion, biological
+  field and old history entry is preserved. Existing source and causal limitations
+  are not repaired or recertified by this mapping-only change.
+- Actual M5 staging, application and native checks ran at frozen8ad0cacc with Python3.13.2;
+  local source reporting used320b21d5/Python3.13.12 and later local evidence inspection
+  used the published KZ checkpoint d54cbc1d. These distinct execution observations
+  are not a clean aggregate QC claim.
+- The first local SSH launcher for the T1 staging plan exited255 during hostname resolution
+  before any remote command. It is retained. The next launcher ran the same actual
+  remote plan successfully; no source bytes or native policy changed to bypass the
+  refusal.
+- Historical callers28,50 and137 remain unchanged at this pre-save checkpoint. Their
+  later strict admissions must retain immutable ledgers, original historical events,
+  current biological predicates and existing sibling-record chains. No caller change
+  is permitted to stand in for an actual saved application proof.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1371
+- https://github.com/CultureBotAI/CommunityMech/pull/2901
+```
