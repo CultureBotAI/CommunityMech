@@ -27,7 +27,16 @@ taxonomy:
     term:
       id: NCBITaxon:328301
       label: Syntrophorhabdus aromaticivorans
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Syntrophorhabdus_aromaticivorans
+      gtdb_taxon: Syntrophorhabdus aromaticivorans
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota_G;c__Syntrophorhabdia;o__Syntrophorhabdales;f__Syntrophorhabdaceae;g__Syntrophorhabdus;s__Syntrophorhabdus aromaticivorans
+      ncbi_source_id: NCBITaxon:328301
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >
       Strain UI(T) is the syntrophic phenol- and aromatic-acid-oxidizing
       bacterium isolated from the UI enrichment and later named
@@ -474,3 +483,11 @@ curation_history:
     sink directions and condition-specific dependence.; Preserve aromatic conversion without complete-mineralization
     or removal claims. Issue #1695; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:32Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:32Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

@@ -56,7 +56,16 @@ taxonomy:
     term:
       id: NCBITaxon:1587
       label: Lactobacillus helveticus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_helveticus
+      gtdb_taxon: Lactobacillus helveticus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus helveticus
+      ncbi_source_id: NCBITaxon:1587
+      majority_fraction: 1.0
+      total_genomes: 378
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
   strain_designation:
     strain_name: LBB04
@@ -95,7 +104,16 @@ taxonomy:
     term:
       id: NCBITaxon:29397
       label: Lactobacillus delbrueckii subsp. lactis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_delbrueckii
+      gtdb_taxon: Lactobacillus delbrueckii
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii
+      ncbi_source_id: NCBITaxon:29397
+      majority_fraction: 1.0
+      total_genomes: 37
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
   strain_designation:
     strain_name: C5I3
@@ -365,3 +383,11 @@ curation_history:
     response without inventing its mechanism.; Represent measured triculture D-lactate rather than exclusive C5I3
     activity. Issue #1678; reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

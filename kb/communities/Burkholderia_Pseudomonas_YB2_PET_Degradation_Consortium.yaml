@@ -66,7 +66,16 @@ taxonomy:
     term:
       id: NCBITaxon:292
       label: Burkholderia cepacia
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Burkholderia_cepacia
+      gtdb_taxon: Burkholderia cepacia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Burkholderia;s__Burkholderia cepacia
+      ncbi_source_id: NCBITaxon:292
+      majority_fraction: 0.93
+      total_genomes: 548
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >
       The source identifies strain ZY1 as Burkholderia cepacia; NCBI Taxonomy
       resolves the species to NCBITaxon:292, and the local GTDB grounding step
@@ -345,6 +354,14 @@ curation_history:
   changes: 'Separate YB2 measured PET mass loss from proposed functional complementarity; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1265'
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:40Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:41Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: yb2_transfer_and_mass_loss_mediation
   prompt: Does selective loss of a partner function or traced exchange explain enhanced PET-film mass loss?
