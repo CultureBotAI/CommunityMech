@@ -10,6 +10,10 @@ BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 RUMEN_PATH = (
     "kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml"
 )
+PROBIOTIC_PATH = "kb/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.yaml"
+PANAX_PATH = "kb/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml"
+DIATOM_PATH = "kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml"
+RAMC_PATH = "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml"
 PEPPER_PATH = "kb/communities/Pepper_Phytophthora_SynCom5.yaml"
 TOBACCO_PATH = "kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml"
 BAIJIU_PATH = "kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml"
@@ -24,6 +28,10 @@ C4_PATH = "kb/communities/Hexamine_Formaldehyde_Consortium_C4.yaml"
 C5_PATH = "kb/communities/Hexamine_Formaldehyde_Consortium_C5.yaml"
 BEFORE = {
     RUMEN_PATH: "f9ad860387600c64fa0ba428afdfd9fa4cc0e960097b445b5253eb953ed1336e",
+    PROBIOTIC_PATH: "65986397aa530933ed3b2d65d9cf8110e96b30898c3458c1d024e98fa42a81b4",
+    PANAX_PATH: "1009ce440481b3b01af2965e9e1e18e64980923b1276133d3fae2fb8923c1eb7",
+    DIATOM_PATH: "c3b29dc71d33c53774afd1181099ef90ade79efb42a0e8ff0b55e9ea3bfffc10",
+    RAMC_PATH: "583655d32e85bb7a2786ba99f814f00b83dde9a5dca8e3d3b6d0b4f38ab28d46",
     PEPPER_PATH: "ed26e547580e6b5fa6662c07720f45993a2a5a49e891a8574a635cbf0a44d81e",
     PMSX_PATH: "8dc5ea53ef9ad6dc4469c8e9b4897a77fd9a0c1c6addb73881891884fb4a6e65",
     T2_PATH: "cd6a38668c90338cf89fe2279e1958fffd8b12da401ea0ad82b4faaa08b526f6",
@@ -43,6 +51,34 @@ ALLOWANCES = {
         "manifest": {
             "path": "reports/gtdb-native-null-275-20261115/rumen275-001-successor.json",
             "sha256": "123706faca69aff41a791df1aff42b2b0a12f0d0d1040c0e6f0a2ae973666f77",
+        },
+    },
+    PROBIOTIC_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-five-20261115/425-001-successor.json",
+            "sha256": "97e661b75fda1b7a1859031fc5823a6d9624538e2ef1b1f671ff706d8ccbe96a",
+        },
+    },
+    PANAX_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-five-20261115/460-001-successor.json",
+            "sha256": "6a3c083a45952587c48e15c4c9437f007ad6e906a9bbc511abe127eeb5e37498",
+        },
+    },
+    DIATOM_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-five-20261115/446-001-successor.json",
+            "sha256": "784866f675f641ac0140ea0709ae90e2a4da6f4aa9969b34b9ca21516dc86ebb",
+        },
+    },
+    RAMC_PATH: {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-five-20261115/412-001-successor.json",
+            "sha256": "860cc49a830425c14e8fd717ad0a6be553a7f9bbeb77bda075864f220a845c96",
         },
     },
     PEPPER_PATH: {

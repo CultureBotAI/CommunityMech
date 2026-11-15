@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
 from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,11 @@ def records():
         ledger,
         rows,
         [
-            yaml.safe_load(admission(ROOT, row["path"], row["record_sha256"]).historical_bytes)
+            yaml.safe_load(
+                (ROOT / row["path"]).read_bytes()
+                if row["id"] == "CommunityMech:000412"
+                else admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+            )
             for row in rows
         ],
     )
@@ -117,9 +122,14 @@ def test_all_original_nodes_and_edges_have_dispositions_and_no_new_direction():
             before, after = decision["before"], decision["after"]
             for key in ["source", "target"]:
                 assert row["renamed_nodes"].get(before[key], before[key]) == after[key]
+        current_proof = (
+            admit_status_successor(ROOT, row["path"], row["record_sha256"])
+            if row["id"] == "CommunityMech:000412"
+            else admission(ROOT, row["path"], row["record_sha256"])
+        )
         assert (
             hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
-            == admission(ROOT, row["path"], row["record_sha256"]).current_sha256
+            == current_proof.current_sha256
         )
 
 

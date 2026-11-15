@@ -66,11 +66,11 @@ taxonomy:
       id: NCBITaxon:216816
       label: Bifidobacterium longum
     gtdb_grounding_status: AMBIGUOUS
-    notes: NCBI species identity was verified through E-utilities. The local NCBI-to-GTDB mapping has previously split B.
-      longum between the GTDB Bifidobacterium infantis and Bifidobacterium longum species.
     gtdb_candidates:
     - GTDB:s__Bifidobacterium_infantis
     - GTDB:s__Bifidobacterium_longum
+    notes: NCBI species identity was verified through E-utilities. The local NCBI-to-GTDB mapping has previously split B.
+      longum between the GTDB Bifidobacterium infantis and Bifidobacterium longum species.
   strain_designation:
     strain_name: CICC25033
     notes: The source reports this as a CICC accession from the China Center of Industrial Culture Collection; CICC is not
@@ -115,7 +115,12 @@ taxonomy:
     term:
       id: NCBITaxon:1598
       label: Limosilactobacillus reuteri
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Limosilactobacillus_reuteri
+    - GTDB:s__Limosilactobacillus_reuteri_E
+    - GTDB:s__Limosilactobacillus_reuteri_G
+    - GTDB:s__Limosilactobacillus_rodentium
     notes: The source reports L. reuteri; NCBI taxid 1598 is active with the canonical scientific name Limosilactobacillus
       reuteri. GTDB grounding was left unresolved because the local NCBI-to-GTDB crosswalk was not available during curation.
   strain_designation:
@@ -383,3 +388,7 @@ curation_history:
   changes: 'Preserve co-culture and partner-supernatant growth gains; qualify molecular cross-feeding and per-member
     absence of antagonism. Missing vesicle outcome remains needs_research. Issue #1628; reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T11:54:18Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

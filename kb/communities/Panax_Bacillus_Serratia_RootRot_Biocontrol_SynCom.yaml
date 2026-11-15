@@ -126,7 +126,16 @@ taxonomy:
     term:
       id: NCBITaxon:615
       label: Serratia marcescens
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Serratia_bockelmannii
+    - GTDB:s__Serratia_marcescens
+    - GTDB:s__Serratia_marcescens_K
+    - GTDB:s__Serratia_nematodiphila
+    - GTDB:s__Serratia_nevei
+    - GTDB:s__Serratia_surfactantfaciens
+    - GTDB:s__Serratia_ureilytica
+    - GTDB:s__Serratia_B_rubidaea
     notes: >-
       Strain XB-7. The local NCBI2GTDB crosswalk was unavailable during
       curation, so no reproducible species-level GTDB grounding was stored.
@@ -363,3 +372,7 @@ curation_history:
     fungal richness and correlation-network outcomes without causal cooperation or resilience claims. Issue #1671;
     reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T11:54:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
