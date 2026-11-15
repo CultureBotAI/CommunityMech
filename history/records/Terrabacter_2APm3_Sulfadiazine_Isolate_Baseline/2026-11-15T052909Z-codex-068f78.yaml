@@ -1,0 +1,37 @@
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  slug: Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline
+session:
+  id: 2026-11-15T052909Z-codex-068f78
+  timestamp: '2026-11-15T05:29:09Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2849
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2804
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - curation_history
+  summary: Correct the source-supported Terrabacter reference-genus correspondence
+  details: Applied the independently reviewed one-block M5 candidate SHA256 068a38e5be07ab6756b1fe32683c166d8562e8405fae7bc4429575a33e2578ec.
+    PMID:42598292 Methods and DSMZ BacDive 157986 identify DSM 28514 as 2APm3. NCBI Taxonomy
+    1472881 verifies genus ancestor 53355 Terrabacter. The exact NCBI2GTDB snapshot SHA256
+    761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd has no exact stock ID/name
+    result. A separate native genus query yields GTDB Terrabacter, Actinomycetales/Dermatophilaceae
+    and support 12 / total 12 / fraction 1 after named-species filtering. These counts describe
+    a reference-genus population, not genomes or strains of 2APm3. Preserve outer NCBITaxon:1472881,
+    all biological claims, graphs, source quotations and the historical batch144 review. The
+    evidenced manual genus correspondence does not certify an exact stock genome, GTDB species
+    or full scientific review. Actual raw application receipt .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/receipt.json
+    SHA256 1de5702ca3382b2d6cc5b84552abf169280a17dbb646a420bd2ed6ae340b8f03. A scoped diagnostic
+    assessment and actual native focused gates follow.

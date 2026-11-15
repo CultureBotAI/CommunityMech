@@ -1,0 +1,618 @@
+# Terrabacter verified ancestor mapping: one-record M5 diagnostic
+
+- Review: 20261115T053046Z-terrabacter-gtdb-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T05:30:45.755253Z
+- Finished UTC: 2026-11-15T05:30:46.229881Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Only the manual reference-genus GTDB correspondence and its actual M5 application/provenance are assessed. Verified source stock/NCBI ancestry selects genus53355; the corrected block reproduces its native reference-population computation on exact retained crosswalk bytes, with six passing native gates and one native sidecar. No whole-record scientific approval, exact stock assembly or GTDB species assignment is claimed.
+
+## Scope And Provenance
+
+One taxonomy mapping, before/after scope, database evidence and deterministic gate/provenance chain only.
+
+Selection: One of three stored-block discrepancies in issue2849, addressed only after the Sulfobacillus end-to-end canary persisted successfully. This separately reviewed record has its own actual M5 write and diagnostic chain.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 75c079352fbb823d6fefb5ccb5d0e712eea28676.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000532 | data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml # taxonomy[0].taxon_term.gtdb_classification | maintained | Terrabacter 2APm3 manual reference-genus GTDB correspondence |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| validate-strict | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| validate-gtdb | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| validate-gtdb-domain | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| validate-scalars | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| validate-history | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| new-history | passed | True | CommunityMech:000532 | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+
+## Scientific And Domain Assessments
+
+### Verified stock ancestry, retained genus route and denominator
+
+grounding: supported. Targets: CommunityMech:000532.
+
+Preserve exact stock1472881 and explicitly curate a genus53355 correspondence supported by primary stock and NCBI ancestry evidence. The native genus result has corrected lineage and support12/total12/fraction1; no exact stock lookup result or stock-genome denominator is asserted. Curated status records the justified manual ancestor route and does not replace independent recomputation.
+
+### One actual M5 guarded write and append-only history
+
+provenance: supported. Targets: CommunityMech:000532.
+
+Native validated writer persisted the exact reviewed candidate; every field outside the one GTDB block and appended inline event remains semantically unchanged. The external sidecar records actual application and limitations; old history and batch144 review remain immutable.
+
+### Reference-genus population versus exact study-stock assembly
+
+scope: supported. Targets: CommunityMech:000532.
+
+The primary DSMZ deposit/designation and exact NCBI stock remain intact. A genus correspondence does not identify a stock genome, justify a GTDB species or establish biological mechanism. The existing one node, zero arrows and pathway knowledge gap are preserved rather than newly certified.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| schema | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| strict | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| gtdb | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| domain | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| scalars | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| history | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| new-history | .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/native.log | supports | Actual native M5 command completed with exit0, exact corrected-record input and retained nonempty hash-bound log. |
+| mapping | .temp/gtdb-source-routes-2849-20261115/terrabacter-grounding-001.json; ncbi_authority.lineage; reference_genus_result; reference_genus_rows; native_exact_stock_result | supports | NCBI 1472881 has verified genus ancestor 53355 Terrabacter. The exact stock lookup is empty; the separate native genus query yields GTDB Terrabacter, Actinomycetales/Dermatophilaceae, support 12 / total 12 / fraction 1 after named-species filtering across 18 inspected raw genus rows. This population is not 12 strains of 2APm3. |
+| recomputed | .temp/gtdb-source-routes-2849-20261115/terrabacter-diagnostic-001/native-route.json; result | supports | The unchanged native classifier and exact retained table reproduce every stored numerical/classification field for the verified genus after application. The exact stock query remains empty; mapping_source and curation_note explicitly preserve the manual ancestor route and stock-genome limit. |
+| application | .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/receipt.json; applied/before_sha256/after_sha256/inputs | supports | Actual M5 guarded apply changed only the reviewed GTDB block and appended native inline history; exact reviewed staging receipt and all source hashes were rechecked before replacement. |
+| prior | reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml; records[id=CommunityMech:000532]; node_decisions; source_backed_gaps | context_only | The preserved batch144 ledger records the one-node, zero-edge axenic Terrabacter baseline and its unresolved 2-AP ring-cleavage pathway. Those biological claims, evidence quotations and recorded gaps are unchanged and are not newly certified by this mapping diagnostic. |
+| stock | https://pmc.ncbi.nlm.nih.gov/articles/PMC13472149/; Methods, Cultures of Microbacterium and Terrabacter, sec2.2 paragraph0; DSMZ BacDive157986; NCBI Taxonomy1472881 LineageEx | context_only | The actual primary Methods states 'Preculture of Terrabacter (DSMZ 28514)'. DSMZ BacDive links DSM 28514 to designation 2APm3; NCBI authority links exact stock1472881 to genus53355. These independent sources support stock and ancestor identity, not an exact stock assembly or GTDB species. The generic BacDive NCBI54015 link is not substituted for the exact stock. |
+
+## Limits And Additional Notes
+
+- Diagnostic-only partial assessment. Actual primary full-main Methods, stock catalogue and NCBI authority were inspected for identity; no supplement acquisition, complete scientific review, exact study-stock genome grounding or issue closure is claimed.
+- The mapping is bound to SHA761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd. File modification time does not establish a GTDB release/build; no such release assertion is made.
+- Full-record native completeness/quality metrics were not recomputed because this assessment covers only one database mapping; passing deterministic gates do not supply scientific approval.
+- Six native scoped gates plus new-history ran on M5 Python3.13.2 at75c07935 with explicitly hashed additive check/builder source. References, term labels, corpus QC and generated docs are not claimed passed by this diagnostic; no source quotation or NCBITaxon label changed.
+- The explicitly curated manual genus route is independently recomputed here; the native GTDB gate alone does not establish it. Broader source/functional concerns and work on other2849 records are outside this assessment. An empty finding list is only the result for this corrected mapping scope.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T053046Z-terrabacter-gtdb-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Terrabacter verified ancestor mapping: one-record M5 diagnostic'
+started_at: '2026-11-15T05:30:45.755253Z'
+finished_at: '2026-11-15T05:30:46.229881Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Authored the source diagnosis and correction; root independently
+    accepted source rows, guarded helper, local candidate and timestamp-only M5 candidate
+    before the one actual M5 apply.
+skill: review-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Only the manual reference-genus GTDB correspondence and its actual M5 application/provenance
+  are assessed. Verified source stock/NCBI ancestry selects genus53355; the corrected
+  block reproduces its native reference-population computation on exact retained crosswalk
+  bytes, with six passing native gates and one native sidecar. No whole-record scientific
+  approval, exact stock assembly or GTDB species assignment is claimed.
+source:
+  git_revision: 75c079352fbb823d6fefb5ccb5d0e712eea28676
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-source-routes-2849-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/before.yaml
+    sha256: 81c8fd983bc57050595d7a4d51b64acdf2617ce9fea0f03f7ec9db4fa617c05e
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/receipt.json
+    sha256: 1de5702ca3382b2d6cc5b84552abf169280a17dbb646a420bd2ed6ae340b8f03
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/native.log
+    sha256: 68470fd6849904a3e2d7f1e1d7f9ccc033496d7c54280d051f8986cba20b2b6f
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/receipt.json
+    sha256: 422de746b5690074fc6250e5bbaeff2408e2d67028cc00e87bf8f9914a0989a4
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/start.json
+    sha256: f15abedab8d1d628ac69bdd966b7288f986d905653b733b891242680cd8784ee
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/native.log
+    sha256: 50f051fb8fd5e837e122096a67dd3819f6caf87c3316ccfa843b7ccae5dc9b57
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/receipt.json
+    sha256: 083b95e1d883e95058b9765db5e450d1c600acd3e7070a9ce4c3c0833947d79f
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/start.json
+    sha256: 63d9fc2de804ebd797fb231582ac0a188499c4100570f39d43f54d7e5b5c6a68
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/receipt.json
+    sha256: 93914a337548b71bea1c4bddf560ec12f89fbf63e5b5f0092cc09f572579eca3
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/start.json
+    sha256: 26bb59a63eb728f4a7e7d994e4931a03d8c5f2d32247d568a72427a8fbc95b93
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/native.log
+    sha256: 5a35bf60cc46938443424d8907d4f5e05d914c53813169f2e55c7fcb4a932768
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/receipt.json
+    sha256: 0067a804c352211ca9e155984f15f8ee2ba174b064816a6cdfaeac26d98cc5ac
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/start.json
+    sha256: b40e933b71c4b4f89d874bd4bcdbe127e2536a34da56082b49d0c54c5eb09f09
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/native.log
+    sha256: b68ce558b55fdb54c90e4a064ef753eccd33f876a1acf75d53323ef6124398f1
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/receipt.json
+    sha256: 559e6227f9390420a4a8fcc015f2e75efc08a9be77d14cf9b9d687324e81212b
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/start.json
+    sha256: a68e264b29f5ee4ce4fec1079bada0ae3ce0cb70a17c31cf8b9f185c9ad37a57
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/native.log
+    sha256: 63c183956f34a12df01cd4e0c90bba1d69a0af1e4e4d0c6f7dc88b47199fecae
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/receipt.json
+    sha256: 3dca1532ddb8cac6128c55c9e55fa1c26a43bfd7872005ee472564a05c1ab3f9
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/start.json
+    sha256: 0b296be6083a5bd42cb5316512e7d1f1c1c2a814d60e87e2775a59bd1ab00bf3
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/native.log
+    sha256: c712579ed31bc40464d23f72487450ac02ea0227dd906e3ff545f1fa010a3188
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/receipt.json
+    sha256: 3e4574204b39007c2d1e9bfa00a02602880808751260bb4f21ebb8670f410c76
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/start.json
+    sha256: 8f9e864f259a0d92788c6b2c61eaedbf1091b6b56e03222604271dd3955f6706
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-candidate-m5-001/candidate.yaml
+    sha256: 068a38e5be07ab6756b1fe32683c166d8562e8405fae7bc4429575a33e2578ec
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-candidate-m5-001/receipt.json
+    sha256: 8173354e4203cef69a2a8796fe321e35a392309efcc52332d3c837e5fd1752af
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-diagnostic-001/native-route.json
+    sha256: 2f5db2759aef9d3f01bfe2e0b25e7d506ba3c10580b8fa46586aa3ad11e50cc2
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-grounding-001.json
+    sha256: c018c3a3c7cf0570b45cb3ad53480d30fd73a62104b13a43615c0adc5a0c1762
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-sources/article-002/article.xml
+    sha256: 21e4eab4a11a23d72b2e0b22d83d6d98d8e0fb5897bb1485dfcbe484d80e9cb8
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-sources/stock-001/bacdive-157986.html
+    sha256: 72345d3a4842fe66660dd41fe9222d0e4509f11b72bbfac1ed40a5ce76e804a5
+    role: context
+  - path: .temp/gtdb-source-routes-2849-20261115/terrabacter-sources/taxonomy-001/taxonomy-1472881.xml
+    sha256: 4ce765ceedd45b62b5766fb657cda15bab3c982242ee0e164b7207b4f354ec53
+    role: context
+  - path: data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+    sha256: 068a38e5be07ab6756b1fe32683c166d8562e8405fae7bc4429575a33e2578ec
+    role: target
+  - path: history/records/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline/2026-11-08T193500Z-antigravity-000532.yaml
+    sha256: 84af2fa4be077dff31090fff0a098dd2bfb15ffadce278aa70d5ad2b868b9894
+    role: context
+  - path: history/records/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline/2026-11-08T233802Z-antigravity-c12s202.yaml
+    sha256: 92f581723d98d721ef5623f3ab91a9163fcb81b7144546584db44748c65e7314
+    role: context
+  - path: history/records/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline/2026-11-15T052909Z-codex-068f78.yaml
+    sha256: 130afad64f6a3d24ec0ab721758fc13f8f67049380b1eadb737f1b1fd5451c1e
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: references_cache/PMID_42598292.txt
+    sha256: 605b8f96adef76ce2dec57c51b11e95c78b50afaa1380b21777027a92ebc4699
+    role: context
+  - path: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+    sha256: 654c1326fc26004c43fdf32b0d345ee905ffa62083546173dc395881320bdceb
+    role: context
+  - path: scripts/adhoc/build_terrabacter_diagnostic_20261115.py
+    sha256: f02b3055b3359539dad56c7a5a12fdb2db7c06aabf42aa5f11cc3c6169df27b2
+    role: context
+  - path: scripts/adhoc/check_terrabacter_canary_20261115.py
+    sha256: de198e27a8d5589ee0c07886a682681628b79d31c1f023aa6f5af3b4296e023b
+    role: context
+  - path: scripts/adhoc/curate_terrabacter_mapping_20261115.py
+    sha256: 4d6f701ad83c9ccc6db83074c5ee74d4a1f131525de3ccf4c7d3c51852f5cf15
+    role: context
+  - path: scripts/adhoc/inspect_terrabacter_grounding_20261115.py
+    sha256: 66c6f79cfd706f74e7912eb0e294a99368c9f7e6e2cd278e5fa9eb55771654ee
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000532
+  path: data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  selector: taxonomy[0].taxon_term.gtdb_classification
+  label: Terrabacter 2APm3 manual reference-genus GTDB correspondence
+  kind: maintained
+  ownership_note: CommunityMech owns this explicitly curated genus mapping. Primary
+    stock/NCBI evidence establishes the ancestor; native gtdb_ground.py computes the
+    reference-genus result. The exact stock has no table result and no GTDB species
+    is assigned.
+scope:
+  description: One taxonomy mapping, before/after scope, database evidence and deterministic
+    gate/provenance chain only.
+  selection: One of three stored-block discrepancies in issue2849, addressed only
+    after the Sulfobacillus end-to-end canary persisted successfully. This separately
+    reviewed record has its own actual M5 write and diagnostic chain.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000532
+  exclusions:
+  - target: All ecological, cultivation and mechanism claims of000532
+    reason: Existing biological content and quotations are preserved; whole-record
+      scientific support was not reassessed.
+  - target: Other issue2849 records and remaining corpus
+    reason: No batch application or scientific review is represented by this one-record
+      canary.
+checks:
+- check_id: schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - schema
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate-strict data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+    --out .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - strict
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate-gtdb data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - gtdb
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - domain
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate-scalars data/isolates/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - scalars
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never validate-history history/records/Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - history
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+- check_id: new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+  target_ids:
+  - CommunityMech:000532
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Terrabacter_2APm3_Sulfadiazine_Isolate_Baseline --target-root data/isolates --event
+    EDIT --outcome changed --sections taxonomy,curation_history --actor-name codex
+    --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2849
+    --pr https://github.com/CultureBotAI/CommunityMech/pull/2804 --summary 'Correct
+    the source-supported Terrabacter reference-genus correspondence' --details 'Applied
+    the independently reviewed one-block M5 candidate SHA256 068a38e5be07ab6756b1fe32683c166d8562e8405fae7bc4429575a33e2578ec.
+    PMID:42598292 Methods and DSMZ BacDive 157986 identify DSM 28514 as 2APm3. NCBI
+    Taxonomy 1472881 verifies genus ancestor 53355 Terrabacter. The exact NCBI2GTDB
+    snapshot SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    has no exact stock ID/name result. A separate native genus query yields GTDB Terrabacter,
+    Actinomycetales/Dermatophilaceae and support 12 / total 12 / fraction 1 after
+    named-species filtering. These counts describe a reference-genus population, not
+    genomes or strains of 2APm3. Preserve outer NCBITaxon:1472881, all biological
+    claims, graphs, source quotations and the historical batch144 review. The evidenced
+    manual genus correspondence does not certify an exact stock genome, GTDB species
+    or full scientific review. Actual raw application receipt .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/receipt.json
+    SHA256 1de5702ca3382b2d6cc5b84552abf169280a17dbb646a420bd2ed6ae340b8f03. A scoped
+    diagnostic assessment and actual native focused gates follow.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - new-history
+  scope_note: One corrected record; new-history creates its sidecar and history validates
+    its complete history directory. This is not corpus QC or literature validation.
+evidence:
+- evidence_id: schema
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-schema-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: strict
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-strict-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: gtdb
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: domain
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-domain-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: scalars
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-scalars-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: history
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-history-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: new-history
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-canary-run-new-history-001/native.log
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual native M5 command completed with exit0, exact corrected-record input
+    and retained nonempty hash-bound log.
+- evidence_id: mapping
+  kind: database
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-grounding-001.json
+  locator: ncbi_authority.lineage; reference_genus_result; reference_genus_rows; native_exact_stock_result
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: NCBI 1472881 has verified genus ancestor 53355 Terrabacter. The exact stock
+    lookup is empty; the separate native genus query yields GTDB Terrabacter, Actinomycetales/Dermatophilaceae,
+    support 12 / total 12 / fraction 1 after named-species filtering across 18 inspected
+    raw genus rows. This population is not 12 strains of 2APm3.
+- evidence_id: recomputed
+  kind: validation
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-diagnostic-001/native-route.json
+  locator: result
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: The unchanged native classifier and exact retained table reproduce every
+    stored numerical/classification field for the verified genus after application.
+    The exact stock query remains empty; mapping_source and curation_note explicitly
+    preserve the manual ancestor route and stock-genome limit.
+- evidence_id: application
+  kind: record_content
+  reference: .temp/gtdb-source-routes-2849-20261115/terrabacter-applied-m5-001/receipt.json
+  locator: applied/before_sha256/after_sha256/inputs
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: supports
+  summary: Actual M5 guarded apply changed only the reviewed GTDB block and appended
+    native inline history; exact reviewed staging receipt and all source hashes were
+    rechecked before replacement.
+- evidence_id: prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261108-stage2-five-records-batch144.yaml
+  locator: records[id=CommunityMech:000532]; node_decisions; source_backed_gaps
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: context_only
+  summary: The preserved batch144 ledger records the one-node, zero-edge axenic Terrabacter
+    baseline and its unresolved 2-AP ring-cleavage pathway. Those biological claims,
+    evidence quotations and recorded gaps are unchanged and are not newly certified
+    by this mapping diagnostic.
+- evidence_id: stock
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13472149/
+  locator: Methods, Cultures of Microbacterium and Terrabacter, sec2.2 paragraph0;
+    DSMZ BacDive157986; NCBI Taxonomy1472881 LineageEx
+  accessed_at: '2026-11-15T05:30:45.755253Z'
+  support: context_only
+  summary: The actual primary Methods states 'Preculture of Terrabacter (DSMZ 28514)'.
+    DSMZ BacDive links DSM 28514 to designation 2APm3; NCBI authority links exact
+    stock1472881 to genus53355. These independent sources support stock and ancestor
+    identity, not an exact stock assembly or GTDB species. The generic BacDive NCBI54015
+    link is not substituted for the exact stock.
+assessments:
+- assessment_id: reference-mapping
+  area: grounding
+  topic: Verified stock ancestry, retained genus route and denominator
+  outcome: supported
+  target_ids:
+  - CommunityMech:000532
+  evidence_ids:
+  - stock
+  - mapping
+  - recomputed
+  - gtdb
+  summary: Preserve exact stock1472881 and explicitly curate a genus53355 correspondence
+    supported by primary stock and NCBI ancestry evidence. The native genus result
+    has corrected lineage and support12/total12/fraction1; no exact stock lookup result
+    or stock-genome denominator is asserted. Curated status records the justified
+    manual ancestor route and does not replace independent recomputation.
+- assessment_id: bounded-application
+  area: provenance
+  topic: One actual M5 guarded write and append-only history
+  outcome: supported
+  target_ids:
+  - CommunityMech:000532
+  evidence_ids:
+  - application
+  - new-history
+  - history
+  - strict
+  - prior
+  summary: Native validated writer persisted the exact reviewed candidate; every field
+    outside the one GTDB block and appended inline event remains semantically unchanged.
+    The external sidecar records actual application and limitations; old history and
+    batch144 review remain immutable.
+- assessment_id: identity-boundary
+  area: scope
+  topic: Reference-genus population versus exact study-stock assembly
+  outcome: supported
+  target_ids:
+  - CommunityMech:000532
+  evidence_ids:
+  - stock
+  - mapping
+  - prior
+  summary: The primary DSMZ deposit/designation and exact NCBI stock remain intact.
+    A genus correspondence does not identify a stock genome, justify a GTDB species
+    or establish biological mechanism. The existing one node, zero arrows and pathway
+    knowledge gap are preserved rather than newly certified.
+findings: []
+actions: []
+limitations:
+- Diagnostic-only partial assessment. Actual primary full-main Methods, stock catalogue
+  and NCBI authority were inspected for identity; no supplement acquisition, complete
+  scientific review, exact study-stock genome grounding or issue closure is claimed.
+- The mapping is bound to SHA761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd.
+  File modification time does not establish a GTDB release/build; no such release
+  assertion is made.
+- Full-record native completeness/quality metrics were not recomputed because this
+  assessment covers only one database mapping; passing deterministic gates do not
+  supply scientific approval.
+- Six native scoped gates plus new-history ran on M5 Python3.13.2 at75c07935 with
+  explicitly hashed additive check/builder source. References, term labels, corpus
+  QC and generated docs are not claimed passed by this diagnostic; no source quotation
+  or NCBITaxon label changed.
+- The explicitly curated manual genus route is independently recomputed here; the
+  native GTDB gate alone does not establish it. Broader source/functional concerns
+  and work on other2849 records are outside this assessment. An empty finding list
+  is only the result for this corrected mapping scope.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2849
+- https://github.com/CultureBotAI/CommunityMech/pull/2804
+```
