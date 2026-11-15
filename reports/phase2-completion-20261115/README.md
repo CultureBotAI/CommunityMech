@@ -185,6 +185,13 @@ comparisons: 268 matches and two switchgrass supplement-routing mismatches under
 #1996. These counts remain tied to `20185647`, separately from final-current QC
 and scientific assessment.
 
+The [current ownership reconciliation](code006-reference-reconciliation.md)
+now binds the fresh `c9e151eb` result to those owners by exact occurrence,
+record-byte and cache-byte equality. All 109 failing occurrences match. The six
+Phase 2 targets again have 270 actual comparisons, 268 matches and the same two
+switchgrass mismatches. This reuses the existing owners without claiming a fresh
+issue-state audit or resolving scientific findings.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
