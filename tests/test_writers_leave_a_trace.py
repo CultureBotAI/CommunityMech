@@ -42,6 +42,12 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/check_code006_local_terms_20261115.py": (
+        "writes only an exclusive private OAK adapter configuration, native term "
+        "log/exit/receipt and label cache under .temp/gtdb-code006-20261115; "
+        "checks exact record/revision/input hashes and unchanged adapter stats, "
+        "blocks network acquisition, and never writes canonical records or history"
+    ),
     "scripts/adhoc/check_gut_successor_20261115.py": (
         "writes exclusive native-check receipts, private OAK configuration and exact "
         "record/cache copies beneath .temp/phase2-gut-20261115; checks unchanged "
