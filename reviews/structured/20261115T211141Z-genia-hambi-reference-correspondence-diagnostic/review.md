@@ -1,0 +1,1251 @@
+# GENIA and HAMBI: bounded reference mappings and complete ambiguity sets
+
+- Review: 20261115T211141Z-genia-hambi-reference-correspondence-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T21:11:40.826931Z
+- Finished UTC: 2026-11-15T21:11:41.016522Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+GENIA now carries eight species-reference blocks and one complete three-way ambiguity; HAMBI carries seven species-reference blocks and eight complete ambiguity sets. Their nine and fifteen selected descriptors respectively changed status through the unchanged native engine, with two inline events per record and one native sidecar each. Existing source identities, biological assertions, evidence, notes and old history remain unchanged. Generic database correspondence does not establish a study-stock genome or resolve prior scientific limitations.
+
+## Scope And Provenance
+
+Two explicitly selected whole records, CommunityMech:000352 and CommunityMech:000423, assessed only for the declared GTDB blocks, statuses, complete candidate lists and actual provenance. Sixteen scoped native commands passed on the accepted M5 bytes. HAMBI's unselected Paraniabella descriptor at index 14 remains unchanged and unresolved.
+
+Selection: The remaining two records in the separately prepared 443/352/423 lane, after the complete MWF001 canary, saved input checkpoint, strict proof controls and publication. Exactly two records are reviewed here. The earlier MWF001 bundle remains separate and immutable; unrelated records and denied transfer groups are excluded.
+Coverage: partial; 2 reviewed / 2 in the declared population.
+Source: working_tree at Git base 9b770f6603aa2714fc4f7f317768d8857fbb8d1e.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000352 | kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml # taxonomy[0,1,2,3,4,6,7,8].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_grounding_status; taxonomy[5].taxon_term.gtdb_candidates | maintained | Eight generic species-reference blocks and complete Paenibacillus alternatives |
+| CommunityMech:000423 | kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml # taxonomy[3,5,6,8,10,11,15].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10,11,12,13,15].taxon_term.gtdb_grounding_status; taxonomy[0,1,2,4,7,9,12,13].taxon_term.gtdb_candidates | maintained | Seven generic reference blocks and eight complete ambiguity sets across sixteen preserved stocks |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000352 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000423 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Nine source species without invented stock or assembly identities
+
+grounding: supported. Targets: CommunityMech:000352.
+
+All nine encoded source species remain unchanged. Source sequencing and BioProject context are distinguished from an assembly-to-member identity that was not established. Existing roles, abundance labels and predicted mechanisms are preserved without recertification.
+
+### Eight reference populations and full three-way ambiguity
+
+grounding: supported. Targets: CommunityMech:000352.
+
+The eight blocks reproduce the bound native ID/name outcomes and reported totals/fractions, including the 0.85 fulva fraction. Paenibacillus retains all three ordered alternatives and no single block. Species fractions supply no exact support numerator, stock abundance or experimental genome assignment.
+
+### Actual bounded correction and preserved historical scientific scope
+
+provenance: supported. Targets: CommunityMech:000352.
+
+Actual application and sidecar bind nine changed statuses, eight blocks, one ambiguity set and two inline events. All eight scoped commands passed; strict validation scanned one file with zero errors. The old scientific limitations and all current biological predicates remain; strict saved-proof and caller controls follow separately.
+
+### Sixteen distinct HAMBI stocks and unchanged null descriptor
+
+grounding: supported. Targets: CommunityMech:000423.
+
+All sixteen stock designations and source names are preserved. Generic reference matching does not reproduce the paper's WGS-derived 16S workflow or identify an individual culture assembly. Index14 remains unresolved without taxon-absence inference or replacement of its valid current label.
+
+### Seven reference populations and eight complete alternative sets
+
+grounding: supported. Targets: CommunityMech:000423.
+
+The seven blocks retain their three name/four ID routes and exact reported totals/fractions, including nonunanimous Aeromonas 0.99. Every alternative remains ordered and complete for the eight ambiguous descriptors. No ambiguous block is selected, exact numerator reconstructed or stock count inferred.
+
+### Persisted native correction preserves source and biological boundaries
+
+provenance: supported. Targets: CommunityMech:000423.
+
+Actual application and native sidecar bind seven blocks, eight candidate lists, fifteen changed statuses and two inline events. Eight scoped native commands passed, with one-file strict validation reporting zero errors. Old source notes, discussions, experimental/causal boundaries and history remain exact; later saved-proof and composed caller controls are not assumed.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000352-schema | .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-strict | .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-gtdb | .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-domain | .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-scalars | .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-history | .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-new-history | .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-terms | .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000352-paper | PMID:42036878; Retained primary Methods isolation/screening and Whole-Genome Sequencing and Assembly around lines 220-275; Results genome integration/final nine-member roster around lines 615-700; exact anchors in bound source metadata | supports | The source identifies the nine species and describes selection from 45 sequenced isolates. BioProject and modeled functional roles do not independently link the current descriptors to particular study assemblies or validate exchange mechanisms. |
+| 000352-database | reports/gtdb-genia-hambi-mwf-20261115/genia352-source-evidence-001.json; All nine occurrences: complete native_result, classify_status, lookup indexes/rows and local NCBI label/rank observations | supports | Eight reference blocks follow one name and seven exact-ID routes with their reported totals/fractions; Paenibacillus retains all three alternatives. Population counts and generic reference identity remain distinct from study stocks and abundance. |
+| 000352-application | .temp/gtdb-genia-hambi-mwf-20261115/352-applied-001/receipt.json; Actual before/after, externally pinned candidate/receipt, captured source inputs, two native inline events and native history sidecar | supports | The independently reviewed M5 candidate was applied exactly. Only declared GTDB fields and actual appended events changed; original biological content, source statements and history remained intact. |
+| 000352-prior | reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml; GENIA node/edge decisions, arithmetic limitations and open_nongraph_followups; captured batch42 caller's GENIA, Fucoidan and Transwell predicates | context_only | The historical self-adversarial assessment and literal ledger remain unchanged. Predicted cross-feeding, quantitative removal limitations and the PARTIAL management arrow are preserved; this correction does not close issue 1468. |
+| 000423-schema | .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-strict | .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-gtdb | .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-domain | .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-scalars | .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-history | .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-new-history | .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-terms | .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000423-paper | PMID:42367191; Retained Materials and methods, Synthetic bacterial community complete HAMBI roster at line 264; serial passage and 16S methods around lines 271-275; subsequent separate monoculture/pH assays | supports | The source names all sixteen HAMBI stocks and distinguishes serial community passage, WGS-derived 16S mapping and separate trait/pH assays. Those identifiers and methods do not independently select generic GTDB alternatives for a stock. |
+| 000423-database | reports/gtdb-genia-hambi-mwf-20261115/hambi423-source-evidence-001.json; Fifteen selected occurrences with complete native_result, classify_status, lookup rows/indexes and authority observations; unselected index14 limitation in historical_guard_assessment | supports | Seven native reference blocks and eight complete ordered ambiguity sets are supported for their generic descriptors. Paraniabella index14 remains unchanged with no result. Totals, rounded fractions and alternative counts do not identify collection-stock genomes or culture abundance. |
+| 000423-application | .temp/gtdb-genia-hambi-mwf-20261115/423-applied-001/receipt.json; Actual before/after, externally pinned reviewed candidate/receipt, captured inputs, two native inline events and appended history sidecar | supports | The exact reviewed M5 candidate was persisted. Fifteen declared descriptors changed; all sixteen stocks, index14, original notes, biological content and old history remained unchanged. Native stdout processes sixteen taxa while the event records fifteen changed entries. |
+| 000423-prior | reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml; HAMBI node decision and source/causal limitations; complete captured batch50 current biological, roster, cache and historical predicates | context_only | The historical assessment remains literal. Input membership does not establish endpoint persistence, OD-scaled abundance is not viable counting, and carbon outcomes do not selectively establish mechanism. Hanford/C6 scientific constraints are outside this correction and remain protected. |
+
+## Limits And Additional Notes
+
+- This is a partial technical database-correspondence diagnostic with scientific_review:false. Completed status concerns this bounded diagnostic only. It is not full scientific approval, source-reference coverage, generated-page validation, final corpus QC, campaign completion or issue closure.
+- GENIA's eight reference blocks use one species-name route for Atlantibacter and seven exact species-ID routes. Reported totals/fractions are 2/1.0, 8/1.0, 562/0.98, 336/0.97, 236/0.95, 98/0.97, 163/0.85 and 2/1.0 in the selected block order. The notation means total genomes and reported fraction, not a support numerator. Species results provide no support_genomes; no numerator is reconstructed from rounded fractions. Pseudomonas fulva's 0.85 is not unanimity.
+- GENIA's Paenibacillus descriptor retains polymyxa, polymyxa_B and polymyxa_C without a single classification block. Generic alternative clusters do not identify the experimental isolate or count stocks. The paper's 45 sequenced isolates, nine-member roster and BioProject are distinct from the reference populations; missing stock codes and uninspected assembly-to-member links are not invented.
+- GENIA's predicted enzyme/network complementarity remains HYPOTHESIZED, relative DNA composition is not viable abundance, and the daily ratio intervention retains its PARTIAL removal arrow and handling confound. Separate-treatment versus mixed-treatment removal figures, PFOS/atrazine denominator and method questions, non-graph roles and missing raw/supplement reconciliation remain outside this correction. Issue 1468 and the immutable batch 42 assessment are not resolved or promoted.
+- HAMBI's seven reference blocks use three species-name routes (Kluyvera, Sphingobium and Cupriavidus) and four exact species-ID routes. Reported totals/fractions are Citrobacter 393/1.0, Kluyvera 2/1.0, Sphingobium 15/1.0, Aeromonas 523/0.99, Bordetella 76/1.0, Cupriavidus 2/1.0 and Microvirga 3/1.0. These are total genomes and reported fractions, not exact support counts, community abundances or collection-stock genome assignments.
+- HAMBI preserves all ordered alternatives for Pseudomonas putida (15), Agrobacterium (4), Comamonas (3), Morganella (2), Sphingobacterium (2), Pseudomonas chlororaphis (3), Paracoccus (2) and Stenotrophomonas (11). The alternative counts are neither experimental member counts nor reference-genome denominators. All sixteen named HAMBI stocks remain distinct; index 14 Paraniabella yanshanensis stays null/UNRESOLVED without a label rollback or absence claim.
+- HAMBI's historical unavailable-crosswalk notes describe the earlier curation and remain intact. Generic routes do not reproduce the source's WGS-derived 16S mapping. The sixteen-day/eight-cycle inoculum experiment does not prove persistence of all members; OD-scaled abundance is not viable counting, and controlled carbon-dependent outcomes do not selectively establish trait/pH mediation or alternative stable states. The batch 50 assessment, open discussions and Hanford/C6 boundaries remain unchanged.
+- Source examination covered the complete current records and historical callers/ledgers, selected retained primary GENIA isolation, sequencing, final roster and network passages, HAMBI's complete stock roster, serial-transfer, 16S and separate-assay passages, and the captured native crosswalk/local-authority outputs. No new full-paper scientific audit, collection-catalog search, separate supplement inspection, original figure-pixel analysis, raw sequencing, assembly assignment, analytical mass balance or source-code reanalysis was performed.
+- Source reporting and binding ran locally at f18ca5b7f83eae0a9c8f537bdde6703760fee90e with preparation changes disclosed. Actual staging, guarded application and all sixteen native commands ran on frozen M5 preparation revision 9b770f6603aa2714fc4f7f317768d8857fbb8d1e using Python 3.13.2 and frozen offline dependencies. Expected applied records, sidecars and metadata are working-tree changes; no clean final-QC claim is made.
+- Crosswalk SHA-256 is 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd. Its mtime is not an upstream release. Local authority observations retain file identity/stat provenance without an invented full-database digest. Both native term runs report Validation passed without an assertion denominator. The earlier route-layout refusal and corrected species-fraction wording remain under issues 2913/2916. GENIA's initial M5 free stage plan refused a missing source-proof file before any write; the exact file was transferred and rehashed before a successful new plan and actual stage.
+- Complete saved-input checkpoints, strict saved-successor controls and historical caller composition are subsequent acceptance steps. In particular, batch 42 must preserve the existing Fucoidan449 successor and Transwell historical chain, while batch 50 must compose the separately published C6 successor without changing its current biological predicates or immutable ledger. None of those later outcomes is assumed by this draft.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T211141Z-genia-hambi-reference-correspondence-diagnostic
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: 'GENIA and HAMBI: bounded reference mappings and complete ambiguity sets'
+started_at: '2026-11-15T21:11:40.826931Z'
+finished_at: '2026-11-15T21:11:41.016522Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Source contexts, selected native outcomes, local previews and
+    actual M5 candidates were independently read before application. Community reviewed
+    GENIA's actual candidate and history configuration; a separate peer reviewed HAMBI's
+    actual candidate and history configuration. The shared engine, checker, diagnostic
+    builder and exporter already have independent reviews and mutation controls. This
+    authored diagnostic is self-review of two scoped technical corrections, not an
+    independent full scientific assessment.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: GENIA now carries eight species-reference blocks and one complete three-way
+  ambiguity; HAMBI carries seven species-reference blocks and eight complete ambiguity
+  sets. Their nine and fifteen selected descriptors respectively changed status through
+  the unchanged native engine, with two inline events per record and one native sidecar
+  each. Existing source identities, biological assertions, evidence, notes and old
+  history remain unchanged. Generic database correspondence does not establish a study-stock
+  genome or resolve prior scientific limitations.
+source:
+  git_revision: 9b770f6603aa2714fc4f7f317768d8857fbb8d1e
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-applied-001/before.yaml
+    sha256: 72fcc1720a4bb6b3a0a464f98524ab2bbf999b2b73eaf71efa0fa98be433b9c3
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-applied-001/receipt.json
+    sha256: 22054dd9782cb22ec1ac777fb332a6d036527e0ca4765f3c881a04108fec810a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/native.log
+    sha256: 266d1f143e02a07522df784a825ad8b23bf50a3b3c2a8f87db379641f97dfa80
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/receipt.json
+    sha256: 05f45a4a66f8ba13f70de4dcb7219715306394da87978a1c1bd2efd3eeca2159
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/start.json
+    sha256: 5e9a81bb140f90c0bf7396dd8679502878b1b15432a0da7153b5c73987450979
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/native.log
+    sha256: 185169d14e6a09b9a2c08cf0c4cc90c3a70d5d9a60c619e9b147af39ea42ae18
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/receipt.json
+    sha256: 284e03ef18062272baacda296bafd5d5ac9cdc973043a371d385efb491594131
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/start.json
+    sha256: 5c339503cc6e29d8707b9d614bf0431843e48c671ea3166ac8faa569cb0ced87
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/receipt.json
+    sha256: 18ace2756a3e0a9c51e4d7a2f2da1c0c4fc49aeae333c6137592bfdc55fb110b
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/start.json
+    sha256: 3b18521c92a3829fa45df87ff818dd220e2ca16732e885457183bf76856553e7
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-m5-candidate-001/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+    sha256: f693f9f7732e6951479545e4af979e26b3b293b7f89e36a4e88de9b85a7d5b87
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-m5-candidate-001/receipt.json
+    sha256: 662b4c6cfe07af70cff17e1eaf10e3631e18e031ad6dcb01befd30b44443a2bb
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/native.log
+    sha256: 3ec2da31ad19f2e6524ae924091dcb628b0ffbb4afc280354d29423eab972639
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/receipt.json
+    sha256: 27f04c46d9514cb0d11e97d3e897f88eff1b1de37840292752b49c605cf10392
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/start.json
+    sha256: 5e51bb02fd7f3f78b91d03ff7af4c0d95b0bd1afdd8fb5b37ecff06b73024dfe
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/native.log
+    sha256: 3f1615174d920a4b8cbb4c9c6ae5835939fbc030d3f405799f6e4b6aa9b5255e
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/receipt.json
+    sha256: e6c98201f280c885a70ba0eea3b24e6b074686b30935b83f020955356879f9c9
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/start.json
+    sha256: 7ca9bb53eedd57164bc93858ef57e5c575e081dc37565565138b71530185061e
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/native.log
+    sha256: d6e654f60d72177f43c74f8dbd3da2358535304f19954fc3988f317a0a70b083
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/receipt.json
+    sha256: 2b1fdfda94b07a03a941b9436b58e06f7cbdb2df420f23787b4a059b4e997b07
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/start.json
+    sha256: cfa12050f4f101f9e45c7e48769d14912f1ffb4a9e3746a5f5be2cadc86a283a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/native.log
+    sha256: 7a2478f352dcce58d7f2d91e88c806d73296f54917359e3e01835ba9466a263e
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/receipt.json
+    sha256: 5c5d342e6993d9bfb47d3e4bfd189b1fc415b4d173f25f296d24f85b8c80826b
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/start.json
+    sha256: 4ccabe424b0b9a37cf660ff9d6add89d81d9655d814d321501d6857685f5a168
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/native.log
+    sha256: 40c448765f8182898e5dc41be5ed18e3269200726ab9da317dcdd6e7db6a64d1
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/receipt.json
+    sha256: 9e50fb5b5440f39367147e74224f08adbcba86b180e26259418f979e3bf7a3f3
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/start.json
+    sha256: 292960d1967790848f9e748074287fa08cc827a3fe014e07a33fb7dc1726e625
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-applied-001/before.yaml
+    sha256: a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-applied-001/receipt.json
+    sha256: 84d64747c09cd3bb372fc40fbb99e44d7ea25a3b81b2a767ea3aae170239c807
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/native.log
+    sha256: 537ab8b0c61b7cd4e4dd62747d9020ed30beef0f229788b8fb32eaa514beb3bf
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/receipt.json
+    sha256: 28bf6aa292d3489b634c03b37a458790e3abb1a88ba5e7902a42713581dbe22a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/start.json
+    sha256: 6dfece5cb7420e3cf30c7158a6f0ef008b98450e37c13b71f07590214d20f4a5
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/native.log
+    sha256: ccd5a114ee7104d542962ba86e0bdb5da52ac9d3cb75eb002d43e3060ab3ebe4
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/receipt.json
+    sha256: 97a109f0754d936163e03c742f4e5b0457883f998c9dd5d488d312db14383433
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/start.json
+    sha256: c12ca48f8091b40128d89d72a8d65c16094fc76ffd0920f36198f46029aa7050
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/receipt.json
+    sha256: 808b980e946f3fd6c7cd4da1ee4547fa587988ba58e68f22e9ed5739b4f60fc0
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/start.json
+    sha256: 036b5f864af78129f8e39def0291ae34fba4223223553509151370534b996ff6
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-m5-candidate-001/HAMBI_Carbon_Gradient_SynCom16.yaml
+    sha256: 6e2e924a178292f8f5d666f683f6849f6bf175dde9716edeec5a17c33cb3273d
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-m5-candidate-001/receipt.json
+    sha256: 0763f7474f78cb58d985195f5b4840b82c634a69597ab53b1512e19ab28429b2
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/native.log
+    sha256: 0e94ca5b32318e723257c06b01d8e2872813ed4dd24a863488d4c5de615e12eb
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/receipt.json
+    sha256: 4cd78732df4430b5aa410d0312d72c810d0c38a657b42c4e4e0a035315de8ba6
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/start.json
+    sha256: dc7b8536399bee80374409d45d6b0223a8ffe565d2f76c73e115e4f657995635
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/native.log
+    sha256: 5485a93aa0b8496c7469ac8d2f69cfd32491f29f4bf08c23c111c3b31d26c378
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/receipt.json
+    sha256: ff21b4a9f354f860dce4905fb97db7fcf42223aff28593f407c3e9fab46b03d0
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/start.json
+    sha256: 92ccad4556f680554a5b00d8799f5e225da149c46fb2ab75dc8c6c52ce80ef33
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/native.log
+    sha256: eb9075cbb08a43d17b83a1d601766ba6dfc5279ee8ab030702e4e7f5247f3180
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/receipt.json
+    sha256: 3f765567748daec590e7ad0ff8877a239c3605c437fda533639cb5a7c7fa1558
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/start.json
+    sha256: 6d05caa335dfe1c1c006b2e3f98b9ce9722a5b6530c6916f008dc84bd22128cc
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/native.log
+    sha256: 6044c100b5cc6820afc9018b48619a04ce467b9969dab345c2d71f7f169364e0
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/receipt.json
+    sha256: f92831fa1791232a77968f5474500214513d0db0a03a4a70d12b6746182afea1
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/start.json
+    sha256: e609eb25d1ac0f1e1721ad927723b7e6c44a359541f9fb68da518097ee1c7b1b
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/native.log
+    sha256: c2e558f1e8a05a977084654a02fac41d50dc437185e85e002a564f7f02574cc5
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/receipt.json
+    sha256: 5e387c1ce6b1dbe65a4adbef02771d1b7602abaa6650baa750d5cab1cd48ddb4
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/start.json
+    sha256: 8f3f2cb362d5efd2d2220dcca59ef165c55e5875366f19fe072a5eaa217d5d50
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-352-source-bind-002.log
+    sha256: f71d63af12668735003794ad6f808dc3c5b5bd56b30ac63b652d5ad67e786a71
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-423-source-bind-002.log
+    sha256: 6de51ae4896e7db6397a4c5f21296f5d79d85c0ea66fa7479a417500ca43116b
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.json
+    sha256: b6fc9baf2c3e87612b79814a55b34ef4e1b312c539795d9b882aefe4a27c71d4
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.log
+    sha256: 2ec58f9651808455646ff8cc0d5f35b93642ba386b58b8f90b0a42fdab1d51c5
+    role: context
+  - path: history/records/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom/2026-10-06T110349Z-codex-2abd02.yaml
+    sha256: 6336b8f5d3efd17d86bb0895b31d720806579b1507e5ae60f9d78c4d844af164
+    role: context
+  - path: history/records/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom/2026-11-15T210026Z-codex-63e473.yaml
+    sha256: cef1c76d6a91c4c888ae502c796edb7117e623f83305c06b56e469f9f86afa5a
+    role: context
+  - path: history/records/HAMBI_Carbon_Gradient_SynCom16/2026-09-22T162340Z-claude-code-cb48fa.yaml
+    sha256: c4b0e6485d110913a0c4457cfc7d0230f2a8efa502ffef87f56191564f118ed1
+    role: context
+  - path: history/records/HAMBI_Carbon_Gradient_SynCom16/2026-09-22T162941Z-claude-code-6c8c3f.yaml
+    sha256: de5d7418a64428592afaed3862427bacfe9e4af6a43af11c197c174ccb2be23a
+    role: context
+  - path: history/records/HAMBI_Carbon_Gradient_SynCom16/2026-10-06T143624Z-codex-f3d599.yaml
+    sha256: 582b9c224d2000b10916252d9fc810e3e146482a893cffa97c6ef5dce0e89b6d
+    role: context
+  - path: history/records/HAMBI_Carbon_Gradient_SynCom16/2026-11-15T210825Z-codex-88123f.yaml
+    sha256: c9391495683e3ce5fdd682d6b29a39c02a39d1f7991062943fe6d9fd3c371a18
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+    sha256: f693f9f7732e6951479545e4af979e26b3b293b7f89e36a4e88de9b85a7d5b87
+    role: target
+  - path: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+    sha256: 6e2e924a178292f8f5d666f683f6849f6bf175dde9716edeec5a17c33cb3273d
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42036878.txt
+    sha256: ba601b28daa48780d6b338cfd69ed9aa65ab60c8824a086a13a041350c988acd
+    role: context
+  - path: references_cache/PMID_42367191.txt
+    sha256: b03ed7ff1f5dea55b5f67b10d77cbb59e89f1b51c0d9f49e1ffae7711e038960
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+    sha256: 13a2eed2a8504570b0b7e47e924f4a63d1c7d03714098078abe4a0405ecc7472
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+    sha256: c0b2c349054635e9d6993082265669faede9e45656a6ae48549c87df053df645
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/genia-hambi-review-config-001.json
+    sha256: b02bc029f9c07fb701db577de2724211048b92fbd288f4c82e6914ca869f1439
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/genia352-authored-source-context-002.json
+    sha256: 978e23c5904f7d8997e571194977bfe6994d12fbe46ba07875712e62230f8e0f
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/genia352-check-config-001.json
+    sha256: 737fec4c97030f3b227261a78bb3d05ef526da4571e4047e18affc4763572289
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/genia352-source-config-002.json
+    sha256: 2594103e7aca652dff95778a924dbf6ce18fb858fd33c3e587ba599f6ba2f073
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/genia352-source-evidence-001.json
+    sha256: 4a15ac6777d8528708e19f0435bf5f81855a565d7ae8d9ce9ad039410b3f3807
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/hambi423-authored-source-context-002.json
+    sha256: 1310b7ffa3a246309319e5a6bcadeace57dc45947d1fc84c6a71292b21d3c83b
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/hambi423-check-config-001.json
+    sha256: 28d607768b5200b70a2b326f3e66f8c4ad0ca339d23a6000b92e1d15353848e7
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/hambi423-source-config-003.json
+    sha256: d8e397d82ccf44be42dca9c8e8c56cbe21ffc543d6ba9e35fdd9f34b826a3060
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/hambi423-source-evidence-001.json
+    sha256: 00c4bf077daab3040fd6f21fa9b3c4c5921e915d42ecc0f9912f84f2614ddcfe
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/three-route-plan-001.json
+    sha256: 1a0be5664d329c64ac0845c02152d06ba71fb12b4648a46dc974691c7b682b1a
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch42.py
+    sha256: 399037520aa2cc8f8f496c8fae3e6df291a206ff5aee692235ec2a7b3df37729
+    role: context
+  - path: tests/test_causal_review_batch50.py
+    sha256: 428e33029e55cd2b58566e8db92cd79ecc502488d59651f019d67672a0848341
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000352
+  path: kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  selector: taxonomy[0,1,2,3,4,6,7,8].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_grounding_status;
+    taxonomy[5].taxon_term.gtdb_candidates
+  label: Eight generic species-reference blocks and complete Paenibacillus alternatives
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000423
+  path: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  selector: taxonomy[3,5,6,8,10,11,15].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10,11,12,13,15].taxon_term.gtdb_grounding_status;
+    taxonomy[0,1,2,4,7,9,12,13].taxon_term.gtdb_candidates
+  label: Seven generic reference blocks and eight complete ambiguity sets across sixteen
+    preserved stocks
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Two explicitly selected whole records, CommunityMech:000352 and CommunityMech:000423,
+    assessed only for the declared GTDB blocks, statuses, complete candidate lists
+    and actual provenance. Sixteen scoped native commands passed on the accepted M5
+    bytes. HAMBI's unselected Paraniabella descriptor at index 14 remains unchanged
+    and unresolved.
+  selection: The remaining two records in the separately prepared 443/352/423 lane,
+    after the complete MWF001 canary, saved input checkpoint, strict proof controls
+    and publication. Exactly two records are reviewed here. The earlier MWF001 bundle
+    remains separate and immutable; unrelated records and denied transfer groups are
+    excluded.
+  coverage: partial
+  population_size: 2
+  reviewed_target_ids:
+  - CommunityMech:000352
+  - CommunityMech:000423
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000352-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+    --out .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-history history/records/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    GENIA_NineMember_MultiPollutant_Bioremediation_SynCom --target-root kb/communities
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record eight native species-reference correspondences and the complete
+    Paenibacillus ambiguity for GENIA'"'"'s nine existing descriptors.' --details
+    'Preserve all nine source species, existing preferred names, roles, abundance
+    annotations and scientific assertions. The unchanged native engine added eight
+    reference blocks and the complete ordered polymyxa, polymyxa_B and polymyxa_C
+    alternatives, changed nine statuses and appended two native inline events. The
+    name route for Atlantibacter and exact-ID routes for the other seven blocks describe
+    reference populations, not assemblies from the study isolates. Rounded fractions
+    are not exact support counts, and the crosswalk mtime does not establish a release.
+    Missing experimental stock codes and BioProject-versus-assembly distinctions remain
+    explicit. Preserve predicted-function/network hypotheses, relative-DNA composition,
+    bounded daily-ratio intervention, quantitative removal limitations and the existing
+    PARTIAL removal arrow. Issue 1468 and the historical non-graph scientific findings
+    are not resolved by this database correspondence. All old source quotations, biological
+    graph content and history remain unchanged. This scoped technical correction is
+    not a new full scientific review, source-reference validation, generated-product
+    check or aggregate QC. Actual apply receipt .temp/gtdb-genia-hambi-mwf-20261115/352-applied-001/receipt.json
+    sha256:22054dd9782cb22ec1ac777fb332a6d036527e0ca4765f3c881a04108fec810a.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000352-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000352
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000352-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+    --out .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-history history/records/HAMBI_Carbon_Gradient_SynCom16
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    HAMBI_Carbon_Gradient_SynCom16 --target-root kb/communities --event EDIT --outcome
+    changed --sections taxonomy,curation_history --actor-name codex --model gpt-6
+    --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record seven reference correspondences and eight complete ambiguity
+    sets for fifteen HAMBI species descriptors.' --details 'The unchanged native engine
+    added seven reference blocks, preserved every ordered alternative in eight ambiguity
+    sets, changed fifteen statuses and appended two native inline events. All sixteen
+    HAMBI stock identities remain distinct. Paraniabella yanshanensis at index 14
+    remains untouched with native null and UNRESOLVED; missing correspondence is not
+    absence or a reason to replace its valid current name. Three blocks use species-name
+    routes and four use exact species IDs; these are generic reference populations,
+    not collection-stock assemblies or the source'"'"'s WGS-derived 16S mapping. Rounded
+    fractions are not exact support numerators. Preserve the historical notes about
+    unavailable crosswalk access, all source quotations, old history and biological
+    content. The sixteen-day, eight-cycle inoculum experiment does not establish persistence
+    of all stocks; OD-scaled abundance is not viable cell counting, and controlled
+    carbon outcomes do not selectively establish trait or pH mediation or alternative
+    stable states. Preserve the prior batch 50 scientific limitations, Hanford and
+    C6 boundaries, and open discussions. This scoped technical correction is not a
+    new full scientific review, source-reference validation, generated-product check,
+    issue closure or aggregate QC. Actual apply receipt .temp/gtdb-genia-hambi-mwf-20261115/423-applied-001/receipt.json
+    sha256:84d64747c09cd3bb372fc40fbb99e44d7ea25a3b81b2a767ea3aae170239c807.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000423-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000423
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000423-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000352-schema
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-schema-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-strict
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-strict-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-gtdb
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-gtdb-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-domain
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-domain-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-scalars
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-scalars-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-history-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-new-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-new-history-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-terms
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-terms-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000352-paper
+  kind: primary_source
+  reference: PMID:42036878
+  locator: Retained primary Methods isolation/screening and Whole-Genome Sequencing
+    and Assembly around lines 220-275; Results genome integration/final nine-member
+    roster around lines 615-700; exact anchors in bound source metadata
+  support: supports
+  summary: The source identifies the nine species and describes selection from 45
+    sequenced isolates. BioProject and modeled functional roles do not independently
+    link the current descriptors to particular study assemblies or validate exchange
+    mechanisms.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000352-database
+  kind: database
+  reference: reports/gtdb-genia-hambi-mwf-20261115/genia352-source-evidence-001.json
+  locator: 'All nine occurrences: complete native_result, classify_status, lookup
+    indexes/rows and local NCBI label/rank observations'
+  support: supports
+  summary: Eight reference blocks follow one name and seven exact-ID routes with their
+    reported totals/fractions; Paenibacillus retains all three alternatives. Population
+    counts and generic reference identity remain distinct from study stocks and abundance.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000352-application
+  kind: record_content
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/352-applied-001/receipt.json
+  locator: Actual before/after, externally pinned candidate/receipt, captured source
+    inputs, two native inline events and native history sidecar
+  support: supports
+  summary: The independently reviewed M5 candidate was applied exactly. Only declared
+    GTDB fields and actual appended events changed; original biological content, source
+    statements and history remained intact.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000352-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+  locator: GENIA node/edge decisions, arithmetic limitations and open_nongraph_followups;
+    captured batch42 caller's GENIA, Fucoidan and Transwell predicates
+  support: context_only
+  summary: The historical self-adversarial assessment and literal ledger remain unchanged.
+    Predicted cross-feeding, quantitative removal limitations and the PARTIAL management
+    arrow are preserved; this correction does not close issue 1468.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000423-schema
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-schema-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-strict
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-strict-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-gtdb
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-gtdb-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-domain
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-domain-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-scalars
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-scalars-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-history-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-new-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-new-history-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-terms
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-terms-001/native.log
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000423-paper
+  kind: primary_source
+  reference: PMID:42367191
+  locator: Retained Materials and methods, Synthetic bacterial community complete
+    HAMBI roster at line 264; serial passage and 16S methods around lines 271-275;
+    subsequent separate monoculture/pH assays
+  support: supports
+  summary: The source names all sixteen HAMBI stocks and distinguishes serial community
+    passage, WGS-derived 16S mapping and separate trait/pH assays. Those identifiers
+    and methods do not independently select generic GTDB alternatives for a stock.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000423-database
+  kind: database
+  reference: reports/gtdb-genia-hambi-mwf-20261115/hambi423-source-evidence-001.json
+  locator: Fifteen selected occurrences with complete native_result, classify_status,
+    lookup rows/indexes and authority observations; unselected index14 limitation
+    in historical_guard_assessment
+  support: supports
+  summary: Seven native reference blocks and eight complete ordered ambiguity sets
+    are supported for their generic descriptors. Paraniabella index14 remains unchanged
+    with no result. Totals, rounded fractions and alternative counts do not identify
+    collection-stock genomes or culture abundance.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000423-application
+  kind: record_content
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/423-applied-001/receipt.json
+  locator: Actual before/after, externally pinned reviewed candidate/receipt, captured
+    inputs, two native inline events and appended history sidecar
+  support: supports
+  summary: The exact reviewed M5 candidate was persisted. Fifteen declared descriptors
+    changed; all sixteen stocks, index14, original notes, biological content and old
+    history remained unchanged. Native stdout processes sixteen taxa while the event
+    records fifteen changed entries.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+- evidence_id: 000423-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+  locator: HAMBI node decision and source/causal limitations; complete captured batch50
+    current biological, roster, cache and historical predicates
+  support: context_only
+  summary: The historical assessment remains literal. Input membership does not establish
+    endpoint persistence, OD-scaled abundance is not viable counting, and carbon outcomes
+    do not selectively establish mechanism. Hanford/C6 scientific constraints are
+    outside this correction and remain protected.
+  accessed_at: '2026-11-15T21:11:40.826931Z'
+assessments:
+- assessment_id: 000352-source-scope
+  area: grounding
+  topic: Nine source species without invented stock or assembly identities
+  outcome: supported
+  target_ids:
+  - CommunityMech:000352
+  evidence_ids:
+  - 000352-paper
+  - 000352-database
+  - 000352-terms
+  summary: All nine encoded source species remain unchanged. Source sequencing and
+    BioProject context are distinguished from an assembly-to-member identity that
+    was not established. Existing roles, abundance labels and predicted mechanisms
+    are preserved without recertification.
+- assessment_id: 000352-native-correspondence
+  area: grounding
+  topic: Eight reference populations and full three-way ambiguity
+  outcome: supported
+  target_ids:
+  - CommunityMech:000352
+  evidence_ids:
+  - 000352-database
+  - 000352-gtdb
+  - 000352-domain
+  summary: The eight blocks reproduce the bound native ID/name outcomes and reported
+    totals/fractions, including the 0.85 fulva fraction. Paenibacillus retains all
+    three ordered alternatives and no single block. Species fractions supply no exact
+    support numerator, stock abundance or experimental genome assignment.
+- assessment_id: 000352-persistence
+  area: provenance
+  topic: Actual bounded correction and preserved historical scientific scope
+  outcome: supported
+  target_ids:
+  - CommunityMech:000352
+  evidence_ids:
+  - 000352-application
+  - 000352-prior
+  - 000352-schema
+  - 000352-strict
+  - 000352-scalars
+  - 000352-new-history
+  - 000352-history
+  summary: Actual application and sidecar bind nine changed statuses, eight blocks,
+    one ambiguity set and two inline events. All eight scoped commands passed; strict
+    validation scanned one file with zero errors. The old scientific limitations and
+    all current biological predicates remain; strict saved-proof and caller controls
+    follow separately.
+- assessment_id: 000423-source-scope
+  area: grounding
+  topic: Sixteen distinct HAMBI stocks and unchanged null descriptor
+  outcome: supported
+  target_ids:
+  - CommunityMech:000423
+  evidence_ids:
+  - 000423-paper
+  - 000423-database
+  - 000423-terms
+  summary: All sixteen stock designations and source names are preserved. Generic
+    reference matching does not reproduce the paper's WGS-derived 16S workflow or
+    identify an individual culture assembly. Index14 remains unresolved without taxon-absence
+    inference or replacement of its valid current label.
+- assessment_id: 000423-native-correspondence
+  area: grounding
+  topic: Seven reference populations and eight complete alternative sets
+  outcome: supported
+  target_ids:
+  - CommunityMech:000423
+  evidence_ids:
+  - 000423-database
+  - 000423-gtdb
+  - 000423-domain
+  summary: The seven blocks retain their three name/four ID routes and exact reported
+    totals/fractions, including nonunanimous Aeromonas 0.99. Every alternative remains
+    ordered and complete for the eight ambiguous descriptors. No ambiguous block is
+    selected, exact numerator reconstructed or stock count inferred.
+- assessment_id: 000423-persistence
+  area: provenance
+  topic: Persisted native correction preserves source and biological boundaries
+  outcome: supported
+  target_ids:
+  - CommunityMech:000423
+  evidence_ids:
+  - 000423-application
+  - 000423-prior
+  - 000423-schema
+  - 000423-strict
+  - 000423-scalars
+  - 000423-new-history
+  - 000423-history
+  summary: Actual application and native sidecar bind seven blocks, eight candidate
+    lists, fifteen changed statuses and two inline events. Eight scoped native commands
+    passed, with one-file strict validation reporting zero errors. Old source notes,
+    discussions, experimental/causal boundaries and history remain exact; later saved-proof
+    and composed caller controls are not assumed.
+findings: []
+actions: []
+limitations:
+- This is a partial technical database-correspondence diagnostic with scientific_review:false.
+  Completed status concerns this bounded diagnostic only. It is not full scientific
+  approval, source-reference coverage, generated-page validation, final corpus QC,
+  campaign completion or issue closure.
+- GENIA's eight reference blocks use one species-name route for Atlantibacter and
+  seven exact species-ID routes. Reported totals/fractions are 2/1.0, 8/1.0, 562/0.98,
+  336/0.97, 236/0.95, 98/0.97, 163/0.85 and 2/1.0 in the selected block order. The
+  notation means total genomes and reported fraction, not a support numerator. Species
+  results provide no support_genomes; no numerator is reconstructed from rounded fractions.
+  Pseudomonas fulva's 0.85 is not unanimity.
+- GENIA's Paenibacillus descriptor retains polymyxa, polymyxa_B and polymyxa_C without
+  a single classification block. Generic alternative clusters do not identify the
+  experimental isolate or count stocks. The paper's 45 sequenced isolates, nine-member
+  roster and BioProject are distinct from the reference populations; missing stock
+  codes and uninspected assembly-to-member links are not invented.
+- GENIA's predicted enzyme/network complementarity remains HYPOTHESIZED, relative
+  DNA composition is not viable abundance, and the daily ratio intervention retains
+  its PARTIAL removal arrow and handling confound. Separate-treatment versus mixed-treatment
+  removal figures, PFOS/atrazine denominator and method questions, non-graph roles
+  and missing raw/supplement reconciliation remain outside this correction. Issue
+  1468 and the immutable batch 42 assessment are not resolved or promoted.
+- HAMBI's seven reference blocks use three species-name routes (Kluyvera, Sphingobium
+  and Cupriavidus) and four exact species-ID routes. Reported totals/fractions are
+  Citrobacter 393/1.0, Kluyvera 2/1.0, Sphingobium 15/1.0, Aeromonas 523/0.99, Bordetella
+  76/1.0, Cupriavidus 2/1.0 and Microvirga 3/1.0. These are total genomes and reported
+  fractions, not exact support counts, community abundances or collection-stock genome
+  assignments.
+- HAMBI preserves all ordered alternatives for Pseudomonas putida (15), Agrobacterium
+  (4), Comamonas (3), Morganella (2), Sphingobacterium (2), Pseudomonas chlororaphis
+  (3), Paracoccus (2) and Stenotrophomonas (11). The alternative counts are neither
+  experimental member counts nor reference-genome denominators. All sixteen named
+  HAMBI stocks remain distinct; index 14 Paraniabella yanshanensis stays null/UNRESOLVED
+  without a label rollback or absence claim.
+- HAMBI's historical unavailable-crosswalk notes describe the earlier curation and
+  remain intact. Generic routes do not reproduce the source's WGS-derived 16S mapping.
+  The sixteen-day/eight-cycle inoculum experiment does not prove persistence of all
+  members; OD-scaled abundance is not viable counting, and controlled carbon-dependent
+  outcomes do not selectively establish trait/pH mediation or alternative stable states.
+  The batch 50 assessment, open discussions and Hanford/C6 boundaries remain unchanged.
+- Source examination covered the complete current records and historical callers/ledgers,
+  selected retained primary GENIA isolation, sequencing, final roster and network
+  passages, HAMBI's complete stock roster, serial-transfer, 16S and separate-assay
+  passages, and the captured native crosswalk/local-authority outputs. No new full-paper
+  scientific audit, collection-catalog search, separate supplement inspection, original
+  figure-pixel analysis, raw sequencing, assembly assignment, analytical mass balance
+  or source-code reanalysis was performed.
+- Source reporting and binding ran locally at f18ca5b7f83eae0a9c8f537bdde6703760fee90e
+  with preparation changes disclosed. Actual staging, guarded application and all
+  sixteen native commands ran on frozen M5 preparation revision 9b770f6603aa2714fc4f7f317768d8857fbb8d1e
+  using Python 3.13.2 and frozen offline dependencies. Expected applied records, sidecars
+  and metadata are working-tree changes; no clean final-QC claim is made.
+- Crosswalk SHA-256 is 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd.
+  Its mtime is not an upstream release. Local authority observations retain file identity/stat
+  provenance without an invented full-database digest. Both native term runs report
+  Validation passed without an assertion denominator. The earlier route-layout refusal
+  and corrected species-fraction wording remain under issues 2913/2916. GENIA's initial
+  M5 free stage plan refused a missing source-proof file before any write; the exact
+  file was transferred and rehashed before a successful new plan and actual stage.
+- Complete saved-input checkpoints, strict saved-successor controls and historical
+  caller composition are subsequent acceptance steps. In particular, batch 42 must
+  preserve the existing Fucoidan449 successor and Transwell historical chain, while
+  batch 50 must compose the separately published C6 successor without changing its
+  current biological predicates or immutable ledger. None of those later outcomes
+  is assumed by this draft.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1468
+- https://github.com/CultureBotAI/CommunityMech/issues/2913
+- https://github.com/CultureBotAI/CommunityMech/issues/2916
+- https://github.com/CultureBotAI/CommunityMech/pull/2917
+```

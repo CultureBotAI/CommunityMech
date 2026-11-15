@@ -1,10 +1,13 @@
 # GENIA, HAMBI and MWF001 reference correspondence
 
-The [MWF001 checkpoint](mwf443-outcome-001.md) records the actual isolated M5
-application, eight native checks, saved partial diagnostic, complete input
-checkpoints and strict successor proof for CommunityMech:000443. GENIA352 and
-HAMBI423 remain preparation with private local previews; neither is applied.
-These are scoped reference correspondences, not new full scientific reviews.
+The [MWF001 checkpoint](mwf443-outcome-001.md) and subsequent
+[GENIA/HAMBI checkpoint](genia-hambi-outcome-001.md) record the actual isolated
+M5 applications, eight native checks per record, saved partial diagnostics,
+complete input checkpoints and strict successor proofs for all three records.
+GENIA/HAMBI's 34 actual proof controls and all 15 composed historical tests pass;
+their saved diagnostic binds 127 inputs, preserved in complete 129-file
+checkpoints on both machines. These are scoped reference correspondences, not
+new full scientific reviews. Generated pages and final corpus QC remain separate.
 
 The preparation below describes the earlier published revision
 `9b770f6603aa2714fc4f7f317768d8857fbb8d1e`, when all three canonical records,

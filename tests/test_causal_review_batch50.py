@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 from source_intake_gtdb_successors import C6_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,8 @@ def records():
     for row in ledger["records"]:
         if row["path"] == C6_PATH:
             admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
+        elif row["id"] == "CommunityMech:000423":
+            admit_genus_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
 
 
@@ -110,6 +113,11 @@ def test_every_node_and_removed_arrow_has_a_hash_bound_decision():
             admission = admit_source_intake_successor(ROOT, row["path"], expected)
             expected = admission.current_sha256
             assert doc["curation_history"] == yaml.safe_load(raw)["curation_history"]
+            historical = yaml.safe_load(admission.historical_bytes)
+        elif row["id"] == "CommunityMech:000423":
+            assert doc == yaml.safe_load(raw)
+            admission = admit_genus_successor(ROOT, row["path"], expected, current=raw)
+            expected = admission.current_sha256
             historical = yaml.safe_load(admission.historical_bytes)
         assert hashlib.sha256(raw).hexdigest() == expected
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()

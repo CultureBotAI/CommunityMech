@@ -6,6 +6,7 @@ from pathlib import Path
 
 import gtdb_species_batch_successors_20261115 as species_successor
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml"
@@ -23,6 +24,9 @@ def record_bytes(row):
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
+    for row in ledger["records"]:
+        if row["id"] == "CommunityMech:000352":
+            admit_genus_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, [yaml.safe_load(record_bytes(r)) for r in ledger["records"]]
 
 
@@ -151,6 +155,11 @@ def test_batch42_dispositions_history_participants_and_source_receipts():
             # Admit exact current bytes before projecting only the old history assertion.
             assert doc == yaml.safe_load(record_bytes(row))
             admitted = species_successor.admission(ROOT, row["path"], expected_hash)
+            expected_hash = admitted.current_sha256
+            prior_history = yaml.safe_load(admitted.historical_bytes)["curation_history"]
+        elif row["id"] == "CommunityMech:000352":
+            assert doc == yaml.safe_load(record_bytes(row))
+            admitted = admit_genus_successor(ROOT, row["path"], expected_hash)
             expected_hash = admitted.current_sha256
             prior_history = yaml.safe_load(admitted.historical_bytes)["curation_history"]
         assert hashlib.sha256(record_bytes(row)).hexdigest() == expected_hash

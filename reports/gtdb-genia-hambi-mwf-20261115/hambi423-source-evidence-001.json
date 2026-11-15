@@ -1,0 +1,1725 @@
+{
+  "record": "kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml",
+  "record_id": "CommunityMech:000423",
+  "source_inspection_sha256": "6de51ae4896e7db6397a4c5f21296f5d79d85c0ea66fa7479a417500ca43116b",
+  "source_inputs": {
+    ".temp/gtdb-genia-hambi-mwf-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    ".temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.json": "b6fc9baf2c3e87612b79814a55b34ef4e1b312c539795d9b882aefe4a27c71d4",
+    ".temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.log": "2ec58f9651808455646ff8cc0d5f35b93642ba386b58b8f90b0a42fdab1d51c5",
+    "kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml": "a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8",
+    "pyproject.toml": "be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655",
+    "references_cache/PMID_42367191.txt": "b03ed7ff1f5dea55b5f67b10d77cbb59e89f1b51c0d9f49e1ffae7711e038960",
+    "reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml": "13a2eed2a8504570b0b7e47e924f4a63d1c7d03714098078abe4a0405ecc7472",
+    "reports/gtdb-genia-hambi-mwf-20261115/hambi423-authored-source-context-002.json": "1310b7ffa3a246309319e5a6bcadeace57dc45947d1fc84c6a71292b21d3c83b",
+    "reports/gtdb-genia-hambi-mwf-20261115/hambi423-source-config-003.json": "d8e397d82ccf44be42dca9c8e8c56cbe21ffc543d6ba9e35fdd9f34b826a3060",
+    "reports/gtdb-genia-hambi-mwf-20261115/three-route-plan-001.json": "1a0be5664d329c64ac0845c02152d06ba71fb12b4648a46dc974691c7b682b1a",
+    "scripts/adhoc/bind_gtdb_batch_source_context_20261115.py": "6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3",
+    "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "src/communitymech/__init__.py": "c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66",
+    "src/communitymech/curate/__init__.py": "a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324",
+    "src/communitymech/curate/curation_event.py": "58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc",
+    "src/communitymech/ontology_adapters.py": "7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45",
+    "src/communitymech/validators/__init__.py": "975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93",
+    "src/communitymech/validators/ncbi_domain.py": "b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262",
+    "tests/test_causal_review_batch50.py": "428e33029e55cd2b58566e8db92cd79ecc502488d59651f019d67672a0848341",
+    "uv.lock": "712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4"
+  },
+  "occurrences": [
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Pseudomonas_E_alloputida",
+          "GTDB:s__Pseudomonas_E_asiatica",
+          "GTDB:s__Pseudomonas_E_fulva",
+          "GTDB:s__Pseudomonas_E_guariconensis",
+          "GTDB:s__Pseudomonas_E_juntendi",
+          "GTDB:s__Pseudomonas_E_monteilii",
+          "GTDB:s__Pseudomonas_E_pudica",
+          "GTDB:s__Pseudomonas_E_putida",
+          "GTDB:s__Pseudomonas_E_putida_E",
+          "GTDB:s__Pseudomonas_E_putida_H",
+          "GTDB:s__Pseudomonas_E_putida_K",
+          "GTDB:s__Pseudomonas_E_putida_P",
+          "GTDB:s__Pseudomonas_E_putida_Q",
+          "GTDB:s__Pseudomonas_E_putida_R",
+          "GTDB:s__Pseudomonas_E_putida_Y"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 6 as Pseudomonas putida. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Pseudomonas putida HAMBI 6",
+        "term": {
+          "id": "NCBITaxon:303",
+          "label": "Pseudomonas putida"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "303": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas putida": [
+            "2ba43aae842812f123f833e8f4ccf90a10419d216b517758f78559be0cfc07a6",
+            "a5895e3fb0ca72619949666afd9ea2830db39d24628334e8846a13883f2eaac5",
+            "a1bf8fcc5deee75af1b9d0284ddd57a29187515998d8b9496a8882dfc5d11d71",
+            "69abf9644fdacd32e107a44629e06bbc2637505ce1aaf24bd79635dbeaa268bd",
+            "8cd47ca3908ad5879f05df43317a163713f0a3171b97b0078b418e2be911d640",
+            "47754a93232441c28c3b638924bc55d7ba4a4937ac6bf39634ce619163f525cd",
+            "143cf376b07dbe624b0902d678c375591adda9a76c1c3634a6ac486bb4eec121",
+            "db82e383ce49f536f430aacd76f90cf0f9815562e1a8c49b5e6a8c38f192c19f",
+            "4d1ba3809c3adbece435b81efd1d2e4040f1e35624ad02a6464d9b3677c20ead",
+            "4932f39bfbef85c5397538a1da92f7972297f752de15d77ed91238bbcec5f1d9",
+            "378cf6fa1ea7a9c848d869ec45a65ad3e737ecceb81f489e862417439b2fc113",
+            "2829610cf5146d44996fd57d845fcc7df8528a23e68f763dd4de8a7e2f9a4917",
+            "27a71eeeaa8fb48f57d1f46c9a4d85a83a7216eefc7ce4bfa3a6d6f49571fc9f",
+            "ae7e1c602f5d4cb14256316f4ff1b966535c3231c2e33210d6eb4931ff429305",
+            "608b41aaf38118e50ece0ccb5ef15a449a20ce92cf467a6e5907e0f06d0302d5",
+            "137647bf42e632fff9783879a3e1ddc4c80e4113e079d8451135681a2883f55a",
+            "45a096ab36056712c25f40c629a4031cbecb5cd0dbbbb3fe85089e306e45fc30",
+            "c96ebef5756b3dd0e00611a3b9aeb0c7a8ec7a9da18917b276fd1061de81bb5d",
+            "00012b8fb48b2e228437afac0a112a89d82b79075157102d4d536a698d5a592a",
+            "36ea0447a0776caa86ba3ebf71fc26a1fb0885879910a376b724c97352261689",
+            "6733cece517a92afb63fb202ede3a815d63013b9ca726bf062af05b09b65668f",
+            "05792992495546c7c2da1a775083ad314ddc5db40afbe19dc70d0e750025049c",
+            "acd029c25256d66ecd5dfc617678a8a09886f9d051bfdde4debdb0b3ba4a5844",
+            "1426efa6fc109982a1557ac4573e4557b8e079f7fbc376a1a8d250de7e10fa14",
+            "e0a838b2b08f0bdd506cc41a098ffd18f2cdd9dcd4e89065b9047a4509465eef",
+            "cc9b949f8b9226f09c93277418f15db85c47cdf0f0a85cb7759beeb2c5ba8499",
+            "dfc4a5ccf9966b72c29cc11cc3dcdc14905ae05bb1f3423a9f46fdf9cf781734",
+            "1c090015fd627e512c1f5f4ee5c7a6b928131c4bc6c642a71c82215c55b3be41",
+            "c019bdec93e1d7cbf95a2e1b5c35d074d3698bd8a1167c5fb1949a4a60f6a79a",
+            "1d7cecba4d05a2a82a11e2a9ac1649635af7393ebecdc050bcee56bc160d9a8c",
+            "78e2379551265c9cd6c23f8b9736c2a60299c63553d08ccfa5bc13e50a6528bb",
+            "d8c360684d4f1cb225d2f89bd4941cbe8f8b0a914dfc8bc08dc899f54e8ca606",
+            "30dc6233505369d7d47032cf0b07fada811687d9cda1dd1f4f5d8c292081d8eb"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Pseudomonas_E_alloputida",
+          "GTDB:s__Pseudomonas_E_asiatica",
+          "GTDB:s__Pseudomonas_E_fulva",
+          "GTDB:s__Pseudomonas_E_guariconensis",
+          "GTDB:s__Pseudomonas_E_juntendi",
+          "GTDB:s__Pseudomonas_E_monteilii",
+          "GTDB:s__Pseudomonas_E_pudica",
+          "GTDB:s__Pseudomonas_E_putida",
+          "GTDB:s__Pseudomonas_E_putida_E",
+          "GTDB:s__Pseudomonas_E_putida_H",
+          "GTDB:s__Pseudomonas_E_putida_K",
+          "GTDB:s__Pseudomonas_E_putida_P",
+          "GTDB:s__Pseudomonas_E_putida_Q",
+          "GTDB:s__Pseudomonas_E_putida_R",
+          "GTDB:s__Pseudomonas_E_putida_Y"
+        ],
+        "n_alt": 15,
+        "ncbi_source_id": "NCBITaxon:303",
+        "ncbi_species": "Pseudomonas putida",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[0].taxon_term",
+      "strain_name": "HAMBI 6",
+      "taxonomy_index": 0,
+      "term": {
+        "id": "NCBITaxon:303",
+        "label": "Pseudomonas putida"
+      },
+      "source_assessment": "The actual Methods names P. putida HAMBI 6. Its generic species-name route has 15 alternatives; neither the collection code nor study community outcome identifies one of those clusters for this stock.",
+      "population_scope": "All 15 ordered alternatives are retained without a classification block. They are not 15 strains, reference-genome counts, relative abundance or a stock-level uncertainty estimate.",
+      "name_scope": "Keep HAMBI 6, source preferred name and NCBI species descriptor. The generic ambiguity does not rename the culture or contradict a stock-specific assembly analysis that has not been performed here.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Arthrobacter siderocapsulatus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Bacillus fluorescens putidus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Bacillus putidus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas arvilla",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas convexa",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas eisenbergii",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas incognita",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas ovalis",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas rugosa",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas striata",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas putida",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:303",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:136845"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Agrobacterium_fabacearum",
+          "GTDB:s__Agrobacterium_leguminum",
+          "GTDB:s__Agrobacterium_oryzihabitans",
+          "GTDB:s__Agrobacterium_tumefaciens"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 105 as Agrobacterium tumefaciens. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Agrobacterium tumefaciens HAMBI 105",
+        "term": {
+          "id": "NCBITaxon:358",
+          "label": "Agrobacterium tumefaciens"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "358": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "agrobacterium tumefaciens": [
+            "720b1a9f226c25734f1cf3335c3df9e3d8466d672aceeef9450e9a6a3c444599",
+            "32a577abcf3dbae607573cc7d3e8588902769d27ab85be42caf4914eb06d7707",
+            "d1def0ab29c800444cddd41a23159ef356f4cfd235be585869ef6eb4912d7b70",
+            "d340153bac3b4fa6f6e97a69e4efe2bbffa7a8aa633774f617baa962f1914365",
+            "f48ccecfd9405a5b70f578abb3473efa20c3b5d2207a6a05705abe5b8b8004b7",
+            "cfeea17a0705523718771961b9b112903593f8048ae41e0a6a0a68a9f788a186",
+            "f1e1d6f1ec6f19c0420ba1ef3e876daf8b7d4fcec07f1817391fd0e905d077b4",
+            "35ea8bff7c1faff41ce806ff042c16d5d1f90715217a2dee1aa113617a912442",
+            "9fa6756fe7062e1e1c281305f6286167cf5f50e3a119cf6909349999ce977ac0",
+            "d07430592b32fdffc3806efdf787719761e1ce4a878f65c8c526c614606c661a",
+            "53aede41bde6eb142e1876de82f80f4c4793a160df9d7935b430719abc823a54",
+            "4d9db15ecb9a9f37b115bb80ddf781e6b34b5650881d77806dc2fc6e28d29d34",
+            "f56a9d3ce754efe15d5f87163877fac9c1c2519df963493559bc00147151a523",
+            "69dbffdac761db38bf46073cb1ed8c4a80e9203a79e19d9151131534f0edc58a",
+            "88788c9529c7340dc68c00f5c2b1af44fc1b7effca3afd6c132a18b4eddbd30a"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Agrobacterium_fabacearum",
+          "GTDB:s__Agrobacterium_leguminum",
+          "GTDB:s__Agrobacterium_oryzihabitans",
+          "GTDB:s__Agrobacterium_tumefaciens"
+        ],
+        "n_alt": 4,
+        "ncbi_source_id": "NCBITaxon:358",
+        "ncbi_species": "Agrobacterium tumefaciens",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[1].taxon_term",
+      "strain_name": "HAMBI 105",
+      "taxonomy_index": 1,
+      "term": {
+        "id": "NCBITaxon:358",
+        "label": "Agrobacterium tumefaciens"
+      },
+      "source_assessment": "The primary roster separately names A. tumefaciens HAMBI 105. Preserve all four generic alternatives without using that culture code to select an assembly or cluster.",
+      "population_scope": "Four alternatives are not four experimental stocks or a reference denominator. No single classification or community-abundance claim follows.",
+      "name_scope": "Preserve the exact HAMBI 105 designation, source and NCBI names, and old note about unavailable crosswalk during earlier curation.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Agrobacterium genomic group 1",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Agrobacterium genomic species 1",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Agrobacterium genomic species G1",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Agrobacterium tumefaciens genomovar G1",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Rhizobium lupini H13-3",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Agrobacterium fabacearum",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Agrobacterium tumefaciens (Smith and Townsend 1907) Conn 1942 (Approved Lists 1980)",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Phytomonas tumefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Polymonas tumefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas tumefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "rdfs:label",
+          "value": "Agrobacterium tumefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:358",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:1183400"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Comamonas_testosteroni",
+          "GTDB:s__Comamonas_testosteroni_B",
+          "GTDB:s__Comamonas_thiooxydans"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 403 as Comamonas testosteroni. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Comamonas testosteroni HAMBI 403",
+        "term": {
+          "id": "NCBITaxon:285",
+          "label": "Comamonas testosteroni"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "285": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "comamonas testosteroni": [
+            "9be35d3d43d2804a76ad5c1c75b717d160131983a926f7a1752a1f91d5439ade",
+            "a84fa62b3548e989de6e2d5c543cc584bb7c9cabbaeb5430f0e467b5d07adaec",
+            "cc6827c185b4e546d1b4915f239a865acf1c39e60e6d748dfeebdf77552b736c",
+            "086903c1317d4fc5bdd88f4e32839412512fb763826c68e1363ae3828053114e",
+            "a479f5c9b60615c57c2edd54668a9ee04e48deb499e7ebca6095b7c7ce9d0df7",
+            "27762b273417c6471f85f2fc2d426945c453674c2befc9a5fb2dd34de7565de0",
+            "b639978afd2f3b188a784aa95aba5d99e1b79b799630c41ea5ced42ae03e23f8",
+            "978c47a23f7a478e65553e381808584bc88d42fed2bae60ba4c4109f2558bd8a",
+            "7c3607006f88703244c1447477da126824a88d82c329a89b992dfb9c6724d40e"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Comamonas_testosteroni",
+          "GTDB:s__Comamonas_testosteroni_B",
+          "GTDB:s__Comamonas_thiooxydans"
+        ],
+        "n_alt": 3,
+        "ncbi_source_id": "NCBITaxon:285",
+        "ncbi_species": "Comamonas testosteroni",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[2].taxon_term",
+      "strain_name": "HAMBI 403",
+      "taxonomy_index": 2,
+      "term": {
+        "id": "NCBITaxon:285",
+        "label": "Comamonas testosteroni"
+      },
+      "source_assessment": "Methods names C. testosteroni HAMBI 403. The same generic species used in other studies does not make those experimental stocks interchangeable; all three reference alternatives remain explicit.",
+      "population_scope": "Three alternatives are database clusters, not stock counts or a population denominator. No single GTDB block is proposed.",
+      "name_scope": "Preserve HAMBI 403 and every existing stock/source statement; do not transfer an MWF001 or another study's strain-level result.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:285",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:285",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:285",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas testosteroni",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:285",
+          "predicate": "rdfs:label",
+          "value": "Comamonas testosteroni",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:285",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:283"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1287 as Citrobacter koseri. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Citrobacter koseri HAMBI 1287",
+        "term": {
+          "id": "NCBITaxon:545",
+          "label": "Citrobacter koseri"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "545": [
+            "ecaee29456685d86728282f570ed4e4de69a699511e74f74880b3efc4568d905"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "citrobacter koseri": [
+            "ecaee29456685d86728282f570ed4e4de69a699511e74f74880b3efc4568d905",
+            "f48f415758b553cdf62b9b468fdc0df90f22b30db1969fc65204580aabe844cc"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Citrobacter_B_koseri",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Citrobacter_B;s__Citrobacter_B koseri",
+        "gtdb_taxon": "Citrobacter_B koseri",
+        "is_reclassified": true,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:545",
+        "total_genomes": 393,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[3].taxon_term",
+      "strain_name": "HAMBI 1287",
+      "taxonomy_index": 3,
+      "term": {
+        "id": "NCBITaxon:545",
+        "label": "Citrobacter koseri"
+      },
+      "source_assessment": "Methods identifies C. koseri HAMBI 1287 and separately assays it among the three dominant cultures. The exact generic species-ID correspondence does not resolve the HAMBI stock genome or establish why it dominates a carbon condition.",
+      "population_scope": "393 reference genomes/fraction 1.0 are distinct from culture abundance, assay replicates and the 16-member inoculum.",
+      "name_scope": "Keep the source/NCBI name and HAMBI 1287; the Citrobacter_B suffix and native flag are database circumscription, not a new stock identification.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aerobacter diversum",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Citrobacter diversum",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Citrobacter diversus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Citrobacter intermedius biogroup b",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Levinea malonatica",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "rdfs:label",
+          "value": "Citrobacter koseri",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:545",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:544"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Morganella_morganii",
+          "GTDB:s__Morganella_morganii_B"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1292 as Morganella morganii. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Morganella morganii HAMBI 1292",
+        "term": {
+          "id": "NCBITaxon:582",
+          "label": "Morganella morganii"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "582": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "morganella morganii": [
+            "6c553b8c859dd7faea1b8ebb6cc761370960ca48e4eab3e0bf938cb500f03528",
+            "3009628b13bfb764d799606d4c3f8c4460f275466e5316c634c77307170dba5f",
+            "04dc0286776a46fb4d0b71d2ceb9b420ef2830d5cdc9cad734e60c6a86464e74",
+            "52a469da906aee2f920263e9f96ee97382d72aae53f4c6b66e706ebd6b7725f6",
+            "9d2af73209a33adada52358a15ffdec4cff0b3985723a66f29075d334178d78b",
+            "74f1f48d776f3da5f536cb8e60b16754f1d19fd6e703cbad8a4d635bfa8d1e68",
+            "0e36ba3b86269d83a60d77e56d546ab62601c15588226f0846d4418bc52d5728",
+            "29c7c60a21ddfce2fc125d99c5c671b783aee77eb546ab0b40d9021eca10f700"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Morganella_morganii",
+          "GTDB:s__Morganella_morganii_B"
+        ],
+        "n_alt": 2,
+        "ncbi_source_id": "NCBITaxon:582",
+        "ncbi_species": "Morganella morganii",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[4].taxon_term",
+      "strain_name": "HAMBI 1292",
+      "taxonomy_index": 4,
+      "term": {
+        "id": "NCBITaxon:582",
+        "label": "Morganella morganii"
+      },
+      "source_assessment": "The primary roster names M. morganii HAMBI 1292. Two generic reference alternatives remain; the paper's stock label is not an assembly-to-cluster mapping.",
+      "population_scope": "Retain both alternatives without a single block or inferred genome denominator; two alternatives do not imply two experimental strains.",
+      "name_scope": "Preserve the exact collection designation and existing descriptor, with no reinterpretation of community survival or function.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Morganella morganii (Winslow et al. 1919) Fulton 1943 (Approved Lists 1980)",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Organism N 1",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Proteus morganii",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Salmonella morgani",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "rdfs:label",
+          "value": "Morganella morganii",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:582",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:581"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1299 as Kluyvera intermedia. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Kluyvera intermedia HAMBI 1299",
+        "term": {
+          "id": "NCBITaxon:61648",
+          "label": "Kluyvera intermedia"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "61648": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "kluyvera intermedia": [
+            "6a86ccef381a4c12c6c9357e33d7f99ad4b3419bd908b2a96e9e6b13b3ce620c"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Kluyvera_intermedia",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Kluyvera;s__Kluyvera intermedia",
+        "gtdb_taxon": "Kluyvera intermedia",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:61648",
+        "total_genomes": 2,
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[5].taxon_term",
+      "strain_name": "HAMBI 1299",
+      "taxonomy_index": 5,
+      "term": {
+        "id": "NCBITaxon:61648",
+        "label": "Kluyvera intermedia"
+      },
+      "source_assessment": "Methods explicitly names K. intermedia HAMBI 1299. Its native species-name fallback supports only a generic reference correspondence; it does not prove an exact-ID hit or study-stock assembly match.",
+      "population_scope": "The small two-reference denominator/fraction 1.0 is not the number of experimental strains or evidence of genome identity.",
+      "name_scope": "Preserve HAMBI 1299, both existing name fields and old source notes. Retain the actual name-route provenance.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Enterobacter intermedium",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Enterobacter intermedius corrig. Izard et al. 1980",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Kluyvera cochleae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "rdfs:label",
+          "value": "Kluyvera intermedia",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:61648",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:579"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1842 as Sphingobium yanoikuyae. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Sphingobium yanoikuyae HAMBI 1842",
+        "term": {
+          "id": "NCBITaxon:13690",
+          "label": "Sphingobium yanoikuyae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "13690": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "sphingobium yanoikuyae": [
+            "eba3cff21537072f92c508567d44bfd6ff499611bd85f5776a13ff1505d9a742",
+            "994af8e54b08f258af332394e7e87a652f174e77ffe1f9d6b3305702538e4ebc"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Sphingobium_yanoikuyae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingobium;s__Sphingobium yanoikuyae",
+        "gtdb_taxon": "Sphingobium yanoikuyae",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:13690",
+        "total_genomes": 15,
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[6].taxon_term",
+      "strain_name": "HAMBI 1842",
+      "taxonomy_index": 6,
+      "term": {
+        "id": "NCBITaxon:13690",
+        "label": "Sphingobium yanoikuyae"
+      },
+      "source_assessment": "S. yanoikuyae HAMBI 1842 appears explicitly in Methods. The native species-name route concerns that encoded descriptor, not the precise genome of HAMBI 1842.",
+      "population_scope": "15 reference genomes/fraction 1.0 are separate from 16 input cultures, sampled reads and abundance estimates; no exact-ID route is claimed.",
+      "name_scope": "Keep the source and NCBI names, stock designation and historical note without inferring endpoint persistence or biochemical roles.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:13690",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:13690",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:13690",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Sphingomonas yanoikuyae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:13690",
+          "predicate": "rdfs:label",
+          "value": "Sphingobium yanoikuyae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:13690",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:165695"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Sphingobacterium_spiritivorum",
+          "GTDB:s__Sphingobacterium_spiritivorum_A"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1896 as Sphingobacterium spiritivorum. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Sphingobacterium spiritivorum HAMBI 1896",
+        "term": {
+          "id": "NCBITaxon:258",
+          "label": "Sphingobacterium spiritivorum"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "258": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "sphingobacterium spiritivorum": [
+            "267212244aa97ca52f25a84e71a573d05a885e07f960ee691c665792ed3344fd",
+            "92995aa3926803171d87cc8daf0062de7e90bd660acf0eb33d4ab0de9b3a0973"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Sphingobacterium_spiritivorum",
+          "GTDB:s__Sphingobacterium_spiritivorum_A"
+        ],
+        "n_alt": 2,
+        "ncbi_source_id": "NCBITaxon:258",
+        "ncbi_species": "Sphingobacterium spiritivorum",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[7].taxon_term",
+      "strain_name": "HAMBI 1896",
+      "taxonomy_index": 7,
+      "term": {
+        "id": "NCBITaxon:258",
+        "label": "Sphingobacterium spiritivorum"
+      },
+      "source_assessment": "The roster names S. spiritivorum HAMBI 1896. Preserve both native generic alternatives; no source trait or stock code disambiguates them in this pass.",
+      "population_scope": "Two database alternatives are not experimental strains, genome denominator or community abundance; no single block is proposed.",
+      "name_scope": "Retain HAMBI 1896 and current source/NCBI nomenclature. No new culture-genome identity is asserted.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Flavibacterium yabuuchiae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Flavobacterium spiritivorum",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Flavobacterium yabuuchiae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "rdfs:label",
+          "value": "Sphingobacterium spiritivorum",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:258",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:28453"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1972 as Aeromonas caviae. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Aeromonas caviae HAMBI 1972",
+        "term": {
+          "id": "NCBITaxon:648",
+          "label": "Aeromonas caviae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "648": [
+            "1dfd34534bd486d7ee41b9b35ab701bf819d516dca5cb30e3ad2ffff18dabceb"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "aeromonas caviae": [
+            "1dfd34534bd486d7ee41b9b35ab701bf819d516dca5cb30e3ad2ffff18dabceb",
+            "1048780c76a58c7587e76f684c5c501ab4346292688c7189c1579ac9b22c665a"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Aeromonas_caviae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Aeromonadaceae;g__Aeromonas;s__Aeromonas caviae",
+        "gtdb_taxon": "Aeromonas caviae",
+        "is_reclassified": false,
+        "majority_fraction": 0.99,
+        "ncbi_source_id": "NCBITaxon:648",
+        "total_genomes": 523,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[8].taxon_term",
+      "strain_name": "HAMBI 1972",
+      "taxonomy_index": 8,
+      "term": {
+        "id": "NCBITaxon:648",
+        "label": "Aeromonas caviae"
+      },
+      "source_assessment": "Methods names A. caviae HAMBI 1972 and assays this stock separately for growth traits. Generic exact species-ID mapping does not explain low-carbon dominance or establish trait/pH mediation.",
+      "population_scope": "523 reference genomes and rounded fraction 0.99 are not unanimity, a reconstructed numerator or an experimental abundance measure.",
+      "name_scope": "Preserve HAMBI 1972 and source nomenclature; do not identify an assembly or promote the unchanged competitive-sorting interpretation.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas dourgesi anaerogene",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas formicans",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas hydrophila anaerogenes",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas hydrophila subsp. anaerogenes",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas punctata",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas punctata subsp. caviae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aeromonas punctata subsp. punctata",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Bacillus punctatus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas caviae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas punctata",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "rdfs:label",
+          "value": "Aeromonas caviae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:648",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:642"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Pseudomonas_E_chlororaphis",
+          "GTDB:s__Pseudomonas_E_chlororaphis_I",
+          "GTDB:s__Pseudomonas_E_piscium"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 1977 as Pseudomonas chlororaphis. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Pseudomonas chlororaphis HAMBI 1977",
+        "term": {
+          "id": "NCBITaxon:587753",
+          "label": "Pseudomonas chlororaphis"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "587753": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas chlororaphis": [
+            "a2befeda44e75958ef434feedf22eefaad4f6f22685edce3f670ff26a4af231b",
+            "cadffbd490543ac9c5ce875a0175aab20da868d568d41f3e7adb6c9f3405eda5",
+            "a9ca690d4feb7985b0607ba864d4e9f31ea9b56e05257ccf901da6929a6416e9",
+            "10746f81ffcc4e66d0c743ee1765f163b99a1b730855178fa2e388301cc8a07e",
+            "89004825b0596d579598bb4a0a0cedb194102c6e32a7de4a08e651a57db8e1bf",
+            "8b9d73810d9fb695735087edef5abfe27f9c29d0df16e32e51b29f680217092c",
+            "9fe37abfc89bfbe3462d39ddd8a3d107bcc43eb87b1597db72af3de6e3b5d7de",
+            "2155d60150801926d7b3713c55db4cfcd9ec2ab98fed273dd9d0ff6aa5fc5d99",
+            "f35cbe1d8f203ecd58206c7f31fddd00428c17b856699744b76b015dd8eb4361",
+            "85589acc86748856a2bac5d2fb9f128028da8b649b669ac639edd44f37047eeb",
+            "0850bab01066af560a1791f283dc1d191563be2a1e732025d5d1b4032509280f",
+            "b8efe2bac6c8538a107a1bdda7b8823b4f0d5a67a74cec3fded0e6e19daa7993"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Pseudomonas_E_chlororaphis",
+          "GTDB:s__Pseudomonas_E_chlororaphis_I",
+          "GTDB:s__Pseudomonas_E_piscium"
+        ],
+        "n_alt": 3,
+        "ncbi_source_id": "NCBITaxon:587753",
+        "ncbi_species": "Pseudomonas chlororaphis",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[9].taxon_term",
+      "strain_name": "HAMBI 1977",
+      "taxonomy_index": 9,
+      "term": {
+        "id": "NCBITaxon:587753",
+        "label": "Pseudomonas chlororaphis"
+      },
+      "source_assessment": "P. chlororaphis HAMBI 1977 is explicit in the inoculum and separate growth assay. All three generic GTDB alternatives remain; coculture abundance and monoculture lag cannot choose a stock-specific reference cluster.",
+      "population_scope": "Three alternatives are not replicate counts, culture abundance or a reference denominator. No single classification block is proposed.",
+      "name_scope": "Keep HAMBI 1977 and source/NCBI labels, including all existing competitive-sorting qualifications.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:587753",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:587753",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:587753",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas chlororaphis (Guignard and Sauvageau 1894) Bergey et al. 1930 (Approved Lists 1980)",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:587753",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas chlororaphis",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:587753",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:136842"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 2160 as Bordetella avium. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Bordetella avium HAMBI 2160",
+        "term": {
+          "id": "NCBITaxon:521",
+          "label": "Bordetella avium"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "521": [
+            "6ac9aefbde695217c44e387116e32d4c43a539ace75b6b099ba09bc86b810553"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "bordetella avium": [
+            "6ac9aefbde695217c44e387116e32d4c43a539ace75b6b099ba09bc86b810553",
+            "224da80c37b136206d67d0cca4b2a20d751747dfbf8735fb7dc47e1c2952c86d"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Bordetella_avium",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Bordetella;s__Bordetella avium",
+        "gtdb_taxon": "Bordetella avium",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:521",
+        "total_genomes": 76,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[10].taxon_term",
+      "strain_name": "HAMBI 2160",
+      "taxonomy_index": 10,
+      "term": {
+        "id": "NCBITaxon:521",
+        "label": "Bordetella avium"
+      },
+      "source_assessment": "Methods names B. avium HAMBI 2160. The existing generic species descriptor has an exact-ID reference correspondence, without a verified collection-stock assembly linkage.",
+      "population_scope": "76 reference genomes/fraction 1.0 are not experimental membership, viability or sample abundance measurements.",
+      "name_scope": "Preserve HAMBI 2160, source name and unchanged biology; no genomic identity or new role follows.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:521",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:521",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:521",
+          "predicate": "rdfs:label",
+          "value": "Bordetella avium",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:521",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:517"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 2164 as Cupriavidus oxalaticus. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Cupriavidus oxalaticus HAMBI 2164",
+        "term": {
+          "id": "NCBITaxon:96344",
+          "label": "Cupriavidus oxalaticus"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "96344": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "cupriavidus oxalaticus": [
+            "4b363eea39f1196e71136339fe1ee7c78ac20f4143c0f736a82cbf035ef79289"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Cupriavidus_oxalaticus",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus;s__Cupriavidus oxalaticus",
+        "gtdb_taxon": "Cupriavidus oxalaticus",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:96344",
+        "total_genomes": 2,
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[11].taxon_term",
+      "strain_name": "HAMBI 2164",
+      "taxonomy_index": 11,
+      "term": {
+        "id": "NCBITaxon:96344",
+        "label": "Cupriavidus oxalaticus"
+      },
+      "source_assessment": "The primary roster identifies C. oxalaticus HAMBI 2164. Its native species-name fallback does not establish an exact-ID or stock-genome match.",
+      "population_scope": "Two reference genomes/fraction 1.0 remain a small generic reference population, separate from the one named input culture.",
+      "name_scope": "Keep HAMBI 2164 and source/NCBI names; retain actual name-route provenance and all existing historical source notes.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas oxalaticus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Ralstonia oxalatica corrig. (ex Khambata and Bhat 1953) Sahin et al. 2000",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Ralstonia oxalaticus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Wautersia oxalatica",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "rdfs:label",
+          "value": "Cupriavidus oxalaticus",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:96344",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:106589"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Paracoccus_denitrificans",
+          "GTDB:s__Paracoccus_sp030388245"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 2443 as Paracoccus denitrificans. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Paracoccus denitrificans HAMBI 2443",
+        "term": {
+          "id": "NCBITaxon:266",
+          "label": "Paracoccus denitrificans"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "266": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "paracoccus denitrificans": [
+            "49a64c55c1fa44ce0ff8ac2d8786bc4a07c425cecc7efec6f6c8f84cdf270504",
+            "1cdc89944806934727570eab1ba7a4fd046fb216f3cd48430b10352dc6b8e9e9",
+            "89f505329b68371b2f7f3c32cea9b2bda0f2dc5b2b668fc8636a071241702dd6"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Paracoccus_denitrificans",
+          "GTDB:s__Paracoccus_sp030388245"
+        ],
+        "n_alt": 2,
+        "ncbi_source_id": "NCBITaxon:266",
+        "ncbi_species": "Paracoccus denitrificans",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[12].taxon_term",
+      "strain_name": "HAMBI 2443",
+      "taxonomy_index": 12,
+      "term": {
+        "id": "NCBITaxon:266",
+        "label": "Paracoccus denitrificans"
+      },
+      "source_assessment": "Methods lists P. denitrificans HAMBI 2443. Both generic alternatives, including the unnamed GTDB cluster, remain; no stock-specific assignment is inferred from the culture label.",
+      "population_scope": "Two alternatives do not count study strains or reference genomes and do not quantify abundance. No single classification block is proposed.",
+      "name_scope": "Preserve HAMBI 2443 and existing species nomenclature; an unnamed alternative does not rename the experimental stock.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:266",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:266",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:266",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Micrococcus denitrificans",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:266",
+          "predicate": "rdfs:label",
+          "value": "Paracoccus denitrificans",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:266",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:265"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [
+          "GTDB:s__Stenotrophomonas_bentonitica_A",
+          "GTDB:s__Stenotrophomonas_geniculata",
+          "GTDB:s__Stenotrophomonas_hibiscicola",
+          "GTDB:s__Stenotrophomonas_indicatrix",
+          "GTDB:s__Stenotrophomonas_maltophilia",
+          "GTDB:s__Stenotrophomonas_maltophilia_AJ",
+          "GTDB:s__Stenotrophomonas_maltophilia_L",
+          "GTDB:s__Stenotrophomonas_muris",
+          "GTDB:s__Stenotrophomonas_nematodicola",
+          "GTDB:s__Stenotrophomonas_sepilia",
+          "GTDB:s__Stenotrophomonas_sp002192255"
+        ],
+        "status": "AMBIGUOUS"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 2659 as Stenotrophomonas maltophilia. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Stenotrophomonas maltophilia HAMBI 2659",
+        "term": {
+          "id": "NCBITaxon:40324",
+          "label": "Stenotrophomonas maltophilia"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "40324": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "stenotrophomonas maltophilia": [
+            "d3336ac0461d0851cb09191cee94b506727071005e83ac010886223431472134",
+            "dc5f9e7938a83d3de3a2b0055e75cbd977a5bbab0e15c0e6010c7060e77580d1",
+            "adbe18afc904d11ebc0d2aa3ba21d9cdbab20566b530c4c1447191e2631df798",
+            "b3e1611e35fdbf9f5ea528beafc976b5e08db1f38d6197bcb38224b28871e032",
+            "d201ca38dbd7c9f54057b1adb926afb030e8ee9463da94db24c62bca968388d7",
+            "a50e5ff976955e024a4993bcc780b4fedded806cb421233128d3e38d483e1a90",
+            "5adc35c0fb05174ecc79c0a4c4e1e771ad3f0ac0d9ce05b3d64864d712e8162e",
+            "3a6cff4090be8dea589f9044a04dc4176bece9fa4d9ed2a81149087e94c2989d",
+            "47861e96bbc6c8a6178786589b523974e98c24f3c2772f0f77efa7258afac60f",
+            "c47cd69ca7eb401a36e609a614b5efcf2a79c07d7bf03f7db3ce167128fd188e",
+            "7a06f49794466f16291a1a56183f0d9db7e46406cada4f2c574c06bbc6d1929d",
+            "cf180a6ff4af9ded5bd94caf2aa606f5cee4d8fb831476d05172035d4276c98d",
+            "54731f684f7ecea61a5fb08da7e0607c6e291dde2e8fedd6771d40625dfa7177",
+            "55b2a7ce0a8a286f63bac8e738545dfe1bfa4c67a38ecb1685e1e949511940dd",
+            "0e92b24118392d79cdacc706dac8cc1afa0f19baf5745a9da10237d4fda5f2e1",
+            "83a79e382034f5101b7bc1a729e5c5f8fdd8b55f496378c4cfc55447154dd395",
+            "65528e4500fb680696075c649a2846822093263d3043cf4e9b358e45b83a0aeb",
+            "91832a3a434311c429f4326ef346224ab4f65143b5febf6072625b3b6885368a",
+            "cf73faa26fa76e07654af0a40fb6e77eaf95b92ece1e8ce5c5f2afb1418b86cf",
+            "44ea40778fa065cb6e6e627b46a05e1241c8fa3d2c338c86048cbb316a463ff3",
+            "319c1a7480cf4e6af82b3c794177befc767010807deb15e3e3b07dbf1a9addc1"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "ambiguous": true,
+        "gtdb_options": [
+          "GTDB:s__Stenotrophomonas_bentonitica_A",
+          "GTDB:s__Stenotrophomonas_geniculata",
+          "GTDB:s__Stenotrophomonas_hibiscicola",
+          "GTDB:s__Stenotrophomonas_indicatrix",
+          "GTDB:s__Stenotrophomonas_maltophilia",
+          "GTDB:s__Stenotrophomonas_maltophilia_AJ",
+          "GTDB:s__Stenotrophomonas_maltophilia_L",
+          "GTDB:s__Stenotrophomonas_muris",
+          "GTDB:s__Stenotrophomonas_nematodicola",
+          "GTDB:s__Stenotrophomonas_sepilia",
+          "GTDB:s__Stenotrophomonas_sp002192255"
+        ],
+        "n_alt": 11,
+        "ncbi_source_id": "NCBITaxon:40324",
+        "ncbi_species": "Stenotrophomonas maltophilia",
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[13].taxon_term",
+      "strain_name": "HAMBI 2659",
+      "taxonomy_index": 13,
+      "term": {
+        "id": "NCBITaxon:40324",
+        "label": "Stenotrophomonas maltophilia"
+      },
+      "source_assessment": "The source names S. maltophilia HAMBI 2659. All 11 generic alternatives are retained; the collection designation does not authorize a strain-genome match or selection based on culture behavior.",
+      "population_scope": "The complete ordered alternative set is not an 11-genome denominator, input-member count or relative abundance. No single block is proposed.",
+      "name_scope": "Preserve HAMBI 2659, the source name and all existing notes. Distinct database alternatives do not change the 16-stock experimental roster.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas maltophilia (ex Hugh and Ryschenkow 1961) Hugh 1981",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Xanthomonas maltiphilia",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Xanthomonas maltophilia",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Xanthomonas maltophilia (Hugh 1981) Swings et al. 1983",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "rdfs:label",
+          "value": "Stenotrophomonas maltophilia",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:40324",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:995085"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The source names HAMBI 3237 as Microvirga lotononidis. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the species was resolved through NCBI Taxonomy.",
+        "preferred_term": "Microvirga lotononidis HAMBI 3237",
+        "term": {
+          "id": "NCBITaxon:864069",
+          "label": "Microvirga lotononidis"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "864069": [
+            "57fd76e8b3f2e7fa4752455a6733ee1c4d115b498484201e4f3244df4b163457"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "microvirga lotononidis": [
+            "57fd76e8b3f2e7fa4752455a6733ee1c4d115b498484201e4f3244df4b163457"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Microvirga_lotononidis",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Microvirga;s__Microvirga lotononidis",
+        "gtdb_taxon": "Microvirga lotononidis",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:864069",
+        "total_genomes": 3,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[15].taxon_term",
+      "strain_name": "HAMBI 3237",
+      "taxonomy_index": 15,
+      "term": {
+        "id": "NCBITaxon:864069",
+        "label": "Microvirga lotononidis"
+      },
+      "source_assessment": "Methods explicitly lists M. lotononidis HAMBI 3237. Its generic exact-ID reference correspondence is independent of any uninspected strain-specific genome or collection-catalog record.",
+      "population_scope": "Three reference genomes/fraction 1.0 do not identify three cultures, the experimental stock genome or endpoint abundance.",
+      "name_scope": "Keep HAMBI 3237 and existing nomenclature, source notes and all biological assertions unchanged.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:864069",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:864069",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:864069",
+          "predicate": "rdfs:label",
+          "value": "Microvirga lotononidis",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:864069",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:186650"
+        }
+      ]
+    }
+  ],
+  "primary_locators": [
+    {
+      "reference": "PMID:42367191",
+      "path": "references_cache/PMID_42367191.txt",
+      "character_offset": 17592,
+      "line": 263
+    },
+    {
+      "reference": "PMID:42367191",
+      "path": "references_cache/PMID_42367191.txt",
+      "character_offset": 18018,
+      "line": 264
+    },
+    {
+      "reference": "PMID:42367191",
+      "path": "references_cache/PMID_42367191.txt",
+      "character_offset": 18451,
+      "line": 264
+    },
+    {
+      "reference": "PMID:42367191",
+      "path": "references_cache/PMID_42367191.txt",
+      "character_offset": 18485,
+      "line": 264
+    },
+    {
+      "reference": "PMID:42367191",
+      "path": "references_cache/PMID_42367191.txt",
+      "character_offset": 23411,
+      "line": 275
+    }
+  ],
+  "database_observation": {
+    "stat": {
+      "database": [
+        16777230,
+        125619556,
+        13521600512,
+        1787644036036147819,
+        1787644036036147819
+      ],
+      "-wal": null,
+      "-shm": null,
+      "-journal": null
+    },
+    "stat_unchanged": true,
+    "content_sha256": null
+  },
+  "historical_guard_assessment": "Preserve all 16 distinct input stocks and every original source, biological, assay and historical assertion. Fifteen descriptors are proposed for generic reference corrections: seven blocks and eight complete alternative sets. Index 14, Paraniabella yanshanensis NCBITaxon:577386 / source Niabella yanshanensis HAMBI 3031, remains unselected and byte-identical with native null/UNRESOLVED; a missing route is not taxon absence or a rationale to replace its valid NCBI label with an older name. The notes that the crosswalk was unavailable during earlier curation describe that historical action, not a present manual hold; preserve them. Reference routes do not reproduce the source's WGS-derived 16S mapping or identify individual stock assemblies. Keep the 16-day/eight-cycle input experiment distinct from endpoint persistence, OD-scaled abundance from viable counts, and controlled carbon-dependent outcomes from selective trait/pH mediation or alternative stable states. The prior batch50 self-adversarial assessment and all open discussions remain immutable; this is not a full scientific review. Preserve Hanford/C6 current biological predicates and literal ledger/cache facts. Later strict admission may project only HAMBI's admitted predecessor for its old digest/last-LLM checks, composing with the separately reviewed C6 successor when integrated rather than reverting it.",
+  "scientific_review": false
+}
