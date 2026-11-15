@@ -1,0 +1,703 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.log",
+    "sha256": "12309d2473eb63a427dbf7d6bfbaf6c918f2cb7fbd24352936bbbd36dde825e4"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.json",
+    "sha256": "13743e5b761423956606cb5e5f9f16de485a597a362b2e563664ff7308988276"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
+      "record_id": "CommunityMech:000388",
+      "before_sha256": "5b74bd01d770c894a9dd65240bf47b4754d997013fa2681a63abf653a1fb82d0",
+      "additional_inputs": {
+        "reports/gtdb-species-status-20261115/jmp134-source-evidence-001.json": "97fea5d3d87de7879155a45b29e8f0a754821f27fd87f4b875653bfc70e18d7f",
+        "reports/gtdb-species-status-20261115/yljm2c-source-evidence-001.json": "7741938514a8f5ff8d4336e12716c9f53207eb1806ee6339891a8a178ae9bad0",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml": "500c0c50004d7468d58773f647750f745900bfa6463bcd8622ef2e8093ed7651",
+        "tests/test_causal_review_batch93.py": "4fd15b6e98e64b9e83fbcd7fe9a3309bc579fb8f368ff1e149c85b86622d1d4f",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42364169",
+          "path": "references_cache/PMID_42364169.txt",
+          "sha256": "76ae187fe615a75d522443b9deb085bc8499efb54df080407563f901c514a4d4",
+          "locator": "Main Methods strains and culture conditions; Results ANI-based YL-JM2C identification; data availability.",
+          "coverage": "Retained main-text stock contexts and the two accepted isolate source assessments; no fresh supplement-pixel or closed-carbon-balance review.",
+          "identity_tokens": [
+            "10.1093/ismejo/wrag163",
+            "Metabolic interactions enable aerobic degradation"
+          ],
+          "anchors": [
+            "R. wittichii YL-JM2C",
+            "C. necator JMP134",
+            "PRJNA1397584"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:160791",
+            "label": "Rhizorhabdus wittichii"
+          },
+          "strain_name": "YL-JM2C",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary study names YL-JM2C and reports an ANI-based Rhizorhabdus wittichii interpretation; the accepted 000554 assessment separately verifies this same descriptor and source. Preserve the stock and all consortium biology.",
+          "population_scope": "Seven reference genomes and reported majority fraction 0.86 describe the species-ID crosswalk population. No membership of YL-JM2C in that population or numerator is inferred; PRJNA1397584 is a BioProject, not an assembly accession.",
+          "name_scope": "Preserve the primary Rhizorhabdus name and canonical species ID; no formal nomenclatural event is inferred from a database correspondence.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Rhizorhabdus_wittichii",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Rhizorhabdus;s__Rhizorhabdus wittichii",
+            "gtdb_taxon": "Rhizorhabdus wittichii",
+            "is_reclassified": false,
+            "majority_fraction": 0.86,
+            "ncbi_source_id": "NCBITaxon:160791",
+            "total_genomes": 7,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:264198",
+            "label": "Cupriavidus pinatubonensis JMP134"
+          },
+          "strain_name": "JMP134",
+          "expected_ncbi_rank": "NCBITaxon:strain",
+          "source_assessment": "The primary study uses C. necator JMP134; the accepted 000555 local NCBI evidence binds that synonym to exact strain taxon 264198. This applies the same verified correspondence to the unchanged consortium member.",
+          "population_scope": "The exact strain-ID route has one reference genome and fraction 1.0. It does not certify another study stock, pathway gene genotype or an uninspected assembly accession.",
+          "name_scope": "Keep source C. necator wording, preferred stock name and canonical C. pinatubonensis JMP134 label distinct; no source naming is rewritten.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Cupriavidus_pinatubonensis",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus;s__Cupriavidus pinatubonensis",
+            "gtdb_taxon": "Cupriavidus pinatubonensis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:264198",
+            "total_genomes": 1,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 93 retains the positive forward intermediate cross-feeding, no reverse rescue, parent disappearance versus intermediate clearance, source limitations and last old llm-assisted history. Admit the exact predecessor and preserve those predicates; append the new native events without editing the original ledger. Existing issue 1753 non-graph role boundary remains outside this correction."
+    },
+    {
+      "record": "kb/communities/Parmigiano_NWS_Set1_LAB_Triculture.yaml",
+      "record_id": "CommunityMech:000517",
+      "before_sha256": "4e7b3ede948c94c55e73ea88c428e23368af66a92642940ef89f4d95157af74e",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/parmigiano-source-context-001.yaml": "0fc1c89fdc97eed07122cc3b95c36c4372f7015b0cb0f842b052f7ad18275b2d",
+        "reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml": "b65067cf842bb01f9be21eba9eb2b6e8c8067d5088d141dcdbcabb7025f9d3bb",
+        "tests/test_causal_review_batch141.py": "4a71d66063bf4dbb8aa3527dfe4b903b642b8f0d09386234f6ec3fbb0a58fa74",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41859451",
+          "path": "references_cache/PMID_41859451.txt",
+          "sha256": "62b46626615a79a242905b07b4104da5153ab5f60a0ebb43b2c61a68e8e8f939",
+          "locator": "Methods 2.1/2.7, Results 3.7 and Figure 7; accepted source plan.",
+          "coverage": "Retained main text and independently reviewed source plan; no new stock genome or supplement assessment.",
+          "identity_tokens": [
+            "10.3389/fmicb.2026.1755652",
+            "Parmigiano Reggiano"
+          ],
+          "anchors": [
+            "C001.15",
+            "RBC06",
+            "T1104"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1587",
+            "label": "Lactobacillus helveticus"
+          },
+          "strain_name": "C001.15",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The accepted primary-source plan identifies C001.15 in Set 1 with RBC06 and T1104. Retain the isolate and the exact treatment composition.",
+          "population_scope": "378 genomes/fraction 1.0 is species-reference correspondence, not 378 study isolates or confirmed C001.15 assembly membership. PRJNA1367500 is metataxonomic data, not exact-stock assembly proof.",
+          "name_scope": "Preserve the NCBI species descriptor and original stock designation.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_helveticus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus helveticus",
+            "gtdb_taxon": "Lactobacillus helveticus",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1587",
+            "total_genomes": 378,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:29397",
+            "label": "Lactobacillus delbrueckii subsp. lactis"
+          },
+          "strain_name": "T1104",
+          "expected_ncbi_rank": "NCBITaxon:subspecies",
+          "source_assessment": "The primary Set 1 uses T1104 assigned to L. delbrueckii subsp. lactis. The GTDB correspondence is attached without replacing that source subspecies or stock.",
+          "population_scope": "37 genomes/fraction 1.0 belongs to this NCBI-ID lookup population. It is not exact T1104 genome evidence, and does not erase the NCBI subspecies distinction.",
+          "name_scope": "A GTDB species label coexists with the unchanged NCBI subspecies descriptor; no taxonomic promotion is made.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_delbrueckii",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii",
+            "gtdb_taxon": "Lactobacillus delbrueckii",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:29397",
+            "total_genomes": 37,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve all batch 141 biological predicates and its independent existing Yolo/Dopamine successor routes. For 000517, admit the exact predecessor and project the prior CURATE_CAUSAL_GRAPH llm-assisted event for historical assertions. Preserve the S. thermophilus 2093/fraction 0.99 block and mixed-pool versus member-specific lactate distinctions."
+    },
+    {
+      "record": "kb/communities/Parmigiano_NWS_Set2_LAB_Triculture.yaml",
+      "record_id": "CommunityMech:000431",
+      "before_sha256": "1ca3e250bbd757768243c691712d2139c54a2da4e59570360417188516bb4b2c",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/parmigiano-source-context-001.yaml": "0fc1c89fdc97eed07122cc3b95c36c4372f7015b0cb0f842b052f7ad18275b2d",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml": "287d391e90ad2e832c8cf57a63e6db79adfd6a73fa59a670dc6441c1466cea58",
+        "tests/test_causal_review_batch82.py": "197cc7c630a870d2dfe77bc448a0cb07782e6518687358a9ae139d6a3b73e105",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41859451",
+          "path": "references_cache/PMID_41859451.txt",
+          "sha256": "62b46626615a79a242905b07b4104da5153ab5f60a0ebb43b2c61a68e8e8f939",
+          "locator": "Methods 2.1/2.7, Results 3.7 and Figure 7; accepted source plan.",
+          "coverage": "Retained main text and independently reviewed source plan; no new stock genome or supplement assessment.",
+          "identity_tokens": [
+            "10.3389/fmicb.2026.1755652",
+            "Parmigiano Reggiano"
+          ],
+          "anchors": [
+            "LBB04",
+            "C001.27",
+            "C5I3"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1587",
+            "label": "Lactobacillus helveticus"
+          },
+          "strain_name": "LBB04",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The accepted primary-source plan identifies LBB04 in Set 2 with C001.27 and C5I3. Preserve this distinct experimental composition.",
+          "population_scope": "378 genomes/fraction 1.0 is species-reference correspondence, not an exact LBB04 assembly result. The metataxonomic BioProject does not supply that missing stock-genome proof.",
+          "name_scope": "Preserve NCBI species identity and LBB04 stock naming.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_helveticus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus helveticus",
+            "gtdb_taxon": "Lactobacillus helveticus",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1587",
+            "total_genomes": 378,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:29397",
+            "label": "Lactobacillus delbrueckii subsp. lactis"
+          },
+          "strain_name": "C5I3",
+          "expected_ncbi_rank": "NCBITaxon:subspecies",
+          "source_assessment": "The accepted Set 2 source uses C5I3 under the L. delbrueckii lactis subspecies. Attach the crosswalk correspondence without changing the isolate or experimental role.",
+          "population_scope": "37 reference genomes/fraction 1.0 is not a strain-specific count or proven C5I3 membership. Keep the NCBI subspecies and GTDB species at their stated ranks.",
+          "name_scope": "No formal nomenclatural or strain-identity change is inferred.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_delbrueckii",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii",
+            "gtdb_taxon": "Lactobacillus delbrueckii",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:29397",
+            "total_genomes": 37,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 82 asserts positive/negative milk composition contrasts, mixed rather than C5I3-exclusive lactate, exact hashes and the last old llm-assisted event. Preserve all predicates using strictly admitted predecessor projection for the event/hash. Preserve the existing S. thermophilus 2093/fraction 0.99 block and all other batch records."
+    },
+    {
+      "record": "kb/communities/Parmigiano_NWS_Set3_LAB_Triculture.yaml",
+      "record_id": "CommunityMech:000522",
+      "before_sha256": "178f803afb7a8bef72f1f34a3eabefc751cc4095c11b6b28d1bf736ee7af6749",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/parmigiano-source-context-001.yaml": "0fc1c89fdc97eed07122cc3b95c36c4372f7015b0cb0f842b052f7ad18275b2d",
+        "reports/causal_graph_review/decisions/20261107-stage2-four-records-batch142.yaml": "a3a401b9c5c7ab0b5d6dcc3448f1af479e43bd74b2f85e617982397267cc2161",
+        "tests/test_causal_review_batch142.py": "f62892935c530db4746c9cd604470fbb7395ba01b1dcc0bf67ac6537f5b4bc4b",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41859451",
+          "path": "references_cache/PMID_41859451.txt",
+          "sha256": "62b46626615a79a242905b07b4104da5153ab5f60a0ebb43b2c61a68e8e8f939",
+          "locator": "Methods 2.1/2.7, Results 3.7 and Figure 7; accepted source plan.",
+          "coverage": "Retained main text and independently reviewed source plan; no new stock genome or supplement assessment.",
+          "identity_tokens": [
+            "10.3389/fmicb.2026.1755652",
+            "Parmigiano Reggiano"
+          ],
+          "anchors": [
+            "C001.15",
+            "RBC06",
+            "C5I3"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1587",
+            "label": "Lactobacillus helveticus"
+          },
+          "strain_name": "C001.15",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The accepted primary-source plan identifies C001.15 in Set 3 with RBC06 and C5I3, distinct from Set 1's T1104 combination.",
+          "population_scope": "378 reference genomes/fraction 1.0 is not a measurement of the study stock or exact assembly membership.",
+          "name_scope": "Preserve stock and species labels; the shared C001.15 stock does not make Set 1 and Set 3 identical communities.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_helveticus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus helveticus",
+            "gtdb_taxon": "Lactobacillus helveticus",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1587",
+            "total_genomes": 378,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:29397",
+            "label": "Lactobacillus delbrueckii subsp. lactis"
+          },
+          "strain_name": "C5I3",
+          "expected_ncbi_rank": "NCBITaxon:subspecies",
+          "source_assessment": "The accepted source defines Set 3 using C5I3. The correspondence remains attached to the NCBI lactis subspecies descriptor with the stock unchanged.",
+          "population_scope": "37 reference genomes/fraction 1.0 does not demonstrate C5I3 assembly identity or remove the NCBI subspecies distinction.",
+          "name_scope": "GTDB species correspondence is not a formal reidentification of the experimental stock.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Lactobacillus_delbrueckii",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii",
+            "gtdb_taxon": "Lactobacillus delbrueckii",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:29397",
+            "total_genomes": 37,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 142 verifies hashes, source snippets, structure and prior CURATE_CAUSAL_GRAPH history. Preserve its checks and mutation controls through explicit predecessor admission; preserve the current S. thermophilus 2093/fraction 0.99 block and all biological measurements."
+    },
+    {
+      "record": "kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml",
+      "record_id": "CommunityMech:000396",
+      "before_sha256": "29b4497d74eb6468140ad7bd01f17abbfe16454de2aa15db866daf89f4f33566",
+      "additional_inputs": {
+        "reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml": "9464758270eae2862581ce2f8bcb12f1568047795bef3bd76468e0c02b6d7114",
+        "reports/causal_graph_review/decisions/20261111-c15s5-review-remediation.yaml": "c07cf329150710f2af712bc21b83abdb2ddb5b8dc2dc7816162e193839ba972d",
+        "tests/test_causal_review_batch16.py": "3876b03267584a9812327a6d37f418e162673e60cf9933224761ea13be1ecf7d",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "doi:10.64898/2026.08.11.743107",
+          "path": "references_cache/doi_10.64898_2026.08.11.743107.md",
+          "sha256": "f1965bd991762f8051a1012dee3556636b3fc7cc27fe49136b23499380ff87a8",
+          "locator": "Selected primary preprint text, retained lines 22-28; source species and WT/KO assembly statements.",
+          "coverage": "Selected primary-text excerpts only, explicitly a preprint; no claim of a fresh complete paper or supplement review.",
+          "identity_tokens": [
+            "10.64898/2026.08.11.743107",
+            "An engineered Clostridial mini consortium modulates intestinal inflammation"
+          ],
+          "anchors": [
+            "Combining R. gnavus (WT or KO) with Peptacetobacter hiranonis",
+            "10 mL of P. hiranonis culture"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:89152",
+            "label": "Peptacetobacter hiranonis"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "Retained primary excerpts identify P. hiranonis as one of the two consortium members. They do not provide its study-strain designation; the existing explicit knowledge gap remains open.",
+          "population_scope": "82 genomes/fraction 1.0 describes the species-ID reference population, not an unidentified experimental stock. No strain, assembly or inoculum abundance is inferred.",
+          "name_scope": "Preserve species-level naming, null strain designation, WT-versus-KO partner context, and the existing R. gnavus source/canonical name distinction.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Peptacetobacter_hiranonis",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota_A;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptacetobacter;s__Peptacetobacter hiranonis",
+            "gtdb_taxon": "Peptacetobacter hiranonis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:89152",
+            "total_genomes": 82,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 16 already chains to c15s5 remediation for the exact 29b4497d predecessor. Preserve both ledgers, node/edge dispositions, equal-volume abundance evidence and source/cache hashes. Do not update interaction source_taxon copies, the 311/fraction 0.99 partner block or the unresolved P. hiranonis strain discussion."
+    },
+    {
+      "record": "kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
+      "record_id": "CommunityMech:000397",
+      "before_sha256": "c70bbd5b522140d6b6cf6a2c4ea9ae97cdf10dda7d45534071997a5b1786dbcd",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/nitrifier-000397-source-context-001.yaml": "75a79d1ce8a5f7c3af13d4419ad019e0f36928c0ce116e9d3a9308a23cdf50a6",
+        "reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml": "90e6a0ad3e095a1301744958f706782510d03bdf40852999837d12401019ded0",
+        "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml": "e94a577398d3f50a8446bf0ef63955bfee72b23626c21db30ac629af9ccd1b4f",
+        "tests/test_causal_review_batch27.py": "be806e7b468e3d93c93ffe5a4e6f8ef0c0eb263dd705873d82e1ce87cf21591a",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42668143",
+          "path": "references_cache/PMID_42668143.txt",
+          "sha256": "534023632f8dd66866ee7d231899d31656d90877316f87f60448b2a3e2adc4c6",
+          "locator": "Primary abstract, member list; accepted source plan records independent authority observations and their limits.",
+          "coverage": "Abstract only; no new publisher full text, supplement, assembly or cultivation assessment.",
+          "identity_tokens": [
+            "10.1093/bbb/zbag131",
+            "Development of a defined three-strain nitrifying microbial community"
+          ],
+          "anchors": [
+            "Bacillus badius NBRC 15713"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1455",
+            "label": "Pseudobacillus badius"
+          },
+          "strain_name": "NBRC 15713",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract explicitly names NBRC 15713 as Bacillus badius. The accepted source plan records current NCBI/NBRC naming observations; the bound local authority query must independently verify canonical label/rank and retains synonyms without inventing an exact-stock assembly.",
+          "population_scope": "26 genomes/fraction 1.0 belongs to the species-ID mapping population. It is not verified NBRC 15713 assembly membership or a consortium count.",
+          "name_scope": "Keep the source Bacillus wording and canonical Pseudobacillus descriptor with NBRC 15713 unchanged. The web observations are not presented as archived page bytes.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudobacillus_badius",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_B;f__Domibacillaceae;g__Pseudobacillus;s__Pseudobacillus badius",
+            "gtdb_taxon": "Pseudobacillus badius",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1455",
+            "total_genomes": 26,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve original batch 27 to c4s5 remediation lineage and exact c70bbd5b predecessor; add new successor admission without changing the old ledgers. Preserve N. europaea 2-genome and N. winogradskyi_A 8/fraction 0.88 blocks, aggregate conversion boundaries and open cultivation gaps. Batch 36/97 shared-ledger hits do not own this record."
+    },
+    {
+      "record": "kb/communities/Phenol_Carboxylation_Consortium.yaml",
+      "record_id": "CommunityMech:000053",
+      "before_sha256": "a778ef6c883f5d6b7c80dc22be5611de4027d08d4f9d3b23e9a0d330f3f768b1",
+      "additional_inputs": {
+        "reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml": "944e494bb79234154a6a174cad642894bdbee78c8da22a7295305fa257c413ec",
+        "tests/test_causal_review_batch84.py": "cf4fa49389e6f896cf793474bfada4dd524f39c78909c9c363ad70e1f5a6907c",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:18281436",
+          "path": "references_cache/PMID_18281436.md",
+          "sha256": "2ac1f1c9581f3f39443f651bfdd5146243178f2b7891028f7c4b9bbad8c83577",
+          "locator": "Primary Methods culture purity; Results purification; species description at retained line 374.",
+          "coverage": "Retained main-text stock and coculture passages; no new genome or enzymatic-mechanism assessment.",
+          "identity_tokens": [
+            "18281436",
+            "Syntrophorhabdus aromaticivorans"
+          ],
+          "anchors": [
+            "The type strain is UIT",
+            "in coculture with M. hungatei DSM 864",
+            "in coculture with Desulfovibrio sp. strain UIS"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:328301",
+            "label": "Syntrophorhabdus aromaticivorans"
+          },
+          "strain_name": "UI",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary species description names type strain UI(T), distinguishing its methanogenic JCM 13376 coculture from the DSM 17771 Desulfovibrio coculture. Preserve the canonical methanogenic pair rather than adding the alternate partner.",
+          "population_scope": "Three genomes/fraction 1.0 is species-reference correspondence, not proof that all genomes or stocks are UI(T), and not a microbial member count.",
+          "name_scope": "Preserve source UI(T), canonical UI designation, deposits and NCBI species name; no formal nomenclatural change is claimed.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Syntrophorhabdus_aromaticivorans",
+            "gtdb_lineage": "d__Bacteria;p__Desulfobacterota_G;c__Syntrophorhabdia;o__Syntrophorhabdales;f__Syntrophorhabdaceae;g__Syntrophorhabdus;s__Syntrophorhabdus aromaticivorans",
+            "gtdb_taxon": "Syntrophorhabdus aromaticivorans",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:328301",
+            "total_genomes": 3,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 84 retains BES/high-H2 perturbations, AQDS alternative acceptor, unresolved enzyme/carrier mechanism, no complete-mineralization claim and last prior llm-assisted history. Admit exact predecessor while preserving these predicates and the unrelated Phormidium successor route. Existing M. hungatei five-genome classification is unchanged."
+    },
+    {
+      "record": "kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml",
+      "record_id": "CommunityMech:000313",
+      "before_sha256": "506d388b39c47c8ebafff9d587222d3880f9cff303e1c161fbf0e0188f8278c6",
+      "additional_inputs": {
+        "reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml": "8f8080ded57f038a83c00273330655f591560d3206ab0a42b265a7e8c30d5721",
+        "tests/test_causal_review_batch14.py": "59b48bad97079d9075b58696f58cdedc155c43ee3aaeea851e91a13984876934",
+        "references_cache/PMID_40064531.txt": "112679a2ee67592a7412525f65f0c46ee016e9b846c2a19a1d6d2c7497c2605a",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41937467",
+          "path": "references_cache/PMID_41937467.txt",
+          "sha256": "772f52aded8ffb54ebaf8a1d99120afa1282399ece384b21c820431a60d9d5ec",
+          "locator": "Primary Methods strain sources, Table 1 and treatment definitions; retained main text and table text.",
+          "coverage": "Member identity and treatment context only; no new supplement-pixel, strain assembly or mechanism review.",
+          "identity_tokens": [
+            "10.4014/jmb.2601.01023",
+            "A Keystone-Taxa SynCom"
+          ],
+          "anchors": [
+            "Pseudoduganella rivuli FT92W (KACC 21474)",
+            "Pseudomonas sp. 8C3D12 (isolate)",
+            "Pseudomonas sp. 6C7F4 (isolate)"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:2666085",
+            "label": "Pseudoduganella rivuli"
+          },
+          "strain_name": "FT92W",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "Primary Table 1 identifies inoculated FT92W/KACC 21474 as Pseudoduganella rivuli, distinct from the Duganella network-ASV label. Preserve the existing four-isolate interpretation and the separate 2025 precursor's different associated genus set.",
+          "population_scope": "Three reference genomes/fraction 1.0 belongs to species taxon 2666085. Existing canonical BioSample/assembly notes are preserved but were not freshly verified as GTDB population membership in this correction.",
+          "name_scope": "Retain FT92W stock, canonical Pseudoduganella species, both Pseudomonas isolates grouped in their genus entry, and conservative REN4 genus grounding. Do not restore the old Duganella block.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudoduganella_rivuli",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Pseudoduganella;s__Pseudoduganella rivuli",
+            "gtdb_taxon": "Pseudoduganella rivuli",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:2666085",
+            "total_genomes": 3,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 14 preserves six bounded nodes, zero arrows, FT92W participant identity, proxy-versus-flux limits, treatment/host/time distinctions, the unchanged whey record and original cache hashes. Admit the exact 506d388b predecessor without weakening biology checks or rewriting the older crosswalk-unavailable observation. Existing Pseudomonas/Brevibacterium blocks and all eukaryotic NO_GTDB_EQUIVALENT outcomes remain unchanged."
+    },
+    {
+      "record": "kb/communities/Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml",
+      "record_id": "CommunityMech:000426",
+      "before_sha256": "8bfeed82fde64564ea0aeb64f142de29e051a643aafe17dcda5e1e45ea948e0b",
+      "additional_inputs": {
+        "reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml": "a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25",
+        "tests/test_causal_review_batch8.py": "c4dbbd3060db8153107d29343e58cf1536792fef2653969e4e0043e954d631bf",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42664909",
+          "path": "references_cache/PMID_42664909.txt",
+          "sha256": "233f89810b1a1082f34803f7707bfe8cc42988b68b3b737329a89b13c2b8bb9b",
+          "locator": "Primary PubMed abstract, opening study-strain and consortium statements.",
+          "coverage": "Abstract only; no new full methods, supplements or strain assembly evidence.",
+          "identity_tokens": [
+            "10.1016/j.jenvman.2026.130823",
+            "Enhanced degradation of polyethylene terephthalate"
+          ],
+          "anchors": [
+            "Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:292",
+            "label": "Burkholderia cepacia"
+          },
+          "strain_name": "ZY1",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract explicitly names ZY1 as B. cepacia and G1B as P. harudinis in YB2. This correction attaches a correspondence only to the existing ZY1 species descriptor; the native G1B result remains null and its UNRESOLVED status remains unchanged.",
+          "population_scope": "548 genomes/fraction 0.93 is a reference species population, not an exact ZY1 assembly classification, inoculum fraction or inferred majority numerator.",
+          "name_scope": "Keep species/stock identity and the two-member 4:5 experimental setup unchanged; no reclassification of G1B is inferred from its absent route.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Burkholderia_cepacia",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Burkholderia;s__Burkholderia cepacia",
+            "gtdb_taxon": "Burkholderia cepacia",
+            "is_reclassified": false,
+            "majority_fraction": 0.93,
+            "ncbi_source_id": "NCBITaxon:292",
+            "total_genomes": 548,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 8's actual YB2 predicates preserve overlapping functions, proposed complementarity, distinct assay timepoints and no inferred resource partitioning/mutualism. Preserve these tests unchanged; their unrelated ledger-history assertions are not a reason to rewrite YB2 science. The new strict proof must establish whole-record non-GTDB equality and actual provenance."
+    },
+    {
+      "record": "kb/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml",
+      "record_id": "CommunityMech:000362",
+      "before_sha256": "e2555ecc152f3bbdbb5c2d557a17fc46da135500092494e0379c73fbb85c117a",
+      "additional_inputs": {
+        "reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml": "3d64b6bccead35688461e4485e84ed02d2118a45ffc71bb36a99c579f02a56d9",
+        "tests/test_causal_review_batch105.py": "c0e32a636877fa2b598edd5a13aa425184057664297822508829f172f177b93f",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41967346",
+          "path": "references_cache/PMID_41967346.txt",
+          "sha256": "a19795680b6181bc527ebd3318bc404d9ea467a9ccac1f62b2c2cffef0cfc168",
+          "locator": "Primary abstract, explicit SynCom member sentence.",
+          "coverage": "Abstract only; no new full-text cultivation, flux, genome or supplement assessment.",
+          "identity_tokens": [
+            "10.1016/j.jenvman.2026.129643",
+            "SynCom improves carbon fixation capacity"
+          ],
+          "anchors": [
+            "Sphingobium sp. RS2",
+            "Nitrososphaera viennensis EN76"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:1034015",
+            "label": "Nitrososphaera viennensis"
+          },
+          "strain_name": "EN76",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary abstract explicitly identifies the archaeal EN76 member alongside Sphingobium RS2. Preserve the source stock and the genus-only RS2 identity while adding a correspondence to the existing archaeal species descriptor.",
+          "population_scope": "Three reference genomes/fraction 1.0 is not a verified EN76 assembly membership, carbon-fixation flux or experiment abundance. The actual archaea domain remains explicit in the native lineage.",
+          "name_scope": "Keep EN76 and the NCBI species name unchanged; no new named species for RS2 or formal taxonomic event is inferred.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Nitrososphaera_viennensis",
+            "gtdb_lineage": "d__Archaea;p__Thermoproteota;c__Nitrososphaeria;o__Nitrososphaerales;f__Nitrososphaeraceae;g__Nitrososphaera;s__Nitrososphaera viennensis",
+            "gtdb_taxon": "Nitrososphaera viennensis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1034015",
+            "total_genomes": 3,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 105 preserves positive pot-level PHE/carbon endpoints, modeled rather than measured flux/mediation, open cultivation gaps and the last old llm-assisted event. Preserve its separate 000339 remediation chain; admit 000362's exact predecessor without changing old source/biology assertions. Keep the existing Sphingobium genus block 225 genomes/fraction 0.987 unchanged."
+    }
+  ]
+}

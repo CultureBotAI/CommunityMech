@@ -4,7 +4,7 @@ SCOPED_GTDB_PROOF_ROOT optionally selects its published sibling checkout during
 pre-integration development; CI/default uses this repository. Tests copy only
 public artifacts into isolated fixtures and never edit the actual evidence.
 SCOPED_GTDB_PROOF_CASES selects explicit comma-separated cases during isolated
-development. All three integrated actual proofs run by default.
+development. All four integrated actual proofs run by default.
 """
 
 import copy
@@ -36,8 +36,13 @@ CASES = {
         "053aecc46719cab2cc0afe6925a3e93729a51f7febb0eeade57cccf6e3632f2a",
         False,
     ),
+    "388": (
+        "reports/gtdb-species-status-20261115/next-ten-388-001-successor.json",
+        "b810a33b29abba9f4c5e511ec7d946f5b9e0ce1679253373377925cafb726454",
+        True,
+    ),
 }
-SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340,401").split(",")
+SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340,401,388").split(",")
 assert (
     SELECTED and len(set(SELECTED)) == len(SELECTED) and all(case in CASES for case in SELECTED)
 ), "explicit known proof cases required"
