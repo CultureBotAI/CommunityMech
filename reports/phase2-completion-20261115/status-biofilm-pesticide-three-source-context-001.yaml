@@ -1,0 +1,109 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Expected routes only; freshly bind complete native routes and authority observations before staging any candidate.
+records:
+  - id: CommunityMech:000400
+    path: kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml
+    before_sha256: 8dc5ea53ef9ad6dc4469c8e9b4897a77fd9a0c1c6addb73881891884fb4a6e65
+    primary_source:
+      reference: PMID:42658845
+      url: https://doi.org/10.1093/ismejo/wrag223
+      retained_path: references_cache/PMID_42658845.txt
+      retained_sha256: bbeb251c85e04bf548bb5aaee483fe5e41c729cb367baad090bac942524312ed
+      locator: Explicit supplementary-excerpts section, Table S1 and footnote at lines 50-60; article abstract and separate model/supernatant contexts.
+      coverage: Retained abstract plus labeled SI excerpts read. This cache combines source types; its contents do not establish source-specific native reference matching. Fresh DOI access returned no usable source.
+      exact_short_quote: Genome BLAST Distance Phylogeny
+      judgment: >-
+        Table S1 calls member X Stenotrophomonas maltophilia and associates it
+        with ENA project PRJEB18431. Its footnote explains the earlier ENA
+        Xanthomonas retroflexus name through a study GBDP analysis. Preserve
+        that source attribution without performing or claiming a new assembly
+        identification. The native name-route alternatives are not a new
+        species choice for X.
+    proposed_occurrences:
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:40324', label: Stenotrophomonas maltophilia}
+        stock: null
+        source_alias: X
+        historical_expected:
+          ambiguous: true
+          via: ncbi_name
+          n_alt: 11
+          gtdb_options: ['GTDB:s__Stenotrophomonas_bentonitica_A', 'GTDB:s__Stenotrophomonas_geniculata', 'GTDB:s__Stenotrophomonas_hibiscicola', 'GTDB:s__Stenotrophomonas_indicatrix', 'GTDB:s__Stenotrophomonas_maltophilia', 'GTDB:s__Stenotrophomonas_maltophilia_AJ', 'GTDB:s__Stenotrophomonas_maltophilia_L', 'GTDB:s__Stenotrophomonas_muris', 'GTDB:s__Stenotrophomonas_nematodicola', 'GTDB:s__Stenotrophomonas_sepilia', 'GTDB:s__Stenotrophomonas_sp002192255']
+    preservation_contract:
+      - Preserve P/M/S descriptors and statuses, all four formal null stock fields, ENA-project notes and source-local aliases. Do not convert the project identifier or GBDP footnote into a verified GTDB assembly assignment.
+      - Preserve model-inferred exchange, SMETANA provenance, partial recipient claims, CV biomass versus utilization limits, material identity and absence of a demonstrated spatial-mediation arrow.
+      - Preserve the combined article/SI cache bytes as historical evidence without concatenating new text or presenting native success as source-specific quotation matching.
+      - Live OPEN 2486/2487/2488/2489 own role-evidence, assay/material scope, source provenance and cache-boundary findings. Appending the missing native alternative does not resolve them.
+    prior_review:
+      path: reviews/structured/20261021T162420Z-pmsx-carbon-substrate-biofilm-record/review.yaml
+      sha256: 9153ec5565d1a28751b5610008bf0e39a454f6e34eb75cbd69d11057614358a0
+    historical_guard:
+      path: tests/test_causal_review_batch10.py
+      ledger: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+      note: Preserve all current model/material/source assertions and literal old node/edge ledger. Add strict predecessor admission for the exact hash. Coordinate the separately prepared456 successor in this same caller; preserve its biological predicates and the unrelated Cheese_Rind historical-source route. No last-event predicate applies here.
+  - id: CommunityMech:000499
+    path: kb/communities/Cyantraniliprole_Consortium_T2.yaml
+    before_sha256: cd6a38668c90338cf89fe2279e1958fffd8b12da401ea0ad82b4faaa08b526f6
+    primary_source: &cyantraniliprole_source
+      reference: PMID:42354927
+      url: https://doi.org/10.3390/microorganisms14061303
+      retained_path: references_cache/PMID_42354927.txt
+      retained_sha256: 2b47a77cf230a1f61781cf3020710ad3e469dfe4fdebe0eb0c1981a457082f43
+      locator: Retained Methods 2.2 and Results 3.1 at line 7; Tables 2-3 at line 719, separate T2/T3 isolate codes and Biotyper best matches.
+      coverage: Selected retained main-text and roster-table passages read. Fresh DOI access returned no usable source; no new spectra, exact-study assembly or pathway reanalysis.
+      exact_short_quote: Organism (Best Match)
+      judgment: >-
+        The paper distinguishes the environmental isolate codes Bo1/Bo2 and
+        Ht3 from MALDI-TOF library best-match names. Bo1 and Bo2 are reported
+        as Serratia marcescens, with best matches ZCF25 and UCP1549; Ht3 is
+        reported as Bacillus mojavensis, with best match B1811. These matches
+        neither equate the actual isolates to those library stocks nor assign
+        their genomes to GTDB species. T2 and T3 each contain six isolates;
+        the separate T4 benchmark does not enlarge either roster.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:615', label: Serratia marcescens}
+        stock: Bo1
+        historical_expected: &serratia_options
+          ambiguous: true
+          via: ncbi_name
+          n_alt: 8
+          gtdb_options: ['GTDB:s__Serratia_bockelmannii', 'GTDB:s__Serratia_marcescens', 'GTDB:s__Serratia_marcescens_K', 'GTDB:s__Serratia_nematodiphila', 'GTDB:s__Serratia_nevei', 'GTDB:s__Serratia_surfactantfaciens', 'GTDB:s__Serratia_ureilytica', 'GTDB:s__Serratia_B_rubidaea']
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:615', label: Serratia marcescens}
+        stock: Bo2
+        historical_expected: *serratia_options
+    preservation_contract:
+      - Keep Bo1/Bo2 separate and preserve all four Pseudomonas stock descriptors and existing mappings; neither of the eight alternatives is selected as an actual study-stock identity.
+      - Preserve distinct optimization-screen, simulated-water and pesticide-panel contexts. Keep HPLC residue loss separate from mineralization and predicted enzyme inventory separate from actual genotype or pathway activity.
+      - Preserve the exact 94.30 percent and 57.88-to-3.30 mg/L T2 endpoint context in the original ledger; no count, library-score or probability is derived from native ambiguity options.
+    historical_guard: &batch137_guard
+      path: tests/test_causal_review_batch137.py
+      sha256: b8b72556294523b864adf1486bdf6fa8a619828fa972f88f7cbbf18286a9049a
+      ledger: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+      note: Keep exact old hash/action/llm assertions through strict predecessor admission while preserving current source, participant, node/edge and endpoint predicates. The checker receives mutated parsed documents; do not reload disk or discard those mutations. Preserve controls for changed T3 Bacillus status, fabricated497 snippet with its expected message and mutated498 ledger summary. Keep497/498 untouched.
+  - id: CommunityMech:000500
+    path: kb/communities/Cyantraniliprole_Consortium_T3.yaml
+    before_sha256: a09fbcc47c0c084facbf9a501bbef519452bc4c70ad31f0071a383d5db144457
+    primary_source: *cyantraniliprole_source
+    proposed_occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:72360', label: Bacillus mojavensis}
+        stock: Ht3
+        historical_expected:
+          ambiguous: true
+          via: ncbi_name
+          n_alt: 2
+          gtdb_options: ['GTDB:s__Bacillus_halotolerans', 'GTDB:s__Bacillus_mojavensis']
+    preservation_contract:
+      - Preserve Ht3 and both candidate species; B1811 is its Biotyper best match, not a demonstrated strain synonym or genome assignment.
+      - Keep Ht1/Ht2 as separate Bacillus subtilis stocks with their existing grounded blocks, and Ht4/Ht5/Ht6 as separate Pseudomonas stocks. All five unselected mappings and the original two COMMUNITY_LEVEL nodes remain unchanged.
+      - Preserve simulated-water versus optimization/panel contexts and predictive gene/pathway limitations. The prior full review of the separate T4 benchmark is not scientific approval of T2 or T3.
+    historical_guard: *batch137_guard
+completion_limit: Four ambiguous descriptor occurrences in three whole records only. Preserve complete ordered native options, including rank and source-name boundaries. Fresh binding and exact candidate review, actual M5 canary/gates/history, immutable partial assessment, full input checkpoint and strict proof remain required; preparation closes no scientific issue.
