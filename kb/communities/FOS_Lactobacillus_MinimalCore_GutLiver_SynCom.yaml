@@ -133,7 +133,12 @@ taxonomy:
     term:
       id: NCBITaxon:1598
       label: Limosilactobacillus reuteri
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Limosilactobacillus_reuteri
+    - GTDB:s__Limosilactobacillus_reuteri_E
+    - GTDB:s__Limosilactobacillus_reuteri_G
+    - GTDB:s__Limosilactobacillus_rodentium
     notes: GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate NCBI2GTDB.tsv.gz under any default
       kg-microbe checkout path during curation.
   strain_designation:
@@ -154,7 +159,16 @@ taxonomy:
     term:
       id: NCBITaxon:246787
       label: Bacteroides cellulosilyticus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_cellulosilyticus
+      gtdb_taxon: Bacteroides cellulosilyticus
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides cellulosilyticus
+      ncbi_source_id: NCBITaxon:246787
+      majority_fraction: 1.0
+      total_genomes: 1018
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: NCBI Taxonomy resolved Bacteroides cellulosilyticus to this species id. GTDB grounding was left unresolved because
       scripts/gtdb_ground.py could not locate NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation.
   strain_designation:
@@ -203,7 +217,16 @@ taxonomy:
     term:
       id: NCBITaxon:292800
       label: Flavonifractor plautii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Flavonifractor_plautii
+      gtdb_taxon: Flavonifractor plautii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Flavonifractor;s__Flavonifractor plautii
+      ncbi_source_id: NCBITaxon:292800
+      majority_fraction: 0.98
+      total_genomes: 142
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: NCBI Taxonomy resolved Flavonifractor plautii to this species id. GTDB grounding was left unresolved because scripts/gtdb_ground.py
       could not locate NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation.
   strain_designation:
@@ -659,3 +682,11 @@ curation_history:
     whole-community acid profile and remove the unsupported panel-specific propionate assignment; host-response
     expansion remains pending. Issue #1447; reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T12:08:08Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T12:08:08Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'

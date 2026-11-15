@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/gut-pair-466-001-successor.json",
+            "sha256": "cfb31c61e62ad91fdf3af5fbf7aa901b735498dd16c1a9776c8dd82d6be26ffa",
+        },
+    },
     "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml": {
         "baseline_revision": BASE,
         "manifest": {
