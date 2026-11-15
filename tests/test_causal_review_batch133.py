@@ -6,6 +6,7 @@ from pathlib import Path
 import yaml
 from genus_gtdb_successors import admit_genus_successor
 from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
+from wetland_gtdb_successors import admit_wetland_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = (
@@ -42,6 +43,7 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
         raw = (ROOT / row["path"]).read_bytes()
         historical = doc
         if row["id"] in {
+            "CommunityMech:000471",
             "CommunityMech:000472",
             "CommunityMech:000474",
             "CommunityMech:000475",
@@ -51,12 +53,15 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
         }:
             # Do not discard mutations of an already loaded current document.
             assert doc == yaml.safe_load(raw)
-            admit_successor = (
-                admit_genus_successor
-                if row["id"]
-                in {"CommunityMech:000474", "CommunityMech:000475", "CommunityMech:000477"}
-                else admit_species_successor
-            )
+            if row["id"] == "CommunityMech:000471":
+                admit_successor = admit_wetland_successor
+            else:
+                admit_successor = (
+                    admit_genus_successor
+                    if row["id"]
+                    in {"CommunityMech:000474", "CommunityMech:000475", "CommunityMech:000477"}
+                    else admit_species_successor
+                )
             admitted = admit_successor(ROOT, row["path"], row["record_sha256"])
             raw = admitted.historical_bytes
             historical = yaml.safe_load(raw)

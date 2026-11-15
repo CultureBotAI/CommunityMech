@@ -35,6 +35,8 @@ SCIENTIFIC_BASES = [
     "2139fa42fe538c110f2b91a6e85872e9a30b472b",
     # Published Wetland identity source fixture; production integration is separate.
     "38f11cfac83036ed7e2feeea8cb19db74eed3306",
+    # Actual maintained Wetland identity intermediate for production admission.
+    "faad27a2d22971ab0e50594ff4cb4fdf6f63d8c7",
 ]
 
 
