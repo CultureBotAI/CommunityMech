@@ -3,8 +3,12 @@
 The [completed B8-1 canary](549-canary-outcome-001.md) now has actual M5
 application/history, eight native passes, a saved partial diagnostic, complete
 input checkpoints and strict historical proof. Its fixture-only issue2885 and
-successful refusal-test restoration are retained. The other nine canonical
-applications remain pending. The preparation evidence below records the
+successful refusal-test restoration are retained. The [remaining nine
+corrections](remaining-nine-outcome-001.md) now have 72 actual native passes,
+a saved partial diagnostic, a complete 446-file input checkpoint and 243
+verified public proof artifacts. Their existing scientific blockers remain;
+composition with the current 409 successor in batch122 and combined full QC
+are separate integration work. The preparation evidence below records the
 earlier local stage and is preserved with its original execution revision.
 
 This branch prepares twenty selected descriptors in ten whole records using

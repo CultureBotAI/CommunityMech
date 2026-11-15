@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261104-stage2-four-records-batch138.yaml"
@@ -40,7 +41,17 @@ def _ref_to_cache_path(ref: str) -> Path:
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    docs = []
+    for row in rows:
+        admitted = admission(ROOT, row["path"], row["record_sha256"])
+        doc = yaml.safe_load((ROOT / row["path"]).read_text())
+        if admitted.changed:
+            # Admission verifies all current biology before projecting only old history.
+            # Mutation controls operate on this returned document without replacement.
+            historical = yaml.safe_load(admitted.historical_bytes)
+            doc["curation_history"] = historical["curation_history"]
+        docs.append(doc)
+    return ledger, rows, docs
 
 
 def _check_batch138_invariants(ledger: dict, rows: list[dict], docs: list[dict]) -> None:
@@ -73,7 +84,10 @@ def _check_batch138_invariants(ledger: dict, rows: list[dict], docs: list[dict])
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == admission(ROOT, row["path"], row["record_sha256"]).current_sha256
+        )
         assert row["curation_events_added"] == 1
         assert len(row["history_files"]) >= 1
         assert all((ROOT / hf).exists() for hf in row["history_files"])
