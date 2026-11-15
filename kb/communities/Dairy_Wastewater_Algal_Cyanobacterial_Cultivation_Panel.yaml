@@ -49,7 +49,17 @@ taxonomy:
     term:
       id: NCBITaxon:1142
       label: Synechocystis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Synechocystis
+      gtdb_taxon: Synechocystis
+      gtdb_lineage: d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Microcystaceae_B;g__Synechocystis
+      ncbi_source_id: NCBITaxon:1142
+      majority_fraction: 1.0
+      support_genomes: 8
+      total_genomes: 8
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Genus-level cyanobacterial member used in MC1, CC1, CC2, SC1, and SC2. The data article names the organism only
       as Synechocystis sp., so no strain designation is asserted.
   functional_role:
@@ -70,7 +80,16 @@ taxonomy:
     term:
       id: NCBITaxon:1185873
       label: Desertifilum tharense
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Desertifilum_tharense
+      gtdb_taxon: Desertifilum tharense
+      gtdb_lineage: d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Desertifilaceae;g__Desertifilum;s__Desertifilum tharense
+      ncbi_source_id: NCBITaxon:1185873
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Species-level cyanobacterial member used in MC2, CC3, CC4, SC3, and SC4. The data article does not provide a strain
       designation.
   functional_role:
@@ -285,6 +304,14 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Expose unresolved treatment-specific causal structure in the empty dairy panel. Issue #1537; reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T09:29:17Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:29:17Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: dairy_panel_treatment_specific_causal_structure
   prompt: Which treatment-specific microbial interactions mediate dairy-wastewater removal and resource recovery?

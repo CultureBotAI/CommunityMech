@@ -13,6 +13,7 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "384": "kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml",
     "415": "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
     "477": "kb/communities/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom.yaml",
     "353": "kb/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",

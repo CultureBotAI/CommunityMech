@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml"
@@ -134,8 +135,15 @@ def test_batch59_records_have_complete_decisions_and_exact_open_anchors():
     assert rows[KEFIR]["status"] == "reviewed"
     for name, row in rows.items():
         doc = docs[name]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if name == DAIRY:
+            assert doc == yaml.safe_load(raw)
+            admitted = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+            raw = admitted.historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         assert len(row["history_files"]) == 1
         assert row["source_review"]["cache_provenance_certified"] is False
     names = {n["name"] for n in docs[KEFIR]["ecological_interactions"]}
