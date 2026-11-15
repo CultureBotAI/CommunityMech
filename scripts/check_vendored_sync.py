@@ -562,11 +562,105 @@ def _safe_local_file(root: Path, relative_path: str) -> Path:
     return candidate
 
 
+CANDIDATE_REGISTRY_PATH = "src/kg_microbe_governance/candidates.json"
+
+
+def parse_candidate_registry(data: bytes, manifest: GovernanceManifest) -> dict[str, dict[str, Any]]:
+    """Read sealed preparation identities; this does not extend fleet membership.
+
+    The standalone checker deliberately depends only on the standard library.
+    Packaged callers additionally check capability catalogue completeness.
+    """
+    try:
+        document = json.loads(data.decode("utf-8"), object_pairs_hook=_reject_duplicate_pairs)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise GovernanceError(f"Unable to parse candidate registry: {exc}") from exc
+    document = _mapping(document, "candidate registry")
+    _strict_keys(document, {"version", "candidates"}, {"version", "candidates"}, "candidate registry")
+    if type(document["version"]) is not int or document["version"] != 1:
+        raise GovernanceError("candidate registry version must be integer 1")
+    candidates = _mapping(document["candidates"], "candidates")
+    seen = {
+        "github": {manifest.canonical_repository.casefold(), *(c.github.casefold() for c in manifest.consumers.values())},
+        "package_path": {c.package_path.casefold() for c in manifest.consumers.values()},
+        "environment_variable": set(), "repository_id": set(),
+    }
+    required = {"state", "display_name", "github", "repository_id", "environment_variable",
+                "package_path", "schema_paths", "record_globs", "bootstrap_main_ref", "capabilities"}
+    for key, item in candidates.items():
+        if not _KEY_PATTERN.fullmatch(key) or key in manifest.consumers or key == "claw":
+            raise GovernanceError(f"Invalid, reserved or already admitted candidate key: {key}")
+        item = _mapping(item, f"candidate {key}")
+        _strict_keys(item, required, required, f"candidate {key}")
+        if item["state"] != "preparation":
+            raise GovernanceError("candidate state must remain preparation")
+        _string(item["display_name"], "candidate display_name")
+        github = _string(item["github"], "candidate github")
+        if not _GITHUB_PATTERN.fullmatch(github) or github.rsplit("/", 1)[-1] in {".", ".."}:
+            raise GovernanceError("Invalid candidate GitHub identity")
+        if type(item["repository_id"]) is not int or item["repository_id"] <= 0:
+            raise GovernanceError("candidate repository_id must be a positive integer")
+        if not re.fullmatch(r"[A-Z][A-Z0-9_]*_ROOT", _string(item["environment_variable"], "candidate environment")):
+            raise GovernanceError("Invalid candidate root environment variable")
+        package = _relative_path(item["package_path"], "candidate package_path")
+        if not re.fullmatch(r"src/[a-z][a-z0-9_]*", package):
+            raise GovernanceError("candidate package_path must name one native Python package under src")
+        if not re.fullmatch(r"[0-9a-f]{40}", _string(item["bootstrap_main_ref"], "candidate bootstrap_main_ref")):
+            raise GovernanceError("candidate bootstrap_main_ref must be an immutable SHA")
+        for field in ("github", "package_path", "environment_variable", "repository_id"):
+            value = str(item[field]).casefold()
+            if value in seen[field]:
+                raise GovernanceError(f"Candidate {field} collision: {value}")
+            seen[field].add(value)
+        for field in ("schema_paths", "record_globs"):
+            paths = item[field]
+            if not isinstance(paths, list) or not paths or len(paths) != len(set(map(str, paths))):
+                raise GovernanceError(f"candidate {field} must be a nonempty unique list")
+            for path in paths:
+                path = _string(path, f"candidate {field}")
+                probe = path.translate(str.maketrans("*?[]", "xxxx")) if field == "record_globs" else path
+                _relative_path(probe, f"candidate {field}")
+                if field == "schema_paths" and (not path.startswith(package + "/schema/") or any(c in path for c in "*?[]")):
+                    raise GovernanceError("candidate schema paths must be literal paths inside its native schema directory")
+        capabilities = _mapping(item["capabilities"], "candidate capabilities")
+        if not capabilities:
+            raise GovernanceError("candidate capability decisions must be nonempty")
+        for name, decision in capabilities.items():
+            if not _KEY_PATTERN.fullmatch(name):
+                raise GovernanceError("Invalid candidate capability key")
+            decision = _mapping(decision, "candidate capability decision")
+            _strict_keys(decision, {"status", "reason"}, {"status", "reason"}, "candidate capability decision")
+            if decision["status"] not in {"disabled", "not_applicable"}:
+                raise GovernanceError("candidate capabilities cannot be enabled")
+            _string(decision["reason"], "candidate capability reason")
+    return dict(candidates)
+
+
+def candidate_manifest(
+    registry: bytes, manifest: GovernanceManifest, repository: str,
+) -> GovernanceManifest:
+    """Compose only universal canonical payloads for an explicit sealed candidate."""
+    candidates = parse_candidate_registry(registry, manifest)
+    found = [(key, value) for key, value in candidates.items()
+             if repository.casefold() in {key, value["github"].casefold()}]
+    if len(found) != 1:
+        raise GovernanceError(f"Unknown preparation candidate: {repository}")
+    key, value = found[0]
+    consumer = Consumer(key, value["github"], value["package_path"])
+    # No caller-selected artifact lists, source paths, digests or URLs.
+    artifacts = tuple(artifact for artifact in manifest.artifacts if not artifact.consumers)
+    if not artifacts:
+        raise GovernanceError("canonical manifest has no universal candidate artifacts")
+    return GovernanceManifest(manifest.canonical_repository, manifest.pin_path,
+                              {key: consumer}, artifacts)
+
+
 def check_repository(
     root: Path,
     repository: str | None = None,
     *,
     fetch: Callable[[str], bytes] | None = None,
+    candidate: bool = False,
 ) -> tuple[int, tuple[str, ...]]:
     """Return ``(checked_count, problems)`` without modifying the repository."""
 
@@ -575,6 +669,8 @@ def check_repository(
     fetcher = fetch or fetch_url
     manifest_bytes = fetcher(raw_url(pin, CANONICAL_MANIFEST_PATH))
     manifest = parse_manifest(manifest_bytes)
+    if candidate:
+        manifest = candidate_manifest(fetcher(raw_url(pin, CANDIDATE_REGISTRY_PATH)), manifest, actual_identity)
     consumer = manifest.consumer_for(actual_identity)
     asserted_identity = repository or os.environ.get("GITHUB_REPOSITORY")
     if asserted_identity is not None:
@@ -635,6 +731,7 @@ def build_parser() -> argparse.ArgumentParser:
         description="Check vendored Mech artifacts against an immutable claw commit"
     )
     parser.add_argument("--root", type=Path, default=Path.cwd())
+    parser.add_argument("--candidate", action="store_true", help="Check an explicitly registered preparation candidate")
     parser.add_argument(
         "--repository",
         help="Mech key or exact owner/repository identity (normally auto-detected)",
@@ -645,7 +742,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
-        checked, problems = check_repository(args.root, args.repository)
+        checked, problems = check_repository(args.root, args.repository, candidate=args.candidate)
     except CanonicalFetchError as exc:
         print(f"FETCH ERROR: {exc}", file=sys.stderr)
         return 1
