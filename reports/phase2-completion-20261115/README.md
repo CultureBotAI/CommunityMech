@@ -369,6 +369,14 @@ Native lint also passes. The complete M5 input checkpoint and 153 leaf proof
 controls remain separately recorded. MDSC392, Soymilk448, BL6 346 and rumen275
 preparations or intermediates are not counted as completed corrections.
 
+The [Alseth467 integration at 117ab8ba](phage467-integration-117ab8ba.md)
+brings the current count to **77 integrated taxonomy corrections**, including
+**73 of the historical 126-record partition**, with **53 remaining**. Its 17
+actual proof controls, 15 affected historical tests and native lint pass on the
+clean combined revision. Both complete 83-file checkpoints remain verified;
+an auxiliary copy of 117 local recorder files was rejected and was not retried.
+The paired PHA468 correction remains pending.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
