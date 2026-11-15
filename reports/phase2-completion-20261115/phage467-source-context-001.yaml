@@ -1,0 +1,51 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes; fresh native source binding and authority observations remain required.
+record:
+  id: CommunityMech:000467
+  path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+  before_sha256: cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5
+  primary_source:
+    reference: PMID:38648198
+    url: https://doi.org/10.1371/journal.pbio.3002346
+    retained_path: references_cache/PMID_38648198.txt
+    retained_sha256: babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3
+    locator: Retained main-text Bacteria and phages and Evolution experiment Methods, plus receptor-mutant sequencing caveat and model-limit passages, flattened line120.
+    coverage: Complete canonical record and selected retained primary passages read. No fresh full-paper, figure, supporting-data, stock-sequence or assembly audit.
+    judgment: The Methods distinguish streptomycin-marked UCBPP-PA14 and its csy3::LacZ CRISPR-KO derivative, clinical isolates FZ21 and 13 S44 S9, and B. cenocepacia J2315. DMS3vir is the focal phage; DMS3vir+acrF1 is an assay reagent. These source stock labels do not constitute this pass's independent genome identification.
+  proposed_occurrences:
+    - selector: taxonomy[0].taxon_term
+      descriptor: {id: 'NCBITaxon:287', label: Pseudomonas aeruginosa}
+      stock: UCBPP-PA14
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Pseudomonas_aeruginosa', total_genomes: 17191, majority_fraction: 0.99, is_reclassified: false}
+    - selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:470', label: Acinetobacter baumannii}
+      stock: FZ21
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Acinetobacter_baumannii', total_genomes: 15884, majority_fraction: 1.0, is_reclassified: false}
+    - selector: taxonomy[2].taxon_term
+      descriptor: {id: 'NCBITaxon:1280', label: Staphylococcus aureus}
+      stock: 13 S44 S9
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Staphylococcus_aureus', total_genomes: 37403, majority_fraction: 1.0, is_reclassified: false}
+    - selector: taxonomy[3].taxon_term
+      descriptor: {id: 'NCBITaxon:95486', label: Burkholderia cenocepacia}
+      stock: J2315
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Burkholderia_cenocepacia', 'GTDB:s__Burkholderia_orbicola']}
+  preservation_contract:
+    - Preserve four bacterial stocks and the fifth phage descriptor, parent viral taxon389469, DMS3vir derivative wording and NO_GTDB_EQUIVALENT. The anti-CRISPR assay phage is not an additional community member. Preserve both PA14 genetic conditions without splitting or inventing stocks.
+    - Counts17191/15884/37403 are reference populations, not experimental stock genomes or inoculum abundances. Rounded0.99 is not an exact numerator or identity probability. Keep both ordered J2315 name-route alternatives; a recognizable strain name does not authorize choosing a reference genome.
+    - Preserve historical unavailable-crosswalk notes and prior history exactly; past lookup failure is not current database absence. The newly pinned table's upstream release remains unverified.
+    - Keep five interaction nodes and three directed arrows, direct phage-host pairwise lytic relation, separate competitive release and two PARTIAL mediation links. Preserve the phenotype-based receptor-resistance caveat; the authors did not sequence those mutants, so specific evolved genotypes are not inferred.
+    - Preserve phage-free baseline abundance versus phage-associated trajectories, four open discussions, J2315 persistence versus extinction and source-host framing versus tested host range. Single competitive release is not recurring KILL_THE_WINNER; release alone is not demonstrated diversity mediation.
+    - Keep the named LB experiment, 10-day serial-transfer design and both PA14 backgrounds unchanged. Reference correspondence does not certify these protocols or clinical efficacy. Preserve the distinction between phage-free model improvement and phage-present quantitative failure; tested gLV failure is not universal impossibility of pairwise prediction.
+  historical_guard:
+    path: tests/test_causal_review_batch130.py
+    sha256: fc51ae1f93310f1317f78fbd11b7468b4ab6043bff4c577e8c52c1d96ac2c07b
+    ledger: reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml
+    ledger_sha256: 88a433392f6b1ad7214280eb4d71f3fb55768f2803359afb0ee5490330bea785
+    note: Compose exact467 and eventual468 successors in this shared caller. Keep all twelve graph mutation/restoration cases and current parsed biological predicates. Only admitted historical bytes may satisfy the old unreviewed-taxonomy, whole-file and last-LLM expectations. Original ledger, both cache hashes, PHA biology and original base commit stay immutable.
+completion_limit: Four selected bacterial descriptors in one whole record. No canonical change, fresh native route proof, scientific completion or reference validation is supplied by this preparation. Native binding, independent candidate review, guarded application, eight checks, saved partial assessment, complete checkpoint and strict historical proof remain required.
