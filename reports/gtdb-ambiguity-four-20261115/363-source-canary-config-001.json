@@ -1,0 +1,105 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-four-routes-001.log",
+    "sha256": "2cf7fff289d8237d21837449d1a49027e9e2f377226131aa8f5d659240f7a16b"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-four-routes-001.json",
+    "sha256": "1d6d17a30b6f7897735e4347c910635862b6ce4b67121e531306300f92de7fa3"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-four-routes-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record_id": "CommunityMech:000363",
+      "record": "kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml",
+      "before_sha256": "262578e4cc60f82a1134df47dfeea7300751a28479c7296232653fdf4355a972",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/acetate-butanol363-source-context-001.yaml": "3f5e0f7a56cdff20341166e592bfc0248aa4d00b0ef729494ce8baac5d1c87a1",
+        "tests/test_causal_review_batch111.py": "e8eee1718a65547c83dadedf44e1b5848f31fd90d2708ffc3c0cb7505f3c03e5",
+        "reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml": "931a6cd707b0e3944f8cc593cfa341b331bab93b6616264cca5410b0343d6b19",
+        "reports/gtdb-ambiguity-four-20261115/four-authored-source-context-001.json": "5cca4cbebc19e7d23b9a811feed2f67f0401090d64a72538610dfa1ba4b8e40f",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+        "reports/gtdb-ambiguity-four-20261115/four-source-config-001.json": "63a6591370432b1336a0f78f1a00abe98cb7e35efc6c85b338f71c7f2c0b1a7c"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42726284",
+          "path": "references_cache/PMID_42726284.txt",
+          "sha256": "08f6953950b650637457d41d36f53fdb161de29b5a4d923f0a3b0b9ec8339af6",
+          "locator": "Retained abstract and selected identity, Methods, Results and Discussion passages in flattened main text line345.",
+          "coverage": "Complete canonical record and bounded retained primary passages; no fresh full-paper, figure-pixel, supplementary-sequence, assembly or genotype audit.",
+          "identity_tokens": [
+            "42726284",
+            "10.1007/s00253-026-14029-z"
+          ],
+          "anchors": [
+            "WT_PKPa_RBS_BsPta_Δacs",
+            "P. taiwanensis_Pem7_ButOH"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1148",
+            "label": "Synechocystis sp. PCC 6803"
+          },
+          "strain_name": "WT_PKPa_RBS_BsPta_Δacs",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The source identifies an engineered PCC6803 acetate producer shared by two separate cocultures. Preserve the exact derivative and every genetic_modification field; this correspondence does not independently verify its genotype or assembly.",
+          "population_scope": "Twenty-two reference genomes support the exact-ID descriptor correspondence. They are not study stocks, experimental replicates or sequence matches for the engineered strain.",
+          "name_scope": "The placeholder GTDB species label and native is_reclassified flag are database correspondence, not formal renaming or independent identity proof for the cyanobacterial derivative.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Synechocystis_sp000284455",
+            "gtdb_lineage": "d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Microcystaceae_B;g__Synechocystis;s__Synechocystis sp000284455",
+            "gtdb_taxon": "Synechocystis sp000284455",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:1148",
+            "total_genomes": 22,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:470150",
+            "label": "Pseudomonas taiwanensis"
+          },
+          "strain_name": "VLB120 Pem7_ButOH",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The focal heterotroph is the P. taiwanensis VLB120 Pem7_ButOH derivative. The source's separate E.coli coculture and cloning strain do not add focal members.",
+          "population_scope": "Both ordered native species-name alternatives remain unselected; neither determines the engineered VLB120 stock's GTDB placement.",
+          "name_scope": "Preserve the source stock label, promoter and genotype fields; no strain equivalence, reference genome or formal rename is inferred.",
+          "native_result": {
+            "ambiguous": true,
+            "gtdb_options": [
+              "GTDB:s__Pseudomonas_E_asiatica",
+              "GTDB:s__Pseudomonas_E_taiwanensis"
+            ],
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:470150",
+            "ncbi_species": "Pseudomonas taiwanensis",
+            "via": "ncbi_name"
+          },
+          "classify_status": {
+            "candidates": [
+              "GTDB:s__Pseudomonas_E_asiatica",
+              "GTDB:s__Pseudomonas_E_taiwanensis"
+            ],
+            "status": "AMBIGUOUS"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve two nodes and one HYPOTHESIZED/PARTIAL arrow, nonexclusive acetate transfer, CO2 substrate and measured butanol endpoint. Growth/acetate changes are not isotope-resolved flux or carbon exclusivity; growth adaptation did not establish higher butanol production, and fluctuating titers/plateau are not constant productivity. Preserve all quotations, distinct coculture/axenic/adaptation contexts and open carbon-specificity discussion. Batch111 keeps all nine original tests, the other two records and immutable ledger; strict successor admission precedes only historical hash/last-event expectations, with current biology retained."
+    }
+  ]
+}
