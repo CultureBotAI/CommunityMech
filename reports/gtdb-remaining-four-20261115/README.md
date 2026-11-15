@@ -1,12 +1,23 @@
 # Four source-bound correspondences
 
+The [arsenic-coculture checkpoint](454-outcome-001.md) adds the bounded record 454
+Chelatococcus reference correspondence while retaining both experimental stocks,
+the unselected cyanobacterial null result, direct carbon-tracer evidence and
+two OPEN scientific discussions. Eight actual native gates, the partial saved
+pair, 82-input audits and complete 84-file checkpoints on both hosts are verified.
+All 27 public artifacts match the plan. One positive proof canary preceded 17
+new record 454 mutation/registry controls; 24 affected caller/participant checks and
+native lint passed. Native integrity verified 349 reviews within their declared
+scopes. All four scoped mapping units now have their own retained
+execution evidence; scientific review, products and aggregate QC remain separate.
+
 The [acetate-butanol checkpoint](497-outcome-001.md) adds the bounded 497 generic
 reference correspondence while preserving the distinct engineered stock, E. coli
 partner and unresolved carbon specificity. Eight native checks, the partial
 saved pair, 78-input audits, complete 80-file snapshots on both hosts and all
 27 public artifacts are verified. Strict proofs and historical callers passed
-67 composed tests; native lint passed. Record 454's separate M5 application is
-in progress and has not completed its diagnostic or strict admission.
+67 composed tests; native lint passed. At that earlier checkpoint, record 454's
+separate M5 application had not completed its diagnostic or strict admission.
 
 The next [PPHET checkpoint](359-outcome-001.md) records the bounded 359 generic
 PCC 6803 correspondence, preserving engineered PPT1 and open scientific limits.
