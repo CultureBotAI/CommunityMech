@@ -13,6 +13,7 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "275": registry.RUMEN_PATH,
     "400": "kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml",
     "499": "kb/communities/Cyantraniliprole_Consortium_T2.yaml",
     "500": "kb/communities/Cyantraniliprole_Consortium_T3.yaml",

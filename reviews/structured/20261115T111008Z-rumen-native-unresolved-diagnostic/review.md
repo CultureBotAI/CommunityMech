@@ -1,0 +1,732 @@
+# Rumen consortium: native unresolved correspondence for the current 971 descriptor
+
+- Review: 20261115T111008Z-rumen-native-unresolved-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T11:10:08.436558Z
+- Finished UTC: 2026-11-15T11:10:08.549940Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The actual M5 status-only application changes the Pseudoselenomonas ruminantium descriptor from AMBIGUOUS to UNRESOLVED and removes three alternatives not reproduced by the unchanged pinned native resolver. It adds one native inline event and a separate history sidecar. The source-preferred Selenomonas name, all three current ontology identities, unselected statuses and biological content are preserved. Eight scoped native checks passed on the persisted bytes.
+
+## Scope And Provenance
+
+CommunityMech:000275 taxonomy[1] status and candidate list, exact source/ontology boundaries, native null-route observation, actual persistence and scoped technical validation. No new biological claim or study-stock identity is approved.
+
+Selection: One-record end-to-end canary for the bounded native-null guard in PR2890. Actual M5 execution is frozen at 2b6e5ec23cae668529891650fcf4aba1c00bafba. No other null-result record is authorized by this assessment.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 2b6e5ec23cae668529891650fcf4aba1c00bafba.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000275 | kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml # taxonomy[1].taxon_term.gtdb_grounding_status; taxonomy[1].taxon_term.gtdb_candidates | maintained | Current971 native-null correspondence with preserved source and stock boundaries |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000275 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Source-preferred names and current ontology identity remain distinct
+
+grounding: supported. Targets: CommunityMech:000275.
+
+The retained source names Selenomonas ruminantium, while the verified M5 ontology label is Pseudoselenomonas ruminantium for971. Preserve both without inventing a strain or exact genome. Abstract-level evidence does not resolve partner fitness, the 41-percent denominator or directed metabolite transfer.
+
+### Bounded unresolved native route, with no inferred biological absence
+
+grounding: supported. Targets: CommunityMech:000275.
+
+The stored status and options now agree with the unchanged native null lookup and explicit UNRESOLVED classifier. Withdrawal of the three stale options asserts only nonreproduction by these pinned inputs. No reference population, manual exception, synonym rollback or claim of absent GTDB biology is introduced.
+
+### Actual status-only persistence and technical checks preserve science
+
+provenance: supported. Targets: CommunityMech:000275.
+
+The independently reviewed candidate was applied on M5, with one native inline event and a separately verified sidecar. All eight scoped commands passed against the final bytes and retained their actual logs and input hashes. Scientific findings, full reference checks, strict successor integration and aggregate QC remain separate requirements.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000275-schema | .temp/gtdb-native-null-275-20261115/run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-strict | .temp/gtdb-native-null-275-20261115/run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-gtdb | .temp/gtdb-native-null-275-20261115/run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-domain | .temp/gtdb-native-null-275-20261115/run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-scalars | .temp/gtdb-native-null-275-20261115/run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-history | .temp/gtdb-native-null-275-20261115/run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-new-history | .temp/gtdb-native-null-275-20261115/run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-terms | .temp/gtdb-native-null-275-20261115/run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000275-primary | https://doi.org/10.1021/acssynbio.6c00072; Retained anonymous Europe PMC response resultList.result[0].abstractText, with exact DOI/PMID and retrieval receipt in source.inputs | supports | The primary abstract names Selenomonas ruminantium with Butyrivibrio fibrisolvens and Ruminococcus albus in the focal rumen consortium. It distinguishes modeled compatibility from measured pairwise enzyme outcomes. This bounded source supplies no exact stock identifier or demonstrated directed exchange. |
+| 000275-native | reports/gtdb-native-null-275-20261115/rumen275-source-evidence-001.json; Selected taxonomy[1] occurrence, ncbi_identity_rows, lookup_indexes, native_result and classify_status; exact crosswalk/resolver capture | supports | M5's local authority verifies971 Pseudoselenomonas ruminantium at species rank. The unchanged native resolver yields null and the domain/hold-aware classifier yields UNRESOLVED with no candidates. No stored block or manual hold exists on this descriptor; the three old alternatives are not reproduced by the pinned route. |
+| 000275-application | .temp/gtdb-native-null-275-20261115/applied-001/receipt.json; Actual M5 execution_revision, before/after hashes, native_operations, source proof and reviewed stage receipt | supports | Actual guarded status-only execution at2b6e5ec2 persists f9ad8603 to d490ca30. native_operations is exactly --apply-status. Only one status/options projection and one native inline event change; canonical ontology/source identities, the other two taxa, biological content and prior history remain preserved. |
+| 000275-prior | reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml; Preserved275 decisions and current batch8 biological predicates; source-context plan and historical guard | context_only | The historical record separates enzyme synergy from mutualism and retains unresolved role/source limits. This status correction does not revise the ledger, certify those scientific claims or remove the calcium393 composite protection in the shared caller. |
+
+## Limits And Additional Notes
+
+- Partial diagnostic with scientific_review:false. Passing these validators does not complete full corpus QC, reference-snippet comparison, whole-record scientific review or the all-record campaign.
+- Primary coverage is the complete retained Europe PMC abstract, plus the whole canonical record and historical guard. Full Methods, figures, supplements and exact-stock genomes were not inspected. The response's absent PMCID and isOpenAccess=N do not prove that no legal full text exists elsewhere.
+- The source uses Selenomonas ruminantium, while M5's local NCBI authority verifies the encoded Pseudoselenomonas ruminantium label and species rank for971. No ontology rollback or stock substitution is made. The older local-host authority refused this label during preparation; that failed receipt remains retained separately and no database was edited.
+- native_result:null and classify_status UNRESOLVED with no candidates describe this exact pinned native lookup. They do not establish that GTDB lacks the organism, prove the former candidates biologically incorrect, or supply a genome count, membership probability or experimental stock identity. NO_GTDB_EQUIVALENT and manual hold cases remain outside this guarded path.
+- The source abstract distinguishes six screened strains, eleven modeled compatible communities, pairwise enzymatic validation and the focal three-member consortium. The 41-percent endoglucanase denominator, reciprocal organism fitness and directed metabolite transfer remain unresolved by that abstract. Two biological nodes, zero downstream arrows, source quotations and the open discussion remain unchanged; scientific findings including issue1268 are retained.
+- The unselected Butyrivibrio descriptor keeps its three ambiguity alternatives and Hominimerdicola alba remains unresolved. The selected971 descriptor had no stored GTDB block or manual exception to remove. Only its status/options and one actual native status event change; the native log's three processed taxa are not three changed taxa.
+- The crosswalk SHA256 identifies exact bytes, not its upstream release. File naming, mtime and legacy mapping-source prose do not certify release chronology. The local NCBI database observation records label/rank and file-stat provenance rather than a full database content hash.
+- Strict historical successor admission, generated products and combined QC require separate evidence. Batch8 must retain its accepted calcium393 composite path and all current biological predicates while admitting only the exact status-only successor for275. Earlier saved reviews and ledgers remain immutable.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T111008Z-rumen-native-unresolved-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Rumen consortium: native unresolved correspondence for the current 971 descriptor'
+started_at: '2026-11-15T11:10:08.436558Z'
+finished_at: '2026-11-15T11:10:08.549940Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The parent inspected the whole record, retained primary abstract,
+    complete native route and exact candidate. An independent peer read the source
+    config, null-route guard, actual M5 source binding and staged candidate before
+    application. This authored assessment is a partial technical and source-provenance
+    review, not independent whole-record scientific approval.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The actual M5 status-only application changes the Pseudoselenomonas ruminantium
+  descriptor from AMBIGUOUS to UNRESOLVED and removes three alternatives not reproduced
+  by the unchanged pinned native resolver. It adds one native inline event and a separate
+  history sidecar. The source-preferred Selenomonas name, all three current ontology
+  identities, unselected statuses and biological content are preserved. Eight scoped
+  native checks passed on the persisted bytes.
+source:
+  git_revision: 2b6e5ec23cae668529891650fcf4aba1c00bafba
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-native-null-275-20261115/applied-001/before.yaml
+    sha256: f9ad860387600c64fa0ba428afdfd9fa4cc0e960097b445b5253eb953ed1336e
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/applied-001/receipt.json
+    sha256: ee43dac03e22c5fae1e703361ccbc63882033235af242a5802ec861b5dc8718e
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/candidate-001/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+    sha256: d490ca30826569ed9ffd4f2cc91fc459a2e707b00a99e98cfb58fd67c00cc443
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/candidate-001/receipt.json
+    sha256: 80e92dadd7fc77db58bd522c31dc2d4a977d69127683e0ebb3839241bf61fc7a
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-domain-001/native.log
+    sha256: 36c5914ceb06a90935d3454461d9647eae357726740e7988627874443c3787b9
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-domain-001/receipt.json
+    sha256: 1fc02003721b4e78dbc155d820fa09b6eb3adc4a9f079406945103682fd1ed91
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-domain-001/start.json
+    sha256: 04f104bebfd2cb4112bbcf9dd0c077cede96647dcbb859298d78faa38f8c85d0
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-gtdb-001/native.log
+    sha256: d73c94da4597a8daa2b6d1bf3cb7c808e8762e80566b115f65ddc2b64d5acec9
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-gtdb-001/receipt.json
+    sha256: 70fa9d5c4abc5579779818454834c4e8b06aa52e8d3bf003952fe7e5c7b2fc14
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-gtdb-001/start.json
+    sha256: 0cc116955d13763dc20409e4abc756e2eaccdc8878e07de617b903b6019633ed
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-history-001/receipt.json
+    sha256: b93e34de892c0a3708247dfc9a3a68566dce88898c326a4a8dee61ff6f0acc99
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-history-001/start.json
+    sha256: fab6f3aa35abeef62c5d431fad184fcdafee66e859a09ecc0e2785c7cac9cc43
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-new-history-001/native.log
+    sha256: 039f5aad4505744d8716ac380fd1a91c29061baf5bf26fe883b5579f3dc0ddd9
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-new-history-001/receipt.json
+    sha256: 817437bd9aa16c3d10ec60b65462fb6468d33c2cbec4de753088939fb5f1e733
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-new-history-001/start.json
+    sha256: dfadd957746c6d63d6c4bd368f037c7421326e7cd196c3820bd7588294685eb8
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-scalars-001/native.log
+    sha256: f53bb0c881893c3edfb47fa5898350f7ed44026af3e729e4aaf2d2baa9dc2ac5
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-scalars-001/receipt.json
+    sha256: ad665e948addebcc29ce363da1233f295be929d1b5432b6b506f018c526ad9d6
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-scalars-001/start.json
+    sha256: cb5a80827cbf8e0e47a4affb0fd94c31a11a1c577b6e408709168288e1883f9b
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-schema-001/native.log
+    sha256: 1da425c62ae34ed4a23bf874774ac99f91d5fbc975429a5f2deff969c365092e
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-schema-001/receipt.json
+    sha256: 0d794a12788bea10a56b6fa38bed24e22d865139cef678f21d936d1c7426fce0
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-schema-001/start.json
+    sha256: cbf9584bf121fcf3b1cfbb750ccf6a92e34d1d7af6efdecec6b058137d869902
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-strict-001/native.log
+    sha256: 0da4c53105d0aa2de7b6d3153e03403636bb04e68e2026449e3344d8c3765876
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-strict-001/receipt.json
+    sha256: 8033bfb6f339a55facced56846777a961154a5176321ade8fca2e7c8be51d003
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-strict-001/start.json
+    sha256: ade022380c71688e99b7295eccef1bfb5cfa64ed4430294c9b790baf78705a1e
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-terms-001/native.log
+    sha256: 6d0cd154b6269eab2da438c9e38595d0039ce0affed52d6eb306e7c5e08e8cf0
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-terms-001/receipt.json
+    sha256: 3bee422fe2629b237796ad991e9d91347bb0b49dab9022853ec4661e96a394b9
+    role: context
+  - path: .temp/gtdb-native-null-275-20261115/run-terms-001/start.json
+    sha256: f19341fcea0867db95fd19625cccb1019923f1bab224995b60ffcf9f2ab65052
+    role: context
+  - path: .temp/gtdb-r226-source-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-integration-20261115/rumen275-source-001/receipt.json
+    sha256: e2f4020575075be7ad668b279ca137d725c5596b0d9ee9229ed9cb0663e0f77f
+    role: context
+  - path: .temp/phase2-integration-20261115/rumen275-source-001/response.json
+    sha256: 29998eb0fb207064b80283b792b30f6026ab26d248490f816db8e4c32cf9276e
+    role: context
+  - path: .temp/phase2-schema-20261115/rumen275-null-source-bind-m5-001.log
+    sha256: 65871593754aa63959f20e5af5e1830255f04cd9010bcaf934bd35e18d640007
+    role: context
+  - path: .temp/phase2-schema-20261115/rumen275-null-support-route-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/rumen275-null-support-route-001.json
+    sha256: 3ca0ff4c76387f31a9d332bec05eb6c3d791cfe5b9e49513fcd958041d7af3eb
+    role: context
+  - path: .temp/phase2-schema-20261115/rumen275-null-support-route-001.log
+    sha256: 559e799029733908dfd530d24debbb37108eeaa0e0bc7ef5662af56b0a2ade9d
+    role: context
+  - path: history/records/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium/2026-10-02T053348Z-codex-275ca3.yaml
+    sha256: 3c96c6a99765542fdf0b38c6c7998d0c4798949795f6d811fa4484e679043616
+    role: context
+  - path: history/records/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium/2026-10-05T142601Z-codex-560f30.yaml
+    sha256: 6e44e2aad957cfcebae23663169c10105467e94ef134605387de2f5458b44893
+    role: context
+  - path: history/records/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium/2026-11-15T110617Z-codex-255e00.yaml
+    sha256: c31cddf0a1dac1d319ec31af9d4112930a44f893d51b4fb40b6374c3d419bea4
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+    sha256: d490ca30826569ed9ffd4f2cc91fc459a2e707b00a99e98cfb58fd67c00cc443
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    sha256: a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25
+    role: context
+  - path: reports/gtdb-native-null-275-20261115/rumen275-check-config-001.json
+    sha256: c17f7ae6f1c97dc21ba864639bd5ddca47f125b87f56566539251a81de8f0843
+    role: context
+  - path: reports/gtdb-native-null-275-20261115/rumen275-review-config-001.json
+    sha256: 042b2f3e27c277ee0c8b457fbfeecb67c3f111c97686cf911e2b646c2df97a34
+    role: context
+  - path: reports/gtdb-native-null-275-20261115/rumen275-source-config-001.json
+    sha256: cd30fd742170c4b13c70e6b4f2ed2fa9656f76329f960c5f549f9d3e2ce98340
+    role: context
+  - path: reports/gtdb-native-null-275-20261115/rumen275-source-evidence-001.json
+    sha256: b242fd06d9a3155417fb7730e3636b8980e4eff32f98fdcdf5f7f5b06a3e518b
+    role: context
+  - path: reports/phase2-completion-20261115/rumen275-source-context-001.yaml
+    sha256: 8be5b3472f5a2916cecead6e6c8bb21a8cd4707d419a19d92a2f7a5b5a53cbd0
+    role: context
+  - path: reports/phase2-completion-20261115/rumen275-source-target-001.json
+    sha256: 59d30eb043ad617670c8f27a983d8f726492d4137449cef86bb870c679368de0
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/fetch_rumen275_source_20261115.py
+    sha256: 9fd6a77879de11082f40b69fd630627a55e3728c7d20fd662b45023829b94d31
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch8.py
+    sha256: 32847632160fbd72d5f83b6906e5cb6b60da1c885130fe376753fa4e90f9d4cc
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000275
+  path: kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  selector: taxonomy[1].taxon_term.gtdb_grounding_status; taxonomy[1].taxon_term.gtdb_candidates
+  label: Current971 native-null correspondence with preserved source and stock boundaries
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: CommunityMech:000275 taxonomy[1] status and candidate list, exact source/ontology
+    boundaries, native null-route observation, actual persistence and scoped technical
+    validation. No new biological claim or study-stock identity is approved.
+  selection: One-record end-to-end canary for the bounded native-null guard in PR2890.
+    Actual M5 execution is frozen at 2b6e5ec23cae668529891650fcf4aba1c00bafba. No
+    other null-result record is authorized by this assessment.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000275
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000275-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+    --out .temp/gtdb-native-null-275-20261115/run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-history history/records/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: 'just --verbose --no-dotenv --color never new-history --kind record --slug
+    Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium --target-root
+    kb/communities --event EDIT --outcome changed --sections taxonomy,curation_history
+    --actor-name codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2888
+    --summary ''Record the native unresolved status for the rumen consortium''"''"''s
+    current971 descriptor.'' --details ''The unchanged native resolver returns no
+    correspondence for NCBITaxon:971 encoded as Pseudoselenomonas ruminantium, and
+    its domain/hold-aware classifier explicitly returns UNRESOLVED with no candidates.
+    The status-only writer removes three old candidates not reproduced by this pinned
+    route and appends one native status event. This does not establish that GTDB lacks
+    the organism or disprove the former candidates''"''"'' biological applicability.
+    Preserve the source-preferred Selenomonas name, current ontology label, absent
+    exact stock designation, unselected Butyrivibrio ambiguity and Hominimerdicola
+    unresolved descriptor, all quotations and old history. M5''"''"''s local authority
+    confirms the current label/rank; the older local-host authority refusal remains
+    retained separately and no database was edited. Primary coverage is limited to
+    the inspected abstract: six screened strains, eleven modeled compatible communities,
+    pairwise enzymatic outcomes and the three-member consortium remain distinct. No
+    reciprocal organism fitness, directed metabolite transfer, 41-percent denominator,
+    exact study genome or full-paper scientific approval is inferred. Scientific role/source
+    issues, including1268, remain outside this bounded status correction. Crosswalk
+    release and whole-database content hash remain unverified; this technical checkpoint
+    does not complete corpus QC or scientific review. Actual apply receipt .temp/gtdb-native-null-275-20261115/applied-001/receipt.json
+    sha256:ee43dac03e22c5fae1e703361ccbc63882033235af242a5802ec861b5dc8718e.'''
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000275-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000275
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000275-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000275-schema
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-schema-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-strict
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-strict-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-gtdb
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-gtdb-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-domain
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-domain-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-scalars
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-scalars-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-history
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-history-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-new-history
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-new-history-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-terms
+  kind: validation
+  reference: .temp/gtdb-native-null-275-20261115/run-terms-001/native.log
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000275-primary
+  kind: primary_source
+  reference: https://doi.org/10.1021/acssynbio.6c00072
+  locator: Retained anonymous Europe PMC response resultList.result[0].abstractText,
+    with exact DOI/PMID and retrieval receipt in source.inputs
+  support: supports
+  summary: The primary abstract names Selenomonas ruminantium with Butyrivibrio fibrisolvens
+    and Ruminococcus albus in the focal rumen consortium. It distinguishes modeled
+    compatibility from measured pairwise enzyme outcomes. This bounded source supplies
+    no exact stock identifier or demonstrated directed exchange.
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+- evidence_id: 000275-native
+  kind: database
+  reference: reports/gtdb-native-null-275-20261115/rumen275-source-evidence-001.json
+  locator: Selected taxonomy[1] occurrence, ncbi_identity_rows, lookup_indexes, native_result
+    and classify_status; exact crosswalk/resolver capture
+  support: supports
+  summary: M5's local authority verifies971 Pseudoselenomonas ruminantium at species
+    rank. The unchanged native resolver yields null and the domain/hold-aware classifier
+    yields UNRESOLVED with no candidates. No stored block or manual hold exists on
+    this descriptor; the three old alternatives are not reproduced by the pinned route.
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+- evidence_id: 000275-application
+  kind: record_content
+  reference: .temp/gtdb-native-null-275-20261115/applied-001/receipt.json
+  locator: Actual M5 execution_revision, before/after hashes, native_operations, source
+    proof and reviewed stage receipt
+  support: supports
+  summary: Actual guarded status-only execution at2b6e5ec2 persists f9ad8603 to d490ca30.
+    native_operations is exactly --apply-status. Only one status/options projection
+    and one native inline event change; canonical ontology/source identities, the
+    other two taxa, biological content and prior history remain preserved.
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+- evidence_id: 000275-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  locator: Preserved275 decisions and current batch8 biological predicates; source-context
+    plan and historical guard
+  support: context_only
+  summary: The historical record separates enzyme synergy from mutualism and retains
+    unresolved role/source limits. This status correction does not revise the ledger,
+    certify those scientific claims or remove the calcium393 composite protection
+    in the shared caller.
+  accessed_at: '2026-11-15T11:10:08.436558Z'
+assessments:
+- assessment_id: 000275-source-boundaries
+  area: grounding
+  topic: Source-preferred names and current ontology identity remain distinct
+  outcome: supported
+  target_ids:
+  - CommunityMech:000275
+  evidence_ids:
+  - 000275-primary
+  - 000275-native
+  - 000275-terms
+  summary: The retained source names Selenomonas ruminantium, while the verified M5
+    ontology label is Pseudoselenomonas ruminantium for971. Preserve both without
+    inventing a strain or exact genome. Abstract-level evidence does not resolve partner
+    fitness, the 41-percent denominator or directed metabolite transfer.
+- assessment_id: 000275-native-null
+  area: grounding
+  topic: Bounded unresolved native route, with no inferred biological absence
+  outcome: supported
+  target_ids:
+  - CommunityMech:000275
+  evidence_ids:
+  - 000275-native
+  - 000275-gtdb
+  - 000275-domain
+  summary: The stored status and options now agree with the unchanged native null
+    lookup and explicit UNRESOLVED classifier. Withdrawal of the three stale options
+    asserts only nonreproduction by these pinned inputs. No reference population,
+    manual exception, synonym rollback or claim of absent GTDB biology is introduced.
+- assessment_id: 000275-persistence
+  area: provenance
+  topic: Actual status-only persistence and technical checks preserve science
+  outcome: supported
+  target_ids:
+  - CommunityMech:000275
+  evidence_ids:
+  - 000275-application
+  - 000275-schema
+  - 000275-strict
+  - 000275-scalars
+  - 000275-new-history
+  - 000275-history
+  - 000275-prior
+  summary: The independently reviewed candidate was applied on M5, with one native
+    inline event and a separately verified sidecar. All eight scoped commands passed
+    against the final bytes and retained their actual logs and input hashes. Scientific
+    findings, full reference checks, strict successor integration and aggregate QC
+    remain separate requirements.
+findings: []
+actions: []
+limitations:
+- Partial diagnostic with scientific_review:false. Passing these validators does not
+  complete full corpus QC, reference-snippet comparison, whole-record scientific review
+  or the all-record campaign.
+- Primary coverage is the complete retained Europe PMC abstract, plus the whole canonical
+  record and historical guard. Full Methods, figures, supplements and exact-stock
+  genomes were not inspected. The response's absent PMCID and isOpenAccess=N do not
+  prove that no legal full text exists elsewhere.
+- The source uses Selenomonas ruminantium, while M5's local NCBI authority verifies
+  the encoded Pseudoselenomonas ruminantium label and species rank for971. No ontology
+  rollback or stock substitution is made. The older local-host authority refused this
+  label during preparation; that failed receipt remains retained separately and no
+  database was edited.
+- native_result:null and classify_status UNRESOLVED with no candidates describe this
+  exact pinned native lookup. They do not establish that GTDB lacks the organism,
+  prove the former candidates biologically incorrect, or supply a genome count, membership
+  probability or experimental stock identity. NO_GTDB_EQUIVALENT and manual hold cases
+  remain outside this guarded path.
+- The source abstract distinguishes six screened strains, eleven modeled compatible
+  communities, pairwise enzymatic validation and the focal three-member consortium.
+  The 41-percent endoglucanase denominator, reciprocal organism fitness and directed
+  metabolite transfer remain unresolved by that abstract. Two biological nodes, zero
+  downstream arrows, source quotations and the open discussion remain unchanged; scientific
+  findings including issue1268 are retained.
+- The unselected Butyrivibrio descriptor keeps its three ambiguity alternatives and
+  Hominimerdicola alba remains unresolved. The selected971 descriptor had no stored
+  GTDB block or manual exception to remove. Only its status/options and one actual
+  native status event change; the native log's three processed taxa are not three
+  changed taxa.
+- The crosswalk SHA256 identifies exact bytes, not its upstream release. File naming,
+  mtime and legacy mapping-source prose do not certify release chronology. The local
+  NCBI database observation records label/rank and file-stat provenance rather than
+  a full database content hash.
+- Strict historical successor admission, generated products and combined QC require
+  separate evidence. Batch8 must retain its accepted calcium393 composite path and
+  all current biological predicates while admitting only the exact status-only successor
+  for275. Earlier saved reviews and ledgers remain immutable.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2888
+- https://github.com/CultureBotAI/CommunityMech/issues/1268
+- https://github.com/CultureBotAI/CommunityMech/pull/2890
+- https://github.com/CultureBotAI/CommunityMech/pull/2804
+```
