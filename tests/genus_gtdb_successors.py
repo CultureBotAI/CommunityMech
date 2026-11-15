@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/phage-pair-468-001-successor.json",
+            "sha256": "55b3a3c004f09cf2820303e14c8fb8b3419502d38d770e6e17ab4e868c2c8973",
+        },
+    },
     "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": {
         "baseline_revision": BASE,
         "manifest": {
