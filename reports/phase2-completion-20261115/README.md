@@ -32,6 +32,23 @@ copied to M5: all 403 files and 64,961,689 bytes were verified, including the
 manifest and verifier. Its earlier gut review was preserved as approved; the
 newer gut successor was not silently substituted.
 
+Six separately executed native stages now pass at the same frozen `c9e151eb`:
+community/isolate schema validation (549 records), reusable-taxon validation
+(2 records), strict validation (549 records, zero errors), GTDB coherence
+(551 files, zero issues), scalar checks (551 files) and idiomatic scalar checks
+(1,140 files), both with zero truncations. Their actual canaries and complete
+log/exit/receipt triplets are retained under `technical-evidence/`. Ontology-term
+checks and the new measured reference sweep remain in progress or pending at
+this checkpoint. These separate results do not change the failed aggregate.
+
+The [isolated M5 product canary and full batch](../product-labels-20261115/README.md)
+both passed at `f4715488`: 1,538 KGX nodes, 2,535 edges and zero structural or
+label errors. The label gate recorded 11,395 canonical matches, four synonyms,
+five configured exceptions and 1,112 non-adapter skips. All products and logs
+were verified against the retained M5 evidence. The earlier local missing-UO
+skip and failed ontology-snapshot comparison remain separately recorded under
+#2852.
+
 ## Scope and acceptance
 
 The recovered Phase 2 scope covers the host/soil/related-community work in
