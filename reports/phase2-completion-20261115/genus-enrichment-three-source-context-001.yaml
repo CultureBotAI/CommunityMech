@@ -1,0 +1,118 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 7004f1e2e14148c1c199040ccd6b5c1929eff2e0
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical routes are expectations, not fresh authority observations. Bind all record inputs and fresh native results before staging.
+records:
+  - id: CommunityMech:000353
+    path: kb/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml
+    before_sha256: 123c3e9e5a107b28346350c70a739cda2a27079917779f2d91d4797157c5f5af
+    primary_source:
+      reference: PMID:42029028
+      url: https://doi.org/10.1128/aem.00308-26
+      retained_path: references_cache/PMID_42029028.txt
+      retained_sha256: 47cde42470db1b13f2cf75cf5f3131dda202cc1ce1dd9b736ee9789dc4fe6937
+      locator: PMC13188906 retained Methods lines 109/117, Metagenomics results line 117 and Discussion line 123.
+      coverage: Selected retained main-text sections read. Fresh PubMed returned no usable article body; no new supplementary sequence/table or figure audit.
+      exact_short_quote: affiliation of MAG003 to Desulfosporosinus sp. and MAG013 to Acididesulfobacillus sp.
+      judgment: >-
+        The day-160 enrichment metagenome yielded MAG003 and MAG013 with these
+        genus assignments. MAG013's reported 96% ANI to sp001029295 is a
+        separate study result, not permission to assign that species or an
+        exact reference assembly. Both MAGs encode glycerol-to-acetate
+        potential. Reinoculation on days 32 and 86 and differences among
+        amplicon, classified-read and genome observations constrain the
+        proposed succession and carbon-transfer interpretation.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:79206', label: Desulfosporosinus}
+        stock: MAG003
+        historical_expected: {gtdb_id: 'GTDB:g__Desulfosporosinus', support_genomes: 32, total_genomes: 32, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:2924872', label: Acididesulfobacillus}
+        stock: MAG013
+        historical_expected: {gtdb_id: 'GTDB:g__Acididesulfobacillus', support_genomes: 3, total_genomes: 3, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the two distinct MAG descriptors and their genus-level authority; the enrichment contains additional taxa and is not a defined two-isolate culture.
+      - Preserve all abundance denominators and stage-specific observations; reference-genome support counts are not study abundance or independent experimental replicates.
+      - Preserve PARTIAL carbon-flux descriptions, remaining acetate, unresolved minor acidogens and reinoculation/pH limitations; both MAGs have glycerol-to-acetate potential.
+      - Preserve the paper's GTDB R09-RS220/GTDB-Tk v2.3.2 statements as study provenance, separately from current crosswalk correspondence. Do not infer a current exact-study assembly match.
+    historical_guard:
+      path: tests/test_causal_review_batch52.py
+      ledger: reports/causal_graph_review/decisions/20261006-urls-amd-proteome-batch52.yaml
+      note: Strict predecessor admission must retain exact hash/old last llm_assisted assertions while preserving all current biological predicates, source hashes and the historical needs_research disposition. Other two records remain unchanged.
+  - id: CommunityMech:000440
+    path: kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml
+    before_sha256: 6d55992d0ce9ba8a4398c071862cc167ca334085174ed5c7f04aed80829588c2
+    primary_source:
+      reference: PMID:38865893
+      url: https://pubmed.ncbi.nlm.nih.gov/38865893/
+      retained_path: references_cache/PMID_38865893.txt
+      retained_sha256: e801f5d665ea8d807869572afb4ac348fa92b31d007b7819fd9c79b38723300b
+      locator: Retained abstract lines 31-56, especially the non-electrostimulated syntrophy sentence; fresh PubMed Abstract independently agrees.
+      coverage: Abstract and publication metadata only; no full-text methods, reference-electrode configuration or MAG assembly audit.
+      exact_short_quote: Methanosarcina spp. (or Methanothrix sp.)
+      judgment: >-
+        These are alternative proposed acetoclastic partners of MAG116 in the
+        non-electrostimulated microbiota. The source also offers e-pili or
+        acetate as alternative routes. A genus-reference correspondence must
+        not turn either alternative into a confirmed partner, named stock or
+        measured electron-transfer mechanism. The 800 mV treatment and
+        electrode-associated MAG hypotheses are a distinct condition.
+    proposed_occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:2207', label: Methanosarcina}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Methanosarcina', support_genomes: 301, total_genomes: 301, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:2222', label: Methanothrix}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Methanothrix', support_genomes: 94, total_genomes: 117, majority_fraction: 0.803, via: ncbi_rank_g, n_alt: 3}
+    preservation_contract:
+      - Preserve absent formal stock names, six taxonomy entries and all unselected status/mapping blocks, including unclassified Desulfoprunum and existing bacterial-domain assignments.
+      - Preserve Methanosarcina OR Methanothrix and e-pili OR acetate; no new species, exact MAG assignment or direct electron-flow assertion.
+      - Preserve HYPOTHESIZED graph scope, distinct anode/cathode MAG labels, treatment/control boundaries and missing full-text operating conditions.
+      - Methanothrix 94/117 spans three reference genera; the rounded 0.803 correspondence is not unanimity.
+    historical_guard:
+      path: tests/test_causal_review_batch37.py
+      ledger: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+      note: Preserve all current route/direction/MAG predicates and exact source hashes. Add explicit strict predecessor admission for this record's current hash/old last llm_assisted assertion without altering the separate 000455 successor chain.
+  - id: CommunityMech:000447
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    before_sha256: 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c
+    primary_source:
+      reference: PMID:42323145
+      url: https://doi.org/10.1016/j.biortech.2026.135206
+      retained_path: references_cache/PMID_42323145.txt
+      retained_sha256: dae56a2cb0f7223e87c5c6069c6437f02cfb7a7dc09c09135c30273626dfb018
+      locator: Complete retained abstract lines 18-41 and publication metadata.
+      coverage: Abstract only. Fresh PubMed returned no usable article body; full-text reactor settings, species/MAG identities and model reconstruction remain unread.
+      exact_short_quote: multispecies Ca. Brocadia assemblage
+      judgment: >-
+        The source contrasts early Kuenenia acclimation with later Brocadia
+        dominance in a low-nitrogen biofilter. Brocadia represents multiple
+        unresolved species, not one named strain. Transcript measurements and
+        model-inferred complementarity provide different evidence; neither
+        establishes exact interspecies metabolite flux or a two-stock SynCom.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:380240', label: Candidatus Brocadia}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Brocadia', support_genomes: 39, total_genomes: 39, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:380738', label: Candidatus Kuenenia}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Kuenenia', support_genomes: 4, total_genomes: 4, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve genus-rank Candidatus names, absent stocks, unresolved Brocadia membership, the single computational interaction and SMETANA provenance.
+      - Preserve 44.7 percent relative abundance, 71.5 percent transcriptional contribution and 68 percent positive associations as different measures; none is reference-genome support.
+      - Preserve low/high-nitrogen model comparison, temporal succession, model-inferred auxotrophy and missing reactor/assembly information; do not claim measured exchange.
+    historical_guard:
+      path: tests/test_causal_review_batch8.py
+      ledger: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+      note: Current hash is the recorded stage5 successor of original 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96. Batch8 checks the old unchanged ledger entry but no direct current hash or last-event predicate for447. Ignore-independent tests search found participant fixture plus shared-ledger references in105/123 applying to other records. Preserve those contracts and require explicit current-baseline strict proof; absence of a direct current guard is not permission for broader edits.
+completion_limit: Six genus occurrences in three whole records only. Source preparation permits no canonical write or full scientific clearance. Fresh binding, exact candidate review, guarded M5 application, native commands/history, saved partial review, complete checkpoint and strict admission remain required.

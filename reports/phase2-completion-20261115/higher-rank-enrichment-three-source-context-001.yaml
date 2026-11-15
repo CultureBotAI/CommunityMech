@@ -1,0 +1,131 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 7004f1e2e14148c1c199040ccd6b5c1929eff2e0
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Fresh native results and record/input bindings remain required. The historical genus lane includes a family-rank occurrence in475.
+records:
+  - id: CommunityMech:000433
+    path: kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml
+    before_sha256: 61a0b16fc00db138fa35884e8f9f170bda3b2cc9092008a9d5098b3600ad920a
+    primary_source:
+      reference: PMID:41457319
+      url: https://doi.org/10.1128/aem.01984-25
+      retained_path: references_cache/PMID_41457319.txt
+      retained_sha256: 904d315f9949e5ef5780954efbfad8bb6f542e6cd5e291248b83eb0eec9c2e8e
+      locator: PMC12838200 retained Results, inoculum MAG profiles and Legionella phylogenetic/virulence analysis, flattened line84; abstract lines18-32.
+      coverage: Selected retained main-text paragraphs. Fresh DOI request was inaccessible; no supplementary genome table, sequence or virulence reanalysis.
+      exact_short_quote: classified to the genus Nitrosospira
+      judgment: >-
+        The starting material yielded 64 MAGs; three descriptor entries do not
+        define a three-strain inoculum. Nitrosospira and Nitrobacter have
+        reported genus-level MAG identities, while the Legionella descriptor
+        spans distinct recovered MAGs. Relationships to named reference
+        species and secretion-system gene content do not establish those
+        species identities or experimental pathogenicity.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:35798', label: Nitrosospira}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Nitrosospira', support_genomes: 16, total_genomes: 16, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:911', label: Nitrobacter}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Nitrobacter', support_genomes: 17, total_genomes: 17, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:445', label: Legionella}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Legionella', support_genomes: 5067, total_genomes: 5375, majority_fraction: 0.943, via: ncbi_rank_g, n_alt: 7}
+    preservation_contract:
+      - Preserve MAG labels in notes and absent formal stock designations; no named species, exact assembly or virulence assignment.
+      - Preserve the separate starting-material 45.96/9.73-percent abundances and experimental time courses; database support counts do not describe the starting community.
+      - Preserve the PARTIAL guild-handoff graph and aerobic versus anoxic behavior, including ammonia accumulation under anoxia and delayed aerobic removal.
+      - Preserve source aliases/shared YAML anchors and all culture, redox, gene-expression and risk limitations. Legionella 5067/5375 spans seven reference genera.
+    historical_guard:
+      path: tests/test_causal_review_batch78.py
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml
+      note: Exact current hash and last historical llm_assisted predicate need strict predecessor admission. Preserve all current science/cache predicates, historical needs_research, and the unrelated000176 c2s5 successor chain.
+  - id: CommunityMech:000474
+    path: kb/communities/Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium.yaml
+    before_sha256: afddcb4da0903a9eb3ba3859641c9cbb60e3b90742bc6bc7a928e38da1c86885
+    primary_source:
+      reference: PMID:42297039
+      url: https://doi.org/10.1093/ismejo/wrag151
+      retained_path: references_cache/PMID_42297039.txt
+      retained_sha256: 5c1f67ef420c1aff46bc86678763c725f728a20688c094a776373a8a214e8989
+      locator: PMC13374861 Methods isolation, partial16S and coculture lines79-85; Results cultured isolates and coculture lines141-143.
+      coverage: Selected retained main-text paragraphs. Fresh publisher request was inaccessible; no whole-image, supplement or accession-to-stock verification.
+      exact_short_quote: Vallitalea sp. (sp2) and Trichloromonas sp. (sp17)
+      judgment: >-
+        The paper distinguishes a whale-fall sediment enrichment from a
+        reconstructed coculture of two isolates. The source provides sp2/sp17
+        designations, whereas the canonical fields omit them; issue2872 owns
+        that separate completeness correction. Current genus correspondence
+        can be assessed without assigning a species or exact study genome.
+        Partial 16S accessions are not genome assemblies.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1348611', label: Vallitalea}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Vallitalea', support_genomes: 14, total_genomes: 16, majority_fraction: 0.875, via: ncbi_rank_g, n_alt: 2}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:3031666', label: Trichloromonas}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Trichloromonas', support_genomes: 8, total_genomes: 8, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve canonical genus descriptors and absent formal stock fields during the bounded mapping correction; retain issue2872 rather than silently inserting sp2/sp17 or an accession assignment.
+      - Keep sediment enrichment, defined isolate coculture and separate substrate/current assays distinct. The initial acetate amendment is not chitin-derived partner flux.
+      - Preserve existing graph/source/history without certifying reciprocal benefit or every mechanism; this partial mapping review does not replace scientific assessment.
+      - Vallitalea 14/16 spans two reference genera; neither its majority nor Trichloromonas8/8 establishes a study-stock species or genome.
+    retained_findings:
+      - https://github.com/CultureBotAI/CommunityMech/issues/2872
+    historical_guard:
+      path: tests/test_causal_review_batch133.py
+      ledger: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+      note: Preserve exact old hash, CURATE_CAUSAL_GRAPH and llm_assisted predicates by strict predecessor admission, alongside unchanged current topology/snippet predicates. Coordinate explicit allowances with475/477/482 and other independently owned batch133 records.
+  - id: CommunityMech:000475
+    path: kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml
+    before_sha256: aa71bf0755e21633808d22d5e88a4da0fcb79f3a2c4f84b8037a2065155e1518
+    primary_source:
+      reference: PMID:41980960
+      url: https://doi.org/10.1038/s41467-026-71433-9
+      retained_path: references_cache/PMID_41980960.txt
+      retained_sha256: d14f05c6e4269f5bc044cda18faf1f7d05e5392af4473e0df08a45269ed5ed6b
+      locator: PMC13079720 retained lineage context lines21/27/31, cellular activity49-59, and alternative SRB mechanism109-115; existing full review's family/lineage assessments.
+      coverage: Selected retained main-text sections and saved prior assessment, not a new full scientific review. Fresh Nature request was inaccessible; prior source images/workbooks were not re-inspected here.
+      exact_short_quote: Ca . Methanomarinus (ANME-2b)
+      judgment: >-
+        The natural sediment community includes ANME-2b and other ANME
+        populations, with syntrophic SRB. Its maintained archaeal anchor is
+        a family, not the narrower genus named in the paper. The existing
+        full review separately accepted that broad authority identity and
+        found an available family correspondence. This correction must retain
+        that family rank and all unresolved scientific findings.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:3386223', label: Candidatus Methanocomedenaceae}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:f__Methanocomedenaceae', support_genomes: 2, total_genomes: 2, majority_fraction: 1.0, via: ncbi_rank_f, n_alt: 1}
+    preservation_contract:
+      - Require fresh family-rank authority and native ncbi_rank_f result; do not reuse a genus-rank assumption because the historical assignment lane is named genus.
+      - Preserve the existing bacterial phylum mapping, broad taxonomic anchors and absent stock fields. Two reference genomes do not identify the focal ANME-2b assembly or all family members.
+      - Preserve unresolved role and mechanistic-chain findings. Direct SRB CO oxidation remains possible; sulfate-free archaeal methanogenesis and sulfate-associated joint activity are separate conditions.
+      - Preserve culture/resource omissions as separate findings; no generic mapping pass closes the full scientific review or establishes direct electron transfer/maintenance causation.
+    prior_review:
+      path: reviews/structured/20261021T235431Z-cold-seep-co-consortium-record-review/review.yaml
+      sha256: c57635b2700c772e118e54cd05e0ee2862c5b6b907c84e4f511f493b94611207
+      selectors: family/lineage assessments and resolve-family-gtdb finding; other findings remain unresolved
+    retained_findings:
+      - https://github.com/CultureBotAI/CommunityMech/issues/2595
+      - https://github.com/CultureBotAI/CommunityMech/issues/2596
+      - https://github.com/CultureBotAI/CommunityMech/issues/2597
+      - https://github.com/CultureBotAI/CommunityMech/issues/2598
+      - https://github.com/CultureBotAI/CommunityMech/issues/2599
+    historical_guard:
+      path: tests/test_causal_review_batch133.py
+      ledger: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+      note: Preserve old hash, CURATE_CAUSAL_GRAPH and llm_assisted predicates via exact predecessor admission while enforcing unchanged current topology/snippet checks. The old graph guard is historical evidence, not a resolution of the later full-review findings.
+completion_limit: Five genus occurrences and one family occurrence in three whole records. Fresh binding, candidate review, guarded M5 execution, native validation/history, immutable partial assessment, complete checkpoint and strict admission remain required. No canonical write or scientific clearance is granted by this plan.
