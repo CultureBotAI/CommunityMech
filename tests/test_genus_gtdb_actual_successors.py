@@ -13,6 +13,8 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "352": "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+    "423": "kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml",
     "443": "kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml",
     "466": "kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml",
     "382": "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",

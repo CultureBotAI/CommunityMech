@@ -9,6 +9,20 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-genia-hambi-mwf-20261115/genia352-001-successor.json",
+            "sha256": "0ab370d3b4df877f788efe9454b2b9eccbff88915568d5715563b2ca2d35e2bd",
+        },
+    },
+    "kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-genia-hambi-mwf-20261115/hambi423-001-successor.json",
+            "sha256": "f80d3d90faad0c4b175bbe4816c9e527083704bc16fe184319565e446802499e",
+        },
+    },
     "kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml": {
         "baseline_revision": BASE,
         "manifest": {
