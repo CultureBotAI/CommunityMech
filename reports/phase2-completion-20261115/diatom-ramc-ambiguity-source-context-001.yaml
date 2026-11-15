@@ -1,0 +1,139 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+date: '2026-11-15'
+source_revision: ed77a05a60f19f4f8116147a2c3bcb7d237de013
+inspection:
+  path: reports/phase2-completion-20261115/diatom-ramc-source-inspection-001.json
+  sha256: 428febf13620c374ea3906d083283fc7e1239292cdb61cb1b976a79ef7ec7583
+  inputs: 9
+  result: Native inspection captured both current records, retained sources, historical ledgers, complete actual callers and the assignment ledger.
+scope: >-
+  Prepare two independent whole-record mapping corrections. Both full current
+  records and actual callers were read. Source coverage is the retained abstract
+  and bounded primary Methods, Results and limitation passages below, not a new
+  full scientific review. Historical routes must be reproduced by a fresh native
+  report before any candidate is staged. No application or QC pass is claimed.
+shared_boundaries:
+  - Preserve every unselected taxonomy block, stock, note, quote, biological field and old history event.
+  - Use the unchanged native route, binder and status-only engine; do not infer a selected study-stock genome from a species-name correspondence.
+  - Review the exact candidate, apply guarded on M5 and verify eight native commands and append-only history.
+  - Save a partial diagnostic with scientific_review:false and verify all checkpoint inputs before adapting historical callers.
+  - Preserve immutable ledgers; admit only explicit completed strict successor proofs while retaining biological predicates.
+records:
+  - record_id: CommunityMech:000446
+    path: kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml
+    before_sha256: c3b29dc71d33c53774afd1181099ef90ade79efb42a0e8ff0b55e9ea3bfffc10
+    operations: status-only
+    occurrence:
+      selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:668', label: Aliivibrio fischeri}
+      stock: MCCC 1H00019
+      historical_route: ncbi_name
+      historical_expected_status: AMBIGUOUS
+      historical_expected_candidates:
+        - GTDB:s__Aliivibrio_fischeri
+        - GTDB:s__Aliivibrio_fischeri_B
+        - GTDB:s__Vibrio_harveyi
+    primary:
+      reference: PMID:42668638
+      url: https://doi.org/10.1016/j.isci.2026.117307
+      retained_path: references_cache/PMID_42668638.txt
+      retained_sha256: e03ff54148e46509bacd297bfff750255a4c2e029f63dbafe76168fab02bb63f
+      primary_locators:
+        - Results, Discussion and Limitations, retained line 60; physiological versus transcriptomic controls and modeled flux.
+        - Key resources table, retained line 63; Experimental model and culture Methods, line 64.
+        - Data availability, retained lines 61 and 67; RNA-seq BioProjects.
+      exact_short_quote: Aliivibrio fischeri MCCC 1H00019
+      judgment: >-
+        The primary study names the exact collection stock and its diatom partner
+        CCAP 1055/1. These identifiers and the RNA-seq BioProjects do not establish
+        a bacterial assembly placement among the three historical alternatives.
+        Retain every native alternative, including Vibrio harveyi, if reproduced;
+        its unexpected name is not grounds for choosing or deleting a candidate.
+      coverage: Abstract and listed bounded main-text passages; no new supplementary, raw-data or figure-pixel assessment.
+    preserve:
+      - The eukaryotic diatom's NO_GTDB_EQUIVALENT status, both collection stocks and initial cell-density distinction.
+      - EASW with 30% marine broth, 20 degrees C, 100 micromol photons per square meter per second, 200 rpm and 12-hour light/dark cycles.
+      - The surface-attachment node and HYPOTHESIZED community competition node with PARTIAL evidence; no new arrows, traced nutrient transfer or identified EPS mechanism.
+      - Matched day-8 axenic physiological controls exist, while the day-8 axenic transcriptomic control is absent.
+      - Late negative physiology does not prove amino-acid depletion as its cause; diel expression under imposed light/dark cycles does not establish an endogenous clock defect.
+      - The plus81/minus87 percent biomass flux changes are transcript-constrained model outputs, not measured intracellular or interspecies flux.
+      - EPS decline has unresolved synthesis, dilution and catabolism explanations; source-specific discussion and needs_research status remain.
+      - The old pending-crosswalk note is historical; this mapping-only operation does not rewrite notes or claim whole-record endorsement.
+    retained_owners:
+      - issue: https://github.com/CultureBotAI/CommunityMech/issues/1698
+        state_observed: OPEN
+        scope: Missing physiological and diel-response graph structure with unresolved mediation; no paid research authorized here.
+      - issue: https://github.com/CultureBotAI/CommunityMech/issues/1701
+        state_observed: OPEN
+        scope: Multi-record non-graph issue includes the diatom gene-count field's unmatched transcriptomic ages; no other record is retired.
+    historical_guard:
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml
+      ledger_sha256: 944e494bb79234154a6a174cad642894bdbee78c8da22a7295305fa257c413ec
+      caller: tests/test_causal_review_batch84.py
+      caller_sha256: 997612cca197c204f746e3f2cdfdc7ca78eef8450d350b14aa68d6378077034e
+      boundary: >-
+        Preserve the exact prior hash and historical last LLM event through an
+        explicit strict proof only for 446. Keep the existing 053 species proof,
+        054 batch132 identity chain and every current biology/graph predicate.
+  - record_id: CommunityMech:000412
+    path: kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml
+    before_sha256: 583655d32e85bb7a2786ba99f814f00b83dde9a5dca8e3d3b6d0b4f38ab28d46
+    operations: status-only
+    occurrence:
+      selector: taxonomy[0].taxon_term
+      descriptor: {id: 'NCBITaxon:132919', label: Rhodococcus jostii}
+      stock: PET
+      historical_route: ncbi_name
+      historical_expected_status: AMBIGUOUS
+      historical_expected_candidates:
+        - GTDB:s__Rhodococcus_jostii
+        - GTDB:s__Rhodococcus_jostii_A
+    primary:
+      reference: PMID:41381587
+      url: https://doi.org/10.1038/s41467-025-67409-w
+      retained_path: references_cache/PMID_41381587.txt
+      retained_sha256: 22b647f41a2c4121d372997b605124a847299d0ddafd289e214fbde1858437cc
+      primary_locators:
+        - Retained exact source excerpts, lines 78-106; strain provenance and inoculation ratios.
+        - Full main text, retained line 150; Bacterial strains Methods, mixed-oxygenate Results and Discussion succinate limitation.
+        - Figure 5 caption text and derivative construction, retained line 150; no new figure-pixel review.
+      exact_short_quote: The wild type (WT) Rhodococcus jostii strain PET (RPET) was from our in-house strain collection
+      judgment: >-
+        The source's PET stock is also called RPET or SR; it is paired with
+        Acinetobacter baylyi ADP1, ATCC 33305. A species-name correspondence does
+        not identify the PET stock's GTDB genome placement. Wild-type RAMC and
+        the engineered SR-P/SA-P RAMC-P product consortium remain distinct.
+      coverage: Abstract and selected source excerpts, Methods, Results and Discussion; no new supplementary or raw-data assessment.
+    preserve:
+      - ADP1's existing 28-reference-genome correspondence at fraction0.96, its ATCC33305 stock and all unselected taxonomy.
+      - PET as a bacterial stock name, distinct from polyethylene terephthalate feedstock; RPET/SR and engineered SR-P identities stay separate.
+      - One community NICHE_PARTITIONING node, complementary aromatic/aliphatic oxygenate use and no succinate donor-recipient arrow.
+      - Chemically deconstructed mixed-plastic oxygenates, distinct from direct biological depolymerization of intact plastics.
+      - Synthetic versus real deconstruction media, total-carbon concentrations of125-750mM and the tested9:1 to1:9 inoculation ratios; total-carbon mM is not molecule mM.
+      - RAMC-P lycopene/lipid outcomes and its engineered SR-P/SA-P strains; do not transfer product phenotypes to wild-type RAMC.
+      - The OPEN ramc_succinate_node_cross_feeding discussion; the authors propose multi-omics or isotope tracing rather than report demonstrated transfer.
+      - The historical unavailable-crosswalk note, existing source limitations and all old history remain unchanged in this mapping-only operation.
+    retained_owners:
+      - local_discussion: ramc_succinate_node_cross_feeding
+        state_observed: OPEN
+        scope: Existing unresolved mechanistic question in the current record, not resolved by the mapping plan.
+    related_issue_boundary: >-
+      Live issue1753 is OPEN but names057/388/371, not412. Preserve it and the
+      other batch93 records without falsely treating it as the RAMC finding owner.
+    historical_guard:
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml
+      ledger_sha256: 500c0c50004d7468d58773f647750f745900bfa6463bcd8622ef2e8093ed7651
+      caller: tests/test_causal_review_batch93.py
+      caller_sha256: d1a08c05d59cd6ba52c215aaf29ebad1dd9ab07a7ff8e2471da480f32ca67c3f
+      boundary: >-
+        The old RAMC row deliberately records an unchanged record and zero new
+        history events. Keep that ledger and its predecessor predicates immutable;
+        add narrow completed-proof routing for412 while preserving388's existing
+        species proof and every Rammelsberg, BDE47 and PPOW predicate. Historical
+        graph-reviewed status is not new scientific approval of the whole record.
+limits:
+  - Issue states were read live on2026-11-15; no issue closed and no scientific disposition changed.
+  - Native route reproduction, source support, reference validation and full technical QC remain separate requirements.
+  - No canonical record, source cache, historical ledger, shared engine or native policy changed during preparation.
