@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-mixed-384-001-successor.json",
+            "sha256": "bd8fd08c99cf2bf97298e93cc67719d4bdabd6266fb4e995f6e563878a55ad8e",
+        },
+    },
     "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml": {
         "baseline_revision": BASE,
         "manifest": {
