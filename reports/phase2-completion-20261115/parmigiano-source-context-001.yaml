@@ -1,0 +1,52 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 8a8b070d3ea9257d47af9fbcd9d6c71ce99ea273
+source:
+  reference: PMID:41859451
+  url: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1755652/full
+  retained_path: references_cache/PMID_41859451.txt
+  retained_sha256: 62b46626615a79a242905b07b4104da5153ab5f60a0ebb43b2c61a68e8e8f939
+  locators: [Methods 2.1, Methods 2.7, Results 3.7, Figure 7 caption, Data availability]
+  inspected_at: '2026-11-15'
+  inspection: Retained PMC12996222 main text and current publisher main text; no new supplement or genome assessment.
+source_judgment: >-
+  The paper names the six NWS isolates and the three combinations below.
+  Type strains used for identification are distinct from experimental stocks.
+  Milk experiments used 1:1:1 tricultures at constant total inoculum, 42 degrees C
+  and 160 hours. PRJNA1367500 contains metataxonomic profile data; this accession
+  does not establish an exact-stock assembly or GTDB genome identity.
+records:
+  - record_id: CommunityMech:000517
+    path: kb/communities/Parmigiano_NWS_Set1_LAB_Triculture.yaml
+    before_sha256: 4e7b3ede948c94c55e73ea88c428e23368af66a92642940ef89f4d95157af74e
+    source_set: 1
+    stocks: {helveticus: C001.15, thermophilus: RBC06, delbrueckii_lactis: T1104}
+    active_guard: tests/test_causal_review_batch141.py
+  - record_id: CommunityMech:000431
+    path: kb/communities/Parmigiano_NWS_Set2_LAB_Triculture.yaml
+    before_sha256: 1ca3e250bbd757768243c691712d2139c54a2da4e59570360417188516bb4b2c
+    source_set: 2
+    stocks: {helveticus: LBB04, thermophilus: C001.27, delbrueckii_lactis: C5I3}
+    active_guard: tests/test_causal_review_batch82.py
+  - record_id: CommunityMech:000522
+    path: kb/communities/Parmigiano_NWS_Set3_LAB_Triculture.yaml
+    before_sha256: 178f803afb7a8bef72f1f34a3eabefc751cc4095c11b6b28d1bf736ee7af6749
+    source_set: 3
+    stocks: {helveticus: C001.15, thermophilus: RBC06, delbrueckii_lactis: C5I3}
+    active_guard: tests/test_causal_review_batch142.py
+proposed_occurrences:
+  - selector: taxonomy[0].taxon_term
+    descriptor: {id: 'NCBITaxon:1587', label: Lactobacillus helveticus}
+    historical_expected: {gtdb_id: 'GTDB:s__Lactobacillus_helveticus', total_genomes: 378, majority_fraction: 1.0, via: ncbi_id}
+  - selector: taxonomy[2].taxon_term
+    descriptor: {id: 'NCBITaxon:29397', label: Lactobacillus delbrueckii subsp. lactis}
+    historical_expected: {gtdb_id: 'GTDB:s__Lactobacillus_delbrueckii', total_genomes: 37, majority_fraction: 1.0, via: ncbi_id}
+preservation_contract:
+  - The expected mappings are historical planning values, not fresh native proof or application approval.
+  - Retain the NCBI subspecies designation and each exact stock; a GTDB species block does not replace them.
+  - Preserve taxonomy[1] Streptococcus thermophilus and its existing 2093-genome, 0.99 block.
+  - Preserve all biological content, source quotations, measured comparisons and open molecular-mechanism discussions.
+  - Keep bulk lactate observations distinct from member-specific production or traced metabolite exchange.
+  - Each historical caller checks the last old curation event; use verified predecessor-history projection while retaining current biological assertions.
+  - Require fresh native source proof, independently reviewed candidate, actual guarded application, scoped checks and an immutable saved partial diagnostic before counting any record complete.

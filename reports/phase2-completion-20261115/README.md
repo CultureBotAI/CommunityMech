@@ -239,6 +239,13 @@ also preserves the completed A2-165 technical canary, independently verified
 isolate render. All three GTDB alternatives remain explicit; none is promoted
 to the study strain's identity. Full QC and scientific review remain separate.
 
+The [Salinicola integration at 8a8b070d](salinicola-integration-8a8b070d.md)
+adds an independently verified 84-input partial assessment, 106 passing combined
+controls, lint and a persisted native isolate render. Its genus correspondence
+preserves the study-stock and scientific limitations. The
+[Parmigiano source-context plan](parmigiano-source-context-001.yaml) prepares
+three further whole records; it records no application or completed assessment.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
