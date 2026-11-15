@@ -113,7 +113,11 @@ taxonomy:
     term:
       id: NCBITaxon:668
       label: Aliivibrio fischeri
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Aliivibrio_fischeri
+    - GTDB:s__Aliivibrio_fischeri_B
+    - GTDB:s__Vibrio_harveyi
     notes: >-
       Bioluminescent marine heterotrophic bacterium MCCC 1H00019 paired with
       P. tricornutum in the defined co-culture; GTDB grounding was left
@@ -349,6 +353,10 @@ curation_history:
   changes: 'Preserve surface attachment while bounding EPS identity and mediation.; Retain amino-acid competition
     as a hypothesis while preserving controlled negative physiology. Issue #1694; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T11:54:19Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: diatom-association-response-and-model-boundaries
   prompt: Which processes connect bacterial association to diatom physiological and diel responses?

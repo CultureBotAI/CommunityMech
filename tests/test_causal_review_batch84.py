@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
 from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -154,7 +155,13 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
     assert [d["query_chars"] for d in ledger["edison"]["dry_runs"]] == [11324, 18291, 8897]
     for row, doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        historical = doc
+        if row["id"] == "CommunityMech:000446":
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_status_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+            historical = yaml.safe_load(proof.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         expected_hash = row["record_sha256"]
         if row["id"] == "CommunityMech:000054":
             successor = yaml.safe_load(
@@ -171,7 +178,12 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
             assert successor["original_sha256"] == expected_hash
             assert successor["status"] == "needs_research"
             expected_hash = successor["record_sha256"]
+        current_proof = (
+            admit_status_successor(ROOT, row["path"], expected_hash)
+            if row["id"] == "CommunityMech:000446"
+            else admission(ROOT, row["path"], expected_hash)
+        )
         assert (
             hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
-            == admission(ROOT, row["path"], expected_hash).current_sha256
+            == current_proof.current_sha256
         )

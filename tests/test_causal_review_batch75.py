@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
 from source_note_gtdb_successors import MULBERRY, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -119,6 +120,13 @@ def test_record_hashes_and_only_changed_record_histories_match():
     assert sum(row["curation_events_added"] for row in rows) == 3
     for row, doc in zip(rows, docs, strict=True):
         expected = row["record_sha256"]
+        historical = doc
+        if row["id"] == "CommunityMech:000425":
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_status_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
         if row["path"] == MULBERRY:
             expected = admit_note_mapping_successor(ROOT, row["path"], expected).current_sha256
         if row["id"] == "CommunityMech:000274":
@@ -144,7 +152,7 @@ def test_record_hashes_and_only_changed_record_histories_match():
                 "discussions",
                 "ecological_interactions",
             ]
-            assert doc["curation_history"][-1]["llm_assisted"] is True
+            assert historical["curation_history"][-1]["llm_assisted"] is True
         else:
             assert row["allowed_changed_fields"] == []
         assert all((ROOT / p).exists() for p in row["history_files"])

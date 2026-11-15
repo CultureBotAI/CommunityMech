@@ -13,6 +13,10 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "425": "kb/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.yaml",
+    "460": "kb/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml",
+    "446": "kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml",
+    "412": "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
     "105": "kb/communities/Pepper_Phytophthora_SynCom5.yaml",
     "400": "kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml",
     "499": "kb/communities/Cyantraniliprole_Consortium_T2.yaml",
