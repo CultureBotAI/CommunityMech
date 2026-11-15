@@ -278,6 +278,16 @@ with the correct record identity. Twelve corrections are integrated, eight
 from the historical repair partition; final full QC and scientific completion
 remain separate requirements.
 
+The [fifteen-record integration at fcb237b9](fifteen-record-integration-fcb237b9.md)
+adds three completed M5 batches with twenty-two selected taxonomy occurrences,
+120 passing record-level commands and independently verified native saved pairs.
+Complete input checkpoints are verified on both machines. The composed tree
+passes 225 selected tests and native lint, retaining every historical biological
+guard and explicit successor proof. There are now 27 integrated corrections,
+including 23 of the historical 126-record partition. Source-note holds and further
+source plans are not counted as completed. Full M5 QC, final reference outcomes,
+product regeneration and the scientific campaign remain separate requirements.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)

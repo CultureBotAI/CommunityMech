@@ -1,0 +1,127 @@
+kind: source-context-plan
+date: '2026-11-15'
+scientific_review: false
+canonical_apply: false
+scope: >-
+  Five species-reference occurrences in two distinct wheat crown-rot experiments.
+  Preparation only: fresh native results, reviewed candidates, actual M5 writes,
+  native checks, saved partial assessments and verified successor proof remain required.
+crosswalk_sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+source_access: >-
+  Both DOI opens failed in the web tool on2026-11-15. Retained primary text was
+  read directly at the bounded roster, identification, preparation and experimental
+  context passages below. Existing open source-discrepancy issues1945 and1951
+  were read live. This is not a fresh complete-paper, figure or supplement audit.
+  Known discrepancies in the retained SMC cache remain explicit; cache presence
+  does not independently establish the current publisher version.
+records:
+- id: CommunityMech:000414
+  path: kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml
+  before_sha256: cf2ae08aab3fed7a94f5a0068db6d108baf734b22152547241ebe258f52d15ce
+  primary:
+    reference: PMID:41504167
+    doi: 10.1021/acs.jafc.5c11786
+    pmcid: PMC12833866
+    path: references_cache/PMID_41504167.txt
+    sha256: 09dbe7338cb653bdfec20d7103d2510e252b08f70b9166b38c193199e7e6e2fd
+    locators:
+    - Retained line19, identification and six strain names/deposit numbers.
+    - Retained line23, separate fungal/bacterial preparation and equal-volume assembly.
+    - Retained lines25/29, nonsterile-soil four-arm experiment and designed antagonist/growth/auxiliary roles.
+    - Retained lines37/51/53/57, time-labelled outcomes, soil sampling and DNA-based amplicon context.
+  selected_occurrences:
+  - selector: taxonomy[2].taxon_term
+    source_stock: PM9
+    source_deposit: CCTCC M 20251894
+    ncbi_id: NCBITaxon:96241
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacillus_spizizenii', total_genomes: 38, majority_fraction: 0.92}
+  - selector: taxonomy[3].taxon_term
+    source_stock: PM16
+    source_deposit: CCTCC M 20251895
+    ncbi_id: NCBITaxon:2715209
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacillus_rugosus', total_genomes: 5, majority_fraction: 1.0}
+  - selector: taxonomy[4].taxon_term
+    source_stock: S32
+    source_deposit: CCTCC M 20251897
+    ncbi_id: NCBITaxon:2715209
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacillus_rugosus', total_genomes: 5, majority_fraction: 1.0}
+  - selector: taxonomy[5].taxon_term
+    source_stock: S8
+    source_deposit: CCTCC M 20251898
+    ncbi_id: NCBITaxon:260554
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacillus_halotolerans', total_genomes: 96, majority_fraction: 1.0}
+  preserve:
+  - All six separate stocks and deposits; PM16 and S32 share a species descriptor but remain distinct strains.
+  - The existing unselected BS-Z15 Bacillus subtilis block and T19 fungal NO_GTDB_EQUIVALENT.
+  - Exact old notes about unavailable mapping during curation remain historical observations, not assertions that no current correspondence exists.
+  - Reference populations do not assign the experimental stock genomes; 38/.92 gives no exact majority numerator.
+  - Separate fungal CMC/28C/5d and bacterial NB/37C/8h preparation; equal volume is not equal cells or measured post-inoculation dominance.
+  - Nonsterile pots, challenge organism outside the inoculant and all existing growth/disease/community-metabolomic distinctions.
+  - Do not import TB results from391, infer metabolite necessity or turn DNA abundance into viable strain persistence.
+  retained_blocker:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1945
+    state_verified: OPEN
+    boundary: >-
+      The earlier source comparison reports retained-cache versus fresh-XML
+      differences in abstract sequencing wording and which treatment enriches
+      named genera. The source also disagrees on45days after pathogen versus SMC,
+      Spearman versus SparCC and diversity labels. No silent cache replacement or
+      resolution follows from this taxonomy correction. Original graph issue1942
+      is closed;1945 remains the independent source/experimental-context blocker.
+  historical_contract:
+    ledger: reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+    ledger_sha256: e6545894c4182a28cb36818c71a5d2958dd7d5494fba58b101f4a478a6f0eed5
+    caller: tests/test_causal_review_batch121.py
+    caller_sha256_at_read: b690c36840751657b21a598f8073c9abab01c0e224bed2481a9c7c35b3f90df1
+    requirements: >-
+      Keep current source/plant/mechanism assertions, literal ledger and appended
+      cache checksum. Retain107's c15s5 chain and other records' guards. This414
+      guard checks exact hash and last-event LLM flag, not a specific last action;
+      add only exact saved-proof admission, with whole biology/history protection.
+      Preserve all node dispositions and existing one-discussion attachments.
+- id: CommunityMech:000391
+  path: kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml
+  before_sha256: d355a605023b423a1b2d61dc1f49177d9f90f4c0a0510abef0f074b085216002
+  primary:
+    reference: PMID:41821943
+    doi: 10.3389/fpls.2026.1758273
+    pmcid: PMC12977338
+    path: references_cache/PMID_41821943.txt
+    sha256: cdd00a96ee98263dfad6e5c662d160110551f6f1d11a224106abb72530044903
+    locators:
+    - Flattened retained main text at line72, isolation and 16S27F/1492R versus ITS1F/LR3 identification.
+    - Main Methods, separate preparation and equal-volume two-stock TB assembly.
+    - Main pot design, Fusarium day0, TB day7 and200mL soil drenches.
+    - Disease assessment45days after pathogen versus later soil/metabolomic sampling language.
+  selected_occurrences:
+  - selector: taxonomy[1].taxon_term
+    source_stock: PM16
+    ncbi_id: NCBITaxon:2715209
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacillus_rugosus', total_genomes: 5, majority_fraction: 1.0}
+  preserve:
+  - Exactly T19 and PM16 as TB members; Fusarium is the challenge organism and the six-member SMC is a different experiment.
+  - Keep source16S species identification separate from an exact-stock genome or assembly assignment.
+  - Keep T19's fungal descriptor and all historical notes, terms, strain fields, scientific content and prior history.
+  - Do not silently add414's CCTCC deposit to391 merely from a repeated stock label; the new mapping needs no stock-field edit.
+  - Equal volume does not show measured dominance; full-length16S/ITS profiles do not identify persistent viable inoculant strains.
+  - Keep simulated network removals and metabolite hypotheses distinct from actual necessity perturbations or root-exudate collection.
+  retained_blocker:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1951
+    state_verified: OPEN
+    boundary: >-
+      Distinct pathogen/SynCom clocks and inconsistent efficacy figure references
+      require source/version/pixel review. Do not choose a panel or synchronize the
+      clocks without that evidence, or transfer findings from41504167. Earlier
+      bounded graph issue1947 is closed; this taxonomy plan does not close1951.
+  historical_contract:
+    ledger: reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
+    ledger_sha256: c77c5eb2fb20969b2f3b50aa34646df937cfb86c2f96c308ea2350f016cf080e
+    caller: tests/test_causal_review_batch122.py
+    caller_sha256_at_read: 00bfbda6721badbc73893b0dbdaea5ec146f84d33e581b86f75df8cfa8ab189e
+    requirements: >-
+      Preserve current positive70.97% outcome, two-node/no-arrow graph, challenge
+      participant, simulated robustness and independent-study caveats. Keep the
+      full immutable four-record ledger, hashes, topology and quotation counts;
+      its last-event check requires the LLM flag but no specific action. Later409
+      note/mapping admission must compose in this same caller without weakening
+      its current DT assay/RNA/stock predicates or the straw/SASW checks.

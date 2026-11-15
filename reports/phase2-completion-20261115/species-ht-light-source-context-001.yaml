@@ -1,0 +1,170 @@
+kind: source-context-plan
+date: '2026-11-15'
+scientific_review: false
+canonical_apply: false
+scope: >-
+  Preparation for two whole-record species-reference corrections, plus a separate
+  note-correction hold. This is not a saved native review or application receipt.
+  Fresh native lookup, independently reviewed candidates, actual M5 application,
+  native gates, immutable partial review and verified successor proof remain required.
+historical_assignment:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+crosswalk_sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+source_access: >-
+  Fresh DOI opens for all three publications failed in the web tool on this date.
+  The retained primary abstracts and HT composition transcription were read directly.
+  Earlier saved reviews were read for unresolved findings and provenance, not treated
+  as a new examination of their private full-text, supplementary or image inputs.
+  An ignore-independent search of this integration checkout's .temp did not find
+  the earlier private pr2039/347 primary source or matching Caragana/Delftia input
+  copies; this is not a claim that copies are absent from other checkouts or M5.
+records:
+- id: CommunityMech:000347
+  path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  before_sha256: 27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff
+  primary:
+    reference: PMID:42144568
+    doi: 10.1002/ps.70924
+    pmcid: PMC13453252
+    path: references_cache/PMID_42144568.txt
+    sha256: d2cf960eca50e700df52316443b8a45c78b6509ea83982aa984c0768ed9ae006
+    actual_read_scope: Abstract and selected Figure 4 roster/16S-label transcriptions only.
+    locators:
+    - Figure 4 community definitions, HT = RW5, RW8, distinct from five-member C2.
+    - Figure 4b transcription, OQ996945 B. siamensis RW5 and OQ996934 B. vallismortis RW8.
+    - Abstract Results, four inhibitory mixtures and separate C2/HT seedling outcomes.
+  selected_occurrences:
+  - selector: taxonomy[1].taxon_term
+    ncbi_id: NCBITaxon:72361
+    expected_native:
+      via: ncbi_name
+      gtdb_id: GTDB:s__Bacillus_vallismortis
+      total_genomes: 1
+      majority_fraction: 1.0
+    boundary: >-
+      This is one genome in the name-selected reference population, not evidence
+      that the experimental RW8 stock has a sequenced genome assigned to that bin.
+  preserve:
+  - RW5 and RW8 remain the two HT stocks; neither T. koningiopsis nor the challenged pathogen becomes an inoculant.
+  - Keep RW5's existing unselected GTDB block and all NCBI identities, notes and stock fields unchanged.
+  - Keep original 16S accession wording; do not turn OQ996934 into a whole-genome accession.
+  - Keep all graph, evidence, uncertainty and historical bytes except the explicit native mapping events.
+  inherited_scientific_blockers:
+    review: reviews/structured/20261106T025035Z-pr2039-masson-pine-ht-successor/review.yaml
+    sha256: 23276c7c3e39b100f2cd3de7aae4d4a0a4eb6b6a18b95befbb1650364fe24b5d
+    scope: >-
+      This successor preserves earlier full-review findings. Its reported full-text
+      and image observations below were read in that review, not independently
+      re-examined here. Passing current mapping gates cannot close them.
+    issues_verified_open:
+    - number: 2352
+      boundary: Named-gene panels are C2-specific in the prior review; the abstract's broad HT/C2 wording and CAT1 direction need reconciliation.
+    - number: 2353
+      boundary: Abstract 36.67% versus Results 46.67% HT disease reduction, comparator ambiguity and 60/30-day conflict remain.
+    - number: 2354
+      boundary: Recover source-specific culture and pot conditions without conflating assays.
+    - number: 2355
+      boundary: Archive H4/TK2 versus paper RW5/RW8 aliases and the host-transcriptome project remain unresolved.
+    - number: 2356
+      boundary: HT equation transcriptions and role-specific evidence need source-grounded repair.
+    - number: 2360
+      boundary: The existing endpoint-repair sidecar has unrelated record/organism prose; preserve it and append a separate correction when addressed.
+  historical_guards:
+    direct_current_biology_guard:
+    - tests/test_causal_review_batch6.py
+    indirect_assignment_search_candidates:
+    - tests/test_causal_review_batch105.py
+    - tests/test_causal_review_batch123.py
+    requirements: >-
+      Inspect the exact current combined callers before editing. Batch6's current
+      three-node/no-arrow/no-interaction-type assertions remain; its 401/365 proof
+      routes stay intact. An ignore-independent tests search establishes no direct
+      347 hash admission in105 or123: those modules read the shared stage5 ledger
+      only for their own selected records. Do not edit those callers for347 solely
+      because they appeared in the assignment search. Review finding2875 records
+      this distinction. Retain the stage5 endpoint-remediation evidence and exact
+      historical bytes; add explicit standalone current mapping proof without
+      granting unrelated changed paths admission or weakening current biology.
+- id: CommunityMech:000481
+  path: kb/communities/Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture.yaml
+  before_sha256: d5b0cc764037fcc2ef088af1813bdbee8f99a7b9f976b7c61044dae1f181ca79
+  primary:
+    reference: PMID:42297253
+    doi: 10.1016/j.biortech.2026.135161
+    path: references_cache/PMID_42297253.txt
+    sha256: 3f140dfc70961d50d9f55ac847ca2ed5c0f880ba9bfb41c5bfb22c0b97c98e49
+    actual_read_scope: Published abstract only.
+    locators:
+    - Abstract pairs Delftia acidovorans YP-3 with Klebsiella oxytoca DX-3.
+    - Batch cultures report 345.52 mL/L hydrogen within 48 h versus DX-3 monoculture.
+    - A distinct synthetic-swine-wastewater sludge reactor reports 90.25% nitrate removal.
+    - Electrochemical/EPS/metabolomic observations indicate potential transfer by contact and soluble mediators.
+  selected_occurrences:
+  - selector: taxonomy[1].taxon_term
+    ncbi_id: NCBITaxon:571
+    expected_native:
+      via: ncbi_id
+      gtdb_id: GTDB:s__Klebsiella_oxytoca
+      total_genomes: 855
+      majority_fraction: 0.85
+    boundary: >-
+      The rounded fraction describes a species-ID reference population. Do not
+      infer an exact majority numerator, classify DX-3's genome, or transfer the
+      Klebsiella mapping to the unselected ambiguous Delftia descriptor.
+  preserve:
+  - Preserve source YP-3/DX-3 stock wording and both current preferred terms/NCBI IDs.
+  - Preserve both Delftia GTDB alternatives and the unselected descriptor's complete current bytes.
+  - Retain current graph/evidence and explicit older findings; mapping approval does not endorse mechanistic certainty or syntrophy.
+  - Keep batch hydrogen measurements separate from the mixed-sludge reactor outcome in every new assessment.
+  inherited_scientific_blockers:
+    review: reviews/structured/20261022T055403Z-delftia-klebsiella-record-review/review.yaml
+    sha256: 4fb07936dcaa4eae9d9c2dbb8489d70f08771a3326080f69baa8d5cb4046e088
+    scope: Earlier review is partial and explicitly scientific_review false; it read the abstract and supplement but lacked the main article.
+    issues_verified_open:
+    - number: 2661
+      boundary: Potential contact/mediator transfer is not established causation, strict syntrophy or proof of SECONDARY_FERMENTER status.
+    - number: 2662
+      boundary: Batch and sludge-reactor arms, directionality and the causal bridge remain unresolved.
+    - number: 2663
+      boundary: Source-specific cultivation and reactor contexts need recovery; the missing main protocol prevents a universal recipe.
+    - number: 2664
+      boundary: This planned species-reference correction addresses the missing descriptor mapping only; no application has occurred.
+  historical_guards:
+    files:
+    - tests/test_causal_review_batch133.py
+    requirements: >-
+      Retain the immutable fifteen-record ledger and its exact original/current
+      hash distinction, historical CURATE_CAUSAL_GRAPH action/LLM flag, 45-node,
+      30-edge and 45-quotation totals, each record's three nodes/two edges and
+      literal abstract matches. Admit 481 only via its actual saved successor
+      proof and check unchanged biology before selecting its predecessor for
+      old last-event assertions. Keep every other record's predicates intact.
+held_record:
+  id: CommunityMech:000338
+  path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  before_sha256: c25facb4d904532aae4c45fe2b63c08a48983c4ce86cb46b4298a30e4847ab06
+  primary:
+    reference: PMID:42432469
+    doi: 10.1186/s12866-026-05353-5
+    path: references_cache/PMID_42432469.md
+    sha256: 855812c270361aa0f5416bcd417a99be37e2c1a0dc7955aed9c7d26f06bda1b6
+    actual_read_scope: Retained abstract-only cache; no fresh full-text access here.
+  prior_review:
+    path: reviews/structured/20261021T155638Z-caragana-korshinskii-forage-syncom-record/review.yaml
+    sha256: a67d8e8d86919635fa76d1ac0b002cb815397d86b2717996aa26144fbdf6cc54
+  disposition: >-
+    Hold out of the mapping-only batch. Both current bacterial notes assert no
+    majority, contradicting the planned exact-ID route. Existing open issue2481
+    already owns this precise finding. Use the independently reviewed two-transition
+    source-note/mapping path only after its 393 end-to-end canary is complete.
+  expected_native_populations:
+  - {selector: 'taxonomy[0].taxon_term', ncbi_id: 'NCBITaxon:1590', via: ncbi_id, total_genomes: 2061, majority_fraction: 1.0}
+  - {selector: 'taxonomy[1].taxon_term', ncbi_id: 'NCBITaxon:1423', via: ncbi_id, total_genomes: 1256, majority_fraction: 0.91}
+  retained_boundaries:
+  - Keep the paper's Lactobacillus wording, canonical Lactiplantibacillus identity, fungal NO_GTDB_EQUIVALENT and all three members.
+  - No experimental stock/assembly assignment follows from those reference populations; exact inoculant/catalogue conflicts remain under open2480.
+  - Prior full review reports PMC13637219 and obtainable methods; current stale availability prose is not evidence that full text never existed.
+  - Open1273 retains digestibility attribution and access-scope conflicts; open2482 retains supplementary/resource provenance.
+  - Prior review says Table2 gives consortium49.68%/29.40% versus control44.83%/25.65%; this is inherited evidence, not fresh table verification here.
+  - Preserve the qualified three-node/two-hypothetical-arrow graph and all current biological checks in batch10 and participating-taxa tests.
