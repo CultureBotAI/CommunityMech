@@ -42,8 +42,24 @@ complete native recipe passed; no generated model was edited by hand.
 Claw's initial hosted run found stale template-baseline hashes, retained under
 [Claw issue 1220](https://github.com/CultureBotAI/culturebotai-claw/issues/1220).
 The reviewed baseline correction was published at
-`846c4635c305ff1d837fcb4aa7e261a01c4258e3`. Its native consumer plan changes only
-the governance pin. Application of that final pin is pending in this checkpoint.
+`846c4635c305ff1d837fcb4aa7e261a01c4258e3`. Its native consumer plan changed only
+the governance pin. The independently reviewed follow-up helper at `18f11ec9`
+planned and applied that one-file update from clean revision `4ea7f9e2`.
+The first dry run failed on sandbox DNS before writing; its log remains
+`9627d0861b2bd9fe772ba68fd22b2c4063444dcb0459aa159980ec77ec5ad201`.
+The separately numbered retry verified the exact public manifest and artifacts.
+The actual application rechecked the plan under the native lock, validated the
+configuration and verified zero remaining drift.
+
+| Final pin receipt | SHA256 |
+| --- | --- |
+| `final-pin-plan-002/receipt.json` | `a190b0fadc86b2f4a2a27cdbfa50ac4ecc3c134348423db5e9036837a0ce56cf` |
+| `final-pin-apply-001/receipt.json` | `86f9eba719d1e4eb085e14655c7ba08d83ae7d5df38107d508b8a0cc48782891` |
+
+The resulting pin bytes hash to
+`9b947f02f224974c46a5766717675b205fd279af75c6dfbb0a6ea2c6a98f3952`.
+This identifies the reviewed draft Claw head; it does not claim that PR has
+merged or authorize a merge.
 
 ## Consumer checks and exact-runtime canary preparation
 
@@ -64,12 +80,16 @@ run. Recorder triplets are under `.temp/phase2-schema-20261115/`:
 | `supplement-consumer-schema-controls-001` | 65 passed, 14 warnings, 29.93 s | `a51baac65594a59ec9962d249750fc96e516a7d0f0563bd808626fe7c47f6e7c` |
 | `supplement-consumer-helper-controls-003` | 14 passed in the separate candidate environment, 1.62 s | `ececcbc6d9d746bb444123adae014c42949e3ec1440cbf12b6e4d537ee80b47e` |
 | `supplement-consumer-helper-ruff-002` | Passed | `82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18` |
+| `supplement-consumer-lint-001` | Black 799 files, Ruff and mypy 52 sources passed | `9c175381c65bd61d32b6af67e8789a61cf5fdae706662b3989f571c1f85dea88` |
 
 The 65-test run includes existing datamodel, reference traversal, assertion
 coverage and CLI coverage checks. The helper controls used the separate
 installed candidate because CommunityMech still has validator 0.2.1. An initial
 helper-test error matched the refusal message too narrowly; its failed log and
 subsequent correction remain retained. It was not a source-selection failure.
+Native lint retained the existing non-fatal GTDB comment warning tracked in
+[issue 2915](https://github.com/CultureBotAI/CommunityMech/issues/2915); the
+executed GTDB source was not changed.
 
 The preparation helper copies the exact consumer schemas and adds only three
 locators to a private scratch record. The runner requires a clean, explicitly
@@ -88,7 +108,7 @@ persist before the controls or any canonical record change.
 
 ## Remaining completion work
 
-Final governance-pin application, runtime publication and installation, actual
+Runtime publication and installation, actual
 consumer controls, canonical locator curation with native history, current
 generated products, complete QC and measured references remain required. The
 stale reference-annotation comment is corrected under
