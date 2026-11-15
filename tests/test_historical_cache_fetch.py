@@ -18,11 +18,13 @@ LEDGERS = [
     "20261007-four-records-batch92.yaml",
 ]
 # Immutable scientific fixtures used by phase2_review_successor, its actual
-# 000087 canary control, and the EcoFAB apply guard respectively (#2832).
+# 000087 canary control, the EcoFAB apply guard, and the gut historical-scope
+# guard respectively (#2832/#2838).
 SCIENTIFIC_BASES = [
     "68699871415fda3c9eebf20382a315f9f3c7b17a",
     "6db62bda10f9ff88df9561475112f47d08d332c3",
     "17616c9cad16a1b62cd6e9b39d82af4276e5188a",
+    "de4c6450dd3e42f205c2f7e8f11b8fe44f03bd6b",
 ]
 
 
