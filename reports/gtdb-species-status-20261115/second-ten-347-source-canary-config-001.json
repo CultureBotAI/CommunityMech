@@ -1,0 +1,75 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/species-second-route-ten-001.log",
+    "sha256": "6637cd67369cd53d77223836be30fb9170e106bfc84290d093343ffce0a7e913"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/species-second-route-ten-001.json",
+    "sha256": "01507cda7ceac6116a466ec9103b202c17a6908ece560d7dd6af8b13f64b68e9"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/species-second-route-ten-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml",
+      "record_id": "CommunityMech:000347",
+      "before_sha256": "27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/species-ht-light-source-context-001.yaml": "b74d5bca95b91a06b87805cbd8fcf82e75433650bd804ffbeb3fbd6ab4e779e1",
+        "tests/test_causal_review_batch6.py": "ca8cb78977a96609778ce7b102f02fe0b42d32267fdd3781bf6492284c1caec3",
+        "scripts/adhoc/gtdb_source_unit_transfer_paths_v2_20261115.jq": "3ba4321c79ba9e4fa7632c49423fc1259d6a061518c5c729a8f05d0379c63cc8",
+        "reports/gtdb-species-status-20261115/second-ten-authored-source-context-001.json": "8b31f360f5cec6368a93e1ee971e20b2b9759affdeaae899267c2aea3586dcbb",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+        "reports/gtdb-species-status-20261115/second-ten-source-config-001.json": "15e1225e976f4baf3bcbfe9d12d4eea1c66edce8d62c1a8a1603b60667140f73"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42144568",
+          "path": "references_cache/PMID_42144568.txt",
+          "sha256": "d2cf960eca50e700df52316443b8a45c78b6509ea83982aa984c0768ed9ae006",
+          "locator": "Primary abstract and separately marked Figure 4 community and 16S-label transcriptions, lines 19-33.",
+          "coverage": "Retained abstract and selected Figure 4 transcription only; the earlier review's full-text/image findings remain inherited, not freshly re-examined.",
+          "identity_tokens": [
+            "10.1002/ps.70924",
+            "42144568"
+          ],
+          "anchors": [
+            "HT = RW5, RW8",
+            "OQ996934 B. vallismortis strain RW8"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:72361",
+            "label": "Bacillus vallismortis"
+          },
+          "strain_name": "RW8",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "HT contains RW5 and RW8, distinct from the five-member C2 mixture. Preserve the RW8 stock, canonical species identity and source 16S label, and leave the unselected RW5 block unchanged.",
+          "population_scope": "The name-fallback route reports one reference genome and fraction 1.0. OQ996934 is a 16S accession, not an assembly; no experimental RW8 genome assignment or genotype is established.",
+          "name_scope": "This is a correspondence for the source species name, not a formal nomenclatural change or a stock reidentification.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Bacillus_vallismortis",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus vallismortis",
+            "gtdb_taxon": "Bacillus vallismortis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:72361",
+            "total_genomes": 1,
+            "via": "ncbi_name"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve direct batch6 current three-node/no-arrow/no-interaction-type assertions and existing 401/365 successor routes. Batch105/123 are indirect shared-ledger search hits, not direct347 guards (#2875); no changes there are justified for347. Retain the stage5 remediation and source-plan inherited findings2352-2356/2360. Mapping does not close disease/timing, gene-panel, cultivation, alias or history-prose findings."
+    }
+  ]
+}
