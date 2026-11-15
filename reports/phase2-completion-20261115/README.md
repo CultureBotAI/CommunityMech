@@ -86,7 +86,7 @@ that historical revision predates the subsequent scientific corrections.
 | EnvironmentalFactor ontology terms (#2429) | Dynamic union and narrow root-exclusion guards implemented | Combined QC; upstream root behavior remains #2802 |
 | Host/soil/related rendering and KGX (#2705–#2707, #2430) | Verified native product canary followed by full export: 1,538 nodes, 2,535 edges, zero errors/warnings | Subsequent source changes require affected generated pages to stay current |
 | Scientific curation (#1548 and retained findings) | Five full immutable assessments plus Yolo's preserved full review and bounded correction | Retained scientific/source limitations remain explicit blockers; validators do not resolve them |
-| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches, Claw hosted CI/governance blockers and explicit merge decision |
+| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches and explicit merge decision; Claw #1219's eight checks now pass |
 
 The [governed adoption checkpoint](governed-reference-adoption.md) records exact
 canonical bytes and the real downstream comparison control. The schema change
@@ -206,11 +206,17 @@ including mutation of a non-canary snapshot followed by successful restoration.
 The original attempt remains private and unchanged; this numbered report came
 from a fresh one-issue canary followed by the remaining ten reads.
 
-Two scoped taxonomy corrections now have complete M5 canary evidence:
+Four scoped taxonomy corrections now have complete M5 canary evidence:
 [Sulfobacillus](../gtdb-source-routes-2849-20261115/README.md) and
-[Mycobacterium](../gtdb-code006-20261115/canary-000434-003/README.md).
+[Mycobacterium](../gtdb-code006-20261115/canary-000434-003/README.md), plus
+[BR1](../br1-source-review-20261115/canary-outcome.md) and
+[Terrabacter](../gtdb-source-routes-2849-20261115/TERRABACTER.md).
 Their saved technical assessments preserve the older scientific limitations.
 They do not constitute a combined full-QC pass or restart the scientific campaign.
+The [combined integration at 301f35b8](mapping-integration-301f35b8.md) passes
+63 focused controls and lint; the native community renderer completed all 512
+pages without a tracked generated-output change. The grounding-status backlog
+in #2848 still requires bounded source-supported corrections.
 
 ## Campaign restart
 
