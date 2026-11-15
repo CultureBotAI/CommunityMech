@@ -1,4 +1,21 @@
-# Four environmental-community reference preparations
+# Four environmental-community correspondence corrections
+
+The [Diclofenac379 canary](379-canary-outcome-001.md) now has an actual M5
+application, eight native scoped commands, independently reviewed immutable
+YAML/Markdown, a complete86-file checkpoint verified on both hosts,27 public
+evidence exports and strict historical admission. The diagnostic remains partial
+with `scientific_review: false`; the four prior scientific findings remain open.
+The canary outcome records exact revisions, hashes, checks and retained failures.
+
+TCP437 and WheatDT429 source preparations are authored, bound and independently
+read. They have not yet been applied. PPCP420 is explicitly held under
+[issue2904](https://github.com/CultureBotAI/CommunityMech/issues/2904): the current
+bounded helper refused its mixed bacterial/fungal unit before any write, and a
+separate affirmative domain-proof implementation is under review. All existing
+native engines and executed helpers remain unchanged.
+
+The following paragraphs preserve the initial source-preparation checkpoint;
+they describe the state before the379 canary, not the current completion state.
 
 This branch prepares native GTDB correspondence corrections for Diclofenac379,
 TCP437, WheatDT429 and PPCP420 from combined revision
