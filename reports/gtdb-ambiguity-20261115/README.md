@@ -92,3 +92,9 @@ extra/duplicate-input controls failed before the repair and passed afterward.
 Draft002 retains the same scientific judgments as draft001; its changes are the
 binding repair, provenance paths/hashes, timestamps and issue link. No campaign
 completion, scientific clearance or issue closure is inferred from these checks.
+
+The separate [next-record source plan](next-status-source-context-001.yaml)
+prepares 000401, 000373, 000365 and 000003 for the shared status-only workflow.
+Read-only native correspondence reports reproduced their alternative lists;
+these records have not been staged or applied by this plan. The first shared
+status-only unit remains 000401, after the shared workflow's own canary is verified.
