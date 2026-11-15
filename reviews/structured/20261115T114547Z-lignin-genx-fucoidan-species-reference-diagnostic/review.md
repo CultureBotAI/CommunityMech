@@ -1,0 +1,1744 @@
+# LDSynCom, Community G and Fucoidan: 22 bounded GTDB correspondences
+
+- Review: 20261115T114547Z-lignin-genx-fucoidan-species-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T11:45:47.174460Z
+- Finished UTC: 2026-11-15T11:45:47.434757Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The three records retain 22 native reference-taxon GTDB correspondences: eleven LDSynCom stock descriptors, six Community G relative-profile descriptors and five Fucoidan panel descriptors. Existing stock and assembly strings, source labels, quotations, all biological claims, and Fucoidan's two unresolved descriptors remain unchanged. Three actual guarded applications, six native inline events, three native history sidecars and 24 scoped native commands are bound. Prior scientific and source-routing findings remain separate.
+
+## Scope And Provenance
+
+Only the selected GTDB classification/status fields, source-stock versus reference-population boundaries and actual persistence/history/check provenance are assessed. Preserved scientific claims receive no new approval from this diagnostic.
+
+Selection: Exactly CommunityMech:000383, CommunityMech:000387 and CommunityMech:000449, the three remaining whole records in the independently reviewed four-record source plan. The separately saved and verified CommunityMech:000476 canary preceded this serial execution and is excluded from this bundle's population of three.
+Coverage: partial; 3 reviewed / 3 in the declared population.
+Source: working_tree at Git base 14d95aa224ca0968a5008fb2b07b9500ce30f5bc.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000383 | kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml # taxonomy[0,1,2,3,4,5,6,7,8,9,10].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10].taxon_term.gtdb_grounding_status | maintained | LDSynCom eleven species-reference correspondences |
+| CommunityMech:000387 | kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml # taxonomy[0,1,2,3,4,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status | maintained | Community G six profile-reference correspondences |
+| CommunityMech:000449 | kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml # taxonomy[1,2,3,5,6].taxon_term.gtdb_classification; taxonomy[1,2,3,5,6].taxon_term.gtdb_grounding_status | maintained | Fucoidan panel five species-reference correspondences |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000383 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000387 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000449 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Eleven preserved LDSynCom stocks and bounded source coverage
+
+grounding: supported. Targets: CommunityMech:000383.
+
+Retain all eleven code-supported final stocks, duplicate species occurrences, original assemblies/BioSamples and selection/exclusion context. Selected preprint and code coverage do not close 2314-2316 or establish structural lignin catabolism, mineralization or a necessary Paenibacillus mechanism.
+
+### Eleven exact-ID reference-population correspondences
+
+grounding: supported. Targets: CommunityMech:000383.
+
+All eleven encoded NCBI-ID routes reproduce the full native reference populations and stored blocks, including rounded fractions and separate occurrences sharing a species. No exact study-assembly placement or rounded numerator is inferred. GTDB suffix/placeholder labels do not formally rename source stocks, and the table release remains unestablished.
+
+### Actual bounded application and preserved causal predicates
+
+provenance: supported. Targets: CommunityMech:000383.
+
+The applied receipt, accepted stage, exact sidecar and eight native commands bind the current record. All scientific fields and previous history remain unchanged. Strict public-proof admission, original batch 5 predicates, source-snippet validation and integrated products/QC remain separate requirements.
+
+### Relative-profile references remain distinct from study isolates
+
+grounding: supported. Targets: CommunityMech:000387.
+
+Retain six observed reference taxa, null stock fields and distinct LM091/MYb57 identities. Keep soil GenX, liquid screening and upstream/GENIA experiments separate. Relative enrichment does not identify absolute expansion, extinction or member-specific degradation, and the complete roster remains unresolved.
+
+### Six exact-ID database correspondences under issue 2593
+
+grounding: supported. Targets: CommunityMech:000387.
+
+The native lookup reproduces all six specified reference populations, with 0.98 retained as rounded and other fractions 1.0. These counts do not measure consortium abundance or identify study isolates/assemblies. GTDB suffixes and name differences do not formally rename source taxa.
+
+### Actual application with scientific follow-up retained
+
+provenance: supported. Targets: CommunityMech:000387.
+
+The exact applied record, source/stage inputs, sidecar and eight actual native commands form a bounded persistence chain. Existing biology and prior history remain unchanged. Batch 23 requires strict admission of the new hash while retaining current scientific predicates; source findings and combined QC remain separate.
+
+### Seven source stocks with five selected descriptors
+
+grounding: supported. Targets: CommunityMech:000449.
+
+Preserve all seven stock/alias/assembly identities, excluded G88, unresolved AS12/AS25 and the V4/reference-3 caveat. Supplement source columns remain separate. The selected five mappings do not certify a direct sequence placement or merge distinct combinatorial assays.
+
+### Five exact-ID reference populations without source relabeling
+
+grounding: supported. Targets: CommunityMech:000449.
+
+The pinned resolver supports reference populations 19, 2, 5, 4 and 4 with fractions 1.0 at the five declared indices. Numeric placeholders are database labels, not formal names or fresh assembly certification. The supplement's Roseibacillus_A alias remains unchanged and no release chronology is inferred.
+
+### Actual application preserves panel biology and source-routing limits
+
+provenance: supported. Targets: CommunityMech:000449.
+
+The current record, accepted stage, raw application, sidecar and eight native commands are bound. Current biological fields remain intact; strict admission must preserve original batch 42 predicates and its Transwell route. Source-snippet comparison, supplement routing, mechanism review and combined QC remain separate.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000383-schema | .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-strict | .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-gtdb | .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-domain | .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-scalars | .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-history | .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-new-history | .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-terms | .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000383-paper | references_cache/doi_10.64898_2026.08.24.746789.md; Retained preprint lines 49 and 53, captured character offsets 1355 and 1510; selected final-eleven, genome-project and phenolic/dropout/biofilm passages. | supports | The selected source states the final eleven-member selection and PRJNA960711 genome project. It supplies bounded source context rather than a complete manuscript audit, direct assembly classification or proof of structural lignin mineralization. |
+| 000383-roster | references_cache/GITHUB_Xinming9606_lignin_SynCom_proteomics_blob_ed208e4d5df80c96100f2113db39698832d7b685_downstream_analysis.py.md; Exact article-linked ed208e4d source-code STRAIN_MAP, retained lines 13-23 and eleven captured primary_contexts offsets. | supports | The source code preserves S01-S11 stock identities and their spelling variants. KF24/D9_B_56 and MB7_B11/MB7_B13 remain separate stocks despite repeated species descriptors; this is a source-code roster, not a substitute for the uninspected original Table 1 or raw genome verification. |
+| 000383-database | reports/gtdb-species-fourth-batch-20261115/383-source-evidence-001.json; Eleven selected occurrence native_result objects, exact NCBI-ID crosswalk rows, local label/rank observations and captured source hashes. | supports | Native ID routes reproduce ordered reference populations 257/1.0, 264/0.99, 257/1.0, 1256/0.91, 11/1.0, 1163/1.0, 709/0.99, 1163/1.0, 1256/0.91, 562/0.98 and 1/1.0. Bacillus_A toyonensis and Paenibacillus sp000499205 are database label differences; every original NCBI/stock/assembly field remains intact. |
+| 000383-application | .temp/gtdb-species-fourth-batch-20261115/383-applied-001/receipt.json; Actual applied flag, 14d95aa2 execution, accepted stage 0696e772, before/after chain and captured input map; separate native sidecar bound directly. | supports | The guarded M5 writer persisted exact 78ae367f after independent review. Only eleven selected GTDB blocks/statuses and two native inline events changed semantically; one native history sidecar records the exact raw application. |
+| 000383-prior | reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; Immutable CommunityMech:000383 row and current batch 5 lignin-proxy/dropout/biofilm predicates. | context_only | The three-node/zero-arrow phenotype and mechanism boundaries remain unchanged. Prior source-completeness and interpretation findings 2314-2316 are not resolved by database grounding. |
+| 000387-schema | .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-strict | .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-gtdb | .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-domain | .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-scalars | .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-history | .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-new-history | .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-terms | .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000387-paper | references_cache/PMID_42422733.txt; Retained Methods 2.8 and Results 3.2/soil time series, flattened main-body line 65; captured offsets 44306, 44391 and 61273. | supports | The retained main text names the six Community G relative-profile taxa and assay context. It does not provide independently verified study isolates, complete roster/sample mapping or member-specific GenX degradation. |
+| 000387-upstream | references_cache/PMID_42173377.txt; Retained upstream Prospector abstract, line 23 and captured offset 1088. | context_only | Cotton-detritusphere origin and upstream PFOS/PFOA enrichment are separate from Community G soil GenX and liquid screening. Abstract coverage does not transfer Community H/E outcomes or GENIA mechanisms to this record. |
+| 000387-database | reports/gtdb-species-fourth-batch-20261115/387-source-evidence-001.json; Six native exact-ID results and complete lookup rows, local NCBI label/rank observations and captured mapping/source hashes. | supports | The native correspondences are Salmonella enterica 208883/0.98, Pseudomonas_E tolaasii 35/1.0, Stenotrophomonas bentonitica_A 3/1.0, S. indicatrix 3/1.0, S. cyclobalanopsidis 3/1.0 and Pseudomonas_E arcuscaelestis 5/1.0. LM091 and MYb57 remain distinct encoded references with null study-stock fields. |
+| 000387-application | .temp/gtdb-species-fourth-batch-20261115/387-applied-001/receipt.json; Actual applied flag, 14d95aa2 execution, accepted stage cbaa3204 and exact 4aefdcd7 to 4df2afef chain; sidecar bound separately. | supports | The guarded M5 application changed only six GTDB blocks/statuses and two native events, preserving relative-profile meanings, all null stock fields and every biological claim. |
+| 000387-prior | reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml; Immutable CommunityMech:000387 row, old digest and current one-node/zero-arrow biological predicates. | context_only | Preserve the observed-subset, relative abundance, participant and GENIA-separation boundaries. Issues 2591, 2592 and 2604 remain scientific/source follow-up; 2593 is the specific mapping discrepancy addressed here. |
+| 000449-schema | .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-strict | .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-gtdb | .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-domain | .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-scalars | .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-history | .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-new-history | .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-terms | .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000449-paper | references_cache/PMID_42649294.txt; Selected article/Methods excerpts, lines 33 and 45 with captured offsets 2103 and 2903; seven-degrader panel, G88 exclusion and combinatorial design. | supports | The retained source supports the seven-degrader panel and distinct combinations. It preserves 127 tested combinations, the five-member 97.1% subset and richness/inoculum caveat rather than asserting one fixed mutualistic seven-member community or CO2 mineralization. |
+| 000449-supplement | references_cache/PMID_42649294.supplement.md; Separate Supplementary Table 2 extraction, selected AS40/AS56/AS94/AS69/CC4 rows at lines 18, 20, 26, 22 and 28; five captured offsets. | supports | The retained table binds stocks, short aliases and GCA strings. Full_Name and the separate GTDB_taxonomy species columns remain distinct, including Roseibacillus_A wording. Original workbook and assembly bytes were not newly inspected. |
+| 000449-database | reports/gtdb-species-fourth-batch-20261115/449-source-evidence-001.json; Selected indices 1, 2, 3, 5, 6 native_result and exact-ID rows, NCBI identity observations and source/crosswalk hashes. | supports | The five encoded routes reproduce Algibacter lectus 19/1.0, Mariniflexile sp030552475 2/1.0, Zobellia laminariae 5/1.0, Roseibacillus persicicus 4/1.0 and Lentimonas sp902728235 4/1.0. They are reference populations, not newly verified placements of the seven stored study assemblies. |
+| 000449-application | .temp/gtdb-species-fourth-batch-20261115/449-applied-001/receipt.json; Actual applied flag, 14d95aa2 execution, accepted stage c761b2b7 and exact 61c3e21e to dd5f3213 chain; native sidecar bound separately. | supports | The actual guarded writer changed only five GTDB blocks/statuses and two inline events. AS12/AS25 null statuses only moved in serialization; all stock, assembly, source and biological content remains unchanged. |
+| 000449-prior | reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml; Immutable CommunityMech:000449 row and batch 42 panel, alias, history, source-counter and supplement-mismatch predicates. | context_only | Preserve the two-node/zero-arrow scientific boundary, V4 citation interpretation, open mechanism work and fourteen historical supplement mismatches. Issue 1996 source routing and 1465 mechanism work are not resolved by this correction. |
+
+## Limits And Additional Notes
+
+- Partial technical and provenance diagnostic, scientific_review:false. Native validator passes do not certify full-record scientific support, every exact source snippet, generated products or corpus QC.
+- LDSynCom coverage is selected preprint text and exact article-linked STRAIN_MAP code at ed208e4d, not a fresh full manuscript, original Table 1, raw proteomics or sequence-archive audit. Preserve issues 2314, 2315 and 2316 for completeness, growth/phenolic-proxy interpretation and selected unverified quotations.
+- LDSynCom's eleven stocks remain distinct, including two Bacillus subtilis and two Bacillus velezensis entries. Stored assemblies, BioSamples and PRJNA960711 remain source provenance; the reference-taxon lookup does not newly classify each study assembly. The 121-library, 15-candidate and final-eleven selection boundaries and excluded strains remain unchanged.
+- Community G's six named relative-profile taxa remain an observed subset, with null stock fields and no independently verified study-isolate roster. Soil GenX, liquid screening, GENIA and upstream PFOS/PFOA/community H/E experiments remain separate. Issues 2591, 2592 and 2604 retain member-degrader, assay-condition and incomplete-roster limitations; the mapping correction addresses the bounded discrepancy owned by 2593 without closing those scientific findings.
+- Fucoidan coverage is retained selected article text and separate Supplementary Table 2 extraction. No original workbook, figure pixels or study genome sequences were newly examined. Preserve all seven assemblies/aliases, excluded G88, AS12/AS25 native-null results and the V4/reference-3 extraction caveat. Distinct Full_Name and GTDB_taxonomy columns are not merged.
+- The 127 Fucoidan combinations are not one fixed seven-member mutualistic assay. The 97.1% five-member subset, richness/inoculum confounding and complementary substrate-accessibility interpretation remain separate from reciprocal fitness, small-molecule cross-feeding or CO2 mineralization. Issue 1465 remains a scientific boundary; issue 1996 retains supplement-specific source-routing failures, and the historical issue-counter correction under 1469 remains immutable.
+- Reference genome counts do not measure study abundance or prove exact study-stock assembly placement. Rounded fractions do not establish exact numerators. Numeric GTDB placeholders and suffixes express database correspondences; native is_reclassified does not itself establish formal nomenclature or stock reidentification.
+- The crosswalk SHA256 identifies exact bytes, not an established upstream release or chronology. Native mapping_source observes file mtime. Captured local NCBI authority rows carry file-stat provenance rather than a full database hash or release certification.
+- Source preparation ran locally at 85d582fa with Python 3.13.12. Actual M5 staging, applications, native checks and this builder ran at 14d95aa224ca0968a5008fb2b07b9500ce30f5bc with Python 3.13.2. Those executions retain their actual revisions and source/input hashes. No active M5 source, schema, environment or canonical reference cache was synchronized to the later local canary publication.
+- Each record has one native sidecar and seven scoped validators, totaling 24 required commands. Strict successor admission and historical caller composition follow the immutable saved-input checkpoint. Preserve all old reviews/ledgers, batch 5's other status successors, batch 23's current biological predicates, and batch 42's separate Transwell historical route and GENIA predicates. Generated products and combined QC remain integration work.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T114547Z-lignin-genx-fucoidan-species-reference-diagnostic
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: 'LDSynCom, Community G and Fucoidan: 22 bounded GTDB correspondences'
+started_at: '2026-11-15T11:45:47.174460Z'
+finished_at: '2026-11-15T11:45:47.434757Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The complete records, retained primary contexts and historical
+    test predicates were read before staging. A peer independently read the LDSynCom
+    and Community G source contexts and exact M5 candidates; the parent independently
+    read the Fucoidan source context and actual candidate. All staged input hashes
+    and full candidate diffs were verified before application. The same independently
+    reviewed native stage/apply/check/builder machinery was first verified through
+    the saved SynCom-NS canary before these three serial applications. This authored
+    diagnostic remains a partial technical assessment rather than a new full scientific
+    review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: 'The three records retain 22 native reference-taxon GTDB correspondences:
+  eleven LDSynCom stock descriptors, six Community G relative-profile descriptors
+  and five Fucoidan panel descriptors. Existing stock and assembly strings, source
+  labels, quotations, all biological claims, and Fucoidan''s two unresolved descriptors
+  remain unchanged. Three actual guarded applications, six native inline events, three
+  native history sidecars and 24 scoped native commands are bound. Prior scientific
+  and source-routing findings remain separate.'
+source:
+  git_revision: 14d95aa224ca0968a5008fb2b07b9500ce30f5bc
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-applied-001/before.yaml
+    sha256: 882c357a014a5814d0b7c792c6f299944e22a8a35f453a1d53ebdf20065d749e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-applied-001/receipt.json
+    sha256: 2767848d5ea60ad73614cde63d6b9461ee477d20fcbd7356e61fc59412365431
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-m5-candidate-001/Bacillales_Lignin_Degrading_LDSynCom.yaml
+    sha256: 78ae367fef57e79fca7762cf49ea96f2651dd038a39504b14c344b434e69e645
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-m5-candidate-001/receipt.json
+    sha256: 0696e7728a67607cc8325dd69ab67c4186c83fb90d61cfeea1097f413942a410
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/native.log
+    sha256: 06aa99b06bfa01db7369de53d7aa69fba0ae50b52193b5d6e9cb1a5cd07d78d4
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/receipt.json
+    sha256: 792b5708f9993dd0e050d991691069293f552d7617c89f54ad044a7ea1c0aa3b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/start.json
+    sha256: 846fd4beb012a5657abb9a6bfb474181bfd3cfe6661093391ede655a8ea97e48
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/native.log
+    sha256: c9657e74d5150fe3212c917701a0aea49649de5818905ea01d6cfd3dad093815
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/receipt.json
+    sha256: 85b5ebdfbe3a661ca4fd80601bbac25f60df7d1503a4652a9de3a9a2b3bf6411
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/start.json
+    sha256: e010cd82deebd3a212c940de8c12828ed43142371d0446957223fc3e657413c1
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/receipt.json
+    sha256: dc78960811408319a6e27d625082e8da4d0fb820c1f045b07a8c8be2165aad0e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/start.json
+    sha256: 9977d564c84e3a34f90d01876f1fca0383afa72be57c5d4abeed6304ec9ce1ff
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/native.log
+    sha256: d55e9c6cab5e142b8c0f896408d3213826b3fb71dbff2e0905149a261da8f22e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/receipt.json
+    sha256: 21bc195d969922e5977423b8a84f8573177b6bdb2d1c0ee80735d9ecb0ba443b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/start.json
+    sha256: 94ff40e5de0440c23f1e068aca518608f4b27669bf1a544a3af08cbedefa7c5e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/native.log
+    sha256: 0d48a0def470db7438bc802f7ff9455095f1e9f7997dd8f2137d4ab5490ddffb
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/receipt.json
+    sha256: 3b240d510452bf9ac3af834fff6996192605df1a38e8190da937325cb6f11af7
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/start.json
+    sha256: a8ea6c6d57c66257baf7b845db5dae56dea0422280b36dc6f9cba9dc938bb0ed
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/native.log
+    sha256: c2cf5ae87139caf52f8c63822d0ba20b0f47175c842dc38769ccadb11b50efbb
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/receipt.json
+    sha256: 14e000e3b3c1fb60ef61e35ebee475e0476ecb3ac39a7636b6df0fc1f212d626
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/start.json
+    sha256: 60d1af6f2fde0c563bc46ae644ff674d124a0a80dfb732f814a2da858c642771
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/native.log
+    sha256: aa6ede8a7e664808e904b6d1904deebc68fc32d659a4c0132a3776b3d490114a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/receipt.json
+    sha256: 93da52d3d2c0fdd4e51a9298d334a87b012e7dae08c370471f36d30271e9ad44
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/start.json
+    sha256: 171d71655d915cee1d9179815aa11dec15d6c6fffb5b4ee83dcf1c44fafd9da6
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/native.log
+    sha256: e37fe49198dcac34222f1ff008eb838c501a51fd87c2cc7dc457130279764568
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/receipt.json
+    sha256: 15838fbddb80d29ec6dfb7f272bc97990b842c856e4473f97137098b1f56be43
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/start.json
+    sha256: dbe7b76f9ba16cb5aa5a381403422c0ea952db6d44995aa4b025e482eebc9337
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-applied-001/before.yaml
+    sha256: 4aefdcd766a663a1d8fd547207b3f754cfcf6bc938f2212ea4389ca221aacb8d
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-applied-001/receipt.json
+    sha256: 747d502808b8a5f14a1acdd1b178a4201fc26d3b9b21cfdd8a6f57344c769e47
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-m5-candidate-001/Community_G_GenX_Biodegradation_Consortium.yaml
+    sha256: 4df2afef7cee457738dd2774e0f5656defee918369ffab9b1dae13d7aa5283d2
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-m5-candidate-001/receipt.json
+    sha256: cbaa32047484bbfd8372ccf43676df457b62390c93713c8fef49c9abfeee9082
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/native.log
+    sha256: 321cbb8208bf4b7f77c5b3a1a3687353272dfcb02f58931d0bcfb0d2e86c4b1e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/receipt.json
+    sha256: 2b995a0d7e23b21f70f0784782ef29bf5e98aafcb09ad15d547af05ae631801c
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/start.json
+    sha256: 4a177d424507049f159868243ec46865a6eb949922753f17638dc6667b2c3cab
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/native.log
+    sha256: 4c479aa9c8567fe78356e672ec4d4ed3061ae3316619b746824ccaf431875ed8
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/receipt.json
+    sha256: 178145dbac5d2c55af7e41c5bb7aa0d64a10bdd22383ac12f55d196c12882500
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/start.json
+    sha256: b6a17bc759462a337cc263837f4b87db618e92e1b0191a584813b386f8425973
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/receipt.json
+    sha256: 41a3dee950786586067e3b880afaf359748afcca700b29ca2116395e1c02e237
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/start.json
+    sha256: da808612d41a3f9353fab86fa0ed23a19e9082f9add3d2ce91e7eaaffacf90bf
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/native.log
+    sha256: d20c9f4f0aa27d8467a8fc122f85482835afd5487f756915c38c6066aaa180d5
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/receipt.json
+    sha256: b442538f336fe9eed439e47b61c3d1a042ba72c06417712baddfba998db5e71e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/start.json
+    sha256: 4dab4d91ef61c27b07bbc3ecbd30b0cb7a781c93b93aabd36b951d5dc8488495
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/native.log
+    sha256: 89394c8d8f1be7eb955de1fab6554bee6b1765505982eb29cb29ac90c34fa060
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/receipt.json
+    sha256: 460def00a113ca4a34c4d880aca4fee07e5acea1e756ff7069b7add85bfb78cd
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/start.json
+    sha256: 07b720f9dbea3282f6af1c2d6477f8da1b26e17333a1f509ea8897316fe78013
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/native.log
+    sha256: 8100f92aaa9ac3ec53d0608379515378601c33fbd572831b294ea625c5edde4b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/receipt.json
+    sha256: da4108fb1481792d4dfdebb94f46f17f3c714dc56551fbb58fad043d7c6906fc
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/start.json
+    sha256: 29e241963e35d23da2611fbc5ff6752ffe2ce143b10e0354f9c978b58b7f5715
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/native.log
+    sha256: 35b151323fe7371d96f5b519e6ee38f5f361d9d1fe6ffda88ec27b7bf867e1ce
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/receipt.json
+    sha256: 1ee449a95dd7540974666a8947c54196b2084b7b4106ee4e127700ab86e77a2a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/start.json
+    sha256: 07a11118fcd822a009d3843684eedaaf461919a1e88652bb99a880652e854c1e
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/native.log
+    sha256: 8b9a28049984d26b8ea43b1a522664ecb619022a4315285cb95da965fdc35a51
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/receipt.json
+    sha256: ecbbc508f68021ccb91dd11e34451b836372f7be2560385fcaa8f14c9853923d
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/start.json
+    sha256: 7e3eb3cd691004772f9d11ad1a1d51eac351b1a8a80bbdee29de635afb3450f3
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-applied-001/before.yaml
+    sha256: 61c3e21e1a830b7d0b3e2d3ee2fc7bc17ecc1724aa79414c106e04312c63f468
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-applied-001/receipt.json
+    sha256: f353c37669ce55c366df516dc5a0c25d534f540a43aa59dbb7e08ece525ded88
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-m5-candidate-001/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+    sha256: dd5f3213940fe8ac0787c79d7550688802a088760483d0d8fe9a52ed1bedad36
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-m5-candidate-001/receipt.json
+    sha256: c761b2b76ce338cd9d69abc7a6bc37b5dafe7ef562393f2beb0c49d304d7e911
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/native.log
+    sha256: bfc66ab1281b0d0b8ad0b2ad381909372e4808c68e7de4d1c62bac039c9b978f
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/receipt.json
+    sha256: abbc4bc7692a97796041450d0c1191d74a1fb663a3235a8b9ecc765e3e9f09da
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/start.json
+    sha256: 2d6dc4a87e74478038d335ec5a228e665dcaa21b189006ab29de9c215db7c913
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/native.log
+    sha256: b4f5905d709d9b82ec8586c84964efa9b02205457ce4b43448e6264abd34b780
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/receipt.json
+    sha256: f6659c39c8a3f21f8415549e759c63f64091b197e8233f0671c1c27857a4aebf
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/start.json
+    sha256: ebb1974c86954ade2eaa60a6abbdd30f81d9e52dea5be872a7c62024e6627ef9
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/receipt.json
+    sha256: 38777f5542a4182e9c0d0254891085e4ff8f6820279131b2b2f0bc8f0026ac78
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/start.json
+    sha256: e91ecdd1b3ef883d0deb05d078f1628d98501e85e4aa00ec774e6884911aff4a
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/native.log
+    sha256: 0e19b7cf426883641004c822741dbebbe1095bfb0c88ac66513c0803a11c8df0
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/receipt.json
+    sha256: 3496951130852c0f306e614321c657c8408f631615475855ee7205a49f706866
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/start.json
+    sha256: 5e67b94cb7ee6847229965fd838511745eddc4718f23471fb3bff3cd9500595b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/native.log
+    sha256: b2d4ba65da6147eef26311e53700ba8fbc2561a5d433a8849eb88e14218ca7b3
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/receipt.json
+    sha256: 1f529ae689ae3dd12930b472c5c9a475bf403372b70264d4be6624440b199999
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/start.json
+    sha256: 7ccdaaaca442fb8c536446090d0059a6e58f2262fdf940744aeb99b519a85f74
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/native.log
+    sha256: 99ebfafffeb402711897b38ce0330e50927a2ef8f21bc955241d625b30dbb83b
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/receipt.json
+    sha256: 9335e41eadd086abae88e9c77ed5c77b780523021c69677d3e2c4be5adbdf380
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/start.json
+    sha256: 0739aca1d0df1e0ff6c12bf10867be39cdf61d4325d0906a65af1d043608c963
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/native.log
+    sha256: 86cf1e55b4ac5c454b9d5756cd494edf33953c3081aec69c685974cff4b655a8
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/receipt.json
+    sha256: a46c2e11a3b098d79ffdcb0e24386fc48c010b126e853d9843f273633f612d9c
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/start.json
+    sha256: 764927120cda5335c4c08788e5a447db5a345e608bd0ffd13603d491444a5956
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/native.log
+    sha256: 51e15cef745b6781826d8fba638fd2558e8daff19d2b531b4621ad06688171e2
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/receipt.json
+    sha256: 7e2b3a2503176174484987f8abd383d0456d1383aa46318b1730f7f6a53cd648
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/start.json
+    sha256: bf49c11f74083bbd5d91134fdbb4f3c18d48a389835d89a9f0ec9128ab971a00
+    role: context
+  - path: .temp/gtdb-species-fourth-batch-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-context-four-001.log
+    sha256: 87bb5efff4102a64031437f4880fd843e0bcd5f854b57cefd39872797e4b16e0
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.json
+    sha256: b24be25a70f5f94daabb584c8a3a4620729f5b79d08d88024e6a6b567fd18327
+    role: context
+  - path: .temp/phase2-schema-20261115/species-fourth-route-four-001.log
+    sha256: 635b16af1fc912433fc1a343d9372f92d7a08116e50a8e8771326824431ed78d
+    role: context
+  - path: history/records/Bacillales_Lignin_Degrading_LDSynCom/2026-10-05T101149Z-codex-93bfc2.yaml
+    sha256: c0347e351bc3bbf66e9179560d9edeac525f68ecf45d5a0ce67e87d4829c609b
+    role: context
+  - path: history/records/Bacillales_Lignin_Degrading_LDSynCom/2026-11-15T113926Z-codex-7bcf8f.yaml
+    sha256: 301bdbf80a4fb840199a40cb396834dfa0186b3fbc85830fd5e05c433ead8cda
+    role: context
+  - path: history/records/Bacillales_Lignin_Degrading_LDSynCom/20260915T075952Z-codex-bacillales-ldsyncom.yaml
+    sha256: 3ceb462aa72127e222c918ba19d5ad2a1c0dec597f7f625f3ce81bbfbdb4a3c1
+    role: context
+  - path: history/records/Community_G_GenX_Biodegradation_Consortium/2026-09-18T121545Z-claude-code-381406.yaml
+    sha256: dbfbafadda322fe42e4180037190733581c12daa2eeac5562402879693fd9c1f
+    role: context
+  - path: history/records/Community_G_GenX_Biodegradation_Consortium/2026-09-18T122903Z-claude-code-7b25c7.yaml
+    sha256: cf9acca40b198f63caf3cf235ead5c0e5b88bff0b208fee3892d02c5f7c5cda0
+    role: context
+  - path: history/records/Community_G_GenX_Biodegradation_Consortium/2026-09-18T123243Z-claude-code-f531e9.yaml
+    sha256: d799be58d461935053a824b325929f1ab53fa8585f96b8f3553ac515f2b8dabb
+    role: context
+  - path: history/records/Community_G_GenX_Biodegradation_Consortium/2026-10-06T015743Z-codex-597f4d.yaml
+    sha256: 8e026b5202b83a10f0b4ef393aed65174ec994fae698a3f7a2ae31af400bf788
+    role: context
+  - path: history/records/Community_G_GenX_Biodegradation_Consortium/2026-11-15T114124Z-codex-0fdbac.yaml
+    sha256: eeebc1c2889968df1152fefff6aa90f02cd9ea038dbc699e4bef049726e30218
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-09-27T105032Z-codex-fucoidan.yaml
+    sha256: aa6597dbb30aac2d272f5a7c2bc9d6ccc77b15d02d24392b7a421a04e79023c7
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-09-27T110547Z-codex-gtdb-status.yaml
+    sha256: 3983142751a7c494f5c6ae51e5dde4fec415d166e002cdef3431514e5de5c79f
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-09-27T110823Z-codex-adversarial-fixes.yaml
+    sha256: a3450281accaa0771bd7159941d3c483ccc5a8e9469bda9e07898ca33ff9105f
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-09-27T111450Z-codex-gtdb-unresolved.yaml
+    sha256: dd541a0c7ca53a053203319d8882898aa594fce5e5b975fe0539d9bdf39796f2
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-10-06T110348Z-codex-5b5854.yaml
+    sha256: 3c1ab807061cc160871698ffb66cbd8c69f0e9ee8935768deb6881b257072d83
+    role: context
+  - path: history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-11-15T114241Z-codex-73a17c.yaml
+    sha256: d30cc1eb9f7da4ab68c78d66fa4961a035badb48d6cfd6308cb09f1ec4547d45
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+    sha256: 78ae367fef57e79fca7762cf49ea96f2651dd038a39504b14c344b434e69e645
+    role: target
+  - path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+    sha256: 4df2afef7cee457738dd2774e0f5656defee918369ffab9b1dae13d7aa5283d2
+    role: target
+  - path: kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+    sha256: dd5f3213940fe8ac0787c79d7550688802a088760483d0d8fe9a52ed1bedad36
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/GITHUB_Xinming9606_lignin_SynCom_proteomics_blob_ed208e4d5df80c96100f2113db39698832d7b685_downstream_analysis.py.md
+    sha256: 39093a705fafca2553e552af4a6c323b1b120eadf3537430e5242163af18f503
+    role: context
+  - path: references_cache/PMID_42173377.txt
+    sha256: 860064ea83750a11c90a664cd1e592298a358ef21d17a6216b79bebb09187bfa
+    role: context
+  - path: references_cache/PMID_42422733.txt
+    sha256: 325e78dd4f7233cce72949131192a66cf526eba1bc33594ceec379bb5172a5e5
+    role: context
+  - path: references_cache/PMID_42649294.supplement.md
+    sha256: a3b7db48ee4097692c3833ed377c0914e138161ca37a27ec6b15b9bb8d50a26c
+    role: context
+  - path: references_cache/PMID_42649294.txt
+    sha256: ea0c737a5ae104f6e65b7a2224929e4e120d412fdb5bce531bca9c3a2061ebc8
+    role: context
+  - path: references_cache/doi_10.64898_2026.08.24.746789.md
+    sha256: 555e4673f5a7909623d1d74d544da5a414c5da56a4d0e1b143fd3cd9c6b31cd2
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml
+    sha256: a2bd023f110da25d4c33ca7f4ad53f16f12b0531816a249dffe98c74649f1c7d
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+    sha256: c0b2c349054635e9d6993082265669faede9e45656a6ae48549c87df053df645
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/383-check-config-001.json
+    sha256: 5c0a1f751eddf5ae2ce88bc132739f62586b143833b5ea5242142f2a82ba4d12
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/383-source-evidence-001.json
+    sha256: 92c5db277fab81143c30befd2ad2e45c8d5c9e2f08fc9311b7e92ba1e5577017
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/387-check-config-001.json
+    sha256: 027fc96df7254ccfc9b01f1449e5d6e1518fd6c2214411c41ce4770825b63807
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/387-source-evidence-001.json
+    sha256: d24b0c70faa0a188a6a42ac714520bfbe728d42a786522d5ac73825df6b0346a
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/449-check-config-001.json
+    sha256: 5d169877062ec8adbf88e6d9e5f4ba636e01118a935a20e86af08cc3f9a7c00a
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/449-source-evidence-001.json
+    sha256: 964eb0afa10edaec67e3a55e70dd454b9683327bc09f1094290bc51eb38766b1
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-authored-source-context-001.json
+    sha256: a99cddf354924bec87734ea58eb95eed2a2f97efb370b9ddee8f08943487dac9
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-route-plan-001.json
+    sha256: 5d3074d9da6fcaca03a0cfde3aed41bc64369b8e43eaf44b9b9e71e3da7bc30e
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/four-source-config-001.json
+    sha256: 7093cde38db249d15ced990d86236d94633706b1049e208b5b90e32132335f61
+    role: context
+  - path: reports/gtdb-species-fourth-batch-20261115/three-review-config-001.json
+    sha256: bcc67b8f103c582d37d8803c5f648a29a823f40fc010c9a72cf8146d2e20311f
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: 867e974e9c55325fb1b7e32f81dcf6b7a65b6720941fd303040f5570e46ba232
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch23.py
+    sha256: 4727f10e31eb337232fedfcff8eaa1082dd8cd6b14565740d574d1963a0fd3ea
+    role: context
+  - path: tests/test_causal_review_batch42.py
+    sha256: 16fcc91b4b5c54ba511cfb16acdb050687fb2e1cf79ef0981dd440cc44d959c6
+    role: context
+  - path: tests/test_causal_review_batch5.py
+    sha256: 7eaca27f519ee49306860ba48357e02aebb3623b927ba54d0583fbd0f26e492e
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000383
+  path: kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  selector: taxonomy[0,1,2,3,4,5,6,7,8,9,10].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10].taxon_term.gtdb_grounding_status
+  label: LDSynCom eleven species-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000387
+  path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  selector: taxonomy[0,1,2,3,4,5].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5].taxon_term.gtdb_grounding_status
+  label: Community G six profile-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000449
+  path: kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  selector: taxonomy[1,2,3,5,6].taxon_term.gtdb_classification; taxonomy[1,2,3,5,6].taxon_term.gtdb_grounding_status
+  label: Fucoidan panel five species-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Only the selected GTDB classification/status fields, source-stock versus
+    reference-population boundaries and actual persistence/history/check provenance
+    are assessed. Preserved scientific claims receive no new approval from this diagnostic.
+  selection: Exactly CommunityMech:000383, CommunityMech:000387 and CommunityMech:000449,
+    the three remaining whole records in the independently reviewed four-record source
+    plan. The separately saved and verified CommunityMech:000476 canary preceded this
+    serial execution and is excluded from this bundle's population of three.
+  coverage: partial
+  population_size: 3
+  reviewed_target_ids:
+  - CommunityMech:000383
+  - CommunityMech:000387
+  - CommunityMech:000449
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000383-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+    --out .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-history history/records/Bacillales_Lignin_Degrading_LDSynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Bacillales_Lignin_Degrading_LDSynCom --target-root kb/communities --event EDIT
+    --outcome changed --sections taxonomy,curation_history --actor-name codex --model
+    gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record eleven native species-reference GTDB correspondences for the
+    LDSynCom stock descriptors.' --details 'The exact NCBI-ID routes supply eleven
+    reference-taxon mappings while preserving all eleven distinct study stocks, assembly
+    and BioSample strings, duplicate species entries and STRMAP identities. Reference
+    genome counts and rounded majority fractions do not reassign the study-stock assemblies,
+    establish exact numerators or measure abundance. Preserve the 121-library to 15-candidate
+    to 11-member selection boundaries, excluded strains, every source quotation and
+    all biological fields. Native GTDB label differences are database correspondences
+    rather than formal stock renaming. Only eleven GTDB blocks/statuses and two native
+    inline events changed. Existing issues 2314, 2315 and 2316 retain source-completeness,
+    growth/phenolic-proxy and quotation limitations; this technical correction does
+    not approve structural lignin mineralization, biofilm mechanism or full-record
+    science. The pinned crosswalk'"'"'s upstream release is unestablished. Actual
+    apply receipt .temp/gtdb-species-fourth-batch-20261115/383-applied-001/receipt.json
+    sha256:2767848d5ea60ad73614cde63d6b9461ee477d20fcbd7356e61fc59412365431.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000383-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000383
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000383-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+    --out .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-history history/records/Community_G_GenX_Biodegradation_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Community_G_GenX_Biodegradation_Consortium --target-root kb/communities --event
+    EDIT --outcome changed --sections taxonomy,curation_history --actor-name codex
+    --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2593
+    --summary 'Record six native species-reference GTDB correspondences for the Community
+    G GenX profile descriptors.' --details 'The exact NCBI-ID routes reproduce six
+    reference populations of 208883, 35, 3, 3, 3 and 5 genomes, with rounded fraction
+    0.98 for Salmonella enterica and 1.0 for the other five. These describe reference
+    taxa, not newly isolated study stocks, direct assembly placements, measured abundance
+    or exact numerators. Preserve all null stock fields, distinct LM091 and MYb57
+    reference identities, source species labels and every biological field. Pseudomonas_E,
+    bentonitica_A and indicatrix are native database correspondences rather than formal
+    study-stock renaming. Only six GTDB blocks/statuses and two native inline events
+    changed. Issues 2591, 2592 and 2604 retain member-degrader, assay-condition and
+    incomplete-roster limitations; soil GenX, liquid screening, GENIA and upstream
+    PFOS/PFOA/community H/E contexts remain separate. The pinned crosswalk'"'"'s upstream
+    release is unestablished. This scoped correction addresses the mapping discrepancy
+    in 2593 without completing scientific review or corpus QC. Actual apply receipt
+    .temp/gtdb-species-fourth-batch-20261115/387-applied-001/receipt.json sha256:747d502808b8a5f14a1acdd1b178a4201fc26d3b9b21cfdd8a6f57344c769e47.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000387-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000387
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000387-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+    --out .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-history history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Fucoidan_Seven_Degrader_Combinatorial_SynCom --target-root kb/communities --event
+    EDIT --outcome changed --sections taxonomy,curation_history --actor-name codex
+    --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record five native species-reference GTDB correspondences for the Fucoidan
+    degrader panel descriptors.' --details 'Exact encoded NCBI-ID routes reproduce
+    Algibacter lectus AS40, Mariniflexile sp. AS56, Zobellia laminariae AS94, Roseibacillus
+    persicicus AS69 and Lentimonas sp. CC4 reference populations of 19, 2, 5, 4 and
+    4 genomes, respectively, each with fraction 1.0. These populations do not newly
+    classify the stored study assemblies. Preserve all seven stocks, aliases and GCA
+    identifiers, the AS12 and AS25 null/UNRESOLVED results, excluded G88, source-column
+    distinctions and V4/reference-3 extraction caveat. Numeric GTDB placeholders and
+    the supplement'"'"'s Roseibacillus_A alias do not establish formal renaming or
+    source-release chronology. Only five GTDB blocks/statuses and two native inline
+    events changed; all biological claims and exact source quotations remain intact.
+    The 127 combinations, five-member 97.1% subset and richness/inoculum confound
+    stay distinct from one fixed mutualistic community. Issues 1465 and 1996 retain
+    mechanism and supplement-routing boundaries. The pinned crosswalk'"'"'s upstream
+    release is unestablished; this is a partial technical correction, not a fresh
+    full-paper or genome audit, scientific approval or corpus QC completion. Actual
+    apply receipt .temp/gtdb-species-fourth-batch-20261115/449-applied-001/receipt.json
+    sha256:f353c37669ce55c366df516dc5a0c25d534f540a43aa59dbb7e08ece525ded88.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000449-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000449
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000449-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000383-schema
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-schema-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-strict
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-strict-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-gtdb
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-domain
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-domain-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-scalars
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-scalars-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-new-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-new-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-terms
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-run-terms-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000383-paper
+  kind: primary_source
+  reference: references_cache/doi_10.64898_2026.08.24.746789.md
+  locator: Retained preprint lines 49 and 53, captured character offsets 1355 and
+    1510; selected final-eleven, genome-project and phenolic/dropout/biofilm passages.
+  support: supports
+  summary: The selected source states the final eleven-member selection and PRJNA960711
+    genome project. It supplies bounded source context rather than a complete manuscript
+    audit, direct assembly classification or proof of structural lignin mineralization.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000383-roster
+  kind: primary_source
+  reference: references_cache/GITHUB_Xinming9606_lignin_SynCom_proteomics_blob_ed208e4d5df80c96100f2113db39698832d7b685_downstream_analysis.py.md
+  locator: Exact article-linked ed208e4d source-code STRAIN_MAP, retained lines 13-23
+    and eleven captured primary_contexts offsets.
+  support: supports
+  summary: The source code preserves S01-S11 stock identities and their spelling variants.
+    KF24/D9_B_56 and MB7_B11/MB7_B13 remain separate stocks despite repeated species
+    descriptors; this is a source-code roster, not a substitute for the uninspected
+    original Table 1 or raw genome verification.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000383-database
+  kind: database
+  reference: reports/gtdb-species-fourth-batch-20261115/383-source-evidence-001.json
+  locator: Eleven selected occurrence native_result objects, exact NCBI-ID crosswalk
+    rows, local label/rank observations and captured source hashes.
+  support: supports
+  summary: Native ID routes reproduce ordered reference populations 257/1.0, 264/0.99,
+    257/1.0, 1256/0.91, 11/1.0, 1163/1.0, 709/0.99, 1163/1.0, 1256/0.91, 562/0.98
+    and 1/1.0. Bacillus_A toyonensis and Paenibacillus sp000499205 are database label
+    differences; every original NCBI/stock/assembly field remains intact.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000383-application
+  kind: record_content
+  reference: .temp/gtdb-species-fourth-batch-20261115/383-applied-001/receipt.json
+  locator: Actual applied flag, 14d95aa2 execution, accepted stage 0696e772, before/after
+    chain and captured input map; separate native sidecar bound directly.
+  support: supports
+  summary: The guarded M5 writer persisted exact 78ae367f after independent review.
+    Only eleven selected GTDB blocks/statuses and two native inline events changed
+    semantically; one native history sidecar records the exact raw application.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000383-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  locator: Immutable CommunityMech:000383 row and current batch 5 lignin-proxy/dropout/biofilm
+    predicates.
+  support: context_only
+  summary: The three-node/zero-arrow phenotype and mechanism boundaries remain unchanged.
+    Prior source-completeness and interpretation findings 2314-2316 are not resolved
+    by database grounding.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000387-schema
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-schema-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-strict
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-strict-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-gtdb
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-domain
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-domain-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-scalars
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-scalars-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-new-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-new-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-terms
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-run-terms-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000387-paper
+  kind: primary_source
+  reference: references_cache/PMID_42422733.txt
+  locator: Retained Methods 2.8 and Results 3.2/soil time series, flattened main-body
+    line 65; captured offsets 44306, 44391 and 61273.
+  support: supports
+  summary: The retained main text names the six Community G relative-profile taxa
+    and assay context. It does not provide independently verified study isolates,
+    complete roster/sample mapping or member-specific GenX degradation.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000387-upstream
+  kind: primary_source
+  reference: references_cache/PMID_42173377.txt
+  locator: Retained upstream Prospector abstract, line 23 and captured offset 1088.
+  support: context_only
+  summary: Cotton-detritusphere origin and upstream PFOS/PFOA enrichment are separate
+    from Community G soil GenX and liquid screening. Abstract coverage does not transfer
+    Community H/E outcomes or GENIA mechanisms to this record.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000387-database
+  kind: database
+  reference: reports/gtdb-species-fourth-batch-20261115/387-source-evidence-001.json
+  locator: Six native exact-ID results and complete lookup rows, local NCBI label/rank
+    observations and captured mapping/source hashes.
+  support: supports
+  summary: The native correspondences are Salmonella enterica 208883/0.98, Pseudomonas_E
+    tolaasii 35/1.0, Stenotrophomonas bentonitica_A 3/1.0, S. indicatrix 3/1.0, S.
+    cyclobalanopsidis 3/1.0 and Pseudomonas_E arcuscaelestis 5/1.0. LM091 and MYb57
+    remain distinct encoded references with null study-stock fields.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000387-application
+  kind: record_content
+  reference: .temp/gtdb-species-fourth-batch-20261115/387-applied-001/receipt.json
+  locator: Actual applied flag, 14d95aa2 execution, accepted stage cbaa3204 and exact
+    4aefdcd7 to 4df2afef chain; sidecar bound separately.
+  support: supports
+  summary: The guarded M5 application changed only six GTDB blocks/statuses and two
+    native events, preserving relative-profile meanings, all null stock fields and
+    every biological claim.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000387-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml
+  locator: Immutable CommunityMech:000387 row, old digest and current one-node/zero-arrow
+    biological predicates.
+  support: context_only
+  summary: Preserve the observed-subset, relative abundance, participant and GENIA-separation
+    boundaries. Issues 2591, 2592 and 2604 remain scientific/source follow-up; 2593
+    is the specific mapping discrepancy addressed here.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000449-schema
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-schema-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-strict
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-strict-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-gtdb
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-domain
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-domain-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-scalars
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-scalars-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-new-history
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-new-history-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-terms
+  kind: validation
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-run-terms-001/native.log
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000449-paper
+  kind: primary_source
+  reference: references_cache/PMID_42649294.txt
+  locator: Selected article/Methods excerpts, lines 33 and 45 with captured offsets
+    2103 and 2903; seven-degrader panel, G88 exclusion and combinatorial design.
+  support: supports
+  summary: The retained source supports the seven-degrader panel and distinct combinations.
+    It preserves 127 tested combinations, the five-member 97.1% subset and richness/inoculum
+    caveat rather than asserting one fixed mutualistic seven-member community or CO2
+    mineralization.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000449-supplement
+  kind: primary_source
+  reference: references_cache/PMID_42649294.supplement.md
+  locator: Separate Supplementary Table 2 extraction, selected AS40/AS56/AS94/AS69/CC4
+    rows at lines 18, 20, 26, 22 and 28; five captured offsets.
+  support: supports
+  summary: The retained table binds stocks, short aliases and GCA strings. Full_Name
+    and the separate GTDB_taxonomy species columns remain distinct, including Roseibacillus_A
+    wording. Original workbook and assembly bytes were not newly inspected.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000449-database
+  kind: database
+  reference: reports/gtdb-species-fourth-batch-20261115/449-source-evidence-001.json
+  locator: Selected indices 1, 2, 3, 5, 6 native_result and exact-ID rows, NCBI identity
+    observations and source/crosswalk hashes.
+  support: supports
+  summary: The five encoded routes reproduce Algibacter lectus 19/1.0, Mariniflexile
+    sp030552475 2/1.0, Zobellia laminariae 5/1.0, Roseibacillus persicicus 4/1.0 and
+    Lentimonas sp902728235 4/1.0. They are reference populations, not newly verified
+    placements of the seven stored study assemblies.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000449-application
+  kind: record_content
+  reference: .temp/gtdb-species-fourth-batch-20261115/449-applied-001/receipt.json
+  locator: Actual applied flag, 14d95aa2 execution, accepted stage c761b2b7 and exact
+    61c3e21e to dd5f3213 chain; native sidecar bound separately.
+  support: supports
+  summary: The actual guarded writer changed only five GTDB blocks/statuses and two
+    inline events. AS12/AS25 null statuses only moved in serialization; all stock,
+    assembly, source and biological content remains unchanged.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+- evidence_id: 000449-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+  locator: Immutable CommunityMech:000449 row and batch 42 panel, alias, history,
+    source-counter and supplement-mismatch predicates.
+  support: context_only
+  summary: Preserve the two-node/zero-arrow scientific boundary, V4 citation interpretation,
+    open mechanism work and fourteen historical supplement mismatches. Issue 1996
+    source routing and 1465 mechanism work are not resolved by this correction.
+  accessed_at: '2026-11-15T11:45:47.174460Z'
+assessments:
+- assessment_id: 000383-source
+  area: grounding
+  topic: Eleven preserved LDSynCom stocks and bounded source coverage
+  outcome: supported
+  target_ids:
+  - CommunityMech:000383
+  evidence_ids:
+  - 000383-paper
+  - 000383-roster
+  - 000383-terms
+  - 000383-prior
+  summary: Retain all eleven code-supported final stocks, duplicate species occurrences,
+    original assemblies/BioSamples and selection/exclusion context. Selected preprint
+    and code coverage do not close 2314-2316 or establish structural lignin catabolism,
+    mineralization or a necessary Paenibacillus mechanism.
+- assessment_id: 000383-population
+  area: grounding
+  topic: Eleven exact-ID reference-population correspondences
+  outcome: supported
+  target_ids:
+  - CommunityMech:000383
+  evidence_ids:
+  - 000383-database
+  - 000383-gtdb
+  - 000383-domain
+  summary: All eleven encoded NCBI-ID routes reproduce the full native reference populations
+    and stored blocks, including rounded fractions and separate occurrences sharing
+    a species. No exact study-assembly placement or rounded numerator is inferred.
+    GTDB suffix/placeholder labels do not formally rename source stocks, and the table
+    release remains unestablished.
+- assessment_id: 000383-provenance
+  area: provenance
+  topic: Actual bounded application and preserved causal predicates
+  outcome: supported
+  target_ids:
+  - CommunityMech:000383
+  evidence_ids:
+  - 000383-application
+  - 000383-schema
+  - 000383-strict
+  - 000383-scalars
+  - 000383-new-history
+  - 000383-history
+  - 000383-prior
+  summary: The applied receipt, accepted stage, exact sidecar and eight native commands
+    bind the current record. All scientific fields and previous history remain unchanged.
+    Strict public-proof admission, original batch 5 predicates, source-snippet validation
+    and integrated products/QC remain separate requirements.
+- assessment_id: 000387-source
+  area: grounding
+  topic: Relative-profile references remain distinct from study isolates
+  outcome: supported
+  target_ids:
+  - CommunityMech:000387
+  evidence_ids:
+  - 000387-paper
+  - 000387-upstream
+  - 000387-terms
+  - 000387-prior
+  summary: Retain six observed reference taxa, null stock fields and distinct LM091/MYb57
+    identities. Keep soil GenX, liquid screening and upstream/GENIA experiments separate.
+    Relative enrichment does not identify absolute expansion, extinction or member-specific
+    degradation, and the complete roster remains unresolved.
+- assessment_id: 000387-population
+  area: grounding
+  topic: Six exact-ID database correspondences under issue 2593
+  outcome: supported
+  target_ids:
+  - CommunityMech:000387
+  evidence_ids:
+  - 000387-database
+  - 000387-gtdb
+  - 000387-domain
+  summary: The native lookup reproduces all six specified reference populations, with
+    0.98 retained as rounded and other fractions 1.0. These counts do not measure
+    consortium abundance or identify study isolates/assemblies. GTDB suffixes and
+    name differences do not formally rename source taxa.
+- assessment_id: 000387-provenance
+  area: provenance
+  topic: Actual application with scientific follow-up retained
+  outcome: supported
+  target_ids:
+  - CommunityMech:000387
+  evidence_ids:
+  - 000387-application
+  - 000387-schema
+  - 000387-strict
+  - 000387-scalars
+  - 000387-new-history
+  - 000387-history
+  - 000387-prior
+  summary: The exact applied record, source/stage inputs, sidecar and eight actual
+    native commands form a bounded persistence chain. Existing biology and prior history
+    remain unchanged. Batch 23 requires strict admission of the new hash while retaining
+    current scientific predicates; source findings and combined QC remain separate.
+- assessment_id: 000449-source
+  area: grounding
+  topic: Seven source stocks with five selected descriptors
+  outcome: supported
+  target_ids:
+  - CommunityMech:000449
+  evidence_ids:
+  - 000449-paper
+  - 000449-supplement
+  - 000449-terms
+  - 000449-prior
+  summary: Preserve all seven stock/alias/assembly identities, excluded G88, unresolved
+    AS12/AS25 and the V4/reference-3 caveat. Supplement source columns remain separate.
+    The selected five mappings do not certify a direct sequence placement or merge
+    distinct combinatorial assays.
+- assessment_id: 000449-population
+  area: grounding
+  topic: Five exact-ID reference populations without source relabeling
+  outcome: supported
+  target_ids:
+  - CommunityMech:000449
+  evidence_ids:
+  - 000449-database
+  - 000449-gtdb
+  - 000449-domain
+  summary: The pinned resolver supports reference populations 19, 2, 5, 4 and 4 with
+    fractions 1.0 at the five declared indices. Numeric placeholders are database
+    labels, not formal names or fresh assembly certification. The supplement's Roseibacillus_A
+    alias remains unchanged and no release chronology is inferred.
+- assessment_id: 000449-provenance
+  area: provenance
+  topic: Actual application preserves panel biology and source-routing limits
+  outcome: supported
+  target_ids:
+  - CommunityMech:000449
+  evidence_ids:
+  - 000449-application
+  - 000449-schema
+  - 000449-strict
+  - 000449-scalars
+  - 000449-new-history
+  - 000449-history
+  - 000449-prior
+  summary: The current record, accepted stage, raw application, sidecar and eight
+    native commands are bound. Current biological fields remain intact; strict admission
+    must preserve original batch 42 predicates and its Transwell route. Source-snippet
+    comparison, supplement routing, mechanism review and combined QC remain separate.
+findings: []
+actions: []
+limitations:
+- Partial technical and provenance diagnostic, scientific_review:false. Native validator
+  passes do not certify full-record scientific support, every exact source snippet,
+  generated products or corpus QC.
+- LDSynCom coverage is selected preprint text and exact article-linked STRAIN_MAP
+  code at ed208e4d, not a fresh full manuscript, original Table 1, raw proteomics
+  or sequence-archive audit. Preserve issues 2314, 2315 and 2316 for completeness,
+  growth/phenolic-proxy interpretation and selected unverified quotations.
+- LDSynCom's eleven stocks remain distinct, including two Bacillus subtilis and two
+  Bacillus velezensis entries. Stored assemblies, BioSamples and PRJNA960711 remain
+  source provenance; the reference-taxon lookup does not newly classify each study
+  assembly. The 121-library, 15-candidate and final-eleven selection boundaries and
+  excluded strains remain unchanged.
+- Community G's six named relative-profile taxa remain an observed subset, with null
+  stock fields and no independently verified study-isolate roster. Soil GenX, liquid
+  screening, GENIA and upstream PFOS/PFOA/community H/E experiments remain separate.
+  Issues 2591, 2592 and 2604 retain member-degrader, assay-condition and incomplete-roster
+  limitations; the mapping correction addresses the bounded discrepancy owned by 2593
+  without closing those scientific findings.
+- Fucoidan coverage is retained selected article text and separate Supplementary Table
+  2 extraction. No original workbook, figure pixels or study genome sequences were
+  newly examined. Preserve all seven assemblies/aliases, excluded G88, AS12/AS25 native-null
+  results and the V4/reference-3 extraction caveat. Distinct Full_Name and GTDB_taxonomy
+  columns are not merged.
+- The 127 Fucoidan combinations are not one fixed seven-member mutualistic assay.
+  The 97.1% five-member subset, richness/inoculum confounding and complementary substrate-accessibility
+  interpretation remain separate from reciprocal fitness, small-molecule cross-feeding
+  or CO2 mineralization. Issue 1465 remains a scientific boundary; issue 1996 retains
+  supplement-specific source-routing failures, and the historical issue-counter correction
+  under 1469 remains immutable.
+- Reference genome counts do not measure study abundance or prove exact study-stock
+  assembly placement. Rounded fractions do not establish exact numerators. Numeric
+  GTDB placeholders and suffixes express database correspondences; native is_reclassified
+  does not itself establish formal nomenclature or stock reidentification.
+- The crosswalk SHA256 identifies exact bytes, not an established upstream release
+  or chronology. Native mapping_source observes file mtime. Captured local NCBI authority
+  rows carry file-stat provenance rather than a full database hash or release certification.
+- Source preparation ran locally at 85d582fa with Python 3.13.12. Actual M5 staging,
+  applications, native checks and this builder ran at 14d95aa224ca0968a5008fb2b07b9500ce30f5bc
+  with Python 3.13.2. Those executions retain their actual revisions and source/input
+  hashes. No active M5 source, schema, environment or canonical reference cache was
+  synchronized to the later local canary publication.
+- Each record has one native sidecar and seven scoped validators, totaling 24 required
+  commands. Strict successor admission and historical caller composition follow the
+  immutable saved-input checkpoint. Preserve all old reviews/ledgers, batch 5's other
+  status successors, batch 23's current biological predicates, and batch 42's separate
+  Transwell historical route and GENIA predicates. Generated products and combined
+  QC remain integration work.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2314
+- https://github.com/CultureBotAI/CommunityMech/issues/2315
+- https://github.com/CultureBotAI/CommunityMech/issues/2316
+- https://github.com/CultureBotAI/CommunityMech/issues/2591
+- https://github.com/CultureBotAI/CommunityMech/issues/2592
+- https://github.com/CultureBotAI/CommunityMech/issues/2593
+- https://github.com/CultureBotAI/CommunityMech/issues/2604
+- https://github.com/CultureBotAI/CommunityMech/issues/1465
+- https://github.com/CultureBotAI/CommunityMech/issues/1996
+- https://github.com/CultureBotAI/CommunityMech/pull/2893
+```

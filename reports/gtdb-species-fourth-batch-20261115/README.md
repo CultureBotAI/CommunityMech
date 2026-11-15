@@ -4,8 +4,15 @@ The preparation below records the original unchanged-source intake. The
 [476 canary checkpoint](476-canary-outcome-001.md) now preserves its guarded M5
 application, eight actual native checks, immutable partial diagnostic, complete
 input snapshot and public strict proof. Its 17 proof controls and both batch133
-tests pass, as does native lint. The other three records remain unapplied;
-scientific findings, including 2891, remain explicit.
+tests pass, as does native lint. The subsequent
+[three-record checkpoint](three-record-outcome-001.md) now preserves the actual
+383/387/449 applications, 24 native checks, nine partial assessments and complete
+180-file input namespace on both machines. All 81 public artifacts rehashed;
+51 new actual-proof controls, 24 affected historical tests and native lint
+passed. Scientific findings, including 2891, remain explicit; these are scoped
+correspondence corrections, not full scientific or corpus-QC completion.
+
+## Original preparation
 
 This isolated lane prepares GTDB correspondence updates for four whole records at
 public revision `85d582fa0dcbb3faea2f92ca2ebfb7a33e79998e`. Their current bytes match

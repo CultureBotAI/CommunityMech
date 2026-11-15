@@ -4,6 +4,7 @@ import hashlib
 import subprocess
 from pathlib import Path
 
+import gtdb_species_batch_successors_20261115 as species_successor
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -144,9 +145,17 @@ def test_batch42_dispositions_history_participants_and_source_receipts():
     for path, expected in ledger["reference_cache_original_hashes"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected
     for row, doc in zip(ledger["records"], docs, strict=True):
-        assert hashlib.sha256(record_bytes(row)).hexdigest() == row["record_sha256"]
+        expected_hash = row["record_sha256"]
+        prior_history = doc["curation_history"]
+        if row["id"] == "CommunityMech:000449":
+            # Admit exact current bytes before projecting only the old history assertion.
+            assert doc == yaml.safe_load(record_bytes(row))
+            admitted = species_successor.admission(ROOT, row["path"], expected_hash)
+            expected_hash = admitted.current_sha256
+            prior_history = yaml.safe_load(admitted.historical_bytes)["curation_history"]
+        assert hashlib.sha256(record_bytes(row)).hexdigest() == expected_hash
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert prior_history[-1]["llm_assisted"] is True
         canonical = {t["taxon_term"]["term"]["id"]: t["taxon_term"] for t in doc["taxonomy"]}
         names = {n["name"] for n in doc["ecological_interactions"]}
         for node in doc["ecological_interactions"]:
