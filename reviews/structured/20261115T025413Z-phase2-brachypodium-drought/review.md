@@ -1,0 +1,2532 @@
+# Brachypodium15 source-stock, assay and mechanistic-scope reassessment
+
+- Review: 20261115T025413Z-phase2-brachypodium-drought
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T02:18:48Z
+- Finished UTC: 2026-11-15T02:54:13Z
+- Reviewer: codex-pr-review (self_review)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+All present000088 claims assessed against the actual primary article, Figures1–6, relevant separate supplements and15primary BioSamples;15source stocks now have verified current assemblies and sequence taxa. Protocol/arm contexts remain distinct. Five qualified nodes and zero causal arrows retained. Nine scoped native gates passed. Biological classification/original-version limits and native SupportingReference coverage remain explicit; no full-corpus/Phase2 completion or issue closure is claimed.
+
+## Scope And Provenance
+
+Entire current000088:15stock rows,18scoped numerical observations,9arms,5nodes,0arrows,4growth-media contexts,1liquid setup,2discussions and append-only history.
+
+Selection: Explicit Phase2 #1548 target after the separate000087 end-to-end canary; not the all-record campaign.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 1361f8a77ca5937fd822bc6b1320ce0e7f2ebd63.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000088 | kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml | maintained | LBNL Brachypodium Drought SynCom15 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| Native schema | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native strict | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native gtdb | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native domain | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native scalars | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native terms | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native history | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native references | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Native network | passed | True | CommunityMech:000088 | Exact current record and retained inputs passed the scoped command. |
+| Full source and field assessment | passed | True | CommunityMech:000088 | All present claims,15stock rows,9arms,18observations,5nodes and0arrows assessed against actual primary sources. Passing this check means assessment completed, not all uncertainty resolved. |
+
+## Scientific And Domain Assessments
+
+### Administered SynCom and source scope
+
+scope: supported. Targets: CommunityMech:000088.
+
+Identity/category/engineering design denote the15-stock introduced consortium, not every root bacterium. Laboratory setting is physical context; rhizosphere is source/modeled context. No strain roles are invented. Host Bd21–3 is separate from microbial taxonomy and its pre-inoculation microbiological status remains unestablished.
+
+Exact current selectors: id, name, description, ecological_state, community_origin, community_category, engineering_design, environment_term, modeled_environment, host
+
+### Caballeronia sp. RCC-10
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A3:J3 establishes the stock name. BioSample SAMN42017412 has sample name Isolate Caballeronia, strain RCC_10, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360715.1 and verified sequence taxon NCBITaxon:3239227 / Caballeronia sp. RCC_10. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:1827195 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[0].member_id, taxonomy[0].taxon_term, taxonomy[0].strain_designation, taxonomy[0].evidence
+
+### Chitinophaga sp. RCC-12
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A4:J4 establishes the stock name. BioSample SAMN42017413 has sample name Isolate Chitinophaga, strain RCC_12, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360695.1 and verified sequence taxon NCBITaxon:3239226 / Chitinophaga sp. RCC_12. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:79328 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[1].member_id, taxonomy[1].taxon_term, taxonomy[1].strain_designation, taxonomy[1].evidence
+
+### MA-N2 sp. RCC-150
+
+grounding: concern. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A5:J5 establishes the stock name. BioSample SAMN42017417 has sample name Isolate MA-N2, strain RCC_150, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360635.1 and verified sequence taxon NCBITaxon:3239231 / bacterium RCC_150. NCBI species rank does not imply formal biological species delineation. Prior family context NCBITaxon:1268 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[2].member_id, taxonomy[2].taxon_term, taxonomy[2].strain_designation, taxonomy[2].evidence
+
+### Paraburkholderia sp. RCC-158
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A6:J6 establishes the stock name. BioSample SAMN42017420 has sample name Isolate Paraburkholderia, strain RCC_158, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355255.1 and verified sequence taxon NCBITaxon:3239220 / Paraburkholderia sp. RCC_158. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:1822464 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[3].member_id, taxonomy[3].taxon_term, taxonomy[3].strain_designation, taxonomy[3].evidence
+
+### Rhizobium sp. RCC-161.2
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A7:J7 establishes the stock name. BioSample SAMN42017421 has sample name Isolate Rhizobium, strain RCC_161_2, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355235.1 and verified sequence taxon NCBITaxon:3239219 / Rhizobium sp. RCC_161_2. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:379 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[4].member_id, taxonomy[4].taxon_term, taxonomy[4].strain_designation, taxonomy[4].evidence
+
+### Mucilaginibacter sp. RCC-168
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A8:J8 establishes the stock name. BioSample SAMN42017419 has sample name Isolate Mucilaginibacter, strain RCC_168, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355315.1 and verified sequence taxon NCBITaxon:3239221 / Mucilaginibacter sp. RCC_168. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:423349 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[5].member_id, taxonomy[5].taxon_term, taxonomy[5].strain_designation, taxonomy[5].evidence
+
+### Leifsonia sp. RCC-180
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A9:J9 establishes the stock name. BioSample SAMN42017415 has sample name Isolate Leifsonia, strain RCC_180, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_058138205.1 and verified sequence taxon NCBITaxon:3239224 / Leifsonia sp. RCC_180. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:110932 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[6].member_id, taxonomy[6].taxon_term, taxonomy[6].strain_designation, taxonomy[6].evidence
+
+### Terriglobus sp. RCC-193
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A10:J10 establishes the stock name. BioSample SAMN42017422 has sample name Isolate Terriglobus, strain RCC_193, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355105.1 and verified sequence taxon NCBITaxon:3239218 / Terriglobus sp. RCC_193. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:392733 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[7].member_id, taxonomy[7].taxon_term, taxonomy[7].strain_designation, taxonomy[7].evidence
+
+### Mesorhizobium sp. RCC-202
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A11:J11 establishes the stock name. BioSample SAMN42017418 has sample name Isolate Mesorhizobium, strain RCC_202, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355295.1 and verified sequence taxon NCBITaxon:3239222 / Mesorhizobium sp. RCC_202. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:68287 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[8].member_id, taxonomy[8].taxon_term, taxonomy[8].strain_designation, taxonomy[8].evidence
+
+### Variovorax sp. RCC-210
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A12:J12 establishes the stock name. BioSample SAMN42017423 has sample name Isolate Variovorax, strain RCC_210, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041355175.1 and verified sequence taxon NCBITaxon:3239217 / Variovorax sp. RCC_210. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:34072 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[9].member_id, taxonomy[9].taxon_term, taxonomy[9].strain_designation, taxonomy[9].evidence
+
+### Arthrobacter sp. RCC-34
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A13:J13 establishes the stock name. BioSample SAMN42017409 has sample name Isolate Arthrobacter, strain RCC_34, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360795.1 and verified sequence taxon NCBITaxon:3239230 / Arthrobacter sp. RCC_34. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:1663 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[10].member_id, taxonomy[10].taxon_term, taxonomy[10].strain_designation, taxonomy[10].evidence
+
+### Enterobacter sp. RCC-40
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A14:J14 establishes the stock name. BioSample SAMN42017414 has sample name Isolate Enterobacter, strain RCC_40, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360735.1 and verified sequence taxon NCBITaxon:3239225 / Enterobacter sp. RCC_40. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:547 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[11].member_id, taxonomy[11].taxon_term, taxonomy[11].strain_designation, taxonomy[11].evidence
+
+### Luteibacter sp. RCC-6.2
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A15:J15 establishes the stock name. BioSample SAMN42017416 has sample name Isolate Luteibacter, strain RCC_6_2, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360655.1 and verified sequence taxon NCBITaxon:3239223 / Luteibacter sp. RCC_6_2. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:242605 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[12].member_id, taxonomy[12].taxon_term, taxonomy[12].strain_designation, taxonomy[12].evidence
+
+### Bacillus sp. RCC-6.1
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A16:J16 establishes the stock name. BioSample SAMN42017410 has sample name Isolate Bacillus, strain RCC_6_1, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360755.1 and verified sequence taxon NCBITaxon:3239229 / Bacillus sp. RCC_6_1. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:1386 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[13].member_id, taxonomy[13].taxon_term, taxonomy[13].strain_designation, taxonomy[13].evidence
+
+### Bosea sp. RCC-152.1
+
+grounding: supported. Targets: CommunityMech:000088.
+
+Table S1 Table S1!A17:J17 establishes the stock name. BioSample SAMN42017411 has sample name Isolate Bosea, strain RCC_152_1, Brachypodium host and project PRJNA1127609; this independently connects the source designation to current assembly GCA_041360765.1 and verified sequence taxon NCBITaxon:3239228 / Allobosea sp. RCC_152_1. NCBI species rank does not imply formal biological species delineation. Prior genus context NCBITaxon:85413 remains attributed separately; source GTDB-tk predictions and current native mapping are distinct. No collection deposit or functional_role is inferred.
+
+Exact current selectors: taxonomy[14].member_id, taxonomy[14].taxon_term, taxonomy[14].strain_designation, taxonomy[14].evidence
+
+### Eighteen scoped numerical observations
+
+scope: supported. Targets: CommunityMech:000088.
+
+All15 input observations preserve4×10^7 cells per member in the5mL liquid inoculum, not cells/mL or viable counts. Only three supported week3 mean16S percentages are added (60/26/8); no per-replicate bar values are digitized and no host abundances are assigned through incomplete membership.
+
+Exact current selectors: taxonomy[0].abundance_observations, taxonomy[1].abundance_observations, taxonomy[2].abundance_observations, taxonomy[3].abundance_observations, taxonomy[4].abundance_observations, taxonomy[5].abundance_observations, taxonomy[6].abundance_observations, taxonomy[7].abundance_observations, taxonomy[8].abundance_observations, taxonomy[9].abundance_observations, taxonomy[10].abundance_observations, taxonomy[11].abundance_observations, taxonomy[12].abundance_observations, taxonomy[13].abundance_observations, taxonomy[14].abundance_observations
+
+### Weekly-transfer 0.2X MS liquid culture
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. DEFINED_MEMBERS refers to the complete input15-stock liquid culture, with no assertion of equal later detectability.
+
+Exact current selectors: treatment_arms[0]
+
+### Control with SynCom
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[1]
+
+### Control with buffer only
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[2]
+
+### Drought with SynCom
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[3]
+
+### Drought with buffer only
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[4]
+
+### Rewatered with SynCom
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[5]
+
+### Rewatered with buffer only
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[6]
+
+### Salinity with SynCom
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[7]
+
+### Salinity with buffer only
+
+scope: supported. Targets: CommunityMech:000088.
+
+Source context, conditions and sampling anchor checked against Methods. Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock administration is described without excluding observed Others. Same-condition SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day anchor is used without silently reconciling S4 image-day labels.
+
+Exact current selectors: treatment_arms[8]
+
+### Genomic Osmoprotectant and Ion-Transport Prediction
+
+evidence: supported. Targets: CommunityMech:000088.
+
+All15 genomes are the analysis panel, not a claim that all carry every listed gene. Trehalose/betaine and ion transport are predictions; no producer→recipient exchange or realized host mediation is asserted. COMPUTATIONAL/PARTIAL support is appropriate; generic interspecies GO annotation removed because this assay alone establishes none.
+
+Exact current selectors: ecological_interactions[0], ecological_interactions[0].participating_taxa, ecological_interactions[0].evidence
+
+### Member-Level PGP Phenotypes
+
+evidence: supported. Targets: CommunityMech:000088.
+
+All15 isolates form the screened panel; individual positive Table2 assay results differ by strain. IN_VITRO support is appropriate for colorimetric/substrate readouts, not necessary in-planta benefit. No causal transition from annotation to phenotype or host recovery is retained.
+
+Exact current selectors: ecological_interactions[1], ecological_interactions[1].participating_taxa, ecological_interactions[1].evidence
+
+### Host-Associated Persistence Compared With Liquid Culture
+
+evidence: supported. Targets: CommunityMech:000088.
+
+All15 are tracked across distinct liquid and host contexts. More balanced host-associated16S profiles coexist with loss/low detection in liquid; the comparison is not a host-only causal perturbation and does not establish absolute viability, reciprocal mutualism, or equal stability.
+
+Exact current selectors: ecological_interactions[2], ecological_interactions[2].participating_taxa, ecological_interactions[2].evidence
+
+### Brachypodium Drought Recovery Promotion
+
+evidence: supported. Targets: CommunityMech:000088.
+
+SynCom versus buffer under rewatered drought directly measures shoot wet weight/height, root length and leaf number. Host is the measured target; GOgrowth is appropriate. Sustained-drought nonbenefit remains in prose, and no gene/metabolite mediator is asserted. Participants identify the administered15-stock community, not all observed root organisms.
+
+Exact current selectors: ecological_interactions[3], ecological_interactions[3].participating_taxa, ecological_interactions[3].evidence
+
+### Strain-Dependent Root Spatial Distribution
+
+evidence: supported. Targets: CommunityMech:000088.
+
+All15 comprise the sampled panel; explicit strain/condition qualifications prevent a uniform root-tip preference. Spatial relative16S supports localization, not traced migration, root-exudate recruitment or metabolic exchange. No source→target causal arrow or unsupported effect_direction is introduced.
+
+Exact current selectors: ecological_interactions[4], ecological_interactions[4].participating_taxa, ecological_interactions[4].evidence
+
+### Zero downstream causal edges
+
+evidence: supported. Targets: CommunityMech:000088.
+
+All five nodes have zero downstream arrows. Prior seven workflow edges remain absent; selection/network correlation, genomic potential, isolate assays, persistence and host benefit are not fabricated sequential mechanisms.
+
+Exact current selectors: ecological_interactions[*].downstream
+
+### Four distinct cultivation contexts and one liquid setup
+
+scope: supported. Targets: CommunityMech:000088.
+
+Original isolation0.1X R2A/RCH2 and30°C/dark7d are distinct from R2A24–72h isolate preparation with no reported temperature; liquid0.2XMS50mL weeklytransfer24°C differs from host calcined-clay watering/stress. No8h dark phase or shaker speed is inferred. Existing cultivation_setup is correctly scoped to the liquid experiment.
+
+Exact current selectors: growth_media, cultivation_setup, environmental_factors
+
+### Potential osmoprotectants versus realized mechanism
+
+evidence: supported. Targets: CommunityMech:000088.
+
+CHEBItrehalose27082 and glycinebetaine17750 preserve molecule identity. Relevance now describes genome-predicted potential; neither metabolite is asserted to be produced/transferred or required for host recovery. Native term validation supports identity, not function.
+
+Exact current selectors: related_ingredients, ecological_interactions[0].metabolites
+
+### Historical coverage and current identity boundary
+
+evidence: supported. Targets: CommunityMech:000088.
+
+Older discussion retains its historical date and causal-review account. New discussion records inspected primary/supplement/figure coverage and actual15BioSample/assembly resolution. RCC150's biological genus/species and exact original analysis versions remain unknown; the earlier negative name query is superseded by positive study metadata. PRJNA1127609 is added with exact scope; KBase135275 remained inaccessible and is not promoted to inspected evidence.
+
+Exact current selectors: discussions, associated_datasets
+
+### Append-only one-record curation
+
+provenance: supported. Targets: CommunityMech:000088.
+
+Exact reviewed bytes applied through native validation, with new inline event and sidecar. Initial candidate002's plant-Bosea failure is preserved; bacterial synonym/ancestry correction was validated rather than bypassing the #365 domain guard.
+
+Exact current selectors: curation_history, history/records/LBNL_Brachypodium_Drought_SynCom15
+
+### Native coverage boundary
+
+evidence: concern. Targets: CommunityMech:000088.
+
+Nine focused diagnostics do not imply full QC, automated discussion coverage, or scientific approval. Reference gate uses unchanged private cache with --no-full-text and native cache-hit preflight. #476 belongs to upstream shared schema integration, not a local source waiver.
+
+Exact current selectors: discussions, ecological_interactions
+
+### Literal native metrics
+
+completeness: supported. Targets: CommunityMech:000088.
+
+Completeness35/100 does not reward invented roles/resources. Validation-quality100/100 follows the capped formula despite retained findings; it is not a scientific clearance score.
+
+Exact current selectors: taxonomy, ecological_interactions
+
+## Findings
+
+### stock-identity: Biological classification and original analysis versions remain bounded
+
+minor / open / confirmed; issue key: cm-000088-stock-identity.
+
+All15 exact sequence-record taxa and current stock assemblies are verified through primary BioSamples. RCC150 remains biologically unclassified at genus/species despite sequence taxon3239231; source SILVA/GTDB-tk labels are attributed analyses. Current linked assembly versions, especially newer Leifsonia, are not independently established as the exact2025analysis inputs. #1548 remains open;000087/000122 are outside this review.
+
+### native-discussion-coverage: Native matcher does not traverse discussion snippets at this base
+
+minor / open / confirmed; issue key: cm-000088-native-discussion-coverage.
+
+Manual full-source assessment does not close the existing shared-schema SupportingReference annotation gap or turn the misleading Total checks counter into an assertion count.
+
+## Recommended Actions And Acceptance Checks
+
+### followup-stock-identity
+
+All15 exact sequence-record taxa and current stock assemblies are verified through primary BioSamples. RCC150 remains biologically unclassified at genus/species despite sequence taxon3239231; source SILVA/GTDB-tk labels are attributed analyses. Current linked assembly versions, especially newer Leifsonia, are not independently established as the exact2025analysis inputs. #1548 remains open;000087/000122 are outside this review.
+
+- For1548, resolve RCC150biological classification and exact original analysis versions if primary evidence permits; preserve verified current stock identities and other records' unresolved scope.
+- For476, integrate the canonical shared annotation fix and measure actual assertion traversal; retain source identity/quality boundaries and recheck this record.
+
+### followup-native-discussion-coverage
+
+Manual full-source assessment does not close the existing shared-schema SupportingReference annotation gap or turn the misleading Total checks counter into an assertion count.
+
+- For1548, resolve RCC150biological classification and exact original analysis versions if primary evidence permits; preserve verified current stock identities and other records' unresolved scope.
+- For476, integrate the canonical shared annotation fix and measure actual assertion traversal; retain source identity/quality boundaries and recheck this record.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml; Entire current record | supports | Fifteen administered stocks, nine arms, eighteen abundance observations, five qualified nodes, zero arrows, four growth-media contexts and preserved earlier history read in full. |
+| prior | reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml; 000088 row; source/evidence boundaries | context_only | Historical October causal review removed workflow arrows and qualified five biological nodes. It did not inspect original figure pixels or separate supplements. No earlier structured000088 finding head was found in the ignored-inclusive review search or exact coverage ledger; no predecessor is fabricated. |
+| curation | .temp/phase2-brachypodium-20261115/applied-001/receipt.json; Guarded candidate receipt and new history | supports | Exact before/after bytes, native validation and reviewed candidate hash bind the one-record correction; previous inline and sidecar history remain unchanged. |
+| methods | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Methods/Microbial isolation and identification; Testing persistence in vitro; Seed germination and SynCom preparation; Inoculation and stress induction | supports | Isolation0.1X R2A/RCH2 agar at30°C seven dark days differs from24–72h R2A isolate preparation of unstated temperature, weekly-transfer liquid0.2X MS at24°C, and host pots of calcined clay. Liquid4×10^7 cells per member differs from plant preparation4.1×10^7;1mL administered aliquot is not enough to infer a per-plant cell dose. |
+| roster | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full#supplementary-material; Original Data Sheet1 ZIP / Supplementary Tables.xlsx / Table S1 rows3–17, columnsA/I/J | supports | All15 stock names are explicit. Row5 identifies MA-N2 RCC-150 with SILVA Micrococcaceae family and blank genus; GTDB-tk MA-N2 species is unfilled. Other GTDB-tk species predictions are computational source analyses, not verified NCBI study-stock identities. |
+| authority | .temp/phase2-brachypodium-20261115/grounding-roster-004.json; Read-only NCBI labels/ranks/ancestry and native hash-bound crosswalk | context_only | Earlier genus/family grounding is preserved as context, with all terms verified under Bacteria. Bacterial Bosea has explicit synonym Bosea Das et al.1996 under Allobosea85413; plant homonym169215 is rejected. Final exact sequence-record taxon identities are independently verified in the study metadata receipt. No GTDB latest release/build date is inferred. |
+| identity-search | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&amp;term=RCC-150&amp;retmode=json; Exact RCC-150 taxonomy search | context_only | Early hyphenated RCC-150 query returned0; later actual BioProject/BioSample metadata positively resolves RCC_150. The negative query is historical only and does not support an absence claim. |
+| study-identities | https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1127609; Current assembly table plus all15 independently retrieved linked BioSamples | supports | Each paper strain maps through its exact numeric designation, BioSample sample-name genus, host and project to one current linked assembly and a native NCBI bacterial sequence taxon. RCC150 sample name Isolate MA-N2 supplies the independent naming link. Pantoea RCC30.1/SAMN57447891 is absent from source S1 and excluded. Current assemblies, particularly the newer Leifsonia accession, are not asserted as the exact versions analyzed in2025. |
+| study-mapping | .temp/phase2-brachypodium-20261115/study-mapping-001.json; Native exact sequence-taxonomy mapping against unchanged crosswalk | context_only | All15 sequence-record taxa remain UNRESOLVED under the native named-species mapping policy. Earlier genus/family correspondence is not substituted for a stock-level mapping. Source GTDB-tk predictions remain attributed notes; no missing current crosswalk is fabricated. |
+| prediction | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Table1; genomic-analysis Methods; concluding Discussion | supports | Annotations provide predicted osmoprotectant/transport potential; Table2 tests selected isolate phenotypes. No knockout, complementation, host metabolite transfer or necessary mediation experiment is reported. Positive association networks are correlation estimates rather than demonstrated interstrain cooperation. |
+| liquid | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Results/SynCom persistence; original Figure3 | supports | Six members were undetectable or below0.1% after3weeks; reported mean16S relative abundances are60% RCC150,26% RCC158 and8% RCC12. Figure3 duplicate bars confirm unequal inoculum/read profiles despite equal input cell counts; none is an absolute viable-cell estimate. |
+| host | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Methods/stress induction; Results; Figures4A–D,5A–C | supports | No significant growth-endpoint benefit under sustained drought; all four measured endpoints improve following rewatering. Salt has a reported shoot-height benefit only, outside the named drought-recovery node. Figures4B/5B include Others, so known inoculum membership cannot be promoted to the entire observed root microbiome. Seven plants/set; five successful rewatered sequencing samples are explicit. |
+| spatial | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Results/root spatial localization; Figure6 | supports | RCC150 is enriched at tips under drought/rewatering/salt; other strains and conditions differ. Relative16S compartment comparisons do not track migration, prove exudate-guided recruitment, or establish returned osmoprotectants as the cause of recovery. |
+| supplement | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full#supplementary-material; Supplementary Figures.docx captionsS1–S8; TableS3 | context_only | S1/S2 are carbon-utilization OD600 assays; S3 compares relative abundance; S5 redundancy and S6 correlation networks are computational. S4 names unreported low-salt results and uses image-day labels distinct from main stress timing; neither omitted conditions nor timing reconciliation is invented. S8 reports triplicate R2A growth curves without specifying isolate-preparation temperature. |
+| figure1 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure1, actual image pixels inspected | supports | Selection network displays estimated correlations, not causal arrows. |
+| figure2 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure2, actual image pixels inspected | supports | All15 isolate labels and closest-reference tree contextualize phylogeny; reference-genome accessions are not the isolate assemblies. |
+| figure3 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure3, actual image pixels inspected | supports | Duplicate liquid16S profiles, strongly unequal week3 abundances. |
+| figure4 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure4, actual image pixels inspected | supports | Drought/recovery endpoint contrasts, observed Others and root profiles. |
+| figure5 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure5, actual image pixels inspected | supports | Salt endpoint/read-profile contrasts, observed Others and nonsignificant taxon fold changes. |
+| figure6 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Original publisher Figure6, actual image pixels inspected | supports | Root-tip/base relative abundances differ by stock and condition. |
+| check-schema | .temp/phase2-brachypodium-20261115/brachypodium-schema-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-strict | .temp/phase2-brachypodium-20261115/brachypodium-strict-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-gtdb | .temp/phase2-brachypodium-20261115/brachypodium-gtdb-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-domain | .temp/phase2-brachypodium-20261115/brachypodium-domain-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-scalars | .temp/phase2-brachypodium-20261115/brachypodium-scalars-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-terms | .temp/phase2-brachypodium-20261115/brachypodium-terms-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-history | .temp/phase2-brachypodium-20261115/brachypodium-history-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-references | .temp/phase2-brachypodium-20261115/brachypodium-references-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| check-network | .temp/phase2-brachypodium-20261115/brachypodium-network-001.log; Exact native argv and current input/hash receipt | context_only | Fresh scoped diagnostic passed; not a full-QC or scientific approval claim. |
+| node-0-quote-0 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Genomic-analysis Methods and Table 1; ecological_interactions[0].evidence[0] | supports | Inspected verbatim support classified COMPUTATIONAL/PARTIAL; the node assessment retains its participant and causal limits. |
+| node-0-quote-1 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Genomic-analysis Methods and Table 1; ecological_interactions[0].evidence[1] | supports | Inspected verbatim support classified COMPUTATIONAL/PARTIAL; the node assessment retains its participant and causal limits. |
+| node-1-quote-0 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Abstract; Table 2 and phenotypic-assay Methods; ecological_interactions[1].evidence[0] | supports | Inspected verbatim support classified IN_VITRO/SUPPORT; the node assessment retains its participant and causal limits. |
+| node-2-quote-0 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Results/SynCom persistence; Figures 3 and 4; ecological_interactions[2].evidence[0] | supports | Inspected verbatim support classified IN_VIVO/SUPPORT; the node assessment retains its participant and causal limits. |
+| node-2-quote-1 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Results/SynCom persistence; Figures 3 and 4; ecological_interactions[2].evidence[1] | supports | Inspected verbatim support classified IN_VITRO/SUPPORT; the node assessment retains its participant and causal limits. |
+| node-3-quote-0 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Results/Drought recovery; Figure 4A; ecological_interactions[3].evidence[0] | supports | Inspected verbatim support classified IN_VIVO/SUPPORT; the node assessment retains its participant and causal limits. |
+| node-4-quote-0 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Abstract; Results/root spatial localization and Figure 6; ecological_interactions[4].evidence[0] | supports | Inspected verbatim support classified IN_VIVO/PARTIAL; the node assessment retains its participant and causal limits. |
+| node-4-quote-1 | https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full; Abstract; Results/root spatial localization and Figure 6; ecological_interactions[4].evidence[1] | supports | Inspected verbatim support classified IN_VIVO/PARTIAL; the node assessment retains its participant and causal limits. |
+| coverage-gap | src/communitymech/schema/mech_shared.yaml; SupportingReference.snippet / Discussion.evidence | context_only | At this exact base, discussion snippets lack native source-excerpt annotations. Automated success covers annotated EvidenceItem surfaces; all present discussion assertions were separately manually assessed. Total checks is an issue/result counter, not an excerpt-count denominator. |
+
+## Limits And Additional Notes
+
+- Current study-stock assemblies and sequence-record taxa are verified. RCC150biological genus/species and exact original analysis versions remain unresolved; no reference-genome accession, collection deposit or ecological role is invented.
+- Main article and all6primary figures inspected; original S1/S3tables and all supplemental captions inspected. Separate supplemental figure pixels and raw sequencing/statistical reanalysis are outside this assessment.
+- Native exact sequence-taxon mappings are unresolved for all15under the unchanged named-species policy. Earlier genus/family correspondence and paper GTDB-tk analyses remain separate provenance; no current stock mapping or release/build date is invented.
+- Host inoculum is known but complete observed root microbiomes are not; all host arms use NOT_REPORTED and buffer controls are never called microbe-free.
+- Main21-day post-stress anchor differs from S4image-day labels; excluded low-salt results and any apparent timing discrepancy are not reconstructed.
+- Native discussion/dataset SupportingReference coverage remains #476 at this base. New database metadata were manually verified through exact source artifacts; a native lexical pass is not database-identity validation. Actual publisher XML and supplements were inspected independently of the existing cache.
+- Whole-record generated Python YAMLreload #1703 remains an independent infrastructure blocker; native closed-schema/strict success is not a claim that this separate roundtrip defect is resolved.
+- Initial grounding request failed on disambiguated Bacillus label and a later staged candidate failed the correct plant-Bosea domain guard (#365). Failed artifacts remain retained; final ancestry verification and native gates use corrected exact bytes.
+- An initial review draft used invalid target kind record instead of maintained; native validate/save rejected it. The source record and scientific judgments were unchanged, and final review metadata uses the native enum.
+- No canonical cache edits, other-record curation, paid providers, issue closure, merge, or global scientific approval is performed. The000087/000122 parts of1548 and all-record campaign remain outside scope.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T025413Z-phase2-brachypodium-drought
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Brachypodium15 source-stock, assay and mechanistic-scope reassessment
+started_at: '2026-11-15T02:18:48Z'
+finished_at: '2026-11-15T02:54:13Z'
+reviewer:
+  identity: codex-pr-review
+  kind: agent
+  independence: self_review
+  independence_basis: Authored bounded curation after independent primary inspection;
+    parent separately reviews the staged candidate and final bundle.
+skill: curate-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: All present000088 claims assessed against the actual primary article, Figures1–6,
+  relevant separate supplements and15primary BioSamples;15source stocks now have verified
+  current assemblies and sequence taxa. Protocol/arm contexts remain distinct. Five
+  qualified nodes and zero causal arrows retained. Nine scoped native gates passed.
+  Biological classification/original-version limits and native SupportingReference
+  coverage remain explicit; no full-corpus/Phase2 completion or issue closure is claimed.
+source:
+  git_revision: 1361f8a77ca5937fd822bc6b1320ce0e7f2ebd63
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/SKILL.md
+    sha256: c8c41017a57f2721975b97d1464be254601206386260f3e078e68f36666df035
+    role: context
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/applied-001/receipt.json
+    sha256: 2ff28fa1908c30dd0fed33fffbe32b7030613c1bb47369800472767a51c45e48
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-domain-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-domain-001.json
+    sha256: 156d163d3ae29e83cb1535d0c25de797b96f8b5add2c2408473488b56992f843
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-domain-001.log
+    sha256: ba55be235cfca939ff69fd457817386f1b175f8996ae9ab572593a0e8bd1b5f8
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-gtdb-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-gtdb-001.json
+    sha256: 292cf5d43bf815366c1a45381506f12587134f0c8b691893b9c4a98f551e2de7
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-gtdb-001.log
+    sha256: 1bcf0b5ff5da205529c92f60f9898435d803f9faec9914733146531b18ba368b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-history-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-history-001.json
+    sha256: 012bc55174bc089eb6f4a37843423132ba622208745c5dd0b2542ceb4723cd04
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-history-001.log
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-network-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-network-001.json
+    sha256: f44c7ea2a55b9ccec9291a5722322339c3eef19780cbe31ab7859567019e38bc
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-network-001.log
+    sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-references-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-references-001.json
+    sha256: 42201e675f77adb12903202ebe1970767be298cfecd1bfa0d33c86ed9f530a1e
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-references-001.log
+    sha256: 08b19e46982592a612dcdb26acdfb0984006fc20eab2e935d628f70dd004d7dd
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-scalars-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-scalars-001.json
+    sha256: 30cbf3890d8a3febe79020cb56969e7b44b3df95b45b7162d6c812c776e52d20
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-scalars-001.log
+    sha256: ad657c311e2e0de3b11fd952f0ddbbde20a2f7b5247bd4c6fa342af7143f9745
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-schema-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-schema-001.json
+    sha256: bd8dec4534d91fd8530f3babcaa6e28062e36ab499de080c661b82a6dc5cca7a
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-schema-001.log
+    sha256: c157518375665c4046196591f081e82e2695721e2f31e9bdad10125b59324422
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-strict-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-strict-001.json
+    sha256: 98972fa8e5e1e948932d1d900ccf9de28e2efa91485764bf19320766cdb8ad14
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-strict-001.log
+    sha256: 767ad4a0b50693be38c0635a69b04322d58ce1484a09da7c1b4117e994e3e04c
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-terms-001-oak.yaml
+    sha256: a889ebfb235a8b1d39f018b985b8eb570d994cdb5683d9d5033aabb50155d44a
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-terms-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-terms-001.json
+    sha256: b603d5303dba355e33565d200b3c375ff7a1681120039d7c0d04891e0b0f0764
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/brachypodium-terms-001.log
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-001.log
+    sha256: 164ef19b6089dbfb87517ce5fdfedb684d2ec2dea3aa9af59216884ac8dd989f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-002-strict.log
+    sha256: 3919d39ae23a0db482d371ee442742e9ad4d94e92a65018fed2426bfee9e093d
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-002-strict.tsv
+    sha256: 663125a4294f525dee598314c04ef3c7bb72c5ed9a9c917c89713f85ea654638
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-002.log
+    sha256: 16a9562231d956b0167ba1440e22bf1893e094caff34312ca79c8b8fa75cca09
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-003-strict.log
+    sha256: 078ac21cff56e507babc6cd8a538160ef50968daeb738a5fb2c65e2fdcf3cbfe
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-003-strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-003.log
+    sha256: e1ae5e06477103a61bbb74b2025b882030d3ff02ae547a9ad86731fd0adcb0ca
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-004.log
+    sha256: 381ab5848fc582f0e32a9e75737f4c8fec2e56e5c4fb03af568886b05e857565
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-005-strict.log
+    sha256: 4d52d30ba1fed2cc997f35f3740435097e0fe6a072d38dce96c3d96d22dc12a3
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-005-strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/candidate-005.log
+    sha256: 6fd9e25c510d0a0f913dcb5b211662d2754bde776fe1a2635d2beeaa2fbd058f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-canary.json
+    sha256: ce558af65f27d46c781ba75208c070b240b929d22101e1df13b3e3aaec810958
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-mapping-bosea-canary.json
+    sha256: 3f838edf49e4b2e326a0350b91447da752b9b4218a9b370c26daef27b78a067d
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-mapping-canary.json
+    sha256: f89b6a93d7709464679dd9f8ad4895d89991f04bce2ce420f1d96bf23cbcc78d
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-roster-002.json
+    sha256: ef9540da5d2b6034659ec75623b1cbc945560ff5d8a40da14d8902d8cf9d1f9c
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-roster-003.json
+    sha256: 4428b6ef20ee1fcdf5c6731e86f4d537c26796f30b9c1d212349bdb9eff21663
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/grounding-roster-004.json
+    sha256: 96c17c73022a744011129baef8d9a41c277887bc6fad8017cd3c277bf130a5b4
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/initial-inspection.json
+    sha256: 118e075caa0cc133d2b13ab1f18bd5fcbbd7c7c9ddbe2c9ee8d837adccbf23c0
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/review-save-003.log
+    sha256: 9f67fb86a1e5dc96c21a285b4a9535dcfa3df11907a567a64e7a1a6c5a9fff49
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/review-validate-003.log
+    sha256: 9f67fb86a1e5dc96c21a285b4a9535dcfa3df11907a567a64e7a1a6c5a9fff49
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/Data_Sheet_1.zip
+    sha256: 06ca37f16dbfe533ad9eebc7c29ed730753c38453d5f7205a8c2ed3bab0bfe9f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/Data_Sheet_1.zip.receipt.json
+    sha256: 6ebe0d3d36b3b16ff51ff84b8c9d75ed4a59efe5335acd127df905947a9692d2
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure1.webp
+    sha256: 8445a05a0d7357c274e19192b24b5d087c11f4aac5ebdf8d467704ba8fcbb8de
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure1.webp.receipt.json
+    sha256: 09632e7e428cf90a92a5d1d20c308423db3c4c224ac432704679ac1eedbb95bc
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure2.webp
+    sha256: 80c817b9bfc36c4862f7a881c4ef194150691099d8c32c4d8fb3927f9f56810a
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure2.webp.receipt.json
+    sha256: 2179c72fca0c04049082a7c7290727bda12014e9fbcf398bf16cc4e8b13e161f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure3.webp
+    sha256: 5c529ca7568ddb689911671e156127aae82326d1f1f1fa260de5eb9e79a9974c
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure3.webp.receipt.json
+    sha256: f9be7f12e16f774dc7dfee24009a961f63793640722a42e51d9f0bd185cd9d6b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure4.webp
+    sha256: 8b7c383f54f3b9fc33515bd5f4c631f4e15d5f604fa7bc1941d45300d9836157
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure4.webp.receipt.json
+    sha256: abb0846f4c5243ee6870f06e0fada96e60dec42ce923ed280122694e44d1525b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure5.webp
+    sha256: 4d9a9d8ca55cfc0cab60813b602b9e9cc40019547a6651e89178e139ce74be72
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure5.webp.receipt.json
+    sha256: b354fcf87848d2fcf8cabc1108cfd64386a530f7b1b3cb21736e30e9f0e6745f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure6.webp
+    sha256: 4a5aeebf350ed939dc1581f460cb2af91e1ea32ffa5cd2967b148da3db749aeb
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/figure6.webp.receipt.json
+    sha256: 68eab6e236e1f5ce8a9a360ff38e9fa40eb52a2bc9422d7e57d8d430a4394830
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/frontiers-1649750.xml
+    sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/frontiers-1649750.xml.receipt.json
+    sha256: 194715b19dc5520f71057cceba94687f3285a1755875b11ccc1ddc9380e7c8e0
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-bioproject.html
+    sha256: 346d5bfd0d68dc83636fcd94c0dd62c89767feb62e5f55fe13e047a808eecb0b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-bioproject.html.receipt.json
+    sha256: b9706f08d3c35ea89b31917ec18d437c9ec7c57aeca5747149c7e28653656257
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-rcc150-biosample.xml
+    sha256: 96c64bcec2d78836d5e9d5a4b7241a2786bc2126b32af214392b44d793bd11c3
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-rcc150-biosample.xml.receipt.json
+    sha256: 94013b32faeb8d86b76bfd36feaaa8ae89a85b71e1b8f5a8896aeafe0022560b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-rcc150-search.json
+    sha256: 7572cbee5574fc175731c6ccb5f12919a428dd6cf35c09aa5f7fe402e4b455e5
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-rcc150-search.json.receipt.json
+    sha256: 5efae7a0c6c5cfe52d01e62832dd3617f6f4e354b8c1e3f21471a06340e94214
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-study-biosamples.xml
+    sha256: a7f44544d2a94e22f76272c91d882467a0184eb7ddcced7774a11b559e1e5a59
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/ncbi-study-biosamples.xml.receipt.json
+    sha256: b16b2ad027f4d0797752957432470c60ff1413bd9f72d4cdd4967a7c3a1c4b70
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/supplementary-figures.docx
+    sha256: 0c2f4ca3ab49f6e5169023078e9e157f186164f6a9bb97d7410bf9c87063ae33
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/supplementary-figures.docx.extraction.json
+    sha256: f856c0a04d5eb9ab868a7b1c342bea645ffedbe5677ff22adca928065fceeec8
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/supplementary-figures.txt
+    sha256: e37a64c5ac96dc9acc0572a983ec4c586c3f5af1a64efdfe9c3cfd7c75fa2ad2
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/supplementary-tables.xlsx
+    sha256: a211278cce04d6293896949eb171f842f17ca13cc2c65e1526722ef6cecab669
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/sources/supplementary-tables.xlsx.extraction.json
+    sha256: 03bc47adb29ba8fc8b97b2c518064001047081324dbf14ecca94aa7fc243205b
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/study-accessions-003.json
+    sha256: f46115a5c9c15b2684bc94d64981d03cd28faf6ab017c899321348ae7df6540f
+    role: context
+  - path: .temp/phase2-brachypodium-20261115/study-mapping-001.json
+    sha256: 23e44459d0736457de0715544223c645aa5cd4787f57dbc03cf00eaabe0fcda7
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 297b1fbd8a77ba2f89ca7126339deabc0f61ee91013d054d0fa64caef59a630d
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/LBNL_Brachypodium_Drought_SynCom15/2026-10-02T055741Z-codex-lbd408.yaml
+    sha256: c0aa001d73d5cf8654e5868ad5aadbf2100705301477fc092a952c62a985284d
+    role: context
+  - path: history/records/LBNL_Brachypodium_Drought_SynCom15/2026-10-06T204405Z-codex-1f9ff6.yaml
+    sha256: 913ba8c684ed253d22620720b78b9d1293434b250eacfec7057cd6283a22aceb
+    role: context
+  - path: history/records/LBNL_Brachypodium_Drought_SynCom15/2026-11-15T024804Z-codex-805977.yaml
+    sha256: 38b411cab7d10be707e4158c3dc67ea271c9a32656cf2667d497f4d27eefd406
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    sha256: ee609781b7adaa7305ad9cc16c61aa8f7eb8ac3887f92a15ead26d25f4b3592e
+    role: target
+  - path: references_cache/PMID_40862137.txt
+    sha256: b3f60241ecaec23c8a74920d118996a0ab1412a9b410c57332f72bff67eafe71
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml
+    sha256: b9b1755235b23128b647fc2272b8ca0c2205286db36006b8f154cb6ba5679f21
+    role: context
+  - path: scripts/adhoc/audit_phase2_brachypodium_review_20261115.py
+    sha256: d217240221c16586bb7b4b8a44be7a77eea2a111625c68ba8cad3279c3bd170e
+    role: context
+  - path: scripts/adhoc/build_phase2_brachypodium_review_20261115.py
+    sha256: 38a57c7e84ca6f8e933bdab9c929b9f19eb7aef76e664a21db9f1401d494a7a8
+    role: context
+  - path: scripts/adhoc/capture_brachypodium_sources_20261115.py
+    sha256: 6452e72ebadf85e3625c86921b8287bb4d33bc467085cc17105bef1ac96c728b
+    role: context
+  - path: scripts/adhoc/check_phase2_brachypodium_20261115.py
+    sha256: d1ade88ef5d300b45902b855daf52e6c664ab71eb78b1e51ecede0598bd883c9
+    role: context
+  - path: scripts/adhoc/curate_phase2_brachypodium_20261115.py
+    sha256: 1f2abab81aeff400688dbeb9937cbdb4ed32e2128443bb7ac7f000fb8d21b497
+    role: context
+  - path: scripts/adhoc/export_phase2_brachypodium_checkpoint_20261115.py
+    sha256: 606de9af3a8e1f7d1f75b6d5ad387d13631bb5a86201d909e579a8c2b6fd0c98
+    role: context
+  - path: scripts/adhoc/ground_brachypodium_roster_20261115.py
+    sha256: 96f44c5edc816313b79029439d2bd26da6e01e2dae7e372eb6ba856d28295911
+    role: context
+  - path: scripts/adhoc/inspect_brachypodium_sources_20261115.py
+    sha256: 0a399d1f085aa8c5577b2aeaeac05fbb30da9164fa55a17c92ff44b702a7828f
+    role: context
+  - path: scripts/adhoc/inspect_brachypodium_study_accessions_20261115.py
+    sha256: 46da0d877e46864d0b0808f395c1b796ee755185fe4832a0bfc7fea708e4d4d8
+    role: context
+  - path: scripts/adhoc/map_brachypodium_study_taxa_20261115.py
+    sha256: 0d23c6a262fa219a19a168084ed72b1330951f8563f9a2964f7bf20a5d5e0f81
+    role: context
+  - path: scripts/adhoc/read_brachypodium_supplement_20261115.py
+    sha256: a3bed86d29f3b9798776d97a9e7051137b9741b520d07b1780bdb26d448aa4ad
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000088
+  path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  label: LBNL Brachypodium Drought SynCom15
+  kind: maintained
+  ownership_note: Maintained canonical record; schema owns data shape and native renderer
+    owns derived page.
+scope:
+  description: Entire current000088:15stock rows,18scoped numerical observations,9arms,5nodes,0arrows,4growth-media
+    contexts,1liquid setup,2discussions and append-only history.
+  selection: 'Explicit Phase2 #1548 target after the separate000087 end-to-end canary;
+    not the all-record campaign.'
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000088
+checks:
+- check_id: schema
+  name: Native schema
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-schema
+- check_id: strict
+  name: Native strict
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate-strict kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    --out .temp/phase2-brachypodium-20261115/brachypodium-strict-001.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-strict
+- check_id: gtdb
+  name: Native gtdb
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate-gtdb kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-gtdb
+- check_id: domain
+  name: Native domain
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate-gtdb-domain kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-domain
+- check_id: scalars
+  name: Native scalars
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate-scalars kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-scalars
+- check_id: terms
+  name: Native terms
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: uv run --no-sync linkml-term-validator validate-data kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels --config .temp/phase2-brachypodium-20261115/brachypodium-terms-001-oak.yaml
+    --cache-dir .temp/phase2-brachypodium-20261115/brachypodium-terms-001-labels
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-terms
+- check_id: history
+  name: Native history
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: just --no-dotenv validate-history history/records/LBNL_Brachypodium_Drought_SynCom15
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-history
+- check_id: references
+  name: Native references
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: uv run --no-sync linkml-reference-validator validate data kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+    --cache-dir .temp/phase2-brachypodium-20261115/brachypodium-references-001-cache
+    --no-full-text
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-references
+- check_id: network
+  name: Native network
+  status: passed
+  required: true
+  summary: Exact current record and retained inputs passed the scoped command.
+  target_ids:
+  - CommunityMech:000088
+  command: uv run --no-sync communitymech audit-network --communities-dir .temp/phase2-brachypodium-20261115/brachypodium-network-001-records
+    --json
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-network
+- check_id: manual-science
+  name: Full source and field assessment
+  status: passed
+  required: true
+  summary: All present claims,15stock rows,9arms,18observations,5nodes and0arrows
+    assessed against actual primary sources. Passing this check means assessment completed,
+    not all uncertainty resolved.
+  target_ids:
+  - CommunityMech:000088
+  evidence_ids:
+  - record
+  - methods
+  - roster
+  - prediction
+  - liquid
+  - host
+  - spatial
+  - supplement
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+  locator: Entire current record
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Fifteen administered stocks, nine arms, eighteen abundance observations,
+    five qualified nodes, zero arrows, four growth-media contexts and preserved earlier
+    history read in full.
+  snapshot_sha256: ee609781b7adaa7305ad9cc16c61aa8f7eb8ac3887f92a15ead26d25f4b3592e
+- evidence_id: prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml
+  locator: 000088 row; source/evidence boundaries
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Historical October causal review removed workflow arrows and qualified
+    five biological nodes. It did not inspect original figure pixels or separate supplements.
+    No earlier structured000088 finding head was found in the ignored-inclusive review
+    search or exact coverage ledger; no predecessor is fabricated.
+  snapshot_sha256: b9b1755235b23128b647fc2272b8ca0c2205286db36006b8f154cb6ba5679f21
+- evidence_id: curation
+  kind: record_content
+  reference: .temp/phase2-brachypodium-20261115/applied-001/receipt.json
+  locator: Guarded candidate receipt and new history
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Exact before/after bytes, native validation and reviewed candidate hash
+    bind the one-record correction; previous inline and sidecar history remain unchanged.
+  snapshot_sha256: 2ff28fa1908c30dd0fed33fffbe32b7030613c1bb47369800472767a51c45e48
+- evidence_id: methods
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Methods/Microbial isolation and identification; Testing persistence in
+    vitro; Seed germination and SynCom preparation; Inoculation and stress induction
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Isolation0.1X R2A/RCH2 agar at30°C seven dark days differs from24–72h R2A
+    isolate preparation of unstated temperature, weekly-transfer liquid0.2X MS at24°C,
+    and host pots of calcined clay. Liquid4×10^7 cells per member differs from plant
+    preparation4.1×10^7;1mL administered aliquot is not enough to infer a per-plant
+    cell dose.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: Individual SynCom isolates were cultivated in R2A media
+- evidence_id: roster
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full#supplementary-material
+  locator: Original Data Sheet1 ZIP / Supplementary Tables.xlsx / Table S1 rows3–17,
+    columnsA/I/J
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: All15 stock names are explicit. Row5 identifies MA-N2 RCC-150 with SILVA
+    Micrococcaceae family and blank genus; GTDB-tk MA-N2 species is unfilled. Other
+    GTDB-tk species predictions are computational source analyses, not verified NCBI
+    study-stock identities.
+  snapshot_sha256: a211278cce04d6293896949eb171f842f17ca13cc2c65e1526722ef6cecab669
+  quote: MA-N2 sp. RCC-150
+- evidence_id: authority
+  kind: database
+  reference: .temp/phase2-brachypodium-20261115/grounding-roster-004.json
+  locator: Read-only NCBI labels/ranks/ancestry and native hash-bound crosswalk
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Earlier genus/family grounding is preserved as context, with all terms
+    verified under Bacteria. Bacterial Bosea has explicit synonym Bosea Das et al.1996
+    under Allobosea85413; plant homonym169215 is rejected. Final exact sequence-record
+    taxon identities are independently verified in the study metadata receipt. No
+    GTDB latest release/build date is inferred.
+  snapshot_sha256: 96c17c73022a744011129baef8d9a41c277887bc6fad8017cd3c277bf130a5b4
+- evidence_id: identity-search
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=RCC-150&retmode=json
+  locator: Exact RCC-150 taxonomy search
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Early hyphenated RCC-150 query returned0; later actual BioProject/BioSample
+    metadata positively resolves RCC_150. The negative query is historical only and
+    does not support an absence claim.
+  snapshot_sha256: 7572cbee5574fc175731c6ccb5f12919a428dd6cf35c09aa5f7fe402e4b455e5
+- evidence_id: study-identities
+  kind: database
+  reference: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1127609
+  locator: Current assembly table plus all15 independently retrieved linked BioSamples
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Each paper strain maps through its exact numeric designation, BioSample
+    sample-name genus, host and project to one current linked assembly and a native
+    NCBI bacterial sequence taxon. RCC150 sample name Isolate MA-N2 supplies the independent
+    naming link. Pantoea RCC30.1/SAMN57447891 is absent from source S1 and excluded.
+    Current assemblies, particularly the newer Leifsonia accession, are not asserted
+    as the exact versions analyzed in2025.
+  snapshot_sha256: f46115a5c9c15b2684bc94d64981d03cd28faf6ab017c899321348ae7df6540f
+- evidence_id: study-mapping
+  kind: database
+  reference: .temp/phase2-brachypodium-20261115/study-mapping-001.json
+  locator: Native exact sequence-taxonomy mapping against unchanged crosswalk
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: All15 sequence-record taxa remain UNRESOLVED under the native named-species
+    mapping policy. Earlier genus/family correspondence is not substituted for a stock-level
+    mapping. Source GTDB-tk predictions remain attributed notes; no missing current
+    crosswalk is fabricated.
+  snapshot_sha256: 23e44459d0736457de0715544223c645aa5cd4787f57dbc03cf00eaabe0fcda7
+- evidence_id: prediction
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Table1; genomic-analysis Methods; concluding Discussion
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Annotations provide predicted osmoprotectant/transport potential; Table2
+    tests selected isolate phenotypes. No knockout, complementation, host metabolite
+    transfer or necessary mediation experiment is reported. Positive association networks
+    are correlation estimates rather than demonstrated interstrain cooperation.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: future experiments exploring gene-expression and metabolite production are
+    needed to confirm
+- evidence_id: liquid
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Results/SynCom persistence; original Figure3
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Six members were undetectable or below0.1% after3weeks; reported mean16S
+    relative abundances are60% RCC150,26% RCC158 and8% RCC12. Figure3 duplicate bars
+    confirm unequal inoculum/read profiles despite equal input cell counts; none is
+    an absolute viable-cell estimate.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: average relative abundance of 60, 26 and 8%
+- evidence_id: host
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Methods/stress induction; Results; Figures4A–D,5A–C
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: No significant growth-endpoint benefit under sustained drought; all four
+    measured endpoints improve following rewatering. Salt has a reported shoot-height
+    benefit only, outside the named drought-recovery node. Figures4B/5B include Others,
+    so known inoculum membership cannot be promoted to the entire observed root microbiome.
+    Seven plants/set; five successful rewatered sequencing samples are explicit.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: No significant differences were observed between SynCom-amended and unamended
+    plants
+- evidence_id: spatial
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Results/root spatial localization; Figure6
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: RCC150 is enriched at tips under drought/rewatering/salt; other strains
+    and conditions differ. Relative16S compartment comparisons do not track migration,
+    prove exudate-guided recruitment, or establish returned osmoprotectants as the
+    cause of recovery.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: MA-N2 sp. RCC-150 was significantly enriched at the root tip
+- evidence_id: supplement
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full#supplementary-material
+  locator: Supplementary Figures.docx captionsS1–S8; TableS3
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: S1/S2 are carbon-utilization OD600 assays; S3 compares relative abundance;
+    S5 redundancy and S6 correlation networks are computational. S4 names unreported
+    low-salt results and uses image-day labels distinct from main stress timing; neither
+    omitted conditions nor timing reconciliation is invented. S8 reports triplicate
+    R2A growth curves without specifying isolate-preparation temperature.
+  snapshot_sha256: 0c2f4ca3ab49f6e5169023078e9e157f186164f6a9bb97d7410bf9c87063ae33
+- evidence_id: figure1
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure1, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Selection network displays estimated correlations, not causal arrows.
+  snapshot_sha256: 8445a05a0d7357c274e19192b24b5d087c11f4aac5ebdf8d467704ba8fcbb8de
+- evidence_id: figure2
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure2, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: All15 isolate labels and closest-reference tree contextualize phylogeny;
+    reference-genome accessions are not the isolate assemblies.
+  snapshot_sha256: 80c817b9bfc36c4862f7a881c4ef194150691099d8c32c4d8fb3927f9f56810a
+- evidence_id: figure3
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure3, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Duplicate liquid16S profiles, strongly unequal week3 abundances.
+  snapshot_sha256: 5c529ca7568ddb689911671e156127aae82326d1f1f1fa260de5eb9e79a9974c
+- evidence_id: figure4
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure4, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Drought/recovery endpoint contrasts, observed Others and root profiles.
+  snapshot_sha256: 8b7c383f54f3b9fc33515bd5f4c631f4e15d5f604fa7bc1941d45300d9836157
+- evidence_id: figure5
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure5, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Salt endpoint/read-profile contrasts, observed Others and nonsignificant
+    taxon fold changes.
+  snapshot_sha256: 4d9a9d8ca55cfc0cab60813b602b9e9cc40019547a6651e89178e139ce74be72
+- evidence_id: figure6
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Original publisher Figure6, actual image pixels inspected
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Root-tip/base relative abundances differ by stock and condition.
+  snapshot_sha256: 4a5aeebf350ed939dc1581f460cb2af91e1ea32ffa5cd2967b148da3db749aeb
+- evidence_id: check-schema
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-schema-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: c157518375665c4046196591f081e82e2695721e2f31e9bdad10125b59324422
+- evidence_id: check-strict
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-strict-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: 767ad4a0b50693be38c0635a69b04322d58ce1484a09da7c1b4117e994e3e04c
+- evidence_id: check-gtdb
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-gtdb-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: 1bcf0b5ff5da205529c92f60f9898435d803f9faec9914733146531b18ba368b
+- evidence_id: check-domain
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-domain-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: ba55be235cfca939ff69fd457817386f1b175f8996ae9ab572593a0e8bd1b5f8
+- evidence_id: check-scalars
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-scalars-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: ad657c311e2e0de3b11fd952f0ddbbde20a2f7b5247bd4c6fa342af7143f9745
+- evidence_id: check-terms
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-terms-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+- evidence_id: check-history
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-history-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+- evidence_id: check-references
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-references-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: 08b19e46982592a612dcdb26acdfb0984006fc20eab2e935d628f70dd004d7dd
+- evidence_id: check-network
+  kind: validation
+  reference: .temp/phase2-brachypodium-20261115/brachypodium-network-001.log
+  locator: Exact native argv and current input/hash receipt
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: Fresh scoped diagnostic passed; not a full-QC or scientific approval claim.
+  snapshot_sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+- evidence_id: node-0-quote-0
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Genomic-analysis Methods and Table 1; ecological_interactions[0].evidence[0]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified COMPUTATIONAL/PARTIAL; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: Genomic analysis of the individual strains was performed to reveal encoded
+    plant growth-promoting traits
+- evidence_id: node-0-quote-1
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Genomic-analysis Methods and Table 1; ecological_interactions[0].evidence[1]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified COMPUTATIONAL/PARTIAL; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: genes for the synthesis of osmoprotectants (trehalose and betaine) and Na+/K+
+    transporters
+- evidence_id: node-1-quote-0
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Abstract; Table 2 and phenotypic-assay Methods; ecological_interactions[1].evidence[0]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VITRO/SUPPORT; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: some predicted traits were validated by laboratory phenotypic assays
+- evidence_id: node-2-quote-0
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Results/SynCom persistence; Figures 3 and 4; ecological_interactions[2].evidence[0]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VIVO/SUPPORT; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: After 3 weeks of growth in planta, the relative abundance of strains was
+    more evenly distributed
+- evidence_id: node-2-quote-1
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Results/SynCom persistence; Figures 3 and 4; ecological_interactions[2].evidence[1]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VITRO/SUPPORT; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: six of the 15 strains were undetectable or had a relative abundance below
+    0.1% after 3 weeks
+- evidence_id: node-3-quote-0
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Results/Drought recovery; Figure 4A; ecological_interactions[3].evidence[0]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VIVO/SUPPORT; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: plants amended with the SynCom recovered better than those without
+- evidence_id: node-4-quote-0
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Abstract; Results/root spatial localization and Figure 6; ecological_interactions[4].evidence[0]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VIVO/PARTIAL; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: preferential colonization of SynCom strains around root tips under stress
+- evidence_id: node-4-quote-1
+  kind: primary_source
+  reference: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+  locator: Abstract; Results/root spatial localization and Figure 6; ecological_interactions[4].evidence[1]
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: supports
+  summary: Inspected verbatim support classified IN_VIVO/PARTIAL; the node assessment
+    retains its participant and causal limits.
+  snapshot_sha256: 36e66b7e040c63f7f6f549f8a2ef9b8546ba5d25802fd42b82679ad7a3d80db6
+  quote: likely due to active interactions between plant root metabolites and bacteria
+- evidence_id: coverage-gap
+  kind: record_content
+  reference: src/communitymech/schema/mech_shared.yaml
+  locator: SupportingReference.snippet / Discussion.evidence
+  accessed_at: '2026-11-15T02:54:13Z'
+  support: context_only
+  summary: At this exact base, discussion snippets lack native source-excerpt annotations.
+    Automated success covers annotated EvidenceItem surfaces; all present discussion
+    assertions were separately manually assessed. Total checks is an issue/result
+    counter, not an excerpt-count denominator.
+  snapshot_sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+assessments:
+- assessment_id: scope
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Administered SynCom and source scope
+  outcome: supported
+  summary: Identity/category/engineering design denote the15-stock introduced consortium,
+    not every root bacterium. Laboratory setting is physical context; rhizosphere
+    is source/modeled context. No strain roles are invented. Host Bd21–3 is separate
+    from microbial taxonomy and its pre-inoculation microbiological status remains
+    unestablished.
+  evidence_ids:
+  - record
+  - methods
+  - host
+  - authority
+  details: 'Exact current selectors: id, name, description, ecological_state, community_origin,
+    community_category, engineering_design, environment_term, modeled_environment,
+    host'
+- assessment_id: stock-0
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Caballeronia sp. RCC-10
+  outcome: supported
+  summary: Table S1 Table S1!A3:J3 establishes the stock name. BioSample SAMN42017412
+    has sample name Isolate Caballeronia, strain RCC_10, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360715.1 and verified sequence taxon NCBITaxon:3239227 / Caballeronia sp.
+    RCC_10. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:1827195 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[0].member_id, taxonomy[0].taxon_term,
+    taxonomy[0].strain_designation, taxonomy[0].evidence'
+  dimensions:
+  - name: source_stock
+    value: Caballeronia sp. RCC-10
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239227 / SAMN42017412 / GCA_041360715.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-1
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Chitinophaga sp. RCC-12
+  outcome: supported
+  summary: Table S1 Table S1!A4:J4 establishes the stock name. BioSample SAMN42017413
+    has sample name Isolate Chitinophaga, strain RCC_12, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360695.1 and verified sequence taxon NCBITaxon:3239226 / Chitinophaga sp.
+    RCC_12. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:79328 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[1].member_id, taxonomy[1].taxon_term,
+    taxonomy[1].strain_designation, taxonomy[1].evidence'
+  dimensions:
+  - name: source_stock
+    value: Chitinophaga sp. RCC-12
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239226 / SAMN42017413 / GCA_041360695.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-2
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: MA-N2 sp. RCC-150
+  outcome: concern
+  summary: Table S1 Table S1!A5:J5 establishes the stock name. BioSample SAMN42017417
+    has sample name Isolate MA-N2, strain RCC_150, Brachypodium host and project PRJNA1127609;
+    this independently connects the source designation to current assembly GCA_041360635.1
+    and verified sequence taxon NCBITaxon:3239231 / bacterium RCC_150. NCBI species
+    rank does not imply formal biological species delineation. Prior family context
+    NCBITaxon:1268 remains attributed separately; source GTDB-tk predictions and current
+    native mapping are distinct. No collection deposit or functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[2].member_id, taxonomy[2].taxon_term,
+    taxonomy[2].strain_designation, taxonomy[2].evidence'
+  dimensions:
+  - name: source_stock
+    value: MA-N2 sp. RCC-150
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239231 / SAMN42017417 / GCA_041360635.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-3
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Paraburkholderia sp. RCC-158
+  outcome: supported
+  summary: Table S1 Table S1!A6:J6 establishes the stock name. BioSample SAMN42017420
+    has sample name Isolate Paraburkholderia, strain RCC_158, Brachypodium host and
+    project PRJNA1127609; this independently connects the source designation to current
+    assembly GCA_041355255.1 and verified sequence taxon NCBITaxon:3239220 / Paraburkholderia
+    sp. RCC_158. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:1822464 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[3].member_id, taxonomy[3].taxon_term,
+    taxonomy[3].strain_designation, taxonomy[3].evidence'
+  dimensions:
+  - name: source_stock
+    value: Paraburkholderia sp. RCC-158
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239220 / SAMN42017420 / GCA_041355255.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-4
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Rhizobium sp. RCC-161.2
+  outcome: supported
+  summary: Table S1 Table S1!A7:J7 establishes the stock name. BioSample SAMN42017421
+    has sample name Isolate Rhizobium, strain RCC_161_2, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041355235.1 and verified sequence taxon NCBITaxon:3239219 / Rhizobium sp.
+    RCC_161_2. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:379 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[4].member_id, taxonomy[4].taxon_term,
+    taxonomy[4].strain_designation, taxonomy[4].evidence'
+  dimensions:
+  - name: source_stock
+    value: Rhizobium sp. RCC-161.2
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239219 / SAMN42017421 / GCA_041355235.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-5
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Mucilaginibacter sp. RCC-168
+  outcome: supported
+  summary: Table S1 Table S1!A8:J8 establishes the stock name. BioSample SAMN42017419
+    has sample name Isolate Mucilaginibacter, strain RCC_168, Brachypodium host and
+    project PRJNA1127609; this independently connects the source designation to current
+    assembly GCA_041355315.1 and verified sequence taxon NCBITaxon:3239221 / Mucilaginibacter
+    sp. RCC_168. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:423349 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[5].member_id, taxonomy[5].taxon_term,
+    taxonomy[5].strain_designation, taxonomy[5].evidence'
+  dimensions:
+  - name: source_stock
+    value: Mucilaginibacter sp. RCC-168
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239221 / SAMN42017419 / GCA_041355315.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-6
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Leifsonia sp. RCC-180
+  outcome: supported
+  summary: Table S1 Table S1!A9:J9 establishes the stock name. BioSample SAMN42017415
+    has sample name Isolate Leifsonia, strain RCC_180, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_058138205.1 and verified sequence taxon NCBITaxon:3239224 / Leifsonia sp.
+    RCC_180. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:110932 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[6].member_id, taxonomy[6].taxon_term,
+    taxonomy[6].strain_designation, taxonomy[6].evidence'
+  dimensions:
+  - name: source_stock
+    value: Leifsonia sp. RCC-180
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239224 / SAMN42017415 / GCA_058138205.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-7
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Terriglobus sp. RCC-193
+  outcome: supported
+  summary: Table S1 Table S1!A10:J10 establishes the stock name. BioSample SAMN42017422
+    has sample name Isolate Terriglobus, strain RCC_193, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041355105.1 and verified sequence taxon NCBITaxon:3239218 / Terriglobus sp.
+    RCC_193. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:392733 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[7].member_id, taxonomy[7].taxon_term,
+    taxonomy[7].strain_designation, taxonomy[7].evidence'
+  dimensions:
+  - name: source_stock
+    value: Terriglobus sp. RCC-193
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239218 / SAMN42017422 / GCA_041355105.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-8
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Mesorhizobium sp. RCC-202
+  outcome: supported
+  summary: Table S1 Table S1!A11:J11 establishes the stock name. BioSample SAMN42017418
+    has sample name Isolate Mesorhizobium, strain RCC_202, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041355295.1 and verified sequence taxon NCBITaxon:3239222 / Mesorhizobium
+    sp. RCC_202. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:68287 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[8].member_id, taxonomy[8].taxon_term,
+    taxonomy[8].strain_designation, taxonomy[8].evidence'
+  dimensions:
+  - name: source_stock
+    value: Mesorhizobium sp. RCC-202
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239222 / SAMN42017418 / GCA_041355295.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-9
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Variovorax sp. RCC-210
+  outcome: supported
+  summary: Table S1 Table S1!A12:J12 establishes the stock name. BioSample SAMN42017423
+    has sample name Isolate Variovorax, strain RCC_210, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041355175.1 and verified sequence taxon NCBITaxon:3239217 / Variovorax sp.
+    RCC_210. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:34072 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[9].member_id, taxonomy[9].taxon_term,
+    taxonomy[9].strain_designation, taxonomy[9].evidence'
+  dimensions:
+  - name: source_stock
+    value: Variovorax sp. RCC-210
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239217 / SAMN42017423 / GCA_041355175.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-10
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Arthrobacter sp. RCC-34
+  outcome: supported
+  summary: Table S1 Table S1!A13:J13 establishes the stock name. BioSample SAMN42017409
+    has sample name Isolate Arthrobacter, strain RCC_34, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360795.1 and verified sequence taxon NCBITaxon:3239230 / Arthrobacter sp.
+    RCC_34. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:1663 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[10].member_id, taxonomy[10].taxon_term,
+    taxonomy[10].strain_designation, taxonomy[10].evidence'
+  dimensions:
+  - name: source_stock
+    value: Arthrobacter sp. RCC-34
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239230 / SAMN42017409 / GCA_041360795.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-11
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Enterobacter sp. RCC-40
+  outcome: supported
+  summary: Table S1 Table S1!A14:J14 establishes the stock name. BioSample SAMN42017414
+    has sample name Isolate Enterobacter, strain RCC_40, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360735.1 and verified sequence taxon NCBITaxon:3239225 / Enterobacter sp.
+    RCC_40. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:547 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[11].member_id, taxonomy[11].taxon_term,
+    taxonomy[11].strain_designation, taxonomy[11].evidence'
+  dimensions:
+  - name: source_stock
+    value: Enterobacter sp. RCC-40
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239225 / SAMN42017414 / GCA_041360735.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-12
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Luteibacter sp. RCC-6.2
+  outcome: supported
+  summary: Table S1 Table S1!A15:J15 establishes the stock name. BioSample SAMN42017416
+    has sample name Isolate Luteibacter, strain RCC_6_2, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360655.1 and verified sequence taxon NCBITaxon:3239223 / Luteibacter sp.
+    RCC_6_2. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:242605 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[12].member_id, taxonomy[12].taxon_term,
+    taxonomy[12].strain_designation, taxonomy[12].evidence'
+  dimensions:
+  - name: source_stock
+    value: Luteibacter sp. RCC-6.2
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239223 / SAMN42017416 / GCA_041360655.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-13
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Bacillus sp. RCC-6.1
+  outcome: supported
+  summary: Table S1 Table S1!A16:J16 establishes the stock name. BioSample SAMN42017410
+    has sample name Isolate Bacillus, strain RCC_6_1, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360755.1 and verified sequence taxon NCBITaxon:3239229 / Bacillus sp. RCC_6_1.
+    NCBI species rank does not imply formal biological species delineation. Prior
+    genus context NCBITaxon:1386 remains attributed separately; source GTDB-tk predictions
+    and current native mapping are distinct. No collection deposit or functional_role
+    is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[13].member_id, taxonomy[13].taxon_term,
+    taxonomy[13].strain_designation, taxonomy[13].evidence'
+  dimensions:
+  - name: source_stock
+    value: Bacillus sp. RCC-6.1
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239229 / SAMN42017410 / GCA_041360755.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: stock-14
+  target_ids:
+  - CommunityMech:000088
+  area: grounding
+  topic: Bosea sp. RCC-152.1
+  outcome: supported
+  summary: Table S1 Table S1!A17:J17 establishes the stock name. BioSample SAMN42017411
+    has sample name Isolate Bosea, strain RCC_152_1, Brachypodium host and project
+    PRJNA1127609; this independently connects the source designation to current assembly
+    GCA_041360765.1 and verified sequence taxon NCBITaxon:3239228 / Allobosea sp.
+    RCC_152_1. NCBI species rank does not imply formal biological species delineation.
+    Prior genus context NCBITaxon:85413 remains attributed separately; source GTDB-tk
+    predictions and current native mapping are distinct. No collection deposit or
+    functional_role is inferred.
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  details: 'Exact current selectors: taxonomy[14].member_id, taxonomy[14].taxon_term,
+    taxonomy[14].strain_designation, taxonomy[14].evidence'
+  dimensions:
+  - name: source_stock
+    value: Bosea sp. RCC-152.1
+    definition: Exact paper Table S1 stock designation; not a collection deposit.
+    evidence_ids:
+    - roster
+  - name: sequence_identity
+    value: NCBITaxon:3239228 / SAMN42017411 / GCA_041360765.1
+    definition: Current independently joined study sequence identity; biological species
+      and original analysis versions are separate assertions.
+    evidence_ids:
+    - study-identities
+    - study-mapping
+- assessment_id: abundance
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Eighteen scoped numerical observations
+  outcome: supported
+  summary: All15 input observations preserve4×10^7 cells per member in the5mL liquid
+    inoculum, not cells/mL or viable counts. Only three supported week3 mean16S percentages
+    are added (60/26/8); no per-replicate bar values are digitized and no host abundances
+    are assigned through incomplete membership.
+  evidence_ids:
+  - methods
+  - liquid
+  - figure3
+  details: 'Exact current selectors: taxonomy[0].abundance_observations, taxonomy[1].abundance_observations,
+    taxonomy[2].abundance_observations, taxonomy[3].abundance_observations, taxonomy[4].abundance_observations,
+    taxonomy[5].abundance_observations, taxonomy[6].abundance_observations, taxonomy[7].abundance_observations,
+    taxonomy[8].abundance_observations, taxonomy[9].abundance_observations, taxonomy[10].abundance_observations,
+    taxonomy[11].abundance_observations, taxonomy[12].abundance_observations, taxonomy[13].abundance_observations,
+    taxonomy[14].abundance_observations'
+- assessment_id: arm-liquid-ms
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Weekly-transfer 0.2X MS liquid culture
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    DEFINED_MEMBERS refers to the complete input15-stock liquid culture, with no assertion
+    of equal later detectability.
+  evidence_ids:
+  - methods
+  - host
+  - figure3
+  - supplement
+  details: 'Exact current selectors: treatment_arms[0]'
+- assessment_id: arm-host-control-syncom
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Control with SynCom
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[1]'
+- assessment_id: arm-host-control-buffer
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Control with buffer only
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[2]'
+- assessment_id: arm-host-drought-syncom
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Drought with SynCom
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[3]'
+- assessment_id: arm-host-drought-buffer
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Drought with buffer only
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[4]'
+- assessment_id: arm-host-rewatered-syncom
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Rewatered with SynCom
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[5]'
+- assessment_id: arm-host-rewatered-buffer
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Rewatered with buffer only
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[6]'
+- assessment_id: arm-host-salinity-syncom
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Salinity with SynCom
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[7]'
+- assessment_id: arm-host-salinity-buffer
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Salinity with buffer only
+  outcome: supported
+  summary: Source context, conditions and sampling anchor checked against Methods.
+    Host membership is NOT_REPORTED and no participant IDs are supplied; known15-stock
+    administration is described without excluding observed Others. Same-condition
+    SynCom/buffer contrast is explicit; buffer-only does not mean axenic. Main stress-day
+    anchor is used without silently reconciling S4 image-day labels.
+  evidence_ids:
+  - methods
+  - host
+  - figure4
+  - supplement
+  details: 'Exact current selectors: treatment_arms[8]'
+- assessment_id: node-0
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Genomic Osmoprotectant and Ion-Transport Prediction
+  outcome: supported
+  summary: All15 genomes are the analysis panel, not a claim that all carry every
+    listed gene. Trehalose/betaine and ion transport are predictions; no producer→recipient
+    exchange or realized host mediation is asserted. COMPUTATIONAL/PARTIAL support
+    is appropriate; generic interspecies GO annotation removed because this assay
+    alone establishes none.
+  evidence_ids:
+  - prediction
+  - figure2
+  - node-0-quote-0
+  - node-0-quote-1
+  details: 'Exact current selectors: ecological_interactions[0], ecological_interactions[0].participating_taxa,
+    ecological_interactions[0].evidence'
+  dimensions:
+  - name: evidence_tier
+    value: COMPUTATIONAL/PARTIAL; COMPUTATIONAL/PARTIAL
+    definition: Assertion-specific evidence tiers, not a causal promotion.
+    evidence_ids:
+    - node-0-quote-0
+    - node-0-quote-1
+  - name: participants_direction
+    value: All fifteen named study stocks form the assessed panel; no pairwise source-to-target
+      direction or causal arrow is assigned.
+    definition: Panel membership does not assign every strain every phenotype or imply
+      complete observed host membership.
+    evidence_ids:
+    - prediction
+    - figure2
+    - roster
+  - name: experimental_context
+    value: Genomic-analysis Methods and Table 1
+    definition: Exact scoped assay context; preparation, genomic prediction and host
+      benefit remain distinct.
+    evidence_ids:
+    - prediction
+    - figure2
+    - methods
+- assessment_id: node-1
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Member-Level PGP Phenotypes
+  outcome: supported
+  summary: All15 isolates form the screened panel; individual positive Table2 assay
+    results differ by strain. IN_VITRO support is appropriate for colorimetric/substrate
+    readouts, not necessary in-planta benefit. No causal transition from annotation
+    to phenotype or host recovery is retained.
+  evidence_ids:
+  - prediction
+  - supplement
+  - node-1-quote-0
+  details: 'Exact current selectors: ecological_interactions[1], ecological_interactions[1].participating_taxa,
+    ecological_interactions[1].evidence'
+  dimensions:
+  - name: evidence_tier
+    value: IN_VITRO/SUPPORT
+    definition: Assertion-specific evidence tiers, not a causal promotion.
+    evidence_ids:
+    - node-1-quote-0
+  - name: participants_direction
+    value: All fifteen named study stocks form the assessed panel; no pairwise source-to-target
+      direction or causal arrow is assigned.
+    definition: Panel membership does not assign every strain every phenotype or imply
+      complete observed host membership.
+    evidence_ids:
+    - prediction
+    - supplement
+    - roster
+  - name: experimental_context
+    value: Abstract; Table 2 and phenotypic-assay Methods
+    definition: Exact scoped assay context; preparation, genomic prediction and host
+      benefit remain distinct.
+    evidence_ids:
+    - prediction
+    - supplement
+    - methods
+- assessment_id: node-2
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Host-Associated Persistence Compared With Liquid Culture
+  outcome: supported
+  summary: All15 are tracked across distinct liquid and host contexts. More balanced
+    host-associated16S profiles coexist with loss/low detection in liquid; the comparison
+    is not a host-only causal perturbation and does not establish absolute viability,
+    reciprocal mutualism, or equal stability.
+  evidence_ids:
+  - liquid
+  - host
+  - figure3
+  - figure4
+  - figure5
+  - node-2-quote-0
+  - node-2-quote-1
+  details: 'Exact current selectors: ecological_interactions[2], ecological_interactions[2].participating_taxa,
+    ecological_interactions[2].evidence'
+  dimensions:
+  - name: evidence_tier
+    value: IN_VIVO/SUPPORT; IN_VITRO/SUPPORT
+    definition: Assertion-specific evidence tiers, not a causal promotion.
+    evidence_ids:
+    - node-2-quote-0
+    - node-2-quote-1
+  - name: participants_direction
+    value: All fifteen named study stocks form the assessed panel; no pairwise source-to-target
+      direction or causal arrow is assigned.
+    definition: Panel membership does not assign every strain every phenotype or imply
+      complete observed host membership.
+    evidence_ids:
+    - liquid
+    - host
+    - figure3
+    - figure4
+    - figure5
+    - roster
+  - name: experimental_context
+    value: liquid-ms, host-control-syncom, host-drought-syncom, host-rewatered-syncom,
+      host-salinity-syncom
+    definition: Exact scoped assay context; preparation, genomic prediction and host
+      benefit remain distinct.
+    evidence_ids:
+    - liquid
+    - host
+    - figure3
+    - figure4
+    - figure5
+    - methods
+- assessment_id: node-3
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Brachypodium Drought Recovery Promotion
+  outcome: supported
+  summary: SynCom versus buffer under rewatered drought directly measures shoot wet
+    weight/height, root length and leaf number. Host is the measured target; GOgrowth
+    is appropriate. Sustained-drought nonbenefit remains in prose, and no gene/metabolite
+    mediator is asserted. Participants identify the administered15-stock community,
+    not all observed root organisms.
+  evidence_ids:
+  - host
+  - figure4
+  - node-3-quote-0
+  details: 'Exact current selectors: ecological_interactions[3], ecological_interactions[3].participating_taxa,
+    ecological_interactions[3].evidence'
+  dimensions:
+  - name: evidence_tier
+    value: IN_VIVO/SUPPORT
+    definition: Assertion-specific evidence tiers, not a causal promotion.
+    evidence_ids:
+    - node-3-quote-0
+  - name: participants_direction
+    value: All fifteen named study stocks form the assessed panel; host is the measured
+      target under rewatered drought.
+    definition: Panel membership does not assign every strain every phenotype or imply
+      complete observed host membership.
+    evidence_ids:
+    - host
+    - figure4
+    - roster
+  - name: experimental_context
+    value: host-rewatered-syncom, host-rewatered-buffer
+    definition: Exact scoped assay context; preparation, genomic prediction and host
+      benefit remain distinct.
+    evidence_ids:
+    - host
+    - figure4
+    - methods
+- assessment_id: node-4
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Strain-Dependent Root Spatial Distribution
+  outcome: supported
+  summary: All15 comprise the sampled panel; explicit strain/condition qualifications
+    prevent a uniform root-tip preference. Spatial relative16S supports localization,
+    not traced migration, root-exudate recruitment or metabolic exchange. No source→target
+    causal arrow or unsupported effect_direction is introduced.
+  evidence_ids:
+  - spatial
+  - figure6
+  - node-4-quote-0
+  - node-4-quote-1
+  details: 'Exact current selectors: ecological_interactions[4], ecological_interactions[4].participating_taxa,
+    ecological_interactions[4].evidence'
+  dimensions:
+  - name: evidence_tier
+    value: IN_VIVO/PARTIAL; IN_VIVO/PARTIAL
+    definition: Assertion-specific evidence tiers, not a causal promotion.
+    evidence_ids:
+    - node-4-quote-0
+    - node-4-quote-1
+  - name: participants_direction
+    value: All fifteen named study stocks form the assessed panel; no pairwise source-to-target
+      direction or causal arrow is assigned.
+    definition: Panel membership does not assign every strain every phenotype or imply
+      complete observed host membership.
+    evidence_ids:
+    - spatial
+    - figure6
+    - roster
+  - name: experimental_context
+    value: host-control-syncom, host-drought-syncom, host-rewatered-syncom, host-salinity-syncom
+    definition: Exact scoped assay context; preparation, genomic prediction and host
+      benefit remain distinct.
+    evidence_ids:
+    - spatial
+    - figure6
+    - methods
+- assessment_id: edges
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Zero downstream causal edges
+  outcome: supported
+  summary: All five nodes have zero downstream arrows. Prior seven workflow edges
+    remain absent; selection/network correlation, genomic potential, isolate assays,
+    persistence and host benefit are not fabricated sequential mechanisms.
+  evidence_ids:
+  - record
+  - prior
+  - prediction
+  - figure1
+  details: 'Exact current selectors: ecological_interactions[*].downstream'
+- assessment_id: protocols
+  target_ids:
+  - CommunityMech:000088
+  area: scope
+  topic: Four distinct cultivation contexts and one liquid setup
+  outcome: supported
+  summary: Original isolation0.1X R2A/RCH2 and30°C/dark7d are distinct from R2A24–72h
+    isolate preparation with no reported temperature; liquid0.2XMS50mL weeklytransfer24°C
+    differs from host calcined-clay watering/stress. No8h dark phase or shaker speed
+    is inferred. Existing cultivation_setup is correctly scoped to the liquid experiment.
+  evidence_ids:
+  - methods
+  - supplement
+  details: 'Exact current selectors: growth_media, cultivation_setup, environmental_factors'
+- assessment_id: ingredients
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Potential osmoprotectants versus realized mechanism
+  outcome: supported
+  summary: CHEBItrehalose27082 and glycinebetaine17750 preserve molecule identity.
+    Relevance now describes genome-predicted potential; neither metabolite is asserted
+    to be produced/transferred or required for host recovery. Native term validation
+    supports identity, not function.
+  evidence_ids:
+  - prediction
+  - check-terms
+  details: 'Exact current selectors: related_ingredients, ecological_interactions[0].metabolites'
+- assessment_id: discussions
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Historical coverage and current identity boundary
+  outcome: supported
+  summary: Older discussion retains its historical date and causal-review account.
+    New discussion records inspected primary/supplement/figure coverage and actual15BioSample/assembly
+    resolution. RCC150's biological genus/species and exact original analysis versions
+    remain unknown; the earlier negative name query is superseded by positive study
+    metadata. PRJNA1127609 is added with exact scope; KBase135275 remained inaccessible
+    and is not promoted to inspected evidence.
+  evidence_ids:
+  - prior
+  - roster
+  - identity-search
+  - study-identities
+  - study-mapping
+  - figure2
+  - prediction
+  details: 'Exact current selectors: discussions, associated_datasets'
+- assessment_id: history
+  target_ids:
+  - CommunityMech:000088
+  area: provenance
+  topic: Append-only one-record curation
+  outcome: supported
+  summary: 'Exact reviewed bytes applied through native validation, with new inline
+    event and sidecar. Initial candidate002''s plant-Bosea failure is preserved; bacterial
+    synonym/ancestry correction was validated rather than bypassing the #365 domain
+    guard.'
+  evidence_ids:
+  - curation
+  - check-history
+  - authority
+  details: 'Exact current selectors: curation_history, history/records/LBNL_Brachypodium_Drought_SynCom15'
+- assessment_id: machine-boundary
+  target_ids:
+  - CommunityMech:000088
+  area: evidence
+  topic: Native coverage boundary
+  outcome: concern
+  summary: 'Nine focused diagnostics do not imply full QC, automated discussion coverage,
+    or scientific approval. Reference gate uses unchanged private cache with --no-full-text
+    and native cache-hit preflight. #476 belongs to upstream shared schema integration,
+    not a local source waiver.'
+  evidence_ids:
+  - coverage-gap
+  - check-references
+  - check-network
+  details: 'Exact current selectors: discussions, ecological_interactions'
+- assessment_id: metrics
+  target_ids:
+  - CommunityMech:000088
+  area: completeness
+  topic: Literal native metrics
+  outcome: supported
+  summary: Completeness35/100 does not reward invented roles/resources. Validation-quality100/100
+    follows the capped formula despite retained findings; it is not a scientific clearance
+    score.
+  evidence_ids:
+  - record
+  - check-network
+  details: 'Exact current selectors: taxonomy, ecological_interactions'
+  metrics:
+  - name: completeness
+    value: 35
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required role block0; environment5; ≥3factors0; ≥3nodes10; resources0;
+      media10; verified dataset5; node metabolites5.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Clamp0–100 of100−50*P1−10*P2−2*P3+min((evidence/node)/2,1)*20+15if
+      network complete; review counts P1=0,P2=0,P3=2, native network={} passes. This
+      is not a scientific verdict.
+  - name: evidence_per_interaction
+    value: 1.6
+    denominator: 5
+    unit: evidence items per node
+    definition: Eight annotated EvidenceItems over five actual biological nodes; no
+      downstream arrows.
+  - name: source_stock_roster
+    value: 15
+    denominator: 15
+    unit: source stock names
+    definition: 15Table S1stocks independently linked to15BioSamples/current assemblies
+      and native NCBI sequence taxa; not biological species delineation or proof of
+      original analysis versions.
+findings:
+- finding_id: stock-identity
+  issue_key: cm-000088-stock-identity
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: Remaining classification and original-analysis-version limits
+    are explicit; stock sequence identities are now verified and no false precision
+    is introduced.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Biological classification and original analysis versions remain bounded
+  description: 'All15 exact sequence-record taxa and current stock assemblies are
+    verified through primary BioSamples. RCC150 remains biologically unclassified
+    at genus/species despite sequence taxon3239231; source SILVA/GTDB-tk labels are
+    attributed analyses. Current linked assembly versions, especially newer Leifsonia,
+    are not independently established as the exact2025analysis inputs. #1548 remains
+    open;000087/000122 are outside this review.'
+  target_ids:
+  - CommunityMech:000088
+  field_paths:
+  - taxonomy[2]
+  - discussions[1]
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    role: canonical_record
+  evidence_ids:
+  - roster
+  - authority
+  - study-identities
+  - study-mapping
+  - figure2
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1548
+- finding_id: native-discussion-coverage
+  issue_key: cm-000088-native-discussion-coverage
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Confirmed automated coverage gap, with separate manual source
+    checking; not a demonstrated biological falsehood.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Native matcher does not traverse discussion snippets at this base
+  description: Manual full-source assessment does not close the existing shared-schema
+    SupportingReference annotation gap or turn the misleading Total checks counter
+    into an assertion count.
+  target_ids:
+  - CommunityMech:000088
+  field_paths:
+  - discussions
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    role: canonical_record
+  evidence_ids:
+  - coverage-gap
+  - check-references
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/476
+actions:
+- action_id: followup-stock-identity
+  description: 'All15 exact sequence-record taxa and current stock assemblies are
+    verified through primary BioSamples. RCC150 remains biologically unclassified
+    at genus/species despite sequence taxon3239231; source SILVA/GTDB-tk labels are
+    attributed analyses. Current linked assembly versions, especially newer Leifsonia,
+    are not independently established as the exact2025analysis inputs. #1548 remains
+    open;000087/000122 are outside this review.'
+  finding_ids:
+  - stock-identity
+  target_ids:
+  - CommunityMech:000088
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For1548, resolve RCC150biological classification and exact original analysis versions
+    if primary evidence permits; preserve verified current stock identities and other
+    records' unresolved scope.
+  - For476, integrate the canonical shared annotation fix and measure actual assertion
+    traversal; retain source identity/quality boundaries and recheck this record.
+- action_id: followup-native-discussion-coverage
+  description: Manual full-source assessment does not close the existing shared-schema
+    SupportingReference annotation gap or turn the misleading Total checks counter
+    into an assertion count.
+  finding_ids:
+  - native-discussion-coverage
+  target_ids:
+  - CommunityMech:000088
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For1548, resolve RCC150biological classification and exact original analysis versions
+    if primary evidence permits; preserve verified current stock identities and other
+    records' unresolved scope.
+  - For476, integrate the canonical shared annotation fix and measure actual assertion
+    traversal; retain source identity/quality boundaries and recheck this record.
+limitations:
+- Current study-stock assemblies and sequence-record taxa are verified. RCC150biological
+  genus/species and exact original analysis versions remain unresolved; no reference-genome
+  accession, collection deposit or ecological role is invented.
+- Main article and all6primary figures inspected; original S1/S3tables and all supplemental
+  captions inspected. Separate supplemental figure pixels and raw sequencing/statistical
+  reanalysis are outside this assessment.
+- Native exact sequence-taxon mappings are unresolved for all15under the unchanged
+  named-species policy. Earlier genus/family correspondence and paper GTDB-tk analyses
+  remain separate provenance; no current stock mapping or release/build date is invented.
+- Host inoculum is known but complete observed root microbiomes are not; all host
+  arms use NOT_REPORTED and buffer controls are never called microbe-free.
+- Main21-day post-stress anchor differs from S4image-day labels; excluded low-salt
+  results and any apparent timing discrepancy are not reconstructed.
+- 'Native discussion/dataset SupportingReference coverage remains #476 at this base.
+  New database metadata were manually verified through exact source artifacts; a native
+  lexical pass is not database-identity validation. Actual publisher XML and supplements
+  were inspected independently of the existing cache.'
+- 'Whole-record generated Python YAMLreload #1703 remains an independent infrastructure
+  blocker; native closed-schema/strict success is not a claim that this separate roundtrip
+  defect is resolved.'
+- Initial grounding request failed on disambiguated Bacillus label and a later staged
+  candidate failed the correct plant-Bosea domain guard (#365). Failed artifacts remain
+  retained; final ancestry verification and native gates use corrected exact bytes.
+- An initial review draft used invalid target kind record instead of maintained; native
+  validate/save rejected it. The source record and scientific judgments were unchanged,
+  and final review metadata uses the native enum.
+- No canonical cache edits, other-record curation, paid providers, issue closure,
+  merge, or global scientific approval is performed. The000087/000122 parts of1548
+  and all-record campaign remain outside scope.
+links:
+- https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1649750/full
+- https://github.com/CultureBotAI/CommunityMech/issues/1548
+- https://github.com/CultureBotAI/CommunityMech/issues/365
+- https://github.com/CultureBotAI/CommunityMech/issues/476
+- https://github.com/CultureBotAI/CommunityMech/issues/1703
+```
