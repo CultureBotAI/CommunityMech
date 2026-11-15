@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from source_note_gtdb_successors import admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml"
@@ -14,6 +15,15 @@ def records():
     rows = ledger["records"]
     docs = [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
     return ledger, rows, docs
+
+
+def mdsc_predecessor(row, doc):
+    assert row["id"] == "CommunityMech:000392"
+    raw = (ROOT / row["path"]).read_bytes()
+    assert doc == yaml.safe_load(raw)
+    return admit_note_mapping_successor(
+        ROOT, row["path"], row["record_sha256"], current=raw
+    ).historical_bytes
 
 
 def test_core_enrichment_is_not_universal_membership_or_proven_symbiosis():
@@ -70,7 +80,8 @@ def test_moss_outcomes_are_preserved_without_shared_outcome_direction():
 
 
 def test_mucin_preserves_substrate_response_and_glycan_distinctions():
-    _, _, docs = records()
+    _, rows, docs = records()
+    historical = yaml.safe_load(mdsc_predecessor(rows[3], docs[3]))
     composition, degradation, fermentation = docs[3]["ecological_interactions"]
     assert composition["downstream"][0]["description"].startswith("PARTIAL -")
     assert "rather than holding substrate fixed" in composition["downstream"][0]["description"]
@@ -81,7 +92,7 @@ def test_mucin_preserves_substrate_response_and_glycan_distinctions():
     assert (
         docs[3]["discussions"][0]["discussion_id"] == "mucin-mdsc-pairwise-crossfeeding-resolution"
     )
-    assert docs[3]["curation_history"][-2]["action"] == "FIX_MDSC_GTDB_GROUNDINGS"
+    assert historical["curation_history"][-2]["action"] == "FIX_MDSC_GTDB_GROUNDINGS"
 
 
 def test_all_nodes_and_original_arrows_have_decisions_without_extensions():
@@ -125,7 +136,12 @@ def test_record_hashes_and_append_only_histories_are_bound_to_review():
             "discussions",
             "ecological_interactions",
         ]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] == "CommunityMech:000392":
+            raw = mdsc_predecessor(row, doc)
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         assert all((ROOT / path).exists() for path in row["history_files"])
