@@ -1,0 +1,1617 @@
+# Z123, peptide panels and A22ED9: scoped genus-reference diagnostics
+
+- Review: 20261115T072827Z-three-genus-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T07:28:27.642160Z
+- Finished UTC: 2026-11-15T07:28:27.861851Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Six selected taxonomy occurrences in three whole records now carry source-compatible native genus-reference correspondences. Separate Z-2/Z-3 and SK22/KHED9 stocks remain distinct, Kamptonema remains unnamed at strain level, and all other biology and old history are preserved. Actual applications and per-record command evidence are bound separately; the reference populations do not establish study-stock species or genome identity.
+
+## Scope And Provenance
+
+Declared genus-reference blocks/statuses and their actual source, application, history and validation provenance in exactly three records. Existing scientific assertions and historical reviews are preserved without new whole-record scientific clearance.
+
+Selection: Three source-reviewed whole records following the independently verified PES shared-path canary: CommunityMech:000342, CommunityMech:000390 and CommunityMech:000406. Six selected taxonomy occurrences; all unselected taxonomy descriptors remain unchanged. This is not the full higher-rank or taxonomy-repair campaign.
+Coverage: partial; 3 reviewed / 3 in the declared population.
+Source: working_tree at Git base 23d84a2d5567559a9693303c3ac9c07ff498e037.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000342 | kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml # taxonomy[0:3].taxon_term.gtdb_classification; gtdb_grounding_status | maintained | Separate Z-1, Z-2 and Z-3 genus-reference correspondences |
+| CommunityMech:000390 | kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml # taxonomy[2].taxon_term.gtdb_classification; gtdb_grounding_status | maintained | Kamptonema genus correspondence within the unchanged C1/C2 panel |
+| CommunityMech:000406 | kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml # taxonomy[0:2].taxon_term.gtdb_classification; gtdb_grounding_status | maintained | Separate SK22 and KHED9 genus-reference correspondences |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000342 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000390 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000406 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Three source stocks and genus-only authority
+
+grounding: supported. Targets: CommunityMech:000342.
+
+Z-1, Z-2 and Z-3 retain their exact distinct names, terms and notes. Same-genus database correspondence supplies no new species, assembly or enzyme-owner identification.
+
+### Majority reference populations
+
+grounding: supported. Targets: CommunityMech:000342.
+
+The 49/61 and 450/453 routes retain their alternative-genus counts and numerical majority limits. Two Gordonia stock occurrences share a reference population without being collapsed into one isolate.
+
+### Actual bounded write and preserved scientific projection
+
+provenance: supported. Targets: CommunityMech:000342.
+
+Exact candidate/application/history and seven scoped validators establish this technical change. Original scientific claims, quotations, nodes/arrows and history are preserved; strict historical admission is a separate integration step.
+
+### C2 genus identity without stock overassignment
+
+grounding: supported. Targets: CommunityMech:000390.
+
+The declared Kamptonema genus is source-compatible; strain_name remains absent and no PCC6506 study-stock claim is made.
+
+### Thin genus-reference population and unchanged exclusions
+
+grounding: supported. Targets: CommunityMech:000390.
+
+Five filtered reference genomes support the genus correspondence. Limnospira alternatives and three eukaryotic exclusions remain fully preserved.
+
+### Bounded actual application and panel boundary
+
+provenance: supported. Targets: CommunityMech:000390.
+
+Actual application, native history and seven scoped validators bind the accepted record while preserving all panel descriptions and the empty graph. This partial diagnostic does not certify unreviewed proteomic or ecological claims.
+
+### Distinct stock identities and historical uncertainty
+
+grounding: supported. Targets: CommunityMech:000406.
+
+SK22 and KHED9, their 16S accessions and genus-only notes remain intact. Current database computability supersedes only prior mapping unavailability and does not identify either exact species or genome.
+
+### Bacillus majority across 44 GTDB genera
+
+grounding: supported. Targets: CommunityMech:000406.
+
+The 4981/8737 majority is not unanimity and does not establish that either stock belongs to a specific GTDB species. Each distinct occurrence receives the same bounded genus-reference correspondence.
+
+### Actual scoped correction with unchanged experiment claims
+
+provenance: supported. Targets: CommunityMech:000406.
+
+The accepted bytes, actual native history and seven scoped validators bind the limited correction. Assay durations, concentration contexts, mechanisms and all historical scientific dispositions are preserved without new full-record clearance.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000342-schema | .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-strict | .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-gtdb | .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-domain | .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-scalars | .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-history | .temp/gtdb-code006-20261115/genus-three-342-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-new-history | .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-terms | .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000342-paper | https://pubmed.ncbi.nlm.nih.gov/42641428/; Abstract reconstructed Z123 membership; retained source-binding primary_contexts | supports | The primary abstract identifies Nitratireductor Z-1 and two separate Gordonia stocks Z-2/Z-3. Genus-level correspondence is supported without exact species, stock-assembly or stock-specific enzyme inference. |
+| 000342-database | reports/gtdb-code006-20261115/genus-three-342-source-evidence-001.json; occurrences[0:3], native_result/ncbi_identity_rows/population_scope; retained full native route | supports | Native filtering gives Nitratireductor 49/61 with three GTDB genera and Gordonia 450/453 with two genera for each distinct stock occurrence. Exact labels and genus ranks are bound to local authority rows; these are reference populations, not stock genomes. |
+| 000342-application | .temp/gtdb-code006-20261115/genus-three-342-applied-m5-001/receipt.json; applied/before_sha256/after_sha256/inputs and native history sidecar | supports | Actual guarded M5 persistence equals the accepted candidate: three declared blocks/statuses and two native inline events, preserving all other scientific content and old history. |
+| 000342-prior | reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml; records[id=CommunityMech:000342], source/node/edge decisions and record hash | context_only | Prior measured polymer/enzyme outcomes and qualified genomic/proteomic differentiation remain intact. The historical ledger is not rewritten as new scientific approval. |
+| 000390-schema | .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-strict | .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-gtdb | .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-domain | .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-scalars | .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-history | .temp/gtdb-code006-20261115/genus-three-390-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-new-history | .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-terms | .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000390-paper | https://pubmed.ncbi.nlm.nih.gov/42188319/; Methods3.1 Samples and Reagents, C2 definition; retained source-binding primary_contexts | supports | Kamptonema is a genus-level C2 biomass member. The retained source does not establish a named study stock or identity with reference proteome PCC6506. |
+| 000390-database | reports/gtdb-code006-20261115/genus-three-390-source-evidence-001.json; occurrences[taxonomy_index=2].native_result/ncbi_identity_rows/population_scope | supports | The exact native route and authoritative genus label/rank support Kamptonema 5/5 filtered reference genomes; five is a thin reference population, not a study-stock count. |
+| 000390-application | .temp/gtdb-code006-20261115/genus-three-390-applied-m5-001/receipt.json; actual before/after/inputs, native history and scoped gates | supports | The actual candidate adds one declared block/status and two native events. The old Limnospira note moves in YAML key order only; its content, ambiguity/options and every other scientific value remain unchanged. |
+| 000390-prior | reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml; records[id=CommunityMech:000390], empty-graph and processing scope | context_only | The justified empty ecological graph and distinct processed-biomass panels remain unchanged; genus grounding creates no living-community interaction evidence. |
+| 000406-schema | .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-strict | .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-gtdb | .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-domain | .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-scalars | .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-history | .temp/gtdb-code006-20261115/genus-three-406-run-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-new-history | .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-terms | .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000406-paper | https://pubmed.ncbi.nlm.nih.gov/42135302/; Retained strain/16S identification and laboratory assay passages; source-binding primary_contexts | supports | SK22 and KHED9 are separately named Bacillus stocks with retained 16S accessions. Genus-level correspondence does not resolve exact species or assemblies. |
+| 000406-database | reports/gtdb-code006-20261115/genus-three-406-source-evidence-001.json; occurrences[0:2].native_result/ncbi_identity_rows/population_scope | supports | Both declared Bacillus occurrences share the native 4981/8737 reference-genome majority across 44 GTDB genera. Exact local genus authority is bound; the alternative breadth and stock/species uncertainty remain explicit. |
+| 000406-application | .temp/gtdb-code006-20261115/genus-three-406-applied-m5-001/receipt.json; actual before/after/inputs, native sidecar and scoped gate triplets | supports | Actual M5 persistence equals the two-block/status candidate with two appended native events. Every existing scientific value, separate stock/accession and prior history remains unchanged. |
+| 000406-prior | reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml; records[id=CommunityMech:000406], element-depletion and mechanism qualifications | context_only | Retain positive element-depletion measurements at their assay scope without redox, exclusive-biosorption or emergent-advantage claims. Historical mapping unavailability is distinct from exact biological identity uncertainty. |
+
+## Limits And Additional Notes
+
+- Partial technical assessment with scientific_review:false. Successful database correspondence and scoped validation do not complete a full scientific review, outstanding repair campaign or corpus QC.
+- Native denominators count named-binomial reference genomes retained by the exact 761d5537 crosswalk at genus rank, not study-stock genomes. Nitratireductor 49/61, Gordonia 450/453 and Bacillus 4981/8737 are majorities across multiple GTDB genera, not unanimity. Kamptonema 5/5 is a thin reference population.
+- Primary source scope is abstract-only for Z123 and retained main-text passages for the peptide panels and A22ED9. No new complete-paper, supplement, figure, sequence or assembly audit was performed. The local NCBI label/rank observation is stat-bound, not a full database checksum or release certification.
+- The original three-record route report ran locally at dfe2fe44; source binding/staging and actual isolated M5 application/checks used 23d84a2d. Local native Python was 3.13.12 and M5 native Python 3.13.2. Post-application checks are not a clean-tree run. The mapping_source date is only a file mtime, not a database release.
+- Z123 polymer/enzyme measurements do not resolve strain-specific enzyme ownership, intermember metabolite flux or complete carbon mineralization. Its three source-designated stocks remain separate and exact species/assemblies remain unresolved.
+- The peptide record is a C1/C2 processed-biomass panel with an intentionally empty ecological graph. Kamptonema in C2 is not identified as study stock PCC6506. Limnospira ambiguity/candidates and all eukaryotic exclusions remain unchanged; native serialization only reorders unchanged Limnospira notes.
+- A22ED9 retains distinct SK22 and KHED9 stocks, their 16S accessions, 24-hour assay versus 72-hour resistance contexts, and limits on redox, biosorption, field performance and emergent advantage. Old statements that mapping was unavailable during earlier curation remain historical; current database availability does not resolve exact stock species or genomes.
+- Native term validation has no reported assertion denominator. Source-snippet matching, generated-page integration, strict historical successor admission and final combined QC are separate from the eight scoped commands per record. No prior scientific finding is closed.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T072827Z-three-genus-reference-diagnostic
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: 'Z123, peptide panels and A22ED9: scoped genus-reference diagnostics'
+started_at: '2026-11-15T07:28:27.642160Z'
+finished_at: '2026-11-15T07:28:27.861851Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Parent independently inspected the primary-source context plan,
+    exact authored source config, complete native results, all three candidate diffs
+    and six candidate/receipt hashes before canonical application. The common binder,
+    guarded writer, check runner and diagnostic builder received separate read-only
+    review and mutation controls. This is self-review of the resulting bounded technical
+    corrections.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Six selected taxonomy occurrences in three whole records now carry source-compatible
+  native genus-reference correspondences. Separate Z-2/Z-3 and SK22/KHED9 stocks remain
+  distinct, Kamptonema remains unnamed at strain level, and all other biology and
+  old history are preserved. Actual applications and per-record command evidence are
+  bound separately; the reference populations do not establish study-stock species
+  or genome identity.
+source:
+  git_revision: 23d84a2d5567559a9693303c3ac9c07ff498e037
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-code006-20261115/genus-three-342-applied-m5-001/before.yaml
+    sha256: b782163d991445cbfabe4645db8c21b3597c0cb40046148fa0f5a208c5342838
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-applied-m5-001/receipt.json
+    sha256: 2f0c357446ed0c679d1aed52c8d35ff665e03dc9e32d667e1ffd1adfa91e3f10
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-candidate-001/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+    sha256: 5d5776299be1b3048f269d0471c3f6360750ef829361cc900cbc789257c3b38f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-candidate-001/receipt.json
+    sha256: 8f5f5490bab96c9539a2c7cb89583a568f7a54098cfb24f58d42639a285f7f79
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-check-config-001.json
+    sha256: 777e9cb881940c754641804e63b69164ad3ad480bc4eb04234b09d75c9154ff6
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/native.log
+    sha256: 992e8e310544dcd9e7220c936abe68aa92d5dfc8bf461137317f667ae19f17ec
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/receipt.json
+    sha256: 9c651b18ae4a2df504ef7cb0642189f2027701ce30f098e9d124575d737c0235
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/start.json
+    sha256: 95dd609f8b854b4fc07ec9559f761b57f67a906239572f8f9dc03ba5c1b42694
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/native.log
+    sha256: 9897740f3b1901a7ecf6f4eff206e1773e3dcd3aace7a0ec48b5978626eda837
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/receipt.json
+    sha256: db9e070a323e116cfbdcde2cdefbc2acdc0814ea8adbd73a6aa9267dc60b4960
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/start.json
+    sha256: 159b08e462f19ee94ea31e6ce52a784765bf9570b1753bc6ea5efbe54ecc1a84
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-history-001/receipt.json
+    sha256: da59278fcfd26fd54d398d8d66633473e5c4b7c777719f78e4c1a2a4750e8d2b
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-history-001/start.json
+    sha256: 6ebd4267d3b9782f57142d3e4ab3c993b454e2d73dfa1d1e7bbc2b3023d17098
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/native.log
+    sha256: 8a18544851505f0d7babbaeee966606987a6470273b4b8fbd1385137c1f9c837
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/receipt.json
+    sha256: 68500c0cdbab161996ba2dc9fe33463d1998a94202248e702ce17c70d9700120
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/start.json
+    sha256: a377c88183a9a853b4e172279f7a45be31140e923785c6128293b2c00e165990
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/native.log
+    sha256: b189df8c9202604fce2f29d9fd75d0282be78a6f4e8b2de174476e358cda9eb9
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/receipt.json
+    sha256: a8799f3e0d6037a67f00d67bdcee2377d642e48087fdc419dc45d57bf6ed7796
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/start.json
+    sha256: 7cb254a01ed997810c508388f70d79e324e750eb5c9aaeca1168c8dd3d0d6440
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/native.log
+    sha256: 365760be6f3169c69cb430d0dd8d51251bc9a8a5644bdf515ef50e4d8126b1ed
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/receipt.json
+    sha256: c24661c97c0e4889a455c0ddd6f73e1009545a2ae10d20ef5d9e9e7775f0e244
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/start.json
+    sha256: 2c53564d1162504ee53145e30abf9292da009740bda945c1e49143b9a915bf45
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/native.log
+    sha256: de5a0106203abe2e71f2314a88fd77094943b40b3783abc8b78594c37a479792
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/receipt.json
+    sha256: 2045f8202dad69aaba63651b0624efafe88732982dea387790fbc8764046a81f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/start.json
+    sha256: c53d83e6d0c15f4b21aa5b60477413a830acae4f743b38c2a6aa4904f1820cc6
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/native.log
+    sha256: 11fe3d74e6e325096b2a691095cfed4ee21b068a043594b4f1491bb9a8bf69ce
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/receipt.json
+    sha256: be7f78bbc6f1e133423bcace40d47aaa1dc5217fa0645699930deb667294c537
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/start.json
+    sha256: a1cd4a91bdbda9cba5a915124edb47acaf84ef81b135720e77708b3f15ac283b
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-applied-m5-001/before.yaml
+    sha256: 13f107e9c60dafb1f45527dc041ea9c9d1ddb9f72642a368c771a87293d045fa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-applied-m5-001/receipt.json
+    sha256: 69be2df5f807d3c91635967a572f1f5f5b0e4e4cfff4f9652496088add3258af
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-candidate-001/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+    sha256: 6914011b1bcf9031706562a5390a232f0133c9d13a251055574ac0a7f98c5147
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-candidate-001/receipt.json
+    sha256: 2887efb4f1e576905c9a74934d51b308da918df46c7951fc69c7eb52bff2c7ae
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-check-config-001.json
+    sha256: 83f4daddab9fd0cf5bb22a875a87d12291c0e5416a166808877f96f708d77eca
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/native.log
+    sha256: 256c4532730a6eab35346b2562b62e1bcff4ee4ef3c1ce720ab829097653a78f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/receipt.json
+    sha256: 41b5c72c54a7a8c19c0b40e579f982aa51a4cb25ec2650f41183717a0f5864c4
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/start.json
+    sha256: eaa2108544d1e2a56d89862fb9ffb416dfdf0f5d67bd4ea818ac250555dd820c
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/native.log
+    sha256: b99fb9260c459f09bc52a01fbaff66b86ba3416451d8526783b06ba2952fff85
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/receipt.json
+    sha256: da9e42b350647b5f133b5651ddd28b069d1cc11c5e5aa1fabc5e8389af2eaec7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/start.json
+    sha256: 66c38c17db21d55669fef5501cce9110dbc27a9e5c745cb194c2e4eb6dea0076
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-history-001/receipt.json
+    sha256: 2aa573d1787dcbcdd158a6c6716803a684fd69dc82eee629d57a82a39522cddb
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-history-001/start.json
+    sha256: 5c642ae800ea5df300320104797d6833684e984028d55406866fe7d9219dfb5f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/native.log
+    sha256: 21d019a2ef73b5ee531cd1c2d24da3cb74c6ef27e1e96a8bbbb033416f212784
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/receipt.json
+    sha256: fe0fbcfc91c54574948fbc05600d885c3090671a3bba58a0ca46552eed723b13
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/start.json
+    sha256: 10259a56c23230bee8fc24306acb043fcc43bf6f6983e584fa7af0a2ccafef15
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/native.log
+    sha256: 0e66fdbb5f6f8ea7792cbc55bd2293ad0b64e3a15fcb0278279e8d4a22598e72
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/receipt.json
+    sha256: 1b15d8d8d09fbe8e6452cd00347da6d02e8f75cda6b6762178ddf8b15127be70
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/start.json
+    sha256: 08758df66b4758e9d7b2cfd80c4c2aabef8af4332895607ec9e340199b2052b5
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/native.log
+    sha256: 6a8401e3433522396774c13d48c145b1a700767e9e1d2148590e332c7bd6c50e
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/receipt.json
+    sha256: c55a891d3bc1c3d88b34820e9859d16f79a8f4ed341d9fc004de78e258972b07
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/start.json
+    sha256: 0f2f06b9bf81d0935587d0ce8f1426c485da8a22dbfecfe995b19d03d94b79a8
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/native.log
+    sha256: 6bdaf5d5defae6e3084eb1cad97263206907a67ae7ee2611d66acb448e8c775c
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/receipt.json
+    sha256: e986a5e1333096f5a56dc27fc20de636db8522a6be69533e8f37ff5cb7f32721
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/start.json
+    sha256: 5b220c9522d24d0af9ba4ab2690ad6b5f468efaf08cfcfd4f18ec566f613c3da
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/native.log
+    sha256: e0989747aaf1401a7224be78764e78466fcd7fb9a01200c097d37024895d6022
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/receipt.json
+    sha256: 3e56058891d65dc6b74f0d269468a52b19928c0f94a84ab1533ae87b0d1a8f6f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/start.json
+    sha256: bf4e2ec1702d19098b996fcebb6713f4eac0ea3cbe6452bebf54db2196e355bc
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-applied-m5-001/before.yaml
+    sha256: 53d309aa32e37b083b7cc046a89dcdb8f1b559ca89c978920811f57fdd2f164a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-applied-m5-001/receipt.json
+    sha256: d2aa8d84e1f9254cb38879c47b60c1e7e74065d6f00a881a5cdc0e416d3a7d6b
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-candidate-001/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+    sha256: ebb5e676a1a7e97b3f1adfaf17a221a905660afbaffb79d70e0cd9a7d6acb3cd
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-candidate-001/receipt.json
+    sha256: 885535df106b32550780e8d680c78d8f56c312389a09742c84b271a67e0dc141
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-check-config-001.json
+    sha256: 23c403fafb635538651708dd0f8693e44527f97a0597f9c067a9b39aeb3325f3
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/native.log
+    sha256: 710606c7813196d45caca5d00912e2083e908434c559d734bf9bcd7c70464322
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/receipt.json
+    sha256: a50bb983edbfb8242e9f695ac4fc019ee26d32a849d6257942c7f7910447fa4a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/start.json
+    sha256: f707fecbf248c525a017e813369babd7953a8d34cbab36bb58391d3c10219119
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/native.log
+    sha256: 478b77e98cb3d0286e8801648d6d134e350a1d2bc2b047421ee6e45f070284d5
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/receipt.json
+    sha256: b0c3242bc131868ee440f30cabefbe89bd50e76021ae0d11b78b29c95008dfe2
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/start.json
+    sha256: c1134166974ac1a448f81c34a01b3b8d05237b179da4c05679bc887826f92759
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-history-001/receipt.json
+    sha256: 4fb5b467f37786204618ddabc1e01665d44caba7443d1e118a0b1010299036c0
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-history-001/start.json
+    sha256: bbdd122709752e0232c1bfedb32002076505da272ed4144acb05a510b7b2f87c
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/native.log
+    sha256: b7cf2968299aa19f22066efc0ad51738cf6ffd1815cc60c08f3b285dab7051ca
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/receipt.json
+    sha256: 3da1bb5fdfcc8b6cdd8b4c870e81b5418b9f2a2403cede0ee04ce0a87510a628
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/start.json
+    sha256: 0a40eb1fd0a30703b2c456e6f278017b3ef185ae2597c1da7f42afd7e5e01c54
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/native.log
+    sha256: e8ca170f0573abbab53050a9bddbf128a1382fdf81f734e41088ebf09d5a43fe
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/receipt.json
+    sha256: 967a078bfa1009924a85d0885715afa1cd2cb2cacd0335af77481c30531f03f2
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/start.json
+    sha256: 08d667c2e9f93d3c531cab60042860cfd9ce8d8b251818053fbb056de6a01c00
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/native.log
+    sha256: 5a280f2c227784d087c4654b67ea3e39e8000f60d6b8e8669430036560733e2a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/receipt.json
+    sha256: 5d919bd05a3964c1f78fb95adbbfdaf481b4bf3962aae749d8c0867cfdcf625d
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/start.json
+    sha256: b239cd166e593f85b59bd0a0cddb28af4761a031de1fcd6490211b576ce91638
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/native.log
+    sha256: 7ffff03def0de5f4f1aeb02e26daef7ba7f79a5c8697d6550ba8e7abc3e2e57e
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/receipt.json
+    sha256: eda9f7d07d5049c578a13e1df9b1dc7fe4cc6dd744f09bf3cd58f9f67c408753
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/start.json
+    sha256: 7ce00795f73c945365c19c65e39814e4b792576040b0266db0129d1a4b3e1617
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/native.log
+    sha256: 44a08871424f00fbc6984081ae8c27a142878c9748fb116c2baefceeca14d6f7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/receipt.json
+    sha256: 1348637b9806d45a7f4e9f7e264106f61a916649e2ab1d40ef78877de46fcedf
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/start.json
+    sha256: ead61d62c4f258d8b9ada15e4b05dc368ec22a64a6332d3b53f1e4d1f6d20ac2
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-three-route-plan-001.json
+    sha256: 9f881640f376f88836122d3438b9c1ab71f0d52b3b4eb488733d95155c3af831
+    role: context
+  - path: .temp/gtdb-code006-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/genus-three-bound-source-001.log
+    sha256: 30530abc07d1ce6e30a5f5706510e2ba5a6bf69a6dde922f9c844c665f7d78f4
+    role: context
+  - path: .temp/phase2-schema-20261115/genus-three-route-batch-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/genus-three-route-batch-001.json
+    sha256: 374e6bc227e59f71bcc29399180161684404477eece909b956d86c7328ad6172
+    role: context
+  - path: .temp/phase2-schema-20261115/genus-three-route-batch-001.log
+    sha256: 36f8772a9ea2c381c442176d76336a9e6799f50a385ac6afc2c5257590074ee5
+    role: context
+  - path: history/records/Meghalaya_Bacillus_Consortia_A22ED9/2026-09-21T110007Z-claude-code-ff9f69.yaml
+    sha256: 107c0022bdf587c40157e65bafeb2e75ce950fa3d8110953e5c6c86abdf2671a
+    role: context
+  - path: history/records/Meghalaya_Bacillus_Consortia_A22ED9/2026-09-21T110851Z-claude-code-58f24f.yaml
+    sha256: 7d9d3fb83244fd5912d79d56a24ee4b3cfe37117be8a492a8089fd0b9779eb87
+    role: context
+  - path: history/records/Meghalaya_Bacillus_Consortia_A22ED9/2026-10-07T004042Z-codex-f8aebe.yaml
+    sha256: f4f72091d579774a4a3c1f9c20e36d96a9e872a334997f826d60910d710207a7
+    role: context
+  - path: history/records/Meghalaya_Bacillus_Consortia_A22ED9/2026-11-15T072550Z-codex-8dfa57.yaml
+    sha256: 303aba786372fbe8cd66312994af1f2c9ba67f3640a6a2082cd031f001c779d3
+    role: context
+  - path: history/records/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia/2026-09-20T070203Z-claude-code-9bb31d.yaml
+    sha256: 4290f7163de91c607be6de32d1066879af8dc7846b75bd7959958898bf9d27c7
+    role: context
+  - path: history/records/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia/2026-09-20T070529Z-claude-code-ec0dfc.yaml
+    sha256: 7068e9b2b61e4c9d36c2119c996d2bdfd20d46303d93d0f7ed54fc4c2ecfb952
+    role: context
+  - path: history/records/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia/2026-10-07T015429Z-codex-2356b2.yaml
+    sha256: 7b60d77342ca38e7723ac81af481a6df29d660cb5c296dc87fd81e32bd029440
+    role: context
+  - path: history/records/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia/2026-11-15T072440Z-codex-c7c673.yaml
+    sha256: d41ee88b4e811d89eaa33c0130375b5033459b7db2506daa805c793d938ea342
+    role: context
+  - path: history/records/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom/2026-09-11T102457Z-codex-426414.yaml
+    sha256: ef6a90dfd0ce9c741277fe20cb80e3e19aee5b67319989b766221295ad6bfd06
+    role: context
+  - path: history/records/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom/2026-10-07T041551Z-codex-dc3798.yaml
+    sha256: 6686c89c1343a39ad0e3a30c0be9ec3f90195f8590e97fce51189b296dfe2dea
+    role: context
+  - path: history/records/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom/2026-11-15T072233Z-codex-0e8723.yaml
+    sha256: 2d4943a41912c90f8fa4f1e301851db67508dad8ad161a5557ca7258284447f5
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+    sha256: ebb5e676a1a7e97b3f1adfaf17a221a905660afbaffb79d70e0cd9a7d6acb3cd
+    role: target
+  - path: kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+    sha256: 6914011b1bcf9031706562a5390a232f0133c9d13a251055574ac0a7f98c5147
+    role: target
+  - path: kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+    sha256: 5d5776299be1b3048f269d0471c3f6360750ef829361cc900cbc789257c3b38f
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42135302.txt
+    sha256: 2624517ca038b8cce7baaff7b566f9b3f7b08d08c2f0027bb0da5b91715c8f0d
+    role: context
+  - path: references_cache/PMID_42188319.txt
+    sha256: f67300fc699806cb36d28d52c820f29c8e49cd473d9cd05a8222fe47863c64b2
+    role: context
+  - path: references_cache/PMID_42641428.txt
+    sha256: 5b37f9f81a87c465d6f573bf0853a3bc5fb846464d5a26f26f1024d84f794520
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml
+    sha256: 55f3e30b75e614f26dbbbc91eb8a135802d539294546e77bd0c1c78fc6a3f643
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml
+    sha256: f2fb00dfb79b4fbe7e95196d9d5c21f40b52956cd1bce051c8165e26e04a362d
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+    sha256: 0a99a772e824fc64f57a5bb1fb0d68a7f35fb6ad10b12e71fcef5a75739487cc
+    role: context
+  - path: reports/gtdb-code006-20261115/genus-three-342-source-evidence-001.json
+    sha256: 93b738790bb0719b688ac3cd27110c73d0baad790017fbfac3ccfcbfad473817
+    role: context
+  - path: reports/gtdb-code006-20261115/genus-three-390-source-evidence-001.json
+    sha256: 47e57b1c8c74a0884e7e04806633645435529d87e1c54deb51c28d89dcaa0a4d
+    role: context
+  - path: reports/gtdb-code006-20261115/genus-three-406-source-evidence-001.json
+    sha256: 509845a256572a0d14701f0ea5ad1987d8154e5292e8f7241b5a26d490ae5298
+    role: context
+  - path: reports/gtdb-code006-20261115/genus-three-review-config-001.json
+    sha256: d50d4f117c8dcad00327581fd808850a67db27bca6e0b470767e05f745cbf5c5
+    role: context
+  - path: reports/gtdb-code006-20261115/genus-three-source-config-001.json
+    sha256: 071c84a817f41df238fa365925a5b7957079071929ee9319c6d018e4135d5105
+    role: context
+  - path: reports/phase2-completion-20261115/genus-three-source-context-001.yaml
+    sha256: 9452345df75cc2c68c3459d0e1f5ec959d89bbd34cf6d8375f0c7eefc20fa49e
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: 867e974e9c55325fb1b7e32f81dcf6b7a65b6720941fd303040f5570e46ba232
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch69.py
+    sha256: ae7f68e5f0b8de7c33b783cc23175b6c39b47e83f41f53d04f085270db557325
+    role: context
+  - path: tests/test_causal_review_batch72.py
+    sha256: 9009b168fe74c41ed433fc8fec6c33b785158dca51e1cd35e9b428d12eb954ae
+    role: context
+  - path: tests/test_causal_review_batch77.py
+    sha256: 33ca8c1ac9006dde5fc1e9a3a8b7322cb351010c5c3cca943879ee1f4b6a7a2a
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000342
+  path: kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  selector: taxonomy[0:3].taxon_term.gtdb_classification; gtdb_grounding_status
+  label: Separate Z-1, Z-2 and Z-3 genus-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000390
+  path: kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  selector: taxonomy[2].taxon_term.gtdb_classification; gtdb_grounding_status
+  label: Kamptonema genus correspondence within the unchanged C1/C2 panel
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+- target_id: CommunityMech:000406
+  path: kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  selector: taxonomy[0:2].taxon_term.gtdb_classification; gtdb_grounding_status
+  label: Separate SK22 and KHED9 genus-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Declared genus-reference blocks/statuses and their actual source, application,
+    history and validation provenance in exactly three records. Existing scientific
+    assertions and historical reviews are preserved without new whole-record scientific
+    clearance.
+  selection: 'Three source-reviewed whole records following the independently verified
+    PES shared-path canary: CommunityMech:000342, CommunityMech:000390 and CommunityMech:000406.
+    Six selected taxonomy occurrences; all unselected taxonomy descriptors remain
+    unchanged. This is not the full higher-rank or taxonomy-repair campaign.'
+  coverage: partial
+  population_size: 3
+  reviewed_target_ids:
+  - CommunityMech:000342
+  - CommunityMech:000390
+  - CommunityMech:000406
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000342-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+    --out .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-history history/records/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom --target-root kb/communities
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Add source-bound genus-reference correspondences for Z-1, Z-2 and Z-3'
+    --details 'The exact reviewed native candidate adds Nitratireductor genus correspondence
+    for Z-1 (49/61 filtered references across three GTDB genera) and separate Gordonia
+    correspondences for Z-2 and Z-3 (450/453 across two genera each), grounding statuses
+    and two inline events. Preserve all stock names, unknown exact species/assemblies,
+    primary quotes, polymer/enzyme measurements, qualified mechanisms and prior history.
+    Reference populations do not count sequenced study stocks. This is a partial database
+    correspondence correction, not full scientific approval. Source binding and staging
+    ran locally; guarded canonical application ran on isolated M5, both at 23d84a2d.
+    Actual apply receipt .temp/gtdb-code006-20261115/genus-three-342-applied-m5-001/receipt.json
+    sha256:2f0c357446ed0c679d1aed52c8d35ff665e03dc9e32d667e1ffd1adfa91e3f10.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000342-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000342
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000342-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+    --out .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-history history/records/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia --target-root kb/communities
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Add a source-bound Kamptonema genus-reference correspondence' --details
+    'The exact reviewed native candidate adds one Kamptonema genus correspondence
+    (5/5 filtered reference genomes), its grounding status and two inline events.
+    Preserve Limnospira ambiguity and alternatives, all eukaryotic exclusions, distinct
+    C1/C2 processed biomass panels, unnamed stock identity and explicit absence of
+    a study-stock PCC 6506 assignment. The native serializer reorders unchanged Limnospira
+    notes without changing their value. Preserve all source text, scientific content,
+    empty ecological graph and prior history. This is a partial database correspondence
+    correction, not a new full scientific review. Source binding/staging ran locally
+    and actual guarded application on isolated M5, both at 23d84a2d. Actual apply
+    receipt .temp/gtdb-code006-20261115/genus-three-390-applied-m5-001/receipt.json
+    sha256:69be2df5f807d3c91635967a572f1f5f5b0e4e4cfff4f9652496088add3258af.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000390-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000390
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000390-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+    --out .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-history history/records/Meghalaya_Bacillus_Consortia_A22ED9
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Meghalaya_Bacillus_Consortia_A22ED9 --target-root kb/communities --event EDIT
+    --outcome changed --sections taxonomy,curation_history --actor-name codex --model
+    gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Add bounded Bacillus genus-reference correspondences for SK22 and KHED9'
+    --details 'The exact reviewed native candidate adds two Bacillus genus-reference
+    blocks, grounding statuses and two inline events. Each 4981/8737 filtered-reference
+    majority spans 44 GTDB genera and is not unanimity, an exact study-stock species
+    assignment or a sequenced SK22/KHED9 genome. Preserve distinct stocks and 16S
+    accessions, all old notes about the mapping being unavailable during earlier curation,
+    source quotes, 24-hour LB assay versus 72-hour resistance context, redox/biosorption/field
+    limitations and prior history. Current reproducible correspondence supersedes
+    only earlier database unavailability, not biological uncertainty. This partial
+    technical correction is not full scientific approval. Local source binding/staging
+    and M5 guarded application used 23d84a2d. Actual apply receipt .temp/gtdb-code006-20261115/genus-three-406-applied-m5-001/receipt.json
+    sha256:d2aa8d84e1f9254cb38879c47b60c1e7e74065d6f00a881a5cdc0e416d3a7d6b.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000406-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000406
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000406-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000342-schema
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-schema-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-strict
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-strict-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-gtdb
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-domain
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-domain-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-scalars
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-scalars-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-new-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-new-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-terms
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-342-run-terms-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000342-paper
+  kind: primary_source
+  reference: https://pubmed.ncbi.nlm.nih.gov/42641428/
+  locator: Abstract reconstructed Z123 membership; retained source-binding primary_contexts
+  support: supports
+  summary: The primary abstract identifies Nitratireductor Z-1 and two separate Gordonia
+    stocks Z-2/Z-3. Genus-level correspondence is supported without exact species,
+    stock-assembly or stock-specific enzyme inference.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000342-database
+  kind: database
+  reference: reports/gtdb-code006-20261115/genus-three-342-source-evidence-001.json
+  locator: occurrences[0:3], native_result/ncbi_identity_rows/population_scope; retained
+    full native route
+  support: supports
+  summary: Native filtering gives Nitratireductor 49/61 with three GTDB genera and
+    Gordonia 450/453 with two genera for each distinct stock occurrence. Exact labels
+    and genus ranks are bound to local authority rows; these are reference populations,
+    not stock genomes.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000342-application
+  kind: record_content
+  reference: .temp/gtdb-code006-20261115/genus-three-342-applied-m5-001/receipt.json
+  locator: applied/before_sha256/after_sha256/inputs and native history sidecar
+  support: supports
+  summary: 'Actual guarded M5 persistence equals the accepted candidate: three declared
+    blocks/statuses and two native inline events, preserving all other scientific
+    content and old history.'
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000342-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+  locator: records[id=CommunityMech:000342], source/node/edge decisions and record
+    hash
+  support: context_only
+  summary: Prior measured polymer/enzyme outcomes and qualified genomic/proteomic
+    differentiation remain intact. The historical ledger is not rewritten as new scientific
+    approval.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000390-schema
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-schema-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-strict
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-strict-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-gtdb
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-domain
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-domain-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-scalars
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-scalars-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-new-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-new-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-terms
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-390-run-terms-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000390-paper
+  kind: primary_source
+  reference: https://pubmed.ncbi.nlm.nih.gov/42188319/
+  locator: Methods3.1 Samples and Reagents, C2 definition; retained source-binding
+    primary_contexts
+  support: supports
+  summary: Kamptonema is a genus-level C2 biomass member. The retained source does
+    not establish a named study stock or identity with reference proteome PCC6506.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000390-database
+  kind: database
+  reference: reports/gtdb-code006-20261115/genus-three-390-source-evidence-001.json
+  locator: occurrences[taxonomy_index=2].native_result/ncbi_identity_rows/population_scope
+  support: supports
+  summary: The exact native route and authoritative genus label/rank support Kamptonema
+    5/5 filtered reference genomes; five is a thin reference population, not a study-stock
+    count.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000390-application
+  kind: record_content
+  reference: .temp/gtdb-code006-20261115/genus-three-390-applied-m5-001/receipt.json
+  locator: actual before/after/inputs, native history and scoped gates
+  support: supports
+  summary: The actual candidate adds one declared block/status and two native events.
+    The old Limnospira note moves in YAML key order only; its content, ambiguity/options
+    and every other scientific value remain unchanged.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000390-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml
+  locator: records[id=CommunityMech:000390], empty-graph and processing scope
+  support: context_only
+  summary: The justified empty ecological graph and distinct processed-biomass panels
+    remain unchanged; genus grounding creates no living-community interaction evidence.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000406-schema
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-schema-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-strict
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-strict-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-gtdb
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-gtdb-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-domain
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-domain-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-scalars
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-scalars-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-new-history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-new-history-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-terms
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-three-406-run-terms-001/native.log
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000406-paper
+  kind: primary_source
+  reference: https://pubmed.ncbi.nlm.nih.gov/42135302/
+  locator: Retained strain/16S identification and laboratory assay passages; source-binding
+    primary_contexts
+  support: supports
+  summary: SK22 and KHED9 are separately named Bacillus stocks with retained 16S accessions.
+    Genus-level correspondence does not resolve exact species or assemblies.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000406-database
+  kind: database
+  reference: reports/gtdb-code006-20261115/genus-three-406-source-evidence-001.json
+  locator: occurrences[0:2].native_result/ncbi_identity_rows/population_scope
+  support: supports
+  summary: Both declared Bacillus occurrences share the native 4981/8737 reference-genome
+    majority across 44 GTDB genera. Exact local genus authority is bound; the alternative
+    breadth and stock/species uncertainty remain explicit.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000406-application
+  kind: record_content
+  reference: .temp/gtdb-code006-20261115/genus-three-406-applied-m5-001/receipt.json
+  locator: actual before/after/inputs, native sidecar and scoped gate triplets
+  support: supports
+  summary: Actual M5 persistence equals the two-block/status candidate with two appended
+    native events. Every existing scientific value, separate stock/accession and prior
+    history remains unchanged.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+- evidence_id: 000406-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml
+  locator: records[id=CommunityMech:000406], element-depletion and mechanism qualifications
+  support: context_only
+  summary: Retain positive element-depletion measurements at their assay scope without
+    redox, exclusive-biosorption or emergent-advantage claims. Historical mapping
+    unavailability is distinct from exact biological identity uncertainty.
+  accessed_at: '2026-11-15T07:28:27.642160Z'
+assessments:
+- assessment_id: 000342-identity
+  area: grounding
+  topic: Three source stocks and genus-only authority
+  outcome: supported
+  target_ids:
+  - CommunityMech:000342
+  evidence_ids:
+  - 000342-paper
+  - 000342-database
+  - 000342-terms
+  summary: Z-1, Z-2 and Z-3 retain their exact distinct names, terms and notes. Same-genus
+    database correspondence supplies no new species, assembly or enzyme-owner identification.
+- assessment_id: 000342-population
+  area: grounding
+  topic: Majority reference populations
+  outcome: supported
+  target_ids:
+  - CommunityMech:000342
+  evidence_ids:
+  - 000342-database
+  - 000342-gtdb
+  - 000342-domain
+  summary: The 49/61 and 450/453 routes retain their alternative-genus counts and
+    numerical majority limits. Two Gordonia stock occurrences share a reference population
+    without being collapsed into one isolate.
+- assessment_id: 000342-provenance
+  area: provenance
+  topic: Actual bounded write and preserved scientific projection
+  outcome: supported
+  target_ids:
+  - CommunityMech:000342
+  evidence_ids:
+  - 000342-application
+  - 000342-prior
+  - 000342-schema
+  - 000342-strict
+  - 000342-scalars
+  - 000342-new-history
+  - 000342-history
+  summary: Exact candidate/application/history and seven scoped validators establish
+    this technical change. Original scientific claims, quotations, nodes/arrows and
+    history are preserved; strict historical admission is a separate integration step.
+- assessment_id: 000390-identity
+  area: grounding
+  topic: C2 genus identity without stock overassignment
+  outcome: supported
+  target_ids:
+  - CommunityMech:000390
+  evidence_ids:
+  - 000390-paper
+  - 000390-database
+  - 000390-terms
+  summary: The declared Kamptonema genus is source-compatible; strain_name remains
+    absent and no PCC6506 study-stock claim is made.
+- assessment_id: 000390-population
+  area: grounding
+  topic: Thin genus-reference population and unchanged exclusions
+  outcome: supported
+  target_ids:
+  - CommunityMech:000390
+  evidence_ids:
+  - 000390-database
+  - 000390-gtdb
+  - 000390-domain
+  summary: Five filtered reference genomes support the genus correspondence. Limnospira
+    alternatives and three eukaryotic exclusions remain fully preserved.
+- assessment_id: 000390-provenance
+  area: provenance
+  topic: Bounded actual application and panel boundary
+  outcome: supported
+  target_ids:
+  - CommunityMech:000390
+  evidence_ids:
+  - 000390-application
+  - 000390-prior
+  - 000390-schema
+  - 000390-strict
+  - 000390-scalars
+  - 000390-new-history
+  - 000390-history
+  summary: Actual application, native history and seven scoped validators bind the
+    accepted record while preserving all panel descriptions and the empty graph. This
+    partial diagnostic does not certify unreviewed proteomic or ecological claims.
+- assessment_id: 000406-identity
+  area: grounding
+  topic: Distinct stock identities and historical uncertainty
+  outcome: supported
+  target_ids:
+  - CommunityMech:000406
+  evidence_ids:
+  - 000406-paper
+  - 000406-database
+  - 000406-terms
+  summary: SK22 and KHED9, their 16S accessions and genus-only notes remain intact.
+    Current database computability supersedes only prior mapping unavailability and
+    does not identify either exact species or genome.
+- assessment_id: 000406-population
+  area: grounding
+  topic: Bacillus majority across 44 GTDB genera
+  outcome: supported
+  target_ids:
+  - CommunityMech:000406
+  evidence_ids:
+  - 000406-database
+  - 000406-gtdb
+  - 000406-domain
+  summary: The 4981/8737 majority is not unanimity and does not establish that either
+    stock belongs to a specific GTDB species. Each distinct occurrence receives the
+    same bounded genus-reference correspondence.
+- assessment_id: 000406-provenance
+  area: provenance
+  topic: Actual scoped correction with unchanged experiment claims
+  outcome: supported
+  target_ids:
+  - CommunityMech:000406
+  evidence_ids:
+  - 000406-application
+  - 000406-prior
+  - 000406-schema
+  - 000406-strict
+  - 000406-scalars
+  - 000406-new-history
+  - 000406-history
+  summary: The accepted bytes, actual native history and seven scoped validators bind
+    the limited correction. Assay durations, concentration contexts, mechanisms and
+    all historical scientific dispositions are preserved without new full-record clearance.
+findings: []
+actions: []
+limitations:
+- Partial technical assessment with scientific_review:false. Successful database correspondence
+  and scoped validation do not complete a full scientific review, outstanding repair
+  campaign or corpus QC.
+- Native denominators count named-binomial reference genomes retained by the exact
+  761d5537 crosswalk at genus rank, not study-stock genomes. Nitratireductor 49/61,
+  Gordonia 450/453 and Bacillus 4981/8737 are majorities across multiple GTDB genera,
+  not unanimity. Kamptonema 5/5 is a thin reference population.
+- Primary source scope is abstract-only for Z123 and retained main-text passages for
+  the peptide panels and A22ED9. No new complete-paper, supplement, figure, sequence
+  or assembly audit was performed. The local NCBI label/rank observation is stat-bound,
+  not a full database checksum or release certification.
+- The original three-record route report ran locally at dfe2fe44; source binding/staging
+  and actual isolated M5 application/checks used 23d84a2d. Local native Python was
+  3.13.12 and M5 native Python 3.13.2. Post-application checks are not a clean-tree
+  run. The mapping_source date is only a file mtime, not a database release.
+- Z123 polymer/enzyme measurements do not resolve strain-specific enzyme ownership,
+  intermember metabolite flux or complete carbon mineralization. Its three source-designated
+  stocks remain separate and exact species/assemblies remain unresolved.
+- The peptide record is a C1/C2 processed-biomass panel with an intentionally empty
+  ecological graph. Kamptonema in C2 is not identified as study stock PCC6506. Limnospira
+  ambiguity/candidates and all eukaryotic exclusions remain unchanged; native serialization
+  only reorders unchanged Limnospira notes.
+- A22ED9 retains distinct SK22 and KHED9 stocks, their 16S accessions, 24-hour assay
+  versus 72-hour resistance contexts, and limits on redox, biosorption, field performance
+  and emergent advantage. Old statements that mapping was unavailable during earlier
+  curation remain historical; current database availability does not resolve exact
+  stock species or genomes.
+- Native term validation has no reported assertion denominator. Source-snippet matching,
+  generated-page integration, strict historical successor admission and final combined
+  QC are separate from the eight scoped commands per record. No prior scientific finding
+  is closed.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/pull/2853
+```
