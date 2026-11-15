@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml"
@@ -105,10 +106,16 @@ def test_dispositions_and_append_only_histories_cover_every_original_node():
     assert len(ledger["snippet_checks"]) == ledger["primary_graph_snippet_count"] == 12
     assert len(ledger["discussion_snippet_checks"]) == 4
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] == "CommunityMech:000364":
+            assert doc == yaml.safe_load(raw)
+            raw = admit_genus_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert row["curation_events_added"] == len(row["history_files"])
         assert row["curation_events_added"] == (2 if doc["id"] == "CommunityMech:000364" else 1)
-        assert doc["curation_history"][-1]["llm_assisted"]
+        assert historical["curation_history"][-1]["llm_assisted"]
         assert (ROOT / row["history_files"][0]).is_file()
         for e in row["retained_edge_decisions"]:
             assert all(

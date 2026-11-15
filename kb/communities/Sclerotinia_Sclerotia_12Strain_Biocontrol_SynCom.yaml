@@ -96,7 +96,17 @@ taxonomy:
     term:
       id: NCBITaxon:106589
       label: Cupriavidus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Cupriavidus
+      gtdb_taxon: Cupriavidus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus
+      ncbi_source_id: NCBITaxon:106589
+      majority_fraction: 1.0
+      support_genomes: 199
+      total_genomes: 199
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Sclerotia-associated strain N4, resolved only to genus here because the paper reports Cupriavidus sp. N4.
   strain_designation:
     strain_name: N4
@@ -211,7 +221,16 @@ taxonomy:
     term:
       id: NCBITaxon:252970
       label: Paraburkholderia phenoliruptrix
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Paraburkholderia_phenoliruptrix
+      gtdb_taxon: Paraburkholderia phenoliruptrix
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia;s__Paraburkholderia phenoliruptrix
+      ncbi_source_id: NCBITaxon:252970
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: Sclerotia-associated P. phenoliruptrix strain TB211, matching ASV2 in the 5-day flooded-soil sclerotium microbiome.
   strain_designation:
     strain_name: TB211
@@ -226,7 +245,16 @@ taxonomy:
     term:
       id: NCBITaxon:148447
       label: Paraburkholderia phymatum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Paraburkholderia_phymatum
+      gtdb_taxon: Paraburkholderia phymatum
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia;s__Paraburkholderia phymatum
+      ncbi_source_id: NCBITaxon:148447
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Sclerotia-associated P. phymatum strain R7, matching ASV51 in the 5-day flooded-soil sclerotium microbiome.
   strain_designation:
     strain_name: R7
@@ -257,7 +285,17 @@ taxonomy:
     term:
       id: NCBITaxon:48736
       label: Ralstonia
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Ralstonia
+      gtdb_taxon: Ralstonia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Ralstonia
+      ncbi_source_id: NCBITaxon:48736
+      majority_fraction: 0.993
+      support_genomes: 277
+      total_genomes: 279
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: Sclerotia-associated strain R4, resolved only to genus here because the paper reports Ralstonia sp. R4.
   strain_designation:
     strain_name: R4
@@ -272,7 +310,17 @@ taxonomy:
     term:
       id: NCBITaxon:2571160
       label: Trinickia
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Trinickia
+      gtdb_taxon: Trinickia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Trinickia
+      ncbi_source_id: NCBITaxon:2571160
+      majority_fraction: 1.0
+      support_genomes: 42
+      total_genomes: 42
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Novel strain MC, reported as Trinickia sp. MC in the SynCom roster and described by the paper as Trinickia sclerotiorum
       sp. nov. type strain MC. The local NCBITaxon snapshot has the genus but not the proposed 2026 species.
   strain_designation:
@@ -653,3 +701,11 @@ curation_history:
   changes: Keep the MC dropout result at community-contribution scope with only MC as participant and the fungal
     challenge as external context; do not assert a pairwise consortium-membership relation. Issue#1787; reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T09:53:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 5 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:53:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 5 taxonomy entries (#294, #395).'
