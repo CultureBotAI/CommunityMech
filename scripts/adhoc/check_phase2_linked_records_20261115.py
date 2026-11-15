@@ -43,10 +43,44 @@ GATE_RECIPES = {
     "terms": "validate-terms",
     "history": "validate-history",
 }
+REQUIRED_ONTOLOGIES = frozenset({"NCBITaxon", "ENVO", "PO", "UBERON", "CHEBI", "GO"})
+LOCAL_ONTOLOGIES = {
+    prefix: Path("/Users/marcin/.data/oaklib") / (prefix.lower() + ".db")
+    for prefix in REQUIRED_ONTOLOGIES
+}
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(8 * 1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def ontology_manifest(adapters):
+    """Bind explicit adapters; a partial map disables native fallback (#2817)."""
+    missing = REQUIRED_ONTOLOGIES - set(adapters)
+    if missing:
+        raise ValueError("missing required ontology prefixes: " + ", ".join(sorted(missing)))
+    if any(not Path(path).is_file() for path in adapters.values()):
+        raise ValueError("local ontology adapter prerequisite is missing")
+    return {
+        prefix: {"filename": Path(path).name, "sha256": sha(Path(path))}
+        for prefix, path in sorted(adapters.items())
+    }
+
+
+def prepare_ontology_config(path, adapters):
+    if path.exists():
+        raise ValueError("exclusive ontology config already exists")
+    manifest = ontology_manifest(adapters)
+    with path.open("x") as stream:
+        yaml.safe_dump(
+            {"ontology_adapters": {key: "sqlite:" + str(value) for key, value in adapters.items()}},
+            stream,
+        )
+    return manifest
 
 
 def now():
@@ -122,19 +156,10 @@ def main():
         command = command + ["--out", str((STATE / (args.name + ".tsv")).relative_to(ROOT))]
     cache_copy = None
     record_copy = None
+    ontology_inputs = None
     if args.gate == "terms":
         config_path = STATE / (args.name + "-oak.yaml")
-        adapters = {
-            "NCBITaxon": "/Users/marcin/.data/oaklib/ncbitaxon.db",
-            "ENVO": "/Users/marcin/.data/oaklib/envo.db",
-        }
-        if config_path.exists() or any(not Path(path).is_file() for path in adapters.values()):
-            raise ValueError("local adapter prerequisite or exclusive config failed")
-        config_path.write_text(
-            yaml.safe_dump(
-                {"ontology_adapters": {key: "sqlite:" + value for key, value in adapters.items()}}
-            )
-        )
+        ontology_inputs = prepare_ontology_config(config_path, LOCAL_ONTOLOGIES)
         command = [
             "uv",
             "run",
@@ -223,6 +248,12 @@ def main():
             "The related-community policy is pinned by source hash; final integrated policy validation remains a separate check if this worktree has older code.",
         ],
     }
+    if ontology_inputs is not None:
+        from linkml_term_validator import validator as term_validator
+
+        result["ontology_inputs"] = ontology_inputs
+        result["ontology_config_sha256"] = sha(config_path)
+        result["native_term_validator_sha256"] = sha(Path(term_validator.__file__))
     receipt.write_text(json.dumps(result, indent=2) + "\n")
     with log.open("x") as stream:
         run = subprocess.run(command, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT)
@@ -244,7 +275,16 @@ def main():
         result["private_record_sha256"] = sha(record_copy)
         if result["private_record_sha256"] != bound[target]:
             raise ValueError("network diagnostic input changed")
-    if after != bound or (cache_copy and not result["private_cache_unchanged"]):
+    if ontology_inputs is not None:
+        result["ontology_inputs_unchanged"] = (
+            ontology_manifest(LOCAL_ONTOLOGIES) == ontology_inputs
+            and sha(config_path) == result["ontology_config_sha256"]
+        )
+    if (
+        after != bound
+        or (cache_copy and not result["private_cache_unchanged"])
+        or result.get("ontology_inputs_unchanged") is False
+    ):
         result["status"] = "INPUTS_CHANGED"
     receipt.write_text(json.dumps(result, indent=2) + "\n")
     code_path.write_text(str(run.returncode) + "\n")
