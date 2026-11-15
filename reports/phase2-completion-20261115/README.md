@@ -320,9 +320,18 @@ The [393 final integration at ed77a05a](paenibacillus-final-integration-ed77a05a
 completes the actual note-to-mapping transition with its verified 96-input partial
 review and complete 98-file checkpoints on both machines. All eight final-byte
 M5 commands, 39 composed proof/biology/history-fetch tests and native lint pass.
-There are now 33 integrated corrections, including 29 of 126 partition records;
+At that checkpoint there were 33 integrated corrections, including 29 of 126 partition records;
 97 remain. The earlier note-only checkpoint remains immutable. These results do
 not certify the whole record scientifically or replace final full QC.
+
+The [eighteen-record integration at 25de294d](eighteen-record-integration-25de294d.md)
+adds the completed species and genus batches, wheat 409 and the hexamine C1
+canary. There are now 51 integrated corrections, including 47 of 126 partition
+records; 79 remain. The clean combined tree passed 138 selected integration
+tests and native lint. Caragana 338 has a preserved note-only intermediate and
+is not counted as completed. Every taxonomy diagnostic remains partial; full
+combined M5 QC, current generated products and scientific completion remain
+separate requirements.
 
 ## Campaign restart
 
