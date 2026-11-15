@@ -1,0 +1,51 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/genus-mixed-six-route-batch-001.log", "sha256": "b43cd1b413f8b8045fb05985912d2d2d891f39c3236bb5e8ac19a52cb4b42e25"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/genus-mixed-six-route-batch-001.json", "sha256": "9c771fde6e5e231057fddc9dca050b1dad10fb83f63644e8304f73b54f876cf5"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/genus-mixed-six-route-batch-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml",
+      "record_id": "CommunityMech:000384",
+      "before_sha256": "4fc81cfb17b74f44b121440c5375d5a8e2f42e76b60ee057fdc53deafa263831",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/genus-mixed-three-source-context-001.yaml": "a2d816364a8c8906e68a1c8401a5b0df0755c21ee6173ea514851ff730fd4d2a",
+        "tests/test_causal_review_batch59.py": "e0f66a2803e94f4b35920fdc3296f504753b05761427427c5f411d4fe811afea",
+        "reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml": "6eb7cba4bcbbfee3ba456be7cc886f59f3a032845a7c2ad252174cf2afb9f5f0"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41561919",
+          "path": "references_cache/PMID_41561919.txt",
+          "sha256": "815ea25a152efcf13f2c82c6f96165671cfa5ab978ce71207cd6de6f51bf4f21",
+          "locator": "Retained PMC12813464 data article, Methods cultivation design and Table 3, flattened lines 45 and 47.",
+          "coverage": "Selected retained main-text/table passages; no complete associated research-article, source-data, image or sequence review.",
+          "identity_tokens": ["41561919", "10.1016/j.dib.2025.112407"],
+          "anchors": ["MC1 Mono- Synechocystis sp. MC2 Mono- Desertifilum tharense"]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:1142", "label": "Synechocystis"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Synechocystis", "via": "ncbi_rank_g", "support_genomes": 8, "total_genomes": 8},
+          "source_assessment": "The data article names Synechocystis sp. without a strain designation, across MC1, CC1, CC2, SC1 and SC2 treatment contexts. It is not a species or stock identity.",
+          "population_scope": "The 8/8 filtered reference genomes support genus correspondence only. They are not eight experimental replicates or genomes belonging to the study's inoculum.",
+          "name_scope": "Preserve genus rank, absent stock and exact treatment membership; no species, genome or universal four-member inoculum is inferred."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:1185873", "label": "Desertifilum tharense"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Desertifilum_tharense", "via": "ncbi_id", "total_genomes": 1, "majority_fraction": 1.0},
+          "source_assessment": "Desertifilum tharense is the source-named species used in MC2, CC3, CC4, SC3 and SC4. The paper supplies no formal strain designation for this record.",
+          "population_scope": "The native exact-ID correspondence rests on one reference genome. It does not establish that reference genome as the study stock or add a new taxonomic identification.",
+          "name_scope": "Retain the existing source-supported species name and absent strain field. Preserve simultaneous versus sequential treatment distinctions and the two eukaryotic exclusions."
+        }
+      ],
+      "historical_guard_assessment": "Retain all four taxonomy descriptors, Chlorella/Euglena NO_GTDB_EQUIVALENT statuses, four monoculture/four paired/four sequential treatment design, non-sterile background and the empty ecological graph. No nutrient-removal, microbiome or exchange mechanism is added. Batch59's exact predecessor and last historical llm_assisted event require strict admitted projection after actual proof; preserve the unrelated kefir record, provider/cache evidence and all current biological predicates. This is a mixed genus/species correspondence canary, not a whole-record scientific review."
+    }
+  ]
+}
