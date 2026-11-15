@@ -74,7 +74,10 @@ taxonomy:
     term:
       id: NCBITaxon:930166
       label: Pseudomonas brassicacearum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Pseudomonas_E_brassicacearum
+    - GTDB:s__Pseudomonas_E_neoaurantiaca
     notes: Root401 is an At-RSPHERE opportunistic challenge strain rather than
       a designed SynCom commensal.
   evidence:
@@ -500,3 +503,7 @@ curation_history:
   changes: 'Separate At-RSPHERE assay systems and bound exometabolite mediation; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1248'
   llm_assisted: true
+- timestamp: '2026-11-15T07:24:22Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
