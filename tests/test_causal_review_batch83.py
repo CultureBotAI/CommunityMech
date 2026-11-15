@@ -4,9 +4,19 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from scoped_gtdb_successor import admit
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml"
+GTDB_SUCCESSORS = {
+    "kb/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/pes-001-successor.json",
+            "sha256": "b44e7040e1bdeacedc63cdb8f45ab4546c30327e357e8c58a0758acfa790c47f",
+        },
+    }
+}
 
 
 def records():
@@ -148,9 +158,8 @@ def test_history_short_cache_and_pending_lifecycle_are_explicit():
         ROOT / "reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml"
     )
     successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
-    for row, doc in zip(rows, docs, strict=True):
+    for row, _doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
         latest = row
         if row["id"] == "CommunityMech:000052":
             latest = successor_by_id[row["id"]]
@@ -159,6 +168,7 @@ def test_history_short_cache_and_pending_lifecycle_are_explicit():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        admitted = admit(ROOT, row["path"], latest["record_sha256"], GTDB_SUCCESSORS)
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
+        assert hashlib.sha256(admitted.historical_bytes).hexdigest() == latest["record_sha256"]
