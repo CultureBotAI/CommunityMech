@@ -1,6 +1,6 @@
 id: CommunityMech:000531
 name: Microbacterium sp. BR1 Sulfadiazine-Cleaving Isolate Baseline
-description: Single-strain axenic bacterial isolate baseline Microbacterium sp. strain BR1 (NCBITaxon:1070896; GTDB:s__Microbacterium_lacus)
+description: Single-strain axenic bacterial isolate baseline Microbacterium sp. strain BR1 (NCBITaxon:1070896; GTDB:s__Microbacterium_sp002812725)
   evaluated in vitamin-supplemented Mineral Salts Medium (MSM Brunner) containing 1 mM 13C,15N-diazine-labeled sulfadiazine
   (SDZ) at 28 degrees C alongside axenic Terrabacter sp. 2APm3 (CommunityMech:000532) and the Microbacterium-Terrabacter coculture
   (CommunityMech:000462) by Xue et al. 2026 (PMID:42598292). In axenic BR1 culture, 1.0 ± 0.1 mM SDZ was completely degraded
@@ -40,15 +40,23 @@ taxonomy:
       label: Microbacterium sp. BR1
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:s__Microbacterium_lacus
-      gtdb_taxon: Microbacterium lacus
+      gtdb_id: GTDB:s__Microbacterium_sp002812725
+      gtdb_taxon: Microbacterium sp002812725
       gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Microbacteriaceae;g__Microbacterium;s__Microbacterium
-        lacus
+        sp002812725
       ncbi_source_id: NCBITaxon:1070896
-      majority_fraction: 1.0
-      total_genomes: 1
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+      mapping_source: GTDB R220 explicit genome taxon history for GCF_002812725.1 (https://gtdb-api.ecogenomic.org/genome/GCF_002812725.1/taxon-history;
+        retrieved 2026-11-15; sha256:f96b4c8f28a77e385d2017b66455022e621f0dfb1f9e4013cc4618f6ed31c583); exact stock identity from
+        NCBI Datasets assembly https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_002812725.1/dataset_report (sha256:d94ccc026216f2751d7d758e85c435a6f7464e797089ad9e639c8825b18c6dea).
+      curated: true
+      curation_note: 'Exact BR1 genome mapping: NCBITaxon:1070896, strain BR1 and BioSample SAMN07351343 link GCF_002812725.1
+        to paired GCA_002812725.1. GTDB''s explicit R220 history assigns this assembly to Microbacterium sp002812725; the retained
+        current genome card agrees. The retained NCBI2GTDB table sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+        has no exact BR1 NCBI ID or species-name row. Its CJ77 row, the GTDB species-cluster size and this single assembly are
+        different populations; no crosswalk majority fraction or genome count is asserted for BR1. The primary study distinguishes
+        the separately cited Microbacterium lacus soil isolate from BR1; no equivalence with that isolate is inferred. The GTDB
+        placeholder is a genome classification, not a formal species renaming or an independent ANI calculation. See issue #2849.'
     notes: Actinobacterial strain that cleaves sulfadiazine via ipso-substitution and subsists on the 4-AP moiety while accumulating
       2-aminopyrimidine (2-AP) as a dead-end metabolite.
   strain_designation:
@@ -224,4 +232,14 @@ curation_history:
   action: CURATE_CAUSAL_GRAPH
   changes: Reviewed the single COMMUNITY_LEVEL interaction node, the 0-edge boundary, and 1 KNOWLEDGE_GAP discussion against
     PMID:42598292 (PMC13472149); enriched interaction evidence from 3 to 5 non-overlapping, bracket-free verbatim snippets.
+  llm_assisted: true
+- timestamp: '2026-11-15T05:24:01Z'
+  curator: codex
+  action: EDIT
+  changes: 'Correct only BR1''s GTDB block and the corresponding identifier in the opening description using the exact NCBITaxon:1070896
+    / BR1 / SAMN07351343 assembly pair GCF_002812725.1 and GCA_002812725.1. Official GTDB taxon history explicitly assigns
+    this genome to Microbacterium sp002812725 in R220; the retained current card agrees. Record this as an independently curated
+    genome mapping because the retained NCBI2GTDB crosswalk has no exact BR1 row. Remove unmeasured crosswalk majority/count
+    fields and unsupported latest/build wording. Preserve the original NCBI stock, phenotype claims, source quotations, graph,
+    discussions and prior history. This scoped correction under #2849 is not a new full-record scientific review.'
   llm_assisted: true
