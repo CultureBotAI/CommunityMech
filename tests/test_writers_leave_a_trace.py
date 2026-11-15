@@ -52,6 +52,11 @@ _EXEMPT = {
         "record/cache copies under .temp/phase2-brachypodium-20261115; verifies "
         "unchanged canonical inputs and never applies curation (#2788)"
     ),
+    "scripts/adhoc/build_phase2_final_science_20261115.py": (
+        "writes only caller-exclusive private targets, native inspection and review "
+        "candidates under .temp/phase2-science-20261115; binds actual source and "
+        "gate receipts without changing canonical records, caches or history (#2788)"
+    ),
     "scripts/adhoc/build_phase2_linked_review_20261115.py": (
         "writes only caller-exclusive private target/inspection/review candidates "
         "under .temp/phase2-science-20261115; verifies current scientific inputs "
