@@ -86,7 +86,7 @@ that historical revision predates the subsequent scientific corrections.
 | EnvironmentalFactor ontology terms (#2429) | Dynamic union and narrow root-exclusion guards implemented | Combined QC; upstream root behavior remains #2802 |
 | Host/soil/related rendering and KGX (#2705–#2707, #2430) | Verified native product canary followed by full export: 1,538 nodes, 2,535 edges, zero errors/warnings | Subsequent source changes require affected generated pages to stay current |
 | Scientific curation (#1548 and retained findings) | Five full immutable assessments plus Yolo's preserved full review and bounded correction | Retained scientific/source limitations remain explicit blockers; validators do not resolve them |
-| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches remain; approved Claw #1219 merged as `68d8b2b6`, with adoption of that final pin pending |
+| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches remain; approved Claw #1219 merged as `68d8b2b6`, and its final pin is adopted at `78673fc6` |
 
 The [governed adoption checkpoint](governed-reference-adoption.md) records exact
 canonical bytes and the real downstream comparison control. The schema change
@@ -301,6 +301,12 @@ checks and an independently rerun 53-input checkpoint inspection. Its 27 compose
 guard tests pass. The subsequent mapping transition, saved partial assessment
 and actual composite proof remain pending; this intermediate adds no completed
 record to the partition count.
+
+The [approved Claw merge and pin adoption](merged-reference-pin-78673fc6.md)
+are complete on this branch. The native pin-only synchronization passed its dry
+run, configuration checks and post-write drift check; independent review verified
+the actual side effects. Twelve focused integration tests and native lint pass.
+This does not merge the CommunityMech PR or complete its remaining QC and science.
 
 ## Campaign restart
 
