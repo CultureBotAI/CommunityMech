@@ -1,0 +1,58 @@
+{
+  "scope": "taxonomy-notes-only",
+  "scientific_review": false,
+  "target": "kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml",
+  "target_id": "CommunityMech:000338",
+  "before_sha256": "c25facb4d904532aae4c45fe2b63c08a48983c4ce86cb46b4298a30e4847ab06",
+  "event_changes": "Corrected two no-majority taxonomy notes using the pinned exact-ID GTDB reference correspondence, while keeping experimental inoculant identity conflicts separate (#2481). This note-only intermediate preserves both current ambiguity statuses pending the separately reviewed native mapping transition. No study-stock genome identity or wider scientific claim is recertified.",
+  "notes": [
+    {
+      "taxonomy_index": 0,
+      "existing_descriptor": {
+        "preferred_term": "Lactobacillus plantarum",
+        "term": {"id": "NCBITaxon:1590", "label": "Lactiplantibacillus plantarum"},
+        "gtdb_grounding_status": "AMBIGUOUS",
+        "gtdb_candidates": ["GTDB:s__Lactiplantibacillus_plantarum", "GTDB:s__Lactiplantibacillus_plantarum_A", "GTDB:s__Lactiplantibacillus_paraplantarum"],
+        "notes": "The source writes \"Lactobacillus plantarum\"; the canonical NCBITaxon label for the same taxon is Lactiplantibacillus plantarum after the 2020 reclassification of Lactobacillus sensu lato, so the paper's wording is kept in preferred_term.\nGTDB splits this NCBI taxon with no majority holder, so no single grounding is stored. The contenders are carried in gtdb_candidates for a curator to choose from without re-running the tool."
+      },
+      "existing_stock": null,
+      "before": "The source writes \"Lactobacillus plantarum\"; the canonical NCBITaxon label for the same taxon is Lactiplantibacillus plantarum after the 2020 reclassification of Lactobacillus sensu lato, so the paper's wording is kept in preferred_term.\nGTDB splits this NCBI taxon with no majority holder, so no single grounding is stored. The contenders are carried in gtdb_candidates for a curator to choose from without re-running the tool.",
+      "after": "The source writes \"Lactobacillus plantarum\"; the canonical NCBITaxon label for the same taxon is Lactiplantibacillus plantarum after the 2020 reclassification of Lactobacillus sensu lato, so the paper's wording is kept in preferred_term. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1590 descriptor row to GTDB Lactiplantibacillus plantarum, with 2,061 reference genomes and stored majority fraction 1.0. Broader same-name rows from other NCBI IDs do not establish ambiguity for this exact descriptor. The crosswalk's GTDB release is not established. This reference-population correspondence does not establish the experimental inoculant's genome identity; the separately recorded source/marker conflict remains unresolved under issue2480. No stock designation or species replacement is inferred."
+    },
+    {
+      "taxonomy_index": 1,
+      "existing_descriptor": {
+        "preferred_term": "Bacillus subtilis",
+        "term": {"id": "NCBITaxon:1423", "label": "Bacillus subtilis"},
+        "gtdb_grounding_status": "AMBIGUOUS",
+        "gtdb_candidates": ["GTDB:s__Bacillus_subtilis", "GTDB:s__Bacillus_inaquosorum", "GTDB:s__Bacillus_atrophaeus"],
+        "notes": "GTDB splits the NCBI species with no majority holder. The tool's option list also contained GTDB:s__Bacillus_A_cereus and GTDB:s__Synechocystis_sp000284455, which are not plausible readings of this organism and are left out of gtdb_candidates rather than recorded as contenders."
+      },
+      "existing_stock": null,
+      "before": "GTDB splits the NCBI species with no majority holder. The tool's option list also contained GTDB:s__Bacillus_A_cereus and GTDB:s__Synechocystis_sp000284455, which are not plausible readings of this organism and are left out of gtdb_candidates rather than recorded as contenders.",
+      "after": "The source names Bacillus subtilis as one of the three designed inoculants. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1423 descriptor row to GTDB Bacillus subtilis, with 1,256 reference genomes and stored majority fraction 0.91. Broader same-name rows from other NCBI IDs are not the population for this exact-ID correspondence. The crosswalk's GTDB release is not established. These counts describe the reference population, not genomes sampled from the study inoculant or a probability of its identity. The species-level correspondence does not constitute an assembly-grounded classification of the experimental stock; source-specific identity and marker provenance remain separately scoped."
+    }
+  ],
+  "inputs": {
+    "kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml": "c25facb4d904532aae4c45fe2b63c08a48983c4ce86cb46b4298a30e4847ab06",
+    "references_cache/PMID_42432469.md": "855812c270361aa0f5416bcd417a99be37e2c1a0dc7955aed9c7d26f06bda1b6",
+    "reviews/structured/20261021T155638Z-caragana-korshinskii-forage-syncom-record/review.yaml": "a67d8e8d86919635fa76d1ac0b002cb815397d86b2717996aa26144fbdf6cc54",
+    ".temp/gtdb-source-holds-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/caragana338-native-route-001.log": "f84f4acd23ba97f22c78160099189e0af23396dfd390f57a18113cccab55c5ee",
+    ".temp/phase2-schema-20261115/caragana338-native-route-001.json": "ecfcbdb2b219246bfe1f06c2bbd2858f67c69059528a59cc24bfa3ebaeacb4bb",
+    ".temp/phase2-schema-20261115/caragana338-native-route-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/gtdb-source-holds-20261115/caragana338-route-plan-001.json": "b8d0ed56936b9199f079d21bf777eeae6658105c1d25431ca1db06aa41586d08",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "tests/test_causal_review_batch10.py": "022a916d0b2e6a19e90a6f535f3a1b7a75e940cbbec42e345a650a0adc3e6204",
+    "reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml": "7149a6a81f091ff27d40deaf5bf99cb0a9b6486344db20009517f48652fe855d"
+  },
+  "source_anchors": [
+    {"path": "references_cache/PMID_42432469.md", "locator": "Retained primary abstract, source-declared inoculants only", "text": "integrating Lactobacillus plantarum for rapid acidification with the fibrolytic"},
+    {"path": "references_cache/PMID_42432469.md", "locator": "Retained primary abstract, source-declared bacteria and fungus", "text": "enzyme secretion of Bacillus subtilis and the oxidative delignification"},
+    {"path": "reviews/structured/20261021T155638Z-caragana-korshinskii-forage-syncom-record/review.yaml", "locator": "Immutable prior full review, member-provenance finding; inherited unresolved identity evidence, not a fresh marker/catalogue verification", "text": "L. buchneri TH83"},
+    {"path": ".temp/phase2-schema-20261115/caragana338-native-route-001.log", "locator": "occurrences[0].native_result and exact-ID1590 row", "text": "\"total_genomes\": 2061"},
+    {"path": ".temp/phase2-schema-20261115/caragana338-native-route-001.log", "locator": "occurrences[1].native_result and exact-ID1423 row", "text": "\"total_genomes\": 1256"}
+  ],
+  "limits": "Source-note preparation only; no staged/application approval or scientific completion. The fresh report is whole-record and confirms both exact-ID descriptor populations; NOT_ATTEMPTED denotes absent stored blocks before grounding, not absent correspondence. The first actual transition must change only these two notes and one native event, preserving all current candidate sets at an explicitly intermediate state. The subsequent native mapping transition requires a real maintained intermediate commit and unchanged shared engine/core. Preserve source-preferred names, all three members, fungal NO_GTDB_EQUIVALENT and every biological field. Existing marker/catalogue identity conflict2480, outcome/access-scope1273 and resource2482 findings remain unresolved. This pass inspected the retained abstract and prior review; it did not freshly inspect the full article, cited markers or fungal catalogue. The stale availability prose is not evidence that full text never existed. Batch10's immutable ledger/hash obligations require strict composite admission; all current three-node/two-hypothetical-arrow, Tax4Fun, relative-profile and mechanistic predicates remain active. No reference fraction is promoted to an experimental stock probability, no crosswalk release is asserted and no new stock designation is supplied. Root owns final rendered products and combined QC."
+}
