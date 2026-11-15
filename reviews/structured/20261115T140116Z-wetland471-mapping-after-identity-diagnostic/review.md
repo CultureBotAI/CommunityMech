@@ -1,0 +1,789 @@
+# Wetland471: three reference correspondences and complete Enterococcus ambiguity after identity correction
+
+- Review: 20261115T140116Z-wetland471-mapping-after-identity-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T14:01:16.730417Z
+- Finished UTC: 2026-11-15T14:01:16.853081Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+From the saved b3234d5f source-identity intermediate, the guarded M5 application persisted three generic GTDB reference classifications, four changed grounding statuses, the complete two-option Enterococcus casseliflavus ambiguity and two native inline events. The pre-existing Dehalococcoides ambiguity, corrected treatment/isolate distinctions, original NCBI terms, absent stock fields, source quotations and biology remain unchanged. Eight actual scoped native commands and the new native history sidecar bind current 78c62a01. The earlier needs_curation identity assessment and unresolved roster/graph findings 2898/2899 remain in force; this partial mapping diagnostic does not supersede their scientific judgments.
+
+## Scope And Provenance
+
+Taxonomy indices 0–3 GTDB blocks/status/options and their source-identity/reference-population boundaries; actual application from the identity intermediate to the mapped record, native sidecar and eight scoped technical commands. The original-to-identity leg remains separately assessed and must be composed explicitly for historical admission.
+
+Selection: Exactly CommunityMech:000471, from the accepted and committed source-identity intermediate. Index 4 Dehalococcoides mccartyi is unselected and its complete existing ambiguity remains unchanged. No other record is included.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 70090231d3765ace83be8aad1d4047a24862c9d6.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000471 | kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml # taxonomy[1,2,3].taxon_term.gtdb_classification; taxonomy[0,1,2,3].taxon_term.gtdb_grounding_status; taxonomy[0].taxon_term.gtdb_candidates | maintained | Wetland471 generic reference mappings and complete Enterococcus ambiguity |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000471 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Corrected source identities and preserved roster limits
+
+grounding: supported. Targets: CommunityMech:000471.
+
+The mapping preserves the accepted Y13/M and R12/MAG distinctions, all original NCBI identities, absent strain fields and unselected Dehalococcoides ambiguity. Source synonym and placeholder correspondence are explicit. Incomplete membership, stock-specific establishment and mechanism findings remain unresolved.
+
+### Three reference populations and complete Enterococcus alternatives
+
+grounding: supported. Targets: CommunityMech:000471.
+
+The native pinned-table routes support three stored reference classifications at 4/1.0, 3/1.0 and 1/1.0 and both ordered Enterococcus_D casseliflavus alternatives. No alternative, study assembly, population numerator or formal nomenclatural change is inferred.
+
+### Actual mapping transition and separately retained identity evidence
+
+provenance: supported. Targets: CommunityMech:000471.
+
+The exact guarded b323→78c62a application, two native inline events, native sidecar and eight scoped checks bind current bytes. The original 219→b323 identity assessment remains separately immutable and needs_curation. Final strict composite admission and combined products/QC are pending, with every existing scientific limitation retained.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000471-schema | .temp/gtdb-wetland-mapping-20261115/471-schema-002/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-strict | .temp/gtdb-wetland-mapping-20261115/471-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-gtdb | .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-domain | .temp/gtdb-wetland-mapping-20261115/471-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-scalars | .temp/gtdb-wetland-mapping-20261115/471-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-history | .temp/gtdb-wetland-mapping-20261115/471-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-new-history | .temp/gtdb-wetland-mapping-20261115/471-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-terms | .temp/gtdb-wetland-mapping-20261115/471-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000471-primary | references_cache/PMID_42663479.txt; Retained Methods lines 29/31, ANI line 69 and revival line 115; five exact locators in captured source context. | context_only | Treatment and isolate passages preserve top-down Y13/bottom-up M, R12 versus sediment MAG bin436 and the separate Enterococcus species. The primary source does not itself assign these GTDB reference populations to study-stock assemblies or establish a complete roster. |
+| 000471-database | reports/gtdb-wetland-mapping-20261115/471-source-evidence-001.json; Four selected native_result/classify_status occurrences, complete alternatives, exact-ID/name lookup rows, local NCBI identity rows and exact crosswalk/source hashes. | supports | The exact pinned table supports the complete two-option Enterococcus ambiguity and three reference correspondences with populations 4/1.0, 3/1.0 and 1/1.0. The NCBI Trichlorobacter name and related Geobacter synonym remain distinct from paper wording and study-stock genome proof; the Petrimonas placeholder is a label correspondence. |
+| 000471-application | .temp/gtdb-wetland-mapping-20261115/m5-applied-001/receipt.json; Actual applied flag, 70090231 execution, b323→78c62a before/after, exact reviewed stage b20e50f5 and captured inputs; native sidecar f388699d bound separately. | supports | The guarded M5 writer persisted the accepted candidate after independent input/diff review. Only three classifications, four changed statuses, one complete ambiguity list and two native inline events changed. Existing source-identity corrections, discussion, quotations, stocks and biology remain intact. |
+| 000471-identity-review | reviews/structured/20261115T133312Z-wetland471-identity-intermediate/review.yaml; Immutable 0cbf3b3c partial identity assessment: needs_curation, two OPEN major findings 2898/2899, actual source-identity chain and measured reference coverage. | context_only | The prior source-identity assessment remains authoritative for its separate scope and does not become scientific approval through a subsequent GTDB pass. Its roster/establishment and graph/mechanism findings remain unresolved. |
+| 000471-identity-chain | reports/gtdb-wetland-identity-20261115/identity-evidence-001/471-identity-intermediate.json; Exact 11fe5a66 public intermediate manifest, original 219→identity b323 application 925eca0a, sidecar 1f593c32 and saved 0cbf/ba09 pair. | supports | This captured manifest and separately saved pair preserve the actual first transition. Final historical admission must validate that original-to-identity proof and the present mapping proof together, without substituting the corrected intermediate for the original biological ledger. |
+| 000471-history-boundary | reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml; Original 471 record row and current test_causal_review_batch133.py predicates/admissions. | context_only | Preserve all original node/edge/participant/source predicates and the six existing 472/474/475/476/477/481 admissions. No direct oldhash waiver or whole-record biological projection is authorized without both actual transition proofs. |
+
+## Limits And Additional Notes
+
+- Partial technical diagnostic with scientific_review:false. The pass_with_limitations verdict applies only to the declared database/provenance scope; it does not clear the preceding needs_curation assessment, issues 2898/2899, full-record science, generated products or corpus QC.
+- Primary coverage is the retained PMID42663479 Methods, ANI, sediment MAG and revival context. No new article, supplement, genome or taxonomy release was acquired. Table S1 was not reconstructed as a complete consortium roster; full membership and stock-specific establishment remain unresolved.
+- Preserve top-down Y13 versus bottom-up M, isolate R12 versus sediment MAG bin436, PseS3/E. avium and R1/R3/E. thailandicus distinctions. The complete Enterococcus_D casseliflavus and casseliflavus_A alternatives remain unresolved; no cluster is selected for R12 or the sediment MAG.
+- Sulfurospirillum multivorans reports four reference genomes at 1.0, Trichlorobacter lovleyi three at 1.0, and the Petrimonas correspondence one at 1.0. These are native reference-taxon populations, not study-stock assemblies, experimental replicates, community abundances or new mechanism evidence. No species support_genomes numerator is inferred.
+- The Trichlorobacter name route and captured NCBI related-synonym row preserve the paper's Geobacter lovleyi wording. Petrimonas sp002356435 is a GTDB placeholder correspondence to NCBI P. sulfuriphila; is_reclassified denotes the label difference, not formal nomenclature or proof of PET genome identity. All five absent strain_name fields stay absent.
+- The three-node/two-edge graph, functional roles, abundance annotations and inherited mechanistic claims remain unchanged and are not recertified. The open source-identity discussion and issues 2898/2899 retain incomplete roster, revival and causal-scope limits.
+- Crosswalk SHA256 761d5537 identifies exact bytes; its upstream release and chronology are unestablished. Native mapping_source records a file date only. Local NCBI identity rows retain file-stat provenance rather than a full database hash or release certification.
+- Local source inspection/staging ran at 38f11cfa with Python 3.13.12. Actual M5 mapping staging/application/checks ran at 70090231d3765ace83be8aad1d4047a24862c9d6 with Python 3.13.2. Only two native event timestamps differed between accepted local and M5 candidates. The original M5 identity checkout stays frozen at af80bc09 with its separately saved evidence.
+- The initial schema launcher used an unsupported --gate option and exited 2 before native validation. Its outer 001 receipt/log remain retained; corrected positional invocation under schema002 passed. This is a preserved launch refusal, not a failed schema comparison or an extra passed check.
+- These eight required commands comprise seven native validators and native history scaffolding. The earlier identity checkpoint's 16-of-16 reference comparisons remain historical evidence for that exact intermediate; no new current-record reference sweep is claimed here. Mapping adds no source quotations. Strict original-to-identity-to-mapping admission, combined caller tests, generated products and aggregate QC remain separate subsequent requirements.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T140116Z-wetland471-mapping-after-identity-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Wetland471: three reference correspondences and complete Enterococcus ambiguity
+  after identity correction'
+started_at: '2026-11-15T14:01:16.730417Z'
+finished_at: '2026-11-15T14:01:16.853081Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The full current record and retained primary treatment, ANI,
+    MAG and revival passages were read before preparing the source context. The parent
+    independently reviewed the source configuration, local and actual M5 candidates,
+    all captured inputs and the gate/history configuration. The shared native stage/apply/check/builder
+    path was independently reviewed and previously exercised end to end. The separately
+    saved source-identity assessment remains immutable. This authored assessment covers
+    the subsequent database transition and actual technical provenance, not a new
+    full scientific review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: From the saved b3234d5f source-identity intermediate, the guarded M5 application
+  persisted three generic GTDB reference classifications, four changed grounding statuses,
+  the complete two-option Enterococcus casseliflavus ambiguity and two native inline
+  events. The pre-existing Dehalococcoides ambiguity, corrected treatment/isolate
+  distinctions, original NCBI terms, absent stock fields, source quotations and biology
+  remain unchanged. Eight actual scoped native commands and the new native history
+  sidecar bind current 78c62a01. The earlier needs_curation identity assessment and
+  unresolved roster/graph findings 2898/2899 remain in force; this partial mapping
+  diagnostic does not supersede their scientific judgments.
+source:
+  git_revision: 70090231d3765ace83be8aad1d4047a24862c9d6
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-wetland-mapping-20261115/471-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-domain-001/native.log
+    sha256: 83dcd8c4a53a637b90f32d89d1737924b96aed292aee925cb27b5e702a89d9e6
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-domain-001/receipt.json
+    sha256: b28ea63dd7f4db482f24c1cf7dd75476213aabd3197cfc3c03f3cdbe1398a3ed
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-domain-001/start.json
+    sha256: 5628b5fbaa3fbc2c8728c0f2be9715a14f4f62364a9848b4fb283042bbae2973
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/native.log
+    sha256: 7c9d3904dc0544aef6c19299dad83daf4b4570f9eb6061f2236e46655077e2dd
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/receipt.json
+    sha256: 2354f0b6db1b6bfe130894e6efa35b16b1acd7bbd29357e2856c1c904d553d24
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/start.json
+    sha256: 2a2b5d6bdd8f14209afbd4ae513807b86ab7e3c7c8515a7bfa570d649330e23b
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-history-001/receipt.json
+    sha256: c1cf6623f6a3ee0a1bfab06a4bfb1702ce8d927c0cf399b959aef89f5b54fd59
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-history-001/start.json
+    sha256: 211dfe9fe959528a7190e4f1fc5cd42f21d3603b9b50cf5cc8eb6c438e28a51c
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-new-history-001/native.log
+    sha256: 4c66790edd497fa546b3b6cb50ce587b596a2e95d51023c1307c292099f8bbbe
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-new-history-001/receipt.json
+    sha256: d06595da93144106296adda75c559160e65d32a56cd0184cb14bd4e0a9919b63
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-new-history-001/start.json
+    sha256: 41c9d5febb1ae696150ad3bfa55bcae356d2ffafd58c5488636f0b8052e40533
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-scalars-001/native.log
+    sha256: 075b540d0388653f0c7dff2facce2cf615d24487a37cf3493a976da996a07678
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-scalars-001/receipt.json
+    sha256: a27914a0cd7b739e6369a33319cd48ad815b0b60e7857f735a07e3872590721a
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-scalars-001/start.json
+    sha256: 3b3b5a1a1e71e0dbc71e7df4a6125298895cb3d18c44de76e28118891a63fdba
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-schema-002/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-schema-002/native.log
+    sha256: 250d0efbaadcd9d645a4e1a3b00076dd8dd2db8bcfcac754ecd71d2f9a2c892f
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-schema-002/receipt.json
+    sha256: 601ceb9e347fe2ad98f577ed3d85f028b59b5169a281b088c46fe05ff108313c
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-schema-002/start.json
+    sha256: be6a05375d36fe608b1ad60c2e9059d25a60a84e7bdb39d7ca6ec0592f8b5542
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-strict-001/native.log
+    sha256: b5c335b5a4797e80fbdd218fa79bdf0af60bbbf65b0b0f6dd61706e373408f1d
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-strict-001/receipt.json
+    sha256: f3fd9bdf0e754acbd2a35bbd95d3fd3660dedc61a71beaa028d2c713e67e55a0
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-strict-001/start.json
+    sha256: 7396f04a03446f4816d3e1a246b5110c238d67bd716c89c916ee46062e5e9c9d
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-terms-001/native.log
+    sha256: 9df744ace42d528488e87b902b0ec8e05cd756140b6335e4e12ebe6531cf3cd1
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-terms-001/receipt.json
+    sha256: 0537286d5a710618d3944d16c1657a82d5e929ef001fad4994115e44efffc16b
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/471-terms-001/start.json
+    sha256: ae14810330521f71a5011c8085f4a1737f6cdc3bf59333166ba30f0fd41f57d8
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/m5-applied-001/before.yaml
+    sha256: b3234d5f041636195f4c9867aaccd0df802d22ff5f2fbc28b904868ee02b901a
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/m5-applied-001/receipt.json
+    sha256: ec5b67f6feee12facc575ed8bf4a8df5f048eb3041e79926006810586441969b
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/m5-candidate-001/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+    sha256: 78c62a010943afa65623c06ebd6778f04048bf553717685f10d1fee412a3a97e
+    role: context
+  - path: .temp/gtdb-wetland-mapping-20261115/m5-candidate-001/receipt.json
+    sha256: b20e50f5ee864871e02d119dc20a7afb13d071275021ae9c03620e7bb85e5870
+    role: context
+  - path: .temp/phase2-schema-20261115/wetland-mapping-route-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/wetland-mapping-route-001.json
+    sha256: 97aa7a35f5a69e5469820ee6b7747ea014bd92ff08f938341e1d925faffdb618
+    role: context
+  - path: .temp/phase2-schema-20261115/wetland-mapping-route-001.log
+    sha256: 7c4de8930a7ca262d76bf186f5c384bb15b564b66141ede706a7a42a66ca58e2
+    role: context
+  - path: .temp/phase2-schema-20261115/wetland-mapping-source-bind-001.log
+    sha256: 21ad1d66728ebde24b75158a921ec9efa64b253e835d33f71ad0158513b05e07
+    role: context
+  - path: history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium/2026-10-19T053000Z-antigravity-6b00.yaml
+    sha256: 43c35fa05a604ba3d69e0a9a73df2c34fd8ffe72369756e8dbf1cea874ebdf8d
+    role: context
+  - path: history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium/2026-10-20T041800Z-antigravity-219121.yaml
+    sha256: 760aed2beb2940d659abd157b38fa38bb6f63384e287c898ce130721303fd5e2
+    role: context
+  - path: history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium/2026-11-15T131301Z-codex-0335f1.yaml
+    sha256: 1f593c325e7cdb9b0c81b84da0e8b16cd23f29a5b3b8e5fb0fa97d59e3d2db9a
+    role: context
+  - path: history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium/2026-11-15T135730Z-codex-0be497.yaml
+    sha256: f388699dfdbdaef55c6879754bf813ccb7008994a6f4d2d3da6555ec83cf07d3
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+    sha256: 78c62a010943afa65623c06ebd6778f04048bf553717685f10d1fee412a3a97e
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42663479.txt
+    sha256: 489eb292cd49275ee0d480727b215360c2101e577aae884a4f52ff68fb7990eb
+    role: context
+  - path: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+    sha256: e9ded35a2333f9994869573f9f952b3af3191ab55528813a7f2c03639a362d3f
+    role: context
+  - path: reports/gtdb-wetland-identity-20261115/471-identity-plan-001.json
+    sha256: 24250d0cbdc94c4873183da81931e1f6a87afad621d1d76f471914bf567240e0
+    role: context
+  - path: reports/gtdb-wetland-identity-20261115/identity-evidence-001/471-identity-apply.raw.json
+    sha256: 925eca0a9cca146eaf656b425061f8abe31153fc5841a5ca11601dacc43b1441
+    role: context
+  - path: reports/gtdb-wetland-identity-20261115/identity-evidence-001/471-identity-intermediate.json
+    sha256: 11fe5a66014a64bd7e329eb1a29a0c78aeb589605700ae967683a228da53c0af
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-authored-source-context-001.json
+    sha256: df6584ce612d24959bd4e300d18c68e809051a5b5302148b092ff14b6bc62faf
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-check-config-001.json
+    sha256: 87f21d66459ed4a73af6b6a464f31599bdf79cd30d4165843abc62c097d4f531
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-review-config-001.json
+    sha256: 45544460d55789c293145c20c4bdca3cb9800b2218511de70a73ee59ca806072
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-route-plan-001.json
+    sha256: 614e9c4a329884d5a5eae671a5de2ba5be7b0b139282421a55abb58c996b1072
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-source-config-001.json
+    sha256: ca1b4cfbf680cb46dbb240083c7e44d291241dc9faae42eb42225e7a7546bb05
+    role: context
+  - path: reports/gtdb-wetland-mapping-20261115/471-source-evidence-001.json
+    sha256: a199479ee1076822b1a49ad0a57bd44d7d7893105bf0ded6510484ea7ec2a46d
+    role: context
+  - path: reviews/structured/20261115T133312Z-wetland471-identity-intermediate/review.md
+    sha256: ba095026549229772833115db1c716023a4249c7353831581e766db25c4cf41c
+    role: context
+  - path: reviews/structured/20261115T133312Z-wetland471-identity-intermediate/review.yaml
+    sha256: 0cbf3b3cd8e90db89e3727a321e7953e1230f6e14ad0d28bf2b0bf884dd82970
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch133.py
+    sha256: 60c10cf5de2737339efcd732818538e1cab80a44c939c84e46ef840dcbe2d40f
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000471
+  path: kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  selector: taxonomy[1,2,3].taxon_term.gtdb_classification; taxonomy[0,1,2,3].taxon_term.gtdb_grounding_status;
+    taxonomy[0].taxon_term.gtdb_candidates
+  label: Wetland471 generic reference mappings and complete Enterococcus ambiguity
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Taxonomy indices 0–3 GTDB blocks/status/options and their source-identity/reference-population
+    boundaries; actual application from the identity intermediate to the mapped record,
+    native sidecar and eight scoped technical commands. The original-to-identity leg
+    remains separately assessed and must be composed explicitly for historical admission.
+  selection: Exactly CommunityMech:000471, from the accepted and committed source-identity
+    intermediate. Index 4 Dehalococcoides mccartyi is unselected and its complete
+    existing ambiguity remains unchanged. No other record is included.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000471
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000471-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+    --out .temp/gtdb-wetland-mapping-20261115/471-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-history history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Wetland_Lindane_Degrading_Organochlorine_Consortium --target-root kb/communities
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record three GTDB reference correspondences and complete Enterococcus
+    ambiguity after the separate Wetland471 source-identity correction.' --details
+    'The exact pinned crosswalk supports Sulfurospirillum multivorans (four reference
+    genomes, fraction 1.0), Trichlorobacter lovleyi (three, 1.0; NCBI species-name
+    route) and Petrimonas sp002356435 (one, 1.0; NCBI P. sulfuriphila correspondence),
+    plus both ordered Enterococcus_D casseliflavus alternatives. Preserve all five
+    NCBI descriptors and absent strain-name fields, the existing three-way Dehalococcoides
+    ambiguity, corrected Y13/M treatment identities, R12 versus sediment MAG bin436
+    distinction, exact source quotations and open discussion. Reference populations
+    do not classify study-stock assemblies, establish a complete consortium roster
+    or certify the three-node/two-edge graph. The Petrimonas placeholder is a database
+    label difference, not formal renaming or PET genome identification. Only three
+    blocks, four changed statuses, one complete ambiguity list and two native inline
+    events changed from the saved identity intermediate. Crosswalk release and chronology
+    remain unestablished. Issues 2898 and 2899 remain scientific blockers; full original-to-identity-to-mapping
+    admission and whole-record scientific review remain separate. Actual apply receipt
+    .temp/gtdb-wetland-mapping-20261115/m5-applied-001/receipt.json sha256:ec5b67f6feee12facc575ed8bf4a8df5f048eb3041e79926006810586441969b.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000471-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000471
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000471-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000471-schema
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-schema-002/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-strict
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-strict-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-gtdb
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-gtdb-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-domain
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-domain-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-scalars
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-scalars-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-history
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-history-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-new-history
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-new-history-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-terms
+  kind: validation
+  reference: .temp/gtdb-wetland-mapping-20261115/471-terms-001/native.log
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000471-primary
+  kind: primary_source
+  reference: references_cache/PMID_42663479.txt
+  locator: Retained Methods lines 29/31, ANI line 69 and revival line 115; five exact
+    locators in captured source context.
+  support: context_only
+  summary: Treatment and isolate passages preserve top-down Y13/bottom-up M, R12 versus
+    sediment MAG bin436 and the separate Enterococcus species. The primary source
+    does not itself assign these GTDB reference populations to study-stock assemblies
+    or establish a complete roster.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+- evidence_id: 000471-database
+  kind: database
+  reference: reports/gtdb-wetland-mapping-20261115/471-source-evidence-001.json
+  locator: Four selected native_result/classify_status occurrences, complete alternatives,
+    exact-ID/name lookup rows, local NCBI identity rows and exact crosswalk/source
+    hashes.
+  support: supports
+  summary: The exact pinned table supports the complete two-option Enterococcus ambiguity
+    and three reference correspondences with populations 4/1.0, 3/1.0 and 1/1.0. The
+    NCBI Trichlorobacter name and related Geobacter synonym remain distinct from paper
+    wording and study-stock genome proof; the Petrimonas placeholder is a label correspondence.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+- evidence_id: 000471-application
+  kind: record_content
+  reference: .temp/gtdb-wetland-mapping-20261115/m5-applied-001/receipt.json
+  locator: Actual applied flag, 70090231 execution, b323→78c62a before/after, exact
+    reviewed stage b20e50f5 and captured inputs; native sidecar f388699d bound separately.
+  support: supports
+  summary: The guarded M5 writer persisted the accepted candidate after independent
+    input/diff review. Only three classifications, four changed statuses, one complete
+    ambiguity list and two native inline events changed. Existing source-identity
+    corrections, discussion, quotations, stocks and biology remain intact.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+- evidence_id: 000471-identity-review
+  kind: prior_review
+  reference: reviews/structured/20261115T133312Z-wetland471-identity-intermediate/review.yaml
+  locator: 'Immutable 0cbf3b3c partial identity assessment: needs_curation, two OPEN
+    major findings 2898/2899, actual source-identity chain and measured reference
+    coverage.'
+  support: context_only
+  summary: The prior source-identity assessment remains authoritative for its separate
+    scope and does not become scientific approval through a subsequent GTDB pass.
+    Its roster/establishment and graph/mechanism findings remain unresolved.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+- evidence_id: 000471-identity-chain
+  kind: record_content
+  reference: reports/gtdb-wetland-identity-20261115/identity-evidence-001/471-identity-intermediate.json
+  locator: Exact 11fe5a66 public intermediate manifest, original 219→identity b323
+    application 925eca0a, sidecar 1f593c32 and saved 0cbf/ba09 pair.
+  support: supports
+  summary: This captured manifest and separately saved pair preserve the actual first
+    transition. Final historical admission must validate that original-to-identity
+    proof and the present mapping proof together, without substituting the corrected
+    intermediate for the original biological ledger.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+- evidence_id: 000471-history-boundary
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  locator: Original 471 record row and current test_causal_review_batch133.py predicates/admissions.
+  support: context_only
+  summary: Preserve all original node/edge/participant/source predicates and the six
+    existing 472/474/475/476/477/481 admissions. No direct oldhash waiver or whole-record
+    biological projection is authorized without both actual transition proofs.
+  accessed_at: '2026-11-15T14:01:16.730417Z'
+assessments:
+- assessment_id: 000471-source
+  area: grounding
+  topic: Corrected source identities and preserved roster limits
+  outcome: supported
+  target_ids:
+  - CommunityMech:000471
+  evidence_ids:
+  - 000471-primary
+  - 000471-database
+  - 000471-identity-review
+  - 000471-terms
+  summary: The mapping preserves the accepted Y13/M and R12/MAG distinctions, all
+    original NCBI identities, absent strain fields and unselected Dehalococcoides
+    ambiguity. Source synonym and placeholder correspondence are explicit. Incomplete
+    membership, stock-specific establishment and mechanism findings remain unresolved.
+- assessment_id: 000471-population
+  area: grounding
+  topic: Three reference populations and complete Enterococcus alternatives
+  outcome: supported
+  target_ids:
+  - CommunityMech:000471
+  evidence_ids:
+  - 000471-database
+  - 000471-gtdb
+  - 000471-domain
+  summary: The native pinned-table routes support three stored reference classifications
+    at 4/1.0, 3/1.0 and 1/1.0 and both ordered Enterococcus_D casseliflavus alternatives.
+    No alternative, study assembly, population numerator or formal nomenclatural change
+    is inferred.
+- assessment_id: 000471-provenance
+  area: provenance
+  topic: Actual mapping transition and separately retained identity evidence
+  outcome: supported
+  target_ids:
+  - CommunityMech:000471
+  evidence_ids:
+  - 000471-application
+  - 000471-identity-chain
+  - 000471-identity-review
+  - 000471-schema
+  - 000471-strict
+  - 000471-scalars
+  - 000471-new-history
+  - 000471-history
+  - 000471-history-boundary
+  summary: The exact guarded b323→78c62a application, two native inline events, native
+    sidecar and eight scoped checks bind current bytes. The original 219→b323 identity
+    assessment remains separately immutable and needs_curation. Final strict composite
+    admission and combined products/QC are pending, with every existing scientific
+    limitation retained.
+findings: []
+actions: []
+limitations:
+- Partial technical diagnostic with scientific_review:false. The pass_with_limitations
+  verdict applies only to the declared database/provenance scope; it does not clear
+  the preceding needs_curation assessment, issues 2898/2899, full-record science,
+  generated products or corpus QC.
+- Primary coverage is the retained PMID42663479 Methods, ANI, sediment MAG and revival
+  context. No new article, supplement, genome or taxonomy release was acquired. Table
+  S1 was not reconstructed as a complete consortium roster; full membership and stock-specific
+  establishment remain unresolved.
+- Preserve top-down Y13 versus bottom-up M, isolate R12 versus sediment MAG bin436,
+  PseS3/E. avium and R1/R3/E. thailandicus distinctions. The complete Enterococcus_D
+  casseliflavus and casseliflavus_A alternatives remain unresolved; no cluster is
+  selected for R12 or the sediment MAG.
+- Sulfurospirillum multivorans reports four reference genomes at 1.0, Trichlorobacter
+  lovleyi three at 1.0, and the Petrimonas correspondence one at 1.0. These are native
+  reference-taxon populations, not study-stock assemblies, experimental replicates,
+  community abundances or new mechanism evidence. No species support_genomes numerator
+  is inferred.
+- The Trichlorobacter name route and captured NCBI related-synonym row preserve the
+  paper's Geobacter lovleyi wording. Petrimonas sp002356435 is a GTDB placeholder
+  correspondence to NCBI P. sulfuriphila; is_reclassified denotes the label difference,
+  not formal nomenclature or proof of PET genome identity. All five absent strain_name
+  fields stay absent.
+- The three-node/two-edge graph, functional roles, abundance annotations and inherited
+  mechanistic claims remain unchanged and are not recertified. The open source-identity
+  discussion and issues 2898/2899 retain incomplete roster, revival and causal-scope
+  limits.
+- Crosswalk SHA256 761d5537 identifies exact bytes; its upstream release and chronology
+  are unestablished. Native mapping_source records a file date only. Local NCBI identity
+  rows retain file-stat provenance rather than a full database hash or release certification.
+- Local source inspection/staging ran at 38f11cfa with Python 3.13.12. Actual M5 mapping
+  staging/application/checks ran at 70090231d3765ace83be8aad1d4047a24862c9d6 with
+  Python 3.13.2. Only two native event timestamps differed between accepted local
+  and M5 candidates. The original M5 identity checkout stays frozen at af80bc09 with
+  its separately saved evidence.
+- The initial schema launcher used an unsupported --gate option and exited 2 before
+  native validation. Its outer 001 receipt/log remain retained; corrected positional
+  invocation under schema002 passed. This is a preserved launch refusal, not a failed
+  schema comparison or an extra passed check.
+- These eight required commands comprise seven native validators and native history
+  scaffolding. The earlier identity checkpoint's 16-of-16 reference comparisons remain
+  historical evidence for that exact intermediate; no new current-record reference
+  sweep is claimed here. Mapping adds no source quotations. Strict original-to-identity-to-mapping
+  admission, combined caller tests, generated products and aggregate QC remain separate
+  subsequent requirements.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2898
+- https://github.com/CultureBotAI/CommunityMech/issues/2899
+- https://github.com/CultureBotAI/CommunityMech/pull/2906
+- https://github.com/CultureBotAI/CommunityMech/pull/2919
+```

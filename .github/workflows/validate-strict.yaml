@@ -49,6 +49,7 @@ jobs:
 
       # Full depth covers advertised refs, not every pre-squash review base.
       # Keep these immutable inputs available without changing old ledgers (#1998).
+      # 38f11c is the actual Wetland identity source fixture, not a ROOT integration claim.
       - name: Fetch historical cache review bases
         run: |
           git fetch --no-tags origin \
@@ -67,7 +68,8 @@ jobs:
             1380734c73dfcebe631ea6964b9e010da6172f31 \
             35667772f9fde01fd2cce34672a4f4417381943c \
             0794bf80ebd15a073dc2103cfd1ed0c5234e6d74 \
-            2139fa42fe538c110f2b91a6e85872e9a30b472b
+            2139fa42fe538c110f2b91a6e85872e9a30b472b \
+            38f11cfac83036ed7e2feeea8cb19db74eed3306
 
       - uses: extractions/setup-just@v3
 
