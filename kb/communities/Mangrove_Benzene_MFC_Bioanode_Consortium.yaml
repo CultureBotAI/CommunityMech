@@ -64,7 +64,17 @@ taxonomy:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
     notes: >
       The final benzene-fed biofilm was resolved only to Bacillus genus level by
       16S rRNA analysis.
@@ -87,7 +97,17 @@ taxonomy:
     term:
       id: NCBITaxon:28196
       label: Arcobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Aliarcobacter
+      gtdb_taxon: Aliarcobacter
+      gtdb_lineage: d__Bacteria;p__Campylobacterota;c__Campylobacteria;o__Campylobacterales;f__Arcobacteraceae;g__Aliarcobacter
+      ncbi_source_id: NCBITaxon:28196
+      majority_fraction: 0.877
+      support_genomes: 71
+      total_genomes: 81
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 5 GTDB taxa under the NCBI taxon]
     notes: >
       The final benzene-fed biofilm was resolved only to Arcobacter genus level
       by 16S rRNA analysis.
@@ -112,7 +132,17 @@ taxonomy:
     term:
       id: NCBITaxon:18
       label: Pelobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Seleniibacterium
+      gtdb_taxon: Seleniibacterium
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfuromonadia;o__Desulfuromonadales;f__Geopsychrobacteraceae;g__Seleniibacterium
+      ncbi_source_id: NCBITaxon:18
+      majority_fraction: 0.571
+      support_genomes: 4
+      total_genomes: 7
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: >
       Pelobacter was a lower-abundance genus in the benzene-fed 16S profile; no
       species-level identity or functional role was resolved.
@@ -129,7 +159,17 @@ taxonomy:
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
     notes: >
       Pseudomonas was a lower-abundance genus in the benzene-fed 16S profile; no
       species-level identity or functional role was resolved.
@@ -428,5 +468,13 @@ curation_history:
     Retain positive whole-system removal and power with cycle-specific voltage and unresolved member flux. Issue
     #1583; reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T23:08:09Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T23:08:10Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this benzene-fed MFC bioanode.

@@ -1,0 +1,771 @@
+{
+  "record": "kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml",
+  "record_id": "CommunityMech:000463",
+  "source_inspection_sha256": "b52ff7c35abd78ce039935a648ba51bf38be15078afda321596b2e12337b0888",
+  "source_inputs": {
+    ".temp/gtdb-lupinus-mangrove-ndc6-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.json": "b2da67c2cf030e99d31767fa73d8583f962d5d68c972692dd85e2be76be67df2",
+    ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.log": "05ac3ad9d5b279118c00b9308092868be364c5a657bbb2f3ca58247aff7c96dc",
+    ".temp/phase2-schema-20261115/source-issue1197-001.log": "54ac793b9b65e5801a42695c31d9c876d5f8e10f104a42f23a62360884ac4a59",
+    ".temp/phase2-schema-20261115/source-issue1198-001.log": "d417cad9b0995346e8594fe519eebf832378a34b7aec3167c9d270bcfc0bc6e6",
+    "kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml": "1a1c02d8b33165075608eba9bc482646843cecfe41a7a99c3d47f5ab9bbb5c97",
+    "pyproject.toml": "be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655",
+    "references_cache/PMID_41504900.txt": "9f54a89328b72f2ce9ca6d183cd7a862363db94af14daa61052f1715391529d5",
+    "reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml": "d47e9413b55b8d9a4400a2736a3d3474d0b4b59384bbfccb86144d148c72d3fb",
+    "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-authored-source-context-001.json": "188c8f1086cb0fb88d241e13c9f90ee74c8c5010d90d2c0756127fb0c897c7a2",
+    "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-route-plan-001.json": "bc197b7e1033bf959f07ad27c950162b820c61c96f49e15f5f72f42e7c9f66f5",
+    "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-source-config-001.json": "d1b1a4a7ab492af6109b633e5cd93ec8d4b4947a2a41c96661378609ae0f3434",
+    "reports/yaml_record_review/20260928T121417Z-NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.md": "faa04e0b3df2ca3e321554f2b29ba43d3cb41f76bfcc8373ca9de379a5404a34",
+    "scripts/adhoc/bind_gtdb_batch_source_context_20261115.py": "6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3",
+    "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "src/communitymech/__init__.py": "c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66",
+    "src/communitymech/curate/__init__.py": "a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324",
+    "src/communitymech/curate/curation_event.py": "58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc",
+    "src/communitymech/ontology_adapters.py": "7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45",
+    "src/communitymech/validators/__init__.py": "975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93",
+    "src/communitymech/validators/ncbi_domain.py": "b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262",
+    "tests/test_causal_review_batch76.py": "544c58aab2b596fff744ab779ff803bd2d987978450b7279f449c904e6a8deac",
+    "tests/test_participating_taxa.py": "0bad0a41fa227759454f6cb84cd72586b654cd8600ff3efd83b1892d93724c8d",
+    "uv.lock": "712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4"
+  },
+  "occurrences": [
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Pseudomonas veronii HN1 as an NDC-6 member in the NC1 nitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Pseudomonas veronii HN1",
+        "term": {
+          "id": "NCBITaxon:76761",
+          "label": "Pseudomonas veronii"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "76761": [
+            "72387f10c5c63320a62c45adf37e45cfacd9f80d3c937a93fc0b562c6ec6f51a"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas veronii": [
+            "72387f10c5c63320a62c45adf37e45cfacd9f80d3c937a93fc0b562c6ec6f51a",
+            "3918e83453f4545ddf52bc2a54185c0b4de14224f0b59dc2d700d746d2b7a23f",
+            "25eef840be4b95340b20d92bd631cc8977eff4daf781432ad98a11cb9188fa43"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Pseudomonas_E_veronii",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E veronii",
+        "gtdb_taxon": "Pseudomonas_E veronii",
+        "is_reclassified": true,
+        "majority_fraction": 0.93,
+        "ncbi_source_id": "NCBITaxon:76761",
+        "total_genomes": 70,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[0].taxon_term",
+      "strain_name": "HN1",
+      "taxonomy_index": 0,
+      "term": {
+        "id": "NCBITaxon:76761",
+        "label": "Pseudomonas veronii"
+      },
+      "source_assessment": "The abstract explicitly lists P.veronii HN1 in NC1. Keep the original stock, species descriptor and historical first-pass unavailable-crosswalk note.",
+      "population_scope": "70 species-reference genomes and rounded0.93 do not classify HN1, infer an exact numerator or quantify its individual nitrogen-removal contribution.",
+      "name_scope": "Pseudomonas_E is a database label correspondence, not a formal rename of the source stock.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:76761",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:76761",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:76761",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas veronii",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:76761",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:136843"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Pseudomonas poae HN2 as an NDC-6 member in the NC1 nitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Pseudomonas poae HN2",
+        "term": {
+          "id": "NCBITaxon:200451",
+          "label": "Pseudomonas poae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "200451": []
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas poae": [
+            "a0e5e1ee76d6527e690cdca87685b98cc48230fc696070507827d0132264ead4"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Pseudomonas_E_poae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E poae",
+        "gtdb_taxon": "Pseudomonas_E poae",
+        "is_reclassified": true,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:200451",
+        "total_genomes": 2,
+        "via": "ncbi_name"
+      },
+      "selector": "taxonomy[1].taxon_term",
+      "strain_name": "HN2",
+      "taxonomy_index": 1,
+      "term": {
+        "id": "NCBITaxon:200451",
+        "label": "Pseudomonas poae"
+      },
+      "source_assessment": "The abstract names P.poae HN2 as a separate NC1 stock. The native route is species-name fallback, not an exact HN2 strain lookup.",
+      "population_scope": "Two name-route reference genomes do not establish HN2's genome or stock equivalence with other poae records.",
+      "name_scope": "Preserve source nomenclature and strain field despite the reference suffix.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:200451",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:200451",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:200451",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas poae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:200451",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:136843"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Pseudomonas peli HN3 as an NDC-6 member in the NC1 nitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Pseudomonas peli HN3",
+        "term": {
+          "id": "NCBITaxon:592361",
+          "label": "Pseudomonas peli"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "592361": [
+            "f59ea704c8c9f94adae5d97bcd3d0e8e739773d70957735d127a2a0a5152889e"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas peli": [
+            "f59ea704c8c9f94adae5d97bcd3d0e8e739773d70957735d127a2a0a5152889e"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Pseudomonas_E_peli",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E peli",
+        "gtdb_taxon": "Pseudomonas_E peli",
+        "is_reclassified": true,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:592361",
+        "total_genomes": 17,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[2].taxon_term",
+      "strain_name": "HN3",
+      "taxonomy_index": 2,
+      "term": {
+        "id": "NCBITaxon:592361",
+        "label": "Pseudomonas peli"
+      },
+      "source_assessment": "The source lists P.peli HN3 in NC1; retain the separate study-stock identity and aggregate functional scope.",
+      "population_scope": "17 species-reference genomes do not independently classify HN3 or demonstrate an intermember transfer.",
+      "name_scope": "The E suffix is not formal study-stock reidentification.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:592361",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:592361",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:592361",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas peli",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:592361",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:286"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Aeromonas sp. AD1 as an NDC-6 member in the DC1 aerobic-denitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Aeromonas sp. AD1",
+        "term": {
+          "id": "NCBITaxon:642",
+          "label": "Aeromonas"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {},
+        "ncbi_higher_name": {
+          "aeromonas": [
+            "1dfd34534bd486d7ee41b9b35ab701bf819d516dca5cb30e3ad2ffff18dabceb",
+            "af74b50f6af51a398b60abdd46062a1b8653e04dcb7651c9ff37cb1c94147856",
+            "0076428c0da2d20af2da6803beaed637d9d5c855e51b17feacc85d9339a0924b",
+            "9a59347ad420973facc3b4c18771c2fe5dd1fc4bcac1af9179beb489798b8f22",
+            "9f15664f7f11f6b291af623c0b487d393c1343a115971059714cfa0f5760f710",
+            "03d7ff7827e05efb9a3dfc11978a3742162311dfc7020f6f6ae2221562bfb766",
+            "eae38b6613e6d0ed5d7fe008322ce36c63bd968069341c6b34ada1e20403dd88",
+            "0ab41b76abb615e220f5b9970936b861a2ae59cd09d2c4066b74217641ace112",
+            "55de14b36ddc6b0b6181e8f012ef18df8ee8a5ac744441ed7b5e3c79732f76ee",
+            "3794cdf651dc7692132e44ffe182c79a78a89ea075c4a9f8c9f57d2f54a3c4ca",
+            "831ddbcc8449166b411d39f0fb8ed753a7ad8e01a06b0cfa991f4dc9f6d7ae88",
+            "4594f09f83b3bc8f36fd665311194aa2df6e19f3d42c5a48189cf267780b38e3",
+            "28c75761c5bb036bb0579131461de7188fed618faecfc4e7d031889005da47f4",
+            "386a1ff0af326cee2f43772155bc9018f6e164f2fe95d532b75eb4152544657a",
+            "fcb22493a71f3a249f89d7f5e02a0cf43c0fa4635909ccdba499d351a1f53a79",
+            "b18c24721a18c3eb4ef37672515ff78b7564ac521b049d30975d537dec92560e",
+            "e5925f23e550f38f120ff3d35d58c23070417290b8977a3b9041f6d6559a30c5",
+            "1af137f418d7f9e862de74e8e8537d79e0a25d0bea5708b0aa40ae7f04e42567",
+            "a423d623c2e8ca9bb5f640487feb0e8990719c16f11c3b43c654a92ad42f9724",
+            "9af61275e5ff99a5c3963b9e6fd134d4f652e78482bfa86ab1856eef6edc5571",
+            "8397338775d20a828bb2ccbe1ffe1a9a413de14582a0e837eb07083fcf93debf",
+            "3518d2e395f57b736cb4ed8195f7cec82d1f0e1b78cc596b35b66a494c205aa5",
+            "92d57ef4deafa97489dc6a5bfc09d4aa8ccefa1f754149fe148d606de535669e",
+            "c3f27d5570974e8e3ef4899c965a5b7669971d6325a2c837ab74674e1b279b8c",
+            "f454e7cbaf7eca68ea9b3e5ad9ff0179afa26fb47a3c9f83a2d9b874c01d32d5",
+            "f3703025cf04286ed858c2f3e0e58645a0830b97a0d02546e9e0b5e50eefb315",
+            "f627636ad9e680229a0f0e139de7bebd57ebdccdcf01136060f5f645fa823a81",
+            "b2ea484c1e9bb4ab5cbbfe9c867fe4fb7d8f450141143532653b804dd33eb9f2",
+            "0845eec34e7fbde8ad3ff73a4e96665123ee8cd75fe86b4bf64ab9875229fc04",
+            "afbef64884386c5eec3a320607bba4d71d90da947a78066c61e4bb263a9104a4",
+            "15ede5457bd4f37ea96358ac7e0185d625b439bf1af4f236f56d7bf30bd4e25c",
+            "fc34efdf8685149521d2bb5ac6baa25708fb3bef7b523ed333e054a945b6f652",
+            "5265307b51cc58ee9189f2a185c971bd149aa61f1ebd083939f70ca197270cdd",
+            "e651126b3fa7a6af5c9a31b51ed994f0052d72ce20690c144d91a40ebd729c5b",
+            "02c088732559cc650d9ee64681d1972e986bf49a691c12b6fa32c82d8041b531",
+            "4b1533e0acdcadadde28af789d8e8df83d775f954e8a4bb5273ddf35c45a0112",
+            "0ccbbd24c37863f92f44a9bd63900d7139d80c060ceb02ad6c5d131b71f316be",
+            "a73de39bec58899f0ffb6d82ed66f772a6bd68a8a7e804a0830f186ba9000a44",
+            "0b26dff89abb65cc62ae74946d2a0b82c68b82a45f1de193d58eae678c1a53d5",
+            "72e06a48cf28532900d9eb593d3694af04e053af933498281faa826327e9509b",
+            "badc7319d580f881624d0ebdfb8a087732249fea34607ae2b5deae289875e97b",
+            "cef7391e3e5d8546cede7f695f0371e739addfadf2af04710cf09b684a618180",
+            "3bedddde9f2409b47c5bbdee748ef43e2b81011e3d647d43d12261f325dab505",
+            "5839d960b41d1ffd2befd94838695e0b8d5c988563b3ab658418339af8e6587d",
+            "d4cdd5b4baec76c87aa584ae65785fc5bc4f2b947248e1a685000daf8c2b8fdd",
+            "030f555ac8f1c91eb0a3871f499e4ea669f01263eff0781f3bafbafb595e6dc7",
+            "d828e563120d27ba6e4a8c1e2180bafe116f57f2457b64631d59bbe77b1fe84d",
+            "ee6d2876d35497c74798835ad3a1d61578848571f27ca158380c0ec97b977f68",
+            "9d3efa7cb7a6bb4ef71f68709e188a91d374c31b74e924289c858e2f5de4e036",
+            "ba5d5f0cf40888de23721b32b7ccd235aa395cc22a77f3f63451eb10109d2bcc",
+            "8ba86d33010ec9f4be749b17822c428e52a875bed3a8ffc4ab8824d3814ca3b4",
+            "c3ed18be12a7b6011d2f6e795474bbaef5cc0595550b84a1f82b93acccb43185",
+            "6aa50a73511524792f198e431ca2d028a534dcf94d4e6fb722bf8e8adcd945c6",
+            "034d6e6aa6e53692e4ee947eb687168ecc1ffd9096a8e70a3848a2ece385dca3",
+            "587b17277aea4f4cea451338bd0476b00cb9a711d83038a7756ec37ff9f65a01",
+            "4c018748b4dd84c0446b179e937e2b99031d9b003e8d8ff270405fff94a2e286",
+            "086fdd8ea6e7f0eef1bf6109ea9d5909d30cf8a3572343baa74308a78ed9acbf",
+            "b166debbf2e725e70c9157438ba6386c8e5a9237d62ca683995d78c2eeae8545",
+            "2e13c3d88738c7de244a346763ed11525eea595eaae13a31b353e7e9a1120758",
+            "91a6ee83460478cb630a7dc1a45e35a89d088decf15d31b73eae02dc860385ea",
+            "70df1e24caba8fa28432f4e3eb6fd0f979b0667e73e22127dd9da72c48755462",
+            "5e0338a41662c2125e336d383b41f5cd839119ff4ab677e695e3d848cd13f642",
+            "fec60b3f4c7b9701b264e05553d34a40e88ace017a185fbb0ee5bc760f9d7840",
+            "add7d745067cce4f88560621067ab5c7dc248f453ac4eb3176c498bfcb1c1ac2",
+            "cd59bb32e7babe23a9c9e162aca7fd0d7db07e84c5fbf5a6223c90e5eff5510c",
+            "36cb0d66a80ebf0185cdd355f6fa4b3e10a73d3c55c785c8363f6651d04b3786",
+            "58c80b96bfe1e061517b756e8e6415333107409800a43a491ce168c27137a7cd",
+            "8be100125ccdf94277a72c79a541345227b8f9ddcb49075b58f8842055f854d7",
+            "05fb59b5aa44075accea9a51455ed838260ba4f9a02c9932e7df04cfd6b955c5",
+            "a9f2c2ba256d6077449617147655abaf800138984d301986ca6cdc1a93c6ca33",
+            "9979b7cf42d43463d95ddb1cdc450f4c81ffeb4e5dfff2fc06244919eef240a9",
+            "4a417208a7d023d89b60eaf68401f5719c13c4043e8774d195c7f35b680b86ea",
+            "95b5f565cb0358263a52e79eab5e5e6e84d9d32a3e3cd6d88f2df91c35293eae",
+            "4f2beeb0ab0db9b08a644658e047a8dfaf389f4051000871a18c060fb68cbcb7",
+            "6e4b7fa9ca49159a9a4f87bbb17cb6f7bc78ad9c5fba8ac8ab966808d60cb975",
+            "b40ffa85b0fb234024858e8375d96fa93a747e8e4871bcb8fba4262185f43145",
+            "b046eafd1fcadfb52ceb4e83f745fea59d2013b5150c1fb3f3371d7894b8825b",
+            "5c1badbd444a55b0ed6af9fc95ca24ad4bfb0dc838d02b945589d1c1ec788e01",
+            "9afdd8321bd2cfeee2d1f486c1f541d2e5d81a9272e67dfaf9c0445179dde861",
+            "7a54f925a32ebef63eaec4bab2fec62a5be81cf10415b22e7c52f3397cc98791",
+            "7f2051817611fa99eac2d3bfbd287ecfc56fbbfea017364da85ac11a53081174",
+            "1ea6471607434cd10758d720bf9ade584f2dea1163561e0a69406a0e1bfc4ea7",
+            "83e0e8dd38de3a1b9e933d568fc0a86d3c78b0e4afdab659d69e458fb2e41c48",
+            "121dccf8d583be0f870fcb2487a1600653d952913323262f134fd356c1c504d7",
+            "05d4c14c7571e5b7f9c8bd5b39a97fd2fe1a71e07b6138b2710e55470d3408be",
+            "bfe5fa9f2391b411d5bbd9d65d1b0d5953684973aa63157c683c1cf29af0e4c7",
+            "2a2dcde7ebd048e177f0e8ad1fa3a26799e948a7d4e130928cd3a02ae6a8998e",
+            "f10f4583c92c3a5d3e7f7638b1d037719bad1427d5d6790dfc648c5adf68e8f1",
+            "4d074af6fd9a0e973f52216759f1946c52c0e1d5a33468bc7f5cf4dcf91070d0",
+            "751b17e8bebfe507a5c53eef8a1b81c532cea4b8b525a97f6a3265c312542e70",
+            "d5d2e11f144dfd57eefe795d72dd06d7c0919e32c2ea2f8ee1cefaf5e314201b",
+            "0e81835364e54efec9ff656600ff03c619b03c9a36b08a9f9a54894362ad5344",
+            "bc9eab69a28f683f1d3c1dcd7e961db61b897c2b1bed1ff7bbafa5df5c9bc5c1",
+            "99ac7966acc9d86b75177bb959b79a19025cac1ff1be8cfaacca75cb415b1b6d",
+            "234b9cb5616fdf863622e293ae16738251b806fc3c10810d5a1c2897feccbb55",
+            "44289993a8e6a23b70828b21bfadf06bae0b44705a37085ce2c882684221a363",
+            "2d97bae5e51cb0d7a5fbcb84f66703b49cb2de4d9972bbae48d1b0c189a39824",
+            "2dd1274a299485ced4056de93e9b3392daf153cbb7f3ea1a6014e72cf70918a3",
+            "c9907a1e4722d92addfb0358ee1aaec7854973de79678a238f5f7cdc78a59b12",
+            "6e40ebfb8bb1b7f87df662c6f3bcac2cc043b4843c8a911e72d581ed4ee183b0",
+            "d3d72663258559fc31a53196bd65cf5e5cc6573a66ba65195b22bce1d48d1a3b",
+            "0cae632cc744c5a6a178ffb8b115273e2cd4b74d0fd3480af991691d9621292b",
+            "66be3a9fed7667f12db7b1160cc6d8e88f49eb6f19ec4a02d2279907d6f1da75",
+            "4de9bfb4509e7950361b59a56327fbfdb401104a1cfa939b3df6e3df74c716a5",
+            "fc6742c5ec457f33730be4e8990fee6c7a6158c151e1064d263854986359b185",
+            "b1bafd8a40328e5d9630017b3fc22893e7784e2be8c62fc60e6ce690db0daf37",
+            "e98e854e2755be4a2cf7202037b90b04437b6807891fd5b3cf0dc2d2b0e22ff9",
+            "765b9f9d001489c810915754e358ed8b06bdb12011700e20fb0daa13a76ea81f",
+            "e75a15fff11e5002ec4d0a21835114c291845da4715be706c808fcf740bb3371",
+            "f580eef1cdfc5fca18136938f2a37b9aba75c9b1bba156f15208a5f31448e927",
+            "aee009d3ab9fba9823dcfc6f15339743011a84fc340ad33d5df6329318b403c5",
+            "c96e5a37ab830db12676aac926f3cbd0c070cb64843e4d74a323c6a49e101119",
+            "1048780c76a58c7587e76f684c5c501ab4346292688c7189c1579ac9b22c665a",
+            "3549e0ac5c413890f3e83b9236ea59db179d9fffed97b22390283ebb28ca0dae",
+            "b5d5b94e62463c9072a7b4dd635d952d22105e48a216007063fa0e4c9e72d245",
+            "84e2207976e91341d22dfe031757a5ed2a15bfc7c59ac7d64ea4901c71b3361b",
+            "b0fef9d2fb5349a4e1d2bd18bdc402d93bbfaafa7b018bbfd847e654709e9a6d",
+            "79b2fa58c0c102ffb9d843926319cab7a358fae25d8a0c42c6b24a700df3ec06",
+            "0b5223666f8e3e82988878f79d2a77a9735f4cbdc45e51a2d5ec2fb4e765e842",
+            "10efe8dc9c0547ae4048645eb480604a8468097c892a637b5c9a2765d7e5db63",
+            "dafc59e252e6488097a7ae2bfc24e2954d6a5e82c83493b636fe6ac898be6520",
+            "d96c04b30cf2e23be2c1bc2bab47bb0237eac77c50729e00ac9215a080ec45c6",
+            "e34fd5e26ddede85f4e61416b0444464f855c361013b9e0fadf6af5f13226791",
+            "fdf64f7ef5e9670898bf8f8af261cea53761595d751b77f7612b759d4fb54de8",
+            "a295d1f049534caf006071ba1f3af9a186644418d022a7cfeed19abfdd825fbf",
+            "7f0e84031bf0c8639ea5a0f4391f423a5365cf1d567ec16a2d9d5fc4c9a4d3a7",
+            "81f25dc1d1293c1a0460a8c8e4a634f7a5f39cc237bd55efa176805fbad7a847",
+            "0a2c2c708c4f0409c525404bf74a4b9a37aadfdb52db1ffc535c86d2421ee612",
+            "275840f1a6930d6f980af4b88e480f77596e3b5e694a704df4abfaa42cee3de4",
+            "34a2f209b585779b3c59d6e740c589d315fe269bfdc617478c80ba0cb93e2a6b",
+            "3088a62fd388368b57aa5c8fbc623b3e4f63f187c0b8bbe5700a273e7dff9dda",
+            "de8dd280b91e98bf789dc272f617799071146e6a402a4ffe1a287351fbc65a27",
+            "5598ca2f46fe0dddbba20bed991100399e1a42d2e815b2d28d2b8aefa1c6e7ba",
+            "045671289721d31c1520c4e956c6553829a8aae6c5aba09808e3e848822d5adc",
+            "cf9bba2399afcad31bfd39ec9f5068c702dbea0435fb130891d6be2825e9d769",
+            "ff635716c8c9d6b4fbf6e63e6d8eafc6fc99e084f80e80b60720687b2eff9e67",
+            "a573ed93d318499dec9c10b94aadcf63dab9984b4b1261d13f86b304c82fde65",
+            "319d6108c6f0915f5878b2246e760fe68f006facc558143e7db387e2c2a89eb3",
+            "922618c54104d35f689394f581531eae751f960779bf00b969281c5284e90247",
+            "e2812ad744299301f218607601b50598a05a8ed98848525e3b0f0bb7bf4d1b07",
+            "72fbaacd5fab3636c9017b45b01f1d890d2f6041a0ba37310f184df76e901e9c",
+            "d4ba7d46d4c5b0a5951f056719951247aa727865e9acdae972f178bd20767ab0",
+            "07f414ed360ca33c556244c074afc051501e7b4b71fe9447a2fb74b263e2de38",
+            "259f912484b541fbcd3c6efe12a50813ea6c03a12c8c5dc0163f75ca2d353ef1",
+            "b5268dca28b07ab64c0d7e55b981bc3a5b72e7fbb8ecfbefabf5fc53fba63e8c",
+            "f9dbbea79eb98fc3eb850d65b8a4dc24833f16ecb43ba205ecd0b677f848b4b0",
+            "1a71b6dc820fe65a1243087d855dcfa85778e6e0aac208511d392d3d3c8dbf5b",
+            "3ec3791b96461482ef5516d00f2d481e3de4019aba7e6232b867b78b376bb5b2",
+            "704757dfc5c67e3e0f5fcf1f714ec47f86a1db408d63d60419a3e0a69f8f8c20",
+            "36c4573cecfba379ae3435c374fe3432bdc2854bef7045c6ce471ab3b78ed2b6",
+            "c3b1bfc1e5566cdb6bd0c3a6c381392809483dcf5a52830b23eaabab9b9b152e",
+            "8dfe8c334a3f60244e479a34eb000a678171cc71b06a22b57a7bef43e35fa34a",
+            "c4e57cf37fcef3830dc0080c91be77e0a81372de20611d2a2477078d17434646",
+            "e6d87a47193e4ab2a4db0333acf99b44206ed4043215d5a6ce58a6375350470d",
+            "cc77b99afdba09a12e49a826b673bcd1d15cc51cd3fa1517b6f0fc1199a0c182",
+            "5a3b51dc2fdd06b04efa0c215ec900dab5d68399f65d32bf789a6511ebff39f3",
+            "b9aac78173fb5ac8d4b7b21800a26c4d0d33a0b3fe3715872a0a3a12dc41df9b",
+            "5e5ad64fc1a43a783d87011688a1286430894f13cedc823c02c2714c6adc8205",
+            "ec9f9bd025961ae8cdbf3e9bd5579a05ae553a064b440e5cce8893acf915243c",
+            "8f64ccaa50e82b9f56c95f7f18284b4f972e9df1874cb8faff98d0344d5ed7ff",
+            "bed18259b928c33a6196774b6ecfceb0441b651f68ca63d85d8fcb1634cb321a",
+            "09432c3221a3bc70430011b90181891152dc759da47212ff4dd4a24fb008b39f",
+            "9fa04404f97f7a9df432f028ae99fb211aa28cba92422fdabc057d8080150f33",
+            "329b76114834c875c584dcb8e0b033bb7f1a2b70cc8c35656ea8e0b989954858",
+            "f9ac650d1ac806cc4cc5ff1c9f9de2dcc1f960a8b261131794cf39582cdca7d9",
+            "cc39a1246b06ac9e791671ca00328dff4632c164103cca1fb2db9329e9f7604d",
+            "b915927ab06e6f2de4f7d3b90e49702f97c574cd7ba890d8034fd2461b3a69d9",
+            "71b82d7afe7ad8846d3f15372bd92b885c108245984e70f5e838bdc682b7dce5",
+            "711cb27b472ee805c3599f8918d9a64c4ed0b75baa72c5ba93243a774c56fa44",
+            "20f53f84b975aad5d452ae1d7e3bf949bd18efc1152e6732aa68edf46dbe2d01",
+            "e77190653f4f7c12b66187f90535ce33b59523c48a177a1865bd982e3d12eb8d",
+            "b0c55f56cb35eb6ceb0450acf072309a00684af98c63f260e1eb61d50f102be8",
+            "72f1fe24e7e9b27507d4875cfd5bc750ac5779643df30cece5756384440d6945",
+            "f91ff9dc6c4d0fb81e94c86df3ea5e6492cf00be1c4f93418be2f3877a1737c5",
+            "f8bab974bf9093f0243b65088d64d2355b66c57c2af61fda6d84e44c53af63d6",
+            "c3644774e8e205c59c658dd7ad42ca4844b4fe5a9d2f600816ffe213835bd229",
+            "3b67c2c96d8d46fbcb1d8afc7e63a6003a0c65ec403c025492f600774f8efebf",
+            "250c6a1be83036ea97b5551a7e982e4814d774aaa35ee24bfcea6897afe5bfd7",
+            "b9276f042bc086a5548b7332ca6a92d7e159db0a27a268b4014b6a4a129334de",
+            "1deac0eef44f001c3267b039df1a95addc326b0ca634e7215648a6a76bd880da",
+            "b66ac8cf7cb535fe46bfdd4ea1aebcc4fc7d2da5941eb9f0eded05179e433c85",
+            "6c19b082b4ac7dc2e98d6cb613f42f5fdcb04f621b9e08e291383171d672f597",
+            "5641d377ef8dffe8b8e420d737f6347b894862dd98bf537419840d89dbd0b12b",
+            "04a8637de8e361f3541ce223bbd1533b63d2a72c8e83e72594e56794b0a593d7",
+            "465d2ca5f6dbf46e57c6dd9345ed1afcaa4f7a2acecb3d9e1b3e201fd872303d",
+            "4bc9e4036ec7cd94e294aa9f861550526140c5de04764d4656b1df6273134d86",
+            "a2376964a5ad656c9e36d6f5841f86f1a0d3bad5fe43bcce330dfc15da0420e6",
+            "52151667f3ec684542c4a888792e93a8717c01eadd3518534c81d87d294a5ab8",
+            "9e7e0fe80c01607e836b5cd7c186fe3f49d39f6e27746fae0c3c1522b65ce17c",
+            "6bf9ff94e7ca0b09e67ca765760ae46cd8f86484688d4226ab4279fcea95b9e9",
+            "47c24ca3373dfb052696388da973a945a9d3d89562ce5be140402a4875670002",
+            "306aef80c68225c72fbb05d857b3e018980abeda0615ebdcdbdfa04583125321",
+            "c965253b89b877858bf6bfa9e824d22585969b6962b0436f56ba7ab3c892222d",
+            "ccf8cb357fd2e6a7dd64982a7d3c8fe6d34241f9a448309c5a0e098756aa3660",
+            "a4fec65d613e255b7e03c65cbd6565a0b3631d665a185e69b4d1219b21949c23",
+            "c687efbfcf86c3cf9e4069d26e322c8ae81b0c031d7af2f246b80180c27f4013",
+            "e6b34e5af7f135b4b0708972ab3613d1d86fd7389971f9ce268f8b085af62b83",
+            "9cd2895c88e93b228b9f66ac15c145191a17bd7d1db065ca61e990bba3880a4c",
+            "7922c55a2274f46c05a161f933b686ce675ba3a4d99bb68a0fd48560cada4633",
+            "4eb46e4aceb2f085a4a4d63cdac850cb450aa97e5c2660d8a852230a3cd53789",
+            "7eae8b9ba5017f91f46558492aa1fdcc50e9580b96d37b103ab0f8d4ddcee8fb",
+            "ce552e58d7535c8623ce08d2a4539a82eadec69e5c32baaaf1a28cdfed11511a",
+            "26d54bce2343a31e632351ba10ed016ffb7f582beafb58b3d84e6312fba72961",
+            "6158815d4803250e8200c08a9177b04757894c33e35383f57442c307bf34e5e4",
+            "c85364dd7b55a151f53001bbc6559d7e6e5613eb03c3143d3efb6371ac652287"
+          ]
+        },
+        "ncbi_species_name": {}
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:g__Aeromonas",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Aeromonadaceae;g__Aeromonas",
+        "gtdb_taxon": "Aeromonas",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "n_alt": 1,
+        "ncbi_source_id": "NCBITaxon:642",
+        "support_genomes": 2176,
+        "total_genomes": 2176,
+        "via": "ncbi_rank_g"
+      },
+      "selector": "taxonomy[3].taxon_term",
+      "strain_name": "AD1",
+      "taxonomy_index": 3,
+      "term": {
+        "id": "NCBITaxon:642",
+        "label": "Aeromonas"
+      },
+      "source_assessment": "The abstract identifies Aeromonas sp.AD1 only to genus within DC1. Keep that rank rather than selecting a species from database references.",
+      "population_scope": "2176 genus-reference genomes do not identify AD1 or represent the six experimental strains or their input proportions.",
+      "name_scope": "No species claim or culture-collection alias is introduced.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:642",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000005"
+        },
+        {
+          "subject": "NCBITaxon:642",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:genus"
+        },
+        {
+          "subject": "NCBITaxon:642",
+          "predicate": "rdfs:label",
+          "value": "Aeromonas",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:642",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:84642"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Pseudomonas extremaustralis AD2 as an NDC-6 member in the DC1 aerobic-denitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Pseudomonas extremaustralis AD2",
+        "term": {
+          "id": "NCBITaxon:359110",
+          "label": "Pseudomonas extremaustralis"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "359110": [
+            "6adc1fadc03c6c434f052e8102806da772b87405acec132a649ef142b555bf4f"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas extremaustralis": [
+            "6adc1fadc03c6c434f052e8102806da772b87405acec132a649ef142b555bf4f",
+            "da8c52b80a972297695b668e7b6274bb333d43a19941f10f64f530f8f3b618a6"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Pseudomonas_E_extremaustralis",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E extremaustralis",
+        "gtdb_taxon": "Pseudomonas_E extremaustralis",
+        "is_reclassified": true,
+        "majority_fraction": 0.85,
+        "ncbi_source_id": "NCBITaxon:359110",
+        "total_genomes": 33,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[4].taxon_term",
+      "strain_name": "AD2",
+      "taxonomy_index": 4,
+      "term": {
+        "id": "NCBITaxon:359110",
+        "label": "Pseudomonas extremaustralis"
+      },
+      "source_assessment": "The abstract names P.extremaustralis AD2 in DC1. Preserve the study-stock spelling and unavailable-methods limit.",
+      "population_scope": "33 species-reference genomes and rounded0.85 are not a direct AD2 genome assignment, an exact numerator or measured abundance.",
+      "name_scope": "The native suffix does not change the source's stock identity or establish a formal name change.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:359110",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:359110",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:359110",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas extremaustralis",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:359110",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:286"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "The PubMed abstract identifies Serratia liquefaciens AD3 as an NDC-6 member in the DC1 aerobic-denitrifying module; GTDB grounding was left unresolved because the local NCBI2GTDB crosswalk was unavailable during first-pass curation.",
+        "preferred_term": "Serratia liquefaciens AD3",
+        "term": {
+          "id": "NCBITaxon:614",
+          "label": "Serratia liquefaciens"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "614": [
+            "45c2a2baf419b3579adfd913289a6a9e8642cb082bf8022f5343c6b86e078f88"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "serratia liquefaciens": [
+            "45c2a2baf419b3579adfd913289a6a9e8642cb082bf8022f5343c6b86e078f88",
+            "b0d88e7131489f6b00c02d4fbbd35eafac8b224b47ffdb7d76727a9b57a6232b",
+            "b7353abe76e6fca5f2d99ded4f8d10c7330c6bb73087aa46f04d39fd2d22502c"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Serratia_J_liquefaciens",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Serratia_J;s__Serratia_J liquefaciens",
+        "gtdb_taxon": "Serratia_J liquefaciens",
+        "is_reclassified": true,
+        "majority_fraction": 0.89,
+        "ncbi_source_id": "NCBITaxon:614",
+        "total_genomes": 127,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[5].taxon_term",
+      "strain_name": "AD3",
+      "taxonomy_index": 5,
+      "term": {
+        "id": "NCBITaxon:614",
+        "label": "Serratia liquefaciens"
+      },
+      "source_assessment": "The abstract separately lists S.liquefaciens AD3 in DC1. Keep its stock field and the aggregate assay boundaries.",
+      "population_scope": "127 species-reference genomes and rounded0.89 do not identify AD3's assembly or establish reciprocal benefit among the six stocks.",
+      "name_scope": "The J suffix is a reference correspondence only; original source and NCBI labels remain unchanged.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:614",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:614",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:614",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Aerobacter liquefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:614",
+          "predicate": "rdfs:label",
+          "value": "Serratia liquefaciens",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:614",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:613"
+        }
+      ]
+    }
+  ],
+  "primary_locators": [
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1582,
+      "line": 31
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1607,
+      "line": 31
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1624,
+      "line": 31
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1681,
+      "line": 32
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1700,
+      "line": 32
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1728,
+      "line": 33
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 1912,
+      "line": 35
+    },
+    {
+      "reference": "PMID:41504900",
+      "path": "references_cache/PMID_41504900.txt",
+      "character_offset": 2350,
+      "line": 41
+    }
+  ],
+  "database_observation": {
+    "stat": {
+      "database": [
+        16777230,
+        125619556,
+        13521600512,
+        1787644036036147819,
+        1787644036036147819
+      ],
+      "-wal": null,
+      "-shm": null,
+      "-journal": null
+    },
+    "stat_unchanged": true,
+    "content_sha256": null
+  },
+  "historical_guard_assessment": "Preserve six named stocks, one community node/zero arrows and all historical first-pass crosswalk-unavailable notes. Retain CLOSED1197/1198 fixes: no MUTUALISM or invented intermember flux, NC1/DC1 module1:1 is not per-strain equal ratio, three-day10C removal versus separate10.2C/pH7.2/C:N6/156rpm optimization and89.8% verification remain distinct; full medium and vessel details stay unresolved. Batch76's unchanged historical row, zero old events and old allowed-fields statements remain historical facts, with current aggregate biological predicates intact. Only strict proof may admit the new current hash; no rewrite of that ledger or old scientific assessment. OPEN1635 concerns other batch76 records, not NDC6, and is not assigned to this record. No full scientific completion or crosswalk-release inference is claimed.",
+  "scientific_review": false
+}
