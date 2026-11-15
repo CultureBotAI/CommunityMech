@@ -424,9 +424,13 @@ def cache_path(path: str, globs: tuple[str, ...]) -> bool:
 def cache_claims(files: list[dict], globs: tuple[str, ...]) -> set[str]:
     claims: set[str] = set()
     for row in files:
-        paths = {row.get("filename"), row.get("previous_filename")} - {None}
-        if any(not isinstance(path, str) for path in paths):
-            raise AdmissionError("invalid changed-file path")
+        paths: set[str] = set()
+        for path in (row.get("filename"), row.get("previous_filename")):
+            if path is None:
+                continue
+            if not isinstance(path, str):
+                raise AdmissionError("invalid changed-file path")
+            paths.add(path)
         matches = {path for path in paths if cache_path(path, globs)}
         if not matches:
             continue

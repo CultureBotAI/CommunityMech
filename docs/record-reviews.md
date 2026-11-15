@@ -25,13 +25,18 @@ and PyYAML installed. Missing dependencies are a blocked output step, not
 permission to save unvalidated prose instead. From the repository root:
 
 ```bash
-uv run python scripts/record_review.py inspect --targets /tmp/review-targets.yaml
-uv run python scripts/record_review.py validate /tmp/completed-review.yaml
-uv run python scripts/record_review.py save --content /tmp/completed-review.yaml
+mkdir -p .temp
+uv run python scripts/record_review.py inspect --targets .temp/review-targets.yaml
+uv run python scripts/record_review.py validate .temp/completed-review.yaml
+uv run python scripts/record_review.py save --content .temp/completed-review.yaml
 uv run python scripts/record_review.py check
 ```
 
-The temporary input locations are illustrative; choose session-unique paths.
+Use the gitignored `<repo>/.temp/` durable work root for campaign inputs,
+draft review bundles and handoffs; choose session-unique paths and verify
+the ignore rule before use. Use `~/agent-work/<repo>/` for separate clones.
+Never store session state in `/tmp`, `/private/tmp` or `$TMPDIR`. Only
+disposable caches and pytest fixtures may use system temporary roots.
 `inspect` takes a mapping with a nonempty `targets` list. Each target uses the
 schema's `ReviewTarget` fields: stable `target_id`, repository-relative `path`,
 `label`, `kind`, and `owner_paths` (repository/path/role) or an explicit
@@ -141,6 +146,12 @@ because the review document validates.
 
 ## Triage And Follow-Up
 
+For authorized Git work, push each committed review batch branch to `origin`
+the same day, whether or not a PR is open. Verify its exact remote head.
+A goal delivering commits cannot close while its recorded commits exist
+only locally; retain any publication failure as a blocker. A read-only
+review request still grants no Git mutation or publication authority.
+
 Each review is a new observation. To change a finding's disposition, retain its
 `issue_key` and cite exact repository/review/finding identities in
 `previous_occurrences`. Resolved, rejected and accepted-risk findings require
@@ -155,7 +166,7 @@ its affected targets were actually reviewed and assessed against evidence.
 From a configured CLAW checkout, aggregate without modifying Mechs:
 
 ```bash
-kg-microbe-reviews fleet --all --format markdown --output /tmp/review-triage.md
+kg-microbe-reviews fleet --all --format markdown --output .temp/review-triage.md
 kg-microbe-reviews fleet --all --status open --severity major --format tsv
 ```
 

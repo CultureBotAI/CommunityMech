@@ -244,6 +244,8 @@ classes:
       reference:
         description: PMID:..., DOI:..., a repository accession/CURIE, or an opaque URL.
         required: true
+        implements:
+          - linkml:authoritative_reference
       reference_title:
         description: Title of the cited source (optional; populated by tooling).
       supports:
@@ -254,6 +256,8 @@ classes:
           supplement, database). Free-form to stay self-contained.
       snippet:
         description: Verbatim quote from the source supporting the attached claim.
+        implements:
+          - linkml:excerpt
       explanation:
         description: Why this source bears on the claim.
       notes:
