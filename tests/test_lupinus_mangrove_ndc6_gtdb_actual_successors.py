@@ -12,7 +12,16 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"427": registry.LUPINUS_PATH}
+TARGETS = {
+    "427": registry.LUPINUS_PATH,
+    "442": registry.MANGROVE_PATH,
+    "463": registry.NDC6_PATH,
+}
+TARGET_IDS = {
+    registry.LUPINUS_PATH: "CommunityMech:000427",
+    registry.MANGROVE_PATH: "CommunityMech:000442",
+    registry.NDC6_PATH: "CommunityMech:000463",
+}
 
 
 @pytest.fixture(params=TARGETS, ids=TARGETS)
@@ -34,7 +43,7 @@ def test_registry_admits_actual_refuses_unknown_change_and_restores(target):
     allowed = registry.ALLOWANCES[target]
     proof = json.loads((ROOT / allowed["manifest"]["path"]).read_bytes())
     assert proof["target"] == target
-    assert proof["target_id"] == "CommunityMech:000427"
+    assert proof["target_id"] == TARGET_IDS[target]
     assert registry.BEFORE[target] == proof["before_sha256"]
     result = registry.admit_lupinus_mangrove_ndc6_successor(ROOT, target, registry.BEFORE[target])
     assert result.changed and result.current_sha256 == proof["after_sha256"]

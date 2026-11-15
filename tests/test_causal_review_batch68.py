@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from lupinus_mangrove_ndc6_gtdb_successors import admit_lupinus_mangrove_ndc6_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml"
@@ -16,7 +17,11 @@ D = "Mars_Regolith_Cyanobacteria_Biofertilizer_Panel"
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = {Path(r["path"]).stem: r for r in ledger["records"]}
-    docs = {name: yaml.safe_load((ROOT / r["path"]).read_text()) for name, r in rows.items()}
+    docs = {}
+    for name, row in rows.items():
+        raw = (ROOT / row["path"]).read_bytes()
+        admit_lupinus_mangrove_ndc6_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs[name] = yaml.safe_load(raw)
     return ledger, rows, docs
 
 
@@ -132,8 +137,13 @@ def test_batch68_complete_node_arrow_accounting_and_append_only_history():
     assert sum(len(r["removed_edge_decisions"]) for r in rows.values()) == 2
     for name, row in rows.items():
         doc = docs[name]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        raw = (ROOT / row["path"]).read_bytes()
+        admitted = admit_lupinus_mangrove_ndc6_successor(
+            ROOT, row["path"], row["record_sha256"], current=raw
+        )
+        assert hashlib.sha256(raw).hexdigest() == admitted.current_sha256
+        historical_doc = yaml.safe_load(admitted.historical_bytes)
+        assert historical_doc["curation_history"][-1]["llm_assisted"] is True
         assert len(row["history_files"]) == 1 and row["status"] == "reviewed"
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert {d["node"] for d in row["node_decisions"]} == names

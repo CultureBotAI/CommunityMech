@@ -1,13 +1,14 @@
-# Lupinus, Mangrove and NDC6 source preparation
+# Lupinus, Mangrove and NDC6 reference checkpoints
 
-The [Lupinus427 canary checkpoint](427-canary-outcome-001.md) now records the
-actual M5 application, eight native checks, immutable partial review, complete
-83-file checkpoints on both hosts, 27 verified public artifacts and strict
-historical admission. Its exact run revision remains `90986ee8`. Local proof,
-historical and participant checks passed across the retained runs, including
-recovery of one documented Git prerequisite; native lint and declared-scope
-review integrity passed. Mangrove442 and NDC6 463 remain unapplied. Scientific
-limitations, generated products and final combined QC remain separate.
+The [Lupinus 427 canary](427-canary-outcome-001.md) and subsequent
+[Mangrove 442 / NDC6 463 checkpoint](two-record-outcome-001.md) now record all
+three actual M5 applications at frozen `90986ee8`. The pair completed sixteen
+native commands, an immutable partial review, complete 131-file checkpoints on
+both hosts and 54 verified public artifacts before strict historical admission.
+Its positive proof canary and subsequent 67-test composed run passed, followed
+by native lint and review integrity over 351 declared-scope bundles. Current
+biology, original ledgers and scientific limitations remain protected. Generated
+products, measured references and final combined QC remain separate.
 
 The following preparation account describes the earlier published checkpoint
 before the actual M5 canary.

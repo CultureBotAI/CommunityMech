@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from lupinus_mangrove_ndc6_gtdb_successors import admit_lupinus_mangrove_ndc6_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml"
@@ -12,7 +13,12 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    docs = []
+    for row in rows:
+        raw = (ROOT / row["path"]).read_bytes()
+        admit_lupinus_mangrove_ndc6_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs.append(yaml.safe_load(raw))
+    return ledger, rows, docs
 
 
 def test_mat_transcripts_remain_measured_but_polymer_flux_is_proposed():
@@ -134,7 +140,11 @@ def test_scoped_history_hashes_and_unresolved_metadata_are_explicit():
     assert ledger["edison"]["provider_submissions"] == 0
     assert sum(r["curation_events_added"] for r in rows) == 3
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        admitted = admit_lupinus_mangrove_ndc6_successor(
+            ROOT, row["path"], row["record_sha256"], current=raw
+        )
+        assert hashlib.sha256(raw).hexdigest() == admitted.current_sha256
         changed = row["outcome"] == "changed"
         assert row["curation_events_added"] == len(row["history_files"]) == int(changed)
         assert row["allowed_changed_fields"] == (
