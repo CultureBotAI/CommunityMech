@@ -20,9 +20,19 @@ taxonomy:
     term:
       id: NCBITaxon:3386223
       label: Candidatus Methanocomedenaceae
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:f__Methanocomedenaceae
+      gtdb_taxon: Methanocomedenaceae
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanosarcinia;o__Methanosarcinales;f__Methanocomedenaceae
+      ncbi_source_id: NCBITaxon:3386223
+      majority_fraction: 1.0
+      support_genomes: 2
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at f__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: ANME-2b (Candidatus Methanomarinus) and ANME-2a archaea expressing anaerobic carbon monoxide dehydrogenase (cooS)
       and methanogenesis pathways.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -39,6 +49,7 @@ taxonomy:
     term:
       id: NCBITaxon:200940
       label: Thermodesulfobacteriota
+    gtdb_grounding_status: GROUNDED
     notes: Syntrophic sulfate-reducing bacterial partner Seep-SRB1g (Candidatus Desulfomellonium) expressing multi-heme cytochromes
       (omcX, tmlA) and dissimilatory sulfate reduction genes.
     gtdb_classification:
@@ -52,7 +63,6 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [grounded at p__ rank; 3
         GTDB taxa under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
   abundance_level: ABUNDANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -246,3 +256,11 @@ curation_history:
   changes: Curate 3-node pairwise syntrophic causal chain linking ANME-2 CO oxidation to sulfate/bicarbonate reduction and
     cellular maintenance under methane limitation.
   llm_assisted: true
+- timestamp: '2026-11-15T10:28:11Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:28:11Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

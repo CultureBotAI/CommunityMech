@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-family-475-001-successor.json",
+            "sha256": "7c370366c098ea0c61d0e268604f43ca7dd29fef4702c77c97255fad975d65dd",
+        },
+    },
     "kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml": {
         "baseline_revision": BASE,
         "manifest": {
