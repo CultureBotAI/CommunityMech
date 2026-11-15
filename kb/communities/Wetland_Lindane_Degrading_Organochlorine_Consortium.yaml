@@ -24,13 +24,16 @@ taxonomy:
     term:
       id: NCBITaxon:37734
       label: Enterococcus casseliflavus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Enterococcus_D_casseliflavus
+    - GTDB:s__Enterococcus_D_casseliflavus_A
     notes: >-
       The source ANI comparison identifies isolate R12 as Enterococcus casseliflavus (98.24% ANI to ATCC
       49996). Sediment MAG bin436 has the same reported ANI to that reference but is a separate metagenomic
       reconstruction, not the R12 isolate. PseS3 is E. avium and R1/R3 are E. thailandicus; these other
       isolates must not be grouped under this E. casseliflavus descriptor. The current five-entry taxonomy is
       incomplete for consortium M and does not define a complete Y13 roster.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -51,8 +54,17 @@ taxonomy:
     term:
       id: NCBITaxon:66821
       label: Sulfurospirillum multivorans
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Sulfurospirillum_multivorans
+      gtdb_taxon: Sulfurospirillum multivorans
+      gtdb_lineage: d__Bacteria;p__Campylobacterota;c__Campylobacteria;o__Campylobacterales;f__Sulfurospirillaceae;g__Sulfurospirillum;s__Sulfurospirillum multivorans
+      ncbi_source_id: NCBITaxon:66821
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-14)
     notes: Organohalide-respiring bacterium harboring pceA reductive dehalogenase in the functional consortium.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
   functional_role:
   - PRIMARY_DEGRADER
@@ -72,9 +84,18 @@ taxonomy:
     term:
       id: NCBITaxon:313985
       label: Trichlorobacter lovleyi
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Trichlorobacter_lovleyi
+      gtdb_taxon: Trichlorobacter lovleyi
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfuromonadia;o__Geobacterales;f__Pseudopelobacteraceae;g__Trichlorobacter;s__Trichlorobacter lovleyi
+      ncbi_source_id: NCBITaxon:313985
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-14) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: Organohalide-respiring bacterium (formerly Geobacter lovleyi) included in the bottom-up organochlorine-degrading
       consortium.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -93,8 +114,17 @@ taxonomy:
     term:
       id: NCBITaxon:285070
       label: Petrimonas sulfuriphila
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Petrimonas_sp002356435
+      gtdb_taxon: Petrimonas sp002356435
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Dysgonomonadaceae;g__Petrimonas;s__Petrimonas sp002356435
+      ncbi_source_id: NCBITaxon:285070
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-14)
     notes: Fermentative partner strain PET included in the bottom-up organochlorine-degrading consortium.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
   functional_role:
   - SECONDARY_FERMENTER
@@ -383,3 +413,11 @@ curation_history:
     states, functional roles, three interaction nodes, two arrows and earlier history. Issues #2898 and #2899 retain
     unresolved roster and mechanistic scope; no full scientific approval or mapping correction.'
   llm_assisted: true
+- timestamp: '2026-11-15T13:53:46Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T13:53:46Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'
