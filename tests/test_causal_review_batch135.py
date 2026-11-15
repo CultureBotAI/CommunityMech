@@ -5,11 +5,18 @@ import json
 from pathlib import Path
 
 import yaml
-from gtdb_species_batch_successors_20261115 import admission
+from gtdb_species_batch_successors_20261115 import admission as species_admission
+from remaining_four_gtdb_successors import Q5_PATH, admit_remaining_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml"
 SUMMARY = ROOT / "reports/causal_graph_review/summary.json"
+
+
+def admission(root, path, before_sha256):
+    if path == Q5_PATH:
+        return admit_remaining_four_successor(root, path, before_sha256)
+    return species_admission(root, path, before_sha256)
 
 
 def _ref_to_cache_path(ref: str) -> Path:
