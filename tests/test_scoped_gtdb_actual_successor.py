@@ -189,13 +189,19 @@ def test_actual_rehashed_tampering_refuses_and_restores(actual, mutation):
             payload["before_sha256"] = "0" * 64
         elif mutation == "source_result":
             result = payload["occurrences"][0]["native_result"]
-            if result.get("ambiguous"):
+            if result is None:
+                payload["occurrences"][0]["classify_status"]["status"] = "NO_GTDB_EQUIVALENT"
+            elif result.get("ambiguous"):
                 assert len(result["gtdb_options"]) > 1
                 result["gtdb_options"].pop()
             else:
                 result["total_genomes"] += 1
         else:
-            payload["occurrences"][0]["native_result"]["ncbi_source_id"] = "NCBITaxon:2"
+            occurrence = payload["occurrences"][0]
+            if occurrence["native_result"] is None:
+                occurrence["term"]["id"] = "NCBITaxon:2"
+            else:
+                occurrence["native_result"]["ncbi_source_id"] = "NCBITaxon:2"
         new_hash = write(root, item, payload)
         item["raw_sha256"] = new_hash
         replace_review_hash(review, item["raw_path"], new_hash)

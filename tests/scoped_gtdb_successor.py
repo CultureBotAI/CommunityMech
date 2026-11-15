@@ -176,9 +176,21 @@ def verify_projection(before, after, source, indices):
         )
         prior = copy.deepcopy(term)
         result = occurrence["native_result"]
-        require(isinstance(result, dict), "unsupported source result")
-        require(result.get("ncbi_source_id") == term["term"]["id"], "source result misrouted")
-        if result.get("ambiguous") is True:
+        require(result is None or isinstance(result, dict), "unsupported source result")
+        if result is None:
+            require(
+                occurrence.get("classify_status") == {"status": "UNRESOLVED", "candidates": []}
+                and term["term"]["id"].startswith("NCBITaxon:")
+                and "manual_curated_reason" in occurrence
+                and "manual_withheld_reason" in occurrence
+                and occurrence["manual_curated_reason"] is None
+                and occurrence["manual_withheld_reason"] is None,
+                "explicit unheld native-null UNRESOLVED observation required",
+            )
+            term["gtdb_grounding_status"] = "UNRESOLVED"
+            term.pop("gtdb_candidates", None)
+        elif result.get("ambiguous") is True:
+            require(result.get("ncbi_source_id") == term["term"]["id"], "source result misrouted")
             options = result.get("gtdb_options")
             require(
                 isinstance(options, list)
@@ -191,6 +203,7 @@ def verify_projection(before, after, source, indices):
             term["gtdb_grounding_status"] = "AMBIGUOUS"
             term["gtdb_candidates"] = options
         else:
+            require(result.get("ncbi_source_id") == term["term"]["id"], "source result misrouted")
             require(result.get("gtdb_id"), "native grounded or ambiguous result required")
             actual_block = after["taxonomy"][index]["taxon_term"]["gtdb_classification"]
             term["gtdb_classification"] = expected_block(result, actual_block["mapping_source"])
@@ -364,7 +377,7 @@ def admit(root, path, predecessor_sha256, allowances, *, current=None):
             and any(evidence[key]["kind"] == "database" for key in row["evidence_ids"])
             for row in review["assessments"]
         ),
-        "positive database correspondence assessment required",
+        "supported database correspondence or status assessment required",
     )
     application = proof["application_receipt"]
     require(application["sha256"] == application["raw_sha256"], "actual application bytes required")
@@ -421,6 +434,11 @@ def admit(root, path, predecessor_sha256, allowances, *, current=None):
             require(expected == predecessor_sha256, "source input baseline differs")
         bound(review, name, actual if name == path else expected)
     require(source["source_inputs"].get(path) == predecessor_sha256, "source target input absent")
+    if any(item["native_result"] is None for item in source["occurrences"]):
+        require(
+            applied.get("native_operations") == ["--apply-status"],
+            "native-null correction requires actual status-only application",
+        )
     tables = [
         (name, value)
         for name, value in source["source_inputs"].items()

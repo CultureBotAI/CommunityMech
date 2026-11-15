@@ -134,7 +134,11 @@ def expected_science(before, row, native, mapping_source):
             raise ValueError("reviewed stock identity differs")
         result = occurrence["native_result"]
         prior = copy.deepcopy(descriptor)
-        if result.get("ambiguous"):
+        if result is None:
+            require_unresolved(occurrence)
+            descriptor["gtdb_grounding_status"] = "UNRESOLVED"
+            descriptor.pop("gtdb_candidates", None)
+        elif result.get("ambiguous"):
             if "gtdb_classification" in descriptor or not result.get("gtdb_options"):
                 raise ValueError("ambiguous route cannot remove a block or omit options")
             descriptor["gtdb_grounding_status"] = "AMBIGUOUS"
@@ -170,6 +174,51 @@ def expected_science(before, row, native, mapping_source):
             )
         )
     return expected, actions
+
+
+def require_unresolved(occurrence):
+    """Admit only an explicit native-null observation, never an inferred absence (#2888)."""
+    descriptor = occurrence["existing_descriptor"]
+    if (
+        occurrence["native_result"] is not None
+        or occurrence.get("classify_status") != {"status": "UNRESOLVED", "candidates": []}
+        or not occurrence["term"]["id"].startswith("NCBITaxon:")
+        or "gtdb_classification" in descriptor
+        or descriptor.get("gtdb_grounding_status") in {"WITHHELD", "NO_GTDB_EQUIVALENT"}
+        or "manual_curated_reason" not in occurrence
+        or "manual_withheld_reason" not in occurrence
+        or occurrence["manual_curated_reason"] is not None
+        or occurrence["manual_withheld_reason"] is not None
+    ):
+        raise ValueError("explicit unheld native-null UNRESOLVED observation required")
+
+
+def verify_operations(row, flags):
+    """Null correspondence is status-only; it cannot authorize block replacement."""
+    for occurrence in row["occurrences"]:
+        result = occurrence["native_result"]
+        if result is None:
+            require_unresolved(occurrence)
+            if flags != ["--apply-status"]:
+                raise ValueError("native-null correction requires status-only operation")
+        elif flags == ["--apply-status"] and not result.get("ambiguous"):
+            raise ValueError("status-only correction requires complete ambiguity or native null")
+
+
+def verify_fresh_unresolved(native, row, occurrence, rows):
+    """Recompute the domain/hold-aware classifier in the same offline native context."""
+    require_unresolved(occurrence)
+    descriptor, term = occurrence["existing_descriptor"], occurrence["term"]
+    status, candidates = native.classify_status(
+        Path(row["record"]).name,
+        term["id"],
+        term["label"],
+        "gtdb_classification" in descriptor,
+        *rows,
+        preferred=descriptor.get("preferred_term"),
+    )
+    if {"status": status, "candidates": candidates} != occurrence["classify_status"]:
+        raise ValueError("fresh native null classification differs from accepted source")
 
 
 def verify_candidate(original, candidate, row, native, mapping_source):
@@ -226,10 +275,7 @@ def stage(proof_name, proof_sha, record_id, output_name, revision, operations, *
         "ground-and-status": ("--apply", "--apply-status"),
         "status-only": ("--apply-status",),
     }[operations]
-    if operations == "status-only" and any(
-        not item["native_result"].get("ambiguous") for item in row["occurrences"]
-    ):
-        raise ValueError("status-only plan currently admits complete ambiguous results only")
+    verify_operations(row, list(flags))
     argv = [
         ["--community", str(candidate), "--kg-microbe-dir", str(table.parents[2]), flag]
         for flag in flags
@@ -285,6 +331,8 @@ def stage(proof_name, proof_sha, record_id, output_name, revision, operations, *
                                 != occurrence["native_result"]
                             ):
                                 raise ValueError("fresh native route differs from accepted source")
+                            if occurrence["native_result"] is None:
+                                verify_fresh_unresolved(native, row, occurrence, rows)
                         mapping_source = native.describe_mapping(table)
                         codes = [native.main(command) for command in argv]
     (output / "native.exit").write_text(json.dumps(codes) + "\n")
@@ -351,10 +399,7 @@ def apply(stage_name, output_name, candidate_sha, receipt_sha, revision, *, plan
     proof, row, original, inputs, _ = prepare(
         proof_item["path"], proof_item["sha256"], receipt["target_id"], revision
     )
-    if receipt["native_operations"] == ["--apply-status"] and any(
-        not item["native_result"].get("ambiguous") for item in row["occurrences"]
-    ):
-        raise ValueError("status-only receipt cannot authorize a new grounded block")
+    verify_operations(row, receipt["native_operations"])
     # Never overwrite an earlier capture with a second read of the same path.
     for location, raw in inputs.items():
         if location in captured and captured[location] != raw:
@@ -401,6 +446,7 @@ def apply(stage_name, output_name, candidate_sha, receipt_sha, revision, *, plan
         "created_at": datetime.now(timezone.utc).isoformat(),
         "inputs": staged_inputs,
         "helper_sha256": sha(captured[Path(__file__)]),
+        "native_operations": receipt["native_operations"],
         "native_serialization_sha256": sha((output / "validated.yaml").read_bytes()),
         "scope": receipt["scope"],
         "sidecar_status": "PENDING separate native scaffold and validation",
