@@ -1,0 +1,135 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 9b70c66c75f24e1f485ec1fb1c58ae24f4635cac
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only. Fresh native results, complete per-record input bindings and local authority checks remain required before staging.
+records:
+  - id: CommunityMech:000384
+    path: kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml
+    before_sha256: 4fc81cfb17b74f44b121440c5375d5a8e2f42e76b60ee057fdc53deafa263831
+    primary_source:
+      reference: PMID:41561919
+      url: https://doi.org/10.1016/j.dib.2025.112407
+      retained_path: references_cache/PMID_41561919.txt
+      retained_sha256: 815ea25a152efcf13f2c82c6f96165671cfa5ab978ce71207cd6de6f51bf4f21
+      locator: Data article PMC12813464, Methods culture design and Table 3, retained flattened line 47.
+      coverage: Selected retained main-text/table passages. Fresh DOI request returned 403; no complete source-data or associated research-article review.
+      exact_short_quote: 'MC1 Mono- Synechocystis sp. MC2 Mono- Desertifilum tharense'
+      judgment: >-
+        The record is a cultivation panel: four monocultures, four paired
+        co-cultures and four sequential cultures. It is not a single four-member
+        inoculum. The source identifies Synechocystis only to genus and
+        Desertifilum tharense to species, without strain designations.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1142', label: Synechocystis}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Synechocystis', support_genomes: 8, total_genomes: 8, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:1185873', label: Desertifilum tharense}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:s__Desertifilum_tharense', total_genomes: 1, majority_fraction: 1.0, via: ncbi_id}
+    preservation_contract:
+      - Preserve the four distinct taxonomy descriptors and Chlorella/Euglena eukaryotic NO_GTDB_EQUIVALENT statuses.
+      - Preserve MC/CC/SC treatment membership, simultaneous versus sequential inoculation and whole-treatment measurement scope.
+      - No species choice for Synechocystis, named stock or exact source assembly is authorized by the reference correspondences.
+      - Preserve the prior empty ecological graph and all nutrient-removal, microbiome and mechanism qualifications; genotype correspondence does not establish living-community exchange.
+    historical_guard:
+      path: tests/test_causal_review_batch59.py
+      ledger: reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml
+      note: Exact record hash and last historical llm_assisted predicate require strict predecessor admission. Preserve the unrelated kefir record, provider/cache receipts and current empty-graph assertions.
+  - id: CommunityMech:000350
+    path: kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml
+    before_sha256: 9c1ecf68184260fe68327386dea7b0ca0c056fb610975b21cb9cbd8352042f14
+    primary_source:
+      reference: PMID:42527912
+      url: https://doi.org/10.1186/s12866-026-05457-y
+      retained_path: references_cache/PMID_42527912.txt
+      retained_sha256: 31bb64a84ba5145e3be009a4e8763072645cf117d173fb5ea3f464330ce89712
+      locator: PMC13422317 Methods enrichment design, MAG classification and Results methanogenic MAG identities, retained flattened lines 56 and 60.
+      coverage: Selected retained main-text passages; fresh DOI request was inaccessible. No MAG sequence, supplementary table or reference-assembly reanalysis.
+      exact_short_quote: 'Methanothermobacter wolfeii (MAG4) and Methanothermobacter tenebrarum (MAG5)'
+      judgment: >-
+        The 0B yeast-extract-free butyrate enrichment was one long-term culture;
+        unsuccessful repeated transfers and the separately replicated YB series
+        must not be conflated. MAG1 has a provisional Syntrophothermus species
+        name, MAG3 is assigned to Candidatus Methanoculleus
+        thermohydrogenotrophicum, and a combined genus entry represents both
+        Methanothermobacter MAG4 and MAG5. Reference mappings do not reclassify
+        those study assemblies or prove their predicted metabolic exchange.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:129001', label: Syntrophothermus}
+        stock: MAG1
+        historical_expected: {gtdb_id: 'GTDB:g__Syntrophothermus', support_genomes: 5, total_genomes: 5, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:1671625', label: Candidatus Methanoculleus thermohydrogenotrophicum}
+        stock: MAG3
+        historical_expected: {gtdb_id: 'GTDB:s__Methanoculleus_thermohydrogenotrophicum', total_genomes: 13, majority_fraction: 1.0, via: ncbi_id}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:145260', label: Methanothermobacter}
+        stock: MAG4 / MAG5
+        historical_expected: {gtdb_id: 'GTDB:g__Methanothermobacter', support_genomes: 44, total_genomes: 44, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the proposed Candidatus Syntrophothermus ammoniitolerans name and genus-rank term, MAG1/MAG3 and the combined MAG4/MAG5 designation.
+      - Preserve MAG2's current classification and putative acetate-oxidation role; retain four descriptor entries representing five recovered MAGs.
+      - Respect bacterial versus archaeal domains; reference genome denominators are not five study MAGs or measured abundance fractions.
+      - Preserve inferred hydrogen/formate consumption and gene presence versus direct flux or expression; no new pairwise mechanism, release attribution or exact assembly match.
+      - Preserve 0B/YB/acetate-control replication and feeding differences and the historical unsuccessful transfer limitation.
+    historical_guard:
+      path: tests/test_causal_review_batch51.py
+      ledger: reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml
+      note: Preserve all three records' current biological predicates and exact source-cache hashes. Only the selected record's current hash and last historical llm_assisted check need strict predecessor projection.
+  - id: CommunityMech:000364
+    path: kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml
+    before_sha256: b76f915e08d08faf1516698a67c53bb6e25f912bd8d4803dfe55412f1a100a3e
+    primary_source:
+      reference: PMID:42523014
+      url: https://doi.org/10.1093/ismejo/wrag201
+      retained_path: references_cache/PMID_42523014.txt
+      retained_sha256: 78e19019cf62c0b4314eb190b977aa9202c75bf07da7e559eef3f14bf692acbd
+      locator: Retained accepted-manuscript excerpt line 52, twelve-stock roster and ASVs; lines 54-78, inoculation, dropout and MC naming/sequence availability.
+      coverage: Abstract and selected accepted-manuscript excerpts, not a complete manuscript or supplemental genome review. Fresh DOI request was inaccessible.
+      exact_short_quote: 'Paraburkholderia phenoliruptrix TB211 (ASV2), Paraburkholderia phymatum R7 (ASV51)'
+      judgment: >-
+        The source resolves twelve cultured stocks matching nine enriched ASVs.
+        N4, R4 and MC retain genus identifiers; TB211 and R7 retain reported
+        species identifiers. MC is described as the novel species Trinickia
+        sclerotiorum, but its existing genus-level canonical term must not be
+        promoted to a different reference species. The reported BioProject is
+        not a verified assembly match for this correction.
+    proposed_occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:106589', label: Cupriavidus}
+        stock: N4
+        historical_expected: {gtdb_id: 'GTDB:g__Cupriavidus', support_genomes: 199, total_genomes: 199, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[7].taxon_term
+        descriptor: {id: 'NCBITaxon:252970', label: Paraburkholderia phenoliruptrix}
+        stock: TB211
+        historical_expected: {gtdb_id: 'GTDB:s__Paraburkholderia_phenoliruptrix', total_genomes: 4, majority_fraction: 1.0, via: ncbi_name}
+      - selector: taxonomy[8].taxon_term
+        descriptor: {id: 'NCBITaxon:148447', label: Paraburkholderia phymatum}
+        stock: R7
+        historical_expected: {gtdb_id: 'GTDB:s__Paraburkholderia_phymatum', total_genomes: 2, majority_fraction: 1.0, via: ncbi_id}
+      - selector: taxonomy[10].taxon_term
+        descriptor: {id: 'NCBITaxon:48736', label: Ralstonia}
+        stock: R4
+        historical_expected: {gtdb_id: 'GTDB:g__Ralstonia', support_genomes: 277, total_genomes: 279, majority_fraction: 0.993, via: ncbi_rank_g, n_alt: 2}
+      - selector: taxonomy[11].taxon_term
+        descriptor: {id: 'NCBITaxon:2571160', label: Trinickia}
+        stock: MC
+        historical_expected: {gtdb_id: 'GTDB:g__Trinickia', support_genomes: 42, total_genomes: 42, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve all twelve stocks, their nine-ASV correspondence, existing ambiguity/mapping blocks and shared YAML evidence anchors.
+      - Keep MC's proposed-species/type-strain annotation and genus reference identity distinct; no exact-stock GTDB species or assembly assignment.
+      - Ralstonia 277/279 spans two reference genera; a rounded 0.993 fraction is not unanimity.
+      - Preserve dropout versus mono-inoculation results, spatial transcript-density/relative-abundance measurements and flooding controls; do not infer a molecular mechanism from association or genomic potential.
+    historical_guard:
+      path: tests/test_causal_review_batch99.py
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+      note: Exact record hash and last historical llm_assisted predicate need verified predecessor projection; all existing stock, source, node, direction and uncertainty assertions remain enforced.
+completion_limit: Whole-record ownership includes the mixed genus/species occurrences above. This plan permits no canonical write or scientific clearance; fresh binding, candidate review, guarded M5 execution, native checks/history, saved partial assessment and full input checkpoint remain required.
