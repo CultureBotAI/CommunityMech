@@ -1,10 +1,17 @@
-# Native-null rumen status correction preparation
+# Native-null rumen status correction
+
+The [completed M5 canary](rumen275-outcome-001.md) now includes actual status-only
+application, eight native checks, a verified immutable diagnostic, complete
+checkpoints on both machines and strict successor controls. Scientific review
+and combined corpus QC remain incomplete. The preparation below predates that
+execution and remains documented with its original logs.
 
 Issue [2888](https://github.com/CultureBotAI/CommunityMech/issues/2888) records
 the guarded workflow gap for CommunityMech:000275. The existing native resolver
 returns no correspondence for the encoded NCBITaxon:971 descriptor, and its
 classifier reports `UNRESOLVED` with no candidates. The old three-candidate
-ambiguity is not reproduced by that route. No canonical application has occurred.
+ambiguity is not reproduced by that route. No canonical application had occurred
+when this preparation was recorded.
 
 The reviewed code extension accepts this status-only case only with explicit
 null correspondence, `UNRESOLVED`/empty candidates, no existing grounding,
