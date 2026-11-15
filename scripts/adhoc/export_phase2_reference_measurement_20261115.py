@@ -91,7 +91,28 @@ def surfaces(value, path=""):
             yield from surfaces(child, f"{path}[{index}]")
 
 
-def verify_event(item, manifest, normalizer, skip_prefixes, title=False):
+def verify_cache_identity(root, manifest, cache):
+    """#2829: resolve only native case aliases proved to be one physical file."""
+    requested = cache["requested_path"]
+    require(requested.startswith("references_cache/"), "Loaded path is outside the cache")
+    actual = requested
+    if requested not in manifest:
+        candidates = [name for name in manifest if name.casefold() == requested.casefold()]
+        require(len(candidates) == 1, "Cache spelling alias is absent or ambiguous")
+        actual = candidates[0]
+        requested_path, actual_path = path_in(root, requested), path_in(root, actual)
+        require(
+            requested_path.is_file() and requested_path.samefile(actual_path),
+            "Cache spelling alias is not the same physical file",
+        )
+        require(
+            sha(actual_path.read_bytes()) == manifest[actual],
+            "Current aliased cache differs from the verified input",
+        )
+    require(manifest.get(actual) == cache["sha256"], "Loaded cache does not match retained input")
+
+
+def verify_event(item, manifest, normalizer, skip_prefixes, root, title=False):
     require(integer(item["validator_calls"]) == 1, "Incomplete validator invocation")
     matcher = integer(item["matcher_calls"])
     substring = integer(item["substring_calls"])
@@ -103,10 +124,7 @@ def verify_event(item, manifest, normalizer, skip_prefixes, title=False):
     require(type(item["is_valid"]) is bool, "Invalid native validation outcome")
     cache = item.get("cache", {})
     if cache.get("sha256"):
-        require(
-            manifest.get(cache["requested_path"]) == cache["sha256"],
-            "Loaded cache does not match retained input",
-        )
+        verify_cache_identity(root, manifest, cache)
     prefix = item["validated_reference"].split(":")[0].upper()
     if prefix in skip_prefixes:
         expected = "skipped_prefix"
@@ -324,7 +342,7 @@ def checked_summary(
             )
             if "validator_calls" in item:
                 compared = verify_event(
-                    item, manifest, normalizer.normalize_reference_id, skip_prefixes
+                    item, manifest, normalizer.normalize_reference_id, skip_prefixes, root
                 )
                 events.append(item)
             else:
@@ -343,7 +361,7 @@ def checked_summary(
             )
         for item in row["title_only"]:
             verify_event(
-                item, manifest, normalizer.normalize_reference_id, skip_prefixes, title=True
+                item, manifest, normalizer.normalize_reference_id, skip_prefixes, root, title=True
             )
         row_events = [item for item in items if "validator_calls" in item] + row["title_only"]
         require(
