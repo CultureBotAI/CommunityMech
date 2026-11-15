@@ -42,6 +42,11 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/check_phase2_linked_records_20261115.py": (
+        "writes only exclusive private native receipts, OAK configuration and exact "
+        "record/cache copies under .temp/phase2-science-20261115; reads the three "
+        "canonical records and never curates them (#2788)"
+    ),
     "scripts/adhoc/build_phase2_lbnl_review_20261115.py": (
         "writes only a caller-exclusive .temp/phase2-science-20261115 review "
         "candidate and native inspection; binds source/record/check hashes and "
