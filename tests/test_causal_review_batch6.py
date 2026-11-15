@@ -2,9 +2,21 @@
 
 from pathlib import Path
 
+import scoped_gtdb_successor as successor
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+STATUS401_PATH = "kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml"
+STATUS401_BEFORE = "c751d65f77ac054c5c8686bb6fd9d0ecf503fe729c1bb5c1d2409bbfe781169e"
+STATUS_ALLOWANCES = {
+    STATUS401_PATH: {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-ambiguity-20261115/status401-001-successor.json",
+            "sha256": "053aecc46719cab2cc0afe6925a3e93729a51f7febb0eeade57cccf6e3632f2a",
+        },
+    }
+}
 
 
 def nodes(stem):
@@ -72,6 +84,9 @@ def test_vaginal_paired_fitness_does_not_type_every_assay_as_predation():
 
 
 def test_2fl_peak_is_distinct_from_putative_acetate_exchange():
+    # Admit only the reviewed status-only successor; all biological checks below
+    # still inspect the current record, and historical decision rows stay literal.
+    successor.admit(ROOT, STATUS401_PATH, STATUS401_BEFORE, STATUS_ALLOWANCES)
     peak, transfer = nodes("Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture")
     assert "interaction_type" not in peak
     assert len(peak["evidence"]) == 3

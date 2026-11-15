@@ -110,7 +110,11 @@ taxonomy:
     term:
       id: NCBITaxon:853
       label: Faecalibacterium prausnitzii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Faecalibacterium_longum
+    - GTDB:s__Faecalibacterium_prausnitzii
+    - GTDB:s__Faecalibacterium_prausnitzii_D
     notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
   strain_designation:
     strain_name: A2-165
@@ -457,3 +461,7 @@ curation_history:
     JCM1254 (up to 95% relative abundance under increasing 2''-FL) and Faecalibacterium prausnitzii A2-165 (~60% relative
     abundance under FOS-only conditions), resolving c6s4-000401-bifido-faecali-abundance-levels (#2113).'
   llm_assisted: true
+- timestamp: '2026-11-15T07:01:02Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
