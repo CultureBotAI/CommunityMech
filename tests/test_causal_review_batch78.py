@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml"
@@ -189,7 +190,7 @@ def test_research_authorization_history_and_issue_lifecycle_are_explicit():
         ROOT / "reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml"
     )
     successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
-    for row, doc in zip(rows, docs, strict=True):
+    for row, _doc in zip(rows, docs, strict=True):
         latest = row
         if row["id"] == "CommunityMech:000176":
             latest = successor_by_id[row["id"]]
@@ -198,8 +199,10 @@ def test_research_authorization_history_and_issue_lifecycle_are_explicit():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
         assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == admission.current_sha256
         )
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert row["allowed_changed_fields"] == [
@@ -207,5 +210,6 @@ def test_research_authorization_history_and_issue_lifecycle_are_explicit():
             "discussions",
             "ecological_interactions",
         ]
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         assert all((ROOT / p).exists() for p in row["history_files"])

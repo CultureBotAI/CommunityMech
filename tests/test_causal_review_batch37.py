@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml"
@@ -119,7 +120,6 @@ def test_batch37_canonical_participants_history_and_hashes():
                 if anchor.startswith("ecological_interactions#")
             )
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
         latest = row
         if row["id"] == "CommunityMech:000455":
             successor_file = (
@@ -134,9 +134,13 @@ def test_batch37_canonical_participants_history_and_hashes():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
         assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == admission.current_sha256
         )
+        historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
 
 
 def test_batch37_all_existing_nodes_and_arrows_have_dispositions():

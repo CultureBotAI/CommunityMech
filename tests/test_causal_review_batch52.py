@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-urls-amd-proteome-batch52.yaml"
@@ -126,9 +127,14 @@ def test_every_node_and_arrow_has_a_hash_bound_decision():
             for anchor in gap["attaches_to"]:
                 if anchor.startswith("ecological_interactions#"):
                     assert anchor.split("#", 1)[1] in names
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == admission.current_sha256
+        )
         assert len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
     for path, digest in ledger["reference_cache_original_hashes"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest

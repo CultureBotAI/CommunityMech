@@ -9,6 +9,62 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-415-001-successor.json",
+            "sha256": "72d85fec7d9736b3b875ec60002167728f1b5c7bd69b89e9b71272dd2f4d196a",
+        },
+    },
+    "kb/communities/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-477-001-successor.json",
+            "sha256": "6a5b0d311f52bd87842f5999edc1342d233fab504126b9ff415c2bb1f303f67c",
+        },
+    },
+    "kb/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-353-001-successor.json",
+            "sha256": "b7b6d72527ec7916c063ae9e77873700ea96a242d44fb75b0e48b677f13bdf25",
+        },
+    },
+    "kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-440-001-successor.json",
+            "sha256": "df840b3bc6342b1ed238b5d7d5fc48a1bfc1bbf62c0cf6f505884655ce6849e3",
+        },
+    },
+    "kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-447-001-successor.json",
+            "sha256": "6947116cc5dc62c57eb7ce55c0bb4de6ecc93454ee11bdd60ad0a86fd1c47460",
+        },
+    },
+    "kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-433-001-successor.json",
+            "sha256": "1ca7c686eab74369baeeb16cf3c04f253ff76c5294d5773a5ce11f754d1fdc68",
+        },
+    },
+    "kb/communities/Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-474-001-successor.json",
+            "sha256": "85f585400852a55caeb1950273f4f3bcffad3cfd2457c6e5a3fb226735293299",
+        },
+    },
+    "kb/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-nine-403-001-successor.json",
+            "sha256": "d7eb240067b72f9f1b26d3ed52bbeba0deeb4e5e9bac1aecf68597e5a781216f",
+        },
+    },
     "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml": {
         "baseline_revision": BASE,
         "manifest": {

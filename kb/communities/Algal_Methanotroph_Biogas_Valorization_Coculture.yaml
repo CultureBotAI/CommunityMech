@@ -99,7 +99,17 @@ taxonomy:
     term:
       id: NCBITaxon:47251
       label: Leptolyngbya
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Leptolyngbya
+      gtdb_taxon: Leptolyngbya
+      gtdb_lineage: d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Leptolyngbyales;f__Leptolyngbyaceae;g__Leptolyngbya
+      ncbi_source_id: NCBITaxon:47251
+      majority_fraction: 0.542
+      support_genomes: 13
+      total_genomes: 24
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 6 GTDB taxa under the NCBI taxon]
   abundance_level: RARE
   functional_role:
   - PRIMARY_PRODUCER
@@ -119,7 +129,17 @@ taxonomy:
     term:
       id: NCBITaxon:2822410
       label: Methylotuvimicrobium
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methylotuvimicrobium
+      gtdb_taxon: Methylotuvimicrobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Methylococcales;f__Methylomonadaceae;g__Methylotuvimicrobium
+      ncbi_source_id: NCBITaxon:2822410
+      majority_fraction: 1.0
+      support_genomes: 8
+      total_genomes: 8
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
   abundance_level: ABUNDANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -139,7 +159,17 @@ taxonomy:
     term:
       id: NCBITaxon:40222
       label: Methylophaga
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methylophaga
+      gtdb_taxon: Methylophaga
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Nitrosococcales;f__Methylophagaceae;g__Methylophaga
+      ncbi_source_id: NCBITaxon:40222
+      majority_fraction: 1.0
+      support_genomes: 45
+      total_genomes: 45
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
   abundance_level: COMMON
   functional_role:
   - CROSS_FEEDER
@@ -159,7 +189,17 @@ taxonomy:
     term:
       id: NCBITaxon:455252
       label: Methylonatrum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methylonatrum
+      gtdb_taxon: Methylonatrum
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Nitrococcales;f__Aquisalimonadaceae;g__Methylonatrum
+      ncbi_source_id: NCBITaxon:455252
+      majority_fraction: 1.0
+      support_genomes: 1
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
   abundance_level: COMMON
   functional_role:
   - CROSS_FEEDER
@@ -496,6 +536,14 @@ curation_history:
   action: CURATE_YAML_RECORD
   changes: Added co-occurring oxygenic cyanobacterium Leptolyngbya to participating_taxa on the COMMUNITY_LEVEL photosynthetic O2 support interaction (#2048).
   llm_assisted: true
+- timestamp: '2026-11-15T08:37:15Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:37:16Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: algal_methanotroph_resolved_exchange
   prompt: Which organisms supply and receive the oxygen and one-carbon metabolites in this culture?
