@@ -6,6 +6,8 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import BEFORE as STATUS_BEFORE
+from ambiguity_gtdb_successors import PMSX_PATH, admit_status_successor
 from source_note_gtdb_successors import BEFORE, CARAGANA, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +25,8 @@ def record_bytes(path):
 def record(stem):
     if f"kb/communities/{stem}.yaml" == CARAGANA:
         admit_note_mapping_successor(ROOT, CARAGANA, BEFORE[CARAGANA])
+    if f"kb/communities/{stem}.yaml" == PMSX_PATH:
+        admit_status_successor(ROOT, PMSX_PATH, STATUS_BEFORE[PMSX_PATH])
     return yaml.safe_load(record_bytes(f"kb/communities/{stem}.yaml"))
 
 
@@ -206,6 +210,9 @@ def test_batch10_ledger_hashes_nodes_and_directions_are_complete():
         if row["path"] == CARAGANA:
             admitted = admit_note_mapping_successor(ROOT, row["path"], row["record_sha256"])
             assert hashlib.sha256(raw).hexdigest() == admitted.current_sha256
+        elif row["path"] == PMSX_PATH:
+            admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
+            assert hashlib.sha256(raw).hexdigest() == admission.current_sha256
         else:
             assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         doc = yaml.safe_load(raw)
