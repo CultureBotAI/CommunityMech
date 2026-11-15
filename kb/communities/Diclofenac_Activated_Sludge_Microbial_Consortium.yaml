@@ -121,7 +121,11 @@ taxonomy:
     term:
       id: NCBITaxon:528
       label: Ochrobactrum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Ochrobactrum_A
+    - GTDB:g__Ochrobactrum_B
+    - GTDB:g__Ochrobactrum
     notes: Initially 16.8% of 16S reads in the MC before the DCF biodegradation assay.
   abundance_level: ABUNDANT
   evidence:
@@ -136,7 +140,17 @@ taxonomy:
     term:
       id: NCBITaxon:295577
       label: Chthoniobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Chthoniobacter
+      gtdb_taxon: Chthoniobacter
+      gtdb_lineage: d__Bacteria;p__Verrucomicrobiota;c__Verrucomicrobiae;o__Chthoniobacterales;f__Chthoniobacteraceae;g__Chthoniobacter
+      ncbi_source_id: NCBITaxon:295577
+      majority_fraction: 1.0
+      support_genomes: 2
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Initially 14.1% of 16S reads in the MC before the DCF biodegradation assay.
   abundance_level: ABUNDANT
   evidence:
@@ -151,7 +165,17 @@ taxonomy:
     term:
       id: NCBITaxon:83551
       label: Parachlamydia
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Parachlamydia
+      gtdb_taxon: Parachlamydia
+      gtdb_lineage: d__Bacteria;p__Chlamydiota;c__Chlamydiia;o__Chlamydiales;f__Parachlamydiaceae;g__Parachlamydia
+      ncbi_source_id: NCBITaxon:83551
+      majority_fraction: 1.0
+      support_genomes: 13
+      total_genomes: 13
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Increased from 0.7% to 6.6% of 16S reads during the 28-day DCF biodegradation assay.
   abundance_level: COMMON
   evidence:
@@ -674,3 +698,11 @@ curation_history:
   changes: 'Retain MC parent loss, correct isolate-only 5-OH-DCF attribution and remove unsupported niche partitioning.;
     Retain relative marker profiles without catabolic attribution or a restored workflow arrow. Issue #1402; reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T12:40:51Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T12:40:51Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'
