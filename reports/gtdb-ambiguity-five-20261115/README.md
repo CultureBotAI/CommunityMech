@@ -26,7 +26,7 @@ The first full binder correctly refused an inexact412 anchor, recorded in
 [issue2895](https://github.com/CultureBotAI/CommunityMech/issues/2895).
 Both001 configs and the failed triplet remain unchanged. New002 uses the actual
 source wording, `ATCC identification number: 33305`. One real412 binder canary
-passed and all28 inputs verified before the full five-record binder reran.
+passed and all29 inputs verified before the full five-record binder reran.
 No source body or scientific judgment changed.
 
 All runs below use local revision `ca7a8ce97f509ec262a23c0745c7b7c5cfc53094`
@@ -42,7 +42,7 @@ its upstream release is unestablished. Database provenance is stat-based.
 | `ambiguity-five-source-105-canary-001` | Source binding; 27 inputs verified | `74647ce03534f75bf924063de5b50aaabc436d798ecfa8c01fcace269fb8b094` |
 | `ambiguity-five-stage-105-plan-001` | Private-stage plan only; no canonical write | `a86cc43a40b800fc289ce40be599e03eb3abe1e4fa3bfeabf9a55ca5348b18b2` |
 | `ambiguity-five-source-five-001` | Exit1; inexact412 source anchor refused | `7d37349602b452905f5aeddfefc37f28c1fa23ac17cc60c976f44c357e964307` |
-| `ambiguity-five-source-412-canary-002` | Corrected exact anchor; 28 inputs verified | `03e735861d8967378bccd0cff93adc32ecaedbc601cb9c2547ee8cd0c9b088d4` |
+| `ambiguity-five-source-412-canary-002` | Corrected exact anchor; 29 inputs verified | `03e735861d8967378bccd0cff93adc32ecaedbc601cb9c2547ee8cd0c9b088d4` |
 | `ambiguity-five-source-five-002` | Five records; 42 inputs verified | `c9039d12a2c1b11de05642bfb079a86c0ce654af7e21e472c066868050065114` |
 
 Exact triplets remain in `.temp/phase2-schema-20261115/`. Actual M5 candidate
