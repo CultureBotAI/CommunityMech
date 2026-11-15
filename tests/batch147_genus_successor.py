@@ -141,6 +141,7 @@ def current_record_sha256(root, path, predecessor_hash, *, manifest=None, curren
         "scalars",
         "history",
         "completion",
+        "terms",
     }
     assert all(row["status"] == "passed" and row["exit_code"] == 0 for row in required)
     application = proof["application_receipt"]
