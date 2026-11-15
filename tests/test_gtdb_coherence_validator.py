@@ -444,9 +444,14 @@ def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping, requir
                 tid, label = str(term.get("id", "")), term.get("label", "")
                 records.append((path.name, tid, label, term_block))
                 if tid.startswith("NCBITaxon:"):
-                    want_ids.add(tid.split(":")[1])
                     clean = gtdb._clean_label(label)
-                    (want_species if " " in clean else want_higher).add(clean.lower())
+                    # Match the maintained CLI collector, including exact
+                    # Candidatus spellings and its rank heuristic (#2854).
+                    if gtdb._is_species(clean):
+                        want_ids.add(tid.split(":", 1)[1])
+                        want_species.update(gtdb.lookup_keys(label))
+                    elif clean:
+                        want_higher.update(gtdb.lookup_keys(label))
     rows = gtdb.collect_rows(mapping, want_ids, want_species, want_higher)
 
     wrong = []

@@ -26,7 +26,9 @@ Ported from CultureMech / MediaIngredientMech / TraitMech.
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -59,6 +61,55 @@ _VALIDATE_BEFORE_WRITE = re.compile(
     r"|validator\.validate\("
     r"|write_validated_community\("
 )
+
+_ROOT = Path(__file__).resolve().parents[1]
+# One reviewed canonical writer delegates exact native-event reconstruction to
+# its stager. Preserve the executed implementation bytes and require BOTH hashes
+# and the actual call chain. Its external reviewed-hash checks are also the
+# write safeguard (the CLI offers --plan, not the generic audit's --apply).
+# This is actual trace/guard recognition, not a writer exemption.
+_DELEGATED_TRACE = {
+    "scripts/adhoc/apply_code006_genus_grounding_20261115.py": (
+        "9615a44be311cbb97a46e45c3472ebea1c8d8e8292b72f0b4a7f1ae8cee5bf94",
+        "scripts/adhoc/stage_code006_genus_grounding_20261115.py",
+        "43727c40ca62144ca8092b2e69e7a342db9292e2f8858722e63af2fd417aacbb",
+    ),
+}
+
+
+def _calls(tree: ast.Module, function: str, called: str) -> bool:
+    """Require an actual AST call in the named function, not a comment/import."""
+    definitions = [
+        node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == function
+    ]
+    return len(definitions) == 1 and any(
+        isinstance(node, ast.Call) and ast.unparse(node.func) == called
+        for node in ast.walk(definitions[0])
+    )
+
+
+def _reviewed_delegated_trace(path: Path) -> bool:
+    try:
+        relative = str(path.resolve().relative_to(_ROOT))
+        if relative not in _DELEGATED_TRACE:
+            return False
+        expected_writer, delegate_name, expected_delegate = _DELEGATED_TRACE[relative]
+        writer, delegate = path.read_bytes(), (_ROOT / delegate_name).read_bytes()
+        if (
+            hashlib.sha256(writer).hexdigest() != expected_writer
+            or hashlib.sha256(delegate).hexdigest() != expected_delegate
+        ):
+            return False
+        writer_tree, delegate_tree = ast.parse(writer), ast.parse(delegate)
+        return (
+            _calls(writer_tree, "apply", "check")
+            and _calls(writer_tree, "check", "staging.verify_semantics")
+            and _calls(writer_tree, "check", "guarded.verify_inputs")
+            and _calls(writer_tree, "apply", "guarded.write_validated_community")
+            and _calls(delegate_tree, "verify_semantics", "native.record_curation_event")
+        )
+    except (OSError, SyntaxError, ValueError):
+        return False
 
 
 def script_paths() -> list[Path]:
@@ -104,11 +155,16 @@ def audit(path: Path, justfile_text: str) -> dict | None:
         return None
     if not looks_like_yaml_writer(text):
         return None
+    reviewed_delegate = _reviewed_delegated_trace(path)
     return {
         "path": str(path),
         "writes_yaml": "yes",
-        "appends_curation_history": "yes" if _CURATION_APPEND.search(text) else "no",
-        "has_write_safeguard": "yes" if _WRITE_SAFEGUARD.search(text) else "no",
+        "appends_curation_history": (
+            "yes" if _CURATION_APPEND.search(text) or reviewed_delegate else "no"
+        ),
+        "has_write_safeguard": (
+            "yes" if _WRITE_SAFEGUARD.search(text) or reviewed_delegate else "no"
+        ),
         "validates_before_write": "yes" if _VALIDATE_BEFORE_WRITE.search(text) else "no",
         "wired_into_just": "yes" if _is_wired_into_just(path, justfile_text) else "no",
     }
