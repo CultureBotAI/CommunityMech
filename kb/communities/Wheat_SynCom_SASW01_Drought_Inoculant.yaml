@@ -80,7 +80,11 @@ taxonomy:
     term:
       id: NCBITaxon:158836
       label: Enterobacter hormaechei
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Enterobacter_hoffmannii
+    - GTDB:s__Enterobacter_hormaechei
+    - GTDB:s__Enterobacter_hormaechei_B
     notes: >-
       The source identifies strain FN0603 as Enterobacter hormaechei by 16S rRNA V5-V7 sequencing. Separately,
       the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
@@ -129,7 +133,16 @@ taxonomy:
     term:
       id: NCBITaxon:299767
       label: Enterobacter ludwigii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Enterobacter_ludwigii
+      gtdb_taxon: Enterobacter ludwigii
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__Enterobacter ludwigii
+      ncbi_source_id: NCBITaxon:299767
+      majority_fraction: 0.95
+      total_genomes: 296
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The source identifies strain FWP1205 as Enterobacter ludwigii by 16S rRNA V5-V7 sequencing. Separately,
       the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
@@ -375,3 +388,11 @@ curation_history:
     from descriptor-level GTDB reference correspondence (#2848). This note-only intermediate preserves the current
     statuses pending the separately reviewed native mapping transition; no study-stock genome assignment is asserted.
   llm_assisted: true
+- timestamp: '2026-11-15T09:07:38Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:07:39Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'
