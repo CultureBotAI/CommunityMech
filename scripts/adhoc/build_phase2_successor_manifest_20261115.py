@@ -10,6 +10,7 @@ assessment; this script checks persistence and the native review contract only.
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -46,10 +47,17 @@ def main():
     parser.add_argument("--expected-revision", required=True)
     parser.add_argument("--review", type=Path, action="append", required=True)
     parser.add_argument("--receipt", type=Path, action="append", required=True)
+    parser.add_argument(
+        "--output", type=Path, help="New numbered manifest; never replaces an earlier proof"
+    )
     args = parser.parse_args()
     if git("rev-parse", "HEAD") != args.expected_revision or git("diff", "--name-only", "HEAD"):
         parser.error("exact clean tracked revision required")
-    output = ROOT / MANIFEST
+    output = (args.output or ROOT / MANIFEST).resolve()
+    if output.parent != (ROOT / MANIFEST).parent.resolve() or not re.fullmatch(
+        r"scientific-successor-provenance(?:-[0-9]{3})?\.yaml", output.name
+    ):
+        parser.error("manifest must use the native report directory and a numbered successor name")
     if output.exists():
         parser.error("successor manifest already exists; preserve it")
     reviews = {}
@@ -176,7 +184,7 @@ def main():
     print(
         json.dumps(
             {
-                "path": MANIFEST,
+                "path": str(output.relative_to(ROOT)),
                 "records": len(result["records"]),
                 "sha256": digest(output.read_bytes()),
             }
