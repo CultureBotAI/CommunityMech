@@ -3,6 +3,7 @@
 Inputs: two hash-pinned authored YAML plans and an actual native route triplet.
 Output: exclusive JSON config for one selected unit or the eight-record group.
 No new scientific judgments, route computation, network access or record edits.
+Every input is parsed and hashed from one snapshot, then rechecked (#2879).
 """
 
 import argparse
@@ -35,30 +36,46 @@ def local(name):
     return path
 
 
-def pin(name, expected=None):
-    value = sha(local(name).read_bytes())
-    if expected is not None and value != expected:
-        raise ValueError("accepted input differs: " + name)
-    return {"path": name, "sha256": value}
+class CapturedInputs:
+    def __init__(self):
+        self.raw = {}
+
+    def read(self, name):
+        path = local(name)
+        if name not in self.raw:
+            self.raw[name] = path.read_bytes()
+        return self.raw[name]
+
+    def pin(self, name, expected=None):
+        value = sha(self.read(name))
+        if expected is not None and value != expected:
+            raise ValueError("accepted input differs: " + name)
+        return {"path": name, "sha256": value}
+
+    def verify(self):
+        for name, raw in self.raw.items():
+            if local(name).read_bytes() != raw:
+                raise ValueError("captured input changed: " + name)
 
 
 def prepare(route_name, record_id):
     if not re.fullmatch(r"[a-z0-9-]+", route_name):
         raise ValueError("literal retained recorder name required")
     stem = ".temp/phase2-schema-20261115/" + route_name
-    routes = json.loads(local(stem + ".log").read_bytes())
-    receipt = json.loads(local(stem + ".json").read_bytes())
-    if receipt["exit_code"] != 0 or local(stem + ".exit").read_bytes() != b"0\n":
+    captured = CapturedInputs()
+    routes = json.loads(captured.read(stem + ".log"))
+    receipt = json.loads(captured.read(stem + ".json"))
+    if receipt["exit_code"] != 0 or captured.read(stem + ".exit") != b"0\n":
         raise ValueError("successful actual native route required")
-    if receipt["log_sha256"] != sha(local(stem + ".log").read_bytes()):
+    if receipt["log_sha256"] != sha(captured.read(stem + ".log")):
         raise ValueError("retained route log differs")
     observed = {r["record_id"]: r for r in routes["records"]}
     helper = str(Path(__file__).relative_to(ROOT))
     records = []
     declared = set()
     for plan_name, plan_sha in PLANS.items():
-        pin(plan_name, plan_sha)
-        plan = yaml.safe_load(local(plan_name).read_bytes())
+        captured.pin(plan_name, plan_sha)
+        plan = yaml.safe_load(captured.read(plan_name))
         for row in plan["records"]:
             declared.add(row["id"].split(":")[1][-3:])
             if record_id and row["id"] != record_id:
@@ -66,19 +83,19 @@ def prepare(route_name, record_id):
             route = observed[row["id"]]
             if route["record"] != row["path"] or route["before_sha256"] != row["before_sha256"]:
                 raise ValueError("accepted record identity differs")
-            pin(row["path"], row["before_sha256"])
+            captured.pin(row["path"], row["before_sha256"])
             source = row.get("primary_source", plan.get("primary_source"))
-            pin(source["retained_path"], source["retained_sha256"])
+            captured.pin(source["retained_path"], source["retained_sha256"])
             guard = row.get("historical_guard", plan.get("historical_guard"))
-            additional = {plan_name: plan_sha, helper: pin(helper)["sha256"]}
+            additional = {plan_name: plan_sha, helper: captured.pin(helper)["sha256"]}
             for key in ("path", "ledger"):
                 expected = guard.get("sha256" if key == "path" else "ledger_sha256")
-                additional[guard[key]] = pin(guard[key], expected)["sha256"]
+                additional[guard[key]] = captured.pin(guard[key], expected)["sha256"]
             prior = row.get("prior_review", plan.get("prior_assessment"))
             if prior:
-                additional[prior["path"]] = pin(prior["path"], prior["sha256"])["sha256"]
+                additional[prior["path"]] = captured.pin(prior["path"], prior["sha256"])["sha256"]
             history = plan["historical_mapping_input"]
-            additional[history["path"]] = pin(history["path"], history["sha256"])["sha256"]
+            additional[history["path"]] = captured.pin(history["path"], history["sha256"])["sha256"]
             preservation = row.get("preservation_contract", [row.get("preservation", "")])
             preservation += plan.get("shared_preservation_contract", [])
             occurrences = []
@@ -136,12 +153,14 @@ def prepare(route_name, record_id):
             )
     if declared != EXPECTED_IDS or not records or (record_id and len(records) != 1):
         raise ValueError("bounded accepted record inventory differs")
-    return {
-        "route_report": pin(stem + ".log"),
-        "route_receipt": pin(stem + ".json"),
-        "route_exit": pin(stem + ".exit"),
+    result = {
+        "route_report": captured.pin(stem + ".log"),
+        "route_receipt": captured.pin(stem + ".json"),
+        "route_exit": captured.pin(stem + ".exit"),
         "records": records,
     }
+    captured.verify()
+    return result
 
 
 def main():
