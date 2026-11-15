@@ -1,0 +1,761 @@
+# Q5-1 isolate: one species reference correspondence with scientific findings preserved
+
+- Review: 20261115T221725Z-q5-1-492-species-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T22:17:25.264006Z
+- Finished UTC: 2026-11-15T22:17:25.577191Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The existing NCBI1386088 species descriptor now has the exact native Intrasporangium_A chromatireducens correspondence with total_genomes1 and majority_fraction1.0. One block, one status and two native inline events changed. Preferred Q5-1 identity, absent structured strain designation, all biological content and old history remain unchanged. Eight actual native commands and one new sidecar bind the exact M5 application. Issue2918's isolate-scope, directed-causality and quotation/explanation findings remain unresolved.
+
+## Scope And Provenance
+
+Only taxonomy[0] GTDB block/status and the actual source, application, appended history and eight scoped native checks. The existing isolate's physiological claims, conditions and causal graph remain preserved without new scientific approval.
+
+Selection: CommunityMech:000492 is the first whole-record end-to-end canary of the prepared492/359/497/454 lane. The other three units are not applied by this diagnostic. Complete immutable persistence and strict historical admission remain necessary before fanout.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base bfef6b2a7684bfc4bb4a22fb1b1234faf797536b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000492 | data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml # taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status; appended native curation_history | maintained | Q5-1 species reference; isolate scientific findings remain outside this correction |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000492 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Preserved source identity and bounded species-reference scope
+
+grounding: supported. Targets: CommunityMech:000492.
+
+The two source abstracts support preserving Q5-1 nomenclature and the existing species descriptor. The new correspondence is a generic exact-ID reference assignment, not an experimental assembly, source-stock equivalence or new physiological claim.
+
+### Exact species population kept separate from strain-name rows
+
+grounding: supported. Targets: CommunityMech:000492.
+
+The unchanged native route supports one species-ID reference genome and fraction1.0 for Intrasporangium_A chromatireducens. The other name-route count8 is not substituted. No numerator or study-stock genome is inferred; all three scientific findings remain outside this bounded correspondence correction.
+
+### Actual persistence and eight native commands without scientific promotion
+
+provenance: supported. Targets: CommunityMech:000492.
+
+The actual before-to-after application, two inline events, one append-only native sidecar and eight completed native commands bind currentcdd31a8d at frozenbfef. The three biological nodes, two old arrows, quotations and prior histories remain unchanged. Strict historical admission, products, reference measurement and full QC remain separate requirements.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000492-schema | .temp/gtdb-remaining-four-20261115/492-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-strict | .temp/gtdb-remaining-four-20261115/492-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-gtdb | .temp/gtdb-remaining-four-20261115/492-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-domain | .temp/gtdb-remaining-four-20261115/492-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-scalars | .temp/gtdb-remaining-four-20261115/492-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-history | .temp/gtdb-remaining-four-20261115/492-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-new-history | .temp/gtdb-remaining-four-20261115/492-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-terms | .temp/gtdb-remaining-four-20261115/492-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000492-taxonomic-source | references_cache/PMID_21441371.md; Complete retained abstract: strain Q5-1(T), Hunan mining-soil origin, phenotypic/16S comparison and type-strain conclusion; exact captured anchors are in source metadata. | supports | The taxonomic abstract names Intrasporangium chromatireducens and Q5-1(T). It supports preserving the source designation and existing species descriptor, without an independently verified genome-to-study-stock assignment. |
+| 000492-application-source | references_cache/doi_10.1007_s11274-009-0047-x.md; Complete retained application abstract: Intrasporangium sp. Q5-1, MIC, resting cells with/without carbon, acetate and immobilized/free-cell comparisons. | context_only | The abstract distinguishes physiological and immobilization observations. It does not settle the retained scientific findings or make the generic database population an experimental measurement. |
+| 000492-database | reports/gtdb-remaining-four-20261115/492-source-evidence-001.json; Selected taxonomy index0: exact native species-ID route, total1/fraction1.0, full lineage, source inputs and primary anchor locators. | supports | The exact species-ID1386088 route maps to Intrasporangium_A chromatireducens. The separate same-name strain-ID584657 count8 remains a distinct reference population, not a substitute denominator or stock-genome proof. |
+| 000492-application | .temp/gtdb-remaining-four-20261115/492-applied-001/receipt.json; Actual applied flag, bfef execution, accepted stage8a6793d1, before3be922d8 and aftercdd31a8d hashes, complete source inputs and native operations. | supports | The guarded M5 application persisted the independently accepted one-block/one-status candidate and two exact native events. Existing biology and older history were preserved. |
+| 000492-scientific-boundary | reports/gtdb-remaining-four-20261115/492-scientific-finding-001.md; Three source-bounded concerns and next full-primary-source adjudication; retained issue snapshot .temp/gtdb-remaining-four-20261115/issue2918-001.json. | context_only | Single-isolate interaction scope, unsupported directed dependencies in the retained abstracts and quotation/explanation mismatch remain unresolved. This database diagnostic does not close issue2918 or certify the historical causal assessment. |
+| 000492-historical-boundary | reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml; Immutable492 row and current tests/test_causal_review_batch135.py; all five historical records and existing sibling admissions. | context_only | The literal old ledger and current biology/cache predicates remain protected. A later strict successor may admit only the exact mapping/history change and project the old digest/latest-event obligation without changing scientific predicates. |
+
+## Limits And Additional Notes
+
+- Partial technical diagnostic with scientific_review:false. Eight native commands do not establish full scientific review, measured snippet validation, current products, corpus QC or campaign completion.
+- Primary evidence coverage is the complete retained taxonomic and application abstracts only. Full primary Methods/Results, supplementary material, original figure pixels, sequences and experimental assemblies were not inspected.
+- The selected exact species-ID1386088 population has total_genomes1 and majority_fraction1.0. The separate same-name strain-ID584657 row has count8 and is not this denominator. The native species result supplies no support_genomes field; no numerator, experimental cell fraction, probability or independently verified Q5-1 genome assignment is inferred.
+- Preserve the source's Q5-1 and Q5-1(T) nomenclature and the canonical absent structured strain designation. A generic species correspondence does not establish an experimental assembly or independently confirm stock equivalence.
+- The retained issue2918 snapshot and scientific-finding report identify three unresolved concerns: single-isolate COMMENSALISM/community scope, causal dependencies not established by the abstracts, and the first node's quotation/explanation mismatch. The historical DIRECTLY_SUPPORTED label and three-node/two-arrow graph are preserved, not recertified.
+- MIC17mmol/L, aerobic reduction, carbon-free resting-cell activity, acetate stimulation and comparable bead/free-cell rates are distinct observations. No growth at MIC, selective reductase mechanism, causal enablement of immobilization or continuous-reactor proof is added.
+- Actual M5 staging, application and all eight native commands ran at bfef6b2a7684bfc4bb4a22fb1b1234faf797536b with Python3.13.2. Source preparation and the earlier local preview ran at2dbc1e0f8bad3d1bd76f3f9b746d232b6051a51b with local working changes. Mirroring does not relabel those execution revisions.
+- Crosswalk761 identifies exact bytes; its release remains unestablished and file mtime is not a release claim. NCBI provenance is file identity/stat, not a full database digest or certified ontology release.
+- The complete four-record native route is retained as a frozen source input, including unselected reference populations. This one-target diagnostic does not approve those other records. Later strict admission must preserve the literal batch135 ledger, current biological/cache assertions and all sibling admissions, including separate Sahara494 work. Historical caller changes and aggregate integration checks remain separate.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T221725Z-q5-1-492-species-reference-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Q5-1 isolate: one species reference correspondence with scientific findings
+  preserved'
+started_at: '2026-11-15T22:17:25.264006Z'
+finished_at: '2026-11-15T22:17:25.577191Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Root prepared the source context and retained scientific finding
+    after reading the whole isolate, historical caller and both primary abstracts.
+    A peer independently accepted that preparation and the local preview. The executing
+    agent reread the complete record, both retained abstracts, source bindings and
+    native outputs. Root independently reviewed the actual M5 candidate and all32
+    stage inputs before application; another peer read the actual application and
+    gate/history configuration. This bundle is a partial technical self-review, not
+    a new complete scientific assessment.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The existing NCBI1386088 species descriptor now has the exact native Intrasporangium_A
+  chromatireducens correspondence with total_genomes1 and majority_fraction1.0. One
+  block, one status and two native inline events changed. Preferred Q5-1 identity,
+  absent structured strain designation, all biological content and old history remain
+  unchanged. Eight actual native commands and one new sidecar bind the exact M5 application.
+  Issue2918's isolate-scope, directed-causality and quotation/explanation findings
+  remain unresolved.
+source:
+  git_revision: bfef6b2a7684bfc4bb4a22fb1b1234faf797536b
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-environment-four-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-applied-001/before.yaml
+    sha256: 3be922d81b044ad742cd52ae866f3007d2f17141fc7355c4a34ad9f96ca304c4
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-applied-001/receipt.json
+    sha256: f738184d68dccf387fd8f71fc7df2a6b0bac51d4c7629e391b9d6dce4d142a4b
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-domain-001/native.log
+    sha256: 739b55e81af2290d599d3071a204d29e570f138c39e07891312c23d95ebe65fa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-domain-001/receipt.json
+    sha256: a6193307796197d9842345735f835ff54cbdaa715b471a49f357a679135b2152
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-domain-001/start.json
+    sha256: bdc16d834d97b2c30c4e1af0782e45f8730d25d82ee9e6e9bd5d9c25f0e5cf7d
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-gtdb-001/native.log
+    sha256: 7a44603bd80a67e8071f6fe1c0d62498b81deba2867fac077778cfc7f9e7c1c2
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-gtdb-001/receipt.json
+    sha256: 472b0c94078f7a8607bb0170f9f3bb34f30e149ace229946f8e0b2eaf4a2a29c
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-gtdb-001/start.json
+    sha256: 75013de0c62c849f9fc9234383ab34479b788c6a8094811762853d8e91cd132f
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-history-001/receipt.json
+    sha256: f8b24fc8c087a94a3941d949dd491c5f820f51af786dc5b8b8dddc10c94311f9
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-history-001/start.json
+    sha256: 6412781598e743993391e9f4459aa288ab180cfd8f167945c9be16446a9e2c2c
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-m5-candidate-001/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+    sha256: cdd31a8d123c5cdb75905f22bdcf15f181877416f44f28028d67598fcad0b8e9
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-m5-candidate-001/receipt.json
+    sha256: 8a6793d15f92096ae2313b924b9f0ca32bffa66364d933ca410145d3ab930afc
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-new-history-001/native.log
+    sha256: 15f5935d304b887297e2482216764de6a1226e1622a5a1e575c80d1c7e6b5ace
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-new-history-001/receipt.json
+    sha256: 3edd06c938218bc5f2fec474b4ca740763e4274d91d49588544c4896fb056f0e
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-new-history-001/start.json
+    sha256: f2c3b5ebb809aaed0ee0e4103658b88e0aaa975272f9adfa3aa84cd35ce711ad
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-scalars-001/native.log
+    sha256: 47235ae1a5cf4ebdae5e49e37adcada524edd43025f9857918bc31e83e8ae415
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-scalars-001/receipt.json
+    sha256: 5b69e2a107d24ebca8fb2abd5f6aad573f7f66ee7e0a426cb17611f5b95d3c83
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-scalars-001/start.json
+    sha256: c29203210955552600564dae50168e067b8ff2da0a207d103377053844cf8c89
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-schema-001/native.log
+    sha256: 8420d63073809b1d8c926b2d1b071bf71c019937ed0cd76ecef129e702df8457
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-schema-001/receipt.json
+    sha256: c640085a1ca521af54c7c510db71cde27c952d56a50f629b8cdfa3113486c01d
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-schema-001/start.json
+    sha256: 1bd909b32d6c1b633c16dbdec1517b50240168c100a03bd7fa94867abcea332f
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-strict-001/native.log
+    sha256: f734bd0f0f18e8bd4d30ad0e0ed3ca30f582c43c2f848c75097f5ceabfce8974
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-strict-001/receipt.json
+    sha256: 9474a1f49d0a2b677a88de70d7a7cd21b40077095c4445a0b18d204fe0c809d3
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-strict-001/start.json
+    sha256: b707c57c6b86c93a8494e5e4ed14eb64b47983d4ee0771f9248ee4966870ef82
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-terms-001/native.log
+    sha256: be801afa98d53cb2d546b331a10c142759680a42c71eaf9a274b539d15815e1d
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-terms-001/receipt.json
+    sha256: 8641e82d821c00d937c8892b32ec5aae76d18ade9f983b84fbdc9ba18447b312
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/492-terms-001/start.json
+    sha256: de7e9d6aa4348f4e570b061f3554c0172935d0f9c57022874d3e5f11db8f1108
+    role: context
+  - path: .temp/gtdb-remaining-four-20261115/issue2918-001.json
+    sha256: ff807cf6a1cb3a66bb5eabe00e126cc79c868606699b9a12d30de3f606fc5d2f
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-492-source-bind-001.log
+    sha256: 3364607c0c40efe6f24df6fe6ee50fdb05aeef114ecd2b802b98873d948fae3b
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.json
+    sha256: 46d03c7e507e4b35b62bbc0d07ad6cad8b59702758ac25317d97ff4d3da35a01
+    role: context
+  - path: .temp/phase2-schema-20261115/remaining-four-routes-001.log
+    sha256: 2ab2dd66a1ae01d7582f0283aa049b29d873da50b69207ae588398ffd8c60b4e
+    role: context
+  - path: data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+    sha256: cdd31a8d123c5cdb75905f22bdcf15f181877416f44f28028d67598fcad0b8e9
+    role: target
+  - path: history/records/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction/2026-10-25T224500Z-antigravity-c3s102.yaml
+    sha256: 91ee4753ca8cf29df63f52f0baed10e5e95c641decf3a8066fbee75784dd7b2d
+    role: context
+  - path: history/records/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction/2026-10-26T020000Z-antigravity-3be922.yaml
+    sha256: 81ae9e883fe476c8ab1cbff74fe3991ec295cf916f4d98d7e6a7b4257ba9d8b0
+    role: context
+  - path: history/records/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction/2026-11-15T221231Z-codex-98c104.yaml
+    sha256: a555c512fa6f44acc7bfaf91454503c0cd1fbc76df20b4cb51bf4bd101d1cc2b
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_21441371.md
+    sha256: 32f3d015e3c3baf2736ec129ee462156645cfb9233014fd96205096a6d97fd53
+    role: context
+  - path: references_cache/doi_10.1007_s11274-009-0047-x.md
+    sha256: 3e70900a2ca51a6ecc8617c423e586441c110b4f89ebb10b710068d653816a1f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+    sha256: b883e52b1bd5393d07b7ba3d10791965ee49be62f7380618424e270041ed6436
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-authored-source-context-001.json
+    sha256: 4c2af75b45e4d2224cc5b74b211fe3efcd928d1bd0c6a1ff9d8b9083dde4603c
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-check-config-001.json
+    sha256: 4efc8a4d7afd12b689e359ca9d14e0e7e34a78e1bec6409f744f871deb02f4f0
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-review-config-001.json
+    sha256: d79b2d1a4d26bfd8e0b4edf77c2e6d52d4af9b50bc7f91efa295306d50b03a9a
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-scientific-finding-001.md
+    sha256: 1ffa889e89fdcf7715cc411e9d5b2899b48804832c3d3c2e1cf0f085ca13ec72
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-source-config-001.json
+    sha256: acde3c419c50621dfaa2c3c3ad86421995f57022d7e137e5de798ac5f2fc29e0
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/492-source-evidence-001.json
+    sha256: 1928b5d2901f90049ef373e159da6b8d4ffad6f558802242db5652a9f7833e7c
+    role: context
+  - path: reports/gtdb-remaining-four-20261115/four-route-plan-001.json
+    sha256: bdcb94a4b3b4bc6599f1a9dcfd13529d04236f3f57681ac091b7ac98d6ce94b8
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch135.py
+    sha256: f4d5efbd9e66e11ba901a6bef414347541df7f204f2a74ebe7353a1acf5c8f1d
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000492
+  path: data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  selector: taxonomy[0].taxon_term.gtdb_classification; taxonomy[0].taxon_term.gtdb_grounding_status;
+    appended native curation_history
+  label: Q5-1 species reference; isolate scientific findings remain outside this correction
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Only taxonomy[0] GTDB block/status and the actual source, application,
+    appended history and eight scoped native checks. The existing isolate's physiological
+    claims, conditions and causal graph remain preserved without new scientific approval.
+  selection: CommunityMech:000492 is the first whole-record end-to-end canary of the
+    prepared492/359/497/454 lane. The other three units are not applied by this diagnostic.
+    Complete immutable persistence and strict historical admission remain necessary
+    before fanout.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000492
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000492-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-strict data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+    --out .temp/gtdb-remaining-four-20261115/492-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-gtdb data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-scalars data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-history history/records/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: 'just --verbose --no-dotenv --color never new-history --kind record --slug
+    Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction --target-root data/isolates
+    --event EDIT --outcome changed --sections taxonomy,curation_history --actor-name
+    codex --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary ''Ground the exact species descriptor for Q5-1 while preserving its
+    isolate-science findings.'' --details ''The exact NCBI1386088 species-ID route
+    yields Intrasporangium_A chromatireducens with total_genomes 1 and majority_fraction
+    1.0. This generic reference population is distinct from the same-name strain-ID584657
+    row with count8; no support numerator, experimental assembly or independently
+    verified Q5-1 stock genome is inferred. One reference block, one status and two
+    native inline events change. Preserve the preferred Q5-1 designation, absent structured
+    strain designation, source quotations, all three biological nodes, both historical
+    arrows and old history. Issue2918 retains the single-isolate interaction/scope,
+    directed-causality and quotation/explanation findings; this database correction
+    does not resolve them. The two retained primary sources are abstract-only: MIC,
+    resting-cell activity without carbon, acetate stimulation and bead/free-cell comparisons
+    remain distinct. Crosswalk release is unestablished and NCBI authority provenance
+    is file-stat based. This partial technical correction does not constitute full
+    scientific review, measured reference validation, current products or corpus QC.
+    Actual apply receipt .temp/gtdb-remaining-four-20261115/492-applied-001/receipt.json
+    sha256:f738184d68dccf387fd8f71fc7df2a6b0bac51d4c7629e391b9d6dce4d142a4b.'''
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000492-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000492
+  command: just --verbose --no-dotenv --color never validate-terms data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000492-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000492-schema
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-schema-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-strict
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-strict-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-gtdb
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-gtdb-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-domain
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-domain-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-scalars
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-scalars-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-history
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-history-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-new-history
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-new-history-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-terms
+  kind: validation
+  reference: .temp/gtdb-remaining-four-20261115/492-terms-001/native.log
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000492-taxonomic-source
+  kind: primary_source
+  reference: references_cache/PMID_21441371.md
+  locator: 'Complete retained abstract: strain Q5-1(T), Hunan mining-soil origin,
+    phenotypic/16S comparison and type-strain conclusion; exact captured anchors are
+    in source metadata.'
+  support: supports
+  summary: The taxonomic abstract names Intrasporangium chromatireducens and Q5-1(T).
+    It supports preserving the source designation and existing species descriptor,
+    without an independently verified genome-to-study-stock assignment.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+- evidence_id: 000492-application-source
+  kind: primary_source
+  reference: references_cache/doi_10.1007_s11274-009-0047-x.md
+  locator: 'Complete retained application abstract: Intrasporangium sp. Q5-1, MIC,
+    resting cells with/without carbon, acetate and immobilized/free-cell comparisons.'
+  support: context_only
+  summary: The abstract distinguishes physiological and immobilization observations.
+    It does not settle the retained scientific findings or make the generic database
+    population an experimental measurement.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+- evidence_id: 000492-database
+  kind: database
+  reference: reports/gtdb-remaining-four-20261115/492-source-evidence-001.json
+  locator: 'Selected taxonomy index0: exact native species-ID route, total1/fraction1.0,
+    full lineage, source inputs and primary anchor locators.'
+  support: supports
+  summary: The exact species-ID1386088 route maps to Intrasporangium_A chromatireducens.
+    The separate same-name strain-ID584657 count8 remains a distinct reference population,
+    not a substitute denominator or stock-genome proof.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+- evidence_id: 000492-application
+  kind: record_content
+  reference: .temp/gtdb-remaining-four-20261115/492-applied-001/receipt.json
+  locator: Actual applied flag, bfef execution, accepted stage8a6793d1, before3be922d8
+    and aftercdd31a8d hashes, complete source inputs and native operations.
+  support: supports
+  summary: The guarded M5 application persisted the independently accepted one-block/one-status
+    candidate and two exact native events. Existing biology and older history were
+    preserved.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+- evidence_id: 000492-scientific-boundary
+  kind: prior_review
+  reference: reports/gtdb-remaining-four-20261115/492-scientific-finding-001.md
+  locator: Three source-bounded concerns and next full-primary-source adjudication;
+    retained issue snapshot .temp/gtdb-remaining-four-20261115/issue2918-001.json.
+  support: context_only
+  summary: Single-isolate interaction scope, unsupported directed dependencies in
+    the retained abstracts and quotation/explanation mismatch remain unresolved. This
+    database diagnostic does not close issue2918 or certify the historical causal
+    assessment.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+- evidence_id: 000492-historical-boundary
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  locator: Immutable492 row and current tests/test_causal_review_batch135.py; all
+    five historical records and existing sibling admissions.
+  support: context_only
+  summary: The literal old ledger and current biology/cache predicates remain protected.
+    A later strict successor may admit only the exact mapping/history change and project
+    the old digest/latest-event obligation without changing scientific predicates.
+  accessed_at: '2026-11-15T22:17:25.264006Z'
+assessments:
+- assessment_id: 000492-source
+  area: grounding
+  topic: Preserved source identity and bounded species-reference scope
+  outcome: supported
+  target_ids:
+  - CommunityMech:000492
+  evidence_ids:
+  - 000492-taxonomic-source
+  - 000492-application-source
+  - 000492-database
+  - 000492-terms
+  summary: The two source abstracts support preserving Q5-1 nomenclature and the existing
+    species descriptor. The new correspondence is a generic exact-ID reference assignment,
+    not an experimental assembly, source-stock equivalence or new physiological claim.
+- assessment_id: 000492-population
+  area: grounding
+  topic: Exact species population kept separate from strain-name rows
+  outcome: supported
+  target_ids:
+  - CommunityMech:000492
+  evidence_ids:
+  - 000492-database
+  - 000492-gtdb
+  - 000492-domain
+  - 000492-scientific-boundary
+  summary: The unchanged native route supports one species-ID reference genome and
+    fraction1.0 for Intrasporangium_A chromatireducens. The other name-route count8
+    is not substituted. No numerator or study-stock genome is inferred; all three
+    scientific findings remain outside this bounded correspondence correction.
+- assessment_id: 000492-provenance
+  area: provenance
+  topic: Actual persistence and eight native commands without scientific promotion
+  outcome: supported
+  target_ids:
+  - CommunityMech:000492
+  evidence_ids:
+  - 000492-application
+  - 000492-schema
+  - 000492-strict
+  - 000492-scalars
+  - 000492-new-history
+  - 000492-history
+  - 000492-terms
+  - 000492-scientific-boundary
+  - 000492-historical-boundary
+  summary: The actual before-to-after application, two inline events, one append-only
+    native sidecar and eight completed native commands bind currentcdd31a8d at frozenbfef.
+    The three biological nodes, two old arrows, quotations and prior histories remain
+    unchanged. Strict historical admission, products, reference measurement and full
+    QC remain separate requirements.
+findings: []
+actions: []
+limitations:
+- Partial technical diagnostic with scientific_review:false. Eight native commands
+  do not establish full scientific review, measured snippet validation, current products,
+  corpus QC or campaign completion.
+- Primary evidence coverage is the complete retained taxonomic and application abstracts
+  only. Full primary Methods/Results, supplementary material, original figure pixels,
+  sequences and experimental assemblies were not inspected.
+- The selected exact species-ID1386088 population has total_genomes1 and majority_fraction1.0.
+  The separate same-name strain-ID584657 row has count8 and is not this denominator.
+  The native species result supplies no support_genomes field; no numerator, experimental
+  cell fraction, probability or independently verified Q5-1 genome assignment is inferred.
+- Preserve the source's Q5-1 and Q5-1(T) nomenclature and the canonical absent structured
+  strain designation. A generic species correspondence does not establish an experimental
+  assembly or independently confirm stock equivalence.
+- 'The retained issue2918 snapshot and scientific-finding report identify three unresolved
+  concerns: single-isolate COMMENSALISM/community scope, causal dependencies not established
+  by the abstracts, and the first node''s quotation/explanation mismatch. The historical
+  DIRECTLY_SUPPORTED label and three-node/two-arrow graph are preserved, not recertified.'
+- MIC17mmol/L, aerobic reduction, carbon-free resting-cell activity, acetate stimulation
+  and comparable bead/free-cell rates are distinct observations. No growth at MIC,
+  selective reductase mechanism, causal enablement of immobilization or continuous-reactor
+  proof is added.
+- Actual M5 staging, application and all eight native commands ran at bfef6b2a7684bfc4bb4a22fb1b1234faf797536b
+  with Python3.13.2. Source preparation and the earlier local preview ran at2dbc1e0f8bad3d1bd76f3f9b746d232b6051a51b
+  with local working changes. Mirroring does not relabel those execution revisions.
+- Crosswalk761 identifies exact bytes; its release remains unestablished and file
+  mtime is not a release claim. NCBI provenance is file identity/stat, not a full
+  database digest or certified ontology release.
+- The complete four-record native route is retained as a frozen source input, including
+  unselected reference populations. This one-target diagnostic does not approve those
+  other records. Later strict admission must preserve the literal batch135 ledger,
+  current biological/cache assertions and all sibling admissions, including separate
+  Sahara494 work. Historical caller changes and aggregate integration checks remain
+  separate.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2918
+- https://github.com/CultureBotAI/CommunityMech/pull/2920
+```

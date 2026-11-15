@@ -1,0 +1,79 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.log",
+    "sha256": "2ab2dd66a1ae01d7582f0283aa049b29d873da50b69207ae588398ffd8c60b4e"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.json",
+    "sha256": "46d03c7e507e4b35b62bbc0d07ad6cad8b59702758ac25317d97ff4d3da35a01"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/remaining-four-routes-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml",
+      "record_id": "CommunityMech:000454",
+      "before_sha256": "a16dd88b010ff55a4e1cc7543271b42ba9641f05f070febffa3de96d66d966f9",
+      "additional_inputs": {
+        "tests/test_causal_review_batch120.py": "590e3af1fe81e22d84a75e2f36f7f66076c2b83a7a9c6b615254c0df55457df2",
+        "reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml": "02d8e5bcf94ac4a351a5c23517211f8dfe3d3545b73c3de784f53d23ddc6105b",
+        "reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml": "ccc2eb5a79a5daadb3348685882a66fc9a0f870a4d8f80b907c568ed06a9f444",
+        ".temp/gtdb-remaining-four-20261115/issue1931-001.json": "ff6ffe994d7ffb95007f15f775d368beb12bafba8fba616ea22d57052f81e635",
+        ".temp/gtdb-remaining-four-20261115/issue2514-001.json": "f99ee40d057ef41bcdf1f4dce500d82af1563db38c9a79b18f44059c16f52230",
+        "reports/gtdb-remaining-four-20261115/454-authored-source-context-001.json": "4c51a00297e127b6562ad9f969fa29ba0a3eca909cea2b8e2c12a301f2836b00",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42468699",
+          "path": "references_cache/PMID_42468699.txt",
+          "sha256": "79d5c2a3114b5d25e1bc789a2288ebf584858f799b995c40adb5bf4beca4a896",
+          "locator": "Retained PubMed abstract: mat source, separate monocultures, defined XZ-Cy5/XZ-Ab1 coculture, NanoSIMS carbon result and genomic interpretation.",
+          "coverage": "Complete retained abstract, whole canonical record and batch120 caller plus454 historical/C8S5 decision rows. No full article, supplementary materials, original NanoSIMS images, raw isotope data or experimental assemblies audited. Exact culture conditions and route-specific interpretations remain OPEN discussions.",
+          "identity_tokens": [
+            "42468699",
+            "10.1016/j.biortech.2026.135440"
+          ],
+          "anchors": [
+            "heterotroph Chelatococcus sp. XZ-Ab1",
+            "addition of organic carbon and oxygen",
+            "Chelatococcus sp. XZ-Ab1 promoted growth",
+            "NanoSIMS isotope tracing provided direct evidence",
+            "Metagenomic and genomic analyses indicated several mechanisms"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:3034027",
+            "label": "Chelatococcus sp. XZ-Ab1"
+          },
+          "strain_name": "XZ-Ab1",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary abstract names mat-derived heterotroph Chelatococcus sp. XZ-Ab1 in the two-member coculture, separately from supplemented heterotroph monoculture and pure cyanobacterium. The exact named NCBI identifier maps to a generic GTDB species reference; no assembly accession or independent classification of the experimental genome is introduced.",
+          "population_scope": "The exact-ID route reports total_genomes1 and majority_fraction1.0, without a support_genomes numerator. That reference population is not proof of the study-stock genome, one experimental replicate, a measured biomass fraction or arsenite-oxidation contribution.",
+          "name_scope": "Preserve source Chelatococcus sp. XZ-Ab1 and the exact strain_name. Chelatococcus_A sambhunathii is the GTDB reference correspondence, not a formal species identification asserted by the paper. Keep the separate quoted Thermoleptolyngbya source identity unchanged.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Chelatococcus_A_sambhunathii",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Chelatococcus_A;s__Chelatococcus_A sambhunathii",
+            "gtdb_taxon": "Chelatococcus_A sambhunathii",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:3034027",
+            "total_genomes": 1,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Only taxonomy[1] GTDB fields and actual native events may change. Unselected Thermoleptolyngbya XZ-Cy5 retains the native null/UNRESOLVED result; lack of crosswalk correspondence does not prove organism absence or invalidate its observed carbon-transfer result. Preserve both stocks, ordinal co-equal prominence (schema AbundanceEnum does not define a measured percentage), two pairwise nodes and zero arrows. Preserve directly reported13CO2 carbon transfer and reciprocal growth without extending to a named exchanged compound, traced nitrogen or demonstrated oxygen-supply route. Keep5mM cyanobacterial monoculture stress distinct from an unspecified coculture series. Issue1931 graph repair and2514 abundance addition are CLOSED live; both existing knowledge-gap discussions remain OPEN. Old full-text access limitations are historical, not a new exhaustive absence claim. Preserve the batch120bc09→C8S5a16d chain and its exact supersedes_review checks, otherthree batch120 records including106's separateC14S5 chain, and all current biological predicates. A new454 historical predecessor requires actual M5 gates/save/checkpoint before admission. No whole-record scientific approval, new taxonomy identity claim or upstream release chronology is authorized."
+    }
+  ]
+}
