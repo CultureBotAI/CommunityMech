@@ -42,7 +42,16 @@ taxonomy:
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The phage-susceptible target. Both the streptomycin-marked UCBPP-PA14 wild type and the
       isogenic csy3::LacZ CRISPR-KO derivative were used.
@@ -77,7 +86,16 @@ taxonomy:
     term:
       id: NCBITaxon:470
       label: Acinetobacter baumannii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Acinetobacter_baumannii
+      gtdb_taxon: Acinetobacter baumannii
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Moraxellaceae;g__Acinetobacter;s__Acinetobacter baumannii
+      ncbi_source_id: NCBITaxon:470
+      majority_fraction: 1.0
+      total_genomes: 15884
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The member competitively released by phage predation on P. aeruginosa, and the competitor
       whose presence raises the fitness cost of surface-based phage resistance in P. aeruginosa.
@@ -110,7 +128,16 @@ taxonomy:
     term:
       id: NCBITaxon:1280
       label: Staphylococcus aureus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Staphylococcus_aureus
+      gtdb_taxon: Staphylococcus aureus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Staphylococcales;f__Staphylococcaceae;g__Staphylococcus;s__Staphylococcus aureus
+      ncbi_source_id: NCBITaxon:1280
+      majority_fraction: 1.0
+      total_genomes: 37403
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The one member whose density differed detectably between the wild-type and CRISPR-KO P.
       aeruginosa treatments, and then only in 2 of the communities.
@@ -137,7 +164,10 @@ taxonomy:
     term:
       id: NCBITaxon:95486
       label: Burkholderia cenocepacia
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Burkholderia_cenocepacia
+    - GTDB:s__Burkholderia_orbicola
     notes: >-
       Persists at low density throughout rather than going extinct; falls below 0.1 relative
       abundance in the compositional plots while remaining culturable at around 1e4 cfu/ml.
@@ -595,3 +625,11 @@ curation_history:
     from sequenced genotypes, with an exact Methods excerpt. No biological protocol or graph topology
     change.'
   llm_assisted: true
+- timestamp: '2026-11-15T10:54:33Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:54:34Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

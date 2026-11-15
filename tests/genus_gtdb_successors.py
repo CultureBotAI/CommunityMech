@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/phage-pair-467-001-successor.json",
+            "sha256": "6e46a3c754bf766546669c4abfb28bad36cc00fbd19f89dc634ebd2887ab1c76",
+        },
+    },
     "kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml": {
         "baseline_revision": BASE,
         "manifest": {
