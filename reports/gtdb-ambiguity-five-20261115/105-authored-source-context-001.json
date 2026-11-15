@@ -1,0 +1,37 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.log", "sha256": "9f3096341153cba346788b1e7c24a5d2b5d50e7fe0fb7b340be10cc6cc04053d"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.json", "sha256": "2f332715894393b61d8018f1210abdb0386644194958d220aee0eb2938d7cf55"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record_id": "CommunityMech:000105",
+      "record": "kb/communities/Pepper_Phytophthora_SynCom5.yaml",
+      "before_sha256": "ed26e547580e6b5fa6662c07720f45993a2a5a49e891a8574a635cbf0a44d81e",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/pepper105-ambiguity-source-context-001.yaml": "7c79fb6ea4daf969fbd4bc8e17019403de552d7e8b7da9e1ab02238ae6f0deb7",
+        "tests/test_causal_review_batch83.py": "91b538ab0187ab3d9603a7156e29b4977c518ab89e79bedf600c25e8cad8b7df",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml": "e13924aca3b858e78dcfa2074352e5a9a381bba97a83b2b94b8e864419dd9efe"
+      },
+      "primary_sources": [{
+        "reference": "PMID:40508300",
+        "path": "references_cache/PMID_40508300.txt",
+        "sha256": "25bfcc576d668e19cb3535cdbdee889e755b95a8b7d62030eff5834dfbadf729",
+        "locator": "Retained abstract, Table1 and selected molecular-characterization, accession, growth and limitations passages in flattened main text line48.",
+        "coverage": "Full current record and bounded source passages read; no new supplementary TableS1, figure pixels, stock genome or full scientific assessment.",
+        "identity_tokens": ["40508300", "10.3390/plants14111625"],
+        "anchors": ["Cytobacillus firmus T8", "C. firmus T8 ( OR857502 )", "For molecular characterisation based on taxonomic identification, the bacterial 16S rRNA gene was targeted."]
+      }],
+      "occurrences": [{
+        "taxonomy_index": 2,
+        "term": {"id": "NCBITaxon:1399", "label": "Cytobacillus firmus"},
+        "strain_name": null,
+        "expected_ncbi_rank": "NCBITaxon:species",
+        "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 2, "gtdb_options": ["GTDB:s__Cytobacillus_firmus", "GTDB:s__Cytobacillus_firmus_A"]},
+        "source_assessment": "The primary names C.firmus T8 and its OR857502 16S marker. The canonical member has no strain_designation; this bounded correction preserves that state rather than adding a stock field. The paper's marker attribution is distinct from a stock assembly identification.",
+        "population_scope": "Both freshly reproduced species-name alternatives remain unselected. Neither identifies the experimental T8 genome, measures its abundance or establishes its release-specific GTDB placement.",
+        "name_scope": "Preserve the NCBI descriptor and all five source members; no renaming, stock equivalence, marker-to-assembly conversion or unselected-species upgrade is inferred. The crosswalk release is unestablished."
+      }],
+      "historical_guard_assessment": "Preserve all five members, unselected Bacillus/Flavobacterium mapping blocks, unresolved Streptomyces/Pseudomonas and aliases. Keep three current community-level nodes and both HYPOTHESIZED arrows, heterogeneous trait screens, T14/A6 inhibition58.4/17.6 percent, measured host growth and visible symptoms without direct disease-score/pathogen-load or SynCom-only-control inference. Existing source conflicts, top-level overstatement and open scientific owners1690/1691 remain unresolved. Batch83 must preserve its PES strict proof,052 c10s5 chain, immutable ledger/source-cache and current biological assertions; only an explicitly completed105 successor may project historical hash/last-event obligations."
+    }
+  ]
+}
