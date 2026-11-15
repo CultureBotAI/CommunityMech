@@ -90,3 +90,8 @@ References, ontology labels, full corpus QC and the corpus-wide generated-docs
 gate are not claimed passed by this diagnostic. The NCBITaxon label and all
 source quotations are unchanged. Later integration checks remain separate from
 this bounded M5 canary.
+
+The subsequent independently reviewed [Terrabacter 2APm3 canary](TERRABACTER.md)
+has its own source proof, actual M5 application, native checks and immutable
+diagnostic. Its evidence does not change the scope or status of this earlier
+Sulfobacillus assessment.
