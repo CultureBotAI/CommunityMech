@@ -1,0 +1,148 @@
+kind: source_context_plan
+date: '2026-11-15'
+status: preparation_only
+scientific_review: false
+scope: >-
+  Prepare nine species-descriptor occurrences in six whole records from the
+  Ashraf PAH study. No canonical application or completed scientific assessment
+  is recorded here. Fresh native routes, bound sources, reviewed candidates,
+  actual M5 gates and saved partial diagnostics remain required.
+primary_source:
+  reference: PMID:42587276
+  doi: 10.1186/s12866-026-05144-y
+  path: references_cache/PMID_42587276.txt
+  sha256: 7bb5736b9f958ed0e4ab54005bac19761fa622a36af5e34bc6713241a1415cfd
+  inspected: >-
+    Retained abstract and bounded passages in flattened main text line 57:
+    isolate identification, consortium preparation/Table 1, HPLC assay regimes,
+    B8-1 optimization, comparative removal and marker accessions. This pass did
+    not reacquire the paper, inspect figure pixels or reread archive sequences.
+  anchors:
+  - 'B8-1(Bacillus paramycoides), A1(Bacillus paranthracis), and A3(Bacillus licheniformis).'
+  - 'Consortium 1 (B8-1 and A1), Consortium 2 (B8-1 and A3), Consortium 3 (A1 and A3), and Consortium 4 (B8-1, A1, and A3).'
+  boundaries:
+  - >-
+    These are source-local isolates identified by 16S rRNA. PV848451, PV848453
+    and PV848454 are marker accessions, not assemblies. Neither species-ID
+    reference populations nor genus reclassification establish a study-stock
+    genome identity or a specific degradation pathway.
+  - >-
+    Keep all four consortium rosters distinct from three single-isolate
+    baselines. B8-1 is not a member of A1/A3 Consortium 3. Existing related-record
+    links and the unselected A3 baseline 000551 remain unchanged.
+  - >-
+    Preserve Table 1's unequal inoculum volumes and their distinction from the
+    preparation prose; do not infer equal viable counts or final abundances.
+  - >-
+    Keep seven-day HPLC removal distinct from mineralization, DCPIP screening,
+    crystal-violet biomass and direct interspecies exchange. Keep phenanthrene
+    and naphthalene results, planktonic and static biofilm regimes, and liquid
+    mg/L versus artificial-soil mg/g experiments separate.
+  - >-
+    Growth optimization tested all three isolates; degradation optimization
+    selected B8-1. Preserve the existing separate curation blockers for 000358;
+    a mapping-only correction does not approve its assay or optimization claims.
+prior_evidence:
+  full_358_review:
+    path: reviews/structured/20261021T083041Z-bacillus-a1-a3-record/review.yaml
+    sha256: 37d924fbb3cb633635301494baf0fce46ca6415f591d97eb74cf8f3b838a5347
+    retained_findings:
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2317
+      state_checked: OPEN
+      meaning: Combined MSM entry assigns shaking to the static biofilm assay.
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2318
+      state_checked: OPEN
+      meaning: B8-1 degradation optimization is generalized to A1/A3.
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2319
+      state_checked: OPEN
+      meaning: >-
+        Prior Figure 12/archive evidence resolves A1/PV848453 and A3/PV848454;
+        source fields still retain uncertainty. Inherited prior evidence is
+        distinguished from this pass's main-text read; no marker is an assembly.
+  structural_cohort_bundles:
+  - path: reviews/structured/20261104T180000Z-c6s4-record-deep-audit/review.yaml
+    sha256: 47976319669248c26320528ed574b6da77b38aa592f3c0c9b1f76aaf6e0dc208
+  - path: reviews/structured/20261111T121000Z-c15s4-record-deep-audit/review.yaml
+    sha256: d6273b3c8723adc01ea4d71bc589e99bb8952da3cbd9067c6a0680979a4e7c71
+  interpretation: >-
+    Both cohort bundles declare scientific_review true. The inspected relevant
+    assessments report completeness and network counts; those declarations are
+    not treated as a new claim-by-claim source assessment or current clearance.
+records:
+- record_id: CommunityMech:000549
+  path: data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml
+  before_sha256: cb226c9c70b14d042991de11ef4a7b3677790ffd8a93549332e213dc4946b04e
+  source_identity: Single B8-1 isolate baseline, not a consortium.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026194', stock: B8-1, proposed: 'GTDB:s__Bacillus_A_paramycoides', via: ncbi_id, reference_genomes: 9, majority_fraction: 1.0}
+  historical_caller: tests/test_causal_review_batch147.py
+- record_id: CommunityMech:000550
+  path: data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml
+  before_sha256: 3b4fa9c9579fe2f3c0b94f2c1c55ec6b8f36bb5e22d4c5f9718aeb798cc15988
+  source_identity: Single A1 isolate baseline, distinct from its paired cultures.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026186', stock: A1, proposed: 'GTDB:s__Bacillus_A_paranthracis', via: ncbi_id, reference_genomes: 210, majority_fraction: 0.99}
+  historical_caller: tests/test_causal_review_batch147.py
+- record_id: CommunityMech:000502
+  path: kb/communities/Bacillus_B81_A1_PAH_Biofilm_Consortium_1.yaml
+  before_sha256: 715ea160d2968d36d0d7d0fab42cfec1c66cd5cbbce39b3381861a036e9d6ff4
+  source_identity: Consortium 1 comprises B8-1 and A1; A3 is absent.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026194', stock: B8-1, proposed: 'GTDB:s__Bacillus_A_paramycoides', via: ncbi_id, reference_genomes: 9, majority_fraction: 1.0}
+  - {taxonomy_index: 1, ncbi_id: 'NCBITaxon:2026186', stock: A1, proposed: 'GTDB:s__Bacillus_A_paranthracis', via: ncbi_id, reference_genomes: 210, majority_fraction: 0.99}
+  historical_caller: tests/test_causal_review_batch138.py
+- record_id: CommunityMech:000503
+  path: kb/communities/Bacillus_B81_A3_Naphthalene_Biofilm_Consortium_2.yaml
+  before_sha256: de9b2f80f9c505f9404ccc9f107d1bdfdf5849291e944cb5be6ce8063c8507f5
+  source_identity: Consortium 2 comprises B8-1 and A3; A1 is absent.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026194', stock: B8-1, proposed: 'GTDB:s__Bacillus_A_paramycoides', via: ncbi_id, reference_genomes: 9, majority_fraction: 1.0}
+  preserve: Existing A3 descriptor and GTDB block remain exact.
+  historical_caller: tests/test_causal_review_batch138.py
+- record_id: CommunityMech:000504
+  path: kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml
+  before_sha256: 49c084f295ba077f383e193820af2dd4a1620e0af6310110f2da9eb71a4d77a8
+  source_identity: Consortium 4 comprises all three source stocks.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026194', stock: B8-1, proposed: 'GTDB:s__Bacillus_A_paramycoides', via: ncbi_id, reference_genomes: 9, majority_fraction: 1.0}
+  - {taxonomy_index: 1, ncbi_id: 'NCBITaxon:2026186', stock: A1, proposed: 'GTDB:s__Bacillus_A_paranthracis', via: ncbi_id, reference_genomes: 210, majority_fraction: 0.99}
+  preserve: Existing A3 descriptor and GTDB block remain exact.
+  historical_caller: tests/test_causal_review_batch138.py
+- record_id: CommunityMech:000358
+  path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  before_sha256: 9cf8152f3fd9b327db9471bcd6319706b40f2a65d4c92c162e8f79366a4db8d0
+  source_identity: Consortium 3 comprises A1 and A3; B8-1 is absent.
+  selected:
+  - {taxonomy_index: 0, ncbi_id: 'NCBITaxon:2026186', stock: A1, proposed: 'GTDB:s__Bacillus_A_paranthracis', via: ncbi_id, reference_genomes: 210, majority_fraction: 0.99}
+  - {taxonomy_index: 1, ncbi_id: 'NCBITaxon:1402', stock: A3, proposed: 'GTDB:s__Bacillus_licheniformis', via: ncbi_id, reference_genomes: 562, majority_fraction: 0.98}
+  historical_caller_scope: >-
+    Ignore-independent Python-test search found the participant manifest but no
+    direct 358 hash/history caller. Batch 5 reads the shared eleven-record ledger
+    and protects other named records; it does not directly assert this record's
+    old hash or final event. Preserve that shared module and add the explicit
+    strict actual-proof case without inventing a caller-specific exemption.
+historical_inputs:
+  tests/test_causal_review_batch5.py: 7eaca27f519ee49306860ba48357e02aebb3623b927ba54d0583fbd0f26e492e
+  tests/test_causal_review_batch138.py: 94162bc2a0f889210f9ceb87e96a005daf8bd79487fec06a3ada909fe9166c4b
+  tests/test_causal_review_batch147.py: 642c69072f6248fbcef1d30d4b214cf376a2b5fa6b18437d42d5264e215ffa1d
+  tests/test_participating_taxa.py: 0bad0a41fa227759454f6cb84cd72586b654cd8600ff3efd83b1892d93724c8d
+  reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+  reports/causal_graph_review/decisions/20261104-stage2-four-records-batch138.yaml: 36c8cc7c9e309ec706d6af69dd87fef402cd41f21e83a22f1dbb59bc60907bb4
+  reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml: 732db4d507546996774aca3835d77c4a2b7feba7c2690522700488e2b8c4fe19
+guard_requirements:
+- >-
+  Batch 138 retains its exact four-record ledger, historical hashes and final
+  CURATE_CAUSAL_GRAPH/llm predicates, current graph/evidence/participant checks,
+  zero arrows in the PAH records and negative bentonite/six-day controls.
+  Admit each changed predecessor explicitly; do not rewrite the old ledger.
+- >-
+  Batch 147 retains all seven immutable rows, current-byte admission and original
+  historical scientific checks. Extend only the explicit disjoint shared
+  registry for 549/550 while preserving the existing 552/553 genus, 554 shared
+  and 555 species chains, unmodified 551 and unknown-path refusal.
+- >-
+  All reference populations listed above come from the recorded assignment
+  report, not a newly executed route. Confirm every selected occurrence against
+  a fresh complete native lookup; preserve every unselected descriptor and all
+  source, biological, stock, dataset and history content outside the admitted
+  mapping delta and new native events.
