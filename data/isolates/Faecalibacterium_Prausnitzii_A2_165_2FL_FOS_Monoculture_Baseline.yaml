@@ -72,7 +72,11 @@ taxonomy:
     term:
       id: NCBITaxon:853
       label: Faecalibacterium prausnitzii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Faecalibacterium_longum
+    - GTDB:s__Faecalibacterium_prausnitzii
+    - GTDB:s__Faecalibacterium_prausnitzii_D
     notes: Faecalibacterium prausnitzii A2-165 (JCM31915) obtained from the Japan Collection of Microorganisms; grounded at
       NCBI species rank to match CommunityMech:000401.
   strain_designation:
@@ -251,3 +255,7 @@ curation_history:
     growth and the small absolute magnitude of monoculture lactate and butyrate variations across 0–90% 2′-FL (Batch 146,
     Cycle 14 Stage 2).
   llm_assisted: true
+- timestamp: '2026-11-15T06:01:35Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
