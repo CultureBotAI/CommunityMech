@@ -1,0 +1,87 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/pes-shared-route-002.log",
+    "sha256": "b29b7054a1b0f3ea6539c5e6183f62cd5a48dd80930f071c689b84204c3313b7"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/pes-shared-route-002.json",
+    "sha256": "ac0b81f4e01d11e27bc71e711a6072f324b75f319412507e0cc8548abc32c81d"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/pes-shared-route-002.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml",
+      "record_id": "CommunityMech:000340",
+      "before_sha256": "c3ce655c53db89daeab6cf8ee8ca02ab7eb3bf597d6fe0dd7171ba33194dde1a",
+      "additional_inputs": {
+        ".temp/gtdb-code006-20261115/pes-source-assessment-plan-001.json": "dcd8cf3150753b79412950edf045d38b65a56bf1cf693fb6226de303a0184f32",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml": "e13924aca3b858e78dcfa2074352e5a9a381bba97a83b2b94b8e864419dd9efe",
+        "tests/test_causal_review_batch83.py": "87f8c8edf2a8cdb81a55501765c0eac166fe7d2f61c70dbc902ea941067410eb"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:2800685", "label": "Pelagerythrobacter"},
+          "strain_name": "N7",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Pelagerythrobacter",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Pelagerythrobacter",
+            "gtdb_taxon": "Pelagerythrobacter",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:2800685",
+            "support_genomes": 16,
+            "total_genomes": 16,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The retained primary article Section 3.1 places study stock N7 in the Pelagerythrobacter genus. The existing canonical note explicitly withholds an exact N7 strain taxon. Adding the declared genus's database correspondence is compatible with that uncertainty; it does not establish a species or crosswalk assembly for N7.",
+          "population_scope": "The native higher-rank route uses 16 of 16 named-binomial reference genomes at genus rank, after its normal filtering. The reporter separately retains every unfiltered lookup row. Neither the row inventory nor the filtered denominator counts sequenced N7 stocks.",
+          "name_scope": "Preserve NCBITaxon:2800685, canonical Pelagerythrobacter label, N7 stock designation, preferred_term and all notes. No species, genome, biological role or nomenclatural change is authorized."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:404432", "label": "Salinicola"},
+          "strain_name": "A11",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Salinicola",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Halomonadaceae;g__Salinicola",
+            "gtdb_taxon": "Salinicola",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:404432",
+            "support_genomes": 46,
+            "total_genomes": 46,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The retained primary article Section 3.1 places study stock A11 in the Salinicola genus. The existing canonical note explicitly withholds an exact A11 strain taxon. A same-genus reference correspondence preserves that limit and does not independently assign its reported genome to a GTDB assembly or species.",
+          "population_scope": "The native higher-rank route uses 46 of 46 named-binomial reference genomes at genus rank, after its normal filtering. The reporter's complete unfiltered lookup rows are retained separately; they are not an inventory of A11 genomes.",
+          "name_scope": "Preserve NCBITaxon:404432, canonical Salinicola label, A11 stock designation, preferred_term and all notes. The hphtC-5 candidate mechanism and original experimental claims remain outside this taxonomy correction."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42666409",
+          "path": "references_cache/PMID_42666409.txt",
+          "sha256": "3442799f20b033c3a010c14a4f32c4be15485fb0a501aed059921a5006cbe698",
+          "locator": "Section 3.1 Composition and genome sequencing of the synthetic consortium PES; existing genus/stock notes.",
+          "coverage": "Bounded inspection of retained main-text source for genus and stock naming. No new full-paper, supplement, figure, stock-genome or mechanism assessment.",
+          "identity_tokens": ["PMID: 42666409", "10.3389/fmicb.2026.1899654"],
+          "anchors": [
+            "the core degrading strain N7 clustered within the same core branch as Pelagerythrobacter sp. Ery1",
+            "Strain A11 exhibited extremely high phylogenetic relatedness with Salinicola sp. N4"
+          ]
+        }
+      ],
+      "historical_guard_assessment": "Preserve batch83 ledger and all current graph/source predicates: proposed handoff is not established intercellular flux or enzyme necessity; extracellular emulsification is not measured pyrene mediation or reciprocal fitness; pyrene removal is not carbon mineralization. Exact c3ce655c predecessor biology and old history must remain protected. The old last-event llm_assisted assertion must inspect its unchanged historical event only after strict actual successor admission, never add a false flag to new native events or drop the assertion. Preserve the separate existing 000052 successor route. This plan authorizes no full scientific clearance or canonical application by itself."
+    }
+  ]
+}
