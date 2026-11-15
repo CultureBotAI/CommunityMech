@@ -7,16 +7,20 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-HELPER = "scripts/adhoc/prepare_ambiguity_eight_sources_20261115.py"
-spec = importlib.util.spec_from_file_location("eight_preparation", ROOT / HELPER)
-producer = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(producer)
+HELPERS = [
+    "scripts/adhoc/prepare_ambiguity_eight_sources_20261115.py",
+    "scripts/adhoc/prepare_ambiguity_eight_sources_v2_20261115.py",
+]
 
 
-@pytest.fixture
-def fixture(tmp_path, monkeypatch):
+@pytest.fixture(params=HELPERS)
+def fixture(tmp_path, monkeypatch, request):
+    helper = request.param
+    spec = importlib.util.spec_from_file_location("eight_preparation", ROOT / helper)
+    producer = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(producer)
     monkeypatch.setattr(producer, "ROOT", tmp_path)
-    monkeypatch.setattr(producer, "__file__", str(tmp_path / HELPER))
+    monkeypatch.setattr(producer, "__file__", str(tmp_path / helper))
 
     def write(name, raw):
         path = tmp_path / name
@@ -24,7 +28,10 @@ def fixture(tmp_path, monkeypatch):
         path.write_bytes(raw)
         return producer.sha(raw)
 
-    write(HELPER, (ROOT / HELPER).read_bytes())
+    write(helper, (ROOT / helper).read_bytes())
+    if hasattr(producer, "PRESERVED_INPUTS"):
+        for name, expected in producer.PRESERVED_INPUTS.items():
+            assert write(name, (ROOT / name).read_bytes()) == expected
     before = write("kb/communities/example.yaml", b"id: CommunityMech:000505\n")
     source_sha = write("references_cache/example.txt", b"Exact source identity and boundary.\n")
     ledger_sha = write("reports/ledger.yaml", b"historical: true\n")
@@ -105,7 +112,7 @@ def fixture(tmp_path, monkeypatch):
     route_sha = write(stem + ".log", json.dumps(route).encode())
     write(stem + ".json", json.dumps({"exit_code": 0, "log_sha256": route_sha}).encode())
     write(stem + ".exit", b"0\n")
-    return tmp_path, {"plan": "reports/plan.json", "route": stem + ".log"}
+    return tmp_path, {"plan": "reports/plan.json", "route": stem + ".log"}, producer
 
 
 @pytest.mark.parametrize("kind", ["plan", "route"])
@@ -113,7 +120,7 @@ def fixture(tmp_path, monkeypatch):
 def test_full_producer_binds_captured_bytes_and_checks_persistence(
     fixture, monkeypatch, kind, restore_before_final_check
 ):
-    root, names = fixture
+    root, names, producer = fixture
     baseline = producer.prepare("fixture-route", "CommunityMech:000505")
     path = root / names[kind]
     original = path.read_bytes()
@@ -157,7 +164,7 @@ def test_full_producer_binds_captured_bytes_and_checks_persistence(
 
 
 def test_changed_accepted_plan_is_refused_before_judgment(fixture):
-    root, names = fixture
+    root, names, producer = fixture
     baseline = producer.prepare("fixture-route", "CommunityMech:000505")
     path = root / names["plan"]
     original = path.read_bytes()
