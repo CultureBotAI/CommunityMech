@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 import yaml
 from ambiguity_gtdb_successors import admit_status_successor
+from remaining_four_gtdb_successors import BUTANOL_PATH, admit_remaining_four_successor
 from source_intake_gtdb_successors import T1_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,7 +77,9 @@ def _check_batch137_invariants(ledger: dict, rows: list[dict], docs: list[dict])
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
         raw = (ROOT / row["path"]).read_bytes()
-        if row["path"] == T1_PATH:
+        if row["path"] == BUTANOL_PATH:
+            admission = admit_remaining_four_successor(ROOT, row["path"], row["record_sha256"])
+        elif row["path"] == T1_PATH:
             admission = admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
         else:
             admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
