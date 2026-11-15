@@ -1,0 +1,788 @@
+# Lupinus SC-7: twelve genus-reference correspondences with a retained non-type-clade warning
+
+- Review: 20261115T225115Z-lupinus-sc7-genus-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T22:51:15.687100Z
+- Finished UTC: 2026-11-15T22:51:15.887108Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The Lupinus SC-7 record now retains twelve native genus-reference GTDB blocks and grounding statuses. The twelve Table 1 stocks, original NCBI terms, repeated Streptomyces occurrences, biological claims, exact source quotations and earlier history remain unchanged. The actual guarded M5 application, two native inline events, one native history sidecar and eight scoped native commands are bound. The Pseudoxanthomonas_A majority is explicitly a non-type-anchored reference clade; it does not identify the study stock. Issue 1564 and the source spelling, genome, host, dominance and assay limitations remain unresolved.
+
+## Scope And Provenance
+
+Twelve taxonomy descriptors' genus-reference GTDB correspondences and grounding statuses; source-stock versus reference-population boundaries; and actual guarded application, native history and scoped technical-check provenance. Existing scientific claims are preserved without a new approval judgment.
+
+Selection: CommunityMech:000427 is the single end-to-end canary for the three independently reviewed whole records 427, 442 and 463. Mangrove442 and NDC6 463 remain unchanged until this complete saved diagnostic, input checkpoint and strict successor proof are verified.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 90986ee8a3c11709f8b0f98b75def1a35a978929.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000427 | kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml # taxonomy[0,1,2,3,4,5,6,7,8,9,10,11].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10,11].taxon_term.gtdb_grounding_status | maintained | Lupinus SC-7 twelve genus-reference correspondences |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000427 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Preserved twelve-stock genus scope and unresolved source boundaries
+
+grounding: supported. Targets: CommunityMech:000427.
+
+Preserve all twelve Table 1 stocks, their NCBI genus identities, duplicate Streptomyces occurrences and distinct FlowPot/CAS contexts. Source spelling and stock-to-genome aliases remain unresolved; no study assembly is newly classified. Missing-host, dominance, timing/statistics and other issue 1564 findings remain outside this technical correction.
+
+### Twelve native genus-reference populations and complete non-type-clade warning
+
+grounding: supported. Targets: CommunityMech:000427.
+
+The exact pinned crosswalk and native rank-g resolver support twelve stored genus-reference correspondences. Preserve the full Pseudoxanthomonas_A non-type warning and its 126/153 versus 27 counts, native rounding, original NCBI/stock names and unknown upstream release. The GTDB majority does not assign the study stock to that clade or establish formal renaming, inoculum proportions or harvested abundance.
+
+### Actual bounded application, native history and eight technical commands
+
+provenance: supported. Targets: CommunityMech:000427.
+
+The actual before-to-after receipt, two native inline events, one new native sidecar and eight scoped commands bind the accepted current bytes at frozen 90986. Source quotations, scientific fields and old history remain unchanged. Strict successor admission, source-snippet comparison, generated products, combined QC and the retained scientific findings are separate requirements.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000427-schema | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-strict | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-gtdb | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-domain | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-scalars | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-history | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-new-history | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-terms | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000427-paper | references_cache/PMID_42602126.txt; Retained main-text line 50: Table 1 stock roster at character offsets 16845-17633, genome paragraph at 38371 and richness/composition confounding at 62017; all eight exact primary locators are retained in the source proof. | supports | The selected source passages identify twelve genus-plus-stock descriptors, including distinct Streptomyces stocks, and delimit the assembly-study assays. Genome descriptions and source genus labels do not directly establish the new GTDB reference classifications or resolve source spelling variants. |
+| 000427-database | reports/gtdb-lupinus-mangrove-ndc6-20261115/427-source-evidence-002.json; All twelve selected occurrences, complete native_result/classify_status and rank-g lookup-row hashes, exact local NCBI identity observations and captured source/table hashes; index5 retains non_type_clade_warning. | supports | The pinned crosswalk supports twelve generic genus-reference correspondences, preserving the full diagnostic populations and ordered source identities. Pseudoxanthomonas_A has 126 of 153 reference genomes and the type-anchored clade has 27. These observations are not direct study-stock genome assignments, source abundance or formal nomenclature. |
+| 000427-application | .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-applied-001/receipt.json; Actual applied flag, execution revision, before/after digests, reviewed stage receipt, complete captured source inputs and native writer hash; exact native sidecar bound separately. | supports | The guarded M5 writer at 90986ee8 persisted d44267d2 after independent source and candidate review. Only twelve GTDB blocks/statuses and two native inline events changed. The native EDIT sidecar names the exact raw application receipt; all original stock, source, biological and historical fields remain intact. |
+| 000427-prior | reports/yaml_record_review/20260922T231553Z-Lupinus_SC7_Rhizosphere_SynCom.md; Historical September record review: genus-plus-stock boundary, distinct Streptomyces entries, source and assay scope, direct-validator observations and then-unavailable GTDB crosswalk. | context_only | The prior review is retained literally, including its historical pass and tool limitations. The present technical correspondence neither rewrites that history nor uses it as fresh full scientific approval. |
+| 000427-open-scope | .temp/phase2-schema-20261115/lupinus-issue1564-002.log; Captured issue1564 OPEN body, Lupinus paragraph: input versus harvest dominance, missing host, genus/strain-to-genome reconciliation, incubation/harvest timing and CAS PERMANOVA wording. | context_only | These existing non-graph scientific findings remain unresolved. The genotype/source-identity and assay questions are not cleared by genus-level reference mapping or the scoped native validators. |
+| 000427-history-boundary | reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml; Immutable CommunityMech:000427 decision row and tests/test_causal_review_batch64.py current biological predicates, old current-hash and last-LLM-event obligations. | context_only | The prior three-node/zero-arrow scientific projection and current participant roster remain intact. A later strict successor must prove this exact GTDB/history transition before supplying predecessor bytes to only the historical hash and old-event assertions. |
+
+## Limits And Additional Notes
+
+- Partial technical diagnostic with scientific_review:false. Passing native validators is not full scientific approval, fresh evidence-snippet certification, generated-product verification, aggregate QC completion or closure of prior findings.
+- Primary coverage is the retained PMID:42602126 Methods, embedded Table 1 and selected genome, FlowPot/CAS, colonization and Discussion passages. This pass did not perform a new complete article, separate supplement, figure-pixel, BioProject or exact-assembly classification audit.
+- All twelve source stocks remain genus-anchored. The two Streptomyces entries are distinct LARHCF249 and LARHCF252 occurrences, despite sharing the same NCBI term and reference population. Generic reference counts and rounded fractions do not identify the source stocks or their assemblies, experimental abundance, inoculum ratios or replicate numbers.
+- Preserve the full native warning: Pseudoxanthomonas_A is not the type-anchored clade; GTDB reserves Pseudoxanthomonas for the lineage holding the nomenclatural type, which drew 27 genomes here (#374). The native diagnostic reports 126 supporting A-clade genomes among 153 references. The canonical writer stores its normal rounded fraction; this assessment retains the complete diagnostic result. Neither the A suffix nor is_reclassified establishes formal renaming or the study strain's clade membership.
+- Table 1's Kribbella LARHCF250 and the later LARHXF250 spelling remain unreconciled, as do genus/strain-to-genome aliases including Lupac 08. The accepted original stock strings and source quotations are preserved; this database correspondence does not resolve those identity questions.
+- Preserve the three community-level nodes and zero causal arrows. Input membership is not evidence that all twelve taxa were DOMINANT at harvest. FlowPot and CAS soil experiments, transcription versus metabolic flux, richness versus composition, and six-week versus eight-week wording remain distinct; the CAS PERMANOVA wording and missing host remain under issue 1564.
+- The historical September record review and October batch64 decision remain immutable. Their reported pass and validation observations are historical evidence, not a new scientific verdict. This diagnostic does not recertify their claims or retire the later issue 1564 findings.
+- Crosswalk SHA256 761d5537 binds exact bytes; its upstream release and chronology are unestablished. Native mapping_source reports file mtime only. Local NCBI label/rank observations carry file-stat provenance rather than a complete database hash or release certification.
+- Local source preparation and its private preview ran at 0006d605 with Python 3.13.12. Actual M5 staging, application and all eight checks ran at 90986ee8a3c11709f8b0f98b75def1a35a978929 with Python 3.13.2. The independently accepted local/M5 candidate difference was only the two native event timestamps. The applied M5 working tree is explicitly changed; it is not a clean-HEAD aggregate run.
+- The eight actual required commands comprise one native history scaffold and seven scoped validators. Source-snippet comparisons, strict successor admission, generated products and combined corpus QC are separate requirements. Batch64's old hash and last-LLM-event obligations require a strict admitted predecessor; its current biological predicates and the participant roster must remain active.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T225115Z-lupinus-sc7-genus-reference-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Lupinus SC-7: twelve genus-reference correspondences with a retained non-type-clade
+  warning'
+started_at: '2026-11-15T22:51:15.687100Z'
+finished_at: '2026-11-15T22:51:15.887108Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The whole current record, retained primary Methods/Table 1 and
+    selected genomic, colonization and Discussion contexts, prior record review and
+    historical caller were read before staging. The parent independently read the
+    complete Lupinus source context, local candidate and actual M5 candidate, verifying
+    all bound inputs. The same previously reviewed native stage/apply/check/builder
+    path was used. This authored assessment is a partial technical diagnostic, not
+    a new full scientific review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The Lupinus SC-7 record now retains twelve native genus-reference GTDB blocks
+  and grounding statuses. The twelve Table 1 stocks, original NCBI terms, repeated
+  Streptomyces occurrences, biological claims, exact source quotations and earlier
+  history remain unchanged. The actual guarded M5 application, two native inline events,
+  one native history sidecar and eight scoped native commands are bound. The Pseudoxanthomonas_A
+  majority is explicitly a non-type-anchored reference clade; it does not identify
+  the study stock. Issue 1564 and the source spelling, genome, host, dominance and
+  assay limitations remain unresolved.
+source:
+  git_revision: 90986ee8a3c11709f8b0f98b75def1a35a978929
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-applied-001/before.yaml
+    sha256: 59a83e4d0b1defdc5f3bae63bccb38caa87fa9fd90a6c115e5be6f518998f6ff
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-applied-001/receipt.json
+    sha256: ddb5766d4ed9b13f3a27b3fa94afb313553d031ea9572839fc0c4238972af6cb
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/native.log
+    sha256: 45fab4015452fb9f56d9fbe7eb20fe21e98911d2adbea5c2aa3001ecc07b6a1c
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/receipt.json
+    sha256: ef5994e4f8885f8913f8f017c269f87b8f4b2c6b83ee8f8191da2169efe9cb41
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/start.json
+    sha256: 83ce7597af6c9c696043b5878acacb69b6a4a58e75736fbe81cc92c3bcccf969
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/native.log
+    sha256: 37e8eb267b86f6f4ab51f1832ea22bf468ce6e4c8e53aa5ab7d54aa192873462
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/receipt.json
+    sha256: 6ec608ae4bba6cb7137dbbdb75bd14128d4241e0cd3e0cda3210c0b1db7cabe0
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/start.json
+    sha256: 887ad3ed76dc766ebb62e39103f1d894ebe8ba2401dd4c91a9146307aa981c63
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/receipt.json
+    sha256: 7aa27b2a269234b9c34550a71d43aa14a2695995c2c8f076df256a999fe4d68f
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/start.json
+    sha256: 8a8fc0a2c6f49d1bac6cc7c335a307c3df7e992b3cdd9ceaf9b6a1cf7632f188
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-m5-candidate-001/Lupinus_SC7_Rhizosphere_SynCom.yaml
+    sha256: d44267d2aa5a0cd2e47b3a10eec0cd18733062541759d9ec86e323382fca26cb
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-m5-candidate-001/receipt.json
+    sha256: 11b49aac1999ad64e14b6467e1f2fd54688f7692352b486809176bc41dbaf7c9
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/native.log
+    sha256: 730a23f9cc48de8bda6f1f94e97ac1112f32e8d89ba9fbdc7c1ee98195f597d5
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/receipt.json
+    sha256: 018a7d4cd847efbceda09a96f2c545c32066f74613ea4e607c46d51152894f9a
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/start.json
+    sha256: c1da9af0774260c93ac08966c359cda3a0c5e5dbe8c17813fc4402843236000e
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/native.log
+    sha256: 2c5876a5f7c9125a962184e84f29e38c010e8af5828025748bf4560f1f9b8a90
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/receipt.json
+    sha256: 933590338018eeae527b864cc46154e6912f9114b94adf0eca70f1196fae7421
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/start.json
+    sha256: 6e25bb1679db9fc020c54f86d541d313554fde84e623bd5a5a05223e2a568709
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/native.log
+    sha256: 33273abb319635f6e828e544ec281024da7485312db0fa3f10ecce12a3acd3f1
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/receipt.json
+    sha256: f0e898dbf0cf25960b65bd251fc7e4849ac6c7222f14b629df839df4be5f4ca4
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/start.json
+    sha256: e99ffb60ff6182ca6adc6d254e9dc2d8fa9f348dbacb9d9f9a154ddc553a85de
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/native.log
+    sha256: e6ca85c2203768c6c4198e1303efab3b90d1a9d538deb88c951f196d2f2718ef
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/receipt.json
+    sha256: 3d97258b9ccce74d7f0d13572ba4a1731cb46aae22d360ea4c0830997f7aca2c
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/start.json
+    sha256: e4281c2e54c5518a59b879debe72b71b5896a7a8c2aab0489b8f369e98518b1f
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/native.log
+    sha256: d524fd5a9561d162fa2ea734f5299739a5eb5d72222339dd0f06d21944161f39
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/receipt.json
+    sha256: 57cbb88814f106e25f7b5104d9a0f7347a10c2d1239f1bc3707510cb23de51dc
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/start.json
+    sha256: 6f85168deb54b96f76b9786bf043ea25a7fa7f2b6b98fe40721e3d9483874e2a
+    role: context
+  - path: .temp/gtdb-lupinus-mangrove-ndc6-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/lupinus-issue1564-002.log
+    sha256: d0a431b6ae5646c5053847270c12ca5c01d1a70cb44d4e4384c6677c8445b0a1
+    role: context
+  - path: .temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.json
+    sha256: b2da67c2cf030e99d31767fa73d8583f962d5d68c972692dd85e2be76be67df2
+    role: context
+  - path: .temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.log
+    sha256: 05ac3ad9d5b279118c00b9308092868be364c5a657bbb2f3ca58247aff7c96dc
+    role: context
+  - path: .temp/phase2-schema-20261115/lupinus-mangrove-ndc6-source-binding-001.log
+    sha256: b52ff7c35abd78ce039935a648ba51bf38be15078afda321596b2e12337b0888
+    role: context
+  - path: history/records/Lupinus_SC7_Rhizosphere_SynCom/2026-09-22T231024Z-codex-427.yaml
+    sha256: a8625d19afd09cee4efce226eb6b3312628e35ca74c2ab96cb05117ee6f0fbd9
+    role: context
+  - path: history/records/Lupinus_SC7_Rhizosphere_SynCom/2026-10-06T222317Z-codex-eeec4c.yaml
+    sha256: 12da9a88b4bab75cd5ddd279f4c99108e2b5a2ce968fed2d6248772b2cdca8ad
+    role: context
+  - path: history/records/Lupinus_SC7_Rhizosphere_SynCom/2026-11-15T224438Z-codex-b61464.yaml
+    sha256: 9ebe50124065536c78aaf8698b598361bc1154b91ecfb37248d412dc25c06a37
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+    sha256: d44267d2aa5a0cd2e47b3a10eec0cd18733062541759d9ec86e323382fca26cb
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42602126.txt
+    sha256: b6524569419d9d0679f8917a8362a6afa8979713fef2de4c9b0ba1e39f913ab5
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml
+    sha256: c1ee5014ea7d83ad47d2a03e7392fb2e5f86722f7d29f90b1b132f41804982b4
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/427-check-config-001.json
+    sha256: 97d3777281efa5acc099f34524b08e28e80f7d945a68dd50609056eb24f55e06
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/427-review-config-002.json
+    sha256: 430bfb0bb3660922a12a4647aa752bdf967a900d474e3d25725abc6c7cba6bb2
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/427-source-evidence-002.json
+    sha256: bc317eab1e1841979a620d26fddde4e6c11df0e219ed1fbca364af2d78be90c1
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/three-authored-source-context-001.json
+    sha256: 188c8f1086cb0fb88d241e13c9f90ee74c8c5010d90d2c0756127fb0c897c7a2
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/three-route-plan-001.json
+    sha256: bc197b7e1033bf959f07ad27c950162b820c61c96f49e15f5f72f42e7c9f66f5
+    role: context
+  - path: reports/gtdb-lupinus-mangrove-ndc6-20261115/three-source-config-001.json
+    sha256: d1b1a4a7ab492af6109b633e5cd93ec8d4b4947a2a41c96661378609ae0f3434
+    role: context
+  - path: reports/yaml_record_review/20260922T231553Z-Lupinus_SC7_Rhizosphere_SynCom.md
+    sha256: f0943459e76177d61e6e4d390ba4b46c9207854c37c48bbc63547ec702dfd69a
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch64.py
+    sha256: 236ecb2e34ebbc328e5d96104d0bc41787484de6142f4285e869b7ec7b27aafc
+    role: context
+  - path: tests/test_participating_taxa.py
+    sha256: 0bad0a41fa227759454f6cb84cd72586b654cd8600ff3efd83b1892d93724c8d
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000427
+  path: kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  selector: taxonomy[0,1,2,3,4,5,6,7,8,9,10,11].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8,9,10,11].taxon_term.gtdb_grounding_status
+  label: Lupinus SC-7 twelve genus-reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Twelve taxonomy descriptors' genus-reference GTDB correspondences and
+    grounding statuses; source-stock versus reference-population boundaries; and actual
+    guarded application, native history and scoped technical-check provenance. Existing
+    scientific claims are preserved without a new approval judgment.
+  selection: CommunityMech:000427 is the single end-to-end canary for the three independently
+    reviewed whole records 427, 442 and 463. Mangrove442 and NDC6 463 remain unchanged
+    until this complete saved diagnostic, input checkpoint and strict successor proof
+    are verified.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000427
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000427-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+    --out .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-history history/records/Lupinus_SC7_Rhizosphere_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Lupinus_SC7_Rhizosphere_SynCom --target-root kb/communities --event EDIT --outcome
+    changed --sections taxonomy,curation_history --actor-name codex --model gpt-6
+    --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record twelve genus-reference GTDB correspondences for the Lupinus
+    SC-7 assembly-study descriptors.' --details 'The exact pinned crosswalk supports
+    twelve genus-reference blocks and grounding statuses while preserving all twelve
+    Table 1 stock identities, repeated Streptomyces stocks, NCBI terms, source quotations,
+    biological claims and earlier history. Pseudoxanthomonas maps to the non-type
+    Pseudoxanthomonas_A clade with 126 of 153 reference genomes; the 27 genomes in
+    the type-containing Pseudoxanthomonas clade remain an explicit native source warning.
+    This correspondence does not identify the study stock or its assembly, and a GTDB
+    suffix is not a formal nomenclatural ruling. Native writer output changes only
+    twelve blocks/statuses and two substantive inline events. Preserve the three community-level
+    nodes and zero arrows, FlowPot versus CAS assays, transcription versus metabolic
+    flux, inoculated roster versus measured dominance, and richness/composition confounding.
+    Prior issue 1564 findings, Table 1 LARHCF250 versus later LARHXF250 spelling,
+    timing/statistics and genomic-alias limits remain unresolved by this technical
+    correction. The crosswalk hash identifies bytes; upstream release and chronology
+    are unestablished. This partial technical diagnostic does not complete scientific
+    review, source-snippet certification, generated products or aggregate QC. Actual
+    apply receipt .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-applied-001/receipt.json
+    sha256:ddb5766d4ed9b13f3a27b3fa94afb313553d031ea9572839fc0c4238972af6cb.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000427-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000427
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000427-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000427-schema
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-schema-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-strict
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-strict-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-gtdb
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-gtdb-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-domain
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-domain-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-scalars
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-scalars-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-history
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-history-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-new-history
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-new-history-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-terms
+  kind: validation
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-terms-001/native.log
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000427-paper
+  kind: primary_source
+  reference: references_cache/PMID_42602126.txt
+  locator: 'Retained main-text line 50: Table 1 stock roster at character offsets
+    16845-17633, genome paragraph at 38371 and richness/composition confounding at
+    62017; all eight exact primary locators are retained in the source proof.'
+  support: supports
+  summary: The selected source passages identify twelve genus-plus-stock descriptors,
+    including distinct Streptomyces stocks, and delimit the assembly-study assays.
+    Genome descriptions and source genus labels do not directly establish the new
+    GTDB reference classifications or resolve source spelling variants.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+- evidence_id: 000427-database
+  kind: database
+  reference: reports/gtdb-lupinus-mangrove-ndc6-20261115/427-source-evidence-002.json
+  locator: All twelve selected occurrences, complete native_result/classify_status
+    and rank-g lookup-row hashes, exact local NCBI identity observations and captured
+    source/table hashes; index5 retains non_type_clade_warning.
+  support: supports
+  summary: The pinned crosswalk supports twelve generic genus-reference correspondences,
+    preserving the full diagnostic populations and ordered source identities. Pseudoxanthomonas_A
+    has 126 of 153 reference genomes and the type-anchored clade has 27. These observations
+    are not direct study-stock genome assignments, source abundance or formal nomenclature.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+- evidence_id: 000427-application
+  kind: record_content
+  reference: .temp/gtdb-lupinus-mangrove-ndc6-20261115/427-applied-001/receipt.json
+  locator: Actual applied flag, execution revision, before/after digests, reviewed
+    stage receipt, complete captured source inputs and native writer hash; exact native
+    sidecar bound separately.
+  support: supports
+  summary: The guarded M5 writer at 90986ee8 persisted d44267d2 after independent
+    source and candidate review. Only twelve GTDB blocks/statuses and two native inline
+    events changed. The native EDIT sidecar names the exact raw application receipt;
+    all original stock, source, biological and historical fields remain intact.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+- evidence_id: 000427-prior
+  kind: prior_review
+  reference: reports/yaml_record_review/20260922T231553Z-Lupinus_SC7_Rhizosphere_SynCom.md
+  locator: 'Historical September record review: genus-plus-stock boundary, distinct
+    Streptomyces entries, source and assay scope, direct-validator observations and
+    then-unavailable GTDB crosswalk.'
+  support: context_only
+  summary: The prior review is retained literally, including its historical pass and
+    tool limitations. The present technical correspondence neither rewrites that history
+    nor uses it as fresh full scientific approval.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+- evidence_id: 000427-open-scope
+  kind: prior_review
+  reference: .temp/phase2-schema-20261115/lupinus-issue1564-002.log
+  locator: 'Captured issue1564 OPEN body, Lupinus paragraph: input versus harvest
+    dominance, missing host, genus/strain-to-genome reconciliation, incubation/harvest
+    timing and CAS PERMANOVA wording.'
+  support: context_only
+  summary: These existing non-graph scientific findings remain unresolved. The genotype/source-identity
+    and assay questions are not cleared by genus-level reference mapping or the scoped
+    native validators.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+- evidence_id: 000427-history-boundary
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml
+  locator: Immutable CommunityMech:000427 decision row and tests/test_causal_review_batch64.py
+    current biological predicates, old current-hash and last-LLM-event obligations.
+  support: context_only
+  summary: The prior three-node/zero-arrow scientific projection and current participant
+    roster remain intact. A later strict successor must prove this exact GTDB/history
+    transition before supplying predecessor bytes to only the historical hash and
+    old-event assertions.
+  accessed_at: '2026-11-15T22:51:15.687100Z'
+assessments:
+- assessment_id: 000427-source
+  area: grounding
+  topic: Preserved twelve-stock genus scope and unresolved source boundaries
+  outcome: supported
+  target_ids:
+  - CommunityMech:000427
+  evidence_ids:
+  - 000427-paper
+  - 000427-database
+  - 000427-terms
+  - 000427-prior
+  - 000427-open-scope
+  summary: Preserve all twelve Table 1 stocks, their NCBI genus identities, duplicate
+    Streptomyces occurrences and distinct FlowPot/CAS contexts. Source spelling and
+    stock-to-genome aliases remain unresolved; no study assembly is newly classified.
+    Missing-host, dominance, timing/statistics and other issue 1564 findings remain
+    outside this technical correction.
+- assessment_id: 000427-population
+  area: grounding
+  topic: Twelve native genus-reference populations and complete non-type-clade warning
+  outcome: supported
+  target_ids:
+  - CommunityMech:000427
+  evidence_ids:
+  - 000427-database
+  - 000427-gtdb
+  - 000427-domain
+  summary: The exact pinned crosswalk and native rank-g resolver support twelve stored
+    genus-reference correspondences. Preserve the full Pseudoxanthomonas_A non-type
+    warning and its 126/153 versus 27 counts, native rounding, original NCBI/stock
+    names and unknown upstream release. The GTDB majority does not assign the study
+    stock to that clade or establish formal renaming, inoculum proportions or harvested
+    abundance.
+- assessment_id: 000427-provenance
+  area: provenance
+  topic: Actual bounded application, native history and eight technical commands
+  outcome: supported
+  target_ids:
+  - CommunityMech:000427
+  evidence_ids:
+  - 000427-application
+  - 000427-schema
+  - 000427-strict
+  - 000427-scalars
+  - 000427-new-history
+  - 000427-history
+  - 000427-prior
+  - 000427-history-boundary
+  summary: The actual before-to-after receipt, two native inline events, one new native
+    sidecar and eight scoped commands bind the accepted current bytes at frozen 90986.
+    Source quotations, scientific fields and old history remain unchanged. Strict
+    successor admission, source-snippet comparison, generated products, combined QC
+    and the retained scientific findings are separate requirements.
+findings: []
+actions: []
+limitations:
+- Partial technical diagnostic with scientific_review:false. Passing native validators
+  is not full scientific approval, fresh evidence-snippet certification, generated-product
+  verification, aggregate QC completion or closure of prior findings.
+- Primary coverage is the retained PMID:42602126 Methods, embedded Table 1 and selected
+  genome, FlowPot/CAS, colonization and Discussion passages. This pass did not perform
+  a new complete article, separate supplement, figure-pixel, BioProject or exact-assembly
+  classification audit.
+- All twelve source stocks remain genus-anchored. The two Streptomyces entries are
+  distinct LARHCF249 and LARHCF252 occurrences, despite sharing the same NCBI term
+  and reference population. Generic reference counts and rounded fractions do not
+  identify the source stocks or their assemblies, experimental abundance, inoculum
+  ratios or replicate numbers.
+- 'Preserve the full native warning: Pseudoxanthomonas_A is not the type-anchored
+  clade; GTDB reserves Pseudoxanthomonas for the lineage holding the nomenclatural
+  type, which drew 27 genomes here (#374). The native diagnostic reports 126 supporting
+  A-clade genomes among 153 references. The canonical writer stores its normal rounded
+  fraction; this assessment retains the complete diagnostic result. Neither the A
+  suffix nor is_reclassified establishes formal renaming or the study strain''s clade
+  membership.'
+- Table 1's Kribbella LARHCF250 and the later LARHXF250 spelling remain unreconciled,
+  as do genus/strain-to-genome aliases including Lupac 08. The accepted original stock
+  strings and source quotations are preserved; this database correspondence does not
+  resolve those identity questions.
+- Preserve the three community-level nodes and zero causal arrows. Input membership
+  is not evidence that all twelve taxa were DOMINANT at harvest. FlowPot and CAS soil
+  experiments, transcription versus metabolic flux, richness versus composition, and
+  six-week versus eight-week wording remain distinct; the CAS PERMANOVA wording and
+  missing host remain under issue 1564.
+- The historical September record review and October batch64 decision remain immutable.
+  Their reported pass and validation observations are historical evidence, not a new
+  scientific verdict. This diagnostic does not recertify their claims or retire the
+  later issue 1564 findings.
+- Crosswalk SHA256 761d5537 binds exact bytes; its upstream release and chronology
+  are unestablished. Native mapping_source reports file mtime only. Local NCBI label/rank
+  observations carry file-stat provenance rather than a complete database hash or
+  release certification.
+- Local source preparation and its private preview ran at 0006d605 with Python 3.13.12.
+  Actual M5 staging, application and all eight checks ran at 90986ee8a3c11709f8b0f98b75def1a35a978929
+  with Python 3.13.2. The independently accepted local/M5 candidate difference was
+  only the two native event timestamps. The applied M5 working tree is explicitly
+  changed; it is not a clean-HEAD aggregate run.
+- The eight actual required commands comprise one native history scaffold and seven
+  scoped validators. Source-snippet comparisons, strict successor admission, generated
+  products and combined corpus QC are separate requirements. Batch64's old hash and
+  last-LLM-event obligations require a strict admitted predecessor; its current biological
+  predicates and the participant roster must remain active.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1564
+- https://github.com/CultureBotAI/CommunityMech/issues/1564#issuecomment-6902407015
+- https://github.com/CultureBotAI/CommunityMech/pull/2928
+```
