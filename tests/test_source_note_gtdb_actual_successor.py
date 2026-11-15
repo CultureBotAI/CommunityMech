@@ -1,4 +1,4 @@
-"""Actual 393/409/338/435/448 two-transition proofs and tamper controls, 2026-11-15.
+"""Actual 393/409/338/435/448/392 proofs and tamper controls, 2026-11-15.
 
 Only public artifacts are copied into isolated fixtures. Both historical Git
 reads use the actual immutable repository baselines; no mapping core is mocked.
