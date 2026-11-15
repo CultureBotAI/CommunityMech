@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-PIN = "85b4d693002387b855ece75282fad7a324b761cc"
+PIN = "fde0154a8f2d56514a738c4800657348391c2b66"
 EXPECTED = {
     "prompts/backlog-loop-goal.md",
     "src/communitymech/schema/mech_shared.yaml",
@@ -82,6 +82,16 @@ def main():
     if args.apply:
         with LockManager().lock("communitymech", "adopt-reviewed-supporting-reference-schema"):
             settings.get_target("communitymech")
+            if (
+                git(ROOT, "rev-parse", "HEAD") != receipt["communitymech_revision"]
+                or git(ROOT, "status", "--porcelain")
+                or git(source, "rev-parse", "HEAD") != PIN
+                or git(source, "status", "--porcelain")
+            ):
+                raise ValueError("source or target checkout changed before lock acquisition")
+            locked_plan = plan_sync("communitymech", ROOT, PIN)
+            if {change.path for change in locked_plan} != EXPECTED:
+                raise ValueError("native plan changed before lock acquisition")
             if any((ROOT / name).read_bytes() != raw for name, raw in before.items()):
                 raise ValueError("reviewed target bytes changed before synchronization")
             applied = sync_repository("communitymech", ROOT, PIN, apply=True)
