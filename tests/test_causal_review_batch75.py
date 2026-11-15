@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from source_note_gtdb_successors import MULBERRY, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml"
@@ -22,6 +23,7 @@ def test_sparse_feed_graph_is_reviewed_unchanged():
     assert row["status"] == "reviewed" and row["outcome"] == "unchanged"
     assert row["record_sha256"] == row["original_sha256"]
     assert row["curation_events_added"] == 0 and row["history_files"] == []
+    admit_note_mapping_successor(ROOT, row["path"], row["record_sha256"])
     nodes = docs[0]["ecological_interactions"]
     assert len(nodes) == 2 and all("downstream" not in n for n in nodes)
     assert nodes[1]["evidence"][0]["supports"] == "PARTIAL"
@@ -117,6 +119,8 @@ def test_record_hashes_and_only_changed_record_histories_match():
     assert sum(row["curation_events_added"] for row in rows) == 3
     for row, doc in zip(rows, docs, strict=True):
         expected = row["record_sha256"]
+        if row["path"] == MULBERRY:
+            expected = admit_note_mapping_successor(ROOT, row["path"], expected).current_sha256
         if row["id"] == "CommunityMech:000274":
             followup = yaml.safe_load(
                 (
