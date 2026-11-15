@@ -66,11 +66,16 @@ taxonomy:
     term:
       id: NCBITaxon:1590
       label: Lactiplantibacillus plantarum
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Lactiplantibacillus_plantarum
-    - GTDB:s__Lactiplantibacillus_plantarum_A
-    - GTDB:s__Lactiplantibacillus_paraplantarum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactiplantibacillus_plantarum
+      gtdb_taxon: Lactiplantibacillus plantarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactiplantibacillus;s__Lactiplantibacillus plantarum
+      ncbi_source_id: NCBITaxon:1590
+      majority_fraction: 1.0
+      total_genomes: 2061
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The source writes "Lactobacillus plantarum"; the canonical NCBITaxon label for the same taxon is
       Lactiplantibacillus plantarum after the 2020 reclassification of Lactobacillus sensu lato, so the
@@ -95,11 +100,16 @@ taxonomy:
     term:
       id: NCBITaxon:1423
       label: Bacillus subtilis
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Bacillus_subtilis
-    - GTDB:s__Bacillus_inaquosorum
-    - GTDB:s__Bacillus_atrophaeus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The source names Bacillus subtilis as one of the three designed inoculants. Separately, the pinned
       kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
@@ -318,3 +328,11 @@ curation_history:
     current ambiguity statuses pending the separately reviewed native mapping transition. No study-stock genome
     identity or wider scientific claim is recertified.
   llm_assisted: true
+- timestamp: '2026-11-15T09:38:13Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:38:13Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'
