@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from batch147_genus_successor import current_record_sha256, historical_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -130,10 +131,13 @@ def test_batch147_ledger_matches_curated_records() -> None:
         assert row["original_sha256"] == expected["original_sha256"]
         assert row["record_sha256"] == expected["record_sha256"]
 
-        yaml_path = ROOT / row["path"]
-        digest = hashlib.sha256(yaml_path.read_bytes()).hexdigest()
+        # Historical scientific assertions retain their exact original bytes.
+        # Any current genus-only successor must independently prove its scope.
+        current_record_sha256(ROOT, row["path"], expected["record_sha256"])
+        original = historical_bytes(ROOT, row["path"])
+        digest = hashlib.sha256(original).hexdigest()
         assert digest == expected["record_sha256"]
-        doc = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
+        doc = yaml.safe_load(original)
 
         validate_batch147_entry(row, doc, digest)
 
@@ -148,9 +152,9 @@ def test_the_check_can_actually_fail() -> None:
     """Prove validate_batch147_entry fails across 5 distinct mutation arms after a green control."""
     ledger = yaml.safe_load(BATCH147_LEDGER.read_text(encoding="utf-8"))
     sample_review = yaml.safe_load(yaml.safe_dump(ledger["records"][6]))
-    sample_path = ROOT / sample_review["path"]
-    sample_digest = hashlib.sha256(sample_path.read_bytes()).hexdigest()
-    sample_doc = yaml.safe_load(sample_path.read_text(encoding="utf-8"))
+    sample_raw = historical_bytes(ROOT, sample_review["path"])
+    sample_digest = hashlib.sha256(sample_raw).hexdigest()
+    sample_doc = yaml.safe_load(sample_raw)
 
     # Control arm: unmutated copy passes cleanly.
     validate_batch147_entry(sample_review, sample_doc, sample_digest)
