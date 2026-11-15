@@ -10,15 +10,35 @@ import argparse
 import json
 import re
 from collections import Counter
+from pathlib import Path
 
 from export_m5_technical_evidence_20261114 import ROOT, digest, immutable, sanitize
 
 STATE = ROOT / ".temp/m5-completion-20261114"
 OUTPUT = ROOT / "reports/phase2-completion-20261115/technical-evidence"
+STANDALONE_RECIPES = frozenset(
+    {
+        "validate-all",
+        "validate-taxa",
+        "validate-strict",
+        "validate-gtdb-all",
+        "validate-scalars",
+        "validate-scalars-idiomatic",
+        "validate-terms-all",
+        "validate-terms-taxa",
+        "validate-references-all",
+    }
+)
 
 
 def export(name):
-    if not re.fullmatch(
+    standalone = None
+    if "-standalone-" in name:
+        match = re.fullmatch(r"phase2-[A-Za-z0-9-]+-standalone-([a-z-]+)", name)
+        if not match or match[1] not in STANDALONE_RECIPES:
+            raise ValueError("unknown standalone native recipe name")
+        standalone = match[1]
+    elif not re.fullmatch(
         r"phase2-[A-Za-z0-9-]+-(?:plan|history|regressions|canary|qc|qc-references|products|docs)",
         name,
     ):
@@ -26,6 +46,23 @@ def export(name):
     receipt_path = STATE / f"{name}.json"
     raw_receipt = receipt_path.read_bytes()
     receipt = json.loads(raw_receipt)
+    if standalone:
+        command = receipt.get("command")
+        stages = receipt.get("stages")
+        if not (
+            isinstance(command, list)
+            and len(command) == 6
+            and isinstance(command[0], str)
+            and Path(command[0]).name == "just"
+            and command[1:] == ["--verbose", "--no-dotenv", "--color", "never", standalone]
+            and receipt.get("dry_run") is False
+            and receipt.get("diagnostic_no_deps") is False
+            and isinstance(stages, list)
+            and len(stages) == 1
+            and isinstance(stages[0], dict)
+            and stages[0].get("recipe") == standalone
+        ):
+            raise ValueError("standalone name and native execution scope disagree")
     log_path = STATE / f"{name}.log"
     exit_path = STATE / f"{name}.exit"
     raw_log = log_path.read_bytes()
