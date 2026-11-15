@@ -1,9 +1,15 @@
-# Four-record GTDB source preparation
+# Four-record GTDB source preparation and KZ canary
+
+The [KZ344 canary outcome](344-canary-outcome-001.md) records the actual M5
+application, eight native checks, immutable partial diagnostic, both-host
+complete input checkpoint and strict historical-admission controls. This is a
+bounded mapping correction; records 498, 369 and 405 remain at preparation.
+The following preparation account preserves the original source-read scope.
 
 This is source preparation for records 344, 498, 369 and 405 at
-`320b21d5a40a5493dd1dd26a74a8a29b5ec0ae54`. No canonical application, native
-post-application gates, saved diagnostic review or historical successor admission
-has been performed in this lane. The proposed scope is database correspondence
+`320b21d5a40a5493dd1dd26a74a8a29b5ec0ae54`. At that preparation checkpoint no
+canonical application, native post-application gates, saved diagnostic review or
+historical successor admission had been performed in this lane. The scope is database correspondence
 and complete ambiguity sets; it does not certify the records' science.
 
 The [authored context](four-authored-source-context-001.json) pins the current
