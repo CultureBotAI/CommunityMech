@@ -1,0 +1,94 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only; fresh native binding and authority observations remain required.
+records:
+  - id: CommunityMech:000501
+    path: kb/communities/Burkholderia_Bacillus_C2_Masson_Pine_SynCom.yaml
+    before_sha256: 4c540d55438895202d84cb0b25957c0637780be4e031b5029211b747ad07a18d
+    primary_source:
+      reference: PMID:42144568
+      url: https://doi.org/10.1002/ps.70924
+      retained_path: references_cache/PMID_42144568.txt
+      retained_sha256: d2cf960eca50e700df52316443b8a45c78b6509ea83982aa984c0768ed9ae006
+      locator: Complete retained abstract and separately labeled historical Figure 4 roster/4b marker-label transcription.
+      coverage: The complete canonical record and retained cache were read. Figure pixels, full Methods and deposited marker sequences were not freshly inspected. Historical figure transcription is not relabeled as a fresh visual inspection.
+      judgment: C2 contains RW5, RW1, RW6, RW7 and RW8, whereas HT contains RW5 and RW8. The retained figure-label transcription identifies RW1 as B. cepacia, RW6 as B. amyloliquefaciens and RW8 as B. vallismortis. The OQ accessions are described as 16S markers, not assemblies.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:292', label: Burkholderia cepacia}
+        stock: RW1
+        historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Burkholderia_cepacia', total_genomes: 548, majority_fraction: 0.93, is_reclassified: false}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:1390', label: Bacillus amyloliquefaciens}
+        stock: RW6
+        historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Bacillus_amyloliquefaciens', 'GTDB:s__Bacillus_velezensis']}
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:72361', label: Bacillus vallismortis}
+        stock: RW8
+        historical_expected: {via: ncbi_name, gtdb_id: 'GTDB:s__Bacillus_vallismortis', total_genomes: 1, majority_fraction: 1.0, is_reclassified: false}
+    preservation_contract:
+      - Keep all five distinct stocks, including unselected RW5 and RW7 and their existing blocks. A reference alternative shared with RW7 does not identify RW6 as RW7 or merge them.
+      - RW8 uses a native name fallback, not an exact-ID route. One reference genome and fraction 1.0 do not identify the RW8 study genome. The 548-genome population and rounded 0.93 fraction likewise do not establish RW1 membership or an exact numerator.
+      - Preserve OQ996942, OQ996954 and OQ996934 with their explicit 16S-marker notes; their placement in accession fields does not license an assembly claim. Preserve historical mapping notes, all source quotations and prior history.
+      - Keep three community-level nodes and zero arrows, five C2 members versus two HT members, C2 height 10.18 percent/disease reduction 50 percent versus HT 9.44 percent/36.67 percent. Defense-expression association and partial evidence are not member-ablation or pathway-mediation proof.
+      - Retain the open discussion about the incremental contribution of the three additional C2 members. Neither source attribution nor GTDB correspondence completes scientific review or establishes strain genomes.
+    historical_guard:
+      path: tests/test_causal_review_batch138.py
+      sha256: 94162bc2a0f889210f9ceb87e96a005daf8bd79487fec06a3ada909fe9166c4b
+      ledger: reports/causal_graph_review/decisions/20261104-stage2-four-records-batch138.yaml
+      ledger_sha256: 36c8cc7c9e309ec706d6af69dd87fef402cd41f21e83a22f1dbb59bc60907bb4
+      note: Compose exact 501 admission with concurrent 502-504 corrections. Preserve original ledger and caller's current parsed-document inputs; the 501 last-action mutation must still fail, 502 fabricated quotation must fail with Snippet mismatch, and 503 bentonite/6-days mutation must fail. Never replace mutated current biology with disk content to pass historical checks.
+  - id: CommunityMech:000346
+    path: kb/communities/Chicken_BL6_AntiSalmonella_SynCom.yaml
+    before_sha256: c45342937de0702f02ed9029b7580823f25e2a59f9cdb75f83c4de6e9177ff1c
+    primary_source:
+      reference: PMID:42351244
+      url: https://doi.org/10.1186/s40104-026-01447-2
+      retained_path: references_cache/PMID_42351244.txt
+      retained_sha256: c423fe3294e328c8f7b06affbc394b606249e5cf63ba8a5350f433d949b344e3
+      locator: Main Methods 325-335; six-stock roster 383; ANI Results 393 and Table 1 at 397-451; data availability 613-615.
+      coverage: Complete canonical record and selected retained main-text passages/table were read. Prior full review findings were inspected separately. This pass does not claim a fresh figure, supplement, assembly or raw-read analysis.
+      judgment: The study sequenced six isolate genomes and reported ANI to type-strain references. CMLH109 and CMLH110 are reported as L. crispatus and L. gallinarum with ANI 97.91 and 98.05 percent. CMLH124 remains a novel Bacillus species at genus rank because reported ANI is 93.27 percent. These source results do not constitute this pass's independent stock-genome placement in the pinned GTDB crosswalk.
+    proposed_occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:1624', label: Ligilactobacillus salivarius}
+        stock: CMLH112
+        historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Ligilactobacillus_salivarius', 'GTDB:s__Ligilactobacillus_sp945923665']}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:33959', label: Lactobacillus johnsonii}
+        stock: CMLH106
+        historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 3, gtdb_options: ['GTDB:s__Lactobacillus_johnsonii', 'GTDB:s__Lactobacillus_sp945980025', 'GTDB:s__Lactobacillus_sp947171515']}
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:47770', label: Lactobacillus crispatus}
+        stock: CMLH109
+        historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Lactobacillus_crispatus', total_genomes: 1123, majority_fraction: 1.0, is_reclassified: false}
+      - selector: taxonomy[5].taxon_term
+        descriptor: {id: 'NCBITaxon:52242', label: Lactobacillus gallinarum}
+        stock: CMLH110
+        historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Lactobacillus_gallinarum', total_genomes: 38, majority_fraction: 0.92, is_reclassified: false}
+    note_intermediate_required:
+      selectors: ['taxonomy[4].taxon_term.notes', 'taxonomy[5].taxon_term.notes']
+      reason: Both current notes explicitly state that no species-level GTDB classification is asserted here. Adding species blocks without a separately reviewed note correction would make that prose contradictory. Keep the two unresolved descriptors' ambiguity limits and all source names.
+      process: First bind fresh routes, then review and apply a bounded source-note transition, verify its native checks and retain a real maintained intermediate. Final mapping and composite successor proof must bind both actual transitions. No note wording is approved for execution by this preparation alone.
+    prior_review:
+      path: reviews/structured/20261021T172345Z-chicken-bl6-record/review.yaml
+      sha256: 812eee6da27ced8de7165f573884f2b5dc0a34ac466a5004128991ec88d5bee9
+      scope: Retain all four recorded findings. This diagnostic may address the exact-ID mapping finding after proof, but does not resolve phenotype/abundance, culture context or evidence placement. Historical source/SI conflicts and the distinction between fresh review and stale unread-SI prose remain explicit.
+    preservation_contract:
+      - Keep all six isolate codes and source-preferred species labels, unselected CMLH125 block and CMLH124 genus classification. Do not resolve species alternatives using source ANI alone or invent a stock accession.
+      - The source reports genomes, not merely marker identification. Its on-request data statement is not evidence that public accessions are absent; no author contact or exhaustive archive search was performed. Counts 1123 and 38 are reference populations, not the sequenced study isolates or inoculum counts.
+      - Preserve one community-level node and zero arrows, day-7 versus day-14 transcript differences, relative microbiota enrichment, unresolved strain persistence and absent mediator/pathogen-eradication proof. Retain all source quotations and prior history.
+      - Preserve isolation, propagation, supernatant screening, washed PBS/20-percent-glycerol preparation and host intervention as distinct stages. Equal OD600 1.3/proportions do not establish equal viable abundance; the source's nominal doses use an E. coli OD calibration. No uninspected propagation recipe, atmosphere or temperature is inferred.
+      - The original overview and DOMINANT annotations are not newly certified. The saved review's phenotype/abundance, culture-context and evidence-placement findings remain for scientific remediation; predicted peptides/clusters/iron competition are not demonstrated molecular effectors.
+    historical_guard:
+      path: tests/test_causal_review_batch11.py
+      sha256: d8d23becf561096ff16bc2ccf9f0dca1f7502be8940c4c34a046f8bb1cf754c0
+      ledger: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+      ledger_sha256: f8d8ca3b5c79a2d255f82bff689ed3bb726539e781a836aedbeef0cdde6d13c4
+      note: Add only exact composite 346 admission before old-byte verification; retain current node, edge, phenotype and all other three records' biological/source checks. Original ledger bytes and prior scientific judgments remain historical.
+completion_limit: Seven selected descriptors across two complete records. No canonical changes, new native route certification, reference sweep or scientific finding resolution. Record346 requires a separate source-note intermediate; record501 must compose with batch138's other three records.
