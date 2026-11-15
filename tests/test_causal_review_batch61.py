@@ -28,7 +28,7 @@ def latest_record_sha256(row):
         }:
             assert successor["original_sha256"] == row["record_sha256"]
             return current_record_sha256(ROOT, row["path"], successor["record_sha256"])
-    return row["record_sha256"]
+    return current_record_sha256(ROOT, row["path"], row["record_sha256"])
 
 
 def records():
