@@ -1,0 +1,152 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: d834256fca00de2cc76b779dd09056ec098f978e
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected results only; fresh native route, local authority and captured-input proof remain required.
+records:
+  - id: CommunityMech:000372
+    path: kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml
+    before_sha256: 0e4ab9a02b384bc08912fba28e9873d6c98d408ebd7aa68187adbc423a7b4c38
+    primary_source:
+      reference: PMID:42520901
+      url: https://doi.org/10.1016/j.envres.2026.125349
+      retained_path: references_cache/PMID_42520901.txt
+      retained_sha256: d5b4b1fe44232381e93d57ccf677c58cb6b95f46378acf7b4ed5e9fd284259cd
+      locator: Abstract, consortium construction and metagenomic interpretation.
+      coverage: Retained abstract only; no full paper or supplementary methods assessed.
+      exact_short_quote: the facultative anaerobic denitrifier Klebsiella sp.
+      judgment: >-
+        The abstract explicitly names Klebsiella and Alcaligenes at genus rank,
+        alongside Pseudomonas stutzeri. It supplies no strain designations for
+        these genus entries. The Fe2+/PAM contrasts and metagenomic interpretation
+        do not resolve their stock genomes or intermember metabolic flux.
+    proposed_occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:570', label: Klebsiella}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Klebsiella', support_genomes: 44527, total_genomes: 44529, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 2}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:507', label: Alcaligenes}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Alcaligenes', support_genomes: 36, total_genomes: 36, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the existing Stutzerimonas/Pseudomonas name context and all ten ambiguity candidates at taxonomy[0].
+      - Klebsiella's displayed fraction is rounded; 44527/44529 with two genera is not unanimity.
+      - Preserve unknown stock identities, the iron/PAM treatment contrasts and the distinction between nitrate removal and complete nitrogen removal.
+      - Preserve source-access and metagenomic-expression interpretation limitations; do not invent mechanism validation or culture details.
+    historical_guard:
+      path: tests/test_causal_review_batch89.py
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml
+      note: Preserve all scientific predicates and the unrelated 000331 remediation branch. Exact record-hash and last historical llm_assisted checks need verified predecessor projection for 000372 only.
+  - id: CommunityMech:000349
+    path: kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml
+    before_sha256: 1f5a47edf08cf2ef71d33f42caaa341929e6900422787e13dea0c61c1f0b1453
+    primary_source:
+      reference: PMID:41876513
+      url: https://www.nature.com/articles/s41467-026-70468-2
+      retained_path: references_cache/PMID_41876513.txt
+      retained_sha256: a505eb5947488ad1903638447461880f6397685e6517ee1c741267f555892e81
+      locator: Results on dominant and auxiliary GAC-associated MAGs; Methods genome classification and protein homology.
+      coverage: Selected retained main-text passages; live publisher access failed. No fresh supplementary, assembly or MAG-sequence audit.
+      exact_short_quote: Sedimentibacter (6.5%), Lentimicrobium (3.4%), and Desulforhopalus (3%)
+      judgment: >-
+        The source distinguishes Baltic Methanosarcina GAC.MBAT.2 and auxiliary
+        Lentimicrobium/Desulforhopalus MAGs. Its inferred capacities and alternative
+        metabolic roles must remain distinct from measured stock-resolved flux.
+        The paper's MAG classification used GTDB R214, not this repair crosswalk.
+    proposed_occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:2207', label: Methanosarcina}
+        stock: GAC.MBAT.2
+        historical_expected: {gtdb_id: 'GTDB:g__Methanosarcina', support_genomes: 301, total_genomes: 301, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:1840214', label: Lentimicrobium}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Lentimicrobium', support_genomes: 3, total_genomes: 3, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:40413', label: Desulforhopalus}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Desulforhopalus', support_genomes: 6, total_genomes: 6, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the existing Bacteria-level correspondence and proposed Candidatus Geosyntrophus/GAC.MBAT.93/JACRCG01 context; do not promote its rank here.
+      - Preserve Sedimentibacter's existing 15/16 block and every MAG designation, read proportion and source-specific inference.
+      - New genus correspondence does not place any study MAG in a particular reference assembly or species cluster.
+      - Preserve GAC-dependence experiments versus genomic inference, including alternative Lentimicrobium roles and Desulforhopalus biomass-turnover interpretation.
+    historical_guard:
+      path: tests/test_causal_review_batch8.py
+      ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+      note: This file checks the scientific graph and ledger outcomes; no current-record SHA256 or last-event assertion was found in the inspected file. Do not edit it merely because it references the ledger; run its unchanged biological checks after any application.
+  - id: CommunityMech:000424
+    path: kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml
+    before_sha256: 2eede18215821618a8acacbe5d47754774d268e044e47b80368100e8e4927fc0
+    primary_source:
+      reference: PMID:42511722
+      url: https://www.mdpi.com/1422-0067/27/14/6379
+      retained_path: references_cache/PMID_42511722.txt
+      retained_sha256: e7ce26edc63832f754798c439403265bf167c8eb883e4d8184a8fedd101f94ac
+      locator: Results genus-level community composition and Dehalogenimonas time course; Methods culture provenance and amplicon analysis.
+      coverage: Selected retained main-text passages; publisher request was rate-limited. No fresh supplementary figures or sequencing reanalysis.
+      exact_short_quote: only the genus Dehalogenimonas was detected
+      judgment: >-
+        The culture is an enrichment with genus-level amplicon evidence, not a
+        named Dehalogenimonas isolate. The single/co-exposure contrasts and
+        abundance time course do not by themselves identify a species, prove
+        substrate-linked growth, or establish all proposed partner exchanges.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:670486', label: Dehalogenimonas}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Dehalogenimonas', support_genomes: 17, total_genomes: 17, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the Clostridium ambiguity, existing partner mappings, QY-2/QY2-S1 culture provenance and all original scientific qualifications.
+      - Treat the existing no-grounding-was-asserted note as historical curation context; no species or strain claim is authorized.
+      - Preserve the prior supporting-evidence remediation and the five reference mismatches owned by issue 1996; genus correspondence does not resolve them.
+    historical_guard:
+      path: tests/test_causal_review_batch92.py
+      original_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml
+      current_predecessor_ledger: reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml
+      note: Preserve the original-to-remediation chain and use current 2eede182 predecessor. Batch123's own record loop excludes 000424 despite referencing the shared remediation ledger; do not change it for this record. Historical-cache acquisition tests are infrastructure, not a reason to relax scientific assertions.
+  - id: CommunityMech:000482
+    path: kb/communities/Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom.yaml
+    before_sha256: 8da2f35995f5bde8cb1a9af16a1fa460d66f8a27d6b30e8ccd08b9c42263dc9a
+    status: source_membership_blocker_retained
+    primary_source:
+      reference: PMID:41762466
+      url: https://doi.org/10.1016/j.jhazmat.2026.141615
+      retained_path: references_cache/PMID_41762466.txt
+      retained_sha256: 3a5145b825f62744b99c373cf18c10a27ff0daf6c7ac7c2f608d439a665462fd
+      locator: Abstract, NMC experiments, keystone analysis and final four-isolate SynCom comparison.
+      coverage: Retained abstract only; full-paper isolate identities and supplementary methods remain unverified.
+      exact_short_quote: Rhodanobacter, and Achromobacter as the keystone taxa
+      judgment: >-
+        Rhodanobacter is explicitly a keystone signal, but the abstract does not
+        resolve the four cultured stocks. The NMC eight-day percentages must
+        not become verified SynCom performance. A database correspondence for
+        this genus cannot clear the canonical membership or mechanism findings.
+    conditional_occurrence:
+      selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:75309', label: Rhodanobacter}
+      stock: null
+      historical_expected: {gtdb_id: 'GTDB:g__Rhodanobacter', support_genomes: 15, total_genomes: 15, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      application_condition: Require explicit independent acceptance of term-only correspondence with membership still blocked; exclude from automatic batches if the assessment would imply stock membership.
+    unresolved_findings:
+      - {issue: 2404, url: 'https://github.com/CultureBotAI/CommunityMech/issues/2404', state_observed: OPEN, scope: Separate NMC results from SynCom performance.}
+      - {issue: 2405, url: 'https://github.com/CultureBotAI/CommunityMech/issues/2405', state_observed: OPEN, scope: Resolve four-isolate identities and genus-complex scope.}
+      - {issue: 2406, url: 'https://github.com/CultureBotAI/CommunityMech/issues/2406', state_observed: OPEN, scope: Bound mechanisms and both causal arrows.}
+    preservation_contract:
+      - Preserve existing Burkholderia and Achromobacter database blocks without certifying their biological membership assignments.
+      - No fourth stock, exact species, assembly, abundance, gene-to-stock assignment, syntrophy or mineralization conclusion follows from this term correspondence.
+      - Retain all three open scientific issues; no canonical scientific edits are included in this source plan.
+    historical_guard:
+      path: tests/test_causal_review_batch133.py
+      ledger: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+      note: Exact record-hash, historical CURATE_CAUSAL_GRAPH action and llm_assisted predicates require protected predecessor projection if a separate bounded correspondence is accepted. Preserve all other graph checks.
+completion_limit: >-
+  No canonical application or full scientific clearance is recorded here.
+  Source-context approval, current native proof, guarded M5 execution, scoped
+  checks, immutable partial diagnostic and strict successor admission are still
+  required for each accepted record. Source or scientific blockers remain open.
