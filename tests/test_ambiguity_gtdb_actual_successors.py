@@ -1,4 +1,4 @@
-"""Three actual status-only proofs reuse shared tamper controls, #2848, 2026-11-15."""
+"""Actual native taxonomy proofs reuse shared tamper controls, #2848, 2026-11-15."""
 
 import json
 from pathlib import Path
@@ -13,6 +13,7 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "505": "kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml",
     "373": "kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml",
     "365": "kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml",
     "003": "kb/communities/At_RSPHERE_SynCom.yaml",
