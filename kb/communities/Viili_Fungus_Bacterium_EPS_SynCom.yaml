@@ -53,7 +53,16 @@ taxonomy:
     term:
       id: NCBITaxon:1358
       label: Lactococcus lactis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactococcus_lactis
+      gtdb_taxon: Lactococcus lactis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__Lactococcus lactis
+      ncbi_source_id: NCBITaxon:1358
+      majority_fraction: 0.92
+      total_genomes: 893
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: GTDB grounding was not resolved locally during initial abstract-backed curation.
   strain_designation:
     strain_name: V9
@@ -71,7 +80,16 @@ taxonomy:
     term:
       id: NCBITaxon:1597
       label: Lacticaseibacillus paracasei
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lacticaseibacillus_paracasei
+      gtdb_taxon: Lacticaseibacillus paracasei
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lacticaseibacillus;s__Lacticaseibacillus paracasei
+      ncbi_source_id: NCBITaxon:1597
+      majority_fraction: 1.0
+      total_genomes: 682
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: GTDB grounding was not resolved locally during initial abstract-backed curation.
   strain_designation:
     strain_name: V21
@@ -377,3 +395,11 @@ curation_history:
     support without typing regulation as nutrient transfer.; Retain the three-member EPS maximum only among tested
     combinations with explicit participants. Issue#1915; reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T08:40:59Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:41:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

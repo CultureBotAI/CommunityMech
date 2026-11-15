@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml"
@@ -128,14 +129,22 @@ def test_history_no_spend_and_unfinished_lifecycle_are_explicit():
     assert ledger["edison"]["dry_runs"] == []
     for row, doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert row["status"] == "reviewed" and doc["curation_history"][-1]["llm_assisted"]
+        historical = doc
+        if row["id"] == "CommunityMech:000341":
+            assert doc == yaml.safe_load((ROOT / row["path"]).read_bytes())
+            admitted = admit_species_successor(ROOT, row["path"], row["record_sha256"])
+            historical = yaml.safe_load(admitted.historical_bytes)
+        assert row["status"] == "reviewed" and historical["curation_history"][-1]["llm_assisted"]
 
 
 def test_reviewed_records_and_all_evidence_caches_are_hash_bound():
     ledger, rows, _ = records()
     assert ledger["cache_changes"] == []
     for row in rows:
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["id"] == "CommunityMech:000341":
+            raw = admit_species_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
     for path, digest in ledger["primary_artifacts"].items():
         if path.startswith("references_cache/"):
             assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest

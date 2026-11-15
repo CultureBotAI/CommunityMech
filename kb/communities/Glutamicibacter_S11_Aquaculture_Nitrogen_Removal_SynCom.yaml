@@ -53,7 +53,16 @@ taxonomy:
     term:
       id: NCBITaxon:256701
       label: Glutamicibacter arilaitensis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Glutamicibacter_arilaitensis
+      gtdb_taxon: Glutamicibacter arilaitensis
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Micrococcaceae;g__Glutamicibacter;s__Glutamicibacter arilaitensis
+      ncbi_source_id: NCBITaxon:256701
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: NCBI Taxonomy resolves the species name exactly; GTDB grounding was left unresolved because the local
       NCBI2GTDB crosswalk was not available during first-pass curation.
   strain_designation:
@@ -66,7 +75,16 @@ taxonomy:
     term:
       id: NCBITaxon:37929
       label: Glutamicibacter nicotianae
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Glutamicibacter_nicotianae
+      gtdb_taxon: Glutamicibacter nicotianae
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Micrococcaceae;g__Glutamicibacter;s__Glutamicibacter nicotianae
+      ncbi_source_id: NCBITaxon:37929
+      majority_fraction: 1.0
+      total_genomes: 12
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: NCBI Taxonomy resolves the species name exactly; GTDB grounding was left unresolved because the local
       NCBI2GTDB crosswalk was not available during first-pass curation.
   strain_designation:
@@ -254,3 +272,11 @@ curation_history:
   changes: 'Retain S11 nitrogen-removal performance without unmeasured mutualism or resolved consortium flux routes.
     Issue #1488; reports/causal_graph_review/decisions/20261006-ginseng-s11-batch48.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T08:39:58Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:39:59Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

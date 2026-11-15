@@ -15,6 +15,14 @@ from gtdb_species_batch_successors_20261115 import ALLOWANCES
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "347": "kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml",
+    "481": "kb/communities/Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture.yaml",
+    "432": "kb/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.yaml",
+    "411": "kb/communities/Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
+    "472": "kb/communities/Halobacillus_Black_Gram_Halophilic_PGPR_Consortium.yaml",
+    "341": "kb/communities/Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.yaml",
+    "361": "kb/communities/RH1_Glyphosate_Streptomyces_Consortium.yaml",
+    "378": "kb/communities/Soy_Sauce_Temporal_SevenSpecies_SynCom.yaml",
+    "408": "kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml",
 }
 
 

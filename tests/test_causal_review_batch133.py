@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = (
@@ -37,15 +38,23 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] in {"CommunityMech:000472", "CommunityMech:000481"}:
+            # Do not discard mutations of an already loaded current document.
+            assert doc == yaml.safe_load(raw)
+            admitted = admit_species_successor(ROOT, row["path"], row["record_sha256"])
+            raw = admitted.historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "curation_history",
         }
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).exists()
-        assert doc["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
+        assert historical["curation_history"][-1]["llm_assisted"] is True
 
 
 def test_batch133_each_record_has_three_nodes_two_directed_edges_and_verbatim_abstract_snippets():
