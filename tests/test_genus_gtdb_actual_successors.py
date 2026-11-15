@@ -13,6 +13,7 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "382": "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
     "468": "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml",
     "467": "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
     "475": "kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml",

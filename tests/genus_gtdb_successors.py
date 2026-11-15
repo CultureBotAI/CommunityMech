@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/gut-pair-382-001-successor.json",
+            "sha256": "243f9a949060a334cc25c15a08695c63ec7cfdce5d0ada43a1f6469cc331ee37",
+        },
+    },
     "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": {
         "baseline_revision": BASE,
         "manifest": {
