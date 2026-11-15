@@ -17,9 +17,9 @@ def controlled(tmp_path, monkeypatch):
     spec = importlib.util.spec_from_file_location("br1_guard", source)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    # Immutable public ancestor survives the real correction and subsequent runs.
+    # Native CI explicitly fetches this historical base, including after squash (#2858).
     original = subprocess.check_output(
-        ["git", "show", "c9e151eb9f22afb5c531dd5a8b3346ce1d58b12a:" + module.TARGET],
+        ["git", "show", "68699871415fda3c9eebf20382a315f9f3c7b17a:" + module.TARGET],
         cwd=repo,
     )
     assert module.sha(original) == module.BEFORE
