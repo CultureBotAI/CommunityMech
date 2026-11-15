@@ -1,0 +1,157 @@
+{
+  "mode": "batch",
+  "validate_labels": true,
+  "started_at": "2026-11-15T04:42:01.533318+00:00",
+  "revision": "f471548888761bd217084c4405a9a5d4e222251a",
+  "implementation": {
+    "conf/id_label_targets.yaml": "692d2b97f285079a97e396bb5fbc3cbc1bbe45af6dbcb85dc890ebc089c45a2f",
+    "justfile": "40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f",
+    "scripts/adhoc/check_phase2_products_20261115.py": "3a3b1178bd7fe1e214317a489448af4f4a5ac2bd96cbe0441aad77165cfe0195",
+    "scripts/ontology_preflight.py": "15c77b820f2295bba181a60d96496e1a7397262e00f175e76b85f5bf9e676e86",
+    "scripts/resolve_ontology_config.py": "5f22388935903e245db3268046f74c4d679babe9f2839a1cc07a4e4c1c884ccf",
+    "scripts/validate_id_label_correspondence.py": "b5ff41bb52d24f5d7819fb12769e216440f75ec3fb3df3e3cb2c5082fffb40e0",
+    "src/communitymech/export/__init__.py": "604c58e7a3182bdd41bc2d4e701e4b762a748e4f572a90d51a75dc045f9f5f6d",
+    "src/communitymech/export/__main__.py": "9116e35c93f272d50f99228edada7d9ea774ad7ddfa2eb84e14673be3d471ff5",
+    "src/communitymech/export/browser_export.py": "20afab7af7f225cc01ce2d8974ec1c795f304c1aad6d047934928669e4322318",
+    "src/communitymech/export/kgx_export.py": "5696d4f8f70500faff6684f16c726846ebbfa401358503b86e656aa12ed2e67d",
+    "src/communitymech/export/validate_kgx.py": "5d4e23ca31c0a62774e12203062b5f55a72080e3b4e2658a9e8a287e4f88e47a",
+    "src/communitymech/render.py": "b16269140fbb548eb991e85c95b53bbcc74e40d58e413d5fe40ab2e7fe077ba9",
+    "src/communitymech/templates/_facet_sidebar.html": "8d0238e1f75bacbea842faf9bc6a3bea383609633703b4bcae997214db8ae49b",
+    "src/communitymech/templates/_partials/host_soil_related.html": "7919246d318b3d25a1e96f0aec3b234e6333a0c6a37330995a3f38d2e81da82c",
+    "src/communitymech/templates/_partials/treatment_arms.html": "f0223195c2a2a0570c7fa1cae383c237a3a75bcfa9f12455b3c1928d48cfa193",
+    "src/communitymech/templates/community.html": "53f12d45f60920cb4482bc8ef2b62850ec673c00ed21387981e5060c567d6f2f",
+    "src/communitymech/templates/community_umap.html": "2060a735e2b8c88723cab0f15b21cff5f42779053e408b3a13a6c54045161561",
+    "src/communitymech/templates/index.html": "5e174039c189896bd84246b61c9e32fca6f7c8f1fd00eef4d4de97e70836d23a",
+    "src/communitymech/templates/landing.html": "357c7caf2a4dc24649d3f483466d076f2d5c5fe08ff99ef13a979556f0867972",
+    "src/communitymech/templates/sequence_map.html": "951e7dec533d7f71be003d4dab45e95ea1f43963bc821e99f29dceb81c80eef9",
+    "src/communitymech/templates/text_map.html": "df3650c95ec778bd3955eaf936551da412b3697cff9be566fdd085f05769ecf3"
+  },
+  "commands": [
+    {
+      "name": "render",
+      "argv": [
+        "<REPO>/.venv/bin/python",
+        "-m",
+        "communitymech.render",
+        "--all"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "export",
+      "argv": [
+        "<REPO>/.venv/bin/python",
+        "-m",
+        "communitymech.export",
+        "--kb",
+        "kb/communities",
+        "--output",
+        "output/kgx"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "validate-export",
+      "argv": [
+        "<REPO>/.venv/bin/python",
+        "-m",
+        "communitymech.export.validate_kgx",
+        "--strict"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "validate-labels",
+      "argv": [
+        "/opt/homebrew/bin/just",
+        "--verbose",
+        "--no-dotenv",
+        "--color",
+        "never",
+        "validate-products"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0,
+  "products": {
+    "docs/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.html": {
+      "sha256": "51be424c3a9affe8ce582ad703f8873da6505121f1e2b2be60d87b7f16f036fa",
+      "bytes": 62050
+    },
+    "output/kgx/nodes.tsv": {
+      "sha256": "7f386be8ed3a00a4051fd24f1af2a745b922313a8e3bf70d7f40a6bd36afb955",
+      "bytes": 501925
+    },
+    "output/kgx/edges.tsv": {
+      "sha256": "fc8d43cecdc520e0d614215dd306671bfd56ee08bbde21e7e583a8c87cd39e18",
+      "bytes": 1049438
+    },
+    "output/kgx/manifest.json": {
+      "sha256": "9e64639d270ef7a1f3fd5bfa125c1c6ec407d4f24651237e8f9dbc64c37253d1",
+      "bytes": 403
+    }
+  },
+  "finished_at": "2026-11-15T04:43:16.692016+00:00",
+  "public_evidence": {
+    "raw_receipt_sha256": "abd9324fd4fbc9b68f5c41b678bf247e44d49a030800fc0b999b782fe55ab834",
+    "m5_native_checksum_listing_sha256": "bbf3979ee38222e50f105f6ab6911869787d55961a59f40c84543253b34c5bf7",
+    "logs": {
+      "render": {
+        "raw_sha256": "b1fc191b9700b7d65ee7c87ec0db8dd48a76b9d9de385ba3124d2ac24f7aadff",
+        "raw_bytes": 99675,
+        "public_sha256": "a1b86ae5d7611bc091434ed3004eef8ea579261a458eb73f09e47cb29a97957e",
+        "public_bytes": 70443
+      },
+      "export": {
+        "raw_sha256": "ff22f5fa3bb9014ae14fc838cd0c26d5e6413854974826b434ad59351f1556d2",
+        "raw_bytes": 44,
+        "public_sha256": "ff22f5fa3bb9014ae14fc838cd0c26d5e6413854974826b434ad59351f1556d2",
+        "public_bytes": 44
+      },
+      "validate-export": {
+        "raw_sha256": "8f773214b074ab79594d876eeaf806a04ae7128863d7d42cfa7316adb3a4de4e",
+        "raw_bytes": 64,
+        "public_sha256": "8f773214b074ab79594d876eeaf806a04ae7128863d7d42cfa7316adb3a4de4e",
+        "public_bytes": 64
+      },
+      "validate-labels": {
+        "raw_sha256": "9d06f9961476c4209f3910f5eceaff68511de11461d8194260db62d04c07b2bd",
+        "raw_bytes": 367,
+        "public_sha256": "9d06f9961476c4209f3910f5eceaff68511de11461d8194260db62d04c07b2bd",
+        "public_bytes": 367
+      }
+    },
+    "verified_preserved_products": {
+      "docs/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.html": {
+        "sha256": "51be424c3a9affe8ce582ad703f8873da6505121f1e2b2be60d87b7f16f036fa",
+        "bytes": 62050
+      },
+      "output/kgx/nodes.tsv": {
+        "sha256": "7f386be8ed3a00a4051fd24f1af2a745b922313a8e3bf70d7f40a6bd36afb955",
+        "bytes": 501925
+      },
+      "output/kgx/edges.tsv": {
+        "sha256": "fc8d43cecdc520e0d614215dd306671bfd56ee08bbde21e7e583a8c87cd39e18",
+        "bytes": 1049438
+      },
+      "output/kgx/manifest.json": {
+        "sha256": "9e64639d270ef7a1f3fd5bfa125c1c6ec407d4f24651237e8f9dbc64c37253d1",
+        "bytes": 403
+      }
+    },
+    "redactions": {
+      "api_token": 0,
+      "authorization_value": 0,
+      "aws_access_id": 0,
+      "credential_assignment": 0,
+      "email_address": 0,
+      "github_token": 0,
+      "private_home_path": 0,
+      "private_hostname": 0,
+      "private_key": 0,
+      "repository_absolute_path": 525
+    },
+    "limits": "Product technical evidence only. Logs independently hash-compared with M5 after completion; the native receipt does not bind logs. Non-adapter skips and configured exceptions remain explicit. No scientific approval or aggregate-QC success inferred."
+  }
+}
