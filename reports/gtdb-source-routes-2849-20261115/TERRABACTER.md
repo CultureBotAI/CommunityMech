@@ -98,6 +98,10 @@ Generated-page integration and a separate native whole-corpus uncurated-mapping
 check remain later steps at this checkpoint. No whole-corpus or docs pass is
 claimed here.
 
+Subsequent checkpoint: the unchanged native
+[whole-corpus stored-mapping module passed on M5](CORPUS-CHECK.md) after both
+BR1 and Terrabacter were integrated. Generated-page integration remains separate.
+
 This work addresses the Terrabacter discrepancy in
 [issue 2849](https://github.com/CultureBotAI/CommunityMech/issues/2849).
 References, ontology labels, full corpus QC and all remaining scientific concerns

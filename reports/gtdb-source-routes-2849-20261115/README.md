@@ -95,3 +95,7 @@ The subsequent independently reviewed [Terrabacter 2APm3 canary](TERRABACTER.md)
 has its own source proof, actual M5 application, native checks and immutable
 diagnostic. Its evidence does not change the scope or status of this earlier
 Sulfobacillus assessment.
+
+After all three corrections were integrated, the unchanged native
+[whole-corpus stored-mapping module passed on M5](CORPUS-CHECK.md).
+That follow-up does not clear the separate grounding-status or scientific backlog.
