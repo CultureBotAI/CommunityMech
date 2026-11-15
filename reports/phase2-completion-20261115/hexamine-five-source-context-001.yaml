@@ -1,0 +1,128 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: b5b4ad3cddc247ae52dd21086ca6ddceebadf01a
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only. Fresh whole-record native results and authority observations are required before staging.
+primary_source:
+  reference: PMID:41743136
+  url: https://doi.org/10.3389/fmicb.2026.1753858
+  retained_path: references_cache/PMID_41743136.txt
+  retained_sha256: 0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6
+  locator: Abstract lines 20-22; retained Methods/Results line 64, partial 16S characterization and Tables 1/2; C6 irradiation context lines 64/78.
+  coverage: Selected retained main-text sections and all five Table 1 rosters read. Fresh DOI access returned no usable source. No fresh figure pixels, supplemental sequences or exact-study assembly validation.
+  exact_short_quote: partial 16S ribosomal DNA
+  judgment: >-
+    Table 1 defines five different equal-ratio formulations using SRCHD03/04
+    (Brevundimonas diminuta), SRCHD05/07 (Brucella pseudintermedia) and
+    SRCHD06 (Ochrobactrum sp.). A sixth formulation adds Micrococcus luteus
+    SRCHD02. The species statements derive from partial 16S characterization,
+    not demonstrated membership of the experimental genomes in GTDB clusters.
+    C1-C5 suspended-culture endpoints and C6 immobilization/irradiation results
+    are separate experiments.
+correspondence_definitions:
+  brevundimonas: &brevundimonas
+    descriptor: {id: 'NCBITaxon:293', label: Brevundimonas diminuta}
+    expected_rank: species
+    historical_expected:
+      ambiguous: true
+      via: ncbi_name
+      n_alt: 3
+      gtdb_options: ['GTDB:s__Brevundimonas_diminuta', 'GTDB:s__Brevundimonas_diminuta_A', 'GTDB:s__Brevundimonas_diminuta_B']
+    boundary: Retain all three ordered native options separately for SRCHD03 and SRCHD04. No option identifies either study stock, and no genome denominator is supplied by this ambiguity route.
+  brucella: &brucella
+    descriptor: {id: 'NCBITaxon:370111', label: Brucella pseudintermedia}
+    expected_rank: species
+    historical_expected:
+      gtdb_id: GTDB:s__Ochrobactrum_pseudintermedium
+      gtdb_taxon: Ochrobactrum pseudintermedium
+      total_genomes: 18
+      majority_fraction: 1.0
+      is_reclassified: true
+      via: ncbi_id
+    boundary: Preserve NCBI Brucella pseudintermedia and both distinct source stock names. The GTDB Ochrobactrum correspondence is an explicitly differing reference classification, not a formal renaming or exact study-stock assembly identification.
+  ochrobactrum: &ochrobactrum
+    descriptor: {id: 'NCBITaxon:528', label: Ochrobactrum}
+    expected_rank: genus
+    historical_expected:
+      ambiguous: true
+      via: ncbi_rank_g
+      n_alt: 3
+      gtdb_options: ['GTDB:g__Ochrobactrum_A', 'GTDB:g__Ochrobactrum_B', 'GTDB:g__Ochrobactrum']
+    boundary: Preserve the source's genus-only SRCHD06 descriptor and all three ordered native genus options. Do not borrow a species from either Brucella stock or select the unsuffixed genus as the study-stock identity.
+records:
+  - id: CommunityMech:000505
+    path: kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+    before_sha256: 1183b1f4762087ed7d8adf1b9960dc38beda73f5d23a8c378fdf8fd0a23e0a2a
+    source_roster: SRCHD05 + SRCHD06; Table 1 C1, 1:1.
+    proposed_occurrences:
+      - {selector: 'taxonomy[0].taxon_term', stock: SRCHD05, correspondence: *brucella}
+      - {selector: 'taxonomy[1].taxon_term', stock: SRCHD06, correspondence: *ochrobactrum}
+    preservation: Keep two separate stock descriptors, their COMMUNITY_LEVEL participants, C1-specific 24/48/72-hour outcomes and single-isolate growth kinetics without a new intermember arrow.
+  - id: CommunityMech:000506
+    path: kb/communities/Hexamine_Formaldehyde_Consortium_C2.yaml
+    before_sha256: 5a2c59369389c982d1a1f2a54d2a278eee49908493a78e5c54d85af2d575979d
+    source_roster: SRCHD03 + SRCHD05 + SRCHD06; Table 1 C2, 1:1:1.
+    proposed_occurrences:
+      - {selector: 'taxonomy[0].taxon_term', stock: SRCHD03, correspondence: *brevundimonas}
+      - {selector: 'taxonomy[1].taxon_term', stock: SRCHD05, correspondence: *brucella}
+      - {selector: 'taxonomy[2].taxon_term', stock: SRCHD06, correspondence: *ochrobactrum}
+    preservation: C2 uses SRCHD03, not the C3 SRCHD04 isolate. Preserve C2-specific Table 2 outcomes and the difference between the SRCHD03 monoculture ammonia-removal observation and consortium ammonia production.
+  - id: CommunityMech:000507
+    path: kb/communities/Hexamine_Formaldehyde_Consortium_C3.yaml
+    before_sha256: 042454b4b13904fcd05ee42b019346e9940ef68ae6504be8f745266e1d9f2c5f
+    source_roster: SRCHD04 + SRCHD05 + SRCHD06; Table 1 C3, 1:1:1.
+    proposed_occurrences:
+      - {selector: 'taxonomy[0].taxon_term', stock: SRCHD04, correspondence: *brevundimonas}
+      - {selector: 'taxonomy[1].taxon_term', stock: SRCHD05, correspondence: *brucella}
+      - {selector: 'taxonomy[2].taxon_term', stock: SRCHD06, correspondence: *ochrobactrum}
+    preservation: C3 uses SRCHD04, not the C2 SRCHD03 isolate. Preserve the distinct monoculture growth kinetics, C3 bulk endpoints, three COMMUNITY_LEVEL participants and absence of demonstrated strain-resolved exchange.
+  - id: CommunityMech:000508
+    path: kb/communities/Hexamine_Formaldehyde_Consortium_C4.yaml
+    before_sha256: 63a03e2e8960e287c4637edf7562b97d8c90e9ee25d07a3f77fb8843170488bd
+    source_roster: SRCHD05 + SRCHD06 + SRCHD07; Table 1 C4, 1:1:1.
+    proposed_occurrences:
+      - {selector: 'taxonomy[0].taxon_term', stock: SRCHD05, correspondence: *brucella}
+      - {selector: 'taxonomy[1].taxon_term', stock: SRCHD06, correspondence: *ochrobactrum}
+      - {selector: 'taxonomy[2].taxon_term', stock: SRCHD07, correspondence: *brucella}
+    preservation: Keep the two Brucella source stocks separate despite their identical descriptor route. Preserve C4-specific outcomes and the single-isolate SRCHD07 kinetics without inferring community growth kinetics or causal complementarity.
+  - id: CommunityMech:000509
+    path: kb/communities/Hexamine_Formaldehyde_Consortium_C5.yaml
+    before_sha256: c80260476fe0975446f9e2415313873060271d7a38240c64bae507ed7055b99e
+    source_roster: SRCHD03 + SRCHD04 + SRCHD05 + SRCHD06 + SRCHD07; Table 1 C5, 1:1:1:1:1.
+    proposed_occurrences:
+      - {selector: 'taxonomy[0].taxon_term', stock: SRCHD03, correspondence: *brevundimonas}
+      - {selector: 'taxonomy[1].taxon_term', stock: SRCHD04, correspondence: *brevundimonas}
+      - {selector: 'taxonomy[2].taxon_term', stock: SRCHD05, correspondence: *brucella}
+      - {selector: 'taxonomy[3].taxon_term', stock: SRCHD06, correspondence: *ochrobactrum}
+      - {selector: 'taxonomy[4].taxon_term', stock: SRCHD07, correspondence: *brucella}
+    preservation: Keep all five stocks separate, exclude SRCHD02/C6, and preserve the already documented Table 2 versus Results discrepancy (72-hour formaldehyde 43.88 versus 49 percent, with separate hexamine/COD differences). Neither value is reference-genome support.
+shared_preservation_contract:
+  - Preserve every original NCBI identity, source-local stock code, consortium ratio, participant descriptor, quotation, discussion and historical event. Only selected GTDB blocks/statuses/options and new native events may change.
+  - AS broth contains organic nutrients; bulk substrate/COD changes and ammonia production do not establish complete mineralization, consortium ammonia removal, interspecies flux or reciprocal benefit.
+  - Preserve 37 degrees Celsius suspended C1-C5, 24/48/72-hour Table 2 endpoints, monoculture kinetics and C5/C6 growth profiles as distinct evidence. Do not transfer C6 biofilm, gamma irradiation or immobilized per-carrier values to C1-C5.
+  - Preserve existing empty causal edge lists and the single COMMUNITY_LEVEL node per record. GTDB reference populations and option counts are unrelated to equal-ratio inoculation, viable-cell numbers or removal percentages.
+  - Do not infer a verified crosswalk release from file mtime. Keep differing GTDB and NCBI names explicit without renaming study stocks.
+prior_assessment:
+  path: reviews/structured/20261105T144000Z-c7s4-record-deep-audit/review.yaml
+  sha256: fe5de3c3f5c6cb21d935abb7c93452c5ef5a125b3c10163a44e9d712faee3ccd
+  limit: Its five target assessments inspected here report completeness metrics backed by schema/completeness/network/linkage evidence. Preserve the historical declaration, but do not treat these metrics or the larger cohort's pass statements as fresh evidence-backed scientific clearance.
+historical_guard:
+  path: tests/test_causal_review_batch139.py
+  sha256: a808ada1f63670f25b2412b57fce33d4c082f4051445b4c1accfb7cd3b382fa6
+  ledger: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  ledger_sha256: 9c27294a16fbf0505084b44fe0c7533d103fd74eaeb293a41b43ff7e73c88d4d
+  note: >-
+    This caller enforces each exact current record hash, last CURATE_CAUSAL_GRAPH
+    action and llm_assisted flag, participant membership, 21 graph quotations,
+    node/edge counts, discussions and monoculture kinetics. Add strict
+    predecessor admission without changing any original scientific predicate
+    or the literal old ledger. Its three mutation controls pass parsed document
+    copies into the invariant function; admission must not discard mutated
+    input by silently reloading disk or replacing the whole document with an
+    old projection. Preserve failure on altered history, fabricated snippet
+    (including its expected failure message), and removed participant.
+completion_limit: Sixteen occurrences in five whole records: seven species-reference correspondences and nine explicit ambiguous descriptor outcomes. Source preparation only; fresh binding, exact candidate review, M5 canary and gates, saved partial assessment, complete checkpoint and strict actual proofs remain required before integration. No full scientific completion or broader campaign progress is asserted.
