@@ -246,6 +246,13 @@ preserves the study-stock and scientific limitations. The
 [Parmigiano source-context plan](parmigiano-source-context-001.yaml) prepares
 three further whole records; it records no application or completed assessment.
 
+The [Rhizorhabdus YL-JM2C integration at e127da64](yljm2c-integration-e127da64.md)
+adds the verified 69-input partial diagnostic, all eight M5 checks, strict
+historical admission, 152 passing combined controls, lint and a native isolate
+render. The [three-genus source plan](genus-three-source-context-001.yaml)
+prepares records 000342, 000390 and 000406 while retaining their experimental
+and stock-identity limits. It records no canonical application.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
