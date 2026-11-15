@@ -1,0 +1,67 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.log", "sha256": "48d12e0a83bd2f823a2ee043c16534b2177ac799ba639ef426c635f4d761c1ad"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.json", "sha256": "66b9a6a39cb12c86cdbe919b846a7c17c333b742ee79993d996f7ed27f5e82c6"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
+      "record_id": "CommunityMech:000441",
+      "before_sha256": "d4da92fc50e4b006fcaaf2d830d5c668e1e2671cea3b00655909a97a8c5e4bd1",
+      "additional_inputs": {
+        "tests/test_causal_review_batch33.py": "e07106479e60f804865600136b8116f5c15c34732092f03ad91c9d03795bd246",
+        "reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml": "a8fb32ab2e18b2b6cba09c2d4a607c74cb4d2d60a4871712ed26fdf4b03a2e4a",
+        "reviews/structured/20261022T071501Z-dolichospermum-xenic-record-review/review.yaml": "1fd7b4a1acd464b813cf004b81a0d2e6aef5759db532787e25ee95ddf373ae4f"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42535840",
+          "path": "references_cache/PMID_42535840.txt",
+          "sha256": "949af1239c94dc73a9edd58804b1aa90d97d3a2401be6432e7e52e63a4892094",
+          "locator": "Retained primary Methods, Sample information and Species identification (flattened line 5); Results genome-based placement and Table 2 (line 27); Discussion limits (line 31).",
+          "coverage": "Whole canonical record, prior full scientific review and historical caller/ledger read; selected retained primary Methods/Results/Discussion passages checked. No new complete scientific review, assembly analysis, original figure-pixel or separate supplement inspection in this technical correspondence preparation.",
+          "identity_tokens": ["42535840", "10.1128/spectrum.01014-26"],
+          "anchors": [
+            "FBCC-A233 strain was established by single-filament isolation",
+            "GTDB-Tk v2.5.2 with the r226 reference data set",
+            "s__Sphingorhabdus_B sp023910635",
+            "s__Brevundimonas sp040380105",
+            "not confirmed biotin cross-feeding"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:1166", "label": "Dolichospermum flos-aquae"},
+          "strain_name": "FBCC-A233",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 3, "gtdb_options": ["GTDB:s__Dolichospermum_heterosporum", "GTDB:s__Dolichospermum_planctonicum", "GTDB:s__Dolichospermum_sp000312705"]},
+          "source_assessment": "The source establishes FBCC-A233 by single-filament isolation and explicitly places its recovered genome in s__Dolichospermum flosaquae using GTDB-Tk v2.5.2/r226, ANI 99.31% and alignment fraction 0.947 to GCF_014698755.1. Separately, the current generic NCBI species-name route returns three alternatives. AMBIGUOUS here describes only that generic crosswalk route; it neither disputes nor replaces the source study-genome result. The unchanged canonical note continues to state the paper's flosaquae species cluster.",
+          "population_scope": "Retain all three ordered generic alternatives without a single classification block or inferred reference denominator. They are not three candidate identities for the sequenced FBCC-A233 stock. The crosswalk release is not established by file mtime, and must not be called the paper's r226 release.",
+          "name_scope": "Preserve the valid NCBI label, source preferred spelling, stock designation, existing note and source quotations. No generic alternative selects or renames the study genome; no new assembly, BioSample or mechanistic identity follows."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:1434046", "label": "Sphingorhabdus"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Sphingorhabdus_B", "via": "ncbi_rank_g", "support_genomes": 27, "total_genomes": 27, "majority_fraction": 1.0, "is_reclassified": true},
+          "source_assessment": "The recovered culture associate is reported as Sphingorhabdus sp. The paper's separate genome analysis assigns the unnamed cluster s__Sphingorhabdus_B sp023910635 with ANI 95.51% and alignment fraction 0.743 to GCF_023910635.1. The native genus aggregate also resolves to Sphingorhabdus_B, but does not reproduce that stock-genome analysis or authorize a named species replacement.",
+          "population_scope": "The filtered genus reference population is 27/27; it is neither culture abundance nor a study-genome count. Preserve the native non-type-clade warning and name-difference flag. The paper's reference panels and ANI/dDDH comparisons have separate denominators and methods.",
+          "name_scope": "Keep the source genus descriptor, absent isolated-stock designation and existing notes. The suffix is GTDB circumscription, not a new formal NCBI genus name or evidence of experimentally confirmed symbiosis."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:41275", "label": "Brevundimonas"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Brevundimonas", "via": "ncbi_rank_g", "support_genomes": 221, "total_genomes": 221, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The paper retains Brevundimonas sp. as a putative undescribed lineage even though its genome belongs to unnamed GTDB cluster sp040380105. Its 96.51% ANI and 0.900 alignment fraction to GCA_040380105.1 are separate study-genome observations. The native aggregate adds only a correspondence for the already encoded genus.",
+          "population_scope": "The 221/221 filtered reference genomes support a generic genus correspondence, not an isolated stock, experimental relative abundance, named species or complete culture census.",
+          "name_scope": "Preserve Brevundimonas and its existing undescribed-lineage note. No species assignment or source-genome replication is claimed."
+        }
+      ],
+      "historical_guard_assessment": "Only the three declared generic GTDB descriptor fields and actual appended native events may change. Preserve every stock, source note, member label, abundance claim, culture setting and biological assertion; this technical pass does not repair or approve them. Keep both COMMUNITY_LEVEL computational cofactor nodes, PARTIAL evidence, absence of interaction types/arrows and the unresolved DMB/transport/exchange qualifications. The prior full review remains immutable and needs_curation: 1406 (stability/abundance), 2691 (serial transfer), 2692 (source-specific GTDB provenance) and 2693 (excerpt case) remain unresolved by this generic correction. In particular, generic cyanobacterial ambiguity cannot override the actual source genome classification; 2692 is only partially addressed by generic routes and must not be closed. Preserve batch 33's current biological predicates for 441, Diclofenac379 and Drosophila160, plus the exact historical ledger. Later strict admission may project only the admitted predecessor for old digest/last-event checks and must compose with ROOT's disjoint 379 work. This is the first proposed whole-record canary, not a scientific completion claim."
+    }
+  ]
+}
