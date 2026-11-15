@@ -316,14 +316,17 @@ taxonomy:
       label: Sulfobacillus acidophilus
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:s__Sulfobacillus_acidophilus
-      gtdb_taxon: Sulfobacillus acidophilus
-      gtdb_lineage: d__Bacteria;p__Bacillota_E;c__Sulfobacillia;o__Sulfobacillales;f__Sulfobacillaceae;g__Sulfobacillus;s__Sulfobacillus acidophilus
+      gtdb_id: GTDB:s__Sulfobacillus_A_acidophilus
+      gtdb_taxon: Sulfobacillus_A acidophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota_E;c__Sulfobacillia;o__Sulfobacillales;f__Sulfobacillaceae;g__Sulfobacillus_A;s__Sulfobacillus_A
+        acidophilus
       ncbi_source_id: NCBITaxon:53633
       majority_fraction: 1.0
-      total_genomes: 1
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
+      total_genomes: 4
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd [native
+        exact NCBI species-name mapping; no row for NCBITaxon:53633; rows 679936/1051632 each have 2 genomes, both Sulfobacillus_A
+        acidophilus; reference-taxon correspondence, not study-strain genome identification]
     notes: 'Gram-positive, moderately thermophilic (optimum 45-50°C), facultatively autotrophic bacterium
       that oxidizes both ferrous iron and reduced sulfur compounds. Spore-forming capability provides
       resilience to environmental stress, toxic metals, and nutrient limitation. Grows mixotrophically
@@ -1044,4 +1047,13 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Correct bioleaching organism and study assignments; preserve unresolved community identity and regeneration
     graph. Issue #1507; reports/causal_graph_review/decisions/20261006-pitlakes-bioleach-biofilm-batch53.yaml'
+  llm_assisted: true
+- timestamp: '2026-11-15T04:58:11Z'
+  curator: codex
+  action: EDIT
+  changes: 'Reconcile only the Sulfobacillus acidophilus GTDB mapping against the retained NCBI2GTDB snapshot sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd:
+    two exact species-name rows, NCBI679936 and 1051632, each report two genomes with majority fraction 1.0 and the same Sulfobacillus_A
+    acidophilus lineage. Use the native species-name result, total_genomes 4 and name-difference true; remove unsupported
+    latest/build wording. Preserve NCBITaxon:53633 and the source species name. This database correspondence does not identify
+    the study''s exact strain or validate its composite community, functional claims or graph; #1509 remains open.'
   llm_assisted: true
