@@ -350,10 +350,24 @@ admissions. Source plans and note-only intermediates remain outside these counts
 
 The [completed Mulberry435 integration at 57e97e99](mulberry435-integration-57e97e99.md)
 adds its strict source-note/mapping proof and verified complete checkpoint.
-There are now 66 integrated corrections, including 62 of the 126 partition
-records; 64 remain. Thirteen affected registry, batch75 and historical-fetch
+At that checkpoint there were 66 integrated corrections, including 62 of the 126 partition
+records; 64 remained. Thirteen affected registry, batch75 and historical-fetch
 tests passed on the clean combined revision, as did native lint. Its actual M5
 execution and partial scientific scope remain distinct from integration checks.
+
+The [family475 integration at 85d582fa](family475-integration-85d582fa.md)
+passed 359 current genus/family proof and batch133 tests plus native lint.
+That checkpoint brought the counts to 67 integrated corrections, 63 partition
+records complete and 63 remaining.
+
+The [nine-record species integration at 088724e7](species-nine-integration-088724e7.md)
+brings the totals to **76 integrated taxonomy corrections**, including **72 of
+the 126 partition records**, with **54 remaining**. All 46 affected historical
+caller tests now pass on the clean combined revision, including the composed
+391/409 wheat check that correctly refused the incomplete isolated dependency.
+Native lint also passes. The complete M5 input checkpoint and 153 leaf proof
+controls remain separately recorded. MDSC392, Soymilk448, BL6 346 and rumen275
+preparations or intermediates are not counted as completed corrections.
 
 ## Campaign restart
 
