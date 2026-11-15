@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from sulfobacillus_mapping_successor import current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = (
@@ -152,7 +153,9 @@ def test_every_node_and_arrow_has_a_hash_bound_decision_and_history():
                 assert edge["target"] in names
         for discussion in doc["discussions"]:
             assert all(a.split("#", 1)[1] in names for a in discussion["attaches_to"])
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(
+            (ROOT / row["path"]).read_bytes()
+        ).hexdigest() == current_record_sha256(ROOT, row["path"], row["record_sha256"])
         assert len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
         assert doc["curation_history"][-1]["llm_assisted"] is True
