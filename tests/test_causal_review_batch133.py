@@ -44,6 +44,7 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
         if row["id"] in {
             "CommunityMech:000472",
             "CommunityMech:000474",
+            "CommunityMech:000475",
             "CommunityMech:000477",
             "CommunityMech:000481",
         }:
@@ -51,7 +52,8 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
             assert doc == yaml.safe_load(raw)
             admit_successor = (
                 admit_genus_successor
-                if row["id"] in {"CommunityMech:000474", "CommunityMech:000477"}
+                if row["id"]
+                in {"CommunityMech:000474", "CommunityMech:000475", "CommunityMech:000477"}
                 else admit_species_successor
             )
             admitted = admit_successor(ROOT, row["path"], row["record_sha256"])
