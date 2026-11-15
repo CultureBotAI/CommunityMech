@@ -104,10 +104,15 @@ taxonomy:
     - GTDB:s__Bacillus_subtilis
     - GTDB:s__Bacillus_inaquosorum
     - GTDB:s__Bacillus_atrophaeus
-    notes: >
-      The source names B. subtilis only at species level. GTDB splits this
-      NCBI species with no single majority holder; likely Bacillus subtilis
-      group candidates are recorded for later strain-aware grounding.
+    notes: >-
+      The inspected primary abstract names Bacillus subtilis but provides no strain accession. Separately, the
+      pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1423
+      descriptor row to GTDB Bacillus subtilis, with 1,256 reference genomes and stored majority fraction
+      0.91. Broader same-name rows from other NCBI IDs do not define this exact-ID population. The crosswalk's
+      GTDB release is not established. This descriptor correspondence does not identify the experimental
+      stock's genome; its accession and exact strain identity remain unresolved in the inspected evidence.
+      Reference counts and fractions are not stock-level probabilities.
   abundance_value: >
     Present in the 1:1:1 recipe A, the 1:1:1 recipe B, and the 1:1:1:1 recipe
     C.
@@ -132,9 +137,15 @@ taxonomy:
       id: NCBITaxon:1580
       label: Levilactobacillus brevis
     gtdb_grounding_status: UNRESOLVED
-    notes: >
-      The source names L. brevis only at species level; a future pass should
-      ground the exact inoculated strain once its accession is available.
+    notes: >-
+      The inspected primary abstract names Levilactobacillus brevis but provides no strain accession.
+      Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1580
+      descriptor row to GTDB Levilactobacillus brevis, with 281 reference genomes and stored majority fraction
+      0.97. The crosswalk's GTDB release is not established. This reference-population correspondence does not
+      classify the exact inoculated strain's genome or resolve its missing accession; those stock-specific
+      questions remain separate from the encoded species descriptor. Reference counts and fractions are not
+      measurements of the inoculum or probabilities of its identity.
   abundance_value: >
     Present in the 1:1:1 recipe A and the 1:1:1:1 recipe C.
   evidence:
@@ -149,10 +160,15 @@ taxonomy:
     - GTDB:s__Lactiplantibacillus_plantarum
     - GTDB:s__Lactiplantibacillus_plantarum_A
     - GTDB:s__Lactiplantibacillus_paraplantarum
-    notes: >
-      The source names L. plantarum only at species level. GTDB splits this
-      NCBI species with no single majority holder, so the likely candidates are
-      retained rather than forcing one exact GTDB species.
+    notes: >-
+      The inspected primary abstract names Lactiplantibacillus plantarum but provides no strain accession.
+      Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1590
+      descriptor row to GTDB Lactiplantibacillus plantarum, with 2,061 reference genomes and stored majority
+      fraction 1.0. Broader same-name rows from other NCBI IDs do not establish ambiguity for this exact
+      descriptor. The crosswalk's GTDB release is not established. This reference-population correspondence
+      does not establish the experimental stock's genome identity, strain accession or purity. No stock
+      designation or species replacement is inferred.
   abundance_value: >
     Present in the 1:1:1 recipe B and the 1:1:1:1 recipe C.
   evidence:
@@ -319,4 +335,12 @@ curation_history:
   changes: >
     Replaced the DOI external-resource evidence with a bracket-free PubMed
     citation span so the snippet remains verifiable by the reference validator.
+  llm_assisted: true
+- timestamp: '2026-11-15T09:37:54Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: Clarified three bacterial taxonomy notes to separate exact-ID GTDB reference populations from unidentified
+    experimental stocks (#2848). Corrected two no-majority explanations while preserving source species names, A/B/C
+    recipes and all current statuses/candidates at this note-only intermediate. A separate native mapping transition
+    remains pending; no whole-record scientific approval is asserted.
   llm_assisted: true
