@@ -7,6 +7,9 @@ scientific claims, historical ledgers, source caches and shared curation code
 remain unchanged. No M5 application or post-application review has occurred
 in this lane at this preparation checkpoint.
 
+The later local previews, isolated M5 setup and pending six-file source-transfer
+permission are recorded in [local-previews-and-m5-setup-001.md](local-previews-and-m5-setup-001.md).
+
 | Record | Proposed correspondence scope | Scientific limits retained |
 | --- | --- | --- |
 | Sorghum348 | Five missing blocks among 15 stocks; eight existing blocks and two unresolved native-null results preserved | The pinned roster extraction identifies PH2, SAI_226, SO6a, NA8 and TBS_030. No raw genome assignment, equivalence from nonsignificance, field efficacy or demonstrated flavonoid mediation. Issue1811 remains open. |
