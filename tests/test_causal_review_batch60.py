@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from source_intake_gtdb_successors import admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml"
@@ -15,7 +16,12 @@ KOM = "Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture"
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = {Path(row["path"]).stem: row for row in ledger["records"]}
-    docs = {name: yaml.safe_load((ROOT / row["path"]).read_text()) for name, row in rows.items()}
+    docs = {}
+    for name, row in rows.items():
+        raw = (ROOT / row["path"]).read_bytes()
+        if name == KZ:
+            admit_source_intake_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs[name] = yaml.safe_load(raw)
     return ledger, rows, docs
 
 
@@ -130,8 +136,20 @@ def test_batch60_every_node_arrow_and_new_anchor_is_accounted_for():
     )
     for name, row in rows.items():
         doc = docs[name]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        if name == KZ:
+            current = (ROOT / row["path"]).read_bytes()
+            admission = admit_source_intake_successor(
+                ROOT, row["path"], row["record_sha256"], current=current
+            )
+            assert hashlib.sha256(current).hexdigest() == admission.current_sha256
+            historical = yaml.safe_load(admission.historical_bytes)
+            assert historical["curation_history"][-1]["llm_assisted"] is True
+        else:
+            assert (
+                hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+                == row["record_sha256"]
+            )
+            assert doc["curation_history"][-1]["llm_assisted"] is True
         assert len(row["history_files"]) == 1
         assert row["source_review"]["cache_provenance_certified"] is False
         names = {node["name"] for node in doc.get("ecological_interactions", [])}
