@@ -392,6 +392,12 @@ groups and native lint pass on the clean revision. The corrected120-file
 checkpoint is independently verified; the earlier attribution error and its
 immutable evidence remain recorded under issue2892. Scientific findings remain.
 
+The [PHA468 integration at45739776](pha468-integration-45739776.md) brings the
+count to **80 integrated taxonomy corrections**, including **76 of the
+historical126 partition**, with **50 remaining**. The clean revision passes34
+paired467/468 proof controls,15 batch130 tests and native lint. Both complete
+82-file checkpoints are independently verified; scientific limits remain.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
