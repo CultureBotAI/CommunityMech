@@ -191,9 +191,10 @@ def test_every_enum_is_either_staged_or_explicitly_exempt():
     )
 
     stale = sorted(classified - schema_enums)
-    assert stale == [], (
-        "these are classified here but no longer exist in the schema:\n"
-        + "\n".join(f"  {name}" for name in stale)
+    assert (
+        stale == []
+    ), "these are classified here but no longer exist in the schema:\n" + "\n".join(
+        f"  {name}" for name in stale
     )
 
     assert not (set(ENUMS) & set(_NOT_STAGED_FOR_METPO)), "an enum cannot be both"
