@@ -19,7 +19,8 @@ OUTPUT = ROOT / "reports/phase2-completion-20261115/technical-evidence"
 
 def export(name):
     if not re.fullmatch(
-        r"phase2-[A-Za-z0-9-]+-(?:plan|history|regressions|canary|qc|products|docs)", name
+        r"phase2-[A-Za-z0-9-]+-(?:plan|history|regressions|canary|qc|qc-references|products|docs)",
+        name,
     ):
         raise ValueError("expected a named Phase 2 driver run")
     receipt_path = STATE / f"{name}.json"
