@@ -15,7 +15,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
-from communitymech.paths import DOCS, record_files
+from communitymech.paths import DOCS
 
 
 @lru_cache(maxsize=1)
@@ -57,7 +57,6 @@ class CommunityRenderer:
     """Render community YAML files to HTML pages."""
 
     def __init__(self, template_dir: Path | None = None):
-        self._record_stems: dict[str, str] | None = None
         """
         Initialize renderer with Jinja2 environment.
 
@@ -79,6 +78,8 @@ class CommunityRenderer:
         self,
         yaml_path: Path,
         output_path: Path | None = None,
+        *,
+        related_pages: dict[str, str] | None = None,
     ) -> str:
         """
         Render a single community YAML to HTML.
@@ -86,6 +87,8 @@ class CommunityRenderer:
         Args:
             yaml_path: Path to community YAML file
             output_path: Path to output HTML file (optional)
+            related_pages: Explicit page registry for this rendering population.
+                Standalone renders leave other record identifiers as plain text.
 
         Returns:
             Rendered HTML string
@@ -101,7 +104,7 @@ class CommunityRenderer:
         html = template.render(
             community=community,
             source_file=yaml_path.name,
-            related_pages=self._related_pages(community),
+            related_pages=related_pages or {},
         )
 
         # Write to file if output path provided
@@ -112,20 +115,6 @@ class CommunityRenderer:
             print(f"  ✓ {yaml_path.name} → {output_path}")
 
         return html
-
-    def _related_pages(self, community: dict) -> dict[str, str]:
-        """Page stems for the records `related_communities` names, so links resolve."""
-        wanted = {link.get("identifier") for link in community.get("related_communities") or []}
-        if not wanted:
-            return {}
-        if self._record_stems is None:
-            self._record_stems = {}
-            for path in record_files():
-                with open(path) as f:
-                    doc = yaml.safe_load(f) or {}
-                if doc.get("id"):
-                    self._record_stems[str(doc["id"])] = path.stem
-        return {rid: self._record_stems[rid] for rid in wanted if rid in self._record_stems}
 
     def render_all(
         self,
@@ -148,6 +137,17 @@ class CommunityRenderer:
         """
         output_dir = output_dir if output_dir is not None else DOCS / "communities"
         yaml_files = sorted(communities_dir.glob("*.yaml"))
+        # Only this invocation's declared population gets page links. Isolate
+        # records and stale pages in output_dir do not imply generated targets.
+        related_pages = {}
+        for path in yaml_files:
+            with open(path) as handle:
+                document = yaml.safe_load(handle) or {}
+            identifier = document.get("id")
+            if identifier:
+                if identifier in related_pages:
+                    raise ValueError(f"Ambiguous page target: duplicate record ID {identifier}")
+                related_pages[identifier] = path.stem
 
         print(f"\nRendering {len(yaml_files)} communities to HTML...")
 
@@ -155,7 +155,7 @@ class CommunityRenderer:
         for yaml_file in yaml_files:
             try:
                 output_file = output_dir / f"{yaml_file.stem}.html"
-                self.render_community(yaml_file, output_file)
+                self.render_community(yaml_file, output_file, related_pages=related_pages)
             except Exception as e:
                 print(f"  ✗ {yaml_file.name}: {e}")
                 failed.append(yaml_file.name)

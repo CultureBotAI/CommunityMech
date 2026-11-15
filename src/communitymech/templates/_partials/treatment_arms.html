@@ -1,0 +1,69 @@
+{#- Named study arms and repeated observations retain their experimental scope (#2796). -#}
+{%- set scoped_members = community.taxonomy | default([], true) | selectattr('abundance_observations', 'defined') | selectattr('abundance_observations') | list -%}
+{%- if community.treatment_arms or scoped_members -%}
+{% macro arm_ref(identifier) -%}
+{% set arm = community.treatment_arms | default([], true) | selectattr('id', 'equalto', identifier) | first %}
+{% if arm %}<a href="#arm-{{ identifier }}">{{ arm.name }}</a>{% else %}{{ identifier }} (unresolved arm){% endif %}
+{%- endmacro %}
+{% macro member_ref(identifier) -%}
+{% set member = community.taxonomy | default([], true) | selectattr('member_id', 'defined') | selectattr('member_id', 'equalto', identifier) | first %}
+{% if member %}{{ member.taxon_term.preferred_term or member.taxon_term.term.label }}{% if member.strain_designation %} {{ member.strain_designation.strain_name }}{% endif %} ({{ identifier }}){% else %}{{ identifier }} (unresolved member){% endif %}
+{%- endmacro %}
+{% macro arm_evidence(items) -%}
+{% if items %}<ul class="evidence-list">{% for ev in items %}<li>{{ ev.reference|reference_link }}{% if ev.supports %} · {{ ev.supports }}{% endif %}{% if ev.evidence_source %} ({{ ev.evidence_source }}){% endif %}{% if ev.snippet %}<div class="snippet">{{ ev.snippet }}</div>{% endif %}</li>{% endfor %}</ul>{% endif %}
+{%- endmacro %}
+{% if community.treatment_arms %}
+<section id="treatment-arms">
+    <h2>Treatment arms</h2>
+    {% for arm in community.treatment_arms %}
+    <div class="interaction-card" id="arm-{{ arm.id }}">
+        <h3>{{ arm.name }}</h3>
+        <p><strong>Experimental context:</strong> {{ arm.context }}</p>
+        {% if arm.description %}<p class="prewrap">{{ arm.description }}</p>{% endif %}
+        {% if arm.membership_status == 'NO_MICROBES' %}<p>No microbes in this arm.</p>
+        {% elif arm.membership_status == 'DEFINED_MEMBERS' %}<p><strong>Participants:</strong> {% for identifier in arm.participant_member_ids %}{{ member_ref(identifier) }}{% if not loop.last %}; {% endif %}{% endfor %}</p>
+        {% else %}<p>Arm membership not specified.</p>{% endif %}
+        {% if arm.comparator_arm_ids %}<p><strong>Comparators:</strong> {% for identifier in arm.comparator_arm_ids %}{{ arm_ref(identifier) }}{% if not loop.last %}; {% endif %}{% endfor %}</p>{% endif %}
+        {% if arm.conditions %}<dl>{% for factor in arm.conditions %}
+            <dt>{{ factor.name }}</dt><dd>{{ factor.value }} {{ factor.unit or '' }}{% if factor.term %} · {{ factor.term.id }} {{ factor.term.label }}{% endif %}{% if factor.description %}<p class="prewrap">{{ factor.description }}</p>{% endif %}{{ arm_evidence(factor.evidence) }}</dd>
+        {% endfor %}</dl>{% endif %}
+        {% if arm.timepoints %}<p><strong>Timepoints:</strong></p><ul>{% for point in arm.timepoints %}<li>{{ point.name }} ({{ point.id }}){% if point.elapsed %}: {{ point.elapsed.value }} {{ point.elapsed.unit.label }}{% if point.elapsed.conditions %} · {{ point.elapsed.conditions }}{% endif %}{% endif %}{% if point.reference_event %} after {{ point.reference_event }}{% endif %}{% if point.description %} — {{ point.description }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+        {{ arm_evidence(arm.evidence) }}
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
+{% set observed = namespace(present=false) %}
+{% for member in community.taxonomy | default([], true) %}{% if member.abundance_observations %}{% set observed.present = true %}{% endif %}{% endfor %}
+{% if observed.present %}
+<section id="abundance-observations">
+    <h2>Abundance observations</h2>
+    <p>Each row retains its arm, timepoint and measurement basis. Values are not pooled across arms or replicates.</p>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Abundance observations">
+    <table>
+        <thead><tr><th scope="col">Member</th><th scope="col">Arm</th><th scope="col">Timepoint</th><th scope="col">Replicate</th><th scope="col">Absolute abundance</th><th scope="col">Relative abundance</th><th scope="col">Measurement basis</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+        {% for member in community.taxonomy | default([], true) %}
+            {% for observation in member.abundance_observations | default([], true) %}
+            {% set arm = community.treatment_arms | default([], true) | selectattr('id', 'equalto', observation.treatment_arm_id) | first %}
+            <tr>
+                <td>{{ member.taxon_term.preferred_term or member.taxon_term.term.label }}{% if member.strain_designation %} {{ member.strain_designation.strain_name }}{% endif %}</td>
+                <td>{{ arm_ref(observation.treatment_arm_id) }}</td>
+                <td>{% if observation.timepoint_id %}{% set points = arm.timepoints | default([], true) if arm else [] %}{% set point = points | selectattr('id', 'equalto', observation.timepoint_id) | first %}{{ point.name if point else observation.timepoint_id }}{% else %}Not specified{% endif %}</td>
+                <td>{{ observation.replicate or 'Not specified' }}</td>
+                <td>{% if observation.get('absolute_abundance') is not none %}{{ observation.absolute_abundance }} {{ observation.absolute_abundance_unit }}{% else %}Not reported{% endif %}</td>
+                <td>{% if observation.get('relative_abundance') is not none %}{{ observation.relative_abundance }} {{ observation.relative_abundance_unit }}{% else %}Not reported{% endif %}</td>
+                <td>{{ observation.measurement_basis }}{% if observation.description %}<p class="prewrap">{{ observation.description }}</p>{% endif %}</td>
+                <td>{{ arm_evidence(observation.evidence) }}</td>
+            </tr>
+            {% endfor %}
+            {% if member.get('relative_abundance') is not none or member.get('absolute_abundance') is not none %}
+            <tr><td>{{ member.taxon_term.preferred_term or member.taxon_term.term.label }}</td><td>Legacy value; arm not assigned</td><td>Not specified</td><td>Not specified</td><td>{% if member.get('absolute_abundance') is not none %}{{ member.absolute_abundance }} {{ member.absolute_abundance_unit or '' }}{% else %}Not reported{% endif %}</td><td>{% if member.get('relative_abundance') is not none %}{{ member.relative_abundance }} {{ member.relative_abundance_unit or '' }}{% else %}Not reported{% endif %}</td><td>Not specified</td><td></td></tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</section>
+{% endif %}
+{%- endif -%}

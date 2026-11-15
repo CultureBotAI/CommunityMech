@@ -26,11 +26,15 @@ import argparse
 import csv
 import dataclasses
 import datetime as _dt
+import json
 import sys
 import uuid
+from collections.abc import Iterator
 from pathlib import Path
 
 import yaml
+
+from communitymech.paths import record_files
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_KB = REPO_ROOT / "kb" / "communities"
@@ -159,6 +163,7 @@ class Edge:
     knowledge_level: str = "knowledge_assertion"
     agent_type: str = "manual_agent"
     primary_knowledge_source: str = KNOWLEDGE_SOURCE
+    communitymech_context: str = ""
 
 
 def _edge_id(subject: str, predicate: str, obj: str, qualifier: str = "") -> str:
@@ -167,16 +172,120 @@ def _edge_id(subject: str, predicate: str, obj: str, qualifier: str = "") -> str
     return f"uuid:{uuid.uuid5(KGX_NS, key)}"
 
 
+def _context_json(value: dict) -> str:
+    """Lossless assertion payload; sorted keys make graph identity repeatable."""
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
+def _context_edge(
+    subject: str,
+    obj: str,
+    field: str,
+    assertion: dict,
+    evidence: list[dict] | None,
+    edges: list[Edge],
+) -> None:
+    context = _context_json({"field": field, "assertion": assertion})
+    pubs, snippets = _format_evidence(evidence)
+    # These broad predicates deliberately do not turn host exposure into
+    # microbial membership, or shared membership into biological equivalence.
+    # The exact directed native relation and its basis remain in the payload.
+    edges.append(
+        Edge(
+            _edge_id(subject, PRED_RELATED_TO, obj, context),
+            subject,
+            PRED_RELATED_TO,
+            obj,
+            ASSOC_GENERIC,
+            publications=pubs,
+            supporting_text=snippets,
+            communitymech_context=context,
+        )
+    )
+
+
+def _descriptor_terms(value: object, path: str = "") -> Iterator[tuple[str, dict]]:
+    """Ontology terms within a descriptor, excluding its evidence/provenance."""
+    if isinstance(value, dict):
+        if value.get("id") and "label" in value:
+            yield path, value
+        else:
+            for key, child in value.items():
+                if key != "evidence":
+                    yield from _descriptor_terms(child, f"{path}.{key}" if path else key)
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            yield from _descriptor_terms(child, f"{path}[{index}]")
+
+
+def _add_term(term: dict, nodes: dict[str, Node]) -> None:
+    identifier = term["id"]
+    category = CAT_TAXON if identifier.startswith("NCBITaxon:") else "biolink:NamedThing"
+    nodes.setdefault(identifier, Node(identifier, category, term.get("label") or ""))
+
+
+def _extract_contexts(
+    community: dict, catalog: dict[str, dict], nodes: dict[str, Node], edges: list[Edge]
+) -> None:
+    cid = community["id"]
+    host = community.get("host") or {}
+    if host:
+        term = host.get("term") or {}
+        if not term.get("id"):
+            raise ValueError(f"Host has no taxon identity: {cid}")
+        _add_term(term, nodes)
+        _context_edge(cid, term["id"], "host", host, host.get("evidence"), edges)
+        for path, nested in _descriptor_terms(host):
+            _add_term(nested, nodes)
+            if path != "term":
+                # Quotes are scoped to the enclosing descriptor, as in YAML;
+                # a nested term edge does not fabricate finer evidence scope.
+                _context_edge(cid, nested["id"], f"host.{path}", host, host.get("evidence"), edges)
+
+    duplicates: dict[str, int] = {}
+    for soil in community.get("soils") or []:
+        identity = _context_json(soil)
+        occurrence = duplicates.get(identity, 0)
+        duplicates[identity] = occurrence + 1
+        sid = _edge_id(cid, "soil_descriptor", identity, str(occurrence))
+        # This node denotes a record-scoped descriptor, not a newly asserted
+        # globally identified physical sample. Keep all measured context on its
+        # edge rather than merging it into the shared ENVO class node.
+        nodes[sid] = Node(
+            sid, "biolink:NamedThing", soil["preferred_term"], soil.get("description") or ""
+        )
+        _context_edge(cid, sid, "soils", soil, soil.get("evidence"), edges)
+        for path, term in _descriptor_terms(soil):
+            _add_term(term, nodes)
+            _context_edge(sid, term["id"], f"soils.{path}", soil, soil.get("evidence"), edges)
+
+    for relation in community.get("related_communities") or []:
+        target_id = relation["identifier"]
+        if target_id not in catalog:
+            raise ValueError(f"Related target has no unique source record: {cid} -> {target_id}")
+        target = catalog[target_id]
+        nodes.setdefault(
+            target_id,
+            Node(target_id, CAT_COMMUNITY, target.get("name") or target_id),
+        )
+        _context_edge(
+            cid, target_id, "related_communities", relation, relation.get("evidence"), edges
+        )
+
+
 # ---------- per-community extraction ----------
 
 
-def _extract(community: dict, nodes: dict[str, Node], edges: list[Edge]) -> None:
+def _extract(
+    community: dict, nodes: dict[str, Node], edges: list[Edge], catalog: dict | None = None
+) -> None:
     cid = community.get("id")
     if not cid:
         return
     name = community.get("name") or cid
     desc = (community.get("description") or "").strip()
     nodes[cid] = Node(cid, CAT_COMMUNITY, name, desc)
+    _extract_contexts(community, catalog or {}, nodes, edges)
 
     # ---- Community → environment ----
     env = community.get("environment_term") or {}
@@ -293,24 +402,40 @@ def _extract(community: dict, nodes: dict[str, Node], edges: list[Edge]) -> None
 # ---------- driver ----------
 
 
-def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
+def export_kgx(kb_dir: Path, output_dir: Path, record_name: str | None = None) -> tuple[int, int]:
     """Walk kb_dir/*.yaml; write nodes.tsv + edges.tsv to output_dir.
     Returns (node_count, edge_count)."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+    kb_dir = kb_dir.resolve()
     nodes: dict[str, Node] = {}
     edges: list[Edge] = []
-    n_records = 0
-    for path in sorted(kb_dir.glob("*.yaml")):
-        try:
-            with open(path) as f:
-                community = yaml.safe_load(f)
-        except Exception as e:
-            print(f"  ERROR reading {path.name}: {e}", file=sys.stderr)
-            continue
-        if not isinstance(community, dict):
-            continue
-        _extract(community, nodes, edges)
-        n_records += 1
+    selected = sorted(kb_dir.glob("*.yaml"))
+    if record_name is not None:
+        selected = [path for path in selected if path.name == record_name]
+        if len(selected) != 1:
+            raise ValueError("--record must name exactly one YAML file in --kb")
+    # Default export emits community claims, while related destinations may be
+    # isolates. Custom fixture/input directories remain self-contained.
+    lookup_paths = (
+        record_files()
+        if kb_dir.resolve() == DEFAULT_KB.resolve()
+        else sorted(kb_dir.glob("*.yaml"))
+    )
+    catalog, by_path = {}, {}
+    for path in sorted({p.resolve() for p in [*lookup_paths, *selected]}):
+        with open(path) as handle:
+            document = yaml.safe_load(handle)
+        if not isinstance(document, dict) or not document.get("id"):
+            raise ValueError(f"Invalid community record: {path}")
+        identifier = document["id"]
+        if identifier in catalog:
+            raise ValueError(f"Duplicate community ID in export inputs: {identifier}")
+        catalog[identifier] = document
+        by_path[path] = document
+    for path in selected:
+        _extract(by_path[path], nodes, edges, catalog)
+    n_records = len(selected)
+    # Refuse ambiguous/dangling identities before touching existing products.
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # Write nodes.tsv
     node_cols = ["id", "category", "name", "description", "provided_by"]
@@ -333,6 +458,7 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
         "knowledge_level",
         "agent_type",
         "primary_knowledge_source",
+        "communitymech_context",
     ]
     edges_path = output_dir / "edges.tsv"
     seen_ids: set[str] = set()
@@ -355,13 +481,12 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
                     edge.knowledge_level,
                     edge.agent_type,
                     edge.primary_knowledge_source,
+                    edge.communitymech_context,
                 ]
             )
 
     # Provenance manifest
     manifest_path = output_dir / "manifest.json"
-    import json
-
     manifest = {
         "generator": "communitymech.export.kgx_export",
         "generated_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
@@ -370,6 +495,8 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
         "input_record_count": n_records,
         "node_count": len(nodes),
         "edge_count": len(seen_ids),
+        "context_mapping_version": 1,
+        "context_semantics": "docs/KGX_CONTEXT_EXPORT.md",
     }
     with open(manifest_path, "w") as f:
         json.dump(manifest, f, indent=2)
@@ -381,11 +508,12 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--kb", type=Path, default=DEFAULT_KB)
     ap.add_argument("--output", type=Path, default=DEFAULT_OUT)
+    ap.add_argument("--record", help="Export one exact YAML filename for an end-to-end canary")
     args = ap.parse_args()
     if not args.kb.is_dir():
         print(f"kb dir not found: {args.kb}", file=sys.stderr)
         return 2
-    n_nodes, n_edges = export_kgx(args.kb, args.output)
+    n_nodes, n_edges = export_kgx(args.kb, args.output, args.record)
     print(f"Wrote {n_nodes} nodes / {n_edges} edges to {args.output}")
     return 0
 
