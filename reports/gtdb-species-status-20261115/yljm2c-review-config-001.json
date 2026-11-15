@@ -1,0 +1,56 @@
+{
+  "review": {
+    "slug": "yljm2c-species-reference-diagnostic",
+    "title": "YL-JM2C species-reference GTDB correspondence: scoped M5 diagnostic",
+    "independence_basis": "Authored source proof and bounded correction. Parent independently inspected primary ANI/BioProject passages, NCBI species identity, the exact crosswalk row, candidate diff, shared native writer and controls before actual M5 application.",
+    "summary": "The paper supports identifying stock YL-JM2C as Rhizorhabdus wittichii. The unchanged NCBI species identifier maps through the pinned native crosswalk to the same GTDB species, with seven reference genomes and rounded fraction 0.86. This adds a species-reference correspondence; it does not certify that the study stock's genome belongs to that GTDB cluster. Actual application, native history and eight required commands are bound.",
+    "scope_description": "One GTDB species-reference block, grounding status, source identity and bounded actual provenance; preserve the rest of the scientific record.",
+    "selection": "One complete record, CommunityMech:000554, selected as the first species-reference and shared-runner canary after exact-strain 000555. No wider batch execution preceded this end-to-end canary.",
+    "limitations": [
+      "Scoped technical/provenance assessment with scientific_review:false; no full scientific record approval or corpus QC completion.",
+      "The seven-genome crosswalk population is keyed to species NCBITaxon:160791, not stock YL-JM2C or BioProject PRJNA1397584. Membership of that stock in the GTDB species cluster was not independently established. The rounded fraction 0.86 is retained without inventing a support-genome numerator.",
+      "Local NCBI label/rank query output is retained; the complete SQLite database and release were not hash-certified. Exact source cache, crosswalk and resolver bytes are bound separately.",
+      "The source's earlier Sphingomonas-to-Rhizorhabdus stock reassignment is preserved. Native is_reclassified:false only compares current canonical and GTDB names.",
+      "The open RwTfdB structural-determinants discussion and all prior biological claims remain unchanged; this diagnostic does not answer that scientific question.",
+      "Seven native scoped validators plus native history scaffolding passed. Source-snippet matching, generated pages, the strict historical successor integration and final combined full QC remain separately accounted work."
+    ],
+    "links": ["https://github.com/CultureBotAI/CommunityMech/issues/2848", "https://github.com/CultureBotAI/CommunityMech/pull/2862"]
+  },
+  "records": [
+    {
+      "target": "data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml",
+      "target_id": "CommunityMech:000554",
+      "selector": "taxonomy[0].taxon_term.gtdb_classification; gtdb_grounding_status",
+      "label": "YL-JM2C species-reference correspondence and retained stock boundary",
+      "before_sha256": "e70a8434bd8db3852302899814f08a19d97c0e9d73a6636cb7715295642fdf59",
+      "after_sha256": "dd333d36e5ed9169cf2ddda11bc5d53466dc838895bfee5a8d71336f9c360673",
+      "application_receipt": ".temp/gtdb-species-status-20261115/yljm2c-applied-m5-001/receipt.json",
+      "application_receipt_sha256": "4158807ea699f981ed96fdb3e966878f95df84ea1c0b1682d9541305646e56d9",
+      "stage_directory": ".temp/gtdb-species-status-20261115/yljm2c-candidate-001",
+      "history_sidecar": "history/records/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline/2026-11-15T062832Z-codex-867208.yaml",
+      "history_sidecar_sha256": "bcdda802d16bcfa466ab90ac7b77a6b3ba447dd4c79bcbd6746dceeb1f432755",
+      "source_metadata_output": "reports/gtdb-species-status-20261115/yljm2c-source-evidence-001.json",
+      "gates": {
+        "schema": ".temp/gtdb-species-status-20261115/yljm2c-run-schema-001",
+        "strict": ".temp/gtdb-species-status-20261115/yljm2c-run-strict-001",
+        "gtdb": ".temp/gtdb-species-status-20261115/yljm2c-run-gtdb-001",
+        "domain": ".temp/gtdb-species-status-20261115/yljm2c-run-domain-001",
+        "scalars": ".temp/gtdb-species-status-20261115/yljm2c-run-scalars-001",
+        "new-history": ".temp/gtdb-species-status-20261115/yljm2c-run-new-history-001",
+        "history": ".temp/gtdb-species-status-20261115/yljm2c-run-history-001",
+        "terms": ".temp/gtdb-species-status-20261115/yljm2c-run-terms-001"
+      },
+      "evidence": [
+        {"evidence_id": "000554-paper", "kind": "primary_source", "reference": "https://pubmed.ncbi.nlm.nih.gov/42364169/", "locator": "Results, retained main-text offset 22937; Data availability offset 50466", "support": "supports", "summary": "The inspected paper reports approximately 97% ANI between YL-JM2C and R. wittichii RW1 and identifies the complete study-stock assembly by BioProject PRJNA1397584. This supports the paper's species identification, not an independent GTDB classification of that stock."},
+        {"evidence_id": "000554-database", "kind": "database", "reference": "reports/gtdb-species-status-20261115/yljm2c-source-evidence-001.json", "locator": "occurrences[0].ncbi_identity_rows/crosswalk_exact_rows/native_result", "support": "supports", "summary": "The local authority labels NCBITaxon:160791 Rhizorhabdus wittichii at species rank. Exact pinned crosswalk row 7583 reports seven genomes and fraction 0.86, and the native ncbi_id resolver reproduces GTDB:s__Rhizorhabdus_wittichii. No exact YL-JM2C assembly membership or numerator is inferred."},
+        {"evidence_id": "000554-application", "kind": "record_content", "reference": ".temp/gtdb-species-status-20261115/yljm2c-applied-m5-001/receipt.json", "locator": "applied/before_sha256/after_sha256/inputs", "support": "supports", "summary": "The actual guarded M5 application persisted only the accepted block, status and two native inline events. The native append-only sidecar and all eight current gate receipts are retained and bound."},
+        {"evidence_id": "000554-prior", "kind": "prior_review", "reference": "reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml", "locator": "records[id=CommunityMech:000554] and immutable c15s4 deep audit", "support": "context_only", "summary": "Original scientific assertions and the unresolved RwTfdB structural-determinants question remain historical evidence. The isolated baseline retains one community-level node and no inferred consortium cross-feeding arrow; no mechanism claim was changed by this database correction."}
+      ],
+      "assessments": [
+        {"assessment_id": "000554-identity", "area": "grounding", "topic": "Source stock and species authority boundary", "outcome": "supported", "target_ids": ["CommunityMech:000554"], "evidence_ids": ["000554-paper", "000554-database", "000554-terms"], "summary": "Preserve stock YL-JM2C, the source's ANI-based species assignment, BioProject and unchanged NCBITaxon species identity. The new GTDB block represents that species-reference correspondence, not a separately verified genome classification of YL-JM2C."},
+        {"assessment_id": "000554-population", "area": "grounding", "topic": "Exact native species-reference population and name comparison", "outcome": "supported", "target_ids": ["CommunityMech:000554"], "evidence_ids": ["000554-database", "000554-gtdb", "000554-domain"], "summary": "Retain native total_genomes 7 and majority_fraction 0.86 from the exact species-ID row, without deriving a support numerator or equating reference genomes with study stocks. Native is_reclassified:false records agreement of the current species names, without denying the paper's earlier stock reassignment."},
+        {"assessment_id": "000554-provenance", "area": "provenance", "topic": "Actual bounded application and unchanged scientific uncertainty", "outcome": "supported", "target_ids": ["CommunityMech:000554"], "evidence_ids": ["000554-application", "000554-schema", "000554-strict", "000554-scalars", "000554-new-history", "000554-history", "000554-prior"], "summary": "The current record equals the approved candidate after a native validated guarded write. Eight required commands and one new native history sidecar persisted. Existing stock names, source quotations, ecological graph, RwTfdB discussion and prior history are unchanged. Separate strict batch147 successor and combined generated pages/QC remain integration work."}
+      ]
+    }
+  ]
+}
