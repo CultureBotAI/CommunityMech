@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 import yaml
 from ambiguity_gtdb_successors import admit_status_successor
+from source_intake_gtdb_successors import T1_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml"
@@ -75,7 +76,10 @@ def _check_batch137_invariants(ledger: dict, rows: list[dict], docs: list[dict])
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
         raw = (ROOT / row["path"]).read_bytes()
-        admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
+        if row["path"] == T1_PATH:
+            admission = admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
+        else:
+            admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
         assert hashlib.sha256(raw).hexdigest() == admission.current_sha256
         historical = doc
         if admission.changed:

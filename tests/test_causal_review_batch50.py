@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from source_intake_gtdb_successors import C6_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml"
@@ -11,6 +12,9 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-hambi-hanford-c6
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
+    for row in ledger["records"]:
+        if row["path"] == C6_PATH:
+            admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
 
 
@@ -100,9 +104,16 @@ def test_every_node_and_removed_arrow_has_a_hash_bound_decision():
         assert row["status"] == "reviewed" and row["removed_node_decisions"] == []
         assert len(row["edges_before"]) == len(row["removed_edge_decisions"])
         assert row["edges_after"] == row["retained_edge_decisions"] == []
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        expected, historical = row["record_sha256"], doc
+        if row["path"] == C6_PATH:
+            admission = admit_source_intake_successor(ROOT, row["path"], expected)
+            expected = admission.current_sha256
+            assert doc["curation_history"] == yaml.safe_load(raw)["curation_history"]
+            historical = yaml.safe_load(admission.historical_bytes)
+        assert hashlib.sha256(raw).hexdigest() == expected
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         for gap in doc["discussions"]:
             assert gap["status"] == "OPEN"
             assert all(a.split("#", 1)[1] in names for a in gap["attaches_to"])

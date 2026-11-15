@@ -58,7 +58,16 @@ taxonomy:
     term:
       id: NCBITaxon:135461
       label: Bacillus subtilis subsp. subtilis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:135461
+      majority_fraction: 1.0
+      total_genomes: 101
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 'MALDI-TOF-MS best match: B. subtilis subsp. subtilis DSM 10 (Biotyper score 2.335, Table 3).'
   strain_designation:
     strain_name: Re1
@@ -77,7 +86,6 @@ taxonomy:
       id: NCBITaxon:1396
       label: Bacillus cereus
     gtdb_grounding_status: AMBIGUOUS
-    notes: 'MALDI-TOF-MS best match: B. cereus DSM 31 (Biotyper score 2.333, Table 3).'
     gtdb_candidates:
     - GTDB:s__Bacillus_A_anthracis
     - GTDB:s__Bacillus_A_bombysepticus
@@ -102,6 +110,7 @@ taxonomy:
     - GTDB:s__Bacillus_A_thuringiensis_S
     - GTDB:s__Bacillus_A_toyonensis
     - GTDB:s__Bacillus_A_tropicus
+    notes: 'MALDI-TOF-MS best match: B. cereus DSM 31 (Biotyper score 2.333, Table 3).'
   strain_designation:
     strain_name: Re2
   functional_role:
@@ -117,7 +126,12 @@ taxonomy:
     term:
       id: NCBITaxon:1408
       label: Bacillus pumilus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_altitudinis
+    - GTDB:s__Bacillus_pumilus
+    - GTDB:s__Bacillus_pumilus_O
+    - GTDB:s__Bacillus_sp002998085
     notes: 'MALDI-TOF-MS best match: Bacillus pumilus ATCC 7061 (Biotyper score 2.344, Table 3).'
   strain_designation:
     strain_name: Re3
@@ -135,7 +149,16 @@ taxonomy:
     term:
       id: NCBITaxon:2026194
       label: Bacillus paramycoides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_A_paramycoides
+      gtdb_taxon: Bacillus_A paramycoides
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A paramycoides
+      ncbi_source_id: NCBITaxon:2026194
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 'MALDI-TOF-MS best match: Bacillus paramycoides HS-1 (Biotyper score 2.321, Table 3).'
   strain_designation:
     strain_name: Re4
@@ -153,7 +176,10 @@ taxonomy:
     term:
       id: NCBITaxon:1405
       label: Bacillus mycoides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_A_cereus
+    - GTDB:s__Bacillus_A_mycoides
     notes: 'MALDI-TOF-MS best match: Bacillus mycoides DSM 2048 (Biotyper score 2.359, Table 3).'
   strain_designation:
     strain_name: Re5
@@ -171,7 +197,10 @@ taxonomy:
     term:
       id: NCBITaxon:1390
       label: Bacillus amyloliquefaciens
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_amyloliquefaciens
+    - GTDB:s__Bacillus_velezensis
     notes: 'MALDI-TOF-MS best match: B. amyloliquefaciens DSM 7 (Biotyper score 2.381, Table 3).'
   strain_designation:
     strain_name: Re6
@@ -557,3 +586,11 @@ curation_history:
     (5.86 x 10^6 CFU/mL), keeping downstream edges empty because Table 8 is post-assay bioinformatic prediction rather than
     demonstrated causal enzyme mediation.
   llm_assisted: true
+- timestamp: '2026-11-15T12:47:37Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T12:47:37Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 5 taxonomy entries (#294, #395).'

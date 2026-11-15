@@ -72,7 +72,16 @@ taxonomy:
     term:
       id: NCBITaxon:135461
       label: Bacillus subtilis subsp. subtilis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:135461
+      majority_fraction: 1.0
+      total_genomes: 101
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession LC599401.1 in the source table.
   strain_designation:
     strain_name: AZFS3
@@ -91,7 +100,12 @@ taxonomy:
     term:
       id: NCBITaxon:1408
       label: Bacillus pumilus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_altitudinis
+    - GTDB:s__Bacillus_pumilus
+    - GTDB:s__Bacillus_pumilus_O
+    - GTDB:s__Bacillus_sp002998085
     notes: 16S accession LC599402.1 in the source table.
   strain_designation:
     strain_name: AZFS5
@@ -110,7 +124,10 @@ taxonomy:
     term:
       id: NCBITaxon:72360
       label: Bacillus mojavensis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_halotolerans
+    - GTDB:s__Bacillus_mojavensis
     notes: 16S accession LC599403.1 in the source table.
   strain_designation:
     strain_name: AZFS15
@@ -129,7 +146,16 @@ taxonomy:
     term:
       id: NCBITaxon:2026194
       label: Bacillus paramycoides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_A_paramycoides
+      gtdb_taxon: Bacillus_A paramycoides
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A paramycoides
+      ncbi_source_id: NCBITaxon:2026194
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession LC599406.1 in the source table.
   strain_designation:
     strain_name: AZFS18
@@ -148,7 +174,16 @@ taxonomy:
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession LC599404.1 in the source table.
   strain_designation:
     strain_name: KZFS4
@@ -167,7 +202,16 @@ taxonomy:
     term:
       id: NCBITaxon:323284
       label: Alcaligenes aquatilis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Alcaligenes_aquatilis
+      gtdb_taxon: Alcaligenes aquatilis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Alcaligenes;s__Alcaligenes aquatilis
+      ncbi_source_id: NCBITaxon:323284
+      majority_fraction: 1.0
+      total_genomes: 12
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession LC599405.1 in the source table.
   strain_designation:
     strain_name: KZFS11
@@ -600,3 +644,11 @@ curation_history:
     or minimum-member necessity.; Retain the positive HPLC parent-removal outcome and recovery-based denominator
     while distinguishing native-community context, mineralization and causal mediation. Issue #1368; reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T12:47:58Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T12:47:58Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 6 taxonomy entries (#294, #395).'
