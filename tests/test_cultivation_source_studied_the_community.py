@@ -149,8 +149,6 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
     _DOMAIN_RANK: (
         "California_Grassland_Precipitation_Legacy_Soil_Community.yaml",
         "Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.yaml",
-        "LBNL_Brachypodium_Drought_SynCom15.yaml",
-        "LBNL_Human_Gut_Interaction_SynCom.yaml",
         "Maize_Benzoxazinoid_Metabolizing_SynComs.yaml",
         "Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml",
         "NCycle_Bioflocculation_Model_Consortium.yaml",

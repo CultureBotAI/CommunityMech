@@ -5,6 +5,20 @@ The requested order is to finish Phase 2, then resume the all-record scientific
 review campaign. This checkpoint does not declare either task complete or
 authorize a merge. The original stalled M5 checkout and session remain preserved.
 
+The explicitly approved recovery [PR #2775](https://github.com/CultureBotAI/CommunityMech/pull/2775)
+merged through the required queue at `2026-11-15T03:22:07Z` as
+`6097f1ad3d47424b3cc092fc24cdb869aee5b539`. Its published branch and the local
+branch in the shared recovery repository were removed; the recovery checkout
+and evidence remain at detached commit `68699871415fda3c9eebf20382a315f9f3c7b17a`.
+The separate dirty M5 recovery clone and original November 6 checkout were not
+changed. Drafts #2797 and #2798 now target main and retain only their intended
+inventory and reference-coverage changes. No Phase 2 merge has been approved.
+
+The newer [integrated checkpoint](integrated-checkpoint-012d755b.md) records the
+five current full scientific assessments, preserved Yolo assessment and correction,
+verified product export, actual correction-history chain and pending private
+checkpoint transfer. The execution table below preserves earlier attempts.
+
 ## Scope and acceptance
 
 The recovered Phase 2 scope covers the host/soil/related-community work in
