@@ -123,11 +123,16 @@ taxonomy:
     term:
       id: NCBITaxon:1590
       label: Lactiplantibacillus plantarum
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Lactiplantibacillus_plantarum
-    - GTDB:s__Lactiplantibacillus_plantarum_A
-    - GTDB:s__Lactiplantibacillus_paraplantarum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactiplantibacillus_plantarum
+      gtdb_taxon: Lactiplantibacillus plantarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactiplantibacillus;s__Lactiplantibacillus plantarum
+      ncbi_source_id: NCBITaxon:1590
+      majority_fraction: 1.0
+      total_genomes: 2061
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       The inspected primary abstract names Lactiplantibacillus plantarum as one of three soymilk starter
       members but provides no strain accession. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference
@@ -317,3 +322,11 @@ curation_history:
     ambiguity candidates and all biological content; separate native mapping and strict two-transition proof remain
     pending. No whole-record scientific approval is asserted.
   llm_assisted: true
+- timestamp: '2026-11-15T10:32:06Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:32:06Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
