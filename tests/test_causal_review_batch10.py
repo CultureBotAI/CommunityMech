@@ -8,11 +8,14 @@ from pathlib import Path
 import yaml
 from ambiguity_gtdb_successors import BEFORE as STATUS_BEFORE
 from ambiguity_gtdb_successors import PMSX_PATH, admit_status_successor
+from genus_gtdb_successors import admit_genus_successor
 from source_note_gtdb_successors import BEFORE, CARAGANA, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml"
 CHEESE_BASE = "aafb95ba7442031eef348d072a184a248c4b54ad"
+SYNCOM15_PATH = "kb/communities/Caragana_Wheat_Drought_SynCom15.yaml"
+SYNCOM15_BEFORE = "5fe2262acd9eb4de81a2f454ac2954ab5d347a1ce7915d1cdcaf73fc584ff678"
 
 
 def record_bytes(path):
@@ -23,11 +26,14 @@ def record_bytes(path):
 
 
 def record(stem):
-    if f"kb/communities/{stem}.yaml" == CARAGANA:
+    path = f"kb/communities/{stem}.yaml"
+    if path == CARAGANA:
         admit_note_mapping_successor(ROOT, CARAGANA, BEFORE[CARAGANA])
-    if f"kb/communities/{stem}.yaml" == PMSX_PATH:
+    if path == PMSX_PATH:
         admit_status_successor(ROOT, PMSX_PATH, STATUS_BEFORE[PMSX_PATH])
-    return yaml.safe_load(record_bytes(f"kb/communities/{stem}.yaml"))
+    if path == SYNCOM15_PATH:
+        admit_genus_successor(ROOT, path, SYNCOM15_BEFORE)
+    return yaml.safe_load(record_bytes(path))
 
 
 def test_california_keeps_relative_metric_and_two_hypotheses():
@@ -213,6 +219,11 @@ def test_batch10_ledger_hashes_nodes_and_directions_are_complete():
         elif row["path"] == PMSX_PATH:
             admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
             assert hashlib.sha256(raw).hexdigest() == admission.current_sha256
+        elif row["path"] == SYNCOM15_PATH:
+            assert (
+                hashlib.sha256(raw).hexdigest()
+                == admit_genus_successor(ROOT, row["path"], row["record_sha256"]).current_sha256
+            )
         else:
             assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         doc = yaml.safe_load(raw)

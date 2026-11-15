@@ -36,7 +36,17 @@ taxonomy:
     term:
       id: NCBITaxon:129001
       label: Syntrophothermus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Syntrophothermus
+      gtdb_taxon: Syntrophothermus
+      gtdb_lineage: d__Bacteria;p__Bacillota_B;c__Syntrophomonadia;o__Syntrophomonadales;f__Syntrophothermaceae;g__Syntrophothermus
+      ncbi_source_id: NCBITaxon:129001
+      majority_fraction: 1.0
+      support_genomes: 5
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       MAG1 is the recovered putative syntrophic butyrate-oxidizing MAG. The
       authors assign it to the genus Syntrophothermus and propose the
@@ -123,7 +133,16 @@ taxonomy:
     term:
       id: NCBITaxon:1671625
       label: Candidatus Methanoculleus thermohydrogenotrophicum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanoculleus_thermohydrogenotrophicum
+      gtdb_taxon: Methanoculleus thermohydrogenotrophicum
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanomicrobia;o__Methanomicrobiales;f__Methanoculleaceae;g__Methanoculleus;s__Methanoculleus thermohydrogenotrophicum
+      ncbi_source_id: NCBITaxon:1671625
+      majority_fraction: 1.0
+      total_genomes: 13
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
       MAG3 is the recovered hydrogenotrophic methanogen assigned to
       Candidatus Methanoculleus thermohydrogenotrophicum in the study.
@@ -157,7 +176,17 @@ taxonomy:
     term:
       id: NCBITaxon:145260
       label: Methanothermobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methanothermobacter
+      gtdb_taxon: Methanothermobacter
+      gtdb_lineage: d__Archaea;p__Methanobacteriota;c__Methanobacteria;o__Methanobacteriales;f__Methanothermobacteraceae;g__Methanothermobacter
+      ncbi_source_id: NCBITaxon:145260
+      majority_fraction: 1.0
+      support_genomes: 44
+      total_genomes: 44
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       Combined genus-level entry for the two recovered Methanothermobacter MAGs
       MAG4 and MAG5, assigned in the study to Methanothermobacter wolfeii and
@@ -665,3 +694,11 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Bound MAG-resolved syntrophy while retaining positive 0B conversion. Issue #1497; reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T09:52:32Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T09:52:33Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'

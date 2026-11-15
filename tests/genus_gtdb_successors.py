@@ -9,6 +9,34 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-mixed-four-350-001-successor.json",
+            "sha256": "5f2ebfd59361d99c4e7d968e960e32ecc5072842d39fbaaae62aa0e1004b6baf",
+        },
+    },
+    "kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-mixed-four-364-001-successor.json",
+            "sha256": "eae3a9fd00f8552e6c834e7c8a929d5dc178dc585d96eb70b6394bfe8e40cde3",
+        },
+    },
+    "kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-mixed-four-458-001-successor.json",
+            "sha256": "6612d430644712b57b1444532b8a49c6d732a50a1cd0fdfafdb9befd007bfed4",
+        },
+    },
+    "kb/communities/Caragana_Wheat_Drought_SynCom15.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-code006-20261115/genus-mixed-four-456-001-successor.json",
+            "sha256": "610e7ef69a190344cdf68b7e7c66a873333e9915c0d03c1c2a797a093e587c2c",
+        },
+    },
     "kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml": {
         "baseline_revision": BASE,
         "manifest": {
