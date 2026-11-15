@@ -2,14 +2,17 @@
 
 Inputs: current records and renderer/export implementation. Outputs: normal docs/
 and output/kgx products, exclusive private logs/receipts under .temp. The batch
-requires a passing canary bound to unchanged implementation bytes. No network,
-reference acquisition or canonical record writes are performed.
+requires a passing canary bound to unchanged implementation bytes. The default
+product checks make no network calls. The optional native label gate (#2844,
+#2846) may acquire missing OAK ontology builds through its existing preflight.
+Neither path acquires reference papers or writes canonical records.
 """
 
 import argparse
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -25,6 +28,16 @@ def sha(path):
 
 def implementation():
     paths = [ROOT / "src/communitymech/render.py", Path(__file__).resolve()]
+    paths.extend(
+        ROOT / name
+        for name in (
+            "conf/id_label_targets.yaml",
+            "scripts/validate_id_label_correspondence.py",
+            "scripts/resolve_ontology_config.py",
+            "scripts/ontology_preflight.py",
+            "justfile",
+        )
+    )
     paths.extend((ROOT / "src/communitymech/export").glob("*.py"))
     paths.extend((ROOT / "src/communitymech/templates").rglob("*.html"))
     return {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
@@ -35,6 +48,11 @@ def main():
     parser.add_argument("mode", choices=["canary", "batch"])
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--canary-receipt", type=Path)
+    parser.add_argument(
+        "--validate-labels",
+        action="store_true",
+        help="Also run the native product label gate (#2844)",
+    )
     args = parser.parse_args()
     output = args.output.resolve()
     if not output.is_relative_to((ROOT / ".temp").resolve()):
@@ -46,9 +64,12 @@ def main():
         canary = json.loads(args.canary_receipt.read_text())
         if canary["mode"] != "canary" or canary["exit_code"] or canary["implementation"] != before:
             parser.error("canary failed or implementation changed; re-canary first")
+        if canary.get("validate_labels", False) != args.validate_labels:
+            parser.error("canary and batch must run the same label-gate selection")
     output.mkdir(parents=True, exist_ok=False)
     receipt = {
         "mode": args.mode,
+        "validate_labels": args.validate_labels,
         "started_at": datetime.now(timezone.utc).isoformat(),
         "revision": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
@@ -81,12 +102,33 @@ def main():
             [sys.executable, "-m", "communitymech.export.validate_kgx", "--strict"],
         ),
     ]
+    if args.validate_labels:
+        commands.append(
+            (
+                "validate-labels",
+                [
+                    shutil.which("just") or "just",
+                    "--verbose",
+                    "--no-dotenv",
+                    "--color",
+                    "never",
+                    "validate-products",
+                ],
+            )
+        )
     for name, command in commands:
         with (output / f"{name}.log.txt").open("x") as handle:
             result = subprocess.run(
                 command, cwd=ROOT, env=environment, stdout=handle, stderr=subprocess.STDOUT
             )
         receipt["commands"].append({"name": name, "argv": command, "exit_code": result.returncode})
+        if (
+            name == "validate-labels"
+            and "SKIPPED, NOT PASSED" in (output / f"{name}.log.txt").read_text()
+        ):
+            receipt["commands"][-1]["status"] = "SKIPPED"
+            receipt["exit_code"] = 2
+            break
         if result.returncode:
             receipt["exit_code"] = result.returncode
             break
