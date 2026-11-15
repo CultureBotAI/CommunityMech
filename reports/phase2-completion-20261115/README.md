@@ -269,6 +269,15 @@ The [additional genus source plan](genus-additional-three-source-context-001.yam
 prepares records 410, 415 and 477 without changing their biology or declaring
 scientific approval.
 
+The [Rhizorhabdus/Cupriavidus integration at 7004f1e2](species388-integration-7004f1e2.md)
+adds the independently verified M5 two-descriptor correction and 81-input
+partial assessment, with complete 83-file checkpoints on both machines.
+All four registered actual proof cases run in the composed tree: 207 tests
+across 12 affected modules and native lint pass. Its native page probe persisted
+with the correct record identity. Twelve corrections are integrated, eight
+from the historical repair partition; final full QC and scientific completion
+remain separate requirements.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
