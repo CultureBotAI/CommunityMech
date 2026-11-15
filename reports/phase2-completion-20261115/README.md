@@ -218,6 +218,14 @@ The [combined integration at 301f35b8](mapping-integration-301f35b8.md) passes
 pages without a tracked generated-output change. The grounding-status backlog
 in #2848 still requires bounded source-supported corrections.
 
+The unchanged [native whole-corpus mapping module](../gtdb-source-routes-2849-20261115/CORPUS-CHECK.md)
+passes on isolated M5 at `f39c0fe4`: three tests, no skips. The separate
+[whole-record assignment ledger](gtdb-repair-assignments-001/README.md) covers
+the remaining historical status partition: 126 records and 418 occurrences,
+assigned without overlap to genus, species and ambiguity groups. This ledger
+records work ownership; it grants no curation or scientific approval and does
+not count concurrent branch work as complete.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
