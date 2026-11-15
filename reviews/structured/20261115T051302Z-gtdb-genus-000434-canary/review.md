@@ -1,0 +1,613 @@
+# One-record technical canary: source-backed Mycobacterium genus correspondence
+
+- Review: 20261115T051302Z-gtdb-genus-000434-canary
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T05:10:15.603574Z
+- Finished UTC: 2026-11-15T05:13:02.803786Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+One actual native genus correspondence and GROUNDED status now pass six scoped gates and both unchanged completion tests. This technical correspondence preserves the paper's unresolved species/genome and mechanism limits; it is not a full scientific review or corpus-QC repair.
+
+## Scope And Provenance
+
+Only this genus database correspondence, guarded application/history chain and technical completion were assessed.
+
+Selection: First named status discrepancy, independently accepted one-record canary; not a random sample.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 956d00c6143020810ef7a60a6298e67fb0ee0caf.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000434 | kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml # taxonomy[1].taxon_term | maintained | Current Mycobacterium genus correspondence and source limits |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| validate-strict | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| validate-gtdb | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| validate-gtdb-domain | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| validate-scalars | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| validate-history | passed | True | CommunityMech:000434 | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| Native outstanding-grounding guards | passed | True | CommunityMech:000434 | Both unchanged native outstanding-grounding tests passed on the actual genus application. |
+
+## Scientific And Domain Assessments
+
+### Same-genus database correspondence at unchanged source identity
+
+grounding: supported. Targets: CommunityMech:000434.
+
+The retained table supports only the existing declared genus: GTDB:g__Mycobacterium,18589/18589, not reclassified. Exact paper species/genome remains unknown; no primary organism name, quotation or ecological assertion changed.
+
+### Actual application chain and immutable prior assessments
+
+provenance: supported. Targets: CommunityMech:000434.
+
+Original13b8→status-only d586→genus c2cf is recorded through two actual application receipts and two append-only sidecars. Both previous reviews remain unchanged. The status-only pending action is addressed for this record; broader2848/2849 and historical scientific findings stay open.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| schema | .temp/gtdb-code006-20261115/genus-canary-run-schema-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| strict | .temp/gtdb-code006-20261115/genus-canary-run-strict-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| gtdb | .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| domain | .temp/gtdb-code006-20261115/genus-canary-run-domain-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| scalars | .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| history | .temp/gtdb-code006-20261115/genus-canary-run-history-001.log | supports | Actual scoped M5 gate completed with exit0 and a nonempty hash-verified log. |
+| completion | .temp/gtdb-code006-20261115/genus-completion-001.log | supports | Both unchanged native outstanding-grounding tests passed on the actual genus application. |
+| application | .temp/gtdb-code006-20261115/genus-applied-001/receipt.json | supports | Actual reviewed genus application connects status-canary d586 to c2cf; original biological payload stays unchanged. |
+| mapping | .temp/gtdb-code006-20261115/genus-candidate-001/receipt.json | supports | Native same-genus NCBITaxon1763→GTDB:g__Mycobacterium correspondence,18589/18589 named genomes, exact761 crosswalk; no source species/genome identification. |
+| previous | reviews/structured/20261105T223042Z-pr2035-acidic-nitrification-successor/review.yaml | context_only | Preserved November5 full scientific review, source organism/genome uncertainty, literature-access and mechanism limits. |
+| diagnostic | reviews/structured/20261115T050137Z-gtdb-status-000434-canary/review.yaml | context_only | Preserved status-only technical diagnostic and its two native completion failures; new actual grounding now addresses that bounded pending action. |
+
+## Limits And Additional Notes
+
+- Technical correspondence only: no new full-paper, supplement, reference/term sweep, exact species/genome identity or scientific approval.
+- Six scoped gates and two native completion tests pass; the historical native495 discrepancy inventory and three-block work are separate. No full QC pass is asserted.
+- Execution was isolated M5 Python3.13.2 at956d00c6 plus explicitly hashed orchestration helpers. The prior status-only failed completion proof remains historical, not erased.
+- Existing scientific findings and source-access/organism/mechanism uncertainty remain; no issue closure or bulk curation is authorized by this assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T051302Z-gtdb-genus-000434-canary
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'One-record technical canary: source-backed Mycobacterium genus correspondence'
+started_at: '2026-11-15T05:10:15.603574Z'
+finished_at: '2026-11-15T05:13:02.803786Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Authored diagnosis and application; separate root read-only
+    review accepted the candidate, guard and source boundary before application.
+skill: review-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: One actual native genus correspondence and GROUNDED status now pass six scoped
+  gates and both unchanged completion tests. This technical correspondence preserves
+  the paper's unresolved species/genome and mechanism limits; it is not a full scientific
+  review or corpus-QC repair.
+source:
+  git_revision: 956d00c6143020810ef7a60a6298e67fb0ee0caf
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-code006-20261115/applied-001/receipt.json
+    sha256: 39bac49ad4dc868eb2423d94ce1eaac64cef0bdd23595f233d81a75ac1fe853b
+    role: context
+  - path: .temp/gtdb-code006-20261115/assessment-draft-004.json
+    sha256: a8e6a444cd2493a0d532a9b5f30c39a9348cdde81f7d82308b4498de6e69792d
+    role: context
+  - path: .temp/gtdb-code006-20261115/assessment-saved-audit-004.json
+    sha256: 991c8f57104420c9fdad11da27e5080178626736b9a0e95ad6ee835c03eeb984
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-applied-001/before.yaml
+    sha256: d58669e049476d801fa68cdb50184e6ac9c21c07cdbc2517ef32579f75acb7f8
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-applied-001/receipt.json
+    sha256: 14a946e2082e7203b18b39d3c5862403c56eb47ee2844fb917b35b1b4d00123c
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.command.txt
+    sha256: dc6cf3d73fcb8fd934663a20e33e3b3ccba605644717c56d058dcc856be61ba9
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.finished.txt
+    sha256: 6c0d90a2539eea2810e0dfc121d43b35b10f9276b2a3680618f6e74c1ff954a8
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.log
+    sha256: a0defbbc2f14126dba41e745f6c421d250057ae13e5545a2c85f28f4860688aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.log.sha256
+    sha256: e42930fdc14fbec541c5a139fabfb6d272f3196bfd799443ce8fa5ac0c5afcc0
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.start.txt
+    sha256: 1f98daedec95c3f80ecd9c8a6cccc4fbf604ffae20fdcafe0ca43abfd0ba0fe1
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.command.txt
+    sha256: 0515c7c7a6cb78c72b562cc372754c5f80ba1021340db706c0f45c43c4965ed1
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.finished.txt
+    sha256: fee1e218eeb867cad6e794c85fd81af813aef1abce0cdb5902fd3dcc510156b3
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.log
+    sha256: d85a3dfb9ed9f56ec7ed59b8ee617e0c2a6a72686763071a0d40e6278b3733aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.log.sha256
+    sha256: 5ecf8c416c9b1cc135ae3de8fab91a5e9265a58c41a8086f856361034bfb3771
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.start.txt
+    sha256: 1f98daedec95c3f80ecd9c8a6cccc4fbf604ffae20fdcafe0ca43abfd0ba0fe1
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.command.txt
+    sha256: 80b441da84a1f2a5f8f00a7dfe7b953e1408bb47f38521f14b0fe8c7671e8dc7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.finished.txt
+    sha256: 6c0d90a2539eea2810e0dfc121d43b35b10f9276b2a3680618f6e74c1ff954a8
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.log.sha256
+    sha256: cb42b6b36bc92f0f17333f0d5d5eb8a6f4673fca87a630d2be5c2a260a556285
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-history-001.start.txt
+    sha256: 1b02596c7aac49a8beb5c1ee8a53450572dbd74235b4fc6ec0925ac70216224d
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.command.txt
+    sha256: 6229573b9ba2b0c1d911e65b6562ec7eb72d5a06e72dd9609c41bb3fb9f2a9c1
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.finished.txt
+    sha256: c992d60433c73752c0125194b6b11a98654bbea781129be9934c4914c0b7d623
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.log
+    sha256: 7529887bd1b8aaf4e3242f7b68372f8f67fe763482afd7166ebadbd991ae1df5
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.log.sha256
+    sha256: f404adf4ed18dff6e29e092a34cbbc3fe345e04e00a63a3abb42dbdb753276d7
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-new-history-001.start.txt
+    sha256: 25a8bd0db93e00417d4e22a084b06a440281142cf8ea6cae68372b494fa22d0f
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.command.txt
+    sha256: 25ecae8bf3775cb18e450d92c911f411aaf3b0fe896446a5632180defde17450
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.finished.txt
+    sha256: 6c0d90a2539eea2810e0dfc121d43b35b10f9276b2a3680618f6e74c1ff954a8
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.log
+    sha256: a49adf7f1b0a3b370bd0070f062b90405bb4208343e0fc786d632907220b751d
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.log.sha256
+    sha256: d950e498944bd8986a1962ba034285183658052a11ed68d8ebee9588540cb317
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.start.txt
+    sha256: 1b02596c7aac49a8beb5c1ee8a53450572dbd74235b4fc6ec0925ac70216224d
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.command.txt
+    sha256: 9c484e5a7d1cf4d8568433cab331c29bb641ab4b361241c815a9bad143f4ac04
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.finished.txt
+    sha256: c992d60433c73752c0125194b6b11a98654bbea781129be9934c4914c0b7d623
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.log
+    sha256: e3d62ff1272499258f3a316fd172dc6e618979f14b5b4991b15f782a16354325
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.log.sha256
+    sha256: bedea0984108d75cc22ee4f7a394d84d7b4cf9ffae8ce4fb0f90ec2afb61ffac
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.start.txt
+    sha256: 1175f43cfa47d920e0c6bf991eeb380c68d01a7df3be38a878f8f9651314c91b
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.command.txt
+    sha256: f30284503479b6cc602ffbf5d1f800fc5b7cf2fcc664bcc6e5692828571f19a9
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.finished.txt
+    sha256: fee1e218eeb867cad6e794c85fd81af813aef1abce0cdb5902fd3dcc510156b3
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.log
+    sha256: 7a1d48058b951f57bb06d063d67358a1677fc7f5a7952eb52b21a85c62492d88
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.log.sha256
+    sha256: d32f05624877816e5eb668e22e802432127fa57b51931107eacdc5403049f768
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.start.txt
+    sha256: 1175f43cfa47d920e0c6bf991eeb380c68d01a7df3be38a878f8f9651314c91b
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-candidate-001/Acidic_Nitrification_Minimal_Consortium.yaml
+    sha256: c2cf66bb2d62e59ac75c16db1aa9598a33719c6461822ae237d44558c6c91ea9
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-candidate-001/receipt.json
+    sha256: 2729a93b66eeaed049af18dcfb35f0c6b1108076e2511ab69692c36c5dfe62e1
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-completion-001.command.txt
+    sha256: ad5f7cce5437c5d85c76e7d5e4ede0cf44dbb8af9aea976890d9ff5ede9bb011
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-completion-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-completion-001.head.txt
+    sha256: 0162561e933866006eb38b931d99fc96a450f4f5fce43cdc2ed253c6533962e3
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-completion-001.log
+    sha256: 3707b41605957ff84116b420c341e737e5366e54cc45bddefe33bb7c17dbd1ac
+    role: context
+  - path: .temp/gtdb-code006-20261115/genus-strict-001.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-code006-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/gtdb-code006-20261115/native-source-provenance-001.txt
+    sha256: 8439cca5cb5aa70eb05c10bda6a106f069b8fc16f5021d030e533ae93e958eca
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T091009Z-codex-434.yaml
+    sha256: 55c443328db309e7ee13aa48767292c0e5c121f80c3e79486b343afb10a6903b
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T091545Z-codex-1086-1088.yaml
+    sha256: 592b1db3623e60e48ac6cf6182d32217d202f19d1ff82c57cc46831cdde2126f
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T094815Z-codex-ci.yaml
+    sha256: 52712bf1c21b27680d84ce1cf9b3cf709a71ddaea5f3791ecc6765ba764f1109
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-10-21T190000Z-claude-2047.yaml
+    sha256: b66db8c5294db3a74927b4e8fb4dc85632fd530aab5263514b25e22da7d498de
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-10-31T080000Z-antigravity-2084.yaml
+    sha256: a69658dd4b0490610ee493ec6d99962cfca324e07e792967e7429b54dfe39adf
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-11-15T045124Z-codex-aa564b.yaml
+    sha256: 7c496a4563e76ecb8c6da0261d25bca8d247786b82269425f239bb47ddc1669d
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-11-15T051056Z-codex-79864e.yaml
+    sha256: c6434c11f5046171d8c619bdec1ee1386643e87c8784163ebdceb6fc8b120492
+    role: context
+  - path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    sha256: c2cf66bb2d62e59ac75c16db1aa9598a33719c6461822ae237d44558c6c91ea9
+    role: target
+  - path: references_cache/PMID_42762737.txt
+    sha256: fde9a687c5f7536e81271d437193302dd0d5430a6d9dd7d1026cc053deb47877
+    role: context
+  - path: reviews/structured/20261105T223042Z-pr2035-acidic-nitrification-successor/review.yaml
+    sha256: e5287616753ad1cd8c8cdae8650c5c07322b3ad27d88fda4c511992b7957766e
+    role: context
+  - path: reviews/structured/20261115T050137Z-gtdb-status-000434-canary/review.md
+    sha256: 9428427a4eab9158d597da7f576ba8dac14ccbc7e8793c93efba0e562844e77f
+    role: context
+  - path: reviews/structured/20261115T050137Z-gtdb-status-000434-canary/review.yaml
+    sha256: eba5ac8939a018a5ff039317e48c8e7f7c222644c3bccde0f829b679be6adcf1
+    role: context
+  - path: scripts/adhoc/apply_code006_genus_grounding_20261115.py
+    sha256: 9615a44be311cbb97a46e45c3472ebea1c8d8e8292b72f0b4a7f1ae8cee5bf94
+    role: context
+  - path: scripts/adhoc/apply_code006_gtdb_status_20261115.py
+    sha256: e71236dda4b27c53f9bed88e57351a715e6126868e62ddba7a857f31868dbce6
+    role: context
+  - path: scripts/adhoc/build_code006_genus_assessment_20261115.py
+    sha256: 796b153c467ca107b2ff97bd85267a6e2b48cea14a643f8675364aa57c13e035
+    role: context
+  - path: scripts/adhoc/check_code006_genus_canary_20261115.sh
+    sha256: 390843da9f6ff89f01b9859841aad7a31d6acaa8b7230c00911406f94b9a3559
+    role: context
+  - path: scripts/adhoc/stage_code006_genus_grounding_20261115.py
+    sha256: 43727c40ca62144ca8092b2e69e7a342db9292e2f8858722e63af2fd417aacbb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: tests/test_gtdb_coherence_validator.py
+    sha256: 04b60b5ecc3883ee38bc6ff91f473dd54434b06c31c13afcb868bb16a980a4a2
+    role: context
+  - path: tests/test_gtdb_not_attempted.py
+    sha256: 78f6a5b7610472a6a48c1042a8c8680b43777e7eb3a0a383f1504fb6d103b52f
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000434
+  path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  selector: taxonomy[1].taxon_term
+  label: Current Mycobacterium genus correspondence and source limits
+  kind: maintained
+  ownership_note: CommunityMech owns record status; native gtdb_ground.py owns classifier
+    semantics; pinned kg-microbe crosswalk supplies mapping rows.
+scope:
+  description: Only this genus database correspondence, guarded application/history
+    chain and technical completion were assessed.
+  selection: First named status discrepancy, independently accepted one-record canary;
+    not a random sample.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000434
+  exclusions:
+  - target: Other548records and all biological claims of000434
+    reason: No broader scientific or corpus reproducibility assessment is claimed
+      by this diagnostic canary.
+checks:
+- check_id: schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - schema
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    --out .temp/gtdb-code006-20261115/genus-strict-001.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - strict
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - gtdb
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - domain
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - scalars
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+  target_ids:
+  - CommunityMech:000434
+  command: just --verbose --no-dotenv --color never validate-history history/records/Acidic_Nitrification_Minimal_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - history
+  scope_note: One record and its native history directory; no corpus or scientific
+    validation claim.
+- check_id: completion
+  name: Native outstanding-grounding guards
+  status: passed
+  required: true
+  summary: Both unchanged native outstanding-grounding tests passed on the actual
+    genus application.
+  target_ids:
+  - CommunityMech:000434
+  command: .venv/bin/python -m pytest tests/test_gtdb_coherence_validator.py::test_the_status_distribution_is_what_was_measured
+    tests/test_gtdb_not_attempted.py::test_no_taxon_is_silently_outstanding -q --tb=short
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - completion
+  scope_note: Two actual corpus-level guard tests; not the complete status-reproducibility
+    test or full QC.
+evidence:
+- evidence_id: schema
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-schema-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: strict
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-strict-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: gtdb
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-gtdb-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: domain
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-domain-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: scalars
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-scalars-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: history
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-canary-run-history-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual scoped M5 gate completed with exit0 and a nonempty hash-verified
+    log.
+- evidence_id: completion
+  kind: validation
+  reference: .temp/gtdb-code006-20261115/genus-completion-001.log
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Both unchanged native outstanding-grounding tests passed on the actual
+    genus application.
+- evidence_id: application
+  kind: record_content
+  reference: .temp/gtdb-code006-20261115/genus-applied-001/receipt.json
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Actual reviewed genus application connects status-canary d586 to c2cf;
+    original biological payload stays unchanged.
+- evidence_id: mapping
+  kind: database
+  reference: .temp/gtdb-code006-20261115/genus-candidate-001/receipt.json
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: supports
+  summary: Native same-genus NCBITaxon1763→GTDB:g__Mycobacterium correspondence,18589/18589
+    named genomes, exact761 crosswalk; no source species/genome identification.
+- evidence_id: previous
+  kind: prior_review
+  reference: reviews/structured/20261105T223042Z-pr2035-acidic-nitrification-successor/review.yaml
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: context_only
+  summary: Preserved November5 full scientific review, source organism/genome uncertainty,
+    literature-access and mechanism limits.
+- evidence_id: diagnostic
+  kind: prior_review
+  reference: reviews/structured/20261115T050137Z-gtdb-status-000434-canary/review.yaml
+  accessed_at: '2026-11-15T05:13:02.422986Z'
+  support: context_only
+  summary: Preserved status-only technical diagnostic and its two native completion
+    failures; new actual grounding now addresses that bounded pending action.
+assessments:
+- assessment_id: genus-correspondence
+  area: grounding
+  topic: Same-genus database correspondence at unchanged source identity
+  outcome: supported
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - mapping
+  - application
+  - gtdb
+  - completion
+  summary: 'The retained table supports only the existing declared genus: GTDB:g__Mycobacterium,18589/18589,
+    not reclassified. Exact paper species/genome remains unknown; no primary organism
+    name, quotation or ecological assertion changed.'
+- assessment_id: historical-boundary
+  area: provenance
+  topic: Actual application chain and immutable prior assessments
+  outcome: supported
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - previous
+  - diagnostic
+  - application
+  - history
+  summary: Original13b8→status-only d586→genus c2cf is recorded through two actual
+    application receipts and two append-only sidecars. Both previous reviews remain
+    unchanged. The status-only pending action is addressed for this record; broader2848/2849
+    and historical scientific findings stay open.
+findings: []
+actions: []
+limitations:
+- 'Technical correspondence only: no new full-paper, supplement, reference/term sweep,
+  exact species/genome identity or scientific approval.'
+- Six scoped gates and two native completion tests pass; the historical native495
+  discrepancy inventory and three-block work are separate. No full QC pass is asserted.
+- Execution was isolated M5 Python3.13.2 at956d00c6 plus explicitly hashed orchestration
+  helpers. The prior status-only failed completion proof remains historical, not erased.
+- Existing scientific findings and source-access/organism/mechanism uncertainty remain;
+  no issue closure or bulk curation is authorized by this assessment.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261105T223042Z-pr2035-acidic-nitrification-successor
+  relationship: Preserved full scientific assessment; this additive database correspondence
+    does not resolve its species/genome, source-access or mechanism limits.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261115T050137Z-gtdb-status-000434-canary
+  relationship: Additive technical successor resolves this record's outstanding genus
+    mapping; preserves the actual failed status-only diagnostic and all wider scientific
+    limits.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2849
+- https://github.com/CultureBotAI/CommunityMech/pull/2853
+```

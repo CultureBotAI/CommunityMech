@@ -1,0 +1,20 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_the_status_distribution_is_what_was_measured _______________
+tests/test_gtdb_coherence_validator.py:594: in test_the_status_distribution_is_what_was_measured
+    assert counts["NOT_ATTEMPTED"] == 0, (
+E   AssertionError: NOT_ATTEMPTED is the only value meaning outstanding work; if it is non-zero again, a taxon has appeared that nobody has triaged
+E   assert 1 == 0
+____________________ test_no_taxon_is_silently_outstanding _____________________
+tests/test_gtdb_not_attempted.py:176: in test_no_taxon_is_silently_outstanding
+    assert outstanding == [], (
+E   AssertionError: these are NOT_ATTEMPTED and unaccounted for — either ground them, or add them to HELD with the reason (#401):
+E     Acidic_Nitrification_Minimal_Consortium.yaml: Mycobacterium species
+E   assert ['Acidic_Nitr...rium species'] == []
+E     
+E     Left contains one more item: 'Acidic_Nitrification_Minimal_Consortium.yaml: Mycobacterium species'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_gtdb_coherence_validator.py::test_the_status_distribution_is_what_was_measured
+FAILED tests/test_gtdb_not_attempted.py::test_no_taxon_is_silently_outstanding
+2 failed in 9.01s

@@ -26,6 +26,7 @@ def harness(tmp_path, monkeypatch):
     # Use a current valid record as a shape fixture, never an unavailable
     # historical Git object. The production baseline constant is not changed.
     before = yaml.safe_load((REPO / module.TARGET).read_bytes())
+    before["taxonomy"][1]["taxon_term"].pop("gtdb_classification", None)
     before["taxonomy"][1]["taxon_term"]["gtdb_grounding_status"] = "UNRESOLVED"
     original = yaml.safe_dump(before, sort_keys=False).encode()
     target.write_bytes(original)

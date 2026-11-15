@@ -75,7 +75,17 @@ taxonomy:
     term:
       id: NCBITaxon:1763
       label: Mycobacterium
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Mycobacterium
+      gtdb_taxon: Mycobacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Mycobacterium
+      ncbi_source_id: NCBITaxon:1763
+      majority_fraction: 1.0
+      support_genomes: 18589
+      total_genomes: 18589
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: The abstract reports Mycobacterium species at genus level without assigning an exact species.
   abundance_level: DOMINANT
   abundance_value: Dominant pH 2.0 consortium partner with "Ca. Nitrosoglobus kelleri".
@@ -259,3 +269,15 @@ curation_history:
   changes: Add PRIMARY_PRODUCER functional_role and DOMINANT abundance_level to Candidatus Nitrosoglobus kelleri and DOMINANT
     abundance_level to Mycobacterium species per PMID:42762737 (#2084).
   llm_assisted: true
+- timestamp: '2026-11-15T04:44:42Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
+- timestamp: '2026-11-15T05:05:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T05:05:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
