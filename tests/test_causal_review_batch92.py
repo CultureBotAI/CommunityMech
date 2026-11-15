@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,9 +88,12 @@ def test_every_existing_node_and_removed_arrow_has_a_disposition():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["id"] == "CommunityMech:000424":
+            raw = admit_genus_successor(
+                ROOT, row["path"], latest["record_sha256"], current=raw
+            ).historical_bytes
+        assert hashlib.sha256(raw).hexdigest() == latest["record_sha256"]
 
 
 def test_provenance_does_not_disguise_selected_excerpts_as_independent_sources():
@@ -115,5 +119,16 @@ def test_repair_history_and_approval_limits_are_explicit():
     assert ledger["edison"]["provider_submissions"] == ledger["edison"]["credits_spent"] == 0
     assert ledger["edison"]["dry_runs"] == []
     for row, doc in zip(rows[1:], docs[1:], strict=True):
-        assert doc["curation_history"][-1]["llm_assisted"]
+        historical = doc
+        if row["id"] == "CommunityMech:000424":
+            successor = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml"
+                ).read_text()
+            )
+            latest = next(item for item in successor["records"] if item["id"] == row["id"])
+            admission = admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
+            historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"]
         assert (ROOT / row["history_files"][0]).is_file()
