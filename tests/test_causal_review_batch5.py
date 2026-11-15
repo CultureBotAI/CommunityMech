@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import ambiguity_gtdb_successors as status_successor
+import gtdb_species_batch_successors_20261115 as species_successor
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +50,11 @@ def test_phage_isotope_measurement_is_distinct_from_predicted_hosts():
 
 
 def test_lignin_proxy_does_not_assert_structural_catabolism():
+    species_successor.admission(
+        ROOT,
+        "kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml",
+        "882c357a014a5814d0b7c792c6f299944e22a8a35f453a1d53ebdf20065d749e",
+    )
     signal, dropout, biofilm = nodes("Bacillales_Lignin_Degrading_LDSynCom")
     assert signal["name"] == "LDSynCom lignin-associated phenolic signal"
     assert "biological_processes" not in signal

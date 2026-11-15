@@ -89,6 +89,27 @@ ALLOWANCES = {
             "sha256": "74438fa2ad00d085867c574d9b4efd119efe56a114a82624356e1b90e8ef5dda",
         },
     },
+    "kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-fourth-batch-20261115/383-001-successor.json",
+            "sha256": "6e29abd24fb717245958e6a8ed1cc4537c989f2c1ea9c63c6d934ace3d808efc",
+        },
+    },
+    "kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-fourth-batch-20261115/387-001-successor.json",
+            "sha256": "4771fd0355980efbbb95759eecbe765572f2571f2ac28641aedca03c4691b72d",
+        },
+    },
+    "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-fourth-batch-20261115/449-001-successor.json",
+            "sha256": "b73e838d9fb280c400814cd4f807198b442691ca99c83a8744b08a8958270f15",
+        },
+    },
     "kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {

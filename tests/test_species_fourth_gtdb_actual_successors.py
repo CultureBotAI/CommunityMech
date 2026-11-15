@@ -15,6 +15,9 @@ from gtdb_species_batch_successors_20261115 import ALLOWANCES
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "476": "kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml",
+    "383": "kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml",
+    "387": "kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml",
+    "449": "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
 }
 
 
