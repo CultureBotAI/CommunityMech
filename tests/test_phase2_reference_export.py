@@ -19,8 +19,17 @@ SPEC.loader.exec_module(exporter)
 
 
 @pytest.fixture
-def measured(fixture_repo):  # noqa: F811 - imported pytest fixture, not a Python redefinition
+def measured(
+    fixture_repo,  # noqa: F811 - imported pytest fixture
+    request,
+):
     root = fixture_repo
+    if getattr(request, "param", None) == "case-alias":
+        source = root / "references_cache/PMID_1.md"
+        lower = source.with_name("pmid_1.md")
+        if not lower.exists() or not lower.samefile(source):
+            pytest.skip("Native case-alias reproduction requires a case-insensitive filesystem")
+        source.rename(lower)
     schema_path = root / coverage.SCHEMA
     schema = yaml.safe_load(schema_path.read_text())
     schema["classes"]["SupportingReference"]["attributes"] = {
@@ -197,3 +206,51 @@ def test_retained_process_exit_and_runtime_are_explicit(measured):
     path.write_text("0\n")
     with pytest.raises(ValueError, match="Retained process exit"):
         exporter.checked_summary(root, run, "M5", "3.13.2", path)
+
+
+@pytest.mark.parametrize("measured", ["case-alias"], indirect=True)
+def test_native_case_alias_is_bound_to_one_physical_cache_file(measured):
+    """The actual native fetcher requests uppercase; disk inventory has lowercase."""
+    root, run = measured
+    receipt = json.loads((run / "receipt.json").read_text())
+    assert "references_cache/pmid_1.md" in receipt["input_sha256"]
+    assert "references_cache/PMID_1.md" not in receipt["input_sha256"]
+    event = receipt["cases"][0]["records"][1]["assertions"][0]
+    assert event["cache"]["requested_path"] == "references_cache/PMID_1.md"
+    assert (root / event["cache"]["requested_path"]).samefile(root / "references_cache/pmid_1.md")
+    report = summarize(measured)
+    assert report["counts"]["snippet_occurrences_compared"] == 4
+    assert report["counts"]["native_issues"] == 4
+
+
+def test_cache_alias_requires_unique_candidate_matching_bytes_and_physical_identity(
+    tmp_path, monkeypatch
+):
+    """#2829: neither matching spelling nor a retained digest alone is sufficient."""
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    path = cache / "source.md"
+    path.write_text("retained source")
+    digest = exporter.sha(path.read_bytes())
+    item = {"requested_path": "references_cache/SOURCE.md", "sha256": digest}
+    manifest = {"references_cache/source.md": digest}
+    # Physical-identity branch is deterministic on case-sensitive CI too.
+    monkeypatch.setattr(Path, "is_file", lambda self: True)
+    monkeypatch.setattr(Path, "samefile", lambda self, other: False)
+    with pytest.raises(ValueError, match="same physical file"):
+        exporter.verify_cache_identity(tmp_path, manifest, item)
+    monkeypatch.setattr(Path, "samefile", lambda self, other: True)
+    exporter.verify_cache_identity(tmp_path, manifest, item)
+    with pytest.raises(ValueError, match="absent or ambiguous"):
+        exporter.verify_cache_identity(
+            tmp_path, {**manifest, "references_cache/Source.md": digest}, item
+        )
+    with pytest.raises(ValueError, match="Loaded cache"):
+        exporter.verify_cache_identity(tmp_path, manifest, {**item, "sha256": "0" * 64})
+    path.write_text("changed source")
+    with pytest.raises(ValueError, match="Current aliased cache"):
+        exporter.verify_cache_identity(tmp_path, manifest, item)
+    with pytest.raises(ValueError, match="absent or ambiguous"):
+        exporter.verify_cache_identity(
+            tmp_path, manifest, {**item, "requested_path": "references_cache/other.md"}
+        )
