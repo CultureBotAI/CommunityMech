@@ -1,4 +1,4 @@
-"""Both actual genus/species successors preserve the immutable batch147 sample (#2861)."""
+"""Actual fixed/shared successors preserve the immutable batch147 sample (#2861)."""
 
 import hashlib
 from pathlib import Path
@@ -9,13 +9,21 @@ import test_causal_review_batch147 as caller
 ROOT = Path(__file__).resolve().parents[1]
 
 
-@pytest.mark.parametrize("identity", ["CommunityMech:000552", "CommunityMech:000555"])
+@pytest.mark.parametrize(
+    "identity",
+    [
+        "CommunityMech:000552",
+        "CommunityMech:000553",
+        "CommunityMech:000554",
+        "CommunityMech:000555",
+    ],
+)
 def test_actual_joint_records_dispatch_current_and_historical_proofs(identity):
     row = caller.EXPECTED_BATCH147_RECORDS[identity]
     path, before = row["path"], row["record_sha256"]
     current = (ROOT / path).read_bytes()
     after = hashlib.sha256(current).hexdigest()
-    assert after != before  # both actual corrected records must be present
+    assert after != before  # each actual corrected record must be present
     assert caller.current_record_sha256(ROOT, path, before) == after
     old = caller.historical_bytes(ROOT, path)
     assert old != current and hashlib.sha256(old).hexdigest() == before
