@@ -5,6 +5,8 @@ from pathlib import Path
 
 import yaml
 from ambiguity_gtdb_successors import admit_status_successor
+from ppcp_fungal_gtdb_successor import TARGET as PPCP_TARGET
+from ppcp_fungal_gtdb_successor import admit_ppcp_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml"
@@ -13,6 +15,9 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
+    for row in rows:
+        if row["path"] == PPCP_TARGET:
+            admit_ppcp_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
@@ -161,7 +166,13 @@ def test_history_source_scope_and_research_remain_explicit():
     for row, doc in zip(rows, docs, strict=True):
         historical = doc
         expected = row["record_sha256"]
-        if row["id"] == "CommunityMech:000460":
+        if row["path"] == PPCP_TARGET:
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_ppcp_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        elif row["id"] == "CommunityMech:000460":
             raw = (ROOT / row["path"]).read_bytes()
             assert doc == yaml.safe_load(raw)
             proof = admit_status_successor(ROOT, row["path"], expected, current=raw)
