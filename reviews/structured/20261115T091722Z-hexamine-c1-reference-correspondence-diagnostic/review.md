@@ -1,0 +1,722 @@
+# Hexamine C1: scoped reference correspondence and ambiguity diagnostic
+
+- Review: 20261115T091722Z-hexamine-c1-reference-correspondence-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T09:17:21.943913Z
+- Finished UTC: 2026-11-15T09:17:22.084354Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The two C1 source stocks retain their NCBI identities and biological claims. The Brucella pseudintermedia descriptor now records the native species-ID correspondence to Ochrobactrum pseudintermedium with 18 reference genomes and fraction 1.0. The genus-only Ochrobactrum descriptor retains all three ordered native alternatives as AMBIGUOUS. The guarded M5 write, two native inline events, separate sidecar and eight actual commands are bound without inferring experimental stock genomes or scientific completion.
+
+## Scope And Provenance
+
+The two selected taxonomy descriptors, reference-population and source-stock boundaries, exact native persistence, append-only history and scoped validation. Existing C1 experimental claims are preserved rather than newly certified.
+
+Selection: CommunityMech:000505 is the single end-to-end canary for the eight-record ambiguity preparation. No other member of that preparation is applied before this saved review, complete checkpoint and actual successor proof are verified.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base ee9930cb145805101cc87b0a9ba188616cbf7ab8.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000505 | kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml # taxonomy[0].taxon_term.gtdb_classification; taxonomy[0:2].taxon_term.gtdb_grounding_status; taxonomy[1].taxon_term.gtdb_candidates | maintained | C1 SRCHD05 species reference and SRCHD06 complete genus alternatives |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000505 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Separate C1 source stocks and partial-16S scope
+
+grounding: supported. Targets: CommunityMech:000505.
+
+Preserve SRCHD05 and genus-only SRCHD06 as the two distinct C1 members. Their source identification and 1:1 formulation do not assign exact reference genomes or demonstrate interspecies flux.
+
+### Differing species reference and complete genus ambiguity
+
+grounding: supported. Targets: CommunityMech:000505.
+
+The pinned native resolver reproduces the 18/1.0 species reference and all three genus alternatives. NCBI identity and study-stock labels remain unchanged; no genus alternative is selected and no stock assembly or verified crosswalk release is inferred.
+
+### Actual bounded persistence with science retained
+
+provenance: supported. Targets: CommunityMech:000505.
+
+Only the accepted classification, statuses, ambiguity options and two native events changed. The new sidecar and eight actual scoped commands bind the persisted bytes. Existing biology and history remain intact; strict successor integration and full scientific/QC completion are separate.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000505-schema | .temp/gtdb-ambiguity-eight-20261115/505-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-strict | .temp/gtdb-ambiguity-eight-20261115/505-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-gtdb | .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-domain | .temp/gtdb-ambiguity-eight-20261115/505-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-scalars | .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-history | .temp/gtdb-ambiguity-eight-20261115/505-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-new-history | .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-terms | .temp/gtdb-ambiguity-eight-20261115/505-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000505-paper | references_cache/PMID_41743136.txt; Abstract lines 20-22; retained Methods/Results line 64: partial-16S identification, Table 1 C1 roster, culture conditions and Table 2 | supports | The retained source identifies Brucella pseudintermedia SRCHD05 and Ochrobactrum sp. SRCHD06 through partial 16S characterization, defines C1 as their 1:1 combination, and distinguishes C1 bulk endpoints from isolate kinetics and C6 irradiation/immobilization experiments. |
+| 000505-database | reports/gtdb-ambiguity-eight-20261115/505-source-evidence-002.json; occurrences[0:2]: ncbi_identity_rows, lookup_indexes and native_result; exact captured crosswalk and resolver inputs | supports | The local authority observations preserve NCBITaxon:370111 at species rank and NCBITaxon:528 at genus rank. Native exact-ID lookup yields GTDB:s__Ochrobactrum_pseudintermedium, 18 genomes, fraction 1.0 and is_reclassified:true. Native genus-rank lookup yields all three ordered Ochrobactrum_A, Ochrobactrum_B and Ochrobactrum alternatives. |
+| 000505-application | .temp/gtdb-ambiguity-eight-20261115/505-applied-001/receipt.json; applied, execution_revision, before_sha256, after_sha256, reviewed_receipt_sha256 and inputs | supports | The guarded writer persisted candidate 0c0a333d at ee9930cb on M5. Exact source binding, original bytes, stage, native operations and actual application are retained. A separate native sidecar records the same limited change. |
+| 000505-prior | reports/phase2-completion-20261115/hexamine-five-source-context-002.yaml; records[0], shared_preservation_contract, prior_assessment and historical_guard; preserved original 001 source plan and batch 139 caller/ledger | context_only | The source plan preserves all experimental boundaries and the previous metric-based review's limits. The additive 002 plan only repairs the original plan's YAML scalar syntax. Batch 139's current biological predicates and its three mutation controls remain required; the old ledger is not rewritten. |
+
+## Limits And Additional Notes
+
+- Partial technical and provenance assessment with scientific_review:false. Passing these validators does not complete scientific review, full QC, reference-snippet coverage or the broader campaign.
+- Primary coverage consists of retained abstract and selected Methods/Results passages, the Table 1 roster and Table 2 endpoints. No new figure-pixel, supplementary-sequence, exact-stock genome or complete-paper review is claimed.
+- Source partial-16S identification of SRCHD05 and SRCHD06 does not demonstrate their membership in reference genome clusters. Preserve NCBI Brucella pseudintermedia while explicitly recording the differing GTDB name; this does not constitute formal renaming.
+- The 18 genomes and fraction 1.0 describe the pinned species reference population. The three genus alternatives are all retained, without choosing the unsuffixed genus, borrowing the other stock's species or inventing an ambiguity-route genome denominator.
+- The table SHA256 identifies exact bytes. File mtime and native legacy mapping-source prose do not verify an upstream GTDB release. Local NCBI file-stat observations are not a database content hash or release assertion.
+- C1 is the 1:1 SRCHD05/SRCHD06 suspended culture, distinct from C2-C5 and six-stock C6. Preserve 37-degree culture, separate 24/48/72-hour bulk endpoints, individual-isolate kinetics and absence of directed intermember arrows. Organic nutrients, substrate/COD changes and ammonia production do not establish complete mineralization, reciprocal benefit or measured interspecies flux.
+- The earlier deep-audit bundle's completeness metrics remain historical evidence, not fresh paper-level support. Every original quote, discussion, source stock, biological field and prior event remains unchanged.
+- Strict historical successor admission, generated pages and combined full QC require separate evidence. Batch 139's existing biological assertions and history/snippet/participant mutation controls must remain effective when the accepted successor is admitted.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T091722Z-hexamine-c1-reference-correspondence-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Hexamine C1: scoped reference correspondence and ambiguity diagnostic'
+started_at: '2026-11-15T09:17:21.943913Z'
+finished_at: '2026-11-15T09:17:22.084354Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The parent read the current record, retained primary passages,
+    complete native reference routes and exact staged diff before applying. A separate
+    peer independently verified both source configurations, all captured source inputs,
+    the 505 candidate and its receipt before application. This saved assessment remains
+    a partial technical and provenance review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: The two C1 source stocks retain their NCBI identities and biological claims.
+  The Brucella pseudintermedia descriptor now records the native species-ID correspondence
+  to Ochrobactrum pseudintermedium with 18 reference genomes and fraction 1.0. The
+  genus-only Ochrobactrum descriptor retains all three ordered native alternatives
+  as AMBIGUOUS. The guarded M5 write, two native inline events, separate sidecar and
+  eight actual commands are bound without inferring experimental stock genomes or
+  scientific completion.
+source:
+  git_revision: ee9930cb145805101cc87b0a9ba188616cbf7ab8
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-applied-001/before.yaml
+    sha256: 1183b1f4762087ed7d8adf1b9960dc38beda73f5d23a8c378fdf8fd0a23e0a2a
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-applied-001/receipt.json
+    sha256: 38acab78a0aae06bcbbd77b38edaf43167c11a4895f8b53db14ffa0b44b97255
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-candidate-001/Hexamine_Formaldehyde_Consortium_C1.yaml
+    sha256: 0c0a333d83e05752e9e069c461b6917d7f446e64b3a04e73a16988bf5d5e6adb
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-candidate-001/receipt.json
+    sha256: 87384994212da26c750af8a15f67d8d3843dcbbcfbb205aaa9e1db190c458e41
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-domain-001/native.log
+    sha256: 0f21b5265ac13d9536c2f9c6617bbf8aa5398b25041941d5d56ca9b0a1e94add
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-domain-001/receipt.json
+    sha256: 3e351826613c3348d79a0fc467f6ff85888d1970f60aa5ddc2bef1e1cd4c1d01
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-domain-001/start.json
+    sha256: e3353fe70d3cc22a8a25eb442472d85a2d4f35f2f9127620b02f96cf23e368fe
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/native.log
+    sha256: 415ffce699ca4ce82983c6ee35b724eed3ea44ec7822a286814e6461eb1d603a
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/receipt.json
+    sha256: bd4168c6234dddfc90b1d9c20e6d017f1435bcfd65cf1b9167389af58d50c479
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/start.json
+    sha256: 1d98ea2f4cb93c2b28bf2deea4365e4e87086e6e9b58678201208d7d7287eb7e
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-history-001/receipt.json
+    sha256: 9c05bfcc79720d4fbdf7e41c1447f0b0bc60939cc62769e33e13562ac883da0d
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-history-001/start.json
+    sha256: ae76c5faa0663a1dce0cc95b724fbe8fe8a97f7c99bad56fdb5719e33e0fc910
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/native.log
+    sha256: f24116139dec6c92f1dfcd97c2c04accc459d0a7a7e9c3edc55b24fc52367c49
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/receipt.json
+    sha256: 8278b66d7b30621bd4ff785868e0de2de331163cda44a42bd66b70eb8b467030
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/start.json
+    sha256: aec37acab46e0ed12cd04465959bd6e35387ec9b2f07cab88688a50277708ef6
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/native.log
+    sha256: 12286474c2db906eaf66f0b1133a44cd488b0823acd36ee10988795ef289dae3
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/receipt.json
+    sha256: b6688610f5153e1f25029b8fb1cad2f0d018e0a4fb54dbc101fbbdbb6fc5511b
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/start.json
+    sha256: 402935851621933a2d893580e47d5807bbfbc8adc0b77e239a6242d017c596de
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-schema-001/native.log
+    sha256: b6bf323a1803069358fe7c3cff8d4a12e6f95e62cf8ca6d872819c39ae08c764
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-schema-001/receipt.json
+    sha256: d98e5e94462332577b086d935f6dfceba7c2ed60f1251a26b664ce2cc2377d4c
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-schema-001/start.json
+    sha256: 0f2325abea4ca13497fbd111ed19fa28cb99d8a09a95eac6ba4a2e0b0d060e30
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/native.log
+    sha256: a90f6778bca7c1bfe197c949c95dd351cf16eec3a0bdc9bb41eb73b1b36210d2
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/receipt.json
+    sha256: 8ae3923529a47a901a39e483683a1bfd674780af34361a9980da882238e09753
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/start.json
+    sha256: c44373eb9e86a671e85bfdab243df389110764306bd09a8c5ffb182be3efe315
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-terms-001/native.log
+    sha256: ecef6ba9dbcc2b963df50984137626e4ffccf0c32d84e7efd429b608e743186f
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-terms-001/receipt.json
+    sha256: 72820c757963b790c76a990b3a1f910dcfb66d48e34d311277c844e11db14538
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/505-terms-001/start.json
+    sha256: 73387c78a7b72d80a1133fb23ecfdce2cbda3faf8466425ed94f982fdf1c1039
+    role: context
+  - path: .temp/gtdb-ambiguity-eight-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/ambiguity-eight-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/ambiguity-eight-routes-001.json
+    sha256: 7a040b3fb87c82e484a6760a582294de920e67e23fa8e5fc0c41c16fbfe777dd
+    role: context
+  - path: .temp/phase2-schema-20261115/ambiguity-eight-routes-001.log
+    sha256: 1ef40997cb36c77b71c13c5a3597e8622b54aa4638487dcb16ddf3a750bf681b
+    role: context
+  - path: .temp/phase2-schema-20261115/ambiguity-eight-source-binding-002.log
+    sha256: efc851cec1476ecfd204bf5f6e0ce5e898a247a4b6feab62498039b777b2667f
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C1/2026-11-05T063600Z-antigravity-000505.yaml
+    sha256: 78c0f53d6303b2cdf56de87175824b4cf1dba1cd76c992dfcc2d5d0368b1e4cd
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C1/2026-11-05T095000Z-antigravity-c7s201.yaml
+    sha256: dddd3815de21c23a15a18bc9dbd2aa05fa5e12303ab39b411753e600b8026980
+    role: context
+  - path: history/records/Hexamine_Formaldehyde_Consortium_C1/2026-11-15T091307Z-codex-33d7d6.yaml
+    sha256: e9481916c3014a03b957070642c3d4d436fe38b49efba91bd9f74718b39c5d6e
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+    sha256: 0c0a333d83e05752e9e069c461b6917d7f446e64b3a04e73a16988bf5d5e6adb
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_41743136.txt
+    sha256: 0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6
+    role: context
+  - path: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+    sha256: 9c27294a16fbf0505084b44fe0c7533d103fd74eaeb293a41b43ff7e73c88d4d
+    role: context
+  - path: reports/gtdb-ambiguity-eight-20261115/505-check-config-001.json
+    sha256: 73f99e68af4c95b31a69ec710c52c9e9c0a02e0a81fe8395a7c8966a07bf789f
+    role: context
+  - path: reports/gtdb-ambiguity-eight-20261115/505-review-config-002.json
+    sha256: c30c2d2b0ec499e7ef2c4e162b137d0135dabaa5395e77aec5100b946f6b890f
+    role: context
+  - path: reports/gtdb-ambiguity-eight-20261115/505-source-evidence-002.json
+    sha256: 450098dca7ee482a9c5180a102b9275a05daedcbdfe0edbb69c2141cd25ea4e2
+    role: context
+  - path: reports/gtdb-ambiguity-eight-20261115/eight-source-config-002.json
+    sha256: 00c1e201e868fcb207614a81920e89334bb1d59ad5e87a84de8a5f7591369406
+    role: context
+  - path: reports/gtdb-ambiguity-eight-20261115/route-plan-001.json
+    sha256: ca4a20e08805e267951673f07ee75ff3d0596f5ef77a59b15ada21d4f8a938fd
+    role: context
+  - path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+    sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+    role: context
+  - path: reports/phase2-completion-20261115/hexamine-five-source-context-001.yaml
+    sha256: 9aed96ecfb1b93875c75ea1a130150b09bb49b97230ae96104a956e435d3b299
+    role: context
+  - path: reports/phase2-completion-20261115/hexamine-five-source-context-002.yaml
+    sha256: 6bc357e3c18827c14616dec66b1ab39783e76a4b9e7b59cc1b5c3e61af0e98fa
+    role: context
+  - path: reviews/structured/20261105T144000Z-c7s4-record-deep-audit/review.yaml
+    sha256: fe5de3c3f5c6cb21d935abb7c93452c5ef5a125b3c10163a44e9d712faee3ccd
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: 867e974e9c55325fb1b7e32f81dcf6b7a65b6720941fd303040f5570e46ba232
+    role: context
+  - path: scripts/adhoc/prepare_ambiguity_eight_sources_20261115.py
+    sha256: 353714f93ee1247d756482366307f1fd3116ccb65e7bf885ad99b64be0773a41
+    role: context
+  - path: scripts/adhoc/prepare_ambiguity_eight_sources_v2_20261115.py
+    sha256: 5d14856a08f01557ba688466c459b8db11fc88a6ddb5608e0b37c5f298ce8880
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch139.py
+    sha256: a808ada1f63670f25b2412b57fce33d4c082f4051445b4c1accfb7cd3b382fa6
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000505
+  path: kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  selector: taxonomy[0].taxon_term.gtdb_classification; taxonomy[0:2].taxon_term.gtdb_grounding_status;
+    taxonomy[1].taxon_term.gtdb_candidates
+  label: C1 SRCHD05 species reference and SRCHD06 complete genus alternatives
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: The two selected taxonomy descriptors, reference-population and source-stock
+    boundaries, exact native persistence, append-only history and scoped validation.
+    Existing C1 experimental claims are preserved rather than newly certified.
+  selection: CommunityMech:000505 is the single end-to-end canary for the eight-record
+    ambiguity preparation. No other member of that preparation is applied before this
+    saved review, complete checkpoint and actual successor proof are verified.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000505
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000505-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+    --out .temp/gtdb-ambiguity-eight-20261115/505-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-history history/records/Hexamine_Formaldehyde_Consortium_C1
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Hexamine_Formaldehyde_Consortium_C1 --target-root kb/communities --event EDIT
+    --outcome changed --sections taxonomy,curation_history --actor-name codex --model
+    gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record native reference-table correspondence and complete ambiguity
+    options for the two C1 bacterial descriptors.' --details 'Bounded taxonomy repair
+    only. The Brucella pseudintermedia descriptor receives the native Ochrobactrum
+    pseudintermedium reference classification (18 genomes; fraction 1.0) and the Ochrobactrum
+    genus descriptor retains all three native ambiguity options. Preserve SRCHD05
+    and SRCHD06, their partial-16S identification scope, all C1 biological claims
+    and every old event. Reference-table populations do not identify experimental
+    stock assemblies. The pinned table has no verified upstream release label. This
+    application and its validators do not constitute complete scientific review. Actual
+    apply receipt .temp/gtdb-ambiguity-eight-20261115/505-applied-001/receipt.json
+    sha256:38acab78a0aae06bcbbd77b38edaf43167c11a4895f8b53db14ffa0b44b97255.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000505-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000505
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000505-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000505-schema
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-schema-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-strict
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-strict-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-gtdb
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-gtdb-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-domain
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-domain-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-scalars
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-scalars-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-history
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-history-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-new-history
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-new-history-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-terms
+  kind: validation
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-terms-001/native.log
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000505-paper
+  kind: primary_source
+  reference: references_cache/PMID_41743136.txt
+  locator: 'Abstract lines 20-22; retained Methods/Results line 64: partial-16S identification,
+    Table 1 C1 roster, culture conditions and Table 2'
+  support: supports
+  summary: The retained source identifies Brucella pseudintermedia SRCHD05 and Ochrobactrum
+    sp. SRCHD06 through partial 16S characterization, defines C1 as their 1:1 combination,
+    and distinguishes C1 bulk endpoints from isolate kinetics and C6 irradiation/immobilization
+    experiments.
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+- evidence_id: 000505-database
+  kind: database
+  reference: reports/gtdb-ambiguity-eight-20261115/505-source-evidence-002.json
+  locator: 'occurrences[0:2]: ncbi_identity_rows, lookup_indexes and native_result;
+    exact captured crosswalk and resolver inputs'
+  support: supports
+  summary: The local authority observations preserve NCBITaxon:370111 at species rank
+    and NCBITaxon:528 at genus rank. Native exact-ID lookup yields GTDB:s__Ochrobactrum_pseudintermedium,
+    18 genomes, fraction 1.0 and is_reclassified:true. Native genus-rank lookup yields
+    all three ordered Ochrobactrum_A, Ochrobactrum_B and Ochrobactrum alternatives.
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+- evidence_id: 000505-application
+  kind: record_content
+  reference: .temp/gtdb-ambiguity-eight-20261115/505-applied-001/receipt.json
+  locator: applied, execution_revision, before_sha256, after_sha256, reviewed_receipt_sha256
+    and inputs
+  support: supports
+  summary: The guarded writer persisted candidate 0c0a333d at ee9930cb on M5. Exact
+    source binding, original bytes, stage, native operations and actual application
+    are retained. A separate native sidecar records the same limited change.
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+- evidence_id: 000505-prior
+  kind: prior_review
+  reference: reports/phase2-completion-20261115/hexamine-five-source-context-002.yaml
+  locator: records[0], shared_preservation_contract, prior_assessment and historical_guard;
+    preserved original 001 source plan and batch 139 caller/ledger
+  support: context_only
+  summary: The source plan preserves all experimental boundaries and the previous
+    metric-based review's limits. The additive 002 plan only repairs the original
+    plan's YAML scalar syntax. Batch 139's current biological predicates and its three
+    mutation controls remain required; the old ledger is not rewritten.
+  accessed_at: '2026-11-15T09:17:21.943913Z'
+assessments:
+- assessment_id: 000505-source
+  area: grounding
+  topic: Separate C1 source stocks and partial-16S scope
+  outcome: supported
+  target_ids:
+  - CommunityMech:000505
+  evidence_ids:
+  - 000505-paper
+  - 000505-database
+  - 000505-terms
+  summary: Preserve SRCHD05 and genus-only SRCHD06 as the two distinct C1 members.
+    Their source identification and 1:1 formulation do not assign exact reference
+    genomes or demonstrate interspecies flux.
+- assessment_id: 000505-population
+  area: grounding
+  topic: Differing species reference and complete genus ambiguity
+  outcome: supported
+  target_ids:
+  - CommunityMech:000505
+  evidence_ids:
+  - 000505-database
+  - 000505-gtdb
+  - 000505-domain
+  summary: The pinned native resolver reproduces the 18/1.0 species reference and
+    all three genus alternatives. NCBI identity and study-stock labels remain unchanged;
+    no genus alternative is selected and no stock assembly or verified crosswalk release
+    is inferred.
+- assessment_id: 000505-provenance
+  area: provenance
+  topic: Actual bounded persistence with science retained
+  outcome: supported
+  target_ids:
+  - CommunityMech:000505
+  evidence_ids:
+  - 000505-application
+  - 000505-schema
+  - 000505-strict
+  - 000505-scalars
+  - 000505-new-history
+  - 000505-history
+  - 000505-prior
+  summary: Only the accepted classification, statuses, ambiguity options and two native
+    events changed. The new sidecar and eight actual scoped commands bind the persisted
+    bytes. Existing biology and history remain intact; strict successor integration
+    and full scientific/QC completion are separate.
+findings: []
+actions: []
+limitations:
+- Partial technical and provenance assessment with scientific_review:false. Passing
+  these validators does not complete scientific review, full QC, reference-snippet
+  coverage or the broader campaign.
+- Primary coverage consists of retained abstract and selected Methods/Results passages,
+  the Table 1 roster and Table 2 endpoints. No new figure-pixel, supplementary-sequence,
+  exact-stock genome or complete-paper review is claimed.
+- Source partial-16S identification of SRCHD05 and SRCHD06 does not demonstrate their
+  membership in reference genome clusters. Preserve NCBI Brucella pseudintermedia
+  while explicitly recording the differing GTDB name; this does not constitute formal
+  renaming.
+- The 18 genomes and fraction 1.0 describe the pinned species reference population.
+  The three genus alternatives are all retained, without choosing the unsuffixed genus,
+  borrowing the other stock's species or inventing an ambiguity-route genome denominator.
+- The table SHA256 identifies exact bytes. File mtime and native legacy mapping-source
+  prose do not verify an upstream GTDB release. Local NCBI file-stat observations
+  are not a database content hash or release assertion.
+- C1 is the 1:1 SRCHD05/SRCHD06 suspended culture, distinct from C2-C5 and six-stock
+  C6. Preserve 37-degree culture, separate 24/48/72-hour bulk endpoints, individual-isolate
+  kinetics and absence of directed intermember arrows. Organic nutrients, substrate/COD
+  changes and ammonia production do not establish complete mineralization, reciprocal
+  benefit or measured interspecies flux.
+- The earlier deep-audit bundle's completeness metrics remain historical evidence,
+  not fresh paper-level support. Every original quote, discussion, source stock, biological
+  field and prior event remains unchanged.
+- Strict historical successor admission, generated pages and combined full QC require
+  separate evidence. Batch 139's existing biological assertions and history/snippet/participant
+  mutation controls must remain effective when the accepted successor is admitted.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/2879
+- https://github.com/CultureBotAI/CommunityMech/issues/2880
+- https://github.com/CultureBotAI/CommunityMech/issues/2882
+- https://github.com/CultureBotAI/CommunityMech/pull/2881
+```

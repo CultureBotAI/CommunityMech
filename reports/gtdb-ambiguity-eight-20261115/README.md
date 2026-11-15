@@ -4,8 +4,10 @@ This branch prepares records 400, 499, 500 and 505–509 for the unchanged guard
 GTDB correction workflow. Its twenty selected occurrences cover four pesticide
 and biofilm ambiguities plus sixteen hexamine correspondences. Record 505 is the
 first application canary: one species-reference correspondence and one ambiguous
-genus descriptor. No canonical application, completed record or scientific
-approval is claimed by this preparation checkpoint.
+genus descriptor. Its [completed bounded canary checkpoint](505-canary-outcome-002.md)
+now binds the actual M5 write, saved partial assessment, complete verified inputs
+and passing historical controls. The other seven applications remain separate;
+no full scientific approval is claimed.
 
 The source judgments come from the previously reviewed
 [three-record plan](../phase2-completion-20261115/status-biofilm-pesticide-three-source-context-001.yaml)
@@ -49,8 +51,7 @@ is inferred.
 | `ambiguity-eight-source-binding-002` | Exit 0; 175,942 bytes | `efc851cec1476ecfd204bf5f6e0ce5e898a247a4b6feab62498039b777b2667f` |
 
 Commands, exact revisions, working-tree disclosures, logs and exits remain under
-`.temp/phase2-schema-20261115/`. The full application canary still requires its
-reviewed candidate, actual M5 application, eight native checks, immutable partial
-review, complete verified checkpoint and actual strict historical proof before
-the remaining seven applications. Batch 10/137/139 scientific predicates and
+`.temp/phase2-schema-20261115/`. The linked canary outcome records its reviewed
+candidate, actual M5 application, eight native checks, immutable partial review,
+complete verified checkpoint and actual strict historical proof. Batch 10/137/139 scientific predicates and
 mutation controls must survive caller adaptation; old ledgers remain immutable.
