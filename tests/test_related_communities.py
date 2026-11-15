@@ -240,7 +240,11 @@ def test_the_host_is_not_a_member():
 
 def test_host_participation_needs_a_host():
     doc = _record(
-        A, ["X"], ecological_interactions=[{"name": "e", "host_participation": "HOST_IS_SOURCE"}]
+        A,
+        ["X"],
+        ecological_interactions=[
+            {"name": "e", "scope": "COMMUNITY_LEVEL", "host_participation": "HOST_IS_SOURCE"}
+        ],
     )
     assert _categories(doc, _index(doc)) == ["host_participation_without_host"]
     doc["host"] = {"preferred_term": "plant", "term": {"id": "NCBITaxon:15368"}}

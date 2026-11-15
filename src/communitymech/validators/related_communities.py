@@ -5,10 +5,15 @@ LinkML can check that a `related_communities` entry has a well-formed
 nor that a membership relation is true. Both are facts about two records at
 once, so they live here and run in `just validate-strict`.
 
-**Membership relations are recomputed, not trusted.** SAME_MEMBERSHIP_AS,
+**Membership relations are checked, not globally resolved.** SAME_MEMBERSHIP_AS,
 MEMBER_SUBSET_OF, MEMBER_SUPERSET_OF and OVERLAPPING_MEMBERSHIP are decided by
-comparing the two records' strain designations. When both records name a
-strain for every member, the relation is computed and a stated relation that
+comparing curator-asserted corresponding strain designations. Local names (even
+with matching taxonomy) do not independently prove stock identity across studies:
+scientific review must verify that assertion. Roster multiplicity and available
+taxon, deposit, assembly and modification metadata are retained; ambiguous names
+or conflicting metadata block comparison rather than silently merging stocks.
+When both records name an unambiguous strain for every member, the relation is
+computed and a stated relation that
 disagrees is an error, whatever its `basis`: a source cannot make two rosters
 equal that the records show to differ. When either roster is incomplete the
 relation cannot be computed, so `basis: SHARED_STRAIN_DESIGNATIONS` is an
@@ -22,6 +27,7 @@ from __future__ import annotations
 
 import functools
 from collections.abc import Iterator
+from dataclasses import dataclass
 from pathlib import Path
 
 import yaml
@@ -54,7 +60,27 @@ def record_links(instance: dict) -> frozenset[tuple[str, str]]:
     )
 
 
-def strain_roster(instance: dict) -> frozenset[str] | None:
+@dataclass(frozen=True)
+class StockIdentity:
+    """Recorded identity metadata, not an inferred globally unique stock key."""
+
+    name: str
+    taxon: str
+    collections: frozenset[tuple[str, str]]
+    genome: str
+    modification: str
+
+
+@dataclass(frozen=True)
+class StrainRoster:
+    members: tuple[StockIdentity, ...]
+
+    @property
+    def names(self) -> frozenset[str]:
+        return frozenset(member.name for member in self.members)
+
+
+def strain_roster(instance: dict) -> StrainRoster | None:
     """The record's strains, or None when any member lacks a strain name.
 
     A roster with a gap is not a roster: a member without a strain name could
@@ -63,13 +89,74 @@ def strain_roster(instance: dict) -> frozenset[str] | None:
     taxonomy = instance.get("taxonomy") or []
     if not taxonomy:
         return None
-    names = []
+    members = []
     for entry in taxonomy:
+        if not isinstance(entry, dict):
+            return None
         name = ((entry or {}).get("strain_designation") or {}).get("strain_name")
         if not name or not str(name).strip():
             return None
-        names.append(_strain_key(str(name)))
-    return frozenset(names)
+        designation = entry.get("strain_designation") or {}
+        members.append(
+            StockIdentity(
+                name=_strain_key(str(name)),
+                taxon=str(((entry.get("taxon_term") or {}).get("term") or {}).get("id") or ""),
+                collections=frozenset(
+                    (
+                        str(item.get("collection") or ""),
+                        _strain_key(str(item.get("accession") or "")),
+                    )
+                    for item in designation.get("culture_collections") or []
+                    if isinstance(item, dict)
+                ),
+                genome=str(designation.get("genome_accession") or "").strip(),
+                modification=" ".join(
+                    str(designation.get("genetic_modification") or "").split()
+                ).casefold(),
+            )
+        )
+    return StrainRoster(tuple(members))
+
+
+def _identity_ambiguities(mine: StrainRoster, theirs: StrainRoster) -> Iterator[str]:
+    """Reject loss of members or unresolved recorded identity conflicts."""
+    ambiguous = False
+    for side, roster in (("this record", mine), ("target", theirs)):
+        seen = set()
+        for member in roster.members:
+            if member.name in seen:
+                ambiguous = True
+                yield (
+                    f"{side} repeats normalized strain name {member.name}; "
+                    "members cannot be collapsed"
+                )
+            seen.add(member.name)
+    if ambiguous:
+        return
+    by_name = {member.name: member for member in theirs.members}
+    for member in mine.members:
+        other = by_name.get(member.name)
+        if other is None:
+            continue
+        # Assembly accessions can change for the same isolate, and differing
+        # modification prose can describe the same genotype. Keep both in the
+        # roster for scientific review, but do not infer incompatibility from
+        # their string inequality.
+        for field in ("taxon",):
+            left, right = getattr(member, field), getattr(other, field)
+            if left and right and left != right:
+                yield f"{member.name}: conflicting {field} metadata ({left!r} versus {right!r})"
+        collections = {collection for collection, _ in member.collections} & {
+            collection for collection, _ in other.collections
+        }
+        for collection in sorted(collections):
+            left = {accession for source, accession in member.collections if source == collection}
+            right = {accession for source, accession in other.collections if source == collection}
+            if left.isdisjoint(right):
+                yield (
+                    f"{member.name}: conflicting {collection} accessions "
+                    f"({sorted(left)} versus {sorted(right)})"
+                )
 
 
 def compute_relation(mine: frozenset[str], theirs: frozenset[str]) -> str | None:
@@ -87,10 +174,10 @@ def compute_relation(mine: frozenset[str], theirs: frozenset[str]) -> str | None
 
 @functools.lru_cache(maxsize=1)
 def _corpus_index_and_duplicates() -> tuple[
-    dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]],
+    dict[str, tuple[Path, StrainRoster | None, frozenset[tuple[str, str]]]],
     dict[str, tuple[Path, ...]],
 ]:
-    index: dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]] = {}
+    index: dict[str, tuple[Path, StrainRoster | None, frozenset[tuple[str, str]]]] = {}
     paths_by_id: dict[str, list[Path]] = {}
     for path in record_files():
         try:
@@ -105,7 +192,7 @@ def _corpus_index_and_duplicates() -> tuple[
     return index, duplicates
 
 
-def _corpus_index() -> dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]]:
+def _corpus_index() -> dict[str, tuple[Path, StrainRoster | None, frozenset[tuple[str, str]]]]:
     return _corpus_index_and_duplicates()[0]
 
 
@@ -146,6 +233,13 @@ def check_record(
         seen.add((target, relation))
         if target == own_id:
             yield "related_community_self_link", f"{label}: a record cannot relate to itself"
+            continue
+        if duplicate_ids and target in duplicate_ids:
+            names = ", ".join(p.name for p in duplicate_ids[target])
+            yield (
+                "related_community_ambiguous_target",
+                f"{label}: multiple records have this id ({names}); no target can be selected",
+            )
             continue
         if target not in index:
             yield "related_community_unknown_target", f"{label}: no record has this id"
@@ -199,7 +293,12 @@ def check_record(
                     f"{label}: {target} does not state inverse link {own_id} {expected_inverse}",
                 )
             continue
-        computed = compute_relation(own_roster, target_roster)
+        ambiguities = list(_identity_ambiguities(own_roster, target_roster))
+        if ambiguities:
+            for ambiguity in ambiguities:
+                yield "related_community_ambiguous_stock_identity", f"{label}: {ambiguity}"
+            continue
+        computed = compute_relation(own_roster.names, target_roster.names)
         if computed != relation:
             yield (
                 "related_community_membership_contradiction",
@@ -228,8 +327,28 @@ def check_record(
                     f"{host_id}: the host is not a member (#319); remove it from taxonomy",
                 )
     for interaction in instance.get("ecological_interactions") or []:
-        if (interaction or {}).get("host_participation") and not host:
-            yield (
-                "host_participation_without_host",
-                f"{interaction.get('name')}: host_participation is set but the record has no host",
-            )
+        if not isinstance(interaction, dict):
+            continue
+        name = interaction.get("name")
+        if interaction.get("host_participation"):
+            if not host:
+                yield (
+                    "host_participation_without_host",
+                    f"{name}: host_participation is set but the record has no host",
+                )
+            if interaction.get("scope") != "COMMUNITY_LEVEL":
+                yield (
+                    "host_participation_scope",
+                    f"{name}: host_participation requires explicit COMMUNITY_LEVEL scope",
+                )
+        if host_id:
+            for slot in ("source_taxon", "target_taxon", "participating_taxa"):
+                values = interaction.get(slot) or []
+                if isinstance(values, dict):
+                    values = [values]
+                for value in values:
+                    if isinstance(value, dict) and (value.get("term") or {}).get("id") == host_id:
+                        yield (
+                            "host_in_microbial_interaction_slot",
+                            f"{name}.{slot}: {host_id} is the host; use host_participation",
+                        )

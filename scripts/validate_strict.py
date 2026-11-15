@@ -44,6 +44,7 @@ from communitymech.paths import default_record_roots
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
 from communitymech.validators.gtdb_lineage_tree import check_lineage_shape
 from communitymech.validators.prokaryotic_lineage import check_record as check_prokaryotic_lineage
+from communitymech.validators.quantities import check_record as check_quantities
 from communitymech.validators.related_communities import check_record as check_related_communities
 from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
 from communitymech.validators.yaml_scalars import find_truncated_scalars
@@ -238,7 +239,7 @@ def validate_one(path: Path) -> list[dict]:
     # Links between records and the host/member boundary (#319). A membership
     # relation is recomputed from both records' strain designations, so it needs
     # the corpus, not just this file.
-    for category, message in check_related_communities(instance):
+    for category, message in (*check_related_communities(instance), *check_quantities(instance)):
         rows.append(
             {
                 "file": str(path),
