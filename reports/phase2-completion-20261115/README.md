@@ -206,7 +206,7 @@ including mutation of a non-canary snapshot followed by successful restoration.
 The original attempt remains private and unchanged; this numbered report came
 from a fresh one-issue canary followed by the remaining ten reads.
 
-Four scoped taxonomy corrections now have complete M5 canary evidence:
+The integration at `301f35b8` contains complete M5 canary evidence for four scoped taxonomy corrections:
 [Sulfobacillus](../gtdb-source-routes-2849-20261115/README.md) and
 [Mycobacterium](../gtdb-code006-20261115/canary-000434-003/README.md), plus
 [BR1](../br1-source-review-20261115/canary-outcome.md) and
@@ -225,6 +225,13 @@ the remaining historical status partition: 126 records and 418 occurrences,
 assigned without overlap to genus, species and ambiguity groups. This ledger
 records work ownership; it grants no curation or scientific approval and does
 not count concurrent branch work as complete.
+
+The subsequent [isolate integration checkpoint](gtdb-isolate-integration-001.md)
+adds the completed Pelagerythrobacter N7 and JMP134 technical canaries. Their
+saved reviews independently verify 84 and 66 retained inputs, respectively,
+while preserving all earlier scientific findings. The assignment ledger above
+remains the historical planning snapshot; these new partial assessments do not
+declare the remaining partition or scientific campaign complete.
 
 ## Campaign restart
 
