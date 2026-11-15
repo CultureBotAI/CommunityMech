@@ -11,10 +11,11 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
-@pytest.fixture
-def actual(tmp_path, monkeypatch):
-    manifest = json.loads((ROOT / successor.MANIFEST).read_bytes())
-    proof = next(row for row in manifest["records"] if row["target_id"] == "CommunityMech:000552")
+@pytest.fixture(params=["CommunityMech:000552", "CommunityMech:000553"])
+def actual(tmp_path, monkeypatch, request):
+    path = next(path for path, values in successor.TARGETS.items() if values[0] == request.param)
+    manifest = json.loads((ROOT / successor.MANIFESTS[path]).read_bytes())
+    proof = next(row for row in manifest["records"] if row["target_id"] == request.param)
     original = successor.historical_bytes(ROOT, proof["target"])
     assert successor.digest(original) == proof["before_sha256"]
     monkeypatch.setattr(successor, "historical_bytes", lambda root, path: original)
@@ -65,7 +66,7 @@ def reseal_review(root, proof, review):
 )
 def test_rehashed_actual_proof_mutation_is_rejected_then_restores(actual, mutation):
     root, manifest, _initial, retained = actual
-    proof = next(row for row in manifest["records"] if row["target_id"] == "CommunityMech:000552")
+    proof = next(row for row in manifest["records"] if row["target_id"] == _initial["target_id"])
     before = copy.deepcopy(manifest)
     assert check(root, manifest, proof) == proof["after_sha256"]
     review = yaml.safe_load((root / proof["diagnostic_review"]["path"]).read_bytes())
@@ -119,5 +120,5 @@ def test_rehashed_actual_proof_mutation_is_rejected_then_restores(actual, mutati
         check(root, manifest, proof)
     for name, raw in retained.items():
         (root / name).write_bytes(raw)
-    restored = next(row for row in before["records"] if row["target_id"] == "CommunityMech:000552")
+    restored = next(row for row in before["records"] if row["target_id"] == _initial["target_id"])
     assert check(root, before, restored) == restored["after_sha256"]

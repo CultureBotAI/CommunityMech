@@ -35,6 +35,14 @@ TARGETS = {
     ),
 }
 MANIFEST = "reports/gtdb-code006-20261115/batch147-genus-successors-001.json"
+MANIFESTS = {
+    path: (
+        MANIFEST
+        if values[0] == "CommunityMech:000552"
+        else "reports/gtdb-code006-20261115/batch147-genus-successors-002.json"
+    )
+    for path, values in TARGETS.items()
+}
 
 
 def digest(raw):
@@ -100,7 +108,9 @@ def current_record_sha256(root, path, predecessor_hash, *, manifest=None, curren
     if actual == predecessor_hash:
         return actual
     assert path in TARGETS, "no successor allowance for other batch147 records"
-    manifest = yaml.safe_load((root / MANIFEST).read_bytes()) if manifest is None else manifest
+    manifest = (
+        yaml.safe_load((root / MANIFESTS[path]).read_bytes()) if manifest is None else manifest
+    )
     rows = [row for row in manifest["records"] if row["target"] == path]
     assert len(rows) == 1
     proof = rows[0]
