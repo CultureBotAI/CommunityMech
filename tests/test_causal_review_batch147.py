@@ -11,15 +11,21 @@ import batch147_species_successor as species_successor
 import pytest
 import scoped_gtdb_successor as shared_successor
 import yaml
+from gtdb_species_batch_successors_20261115 import ALLOWANCES as SPECIES_BATCH_ALLOWANCES
 
 SHARED_ALLOWANCES = {
+    "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": (
+        SPECIES_BATCH_ALLOWANCES[
+            "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml"
+        ]
+    ),
     "data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {
             "path": "reports/gtdb-species-status-20261115/yljm2c-001-successor.json",
             "sha256": "606093a26fbbcbbfb03e1992f971507f2bc06a591cf9747eca1476234afe4a11",
         },
-    }
+    },
 }
 assert not set(genus_successor.TARGETS) & set(species_successor.TARGETS)
 assert not set(SHARED_ALLOWANCES) & (set(genus_successor.TARGETS) | set(species_successor.TARGETS))
@@ -179,7 +185,7 @@ def test_batch147_ledger_matches_curated_records() -> None:
         assert row["record_sha256"] == expected["record_sha256"]
 
         # Historical scientific assertions retain their exact original bytes.
-        # Any current genus-only successor must independently prove its scope.
+        # Any current successor must independently prove its bounded scope.
         current_record_sha256(ROOT, row["path"], expected["record_sha256"])
         original = historical_bytes(ROOT, row["path"])
         digest = hashlib.sha256(original).hexdigest()
