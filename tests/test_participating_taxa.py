@@ -314,7 +314,8 @@ BASELINE_USERS = {
     "Kombucha_KMC_IMBG1_Fermentation_Community.yaml",
     "LBNL_Brachypodium_Drought_SynCom15.yaml",
     "LBNL_Human_Gut_Interaction_SynCom.yaml",
-    "LBNL_Switchgrass_Soil_SynCom16.yaml",
+    # #2835: source-reviewed earlier 18/17-stock observations remain discussions;
+    # no participant-bearing graph is attributed to the final sixteen stocks.
     "Lac_Pavin_Stratified_Lake_Community.yaml",
     "Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
