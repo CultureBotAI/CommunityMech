@@ -20,6 +20,9 @@ from __future__ import annotations
 
 import pathlib
 import re
+import subprocess
+
+import pytest
 
 from communitymech.paths import REPO_ROOT
 
@@ -46,20 +49,87 @@ CC = re.compile(r"creativecommons\.org|CC[- ]BY", re.I)
 BODY_BYTES = 9000
 
 
-def _tracked(pattern: str) -> list[pathlib.Path]:
-    return sorted(REPO_ROOT.glob(pattern))
+def _tracked_publication_pdfs(root: pathlib.Path) -> list[pathlib.Path]:
+    """Inspect the Git index, including newly staged files (#2786).
+
+    Private ignored research evidence is not part of the published repository.
+    A force-added ignored file is in the index and must still fail this guard.
+    """
+    paths = subprocess.check_output(
+        ["git", "-C", str(root), "ls-files", "--cached", "-z"], text=True
+    ).split("\0")
+    return sorted(root / path for path in paths if pathlib.Path(path).suffix.lower() == ".pdf")
+
+
+def _assert_no_publication_pdfs(root: pathlib.Path) -> None:
+    pdfs = _tracked_publication_pdfs(root)
+    assert pdfs == [], (
+        "publication PDFs must not enter the repository Git index (#754, #2786). "
+        "Cite the DOI and cache the abstract or the OA full text instead:\n"
+        + "\n".join(f"  {path.relative_to(root)}" for path in pdfs)
+    )
 
 
 def test_no_publication_pdfs_are_committed():
     """A PDF of a paper is the least ambiguous form of the problem."""
-    pdfs = [
-        p for p in REPO_ROOT.glob("**/*.pdf") if ".venv" not in p.parts and ".git" not in p.parts
-    ]
-    assert pdfs == [], (
-        "publication PDFs must not live in this repository (#754). Cite the DOI "
-        "and cache the abstract or the OA full text instead:\n"
-        + "\n".join(f"  {p.relative_to(REPO_ROOT)} ({p.stat().st_size // 1024} kB)" for p in pdfs)
+    _assert_no_publication_pdfs(REPO_ROOT)
+
+
+def test_pdf_guard_distinguishes_private_evidence_from_the_git_index(tmp_path):
+    """An ignored PDF is private; staging or committing one must fail (#2786)."""
+    subprocess.run(
+        ["git", "init", "--quiet", "--initial-branch=fixture-pdf-guard", str(tmp_path)], check=True
     )
+    (tmp_path / ".gitignore").write_text(".temp/\n", encoding="utf-8")
+    evidence = tmp_path / ".temp/source.pdf"
+    evidence.parent.mkdir()
+    evidence.write_bytes(b"%PDF-1.4\nprivate fixture evidence\n")
+    _assert_no_publication_pdfs(tmp_path)
+
+    staged = tmp_path / "new publication.PDF"
+    staged.write_bytes(b"%PDF-1.4\nstaged fixture\n")
+    subprocess.run(["git", "-C", str(tmp_path), "add", "--", staged.name], check=True)
+    with pytest.raises(AssertionError, match="new publication.PDF"):
+        _assert_no_publication_pdfs(tmp_path)
+
+    subprocess.run(
+        [
+            "git",
+            "-C",
+            str(tmp_path),
+            "-c",
+            "user.name=QC fixture",
+            "-c",
+            "user.email=qc-fixture@example.invalid",
+            "-c",
+            "commit.gpgsign=false",
+            "-c",
+            "core.hooksPath=/dev/null",
+            "commit",
+            "--quiet",
+            "-m",
+            "Fixture publication for the negative control",
+        ],
+        check=True,
+    )
+    with pytest.raises(AssertionError, match="new publication.PDF"):
+        _assert_no_publication_pdfs(tmp_path)
+    assert evidence.is_file(), "private source evidence must remain intact"
+
+
+def test_force_staging_ignored_pdf_is_still_rejected(tmp_path):
+    subprocess.run(
+        ["git", "init", "--quiet", "--initial-branch=fixture-pdf-guard", str(tmp_path)], check=True
+    )
+    (tmp_path / ".gitignore").write_text(".temp/\n", encoding="utf-8")
+    evidence = tmp_path / ".temp/source.pdf"
+    evidence.parent.mkdir()
+    evidence.write_bytes(b"%PDF-1.4\nfixture evidence\n")
+    subprocess.run(
+        ["git", "-C", str(tmp_path), "add", "--force", "--", ".temp/source.pdf"], check=True
+    )
+    with pytest.raises(AssertionError, match=".temp/source.pdf"):
+        _assert_no_publication_pdfs(tmp_path)
 
 
 def test_no_cache_file_carries_a_publisher_rights_assertion_over_a_body():

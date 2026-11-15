@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from m5_review_successor import assert_cache_successor, current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml"
@@ -24,7 +25,7 @@ def latest_record_sha256(row):
             "record_sha256": row["record_sha256"],
         }:
             assert successor["original_sha256"] == row["record_sha256"]
-            return successor["record_sha256"]
+            return current_record_sha256(ROOT, SUCCESSOR, successor)
     return row["record_sha256"]
 
 
@@ -179,7 +180,7 @@ def test_batch36_all_original_nodes_and_arrows_have_dispositions():
             (e["source"], e["target"]) for e in row["edges_after"] + row["removed_edge_decisions"]
         }
     for path, digest in ledger["reference_cache_original_hashes"].items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
+        assert_cache_successor(ROOT, path, digest)
 
 
 def test_batch36_nongraph_metadata_and_unread_sources_are_not_certified():

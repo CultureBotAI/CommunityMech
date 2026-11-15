@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from m5_review_successor import current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml"
@@ -96,7 +97,9 @@ def _check_batch141_invariants(ledger: dict, rows: list[dict], docs: list[dict])
 
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(
+            (ROOT / row["path"]).read_bytes()
+        ).hexdigest() == current_record_sha256(ROOT, LEDGER, row)
         if row["id"] in changed_ids:
             assert row["outcome"] == "changed"
             assert row["original_sha256"] != row["record_sha256"]

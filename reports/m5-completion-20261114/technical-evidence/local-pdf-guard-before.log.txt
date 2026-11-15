@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________ test_no_publication_pdfs_are_committed ____________________
+
+    def test_no_publication_pdfs_are_committed():
+        """A PDF of a paper is the least ambiguous form of the problem."""
+        pdfs = [
+            p for p in REPO_ROOT.glob("**/*.pdf") if ".venv" not in p.parts and ".git" not in p.parts
+        ]
+>       assert pdfs == [], (
+            "publication PDFs must not live in this repository (#754). Cite the DOI "
+            "and cache the abstract or the OA full text instead:\n"
+            + "\n".join(f"  {p.relative_to(REPO_ROOT)} ({p.stat().st_size // 1024} kB)" for p in pdfs)
+        )
+E       AssertionError: publication PDFs must not live in this repository (#754). Cite the DOI and cache the abstract or the OA full text instead:
+E           .temp/m5-completion-20261114/dopamine-syncom-sources/supplement.pdf (1517 kB)
+E       assert [PosixPath('/...plement.pdf')] == []
+E         
+E         Left contains one more item: PosixPath('<REPO>/.temp/m5-completion-20261114/dopamine-syncom-sources/supplement.pdf')
+E         Use -v to get more diff
+
+tests/test_no_paywalled_text_in_repo.py:58: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_no_paywalled_text_in_repo.py::test_no_publication_pdfs_are_committed
+1 failed in 1.36s

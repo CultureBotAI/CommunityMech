@@ -86,7 +86,7 @@ taxonomy:
       support_genomes: 806030
       total_genomes: 806033
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 2 GTDB taxa
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at p__ rank; 2 GTDB taxa
         under the NCBI taxon]
   relative_abundance: 0.313
   relative_abundance_unit: fraction
@@ -113,7 +113,7 @@ taxonomy:
       support_genomes: 226306
       total_genomes: 451729
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 12 GTDB taxa
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at p__ rank; 12 GTDB taxa
         under the NCBI taxon]
   relative_abundance: 0.16
   relative_abundance_unit: fraction
@@ -140,7 +140,7 @@ taxonomy:
       support_genomes: 91744
       total_genomes: 91751
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 3 GTDB taxa
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at p__ rank; 3 GTDB taxa
         under the NCBI taxon]
   relative_abundance: 0.135
   relative_abundance_unit: fraction
@@ -167,7 +167,7 @@ taxonomy:
       support_genomes: 203
       total_genomes: 203
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at p__ rank; 1 GTDB taxa
         under the NCBI taxon]
   relative_abundance: 0.125
   relative_abundance_unit: fraction
@@ -187,16 +187,14 @@ taxonomy:
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
       curated: true
-      curation_note: 'Sharpened from p__Thermoproteota, which the rank-for-rank vote returns because NCBI calls Nitrososphaerota
-        (Thaumarchaeota) a phylum (#451). GTDB demoted it - the clade survives as c__Nitrososphaeria inside Thermoproteota
-        - and every one of the 65 named-species rows behind this grounding carries a Nitrososphaeria name: 57 rows read Nitrososphaeria
-        and 8 read Nitrososphaeria_A. The suffix is what made this demotion invisible to a sweep demanding exact agreement
-        (#453), but the two are not interchangeable - GTDB adds it to lineages that are not monophyletic with the type, and
-        these eight are o__Caldarchaeales thermophiles rather than ammonia-oxidising Thaumarchaeota. So the grounding takes
-        the unsuffixed name only: 552 of 631 genomes, where the phylum vote claimed 631 of 631 - less confident and more informative.
-        p__Thermoproteota also holds ten other NCBI phyla, among them Ca. Bathyarchaeota and Ca. Marsarchaeota, so it did
-        not distinguish this entry; the record names Thaumarchaeota specifically and ties it to archaeal amoA ammonia oxidation,
-        which is a Nitrososphaeria trait.'
+      curation_note: >-
+        The source reports Thaumarchaeota in the control soil's 16S composition. The native rank-for-rank
+        crosswalk assigns NCBITaxon:651137 to the broader Thermoproteota (631/631 genome support). A
+        separate class-level count of its 65 named-species rows gives Nitrososphaeria 552 genomes across
+        57 rows and Nitrososphaeria_A 79 genomes across 8 rows. This curated entry retains the unsuffixed
+        class at 552/631 (0.875), preserving the mapping's uncertainty. These taxonomic votes do not
+        establish amoA activity or ammonia oxidation in this soil experiment. Reproduced from the hash-
+        identified crosswalk with an aggregate denominator and unnamed species excluded.
       gtdb_id: GTDB:c__Nitrososphaeria
       gtdb_taxon: Nitrososphaeria
       gtdb_lineage: d__Archaea;p__Thermoproteota;c__Nitrososphaeria
@@ -205,7 +203,7 @@ taxonomy:
       support_genomes: 552
       total_genomes: 631
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 2 GTDB taxa
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at c__ rank; 2 GTDB taxa
         under the NCBI taxon]
   relative_abundance: 0.102
   relative_abundance_unit: fraction
@@ -232,7 +230,7 @@ taxonomy:
       support_genomes: 151365
       total_genomes: 151454
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-09-13) [grounded at p__ rank; 5
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; aggregate denominator, named species only [grounded at p__ rank; 5
         GTDB taxa under the NCBI taxon]
   relative_abundance: 0.102
   relative_abundance_unit: fraction
@@ -351,4 +349,11 @@ curation_history:
   changes: 'Renumbered a fourth time while the PR was open (#2425): main assigned CommunityMech:000510-000514
     to other records (#2328). Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm is now CommunityMech:000515
     and Brachypodium_Natural_Variation_Dopamine_SynCom16 is CommunityMech:000516; links updated.'
+  llm_assisted: true
+- timestamp: '2026-11-14T21:39:48Z'
+  curator: codex
+  action: EDIT
+  changes: 'Removed copied record-specific amoA mechanism rationale and pinned the recovered crosswalk hash/method
+    instead of an unsupported latest/build date. Reproduced and preserved all six numerical cores, including curated
+    Nitrososphaeria552/631. Primary soil evidence and treatment effects unchanged; #2709.'
   llm_assisted: true
