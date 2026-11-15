@@ -1,0 +1,31 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  slug: LBNL_Switchgrass_Soil_SynCom16
+session:
+  id: 2026-11-15T021443Z-codex-7069cc
+  timestamp: '2026-11-15T02:14:43Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1548
+  - https://github.com/CultureBotAI/CommunityMech/issues/2807
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  summary: Move genus mapping caveats to ordinary notes after native strict canary failure
+  details: 'A separate guarded follow-up moves13 unchanged genus-versus-study-stock caveats
+    from gtdb_classification.curation_note to taxon_term.notes. Native strict correctly rejected
+    these as override notes without curated:true. No false override flag was added; all genus
+    mapping votes, source snippets and stock claims are unchanged. The first applied record
+    and failed strict log/TSV are retained; the interrupted default ontology-download attempt
+    is retained separately. Proof: .temp/phase2-science-20261115/mapping-note-applied-001/receipt.json.
+    Old inline and sidecar history remains immutable. Complete focused validation follows
+    on the final current hash.'

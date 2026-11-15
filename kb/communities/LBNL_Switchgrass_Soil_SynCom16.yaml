@@ -1,37 +1,42 @@
 id: CommunityMech:000087
 name: LBNL Switchgrass Soil SynCom16
-description: A 16-member synthetic soil community from switchgrass-associated soil, optimized for reproducible
-  in vitro and EcoFAB plant-microbe experiments.
+description: Methods-defined final 16-stock synthetic collection from soil and rhizosphere surrounding a single
+  switchgrass plant. This record follows the deposited-stock roster in Coker et al. Methods; the study's earlier
+  18/17-member nutrient, ratio and EcoFAB assays have different or incompletely reconciled membership and are
+  retained as source-scoped discussions. Table S1 differs from the final Methods roster; those stock identities
+  are not silently reconciled.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: Provide a reproducible, tunable model soil SynCom for plant-soil microbe interaction studies.
-  assembly_strategy: Bottom-up assembly of 16 culturable soil microorganisms commonly found in plant rhizospheres,
-    with tuned inoculum ratios and cryopreservation.
-  perturbation_design: Low-nutrient media, starting composition ratios, cryopreservation, and EcoFAB plant
-    colonization were evaluated.
-  measurement_endpoints:
-  - community alpha diversity
-  - replicate reproducibility
-  - cryopreservation recovery
-  - EcoFAB colonization
+  objective: Provide a reproducible synthetic model of soil and rhizosphere communities for laboratory microbiome
+    research.
+  assembly_strategy: Bottom-up collection of the 16 deposited stocks listed in Methods/Isolate selection. Species
+    identities are not resolved by this source; source genus and exact stock/deposit designations are preserved.
+  perturbation_design: The paper develops this model through distinct nutrient, starting-ratio, dropout, cryopreservation
+    and plant-colonization assays. Earlier 18/17-member assay results are not asserted as effects in this Methods-defined
+    final 16 roster.
   evidence:
-  - &id001
-    reference: PMID:36472419
+  - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, a model synthetic community (SynCom) of 16 soil microorganisms commonly found in the
-      rhizosphere of diverse plant species, isolated from soil surrounding a single switchgrass plant,
-      has been developed and optimized for in vitro experiments.
-    explanation: Supports the defined synthetic community design and represented community context.
+    snippet: The final 16-member community isolates and details on their isolation are available
+    explanation: Defines which 16 deposited stocks this record represents; does not unify the paper's different
+      experimental panels.
 environment_term:
-  preferred_term: soil
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Physical setting of the liquid-medium cultivation and fabricated plant assays. Soil/rhizosphere denotes
+    the origin and modeled context, not soil as the assay substrate.
+modeled_environment:
+- preferred_term: soil
   term:
     id: ENVO:00001998
     label: soil
-  notes: Sixteen soil microorganisms isolated from soil surrounding switchgrass were optimized as a reproducible
-    rhizosphere SynCom.
+  notes: The isolates originate from rhizosphere and soil surrounding one switchgrass plant; this is the ecological
+    context modeled in laboratory cultures.
 related_communities:
 - identifier: CommunityMech:000025
   relation: MEMBER_SUBSET_OF
@@ -75,145 +80,666 @@ related_communities:
     explanation: The dopamine-study roster includes Bacillus (Gottfriedia) OAE603; its 16 strains name no Bradyrhizobium.
 taxonomy:
 - taxon_term:
-    preferred_term: soil bacterial SynCom members
+    preferred_term: Arthrobacter OAP107 (source name)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:1663
+      label: Arthrobacter
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock.
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Arthrobacter_B
+    - GTDB:g__Arthrobacter
+    - GTDB:g__Arthrobacter_D
+    - GTDB:g__Specibacter
+    - GTDB:g__Arthrobacter_E
+    - GTDB:g__Arthrobacter_F
+    - GTDB:g__Arthrobacter_C
+    - GTDB:g__Arthrobacter_J
+    - GTDB:g__Arthrobacter_M
+    - GTDB:g__Renibacterium
+    - GTDB:g__Zafaria
+  strain_designation:
+    strain_name: OAP107
+    culture_collections:
+    - collection: DSM
+      accession: '113524'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Bosea OAE506 (source name)
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Current Allobosea label corresponds to the
+      NCBI synonym Bosea Das et al. 1996; the native crosswalk does not resolve this renamed genus.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: OAE506
+    culture_collections:
+    - collection: DSM
+      accession: '113628'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113628 (Bosea OAE506)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Bradyrhizobium OAE829 (source name)
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
+      ncbi_source_id: NCBITaxon:374
+      gtdb_id: GTDB:g__Bradyrhizobium
+      gtdb_taxon: Bradyrhizobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Bradyrhizobium
+      majority_fraction: 0.995
+      support_genomes: 592
+      total_genomes: 595
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  evidence:
-  - *id001
-ecological_interactions:
-- name: Low-Nutrient Alpha-Diversity Enrichment
-  description: In the initial equally mixed 18-strain community, dilution from 1X to 0.2X or 0.1X R2A lowered total
-    OD600 while increasing Shannon diversity and evenness after three days. Pseudomonas remained relatively dominant.
-    This assay preceded the final 16-member model and does not demonstrate increased absolute viable abundance,
-    partner-specific facilitation or the same response in every community variant.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE829
+    culture_collections:
+    - collection: DSM
+      accession: '113701'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the Shannon diversity index and Pielou’s evenness, two α-diversity metrics, were lowest in the 1× medium
-      and increased as the medium dilution increased
-    explanation: Supports the measured nutrient-dilution diversity response in the initial 18-strain assay, not
-      a result specific to the final 16-member model.
-  - reference: PMID:36472419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: an equally mixed community of all 18 strains
-    explanation: Identifies the 18-strain starting membership of the nutrient-dilution experiment.
-  participating_taxa:
-  - preferred_term: soil bacterial SynCom members
+    snippet: DSM 113701 (Bradyrhizobium OAE829)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Brevibacillus OAP136 (source name)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
-- name: Starting-Ratio Dependent Community Diversity
-  description: Adjusting inoculum ratios to favor organisms that became relatively rare in equal mixtures increased
-    Shannon diversity and evenness at two and six days in the tested panels, particularly 2X/3X cutoff communities
-    without Pseudomonas. These are defined starting-composition effects, not a universal optimum or proof of a unique
-    competition mechanism. The 17/18-strain starting-ratio panels and later 16-member dropout experiments are distinct;
-    relative sequencing is not a direct viable-cell count.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
+      id: NCBITaxon:55080
+      label: Brevibacillus
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:55080
+      gtdb_id: GTDB:g__Brevibacillus
+      gtdb_taxon: Brevibacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Brevibacillales;f__Brevibacillaceae;g__Brevibacillus
+      majority_fraction: 0.803
+      support_genomes: 151
+      total_genomes: 188
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAP136
+    culture_collections:
+    - collection: DSM
+      accession: '113525'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Starting ratios containing orders of magnitude more of slower-growing organisms (2× cutoff and 3× cutoff)
-      resulted in higher Shannon diversity and evenness values than did the 4 equally mixed conditions
-    explanation: Supports experimentally altered starting ratios and diversity outcomes, not permanent stability
-      or universal optimality of one inoculum.
-  participating_taxa:
-  - preferred_term: soil bacterial SynCom members
+    snippet: DSM 113525 (Brevibacillus OAP136)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Burkholderia OAS925 (source name)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
-- name: EcoFAB Brachypodium Rhizosphere Colonization
-  description: Equal mixtures of 17 or 18 isolates, without or with Pseudomonas, were inoculated onto 12-day-old
-    Brachypodium in EcoFABs and profiled seven days later. Root-associated community composition differed from the
-    inoculum. These are plant-colonization observations, not demonstrated reciprocal benefit; the single inoculum
-    batch limits taxon-level before/after significance tests. Pseudomonas presence did not significantly change
-    overall EcoFAB composition, unlike the in-vitro diversity response.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Ring-trial Methods explicitly identifies
+      Paraburkholderia sp. OAS925 as formerly Burkholderia sp. OAS925. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:1822464
+      gtdb_id: GTDB:g__Paraburkholderia
+      gtdb_taxon: Paraburkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia
+      majority_fraction: 0.993
+      support_genomes: 680
+      total_genomes: 685
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAS925
+    culture_collections:
+    - collection: DSM
+      accession: '113627'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The SynComs grown on plants were significantly different from the original inoculant, as determined
-      by the Bray-Curtis distance
-    explanation: Supports root-associated composition after live-plant inoculation, not a demonstrated plant growth
-      benefit or the identical final 16-member inoculum.
+    evidence_source: IN_VITRO
+    snippet: DSM 113627 (Burkholderia OAS925)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formerly known as Burkholderia sp. OAS925
+    explanation: Independent later primary Methods supplies the same-stock genus rename; no other ring-trial phenotype
+      is transferred.
+- taxon_term:
+    preferred_term: Chitinophaga OAE865 (source name)
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:79328
+      gtdb_id: GTDB:g__Chitinophaga
+      gtdb_taxon: Chitinophaga
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Chitinophaga
+      majority_fraction: 1.0
+      support_genomes: 133
+      total_genomes: 133
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE865
+    culture_collections:
+    - collection: DSM
+      accession: '113563'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
   - reference: PMID:36472419
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: an equally mixed community of 17 or 18 bacterial isolates
-    explanation: Methods resolves the EcoFAB inoculum as 17 or 18 isolates rather than the final 16-member model.
-  participating_taxa:
-  - preferred_term: soil bacterial SynCom members
+    evidence_source: IN_VITRO
+    snippet: DSM 113563 (Chitinophaga OAE865)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Lysobacter OAE881 (source name)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:68
+      label: Lysobacter
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:68
+      gtdb_id: GTDB:g__Lysobacter
+      gtdb_taxon: Lysobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Lysobacter
+      majority_fraction: 0.758
+      support_genomes: 25
+      total_genomes: 33
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE881
+    culture_collections:
+    - collection: DSM
+      accession: '113522'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113522 (Lysobacter OAE881)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Marmoricola OAE513 (source name)
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:86795
+      gtdb_id: GTDB:g__Marmoricola
+      gtdb_taxon: Marmoricola
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Nocardioidaceae;g__Marmoricola
+      majority_fraction: 1.0
+      support_genomes: 3
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE513
+    culture_collections:
+    - collection: DSM
+      accession: '114042'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence. Table S1 omits Marmoricola OAE513 and names Methylobacterium OAE516 rather than
+      OAE515; the discrepancy remains open.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 114042 (Marmoricola OAE513)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Mucilaginibacter OAE612 (source name)
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:423349
+      gtdb_id: GTDB:g__Mucilaginibacter
+      gtdb_taxon: Mucilaginibacter
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Sphingobacteriales;f__Sphingobacteriaceae;g__Mucilaginibacter
+      majority_fraction: 1.0
+      support_genomes: 173
+      total_genomes: 173
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE612
+    culture_collections:
+    - collection: DSM
+      accession: '113562'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113562 (Mucilaginibacter OAE612)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Methylobacterium OAE515 (source name)
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:407
+      gtdb_id: GTDB:g__Methylobacterium
+      gtdb_taxon: Methylobacterium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Methylobacterium
+      majority_fraction: 1.0
+      support_genomes: 279
+      total_genomes: 279
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE515
+    culture_collections:
+    - collection: DSM
+      accession: '113602'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence. Table S1 omits Marmoricola OAE513 and names Methylobacterium OAE516 rather than
+      OAE515; the discrepancy remains open.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113602 (Methylobacterium OAE515)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Mycobacterium OAE908 (source name)
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:1763
+      gtdb_id: GTDB:g__Mycobacterium
+      gtdb_taxon: Mycobacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Mycobacterium
+      majority_fraction: 1.0
+      support_genomes: 18589
+      total_genomes: 18589
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE908
+    culture_collections:
+    - collection: DSM
+      accession: '113539'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113539 (Mycobacterium OAE908)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Niastella OAS944 (source name)
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:354354
+      gtdb_id: GTDB:g__Niastella
+      gtdb_taxon: Niastella
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Niastella
+      majority_fraction: 1.0
+      support_genomes: 21
+      total_genomes: 21
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAS944
+    culture_collections:
+    - collection: DSM
+      accession: '113593'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113593 (Niastella OAS944)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Paenibacillus OAE614 (source name)
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock.
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Paenibacillus
+    - GTDB:g__Paenibacillus_A
+    - GTDB:g__Paenibacillus_B
+    - GTDB:g__Paenibacillus_G
+    - GTDB:g__Pristimantibacillus
+    - GTDB:g__Paenibacillus_H
+    - GTDB:g__Paenibacillus_E
+    - GTDB:g__Paenibacillus_Z
+    - GTDB:g__Paenibacillus_S
+    - GTDB:g__Paenibacillus_J
+    - GTDB:g__Paenibacillus_D
+    - GTDB:g__Paenibacillus_AB
+    - GTDB:g__Paenibacillus_O
+    - GTDB:g__Paenibacillus_T
+    - GTDB:g__Paenibacillus_I
+    - GTDB:g__Paenibacillus_AE
+    - GTDB:g__Paenibacillus_K
+    - GTDB:g__Paenibacillus_F
+    - GTDB:g__Paenibacillus_L
+    - GTDB:g__Bacillus
+    - GTDB:g__Paenibacillus_AF
+    - GTDB:g__Paenibacillus_AM
+    - GTDB:g__Paenibacillus_AC
+    - GTDB:g__Paenibacillus_AG
+    - GTDB:g__Paenibacillus_AH
+    - GTDB:g__Paenibacillus_AI
+    - GTDB:g__Paenibacillus_AK
+    - GTDB:g__Paenibacillus_AN
+    - GTDB:g__Paenibacillus_N
+    - GTDB:g__Paenibacillus_V
+    - GTDB:g__Paenibacillus_W
+    - GTDB:g__Paenibacillus_AA
+    - GTDB:g__CC-CFT747
+  strain_designation:
+    strain_name: OAE614
+    culture_collections:
+    - collection: DSM
+      accession: '113526'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113526 (Paenibacillus OAE614)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Rhizobium OAE497 (source name)
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:379
+      gtdb_id: GTDB:g__Rhizobium
+      gtdb_taxon: Rhizobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Rhizobium
+      majority_fraction: 0.87
+      support_genomes: 694
+      total_genomes: 798
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAE497
+    culture_collections:
+    - collection: DSM
+      accession: '113517'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113517 (Rhizobium OAE497)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Rhodococcus OAS809 (source name)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:1827
+      gtdb_id: GTDB:g__Rhodococcus
+      gtdb_taxon: Rhodococcus
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus
+      majority_fraction: 1.0
+      support_genomes: 514
+      total_genomes: 514
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAS809
+    culture_collections:
+    - collection: DSM
+      accession: '113518'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113518 (Rhodococcus OAS809)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
+- taxon_term:
+    preferred_term: Variovorax OAS795 (source name)
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+    notes: Genus-level NCBI grounding; the primary paper identifies novel strains of unknown species. This term
+      is not an independently verified genome identity for the stock. Aggregate genus correspondence, not a sequenced-study-stock
+      placement. Minority mappings and species identity remain uncertain.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      ncbi_source_id: NCBITaxon:34072
+      gtdb_id: GTDB:g__Variovorax
+      gtdb_taxon: Variovorax
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Variovorax
+      majority_fraction: 1.0
+      support_genomes: 40
+      total_genomes: 40
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only
+  strain_designation:
+    strain_name: OAS795
+    culture_collections:
+    - collection: DSM
+      accession: '113622'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected.
+    isolation_source: Rhizosphere and soil surrounding a single switchgrass plant, as reported for the source
+      collection.
+    notes: Methods-defined final 16 roster; do not equate this stock with a differently named supplementary-table
+      stock without evidence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113622 (Variovorax OAS795)
+    explanation: Exact source genus, strain designation and DSM accession in the final Methods roster.
 environmental_factors:
-- name: defined synthetic community design
-  value: Bottom-up assembly of 16 culturable soil microorganisms commonly found in plant rhizospheres,
-    with tuned inoculum ratios and cryopreservation.
-  description: Low-nutrient media, starting composition ratios, cryopreservation, and EcoFAB plant colonization
-    were evaluated.
+- name: represented collection
+  value: Methods-defined final 16 deposited stocks
+  description: Canonical membership follows Methods, not a merged list of every isolate used in earlier assay
+    panels. Assay outcomes and disputed stock correspondence are documented separately.
   evidence:
-  - *id001
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The final 16-member community isolates and details on their isolation are available
+    explanation: Binds this record's collection scope to the final Methods roster.
 growth_media:
-- name: R2A (Teknova, 1x)
+- name: R2A (Teknova R0005, 1x; isolate precultures)
   temperature: '30'
   temperature_unit: °C
   atmosphere: AEROBIC
-  incubation_time: '72'
-  incubation_time_unit: h
-  vessel_type: 96-well plate
-  preparation_notes: Communities grown in 200 μL 1x R2A in 96-well plates without
-    shaking; individual isolates grown in 14 mL culture tubes in 1x R2A; higher community
-    alpha-diversity achieved with low-nutrient (diluted 1x, 0.1x) R2A; cryopreserved
-    with 20% glycerol at −80°C; also colonizes Brachypodium distachyon in EcoFAB devices
-    at 24°C under a 16 h light/8 h dark regime.
+  vessel_type: 14 mL culture tube
+  preparation_notes: 'Methods/Isolate growth: 3–5 mL liquid 1x R2A, no shaking, 5–7 days before dilution for community
+    generation. Individual growth curves instead started at OD600 0.05 in 200 μL 0.1x R2A in 96-well plates. The
+    plant 24°C regime is not a member growth temperature.'
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Communities were grown in 200 μL of liquid R2A medium in 96-well plates
-      in aerobic conditions at 30°C without shaking.
-    explanation: Names R2A medium, aerobic, 30°C, 96-well plate, no shaking for the
-      SynCom.
+    snippet: Individual isolates were grown in 3 to 5 mL liquid cultures of 1× R2A medium (Teknova, cat number
+      R0005) in 14 mL culture tubes in aerobic conditions at 30°C without shaking.
+    explanation: Source isolate preculture conditions, separate from community and plant assays.
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Individual isolates were grown in 3 to 5 mL liquid cultures of 1× R2A
-      medium (Teknova, cat number R0005) in 14 mL culture tubes in aerobic conditions
-      at 30°C without shaking.
-    explanation: Gives the Teknova 1× R2A medium and aerobic 30°C conditions for the
-      member isolates.
+    snippet: The isolates were allowed to grow for 5 to 7 days before dilution for community generation.
+    explanation: Isolate preculture duration; no universal 72 h duration is assigned.
+- name: R2A (community cultures; assay-specific dilution)
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  vessel_type: 96-well plate
+  preparation_notes: 'Methods/Community growth: 200 μL liquid R2A, no shaking. Dilution and harvest time vary
+    by panel: the earlier 18-member nutrient assay compares 1x/0.2x/0.1x R2A after 3 days; ratio panels use 2/6
+    day harvests. These conditions are not one final 16 treatment arm. Cryopreservation uses separate 20% glycerol/DMSO
+    or lyophilized stocks and assay-specific regrowth media; 24°C and MS apply to the host experiment.'
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Communities were grown in 200 μL of liquid R2A medium in 96-well plates in aerobic conditions at
+      30°C without shaking.
+    explanation: General community cultivation platform; does not supply a common duration or roster for every
+      experiment.
 curation_history:
 - timestamp: '2026-10-02T05:57:41Z'
   curator: codex
@@ -263,23 +789,166 @@ curation_history:
     to other records (#2328). Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm is now CommunityMech:000515
     and Brachypodium_Natural_Variation_Dopamine_SynCom16 is CommunityMech:000516; links updated.'
   llm_assisted: true
+- timestamp: '2026-11-15T02:12:28Z'
+  curator: codex
+  action: EDIT
+  changes: 'Scoped the record to the Methods-defined final 16-stock collection, restored its 16 source DSM/strain
+    claims with genus-level NCBI grounding and explicit GTDB ambiguity, and separated laboratory growth from source
+    soil. Preserved the three measured earlier 18/17-assay observations as individually evidenced discussions
+    instead of final 16 graph assertions; separated isolate, community, host and preservation protocols. Main
+    Methods/Table S1 conflicts (OAE515/OAE516 and Marmoricola/Bacillus) remain explicit under #1548; no alias,
+    genome identity or ecological role inferred. Addresses the 000087 portion of #1548 and physical-versus-modeled
+    environment #2776; does not close the multi-record issue.'
+  llm_assisted: true
+- timestamp: '2026-11-15T02:14:42Z'
+  curator: codex
+  action: EDIT
+  changes: Moved13 unchanged genus-versus-study-stock caveats from GTDB curated-override metadata to ordinary
+    taxon notes after native strict detected gtdb_note_without_curated. No mapping votes, stock identities, source
+    assertions or prior history changed; no false curated:true override added. First failed strict receipt is
+    retained.
+  llm_assisted: true
 discussions:
 - discussion_id: lbnl_soil_variant_scope_and_ecological_mediators
   prompt: Which interactions explain diversity responses within each defined SynCom variant?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions#Low-Nutrient Alpha-Diversity Enrichment
-  - ecological_interactions#Starting-Ratio Dependent Community Diversity
-  - ecological_interactions#EcoFAB Brachypodium Rhizosphere Colonization
-  rationale: 'Remove automated assembly and cryopreservation as ecological graph nodes, without rejecting their
-    positive methodological results: automated assembly generally reduced between-assembler variation, and glycerol/R2A
-    regrowth resembled unfrozen controls. Nutrient tests used 18 strains, ratio panels included/excluded Pseudomonas,
-    and EcoFAB Methods specifies 17 or 18 isolates; these are not interchangeable with the final 16-member model
-    excluding Pseudomonas and Sphingomonas. Taxon-dropout experiments support additional diversity effects, while
-    proposed Lysobacter facilitation and three-fast-grower competition remain mechanistic interpretations, not new
-    curated arrows. Relic-DNA controls and DNA spike-ins do not make all abundance values viable-cell counts. Canonical
-    Bacteria remains an aggregate placeholder; #1548 tracks roster and non-graph metadata. Full main text/captions
-    were read, not original images, separate supplements or raw data.'
+  - taxonomy#Methods-defined-final16
+  rationale: Automated assembly and preservation are methodological results, not ecological causal arrows. Earlier
+    nutrient, ratio and plant observations survive in the three discussions below; their 18/17-member panels cannot
+    be mapped to this final 16 collection by deleting a domain placeholder. The final Methods list and Table S1
+    disagree, so stock correspondence across panels remains uncertain. Taxon dropout results and proposed Lysobacter
+    facilitation/fast-grower competition are separate observations or interpretations, not newly inferred partner-specific
+    arrows. Relative sequencing, PMA and DNA spike-ins do not establish absolute viable counts for every stock.
+    Main text, original figures 2/3/5 and separate Table S1 were inspected in this follow-up; previous immutable
+    reviews remain preserved.
   posed_by: codex
   posed_date: '2026-10-06'
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These isolates are novel strains from unknown species
+    explanation: Species identities and panel-specific mechanism remain unresolved.
+- discussion_id: earlier18_nutrient_response
+  prompt: 'Low-Nutrient Alpha-Diversity Enrichment: source-scoped observation in earlier assay panels.'
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - engineering_design#study-development
+  rationale: In the initial equally mixed 18-strain community, dilution from 1X to 0.2X or 0.1X R2A lowered total
+    OD600 while increasing Shannon diversity and evenness after three days. Pseudomonas remained relatively dominant.
+    This assay preceded the final 16-member model and does not demonstrate increased absolute viable abundance,
+    partner-specific facilitation or the same response in every community variant. Main Methods/Table S1 stock
+    discrepancies prevent assigning this observation to the complete Methods-defined final 16 roster. The observation
+    is retained; its graph interpretation for all final 16 members is withheld.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the Shannon diversity index and Pielou’s evenness, two α-diversity metrics, were lowest in the 1×
+      medium and increased as the medium dilution increased
+    explanation: Supports the measured nutrient-dilution diversity response in the initial 18-strain assay, not
+      a result specific to the final 16-member model.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an equally mixed community of all 18 strains
+    explanation: Identifies the 18-strain starting membership of the nutrient-dilution experiment.
+  posed_by: codex
+  posed_date: '2026-11-15'
+- discussion_id: earlier17_18_ratio_response
+  prompt: 'Starting-Ratio Dependent Community Diversity: source-scoped observation in earlier assay panels.'
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - engineering_design#study-development
+  rationale: Adjusting inoculum ratios to favor organisms that became relatively rare in equal mixtures increased
+    Shannon diversity and evenness at two and six days in the tested panels, particularly 2X/3X cutoff communities
+    without Pseudomonas. These are defined starting-composition effects, not a universal optimum or proof of a
+    unique competition mechanism. The 17/18-strain starting-ratio panels and later 16-member dropout experiments
+    are distinct; relative sequencing is not a direct viable-cell count. Main Methods/Table S1 stock discrepancies
+    prevent assigning this observation to the complete Methods-defined final 16 roster. The observation is retained;
+    its graph interpretation for all final 16 members is withheld.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Starting ratios containing orders of magnitude more of slower-growing organisms (2× cutoff and 3×
+      cutoff) resulted in higher Shannon diversity and evenness values than did the 4 equally mixed conditions
+    explanation: Supports experimentally altered starting ratios and diversity outcomes, not permanent stability
+      or universal optimality of one inoculum.
+  posed_by: codex
+  posed_date: '2026-11-15'
+- discussion_id: earlier17_18_ecofab_colonization
+  prompt: 'EcoFAB Brachypodium Rhizosphere Colonization: source-scoped observation in earlier assay panels.'
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - engineering_design#study-development
+  rationale: Equal mixtures of 17 or 18 isolates, without or with Pseudomonas, were inoculated onto 12-day-old
+    Brachypodium in EcoFABs and profiled seven days later. Root-associated community composition differed from
+    the inoculum. These are plant-colonization observations, not demonstrated reciprocal benefit; the single inoculum
+    batch limits taxon-level before/after significance tests. Pseudomonas presence did not significantly change
+    overall EcoFAB composition, unlike the in-vitro diversity response. Main Methods/Table S1 stock discrepancies
+    prevent assigning this observation to the complete Methods-defined final 16 roster. The observation is retained;
+    its graph interpretation for all final 16 members is withheld.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The SynComs grown on plants were significantly different from the original inoculant, as determined
+      by the Bray-Curtis distance
+    explanation: Supports root-associated composition after live-plant inoculation, not a demonstrated plant growth
+      benefit or the identical final 16-member inoculum.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: an equally mixed community of 17 or 18 bacterial isolates
+    explanation: Methods resolves the EcoFAB inoculum as 17 or 18 isolates rather than the final 16-member model.
+  posed_by: codex
+  posed_date: '2026-11-15'
+- discussion_id: methods_final16_vs_supplement_table_s1
+  prompt: How do the Methods-defined final 16 stocks map to the earlier 18-stock Table S1 roster?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Methods-defined-final16
+  rationale: Main Methods includes Marmoricola OAE513 and Methylobacterium OAE515, while separate Table S1 includes
+    Bacillus OAE603 and Methylobacterium OAE516, omits Marmoricola, and also includes Sphingomonas OAE905 and
+    Pseudomonas simiae WCS417. No supplied evidence proves OAE515 and OAE516 are aliases or makes earlier 18/17
+    panels equal to final 16 plus exclusions. Table S1's plant associations are genus-level literature context,
+    not stock-specific ecological role measurements. Issue 1548 retains the unresolved panel correspondence.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 114042 (Marmoricola OAE513)
+    explanation: Present in the final Methods roster.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113602 (Methylobacterium OAE515)
+    explanation: Exact final Methods stock designation.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: supplement_table_S1
+    snippet: OAE516
+    explanation: 'Separate Table S1, table 1, row 12, Strain column: the adjacent Genus cell is Methylobacterium.
+      This differs from Methods OAE515; no alias is inferred. The original DOCX and exact table extraction are
+      retained separately from the article cache.'
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: supplement_table_S1
+    snippet: Bacillus
+    explanation: Separate Table S1, table 1, row 18, Genus column; the adjacent Strain cell is OAE603. The complete
+      table contains no Marmoricola row, unlike the final Methods roster.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: supplement_table_S1
+    snippet: OAE603
+    explanation: Separate Table S1, table 1, row 18, Strain column; paired with Bacillus in the adjacent Genus
+      cell. This is not one of the final Methods-defined 16 stocks.
+  posed_by: codex
+  posed_date: '2026-11-15'
