@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-14T18:01:56
+# Generation date: 2026-11-14T18:13:02
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech

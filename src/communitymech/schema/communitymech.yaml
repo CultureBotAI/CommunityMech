@@ -1612,6 +1612,7 @@ classes:
           Optional stable record-local identifier for treatment-arm references.
           Unique within taxonomy; identifies this member, not its taxon CURIE.
           Existing records do not need an identifier until they use arm references.
+        range: string
         pattern: '^[a-z][a-z0-9_-]*$'
       taxon_term:
         description: The organism
@@ -1703,6 +1704,7 @@ classes:
           Record-local treatment arms in which this claim was observed. Omission
           leaves the claim unscoped; it does not apply it to every arm. These
           references do not establish causality or change participant membership.
+        range: string
         multivalued: true
         pattern: '^[a-z][a-z0-9_-]*$'
       interaction_type:
@@ -1815,6 +1817,7 @@ classes:
     attributes:
       id:
         description: Stable record-local arm identifier.
+        range: string
         required: true
         pattern: '^[a-z][a-z0-9_-]*$'
       name:
@@ -1833,10 +1836,12 @@ classes:
         description: >-
           Complete microbial roster when membership_status is DEFINED_MEMBERS;
           otherwise omit. References taxonomy.member_id, never host identity.
+        range: string
         multivalued: true
         pattern: '^[a-z][a-z0-9_-]*$'
       comparator_arm_ids:
         description: Explicit same-context comparators, excluding this arm itself.
+        range: string
         multivalued: true
         pattern: '^[a-z][a-z0-9_-]*$'
       conditions:
@@ -1860,6 +1865,7 @@ classes:
     description: A named arm-local sampling or observation time.
     attributes:
       id:
+        range: string
         required: true
         pattern: '^[a-z][a-z0-9_-]*$'
       name:
@@ -1880,10 +1886,12 @@ classes:
       viable counts, read fractions and concentrations are not interchangeable.
     attributes:
       treatment_arm_id:
+        range: string
         required: true
         pattern: '^[a-z][a-z0-9_-]*$'
       timepoint_id:
         description: Optional timepoint in the referenced arm; omission means unreported time.
+        range: string
         pattern: '^[a-z][a-z0-9_-]*$'
       replicate:
         description: Source-reported replicate identifier or grouping, if provided.

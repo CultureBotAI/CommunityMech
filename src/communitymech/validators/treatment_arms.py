@@ -29,7 +29,23 @@ def _index(items: list[dict], key: str) -> tuple[dict[str, dict], set[str]]:
 
 
 def _references(value: object) -> list[str]:
+    """Safe lookup inputs; callers separately reject malformed raw entries."""
     return [item for item in value if isinstance(item, str)] if isinstance(value, list) else []
+
+
+def _reference_type_errors(value: object, path: str) -> Iterator[tuple[str, str]]:
+    """Never turn malformed declared references into silently absent scope (#2807)."""
+    if value is None:
+        return
+    if not isinstance(value, list):
+        yield "treatment_reference_type", f"{path}: expected a list of string identifiers"
+        return
+    for index, reference in enumerate(value):
+        if not isinstance(reference, str):
+            yield (
+                "treatment_reference_type",
+                f"{path}[{index}]: expected a string identifier, got {type(reference).__name__}",
+            )
 
 
 def _text(value: object) -> bool:
@@ -76,6 +92,10 @@ def check_record(instance: dict) -> Iterator[tuple[str, str]]:
         return
     taxonomy = _objects(instance.get("taxonomy"))
     arms = _objects(instance.get("treatment_arms"))
+    for index, member in enumerate(taxonomy):
+        identifier = member.get("member_id")
+        if identifier is not None and not isinstance(identifier, str):
+            yield "treatment_reference_type", f"taxonomy[{index}].member_id: expected a string"
     # The current ontology plugin's reflexive ancestry accepts include_self:false
     # roots (#2802). Protect only these new slots here; all descendant and label
     # validation still belongs to the ordinary ontology gate.
@@ -136,6 +156,7 @@ def check_record(instance: dict) -> Iterator[tuple[str, str]]:
             ("participant_member_ids", participants),
             ("comparator_arm_ids", comparators),
         ):
+            yield from _reference_type_errors(arm.get(key), f"{path}.{key}")
             if len(references) != len(set(references)):
                 yield "treatment_duplicate_reference", f"{path}.{key}: duplicate references"
         for participant in participants:
@@ -212,6 +233,10 @@ def check_record(instance: dict) -> Iterator[tuple[str, str]]:
                 )
 
     for index, interaction in enumerate(_objects(instance.get("ecological_interactions"))):
+        yield from _reference_type_errors(
+            interaction.get("treatment_arm_ids"),
+            f"ecological_interactions[{index}].treatment_arm_ids",
+        )
         references = _references(interaction.get("treatment_arm_ids"))
         if len(references) != len(set(references)):
             yield (
