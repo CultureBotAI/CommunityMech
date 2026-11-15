@@ -16,7 +16,8 @@ Both machines retain complete checkpoints. The local manifest is
 the M5 manifest is
 `7619f00e62085329392339e57d0ab79c6daf646e65871d82a6c1fa503cfb279b`.
 The saved review retains eight actual native checks and three authored
-assessments. The strict successor pins all 27 public artifacts.
+assessments. All 27 exported artifacts were hash-verified; the externally pinned
+successor manifest binds the application and native gate evidence.
 
 The new batch130 admission covers only record467. Its original non-graph
 preservation and old last-event checks use the strictly admitted predecessor;

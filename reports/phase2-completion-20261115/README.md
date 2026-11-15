@@ -377,6 +377,14 @@ clean combined revision. Both complete 83-file checkpoints remain verified;
 an auxiliary copy of 117 local recorder files was rejected and was not retried.
 The paired PHA468 correction remains pending.
 
+The [rumen275 integration at c464cc89](rumen275-integration-c464cc89.md)
+brings the current count to **78 integrated taxonomy corrections**, including
+**74 of the historical 126-record partition**, with **52 remaining**. The clean
+combined revision passes 91 shared-core, null-guard and batch8 tests, 17 actual275
+proof controls, 17 actual467 compatibility controls and native lint. Both
+complete 81-file checkpoints are verified. The bounded status-only correction
+does not close its scientific blocker or complete full QC.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
