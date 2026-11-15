@@ -1,0 +1,36 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.log", "sha256": "48d12e0a83bd2f823a2ee043c16534b2177ac799ba639ef426c635f4d761c1ad"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.json", "sha256": "66b9a6a39cb12c86cdbe919b846a7c17c333b742ee79993d996f7ed27f5e82c6"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/genus-last-four-route-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [{
+    "record": "kb/communities/Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom.yaml",
+    "record_id": "CommunityMech:000482",
+    "before_sha256": "8da2f35995f5bde8cb1a9af16a1fa460d66f8a27d6b30e8ccd08b9c42263dc9a",
+    "additional_inputs": {
+      "tests/test_causal_review_batch133.py": "60c10cf5de2737339efcd732818538e1cab80a44c939c84e46ef840dcbe2d40f",
+      "reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml": "e9ded35a2333f9994869573f9f952b3af3191ab55528813a7f2c03639a362d3f",
+      "reports/phase2-completion-20261115/genus-next-four-source-context-001.yaml": "75833bba7cae775e5dcaa925f5f9e160d3e7730df4d3b0906aa2206bbb7a8965",
+      "reviews/structured/20261021T130005Z-black-soil-herbicide-syncom-record/review.yaml": "3b21df09a6289ca7385d778bd6c655dcf676eedcae122fa90f810cc7fdce9fce"
+    },
+    "primary_sources": [{
+      "reference": "PMID:41762466",
+      "path": "references_cache/PMID_41762466.txt",
+      "sha256": "3a5145b825f62744b99c373cf18c10a27ff0daf6c7ac7c2f608d439a665462fd",
+      "locator": "Retained primary abstract, line 9: NMC performance, keystone groups and separately described four-isolate SynCom.",
+      "coverage": "Whole canonical record, prior full-record assessment, accepted conditional source plan and current historical caller read; the accessible primary abstract was read. No full paper, supplementary stock roster, isolate sequences, original figures or strain-resolved source reconciliation is claimed.",
+      "identity_tokens": ["41762466", "10.1016/j.jhazmat.2026.141615"],
+      "anchors": ["Burkholderia-Caballeronia-Paraburkholderia complex, Rhodanobacter, and Achromobacter as the keystone taxa", "A simplified four-isolate SynCom", "more efficiently than either the individual isolates or the NMC"]
+    }],
+    "occurrences": [{
+      "taxonomy_index": 1,
+      "term": {"id": "NCBITaxon:75309", "label": "Rhodanobacter"},
+      "strain_name": null,
+      "expected_ncbi_rank": "NCBITaxon:genus",
+      "expected_native": {"gtdb_id": "GTDB:g__Rhodanobacter", "via": "ncbi_rank_g", "support_genomes": 15, "total_genomes": 15, "is_reclassified": false},
+      "source_assessment": "The abstract explicitly identifies Rhodanobacter as an NMC keystone genus inferred by random-forest/co-occurrence analyses. It separately mentions a four-isolate SynCom without exposing the exact stock roster. The proposed generic correspondence is for the already encoded valid Rhodanobacter term only; it cannot confirm that a Rhodanobacter isolate is a member of that four-stock construction. The membership hold remains unresolved.",
+      "population_scope": "15/15 filtered genus reference genomes; not fifteen experimental isolates, source abundance, a sequenced stock or evidence that the source's four isolates map to the record's three descriptors.",
+      "name_scope": "Keep the NCBI genus, absent strain designation and all original notes unchanged. No member, species, dominant abundance, functional degrader or mechanistic role is certified. This preparation is conditional on independent acceptance of the term-only boundary; it does not clear the biological hold."
+    }],
+    "historical_guard_assessment": "Only index 1 generic GTDB fields and actual native events are proposed. Preserve both existing Burkholderia and Achromobacter blocks exactly. The prior full-record partial assessment remains needs_curation (completion:partial, scientific_review:false, scope.coverage:full): 2404 concerns NMC-to-SynCom performance attribution, 2405 concerns the unresolved four-stock roster and collapse of the Burkholderia-Caballeronia-Paraburkholderia complex, and 2406 concerns unsupported mechanisms/arrows. None is resolved or waived by mapping an already encoded genus. In particular, the 97.27/68.00/22.91 percent abstract results belong to the glucose-amended NMC experiment, and the abstract does not identify all four SynCom stocks. All current biological assertions are preserved for this narrowly scoped technical proposal, not endorsed as correct. Keep the exact prior review and batch 133 ledger, current biological predicates, and all existing 472/474/475/476/477/481 admissions. Any later strict successor proof may project only the exact old digest/last-event predicates for this target. The source membership hold stays explicit in every later assessment; no whole-record scientific completion is authorized."
+  }]
+}
