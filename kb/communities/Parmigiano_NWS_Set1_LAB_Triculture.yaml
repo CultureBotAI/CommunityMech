@@ -57,7 +57,16 @@ taxonomy:
     term:
       id: NCBITaxon:1587
       label: Lactobacillus helveticus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_helveticus
+      gtdb_taxon: Lactobacillus helveticus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus helveticus
+      ncbi_source_id: NCBITaxon:1587
+      majority_fraction: 1.0
+      total_genomes: 378
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Thermophilic natural-whey-starter isolate producing a racemic mixture of D- and L-lactate in milk monoculture;
       inoculated at a 1:1:1 ratio in set 1.
   strain_designation:
@@ -113,7 +122,16 @@ taxonomy:
     term:
       id: NCBITaxon:29397
       label: Lactobacillus delbrueckii subsp. lactis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_delbrueckii
+      gtdb_taxon: Lactobacillus delbrueckii
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii
+      ncbi_source_id: NCBITaxon:29397
+      majority_fraction: 1.0
+      total_genomes: 37
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Thermophilic natural-whey-starter isolate with limited monoculture milk acidification and D-lactate accumulation;
       inoculated at a 1:1:1 ratio in set 1.
   strain_designation:
@@ -458,3 +476,11 @@ curation_history:
     interactions, C001.15 metabolic dominance in the 67.42% L-lactate Lh+Ld co-culture, and monoculture/triculture D-/L-lactate
     enantiomer baselines.
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:11Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:12Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 from m5_review_successor import current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,7 +42,18 @@ def _ref_to_cache_path(ref: str) -> Path:
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    return (
+        ledger,
+        rows,
+        [
+            yaml.safe_load(
+                admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+                if row["id"] == "CommunityMech:000517"
+                else (ROOT / row["path"]).read_bytes()
+            )
+            for row in rows
+        ],
+    )
 
 
 def _check_batch141_invariants(ledger: dict, rows: list[dict], docs: list[dict]) -> None:
@@ -97,9 +109,12 @@ def _check_batch141_invariants(ledger: dict, rows: list[dict], docs: list[dict])
 
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
-        assert hashlib.sha256(
-            (ROOT / row["path"]).read_bytes()
-        ).hexdigest() == current_record_sha256(ROOT, LEDGER, row)
+        expected = (
+            admission(ROOT, row["path"], row["record_sha256"]).current_sha256
+            if row["id"] == "CommunityMech:000517"
+            else current_record_sha256(ROOT, LEDGER, row)
+        )
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
         if row["id"] in changed_ids:
             assert row["outcome"] == "changed"
             assert row["original_sha256"] != row["record_sha256"]

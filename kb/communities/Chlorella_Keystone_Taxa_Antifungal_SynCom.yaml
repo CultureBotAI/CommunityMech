@@ -113,7 +113,16 @@ taxonomy:
     term:
       id: NCBITaxon:2666085
       label: Pseudoduganella rivuli
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudoduganella_rivuli
+      gtdb_taxon: Pseudoduganella rivuli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Pseudoduganella;s__Pseudoduganella rivuli
+      ncbi_source_id: NCBITaxon:2666085
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Table 1 maps the Duganella network ASV label to inoculated Pseudoduganella rivuli FT92W (KACC 21474).
       NCBI taxonomy 2666085 and local ontology agree. BioSample SAMN13220418 identifies FT92W as a stream-water
       isolate; strawberry network association is not its collection-strain isolation provenance. The local GTDB
@@ -502,6 +511,14 @@ curation_history:
   changes: 'Bound six causal nodes to assay evidence and remove two duplicate disease-outcome arrows; issue #1306;
     reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:37Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: chk0059_causal_mediation_and_source_consistency
   prompt: Which microbial or host mechanisms mediate the treatment-specific disease reductions?

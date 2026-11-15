@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml"
@@ -12,7 +13,18 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return (
+        ledger,
+        rows,
+        [
+            yaml.safe_load(
+                admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+                if row["id"] == "CommunityMech:000053"
+                else (ROOT / row["path"]).read_bytes()
+            )
+            for row in rows
+        ],
+    )
 
 
 def test_diatom_attachment_survives_competition_qualification():
@@ -159,4 +171,7 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
             assert successor["original_sha256"] == expected_hash
             assert successor["status"] == "needs_research"
             expected_hash = successor["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == admission(ROOT, row["path"], expected_hash).current_sha256
+        )

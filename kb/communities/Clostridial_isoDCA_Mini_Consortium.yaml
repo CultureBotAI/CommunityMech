@@ -85,7 +85,16 @@ taxonomy:
     term:
       id: NCBITaxon:89152
       label: Peptacetobacter hiranonis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Peptacetobacter_hiranonis
+      gtdb_taxon: Peptacetobacter hiranonis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptacetobacter;s__Peptacetobacter hiranonis
+      ncbi_source_id: NCBITaxon:89152
+      majority_fraction: 1.0
+      total_genomes: 82
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: NCBI species identity was verified locally by exact Taxonomy search; the inspected preprint did not report a strain
       designation for the P. hiranonis member.
   abundance_level: DOMINANT
@@ -315,3 +324,11 @@ curation_history:
   changes: 'Populate abundance_level: DOMINANT and verbatim doi:10.64898/2026.08.11.743107 equal-volume (10 mL : 10 mL, OD600
     = 0.800) consortium assembly evidence on Peptacetobacter hiranonis and Ruminococcus gnavus VPI C7-9 WT (#2764).'
   llm_assisted: true
+- timestamp: '2026-11-15T07:12:24Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:12:25Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
