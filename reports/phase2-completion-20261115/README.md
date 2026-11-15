@@ -398,6 +398,13 @@ historical126 partition**, with **50 remaining**. The clean revision passes34
 paired467/468 proof controls,15 batch130 tests and native lint. Both complete
 82-file checkpoints are independently verified; scientific limits remain.
 
+The [MDSC392 and Brassica476 integration at4ecb1797](mdsc-brassica-integration-4ecb1797.md)
+brings the count to **82 integrated taxonomy corrections**, including **78 of
+the historical126 partition**, with **48 remaining**. The clean revision passes
+27 MDSC proof controls,17 Brassica controls,24 affected caller/core/fresh-clone
+tests and native lint. Both complete checkpoints are independently verified.
+Scientific findings and final aggregate QC remain outstanding.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
