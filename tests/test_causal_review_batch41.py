@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml"
@@ -128,9 +129,15 @@ def test_batch41_dispositions_participants_and_append_only_history():
     assert sum(len(r["removed_edge_decisions"]) for r in ledger["records"]) == 1
     assert sum(len(r["renamed_nodes"]) for r in ledger["records"]) == 5
     for row, doc in zip(ledger["records"], docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] == "CommunityMech:000432":
+            assert doc == yaml.safe_load(raw)
+            raw = admit_species_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         canonical = {t["taxon_term"]["term"]["id"]: t["taxon_term"] for t in doc["taxonomy"]}
         names = {n["name"] for n in doc.get("ecological_interactions", [])}
         for node in doc.get("ecological_interactions", []):

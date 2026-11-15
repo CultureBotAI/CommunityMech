@@ -5,6 +5,7 @@ from pathlib import Path
 
 import yaml
 from genus_gtdb_successors import admit_genus_successor
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
 from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -93,6 +94,10 @@ def test_every_existing_node_and_removed_arrow_has_a_disposition():
             raw = admit_genus_successor(
                 ROOT, row["path"], latest["record_sha256"], current=raw
             ).historical_bytes
+        elif row["id"] == "CommunityMech:000361":
+            raw = admit_species_successor(
+                ROOT, row["path"], latest["record_sha256"]
+            ).historical_bytes
         assert hashlib.sha256(raw).hexdigest() == latest["record_sha256"]
 
 
@@ -129,6 +134,10 @@ def test_repair_history_and_approval_limits_are_explicit():
             )
             latest = next(item for item in successor["records"] if item["id"] == row["id"])
             admission = admit_genus_successor(ROOT, row["path"], latest["record_sha256"])
+            historical = yaml.safe_load(admission.historical_bytes)
+        elif row["id"] == "CommunityMech:000361":
+            assert doc == yaml.safe_load((ROOT / row["path"]).read_bytes())
+            admission = admit_species_successor(ROOT, row["path"], row["record_sha256"])
             historical = yaml.safe_load(admission.historical_bytes)
         assert historical["curation_history"][-1]["llm_assisted"]
         assert (ROOT / row["history_files"][0]).is_file()

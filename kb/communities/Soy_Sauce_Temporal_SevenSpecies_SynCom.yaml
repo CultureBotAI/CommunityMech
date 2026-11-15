@@ -76,7 +76,16 @@ taxonomy:
     term:
       id: NCBITaxon:1249
       label: Weissella paramesenteroides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Weissella_paramesenteroides
+      gtdb_taxon: Weissella paramesenteroides
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Weissella;s__Weissella paramesenteroides
+      ncbi_source_id: NCBITaxon:1249
+      majority_fraction: 0.95
+      total_genomes: 74
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
       once NCBI2GTDB.tsv.gz is available.
   strain_designation:
@@ -106,7 +115,16 @@ taxonomy:
     term:
       id: NCBITaxon:1590
       label: Lactiplantibacillus plantarum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactiplantibacillus_plantarum
+      gtdb_taxon: Lactiplantibacillus plantarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactiplantibacillus;s__Lactiplantibacillus plantarum
+      ncbi_source_id: NCBITaxon:1590
+      majority_fraction: 1.0
+      total_genomes: 2061
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
       once NCBI2GTDB.tsv.gz is available.
   strain_designation:
@@ -135,7 +153,16 @@ taxonomy:
     term:
       id: NCBITaxon:1255
       label: Pediococcus pentosaceus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pediococcus_pentosaceus
+      gtdb_taxon: Pediococcus pentosaceus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Pediococcus;s__Pediococcus pentosaceus
+      ncbi_source_id: NCBITaxon:1255
+      majority_fraction: 1.0
+      total_genomes: 250
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
       once NCBI2GTDB.tsv.gz is available.
   strain_designation:
@@ -165,7 +192,16 @@ taxonomy:
     term:
       id: NCBITaxon:51669
       label: Tetragenococcus halophilus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Tetragenococcus_halophilus
+      gtdb_taxon: Tetragenococcus halophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Tetragenococcus;s__Tetragenococcus halophilus
+      ncbi_source_id: NCBITaxon:51669
+      majority_fraction: 0.98
+      total_genomes: 98
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
       once NCBI2GTDB.tsv.gz is available.
   strain_designation:
@@ -507,3 +543,11 @@ curation_history:
   changes: Preserve positive flavor measurements with exact experimental and comparator scope; remove the assembly
     node and unsupported niche-partitioning arrow. Issue#1816; reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T08:40:47Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:40:48Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

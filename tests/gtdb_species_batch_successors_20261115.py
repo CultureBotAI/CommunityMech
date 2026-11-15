@@ -8,6 +8,62 @@ registry neither changes historical biology predicates nor approves science.
 from scoped_gtdb_successor import admit
 
 ALLOWANCES = {
+    "kb/communities/Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-341-002-successor.json",
+            "sha256": "52894ec26d55326c0fecb23270f8846055a9d9110b45a3fdb3947dd7b63a31dd",
+        },
+    },
+    "kb/communities/RH1_Glyphosate_Streptomyces_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-361-002-successor.json",
+            "sha256": "a365837d0d94bd1c3c96a2e1f94f4458e873b3f160ef0c09bc8e1cbd92b596fc",
+        },
+    },
+    "kb/communities/Soy_Sauce_Temporal_SevenSpecies_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-378-002-successor.json",
+            "sha256": "b0713cdd3fd3d1cf5ffb4723a585fc8273cf59e8d65a379452a4acca65ac1a88",
+        },
+    },
+    "kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-408-002-successor.json",
+            "sha256": "3827783f9181c59fe309c5613ef277d000a9dd99a814b39b95e49eeeefe59c83",
+        },
+    },
+    "kb/communities/Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-411-002-successor.json",
+            "sha256": "3d0ffedf7b53b0e05bd870a9a31996164c97c93b8f25f93ad42105494a21f652",
+        },
+    },
+    "kb/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-432-002-successor.json",
+            "sha256": "789c3775293092370320eab31865f29c2bd541ca5c6918a7c2fb55aaec424101",
+        },
+    },
+    "kb/communities/Halobacillus_Black_Gram_Halophilic_PGPR_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-472-002-successor.json",
+            "sha256": "3d54e977e68846620cbe3eb9e4c52c941c64cb3496eb453913cc0a4f26efb235",
+        },
+    },
+    "kb/communities/Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/second-eight-481-002-successor.json",
+            "sha256": "f6090d8246213328f979e2a50a96bdc80b9e3a29eb0a9089540a771a60fd3dbf",
+        },
+    },
     "kb/communities/Phenol_Carboxylation_Consortium.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {
