@@ -31,6 +31,9 @@ No native `SKIPPED, NOT PASSED` recipe marker occurred; the 103 pytest skips
 and eight e2e tests deselected by the default `-m 'not e2e'` selection are
 separate from the later recipes that never started. Neither ontology validation
 nor reference validation completed in this run. The tracked checkout remained clean.
+The [skip ledger](code005-pytest-skips.json) binds all 103 logged identifiers to
+their recorded source guards. It distinguishes those associations from runtime
+causes that the native log did not fully report.
 
 The raw receipt has SHA-256
 `c9c95cba9924ccfd0bacd68e9744fcbcb6b3c99ed2a0be756551a526e9ed9a1a`.

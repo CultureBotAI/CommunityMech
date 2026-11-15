@@ -1,0 +1,1019 @@
+{
+  "run": "phase2-code005-qc-references",
+  "source_revision": "63b833d3f1752efbb5010f9ae1f5e6e3e1813962",
+  "finished_at": "2026-11-15T04:09:12+00:00",
+  "native_exit_code": 1,
+  "native_stages": [
+    {
+      "recipe": "lint",
+      "status": "PASSED"
+    },
+    {
+      "recipe": "test",
+      "status": "FAILED"
+    },
+    {
+      "recipe": "validate-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-taxa",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-strict",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-gtdb-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-scalars",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-scalars-idiomatic",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-terms-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-terms-taxa",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "qc",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-references-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "qc-references",
+      "status": "NOT RUN"
+    }
+  ],
+  "native_recipe_skip_markers": [],
+  "raw_inputs": {
+    "json": {
+      "path": ".temp/m5-completion-20261114/phase2-code005-qc-references.json",
+      "sha256": "c9c95cba9924ccfd0bacd68e9744fcbcb6b3c99ed2a0be756551a526e9ed9a1a"
+    },
+    "log": {
+      "path": ".temp/m5-completion-20261114/phase2-code005-qc-references.log",
+      "sha256": "30584303fffb594d37ccfbe4b70740961383f945b3b74ae9c63a5f7931245e4d"
+    },
+    "exit": {
+      "path": ".temp/m5-completion-20261114/phase2-code005-qc-references.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    }
+  },
+  "helper_sha256": "a60f005387f9513a8e8bce53c96cdbf00662f4fdff018e6a001097a951ab0733",
+  "pytest_counts": {
+    "failed": 2,
+    "passed": 5777,
+    "skipped": 103,
+    "deselected": 8,
+    "warnings": 18
+  },
+  "collected": 5890,
+  "selected": 5882,
+  "duration_seconds": 1159.39,
+  "category_counts": {
+    "case_insensitive_filesystem": 1,
+    "drift_report_not_generated": 1,
+    "explicitly_renamed_gtdb_clade": 2,
+    "gtdb_cli_answer_guard": 11,
+    "gtdb_mapping_fixture_guard": 62,
+    "inconclusive_outage_negative_control": 1,
+    "no_prefix_ids_or_unavailable_adapter": 2,
+    "optional_anthropic_sdk_guard": 9,
+    "optional_import_guard": 5,
+    "workflow_applicability_guard": 9
+  },
+  "skipped_identifiers": [
+    {
+      "identifier": "tests/test_cache_names_are_normalised_after_fetching.py::test_the_normaliser_leaves_a_real_conflict_alone",
+      "module": "tests/test_cache_names_are_normalised_after_fetching.py",
+      "category": "case_insensitive_filesystem",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_every_ontology_id_resolves.py::test_every_id_resolves_or_is_an_accepted_residual[CL]",
+      "module": "tests/test_every_ontology_id_resolves.py",
+      "category": "no_prefix_ids_or_unavailable_adapter",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_every_ontology_id_resolves.py::test_every_id_resolves_or_is_an_accepted_residual[PATO]",
+      "module": "tests/test_every_ontology_id_resolves.py",
+      "category": "no_prefix_ids_or_unavailable_adapter",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_generated_gate_inputs_are_built_in_ci.py::test_the_report_step_also_gets_the_artifact",
+      "module": "tests/test_generated_gate_inputs_are_built_in_ci.py",
+      "category": "drift_report_not_generated",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_row_set_is_unchanged_by_unrelated_taxa_in_the_batch",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_a_nested_pair_lands_in_both_row_sets",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_higher_ranks_are_not_starved_by_their_own_members[pseudomonadota]",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_higher_ranks_are_not_starved_by_their_own_members[bacillota]",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_higher_ranks_are_not_starved_by_their_own_members[gammaproteobacteria]",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_higher_ranks_are_not_starved_by_their_own_members[actinomycetota]",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_higher_ranks_are_not_starved_by_their_own_members[bacilli]",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_batch_independence.py::test_the_regrounded_record_matches_the_tool",
+      "module": "tests/test_gtdb_batch_independence.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidate_curies.py::test_the_tool_emits_curies_on_both_ambiguous_paths[Anabaena-g]",
+      "module": "tests/test_gtdb_candidate_curies.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidate_curies.py::test_the_tool_emits_curies_on_both_ambiguous_paths[Escherichia coli-s]",
+      "module": "tests/test_gtdb_candidate_curies.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidatus_lookup.py::test_the_table_really_does_keep_the_prefix",
+      "module": "tests/test_gtdb_candidatus_lookup.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidatus_lookup.py::test_a_candidatus_genus_now_grounds",
+      "module": "tests/test_gtdb_candidatus_lookup.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidatus_lookup.py::test_the_one_candidatus_species_that_was_really_blocked",
+      "module": "tests/test_gtdb_candidatus_lookup.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_candidatus_lookup.py::test_an_unprefixed_taxon_is_unaffected",
+      "module": "tests/test_gtdb_candidatus_lookup.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_coherence_validator.py::test_the_stored_statuses_reproduce_from_the_classifier",
+      "module": "tests/test_gtdb_coherence_validator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_curation_history.py::test_a_withdrawal_records_what_it_removed",
+      "module": "tests/test_gtdb_curation_history.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_curation_history.py::test_applying_a_grounding_records_it",
+      "module": "tests/test_gtdb_curation_history.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_curation_history.py::test_setting_status_records_it",
+      "module": "tests/test_gtdb_curation_history.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_curation_history.py::test_an_existing_history_is_preserved_and_appended_to",
+      "module": "tests/test_gtdb_curation_history.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_bears_the_clade_name_and_the_broad_one_does_not[Naica_Deep_Subsurface_Thermophilic.yaml::Betaproteobacteria]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "explicitly_renamed_gtdb_clade",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_bears_the_clade_name_and_the_broad_one_does_not[East_River_Floodplain_Core_Microbiome.yaml::Betaproteobacter]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "explicitly_renamed_gtdb_clade",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Richmond_Mine_AMD_Biofilm.yaml::Parvarchaeota (ARMAN-4/5)]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Soil_BGC_Phylum_Depth_Vegetation_Community.yaml::Candidatus ]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Anammox_Granule_Metabolic_Interaction_Community.yaml::Chloro]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Rifle_Aquifer_Bioanode_EET_Community.yaml::EET-capable Rifle]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Naica_Deep_Subsurface_Thermophilic.yaml::Thaumarchaeota]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[Naica_Deep_Subsurface_Thermophilic.yaml::Betaproteobacteria]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_demoted_clades.py::test_the_curated_term_is_what_the_mapping_actually_supports[East_River_Floodplain_Core_Microbiome.yaml::Betaproteobacter]",
+      "module": "tests/test_gtdb_demoted_clades.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_default_denominator_is_unchanged",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_deepest_shifts_weight_toward_strain_annotated_lineages",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_filter_never_empties_a_taxon",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_the_filter_makes_both_denominators_agree_on_acetobacter",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_the_filter_does_not_settle_the_denominator_question",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_an_exact_tie_is_ambiguous_not_a_grounding",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_ambiguous_options_do_not_depend_on_row_order",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_the_cli_can_reach_both_denominators",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_domain_rank_resolves",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": "k..."
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_the_species_filter_cannot_fire_on_this_crosswalk",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_denominator.py::test_no_kb_grounding_moves_under_the_species_filter",
+      "module": "tests/test_gtdb_denominator.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_emit_matches_apply.py::test_both_render_paths_agree",
+      "module": "tests/test_gtdb_emit_matches_apply.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_emit_matches_apply.py::test_refresh_with_apply_is_still_allowed",
+      "module": "tests/test_gtdb_emit_matches_apply.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_near_tie_marker.py::test_the_cli_marks_the_right_groundings[Bacillota-True]",
+      "module": "tests/test_gtdb_near_tie_marker.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_near_tie_marker.py::test_the_cli_marks_the_right_groundings[Nitrospiraceae-True]",
+      "module": "tests/test_gtdb_near_tie_marker.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_near_tie_marker.py::test_the_cli_marks_the_right_groundings[Bacillus-False]",
+      "module": "tests/test_gtdb_near_tie_marker.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_near_tie_marker.py::test_the_cli_marks_the_right_groundings[Steroidobacteraceae-False]",
+      "module": "tests/test_gtdb_near_tie_marker.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_non_type_clade_flag.py::test_enterococcus_warns_and_still_returns_the_majority_answer",
+      "module": "tests/test_gtdb_non_type_clade_flag.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_non_type_clade_flag.py::test_the_four_that_agree_do_not_warn[Pseudomonas]",
+      "module": "tests/test_gtdb_non_type_clade_flag.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_non_type_clade_flag.py::test_the_four_that_agree_do_not_warn[Acetobacter]",
+      "module": "tests/test_gtdb_non_type_clade_flag.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_non_type_clade_flag.py::test_the_four_that_agree_do_not_warn[Leptospirillum]",
+      "module": "tests/test_gtdb_non_type_clade_flag.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_non_type_clade_flag.py::test_the_four_that_agree_do_not_warn[Bacillus]",
+      "module": "tests/test_gtdb_non_type_clade_flag.py",
+      "category": "gtdb_cli_answer_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_refresh_replaces_blocks_without_duplicating_the_key",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_refresh_creates_no_new_groundings",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_the_gate_runs_on_every_write",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_refresh_preserves_everything_outside_the_grounding",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_without_refresh_existing_blocks_are_left_alone",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_refresh.py::test_refresh_of_a_wrapped_block_produces_no_duplicate_keys",
+      "module": "tests/test_gtdb_refresh.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_apply_status_is_idempotent[4-space]",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_apply_status_is_idempotent[6-space]",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_apply_and_apply_status_interleave_in_any_order",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_a_stale_candidate_list_is_replaced_not_left",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_the_writer_refuses_when_anchors_do_not_match",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_nothing_outside_the_status_slots_changes",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_status_writer.py::test_a_duplicate_key_is_refused_rather_than_written",
+      "module": "tests/test_gtdb_status_writer.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_the_species_path_reports_the_denominator_but_no_numerator",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_an_emitted_species_block_omits_the_numerator",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_species_counts_match_the_crosswalk",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_the_chosen_species_row_does_not_depend_on_file_order",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_the_cli_prints_the_counts_and_flags_thin_evidence",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_a_curated_grounding_is_skipped_by_refresh",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_the_name_path_aggregates_every_row_for_the_species",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_the_species_fraction_is_weighted_by_genomes",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_support_counts.py::test_a_denominator_is_not_a_function_of_the_label",
+      "module": "tests/test_gtdb_support_counts.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_uncurated_blocks_match_the_tool.py::test_the_audit_actually_read_the_kb",
+      "module": "tests/test_gtdb_uncurated_blocks_match_the_tool.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_uncurated_blocks_match_the_tool.py::test_a_block_the_tool_would_not_produce_is_curated",
+      "module": "tests/test_gtdb_uncurated_blocks_match_the_tool.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_gtdb_withheld_groundings.py::test_apply_does_not_reinstate_a_withheld_grounding",
+      "module": "tests/test_gtdb_withheld_groundings.py",
+      "category": "gtdb_mapping_fixture_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[generate-pages.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[kgx-release.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[label-correspondence.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[lint.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[merge-queue-admission.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[network-quality.yml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[pr-shepherd.yml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[vendored-sync.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_justfile_triggers_the_gates_it_defines.py::test_a_workflow_running_a_recipe_triggers_on_the_justfile[verify-merge-integrity.yaml]",
+      "module": "tests/test_justfile_triggers_the_gates_it_defines.py",
+      "category": "workflow_applicability_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_client_initialization",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_missing_api_key_raises",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_validate_api_key",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_generate_suggestion",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_cost_estimation",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_parse_yaml_response",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_api_call_limit",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_missing_context_key_raises",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_llm_client.py::TestAnthropicClient::test_reset_cost_tracking",
+      "module": "tests/test_llm_client.py",
+      "category": "optional_anthropic_sdk_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_ncbitaxon_adapter_is_shared.py::test_the_check_can_actually_fail",
+      "module": "tests/test_ncbitaxon_adapter_is_shared.py",
+      "category": "inconclusive_outage_negative_control",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_scripts_import.py::test_a_script_imports[apply_strain_designations.py]",
+      "module": "tests/test_scripts_import.py",
+      "category": "optional_import_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_scripts_import.py::test_a_script_imports[enhance_strain_data.py]",
+      "module": "tests/test_scripts_import.py",
+      "category": "optional_import_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_scripts_import.py::test_a_script_imports[gtdb_demo.py]",
+      "module": "tests/test_scripts_import.py",
+      "category": "optional_import_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_scripts_import.py::test_a_script_imports[gtdb_integration.py]",
+      "module": "tests/test_scripts_import.py",
+      "category": "optional_import_guard",
+      "native_reason_fragment": null
+    },
+    {
+      "identifier": "tests/test_scripts_import.py::test_a_script_imports[kgm_strain_lookup.py]",
+      "module": "tests/test_scripts_import.py",
+      "category": "optional_import_guard",
+      "native_reason_fragment": null
+    }
+  ],
+  "associated_source_guards": {
+    "tests/test_cache_names_are_normalised_after_fetching.py": {
+      "sha256": "7b68aa847e852ee44321a2b42a07bae84746d8610bf33c8533d4be5c264459a7",
+      "guards": [
+        {
+          "line": 145,
+          "expression": "pytest.skip('filesystem ignores case, so two casings cannot coexist')"
+        }
+      ]
+    },
+    "tests/test_every_ontology_id_resolves.py": {
+      "sha256": "65974e9a061790df32b169465ce13fb82fd0503dfd6042fdb7755baf59904bb9",
+      "guards": [
+        {
+          "line": 114,
+          "expression": "pytest.skip(f'no {prefix} ids in the corpus')"
+        },
+        {
+          "line": 118,
+          "expression": "pytest.skip(f'{prefix} is unavailable, so its ids were SKIPPED, NOT PASSED \u2014 this run says nothing about them (#708)')"
+        }
+      ]
+    },
+    "tests/test_generated_gate_inputs_are_built_in_ci.py": {
+      "sha256": "9d0186833708e88ac784b8bc02545a132ff00a5a9aa17a41f9f30d0d6d63965b",
+      "guards": [
+        {
+          "line": 188,
+          "expression": "pytest.skip('workflow no longer generates the drift report')"
+        }
+      ]
+    },
+    "tests/test_gtdb_batch_independence.py": {
+      "sha256": "be0e96c048ca7c3e6bed77f47edfe5c42f0d3789e615ee0c773391ce7a446a8c",
+      "guards": [
+        {
+          "line": 61,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 63,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_candidate_curies.py": {
+      "sha256": "77e8f60710d51587ec6eb4dc61b6d652e9de1c7ced3b86adbe688d9b32338a41",
+      "guards": [
+        {
+          "line": 136,
+          "expression": "pytest.skip(f'{name} no longer resolves as AMBIGUOUS; this test is stale')"
+        }
+      ]
+    },
+    "tests/test_gtdb_candidatus_lookup.py": {
+      "sha256": "ad9e000be7a971fd05108c821bfbd4136c2582647b35fd2dc9392a2309bd1979",
+      "guards": [
+        {
+          "line": 55,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 57,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_coherence_validator.py": {
+      "sha256": "04b60b5ecc3883ee38bc6ff91f473dd54434b06c31c13afcb868bb16a980a4a2",
+      "guards": [
+        {
+          "line": 62,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 64,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        },
+        {
+          "line": 830,
+          "expression": "pytest.skip('just is not installed')"
+        }
+      ]
+    },
+    "tests/test_gtdb_curation_history.py": {
+      "sha256": "cd593dfa1bd3010f64b555c013a7ec17401fc5682c3dd8b42c5250fa54c9fbeb",
+      "guards": [
+        {
+          "line": 86,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 88,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_demoted_clades.py": {
+      "sha256": "613fcdebc5b9536db09ad47cb73a092a9efcdea7b20d51c2ceb81048c7167a02",
+      "guards": [
+        {
+          "line": 137,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 139,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        },
+        {
+          "line": 214,
+          "expression": "pytest.skip('GTDB renamed this clade while demoting it; see the module docstring')"
+        }
+      ]
+    },
+    "tests/test_gtdb_denominator.py": {
+      "sha256": "790eb29dcd4c2de286fd6957a9032ed9ef9b5b4e2a0b1bdf9f08356fd9376669",
+      "guards": [
+        {
+          "line": 60,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 62,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_emit_matches_apply.py": {
+      "sha256": "643532699db7e428e21e7db7e5dd63628a82c3db6a20b850f4b94fc55791995e",
+      "guards": [
+        {
+          "line": 45,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 47,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_near_tie_marker.py": {
+      "sha256": "b95e0280f560a7889d60954412b0db74396c9b7e9c05bbbfb5734b9f208c0fe5",
+      "guards": [
+        {
+          "line": 163,
+          "expression": "pytest.skip(f'{name} no longer grounds; this test is stale')"
+        }
+      ]
+    },
+    "tests/test_gtdb_non_type_clade_flag.py": {
+      "sha256": "b4e070cdb16114fca130bed5489faab2178b1dd8a16992f2400506031cfb2384",
+      "guards": [
+        {
+          "line": 137,
+          "expression": "pytest.skip('local GTDB mapping unavailable')"
+        },
+        {
+          "line": 154,
+          "expression": "pytest.skip('local GTDB mapping unavailable')"
+        }
+      ]
+    },
+    "tests/test_gtdb_refresh.py": {
+      "sha256": "829693760809b0ae177b0ac33e27c8313c9f639d79be5fa294a81b0b0ab21636",
+      "guards": [
+        {
+          "line": 46,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 48,
+          "expression": "pytest.skip('kg-microbe NCBI2GTDB mapping not available')"
+        },
+        {
+          "line": 245,
+          "expression": "pytest.skip('kg-microbe mapping unavailable')"
+        },
+        {
+          "line": 247,
+          "expression": "pytest.skip('kg-microbe mapping unavailable')"
+        }
+      ]
+    },
+    "tests/test_gtdb_status_writer.py": {
+      "sha256": "6a953ff751935d640d076e58895aafe4b08cffd719ce0c7f007812e85e409533",
+      "guards": [
+        {
+          "line": 45,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 47,
+          "expression": "pytest.skip('kg-microbe NCBI2GTDB mapping not available')"
+        }
+      ]
+    },
+    "tests/test_gtdb_support_counts.py": {
+      "sha256": "c1d8d8920254571d3ae7c6e5f83845a3e6bcc3bc5556900e5056145b5e6f5399",
+      "guards": [
+        {
+          "line": 61,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 63,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_uncurated_blocks_match_the_tool.py": {
+      "sha256": "102ee759b9cd43c34d65d1b169affe6f0823400d40fa4571cdf59fa462306df0",
+      "guards": [
+        {
+          "line": 62,
+          "expression": "pytest.skip(f'kg-microbe mapping unavailable: {str(exc).splitlines()[0]}')"
+        },
+        {
+          "line": 64,
+          "expression": "pytest.skip(f'kg-microbe NCBI2GTDB mapping not available at {path}')"
+        }
+      ]
+    },
+    "tests/test_gtdb_withheld_groundings.py": {
+      "sha256": "96135c8de2133cc2e60c62036c08298fba229b694d19f8259e4657aa5359e76e",
+      "guards": [
+        {
+          "line": 290,
+          "expression": "pytest.skip('kg-microbe mapping unavailable')"
+        },
+        {
+          "line": 292,
+          "expression": "pytest.skip('kg-microbe mapping unavailable')"
+        }
+      ]
+    },
+    "tests/test_justfile_triggers_the_gates_it_defines.py": {
+      "sha256": "69ad8a06ea18862ab79951c655722b788806d9fdce915ea82ca5136a83ffc60e",
+      "guards": [
+        {
+          "line": 111,
+          "expression": "pytest.skip(f'{workflow.name} did not parse as a mapping')"
+        },
+        {
+          "line": 116,
+          "expression": "pytest.skip(f'{workflow.name} has no paths filter, so it always runs')"
+        },
+        {
+          "line": 118,
+          "expression": "pytest.skip(f'{workflow.name} invokes no just recipe')"
+        }
+      ]
+    },
+    "tests/test_llm_client.py": {
+      "sha256": "1b3794e3cae8d2a6420188dfac1e2b32a8646e2893df8608334d7079cfc286ea",
+      "guards": [
+        {
+          "line": 94,
+          "expression": "pytest.mark.skipif(not ANTHROPIC_AVAILABLE, reason='anthropic package not installed')"
+        }
+      ]
+    },
+    "tests/test_ncbitaxon_adapter_is_shared.py": {
+      "sha256": "c30b6169761c0fdf3b09e44b4395ab72dd90b88324479b24a3727838e5300131",
+      "guards": [
+        {
+          "line": 141,
+          "expression": "pytest.skip(f'could not make NCBITaxon unreachable in a subprocess (availability reported {armed.stdout.strip()!r}), so this proves nothing about the outage path')"
+        },
+        {
+          "line": 210,
+          "expression": "pytest.skip(f'the control run skipped nothing, so nothing below would mean anything. Either the ontology was still reachable or the harness itself is broken -- the tail says which, and a fixture-not-found error means the conftest copy above stopped working:\\n{control.stdout[-1200:]}')"
+        }
+      ]
+    },
+    "tests/test_scripts_import.py": {
+      "sha256": "4c623701306492a939692beb8fc7ecc5a543096ef6e8ee09a3fd5d0e8e705668",
+      "guards": [
+        {
+          "line": 201,
+          "expression": "pytest.skip(f'{script.name} needs {module}, which is not installed here')"
+        },
+        {
+          "line": 212,
+          "expression": "pytest.skip(f'{script.name} exits deliberately without {hint.group(1)}')"
+        }
+      ]
+    }
+  },
+  "deselection": {
+    "addopts": "-m 'not e2e'",
+    "config_sha256": "be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655",
+    "count": 8
+  },
+  "limits": [
+    "No tests, validators or providers were rerun to produce this ledger.",
+    "Categories describe associated pinned source guards, not independently observed runtime causes.",
+    "The native verbose log generally omits full skip reasons; printed fragments may be truncated.",
+    "CLI answer guards can also hide changed answers; their category does not prove global source absence.",
+    "CL/PATO source guards permit either no cited identifiers or an unavailable adapter; this ledger does not choose a branch.",
+    "Pytest skips and e2e deselections are distinct from required recipe skips and the eleven later NOT RUN recipe entries."
+  ]
+}
