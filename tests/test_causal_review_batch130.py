@@ -7,10 +7,12 @@ from pathlib import Path
 
 import pytest
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "b68d71e702200cd7ce9afdec001705dc8b0890fd"
 ALSETH = "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml"
+ALSETH_BEFORE = "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5"
 PHA = "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml"
 MODEL = "Model-Inferred Context Dependence of Community Interactions"
 MODEL_QUOTES = (
@@ -124,12 +126,15 @@ def test_unreviewed_fields_pha_and_article_caches_are_preserved():
         subprocess.check_output(["git", "show", f"{BASE}:{ALSETH}"], cwd=ROOT)
     )
     current = yaml.safe_load((ROOT / ALSETH).read_text())
+    admitted = admit_genus_successor(ROOT, ALSETH, ALSETH_BEFORE)
+    assert current == yaml.safe_load((ROOT / ALSETH).read_bytes())
+    historical = yaml.safe_load(admitted.historical_bytes)
     allowed = {"description", "ecological_interactions", "discussions", "curation_history"}
     assert {k: v for k, v in original.items() if k not in allowed} == {
-        k: v for k, v in current.items() if k not in allowed
+        k: v for k, v in historical.items() if k not in allowed
     }
-    assert current["curation_history"][-1]["curator"] == "codex"
-    assert current["curation_history"][-1]["llm_assisted"] is True
+    assert historical["curation_history"][-1]["curator"] == "codex"
+    assert historical["curation_history"][-1]["llm_assisted"] is True
     for path, expected in {
         PHA: "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488",
         "references_cache/PMID_38648198.txt": (
@@ -151,6 +156,9 @@ def test_saved_graph_decisions_cover_both_records():
         raw = (ROOT / row["path"]).read_bytes()
         doc = yaml.safe_load(raw)
         assert row["status"] == "reviewed"
+        if row["path"] == ALSETH:
+            assert doc == yaml.safe_load((ROOT / row["path"]).read_bytes())
+            raw = admit_genus_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
         assert row["record_sha256"] == hashlib.sha256(raw).hexdigest()
         assert [d["node"] for d in row["node_decisions"]] == [
             n["name"] for n in doc["ecological_interactions"]

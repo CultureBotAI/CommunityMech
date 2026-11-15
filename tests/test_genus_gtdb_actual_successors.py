@@ -13,6 +13,7 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "467": "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
     "475": "kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml",
     "350": "kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml",
     "364": "kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
