@@ -81,7 +81,12 @@ taxonomy:
     term:
       id: NCBITaxon:255204
       label: Pseudoclavibacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Pseudoclavibacter_B
+    - GTDB:g__Pseudoclavibacter
+    - GTDB:g__Pseudoclavibacter_C
+    - GTDB:g__Pseudoclavibacter_A
     notes: The PubMed abstract names Pseudoclavibacter among the dominant G4 SynCom prokaryotes but does not report a species
       or strain.
   abundance_level: ABUNDANT
@@ -226,3 +231,7 @@ curation_history:
   changes: Removed a typed C. kluyveri relative abundance and inferred functional roles, and softened the reverse beta-oxidation
     pathway description to stay within the abstract-level evidence reviewed in issues 855 and 856.
   llm_assisted: true
+- timestamp: '2026-11-15T07:23:52Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

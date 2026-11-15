@@ -1,0 +1,32 @@
+# Three communities retain complete native ambiguity
+
+Records 000373, 000365 and 000003 now retain every native alternative for four existing descriptors. The actual M5 applications ran at `48d16963ed01ab46dff0d88de39504954a28a1ee`, using Python 3.13.2, the unchanged reviewed shared engine and the pinned crosswalk SHA `761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd`. Local staging, source preparation and M5 staging are retained separately. Final M5 candidates differed from approved local candidates only in their appended history timestamps and were independently approved before application.
+
+| Record | Bounded correction | Preserved source limit | Strict actual proof |
+|---|---|---|---|
+| 000373, tobacco G12/Y4/X25 | G12 species descriptor: two alternatives; Y4: four | Reported stocks remain unchanged; neither candidate set reidentifies a study-stock genome. X25's block is unchanged. | [Manifest](status373-001-successor.json) |
+| 000365, baijiu G4 | Pseudoclavibacter genus descriptor: four alternatives | Abstract-only source; exact stock, species roster, abundance denominator and cultivation gaps remain. The C. kluyveri block is unchanged. | [Manifest](status365-001-successor.json) |
+| 000003, At-RSPHERE | P. brassicacearum species descriptor: two alternatives | Challenge-stock context does not certify commensal membership. The inherited host/umbrella roster concerns remain under [#1251](https://github.com/CultureBotAI/CommunityMech/issues/1251). | [Manifest](status003-001-successor.json) |
+
+Only the four declared statuses, their complete ordered candidate sets and one substantive native inline event per record changed. All other canonical biological fields, quotations, classifications and old history remain exact. No candidate was selected as a stock identity; no genome denominator, probability, new strain alias or missing cultivation condition was invented. This bounded database correction belongs to [#2848](https://github.com/CultureBotAI/CommunityMech/issues/2848).
+
+All 24 required commands passed on M5: schema, strict, GTDB, GTDB domain, scalar checks, native history creation, history validation and ontology terms for each record. Each strict output is a 34-byte header with zero error rows. Each term command reported validation passed without an assertion denominator. The three new native sidecars name the exact actual application receipt. The manifest for each record binds its eight native command/log/exit triplets and original execution revision; these runs are not relabeled as local or later integration executions.
+
+The immutable [batch review YAML](../../reviews/structured/20261115T073638Z-three-community-native-ambiguity-diagnostic/review.yaml) has SHA `76ef887b3fa5686c7dc7bda2fc4088f682c9e266882fb6f15577b5e277916da6`; [derived Markdown](../../reviews/structured/20261115T073638Z-three-community-native-ambiguity-diagnostic/review.md) has SHA `74e3666e0aeb2b39876a2ecf28188a79cd65d871858894239f0d1169b186f515`. Its nine authored assessments cover the three targets explicitly. It is partial, with `scientific_review: false`, and does not replace prior scientific reviews or clear their findings.
+
+The [saved-input audit](status-three-retained-input-audit-001.log.txt) verified all 168 inputs, totaling 5,803,554 bytes, native review validity, exact Markdown derivation and unchanged captured inputs. M5 and local audit logs are byte-identical, SHA `57c0c042599652b35dd3eea0b13fd5d03c34c892bc3faee676edf4784511214f`. Before changing the historical callers, complete private namespaces were independently created and verified on both machines: 170 files and 5,964,464 bytes, including the saved pair and original batch5/batch6 caller bytes.
+
+| Namespace | Repository-relative path | Manifest SHA-256 |
+|---|---|---|
+| Local ambiguity checkout | `.temp/gtdb-ambiguity-20261115/status-three-input-checkpoint-001/` | `236d4a987be6aee6e32225e79b3c66dd4a7ef88009da4ca858ff5d6c7e4253fa` |
+| M5 status-three checkout | `.temp/gtdb-ambiguity-20261115/status-three-input-checkpoint-001/` | `2a0de993623aa483aabe219429104674d21bd123d78a485e5faa0895695e8c0b` |
+
+The unchanged shared exporter completed its plan and publication; all 81 planned public artifact hashes were verified after writing. Raw source bodies remain private. Published application receipts and source metadata preserve exact reviewed bytes; derived native logs retain their original hashes and explicit sanitization metadata.
+
+The strict successor registry admits only these three pinned paths and actual manifests through the existing shared core. Historical batch5 and batch6 scientific predicates remain unchanged. Their new explicit admissions require complete actual proof; the original ledger rows and historical unchanged-history disposition remain literal. The three-record namespace preserves the original caller versions before those edits.
+
+The real 000373 proof canary passed all 17 positive, mutation/refusal and restoration controls, with 34 other cases deselected and 12 existing Pydantic warnings, in 17.94 seconds. Its retained log is `.temp/phase2-schema-20261115/status-three-proof-canary-001.log`, SHA `f2e040d66793bab058863f33c2f7ad100bfc6ace92ad9f20e9e00cff0e0c77eb`. The remaining two proof cases and complete affected batch5/batch6/export modules subsequently passed 65 tests, with only the already-run 17 canary cases deselected and 12 existing warnings, in 41.19 seconds. That separate run retains `.temp/phase2-schema-20261115/status-three-proof-and-callers-001.log`, SHA `bd24599edcb284ea9fad7d0da6f93a3e110d6357fa5b9d55dffe4c7c986c9171`. Each record uses the same shared positive and fifteen rehashed-mutation/refusal controls plus the explicit unknown-record refusal/restoration control.
+
+Native `just lint` passed Black on 698 files, Ruff and mypy on 52 source files. Its retained log is `.temp/phase2-schema-20261115/status-three-native-lint-001.log`, SHA `7526a2c00a6aed473dfdf9014d5812ab70411f2b6fc5f59fb7a9e7727993fec3`. Original local and M5 staging attempts remain in their separate private namespaces; saved review inputs and original native receipts were not rewritten.
+
+Generated-product integration, final combined full QC, separate reference comparison and the all-record scientific campaign remain separate work. This checkpoint grants no completion credit to other records or to the unresolved source-population corrections for 000393/000409.

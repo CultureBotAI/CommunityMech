@@ -87,7 +87,10 @@ taxonomy:
     term:
       id: NCBITaxon:1390
       label: Bacillus amyloliquefaciens
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_amyloliquefaciens
+    - GTDB:s__Bacillus_velezensis
     notes: >-
       Strain G12; isolated from the tobacco rhizosphere in the Luoyang region.
       The local NCBI2GTDB crosswalk was unavailable during curation, so no
@@ -120,7 +123,12 @@ taxonomy:
     term:
       id: NCBITaxon:1408
       label: Bacillus pumilus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_altitudinis
+    - GTDB:s__Bacillus_pumilus
+    - GTDB:s__Bacillus_pumilus_O
+    - GTDB:s__Bacillus_sp002998085
     notes: >-
       Strain Y4; endophytic isolate from tobacco tissue in the Luoyang region.
       The local NCBI2GTDB crosswalk was unavailable during curation, so no
@@ -392,3 +400,7 @@ curation_history:
   action: CURATE_YAML_RECORD
   changes: Removed external non-member host target_taxon (Nicotiana tabacum) from COMMUNITY_LEVEL interactions (#2049).
   llm_assisted: true
+- timestamp: '2026-11-15T07:23:25Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

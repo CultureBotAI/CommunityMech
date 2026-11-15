@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import ambiguity_gtdb_successors as status_successor
 import scoped_gtdb_successor as successor
 import yaml
 
@@ -108,6 +109,11 @@ def test_industrial_niche_models_remain_explicitly_partial():
 
 
 def test_unchanged_reviews_do_not_manufacture_history_or_edits():
+    # The ledger below describes its original review; later status-only writes
+    # require complete proof without changing that historical disposition.
+    status_successor.admit_status_successor(
+        ROOT, status_successor.BAIJIU_PATH, status_successor.BEFORE[status_successor.BAIJIU_PATH]
+    )
     ledger = yaml.safe_load(
         (
             ROOT / "reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml"
