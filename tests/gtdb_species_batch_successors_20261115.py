@@ -8,6 +8,13 @@ registry neither changes historical biology predicates nor approves science.
 from scoped_gtdb_successor import admit
 
 ALLOWANCES = {
+    "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-third-batch-20261115/549-001-successor.json",
+            "sha256": "e23162ae95ef3cf54651ccd8efe9fcc703de2cfde3004e1391a5e2ffadaffdff",
+        },
+    },
     "kb/communities/Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {

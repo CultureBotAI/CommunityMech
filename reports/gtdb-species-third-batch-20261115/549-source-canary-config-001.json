@@ -1,0 +1,75 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/species-third-route-ten-001.log",
+    "sha256": "3a381f5bc685c7ed486791d177e81b92008d6885f92205416d945f989f0d03d7"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/species-third-route-ten-001.json",
+    "sha256": "2aad1cf6ba2e14a1fcb623e7338890ec6c79c26d78a16fdb5710a407abd466d7"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/species-third-route-ten-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml",
+      "record_id": "CommunityMech:000549",
+      "before_sha256": "cb226c9c70b14d042991de11ef4a7b3677790ffd8a93549332e213dc4946b04e",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/pah-six-source-context-001.yaml": "59e50b84f2d6a1ceedd0d85fb2d02d1a7e98f22f1f0ada2aecbfe21e0b60638e",
+        "tests/test_causal_review_batch147.py": "642c69072f6248fbcef1d30d4b214cf376a2b5fa6b18437d42d5264e215ffa1d",
+        "reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml": "732db4d507546996774aca3835d77c4a2b7feba7c2690522700488e2b8c4fe19",
+        "reports/gtdb-species-third-batch-20261115/ten-authored-source-context-001.json": "964e4b51e40ead5807af2fb77349a5d5678871db257f27d53a657c5b1af44369",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+        "reports/gtdb-species-third-batch-20261115/ten-source-config-001.json": "82341cae8b6e6f24a4475b60ef583966514ac6f96d46c4c33268509671a947f6"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42587276",
+          "path": "references_cache/PMID_42587276.txt",
+          "sha256": "7bb5736b9f958ed0e4ab54005bac19761fa622a36af5e34bc6713241a1415cfd",
+          "locator": "Retained primary abstract and flattened main text line57: 16S identity, consortium rosters and assay contexts.",
+          "coverage": "Bounded retained text, not a new full-paper, figure-pixel, supplement or sequence audit.",
+          "identity_tokens": [
+            "42587276",
+            "10.1186/s12866-026-05144-y"
+          ],
+          "anchors": [
+            "B8-1(Bacillus paramycoides), A1(Bacillus paranthracis), and A3(Bacillus licheniformis).",
+            "Consortium 1 (B8-1 and A1), Consortium 2 (B8-1 and A3), Consortium 3 (A1 and A3), and Consortium 4 (B8-1, A1, and A3)."
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:2026194",
+            "label": "Bacillus paramycoides"
+          },
+          "strain_name": "B8-1",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "B8-1 is the source's single-isolate baseline, not a consortium. Preserve its 16S identification, source stock name and all distinct planktonic, static-biofilm and optimization observations.",
+          "population_scope": "Nine reference genomes and fraction1.0 describe the species-ID population. PV848451 is a marker accession, not an assembly; no exact B8-1 genome or pathway is assigned.",
+          "name_scope": "Bacillus_A is a GTDB lineage suffix. Native is_reclassified reflects a label difference, not a formal species rename or reidentification of B8-1.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Bacillus_A_paramycoides",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A paramycoides",
+            "gtdb_taxon": "Bacillus_A paramycoides",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:2026194",
+            "total_genomes": 9,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve all seven batch147 immutable rows, current-byte admission, original historical biology and mutation sample555. Add only an explicit549 proof while preserving552/553 genus,554 shared,555 exact-stock routes and unchanged551. Keep the open B8-1 biofilm-naphthalene numeric discussion and all old events. The existing source findings in358 are not resolved by this isolate correspondence."
+    }
+  ]
+}
