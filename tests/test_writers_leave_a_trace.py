@@ -67,6 +67,18 @@ _EXEMPT = {
         "and exact record/cache copies under .temp/phase2-science-20261115; "
         "native checks read canonical data and verify unchanged inputs (#2788)"
     ),
+    "scripts/adhoc/build_gut_review_20261115.py": (
+        "writes only an exclusive private native inspection/scientific-review candidate "
+        "and metadata-only public application proof under reports/phase2-gut-20261115; "
+        "verifies the externally reviewed actual application and nine current native gates, "
+        "reads canonical000122 and source caches without editing them (#1548/#2816)"
+    ),
+    "scripts/adhoc/check_gut_record_20261115.py": (
+        "writes exclusive native-check receipts, private ontology configuration, "
+        "exact record copies and source-cache copies only beneath .temp/phase2-gut-20261115; "
+        "canonical record/cache input hashes are checked unchanged, and this launcher "
+        "does not apply curation or append record history (#1548)"
+    ),
     "scripts/adhoc/build_dopamine_syncom_review_20261114.py": (
         "writes inspection JSON, a structured-review candidate and metric/checkpoint "
         "JSON under .temp/m5-completion-20261114; verifies input hashes and reads "
