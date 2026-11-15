@@ -1,0 +1,80 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only; fresh native binding and authority rank observations remain required.
+record:
+  id: CommunityMech:000382
+  path: kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml
+  before_sha256: 01d41a601dba3f750e87784a28d97ef169dbd17de44d4fbe64f37f3d19d5cf3a
+  primary_source:
+    reference: PMID:41960919
+    url: https://doi.org/10.1128/msystems.00113-26
+    retained_path: references_cache/PMID_41960919.txt
+    retained_sha256: c1f6c5bf8a394d6ac0727cfb4ccbe7175410aeb54d777f993f6252c096841609
+    locator: Retained abstract and bounded main-text passages at flattened line75, including Bacteria and growth conditions, conditioned-medium preparation, co-culture/invasion Methods, qPCR, negative-interaction results and limitations.
+    coverage: Whole canonical record, prior partial assessment and causal ledger read; selected retained primary passages inspected. No new supplementary-file, figure-pixel, data-repository snapshot or individual-stock genome verification.
+    judgment: The paper names ten DSMZ stocks and describes 16S identity confirmation. The ten-species conditioned-medium panel, nine-species subsequent model after Roseburia exclusion, two-to-four-species validation cultures and two named invaders are distinct experimental/model scopes. Descriptor reference populations do not identify these individual stock genomes.
+  proposed_occurrences:
+    - selector: taxonomy[0].taxon_term
+      descriptor: {id: 'NCBITaxon:239935', label: Akkermansia muciniphila}
+      stock: DSM 22959
+      historical_expected: {via: ncbi_name, gtdb_id: 'GTDB:s__Akkermansia_muciniphila', total_genomes: 4983, majority_fraction: 1.0}
+    - selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:28116', label: Bacteroides ovatus}
+      stock: DSM 1896
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacteroides_ovatus', total_genomes: 3107, majority_fraction: 0.99}
+    - selector: taxonomy[2].taxon_term
+      descriptor: {id: 'NCBITaxon:818', label: Bacteroides thetaiotaomicron}
+      stock: DSM 2079
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Bacteroides_thetaiotaomicron', total_genomes: 1011, majority_fraction: 0.99}
+    - selector: taxonomy[3].taxon_term
+      descriptor: {id: 'NCBITaxon:1680', label: Bifidobacterium adolescentis}
+      stock: DSM 20083
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Bifidobacterium_adolescentis', total_genomes: 599, majority_fraction: 1.0}
+    - selector: taxonomy[4].taxon_term
+      descriptor: {id: 'NCBITaxon:40520', label: Blautia obeum}
+      stock: DSM 25238
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Blautia_A_intestinalis', 'GTDB:s__Blautia_A_obeum']}
+    - selector: taxonomy[5].taxon_term
+      descriptor: {id: 'NCBITaxon:562', label: Escherichia coli}
+      stock: DSM 18039
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Escherichia_coli', total_genomes: 166397, majority_fraction: 1.0}
+    - selector: taxonomy[6].taxon_term
+      descriptor: {id: 'NCBITaxon:853', label: Faecalibacterium prausnitzii}
+      stock: DSM 107838
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 3, gtdb_options: ['GTDB:s__Faecalibacterium_longum', 'GTDB:s__Faecalibacterium_prausnitzii', 'GTDB:s__Faecalibacterium_prausnitzii_D']}
+    - selector: taxonomy[8].taxon_term
+      descriptor: {id: 'NCBITaxon:33959', label: Lactobacillus johnsonii}
+      stock: DSM 10533
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 3, gtdb_options: ['GTDB:s__Lactobacillus_johnsonii', 'GTDB:s__Lactobacillus_sp945980025', 'GTDB:s__Lactobacillus_sp947171515']}
+    - selector: taxonomy[9].taxon_term
+      descriptor: {id: 'NCBITaxon:166486', label: Roseburia intestinalis}
+      stock: DSM 14610
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Roseburia_intestinalis', total_genomes: 78, majority_fraction: 1.0}
+  preservation_contract:
+    - Preserve all ten stock designations and collection accessions; 16S confirmation is not genome-based GTDB assignment. Preserve unselected taxonomy[7] Lachnospiraceae bacterium DSM24404 without guessing a species from its placeholder family name.
+    - Preserve three ordered ambiguity sets without selecting a cluster for a stock. The six species correspondences are reference-population results; majority fractions are not identity probabilities and the pinned table's upstream release remains unverified.
+    - Keep the one COMMUNITY_LEVEL conditioned-medium node, absent participating_taxa and zero arrows. Negative final-density effects do not resolve reciprocal competition, toxin identity or a unique mediator; growth-rate and endpoint-density responses are distinct.
+    - Preserve all ninety donor-acceptor conditions, the Methods ratio of sixty percent fresh to forty percent spent YCFA, and the existing discussion of unresolved mechanisms. The historical ledger records the reversed Figure1D caption and Results-versus-Discussion stable-size discrepancy; neither is resolved by this taxonomy work.
+    - Keep model predictions separate from observed validation/invasion outcomes, Roseburia's later exclusion separate from membership in the original panel, and qPCR DNA-based relative frequencies separate from direct viable-stock counts. No new in-vivo or pathogen-status assertion is inferred from the model.
+    - Preserve old taxonomy notes as historical curation context, original history and source quotations. Do not revive the previously removed gLV or invasion graph nodes or manufacture member-to-node links.
+  historical_guard:
+    ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    ledger_sha256: e21a355f676730e8e7e6de6ea663017c9b09e05a824ff383a272ab9f1399fd70
+    current_scope_test: tests/test_site_audit_fixes.py
+    current_scope_test_sha256: d3d65c1ea1e02b4637b6dd84d195d0ee20add931ac99649375583c4847059947
+    prior_assessment: reviews/structured/20261020T071158Z-amsterdam-gut-panel-metadata-review/review.yaml
+    prior_assessment_sha256: 50f4c1150ee45e40e6795bd61ba20099708818cd64cc523ba64740060e03bba9
+    note: Ignore-independent hidden-inclusive search of Python files under tests found the explicit Amsterdam renderer contract, which must continue to inspect current bytes and forbid inferred participant links. Historical batch4 ledger bytes and prior partial metadata assessment remain immutable. Reconcile any additional guards discovered during native validation; do not invent or rewrite a missing historical caller.
+  retained_findings:
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2887
+      assessment: The cited statement establishes 8mL flasks, not an explicit 8mL working volume. The current numerical working_volume is unsupported by that inspected passage. Supplementary material and the data repository have not been checked for this specific quantity; no claim that they lack it is made. Keep the finding open for a separate source-backed correction.
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2232
+      assessment: Prior partial review's role-metadata finding remains outside this correction; it does not justify inferring biological roles.
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2233
+      assessment: Prior partial review's unpinned data-repository resource remains outside this correction; no reproducible repository snapshot was inspected here.
+completion_limit: Nine selected descriptors in one complete record. This preparation makes no canonical change, native current-route claim, scientific clearance or reference-comparison claim. Actual M5 candidate review, native apply/checks/history, immutable diagnostic and complete checkpoint remain required.
