@@ -1,9 +1,11 @@
-# Four-record GTDB source preparation and KZ canary
+# Four-record GTDB source preparation and completed mapping checkpoints
 
 The [KZ344 canary outcome](344-canary-outcome-001.md) records the actual M5
 application, eight native checks, immutable partial diagnostic, both-host
 complete input checkpoint and strict historical-admission controls. This is a
-bounded mapping correction; records 498, 369 and 405 remain at preparation.
+bounded mapping correction. The [remaining-three outcome](remaining-three-outcome-001.md)
+records the subsequent serial T1, Fahmy T4 and C6 applications, 24 native checks,
+saved partial diagnostic, complete checkpoint and strict historical proofs.
 The following preparation account preserves the original source-read scope.
 
 This is source preparation for records 344, 498, 369 and 405 at

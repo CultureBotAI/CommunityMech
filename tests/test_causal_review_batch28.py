@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from source_intake_gtdb_successors import T4_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml"
@@ -12,6 +13,9 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-four-records-bat
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
+    for row in ledger["records"]:
+        if row["path"] == T4_PATH:
+            admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in ledger["records"]]
 
 
@@ -127,7 +131,10 @@ def test_batch28_accounts_for_every_node_arrow_history_and_source_limit():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 6
     assert sum(len(r["history_files"]) for r in rows) == 3
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected = row["record_sha256"]
+        if row["path"] == T4_PATH:
+            expected = admit_source_intake_successor(ROOT, row["path"], expected).current_sha256
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(names)
         arrows = [
