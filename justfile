@@ -187,6 +187,12 @@ validate-references-explained FILE:
 audit-snippets *args:
     uv run python scripts/evidence_snippet_audit.py {{args}}
 
+# Count actual native CLI snippet comparisons using existing caches, without
+# acquisition or source writes. Output requires a new .temp directory; see
+# docs/REFERENCE_ASSERTION_COVERAGE.md. This is separate from online qc-references.
+reference-assertion-coverage *args:
+    PYTHONDONTWRITEBYTECODE=1 uv run --no-sync python scripts/reference_assertion_coverage.py {{args}}
+
 # Rank records worst-first by curated causal graph readiness.
 rank-causal-graphs *args:
     PYTHONPATH=src uv run python scripts/rank_causal_graph_readiness.py {{args}}
