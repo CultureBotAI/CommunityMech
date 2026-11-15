@@ -3,8 +3,8 @@
 SCOPED_GTDB_PROOF_ROOT optionally selects its published sibling checkout during
 pre-integration development; CI/default uses this repository. Tests copy only
 public artifacts into isolated fixtures and never edit the actual evidence.
-SCOPED_GTDB_PROOF_CASES selects explicit comma-separated cases. The pending 401
-case runs only when requested against its actual published evidence checkout.
+SCOPED_GTDB_PROOF_CASES selects explicit comma-separated cases during isolated
+development. All four integrated actual proofs run by default.
 """
 
 import copy
@@ -36,8 +36,13 @@ CASES = {
         "053aecc46719cab2cc0afe6925a3e93729a51f7febb0eeade57cccf6e3632f2a",
         False,
     ),
+    "388": (
+        "reports/gtdb-species-status-20261115/next-ten-388-001-successor.json",
+        "b810a33b29abba9f4c5e511ec7d946f5b9e0ce1679253373377925cafb726454",
+        True,
+    ),
 }
-SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340").split(",")
+SELECTED = os.environ.get("SCOPED_GTDB_PROOF_CASES", "554,340,401,388").split(",")
 assert (
     SELECTED and len(set(SELECTED)) == len(SELECTED) and all(case in CASES for case in SELECTED)
 ), "explicit known proof cases required"
@@ -46,7 +51,29 @@ assert (
 @pytest.fixture(params=SELECTED, ids=SELECTED)
 def actual(tmp_path, monkeypatch, request):
     manifest, manifest_sha, historical_llm = CASES[request.param]
-    raw_manifest = (PROOF_ROOT / manifest).read_bytes()
+    return build_actual(
+        tmp_path,
+        monkeypatch,
+        proof_root=PROOF_ROOT,
+        manifest=manifest,
+        manifest_sha=manifest_sha,
+        baseline_revision=BASE,
+        historical_llm=historical_llm,
+    )
+
+
+def build_actual(
+    tmp_path,
+    monkeypatch,
+    *,
+    proof_root,
+    manifest,
+    manifest_sha,
+    baseline_revision,
+    historical_llm,
+):
+    """Copy one explicitly pinned actual proof for the unchanged mutation controls."""
+    raw_manifest = (proof_root / manifest).read_bytes()
     assert successor.digest(raw_manifest) == manifest_sha
     proof = json.loads(raw_manifest)
     names = {manifest, proof["target"]}
@@ -62,7 +89,7 @@ def actual(tmp_path, monkeypatch, request):
     )
     for gate in proof["check_evidence"].values():
         names.update(gate[key]["path"] for key in ("receipt", "log", "exit"))
-    retained = {name: (PROOF_ROOT / name).read_bytes() for name in names}
+    retained = {name: (proof_root / name).read_bytes() for name in names}
     for name, raw in retained.items():
         destination = tmp_path / name
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -70,14 +97,14 @@ def actual(tmp_path, monkeypatch, request):
     git = subprocess.check_output
 
     def historical(command, *, cwd, **kwargs):
-        assert command == ["git", "show", f"{BASE}:{proof['target']}"]
+        assert command == ["git", "show", f"{baseline_revision}:{proof['target']}"]
         assert Path(cwd) == tmp_path
-        return git(command, cwd=PROOF_ROOT, **kwargs)
+        return git(command, cwd=proof_root, **kwargs)
 
     monkeypatch.setattr(successor.subprocess, "check_output", historical)
     allowance = {
         proof["target"]: {
-            "baseline_revision": BASE,
+            "baseline_revision": baseline_revision,
             "manifest": {"path": manifest, "sha256": manifest_sha},
         }
     }
