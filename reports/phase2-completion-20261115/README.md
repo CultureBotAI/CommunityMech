@@ -30,11 +30,16 @@ reference-type repair found during review.
 | Work | Checkpoint | Remaining acceptance |
 |---|---|---|
 | Stock, host, quantity and related-record validation (#2700–#2704) | Implemented; independently reviewed | Combined M5 QC and corrected record relations |
-| Treatment arms and abundance observations (#2796) | Optional model, rendering and focused checks implemented | Malformed-reference finding #2807; combined acceptance |
+| Treatment arms and abundance observations (#2796) | Optional model/rendering implemented; malformed-reference finding #2807 repaired and independently checked | Combined acceptance |
 | EnvironmentalFactor ontology terms (#2429) | Dynamic union and narrow root-exclusion guards implemented | Combined acceptance; upstream root behavior remains #2802 |
 | Host/soil/related rendering and KGX (#2705–#2707, #2430) | Implemented and independently reviewed; real CLI product canary persisted | Combined revision products/docs |
-| Scientific curation (#1548 and retained findings) | First record undergoing end-to-end canary checks | Verified immutable canary, dependent and independent records |
-| Discussion reference traversal (#476) | Gap measured; canonical owner is Claw | Reviewed canonical repair and governed downstream update |
+| Scientific curation (#1548 and retained findings) | 000087 source-backed correction and immutable assessment verified and integrated at `6db62bda`; independent records and linked metadata in progress | Remaining scoped assessments and integrated gates |
+| Discussion reference traversal (#476) | Canonical Claw repair reviewed and published; native governed adoption applied; unchanged SL8 control compared all four previously skipped assertions | Full final-corpus measurement; Claw CI transport blocker and merge decision |
+
+The [governed adoption checkpoint](governed-reference-adoption.md) records exact
+canonical bytes and the real downstream comparison control. The schema change
+does not turn a lexical match into scientific approval or waive source-specific
+reference mismatches.
 
 Whole-record generated dump/reload remains limited by #1703. Native model
 materialization and new treatment-arm/observation roundtrips are distinct checks;
@@ -51,10 +56,23 @@ environment offline. The installation completed with exit 0; its retained
 |---|---|---|---|
 | `phase2-code001-plan` | Native QC dry run at `2052c0a1` | Plan completed; no checks executed | [Receipt](technical-evidence/phase2-code001-plan.receipt.json) |
 | `phase2-code001-canary` | One real strict validation through the M5 driver at `2052c0a1` | Exit 0; persisted log/exit/hash verified; checkout remained clean | [Receipt](technical-evidence/phase2-code001-canary.receipt.json) · [log](technical-evidence/phase2-code001-canary.log.txt) |
+| `phase2-code002-plan` | Native QC dry run at `3b063f07` | Plan completed; no checks executed | [Receipt](technical-evidence/phase2-code002-plan.receipt.json) |
+| `phase2-code002-canary` | One real strict validation through the same M5 driver at `3b063f07` | Exit 0; persisted proof verified | [Receipt](technical-evidence/phase2-code002-canary.receipt.json) |
+| `phase2-code002-qc` | Full native `just qc` at `3b063f07` | Exit 1: lint passed; tests had 6 failures, 5,628 passes, 103 skips and 8 deselections; every subsequent QC recipe NOT RUN | [Receipt](technical-evidence/phase2-code002-qc.receipt.json) · [log](technical-evidence/phase2-code002-qc.log.txt) |
 
 This canary proves the driver, environment, native strict path and persistence
 for that revision. It does not prove later revisions, full QC, scientific review
 or reference coverage. Later native QC stages remain unrun until recorded.
+
+The completed failed run preserved a clean checkout. Four failures arose because
+the fresh Git object store lacked pre-squash historical review bases; their
+immutable ledger checks correctly refused to substitute current cache bytes
+(#2813). One failure requires classification of four new enums in the existing
+vocabulary registry (#2812). One fixture was outside the established test-data
+directory (#2811); its unchanged bytes have since been moved and the native ID
+guard passes. These diagnostics do not retrospectively change the failed run.
+The raw full-run log is 773,200 bytes, SHA-256
+`7b026b7a3e32da0f9e68431c516a0769a5d00f35111bb0e7fcdd7804cd7b59b3`.
 
 Raw receipts/logs are retained in repository `.temp` on M5 and mirrored locally.
 [The exporter](../../scripts/adhoc/export_phase2_qc_evidence_20261115.py) verifies
