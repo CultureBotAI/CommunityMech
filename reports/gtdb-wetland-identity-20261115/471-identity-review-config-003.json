@@ -1,0 +1,109 @@
+{
+  "check_config": {
+    "path": "reports/gtdb-wetland-identity-20261115/471-identity-check-config-001.json",
+    "sha256": "411c6be33527c0e80376e8fdec3b4bdda9d440bbf0a73c28d9a5fb7385c6b7fd"
+  },
+  "gates": {
+    "schema": ".temp/gtdb-wetland-identity-20261115/471-schema-001",
+    "strict": ".temp/gtdb-wetland-identity-20261115/471-strict-001",
+    "gtdb": ".temp/gtdb-wetland-identity-20261115/471-gtdb-001",
+    "domain": ".temp/gtdb-wetland-identity-20261115/471-domain-001",
+    "scalars": ".temp/gtdb-wetland-identity-20261115/471-scalars-001",
+    "new-history": ".temp/gtdb-wetland-identity-20261115/471-new-history-001",
+    "history": ".temp/gtdb-wetland-identity-20261115/471-history-001",
+    "terms": ".temp/gtdb-wetland-identity-20261115/471-terms-001"
+  },
+  "measurement_directory": ".temp/gtdb-wetland-identity-20261115/reference-measurement-001",
+  "recorded_commands": [
+    {
+      "name": "reference-launcher-refusal",
+      "prefix": ".temp/phase2-schema-20261115/wetland-m5-references-001",
+      "command": ["just", "--verbose", "--no-dotenv", "--color", "never", "validate-references-explained", "kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml"],
+      "required": false
+    },
+    {
+      "name": "references",
+      "prefix": ".temp/phase2-schema-20261115/wetland-m5-references-002",
+      "command": ["env", "JUST_NO_DOTENV=true", "just", "--verbose", "--no-dotenv", "--color", "never", "validate-references-explained", "kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml"],
+      "required": true,
+      "summary": "Actual native validate-references-explained passed on the identity-corrected record with zero reported issues. The issue counter alone is not a comparison count; the separate measured check supplies actual coverage."
+    },
+    {
+      "name": "reference-measurement",
+      "prefix": ".temp/phase2-schema-20261115/wetland-m5-measurement-001",
+      "command": [".venv/bin/python", "scripts/adhoc/measure_wetland_identity_references_20261115.py", "--output", ".temp/gtdb-wetland-identity-20261115/reference-measurement-001"],
+      "required": true,
+      "summary": "The unchanged maintained native collector/matcher compared all16 snippet surfaces, including all six newly added Discussion SupportingReference quotations;16 matched and0 native issues were observed. This is lexical source matching, not verification of scientific interpretation."
+    }
+  ],
+  "additional_inputs": {
+    ".temp/phase2-schema-20261115/wetland-m5-identity-review-build-001.json": "144e202e0b389225de62ba79f08b99bbc65d8b02e78e7f851db0bad082938a05",
+    ".temp/phase2-schema-20261115/wetland-m5-identity-review-build-001.log": "b67ab885e578e0ed6ae68c31aa8662a1720481bc3dbae8c6dfb284efbe83b238",
+    ".temp/phase2-schema-20261115/wetland-m5-identity-review-build-001.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "scripts/annotate_reference_errors.py": "5bd5b6dd088714faed97c41230eee0f2268c7e1e1dc205dd5c04b560b51616ec",
+    "scripts/normalize_cache_names.py": "d87b5d001c1dac3f213637523651fd87b71a54806b1114c83f5fb0ea3528ef5e",
+    ".temp/phase2-schema-20261115/wetland-m5-reference-before-001.log": "8bc4d0efa137fe0d73585a7ee9fec266e379d98c82977b06b20bf1537dd0511f",
+    ".temp/phase2-schema-20261115/wetland-m5-reference-after-001.log": "8bc4d0efa137fe0d73585a7ee9fec266e379d98c82977b06b20bf1537dd0511f"
+  },
+  "review": {
+    "schema_version": "1.0.0",
+    "kind": "record",
+    "repository": "CultureBotAI/CommunityMech",
+    "title": "Wetland471 identity intermediate: distinguish Y13/M, Enterococcus isolates and sediment MAGs",
+    "reviewer": {
+      "identity": "codex", "kind": "agent", "independence": "self_review",
+      "independence_basis": "The full original record and retained primary Methods, ANI, genome-comparison and revival passages were read before authoring four bounded scalar corrections and an open discussion. The parent independently reviewed the source plan, fixed writer/checker and actual M5 candidate; a peer separately read the source/candidate and input pins. Actual checks and source comparison are assessed here without a full record-science verdict."
+    },
+    "skill": "curate-yaml-record",
+    "completion": "completed",
+    "verdict": "needs_curation",
+    "scientific_review": false,
+    "summary": "The persisted source-identity intermediate corrects top-down Y13 versus bottom-up M, limits the E. casseliflavus descriptor to R12 rather than PseS3/R1/R3, and separates the R12 isolate from sediment MAG bin436. Exactly four scalars, one open six-quotation discussion and one native inline event changed. All original terms, GTDB states, source snippets, functional roles, three graph nodes, two arrows and older history remain unchanged. Eight native identity gates and two separate reference checks passed. All16 snippet surfaces were actually compared and matched. Incomplete membership and mechanistic interpretation remain open under2898/2899; taxonomy mapping and strict composite successor admission have not occurred.",
+    "targets": [{
+      "target_id": "CommunityMech:000471",
+      "path": "kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml",
+      "selector": "description; taxonomy[0].taxon_term.notes; taxonomy[0].evidence[0].explanation; taxonomy[4].taxon_term.notes; discussions[0]; appended curation_history",
+      "label": "Wetland471 bounded source-identity intermediate", "kind": "maintained",
+      "ownership_note": "CommunityMech owns the record. This diagnostic assesses the exact source-identity correction and actual provenance; unchanged biology and future mapping remain separate."
+    }],
+    "scope": {
+      "description": "Four source-identity scalars, one open evidence-backed discussion, actual application/history/native-check chain and lexical comparison of current reference snippets.",
+      "selection": "The fixed source correction for CommunityMech:000471 is isolated from all other records and from the subsequent GTDB mapping transition.",
+      "coverage": "partial", "population_size": 1,
+      "reviewed_target_ids": ["CommunityMech:000471"],
+      "exclusions": [{"target": "Complete M/Y13 stock membership, endpoint establishment, ecological mechanisms and taxonomy mapping", "reason": "These are not established by the bounded identity correction or lexical/native validator results."}]
+    },
+    "evidence": [
+      {"evidence_id": "000471-primary", "kind": "primary_source", "reference": "references_cache/PMID_42663479.txt", "locator": "Retained Methods top-down/bottom-up construction, consortium composition, Enterococcus ANI comparison, MAG-versus-isolate comparison and stock revival caveat; seven exact anchors pinned in471-identity-plan-001.json.", "support": "supports", "summary": "Methods assign Y13 to top-down enrichment and M to the bottom-up mixture. The ANI paragraph distinguishes PseS3/E. avium, R1/R3/E. thailandicus and R12/E. casseliflavus. The MAG comparison and revival caveat limit isolate/MAG and stock-establishment inference."},
+      {"evidence_id": "000471-plan", "kind": "record_content", "reference": "reports/gtdb-wetland-identity-20261115/471-identity-plan-001.json", "locator": "Exactly four before/after scalar paths, source anchor indices, one OPEN discussion with six snippets, and intended native inline event.", "support": "supports", "summary": "The reviewed plan preserves all five original taxonomy descriptors and three-node/two-arrow graph while correcting source labels and the Enterococcus explanation. Its discussion explicitly retains incomplete membership and establishment limits."},
+      {"evidence_id": "000471-application", "kind": "record_content", "reference": ".temp/gtdb-wetland-identity-20261115/m5-applied-001/receipt.json", "locator": "Actual applied flag, original2191214b to acceptedb3234d5f, reviewed stagebfee943e, source plan24250d0c, direct writer hash and one native inline event; sidecar1f593c32 bound through new-history.", "support": "supports", "summary": "The guarded writer persisted the exact accepted M5 candidate at af80bc09. The independently reviewed local/M5 difference was only the inline event timestamp. Native history records the actual applied receipt and changed sections."},
+      {"evidence_id": "000471-measured-source", "kind": "validation", "reference": ".temp/gtdb-wetland-identity-20261115/reference-measurement-001/measurement.json", "locator": "One completed record;16 surfaces/16 comparisons/16 matches; discussions[0].evidence[0..5] all traversed as SupportingReference with consistent PMID42663479 binding.", "support": "supports", "summary": "Every current snippet occurrence was compared to the existing captured source. Lexical matching does not establish the truth of a causal or membership interpretation attached to a quotation."},
+      {"evidence_id": "000471-prior", "kind": "prior_review", "reference": "reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml", "locator": "Immutable CommunityMech:000471 original85c78730 to2191214b lineage and three-node community graph decision; current batch133 remains unchanged in this intermediate.", "support": "context_only", "summary": "The historical decision and earlier record/history remain immutable. Its graph is preserved as an explicit unresolved mechanism boundary, not recertified by the current source-identity correction. A later exact composite successor must preserve unrelated batch133 admissions."}
+    ],
+    "assessments": [
+      {"assessment_id": "000471-source-identity", "area": "identity", "topic": "Source treatment labels and isolate/MAG assignment", "outcome": "supported", "target_ids": ["CommunityMech:000471"], "evidence_ids": ["000471-primary", "000471-plan", "000471-application", "000471-references", "000471-reference-measurement"], "summary": "The four scalar corrections follow exact primary passages: Y13 is top-down and M bottom-up; R12 is the E. casseliflavus isolate while PseS3 and R1/R3 belong to other Enterococcus species. R12 and bin436 share a reported species comparison but remain distinct isolate and sediment MAG inputs. No new stock accession or study-genome assignment is inferred."},
+      {"assessment_id": "000471-source-boundaries", "area": "scope", "topic": "Open membership, revival and graph limits", "outcome": "concern", "target_ids": ["CommunityMech:000471"], "evidence_ids": ["000471-primary", "000471-plan", "000471-prior", "000471-measured-source"], "summary": "The five retained descriptors are a partial representation of M and do not establish a complete Y13 roster. Intended inoculation does not prove each stock revived or colonized sediment. The six new discussion quotations match the source, but the retained pceA, syntrophy and methane causal graph remains an explicit separate concern under2899."},
+      {"assessment_id": "000471-identity-provenance", "area": "provenance", "topic": "Exact persisted intermediate and separate technical checks", "outcome": "supported", "target_ids": ["CommunityMech:000471"], "evidence_ids": ["000471-application", "000471-schema", "000471-strict", "000471-gtdb", "000471-domain", "000471-scalars", "000471-new-history", "000471-history", "000471-terms", "000471-references", "000471-reference-measurement"], "summary": "Actual source/candidate/application receipts, the native inline event, one native EDIT sidecar and all ten scoped checks bind the exact current identity intermediate. Original terms, mapping states, snippets, functional roles, graph and older history are preserved. Mapping, composite historical admission, generated products and aggregate QC remain separate."}
+    ],
+    "findings": [
+      {"finding_id": "000471-incomplete-roster", "issue_key": "communitymech-2898", "category": "completeness", "severity": "major", "status": "open", "certainty": "confirmed", "title": "Full M/Y13 membership and stock establishment remain unresolved", "description": "The source describes four named partner taxa plus seven isolated degraders for M; the five retained descriptors are incomplete. Y13 is a distinct sediment enrichment. Full TableS1 stock representation and strain-specific revival/endpoint establishment are not established by this correction.", "target_ids": ["CommunityMech:000471"], "field_paths": ["taxonomy", "discussions[0]"], "evidence_ids": ["000471-primary", "000471-plan"], "ownership_note": "CommunityMech owns the record taxonomy and open membership discussion; source-specific roster work remains under2898.", "external_issues": ["https://github.com/CultureBotAI/CommunityMech/issues/2898"]},
+      {"finding_id": "000471-retained-graph-limits", "issue_key": "communitymech-2899", "category": "graph", "severity": "major", "status": "open", "certainty": "confirmed", "title": "Existing mechanistic graph remains outside identity approval", "description": "The three nodes and two arrows are preserved; the separate pceA acquisition, syntrophy and methane causal claims remain open under2899. Matching source snippets or technical gate success does not resolve those interpretation gaps.", "target_ids": ["CommunityMech:000471"], "field_paths": ["ecological_interactions"], "evidence_ids": ["000471-prior", "000471-plan", "000471-measured-source"], "ownership_note": "CommunityMech owns the existing ecological_interactions; the separate scientific interpretation issue2899 is retained.", "external_issues": ["https://github.com/CultureBotAI/CommunityMech/issues/2899"]}
+    ],
+    "actions": [
+      {"action_id": "000471-resolve-membership", "description": "Resolve the separate M and Y13 membership boundary against full primary stock evidence before claiming a complete participant roster or endpoint stock establishment.", "finding_ids": ["000471-incomplete-roster"], "target_ids": ["CommunityMech:000471"], "ownership_note": "CommunityMech owns the maintained taxonomy and discussion; issue2898 remains open. This action is proposed, not completed by the identity intermediate.", "acceptance_checks": ["Identify all intended M stocks from the primary supplementary roster with source locators, preserving separate Y13 enrichment scope.", "Keep inoculated membership, observed revival and endpoint colonization distinct; add no unsupported stock accession or strain equivalence."]},
+      {"action_id": "000471-reassess-graph", "description": "Resolve the existing graph interpretation findings through a separate source-backed scientific assessment and bounded correction if justified.", "finding_ids": ["000471-retained-graph-limits"], "target_ids": ["CommunityMech:000471"], "ownership_note": "CommunityMech owns ecological_interactions; issue2899 retains the separate causal-scope work. Existing graph bytes are preserved by this intermediate.", "acceptance_checks": ["Reassess each pceA acquisition, syntrophy and methane causal claim against the relevant experimental or metagenomic evidence.", "Retain direct observations while qualifying or removing unsupported causal relations; preserve immutable previous reviews and append actual correction history."]}
+    ],
+    "limitations": [
+      "This completed declared-scope assessment has partial coverage and scientific_review:false. It is not a full scientific review or approval of the complete record.",
+      "The source is the retained PMID42663479 cache with SHA489eb292. No new paper acquisition, full supplementary roster reconstruction, sequence classification, figure inspection or exhaustive causal re-review occurred.",
+      "The actual M5 intermediate ran on frozen af80bc0970b2b495b16c2c5c237cdfbbaa771ce8 with Python3.13.2 and current recordb3234d5f. The record differs from HEAD; the measurement explicitly binds those working bytes rather than calling them a clean committed input.",
+      "Eight native gates include seven validators and one history scaffold. Separate validate-references-explained and instrumented native comparison passed;16 matching snippets certify lexical comparison only. No zero-issue-to-coverage inference is used.",
+      "The first reference attempt failed before validation because the recorder supplied JUST_NO_DOTENV=1 to nested Just. Issue2908 retains that exit2; the successful second invocation explicitly supplies true without changing the recorder. The stale Discussion-coverage footer is recorded under476 and preserved in the raw log.",
+      "GTDB descriptors, functional roles, existing snippets, three nodes, two arrows and prior history are unchanged. The full roster and stock-establishment concern2898 and mechanistic concern2899 remain open. No scientific approval or closure is inferred from this identity correction.",
+      "A subsequent GTDB mapping transition must bind this exact intermediate and its immutable source/checkpoint evidence. Strict composite historical admission, generated HTML, combined technical QC and broader campaign completion remain pending.",
+      "Unexecuted authored config001 had a passing verdict and no proposed actions despite retaining open major findings. Issue2911 records that native-contract inconsistency. Config002 corrected the verdict and actions; config003 preserves those corrections. No valid saved review was produced with001 or002.",
+      "The measurement receipt inventories all runtime cache files. The builder verifies that complete inventory before and after preparation, while native review inputs archive the exact article cache actually loaded by all16 assertions plus schema, configuration, implementation and proof inputs. Unrelated cache bytes are not individually archived or scientifically assessed; their observed hashes remain in the exact measurement receipt. Issue2912 retains the first builder refusal caused by an unrelated legacy cache filename, with no review saved or source cache renamed."
+    ],
+    "links": ["https://github.com/CultureBotAI/CommunityMech/issues/2898", "https://github.com/CultureBotAI/CommunityMech/issues/2899", "https://github.com/CultureBotAI/CommunityMech/issues/2908", "https://github.com/CultureBotAI/CommunityMech/issues/2910", "https://github.com/CultureBotAI/CommunityMech/issues/2911", "https://github.com/CultureBotAI/CommunityMech/issues/2912", "https://github.com/CultureBotAI/CommunityMech/issues/476", "https://github.com/CultureBotAI/CommunityMech/pull/2906"]
+  }
+}
