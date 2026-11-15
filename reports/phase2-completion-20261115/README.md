@@ -86,7 +86,7 @@ that historical revision predates the subsequent scientific corrections.
 | EnvironmentalFactor ontology terms (#2429) | Dynamic union and narrow root-exclusion guards implemented | Combined QC; upstream root behavior remains #2802 |
 | Host/soil/related rendering and KGX (#2705–#2707, #2430) | Verified native product canary followed by full export: 1,538 nodes, 2,535 edges, zero errors/warnings | Subsequent source changes require affected generated pages to stay current |
 | Scientific curation (#1548 and retained findings) | Five full immutable assessments plus Yolo's preserved full review and bounded correction | Retained scientific/source limitations remain explicit blockers; validators do not resolve them |
-| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches and explicit merge decision; Claw #1219's eight checks now pass |
+| Discussion reference traversal (#476) | Canonical Claw annotations adopted through native governance; actual corpus comparison and three real-record mutation/restoration controls retained | Source mismatches remain; approved Claw #1219 merged as `68d8b2b6`, with adoption of that final pin pending |
 
 The [governed adoption checkpoint](governed-reference-adoption.md) records exact
 canonical bytes and the real downstream comparison control. The schema change
@@ -294,6 +294,13 @@ verified172-input native review and174-file complete checkpoint. Thirty-nine
 composed tests and native lint pass at the clean recorded revision. There are now
 30 integrated corrections, including26 of126 partition records;100 remain.
 Source-note intermediates and unexecuted plans remain outside that completion count.
+
+The [393 note-only intermediate at 53007c13](paenibacillus-note-integration-53007c13.md)
+now preserves the reviewed source-population clarification, all eight native M5
+checks and an independently rerun 53-input checkpoint inspection. Its 27 composed
+guard tests pass. The subsequent mapping transition, saved partial assessment
+and actual composite proof remain pending; this intermediate adds no completed
+record to the partition count.
 
 ## Campaign restart
 
