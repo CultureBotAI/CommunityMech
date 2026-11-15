@@ -1,0 +1,739 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.log",
+    "sha256": "05ac3ad9d5b279118c00b9308092868be364c5a657bbb2f3ca58247aff7c96dc"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.json",
+    "sha256": "b2da67c2cf030e99d31767fa73d8583f962d5d68c972692dd85e2be76be67df2"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/lupinus-mangrove-ndc6-routes-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml",
+      "record_id": "CommunityMech:000427",
+      "before_sha256": "59a83e4d0b1defdc5f3bae63bccb38caa87fa9fd90a6c115e5be6f518998f6ff",
+      "additional_inputs": {
+        "tests/test_causal_review_batch64.py": "236ecb2e34ebbc328e5d96104d0bc41787484de6142f4285e869b7ec7b27aafc",
+        "tests/test_participating_taxa.py": "0bad0a41fa227759454f6cb84cd72586b654cd8600ff3efd83b1892d93724c8d",
+        "reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml": "c1ee5014ea7d83ad47d2a03e7392fb2e5f86722f7d29f90b1b132f41804982b4",
+        "reports/yaml_record_review/20260922T231553Z-Lupinus_SC7_Rhizosphere_SynCom.md": "f0943459e76177d61e6e4d390ba4b46c9207854c37c48bbc63547ec702dfd69a",
+        ".temp/phase2-schema-20261115/lupinus-issue1564-002.log": "d0a431b6ae5646c5053847270c12ca5c01d1a70cb44d4e4384c6677c8445b0a1",
+        "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-authored-source-context-001.json": "188c8f1086cb0fb88d241e13c9f90ee74c8c5010d90d2c0756127fb0c897c7a2",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42602126",
+          "path": "references_cache/PMID_42602126.txt",
+          "sha256": "b6524569419d9d0679f8917a8362a6afa8979713fef2de4c9b0ba1e39f913ab5",
+          "identity_tokens": [
+            "42602126",
+            "10.3389/fpls.2026.1891479"
+          ],
+          "anchors": [
+            "Twelve representative strains from these genera were then randomly selected",
+            "CAR08 Bradyrhizobium sp.",
+            "Lupac 08 Micromonospora sp.",
+            "LARHCG66 Pseudoxanthomonas sp.",
+            "LARHCF249 Streptomyces sp.",
+            "LARHCF252 Streptomyces sp.",
+            "Genome sequences of the twelve bacterial strains",
+            "Because community complexity and strain composition varied simultaneously"
+          ],
+          "locator": "Retained primary Methods/embedded Table1 twelve-stock roster, genome-sequencing and genus-identification passages, FlowPot/CAS-soil methods and Results/Discussion confounding and detection limits.",
+          "coverage": "Whole canonical, batch64 caller/target ledger and prior record review read; selected primary main-text and Table1 passages read. No new complete main-paper, separate supplement, original figure, BioProject or exact-assembly classification audit. Existing main-text genome descriptions do not make this genus-reference lookup stock-specific."
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:374",
+            "label": "Bradyrhizobium"
+          },
+          "strain_name": "CAR08",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 binds CAR08 to Bradyrhizobium sp.; preserve the named inoculum stock and source genus without inferring its exact species or assembly.",
+          "population_scope": "595 genus-reference genomes and rounded0.995 are not CAR08 abundance, a newly measured numerator or a stock-genome assignment.",
+          "name_scope": "Matching genus labels do not resolve the independent genome/accession question in1564.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Bradyrhizobium",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Bradyrhizobium",
+            "gtdb_taxon": "Bradyrhizobium",
+            "is_reclassified": false,
+            "majority_fraction": 0.995,
+            "n_alt": 3,
+            "ncbi_source_id": "NCBITaxon:374",
+            "support_genomes": 592,
+            "total_genomes": 595,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:1873",
+            "label": "Micromonospora"
+          },
+          "strain_name": "Lupac 08",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 says Micromonospora sp. Lupac08 while later prose also uses M.lupini. Preserve the maintained genus and exact spaced stock field, without silently promoting the prose species identity.",
+          "population_scope": "461 genus-reference genomes are distinct from the single study stock and its reported low detection in the plant profiles.",
+          "name_scope": "This genus mapping neither reidentifies Lupac08 nor certifies the source's species/genome claim.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Micromonospora",
+            "gtdb_lineage": "d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Micromonosporaceae;g__Micromonospora",
+            "gtdb_taxon": "Micromonospora",
+            "is_reclassified": false,
+            "majority_fraction": 0.978,
+            "n_alt": 4,
+            "ncbi_source_id": "NCBITaxon:1873",
+            "support_genomes": 451,
+            "total_genomes": 461,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:75",
+            "label": "Caulobacter"
+          },
+          "strain_name": "LARHSG274",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 identifies LARHSG274 as Caulobacter sp.; keep that stock distinct from every other SynCom member.",
+          "population_scope": "32 genus-reference genomes do not identify the stock assembly or prove its individual growth-promotion mechanism.",
+          "name_scope": "No species-level or formal nomenclatural conclusion is proposed.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Caulobacter",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Caulobacterales;f__Caulobacteraceae;g__Caulobacter",
+            "gtdb_taxon": "Caulobacter",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:75",
+            "support_genomes": 32,
+            "total_genomes": 32,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {
+            "id": "NCBITaxon:182639",
+            "label": "Kribbella"
+          },
+          "strain_name": "LARHCF250",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Keep the Table1 LARHCF250 stock and genus. Later functional prose uses a different LARHXF250 spelling; this generic correspondence does not resolve or propagate that source inconsistency.",
+          "population_scope": "86 genus-reference genomes are not replicate LARHCF250 stocks or an exact genome classification.",
+          "name_scope": "No stock spelling, source genus or species field changes are authorized.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Kribbella",
+            "gtdb_lineage": "d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Kribbellaceae;g__Kribbella",
+            "gtdb_taxon": "Kribbella",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:182639",
+            "support_genomes": 86,
+            "total_genomes": 86,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {
+            "id": "NCBITaxon:286",
+            "label": "Pseudomonas"
+          },
+          "strain_name": "LARHCG127",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 binds LARHCG127 to Pseudomonas sp.; preserve the exact stock and all input-versus-harvest qualifiers.",
+          "population_scope": "25706 genus-reference genomes and a0.699 majority describe a mixed database population, not the stock's identity, dominance or community proportion.",
+          "name_scope": "A retained unsuffixed majority does not exclude other native clades for this unclassified stock.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Pseudomonas",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas",
+            "gtdb_taxon": "Pseudomonas",
+            "is_reclassified": false,
+            "majority_fraction": 0.699,
+            "n_alt": 11,
+            "ncbi_source_id": "NCBITaxon:286",
+            "support_genomes": 17956,
+            "total_genomes": 25706,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 5,
+          "term": {
+            "id": "NCBITaxon:83618",
+            "label": "Pseudoxanthomonas"
+          },
+          "strain_name": "LARHCG66",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 identifies LARHCG66 as Pseudoxanthomonas sp. Preserve that source identity; the native majority is explicitly the non-type-anchored A clade.",
+          "population_scope": "153 genus-reference genomes with126 supporting the A clade and27 the type-anchored clade are native diagnostic counts, not LARHCG66 genome evidence or abundance.",
+          "name_scope": "Preserve the complete native warning. The A suffix and is_reclassified flag describe database label correspondence, not formal renaming or proof that the study strain belongs to that clade.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Pseudoxanthomonas_A",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Pseudoxanthomonas_A",
+            "gtdb_taxon": "Pseudoxanthomonas_A",
+            "is_reclassified": true,
+            "majority_fraction": 0.824,
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:83618",
+            "non_type_clade_warning": "Pseudoxanthomonas_A is not the type-anchored clade; GTDB reserves Pseudoxanthomonas for the lineage holding the nomenclatural type, which drew 27 genomes here (#374)",
+            "support_genomes": 126,
+            "total_genomes": 153,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 6,
+          "term": {
+            "id": "NCBITaxon:379",
+            "label": "Rhizobium"
+          },
+          "strain_name": "LARHSG275",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 identifies LARHSG275 as Rhizobium sp.; preserve its stock field and the paper's separate annotation and host-response measurements.",
+          "population_scope": "798 genus-reference genomes and rounded0.87 do not identify the strain or establish nitrogen flux, nodulation causation or an exact numerator.",
+          "name_scope": "The source genus remains unchanged without a newly selected species.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Rhizobium",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Rhizobium",
+            "gtdb_taxon": "Rhizobium",
+            "is_reclassified": false,
+            "majority_fraction": 0.87,
+            "n_alt": 12,
+            "ncbi_source_id": "NCBITaxon:379",
+            "support_genomes": 694,
+            "total_genomes": 798,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 7,
+          "term": {
+            "id": "NCBITaxon:165697",
+            "label": "Sphingopyxis"
+          },
+          "strain_name": "LARHCG72",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Keep Table1 Sphingopyxis sp. LARHCG72 and its study-specific relative colonization context.",
+          "population_scope": "79 reference genomes are not study isolates, quantitative colonization or direct LARHCG72 genome grounding.",
+          "name_scope": "No species identity or formal stock rename is added.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Sphingopyxis",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingopyxis",
+            "gtdb_taxon": "Sphingopyxis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:165697",
+            "support_genomes": 79,
+            "total_genomes": 79,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 8,
+          "term": {
+            "id": "NCBITaxon:40323",
+            "label": "Stenotrophomonas"
+          },
+          "strain_name": "LARHCG68",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Keep Table1 Stenotrophomonas sp. LARHCG68 and all independent annotated-trait versus functional-assay limits.",
+          "population_scope": "404 reference genomes and rounded0.985 do not classify the study assembly or demonstrate its ecological role.",
+          "name_scope": "No study-stock reidentification follows from the reference majority.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Stenotrophomonas",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Stenotrophomonas",
+            "gtdb_taxon": "Stenotrophomonas",
+            "is_reclassified": false,
+            "majority_fraction": 0.985,
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:40323",
+            "support_genomes": 398,
+            "total_genomes": 404,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 9,
+          "term": {
+            "id": "NCBITaxon:1883",
+            "label": "Streptomyces"
+          },
+          "strain_name": "LARHCF249",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 lists LARHCF249 separately from LARHCF252. Retain both occurrences and their individual stock metadata despite the shared genus CURIE.",
+          "population_scope": "3040 genus-reference genomes are one shared lookup population, not a newly measured stock or duplicate experimental count.",
+          "name_scope": "No merging of the two Streptomyces study stocks is authorized.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Streptomyces",
+            "gtdb_lineage": "d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces",
+            "gtdb_taxon": "Streptomyces",
+            "is_reclassified": false,
+            "majority_fraction": 0.99,
+            "n_alt": 7,
+            "ncbi_source_id": "NCBITaxon:1883",
+            "support_genomes": 3010,
+            "total_genomes": 3040,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 10,
+          "term": {
+            "id": "NCBITaxon:1883",
+            "label": "Streptomyces"
+          },
+          "strain_name": "LARHCF252",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 independently lists LARHCF252; preserve it as the second Streptomyces stock and keep the low-detection versus inoculum-membership distinction.",
+          "population_scope": "The repeated3040/.99 lookup is reference metadata for this separate occurrence, not a second reference corpus or evidence of harvest dominance.",
+          "name_scope": "No stock collapse or species selection is proposed.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Streptomyces",
+            "gtdb_lineage": "d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces",
+            "gtdb_taxon": "Streptomyces",
+            "is_reclassified": false,
+            "majority_fraction": 0.99,
+            "n_alt": 7,
+            "ncbi_source_id": "NCBITaxon:1883",
+            "support_genomes": 3010,
+            "total_genomes": 3040,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 11,
+          "term": {
+            "id": "NCBITaxon:34072",
+            "label": "Variovorax"
+          },
+          "strain_name": "LARHSF232",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Table1 assigns LARHSF232 to Variovorax sp.; preserve this distinct stock and the functional-potential versus measured-mediation limits.",
+          "population_scope": "40 genus-reference genomes do not classify the LARHSF232 assembly or certify any predicted pathway.",
+          "name_scope": "No stronger stock or species identity is inferred.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Variovorax",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Variovorax",
+            "gtdb_taxon": "Variovorax",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:34072",
+            "support_genomes": 40,
+            "total_genomes": 40,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve all12 stocks, three nodes/zero arrows, equal-input versus harvested relative profiles, FlowPot versus CAS soil, richness/composition confounding and transcription/annotation versus flux limits. OPEN1564 explicitly remains unresolved: harvest DOMINANT roles, missing host, genus/strain-to-genome reconciliation, six-week/eight-week and CAS PERMANOVA wording. The generic descriptor correspondence does not resolve those scientific questions or recertify supplements. Preserve the historical batch64 ledger and all current biological predicates; only an exact admitted predecessor may supply its old current-hash/last-llm-event assertions. Keep the participant roster including the two Streptomyces occurrences. No whole-record scientific approval or upstream crosswalk release inference is claimed."
+    },
+    {
+      "record": "kb/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.yaml",
+      "record_id": "CommunityMech:000442",
+      "before_sha256": "96166a3b9e1e6298b99bb0930ac0cab6b69018ea5b54788e0e9f65231f9bbb6e",
+      "additional_inputs": {
+        "tests/test_causal_review_batch68.py": "126ed9f133a679ba2ec71ea01650ee91bea59b42860f3285a54ea4b2eb08873d",
+        "reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml": "38c139438dc2f375e40000b15ed237a0cd08d19c3c1fbe695aa348fcf026cf5a",
+        ".temp/phase2-schema-20261115/source-issue1586-001.log": "fa5b49bc874e259bc3b7f9c1690348869b0f754771c2f684fa4eadd01b9a8ba7",
+        "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-authored-source-context-001.json": "188c8f1086cb0fb88d241e13c9f90ee74c8c5010d90d2c0756127fb0c897c7a2",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41210787",
+          "path": "references_cache/PMID_41210787.txt",
+          "sha256": "d9fed314bc8ba9240093593c315a9b0ca456ea1970bdc7b661a71893a40bf2e2",
+          "identity_tokens": [
+            "41210787",
+            "10.1021/acsomega.5c05703"
+          ],
+          "anchors": [
+            "2.6. Bioanode Microbial Diversity Analysis",
+            "16S rRNA gene by employing primers 27F and 1492R",
+            "Bacillus (32.93%) and Arcobacter (30.28%)",
+            "The genera Pelobacter, Desulfurumonas, and Pseudomonas",
+            "electrogenic Arcobacter abundance increased from 20.23% to 30.28%"
+          ],
+          "locator": "Retained primary Methods2.6 full-length16S biofilm profiling and Results3.3 genus-composition passages; original selected abstract/electrochemical excerpts and the full current record.",
+          "coverage": "Whole canonical and batch68 caller/target ledger read; selected primary identity, profiling and performance-context passages read. No new complete primary/supplement/figure-pixel/raw-sequence audit or exact-stock genome assignment."
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:1386",
+            "label": "Bacillus <firmicutes>"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "The benzene-fed biofilm has32.93% Bacillus relative16S abundance. It is a genus-profile entry, not an isolated Bacillus stock; preserve the removed PRIMARY_DEGRADER overclaim and all original source context.",
+          "population_scope": "8737 genus-reference genomes and a0.57 majority are separate from the32.93% experimental profile and do not identify the community's genomes or assign benzene flux.",
+          "name_scope": "Retaining the majority genus does not certify strain-level degradative or electrochemical function.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Bacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus",
+            "gtdb_taxon": "Bacillus",
+            "is_reclassified": false,
+            "majority_fraction": 0.57,
+            "n_alt": 44,
+            "ncbi_source_id": "NCBITaxon:1386",
+            "support_genomes": 4981,
+            "total_genomes": 8737,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:28196",
+            "label": "Arcobacter"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Keep the source Arcobacter profile30.28% and null stock. OPEN1586 retains the ELECTROGEN role concern: relative profiles and other-strain literature do not isolate its exact-system contribution.",
+          "population_scope": "81 genus-reference genomes and rounded0.877 do not reassign the study's16S reads, quantify its abundance or demonstrate electron transfer.",
+          "name_scope": "Aliarcobacter is a native reference majority label; do not rename the source genus, infer a cultured strain or resolve the functional-role finding.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Aliarcobacter",
+            "gtdb_lineage": "d__Bacteria;p__Campylobacterota;c__Campylobacteria;o__Campylobacterales;f__Arcobacteraceae;g__Aliarcobacter",
+            "gtdb_taxon": "Aliarcobacter",
+            "is_reclassified": true,
+            "majority_fraction": 0.877,
+            "n_alt": 5,
+            "ncbi_source_id": "NCBITaxon:28196",
+            "support_genomes": 71,
+            "total_genomes": 81,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:18",
+            "label": "Pelobacter"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "The source reports Pelobacter at2.22% of the benzene-fed profile. Preserve that exact genus evidence and absence of a strain identity.",
+          "population_scope": "The native genus-reference majority is only4of7 genomes, not unanimity; it is separate from2.22% of study reads and is not a direct placement of any community genome.",
+          "name_scope": "Seleniibacterium is a narrowly bounded crosswalk correspondence, not source-stock reidentification, formal nomenclature or a stronger mechanistic attribution.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Seleniibacterium",
+            "gtdb_lineage": "d__Bacteria;p__Desulfobacterota;c__Desulfuromonadia;o__Desulfuromonadales;f__Geopsychrobacteraceae;g__Seleniibacterium",
+            "gtdb_taxon": "Seleniibacterium",
+            "is_reclassified": true,
+            "majority_fraction": 0.571,
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:18",
+            "support_genomes": 4,
+            "total_genomes": 7,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {
+            "id": "NCBITaxon:286",
+            "label": "Pseudomonas"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Preserve Pseudomonas0.87% in benzene-fed biofilm versus3.88% in acetate-fed biofilm, with no cultured stock or species selected.",
+          "population_scope": "25706 genus-reference genomes and rounded0.699 do not establish the experimental fraction, study genome identity or per-member benzene degradation.",
+          "name_scope": "Keep the source genus, null stock and partial-roster boundary unchanged.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Pseudomonas",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas",
+            "gtdb_taxon": "Pseudomonas",
+            "is_reclassified": false,
+            "majority_fraction": 0.699,
+            "n_alt": 11,
+            "ncbi_source_id": "NCBITaxon:286",
+            "support_genomes": 17956,
+            "total_genomes": 25706,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Keep four partial-roster genus entries/null stocks, two nodes/one HYPOTHESIZED arrow, relative16S versus member activity, substrate/acclimation confounding and positive whole-system removal/electrochemistry. Preserve source Desulfurumonas spelling as an ungrounded discussion, cycleVI250mg/L versus cycleVII330mg/L voltage distinction, no100fold acetate effect, no complete mineralization or DET proof. OPEN1586 retains Daphnia magna versus primary D.similis endpoint mismatch and Arcobacter role limits; this taxonomy correction does not repair or endorse them. Batch68 keeps original ledgers/cache predicates/current biological tests; only validated predecessor supplies the old digest/last-llm-event checks after strict whole-record proof. No paper-wide scientific completion or crosswalk release chronology is claimed."
+    },
+    {
+      "record": "kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml",
+      "record_id": "CommunityMech:000463",
+      "before_sha256": "1a1c02d8b33165075608eba9bc482646843cecfe41a7a99c3d47f5ab9bbb5c97",
+      "additional_inputs": {
+        "tests/test_causal_review_batch76.py": "544c58aab2b596fff744ab779ff803bd2d987978450b7279f449c904e6a8deac",
+        "tests/test_participating_taxa.py": "0bad0a41fa227759454f6cb84cd72586b654cd8600ff3efd83b1892d93724c8d",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml": "d47e9413b55b8d9a4400a2736a3d3474d0b4b59384bbfccb86144d148c72d3fb",
+        "reports/yaml_record_review/20260928T121417Z-NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.md": "faa04e0b3df2ca3e321554f2b29ba43d3cb41f76bfcc8373ca9de379a5404a34",
+        ".temp/phase2-schema-20261115/source-issue1197-001.log": "54ac793b9b65e5801a42695c31d9c876d5f8e10f104a42f23a62360884ac4a59",
+        ".temp/phase2-schema-20261115/source-issue1198-001.log": "d417cad9b0995346e8594fe519eebf832378a34b7aec3167c9d270bcfc0bc6e6",
+        "reports/gtdb-lupinus-mangrove-ndc6-20261115/three-authored-source-context-001.json": "188c8f1086cb0fb88d241e13c9f90ee74c8c5010d90d2c0756127fb0c897c7a2",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41504900",
+          "path": "references_cache/PMID_41504900.txt",
+          "sha256": "9f54a89328b72f2ce9ca6d183cd7a862363db94af14daa61052f1715391529d5",
+          "identity_tokens": [
+            "41504900",
+            "10.1007/s00449-025-03276-5"
+          ],
+          "anchors": [
+            "Pseudomonas veronii HN1",
+            "P. poae HN2",
+            "P. peli HN3",
+            "Aeromonas sp. AD1",
+            "P. extremaustralis AD2",
+            "Serratia liquefaciens AD3",
+            "89.3%, 88.1%, 85.5%, and 95.3%",
+            "temperature, 10.2"
+          ],
+          "locator": "Entire retained primary abstract: explicit NC1 HN1/HN2/HN3 and DC1 AD1/AD2/AD3 roster, module mixing, three-day10C assay and separate response-surface optimum.",
+          "coverage": "Whole current canonical, full retained abstract, prior record-review findings/follow-ups and batch76 caller/target ledger read. No full Springer Methods, supplements, culture-deposit proof, stock-genome/sequence classification or new functional assay review."
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:76761",
+            "label": "Pseudomonas veronii"
+          },
+          "strain_name": "HN1",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract explicitly lists P.veronii HN1 in NC1. Keep the original stock, species descriptor and historical first-pass unavailable-crosswalk note.",
+          "population_scope": "70 species-reference genomes and rounded0.93 do not classify HN1, infer an exact numerator or quantify its individual nitrogen-removal contribution.",
+          "name_scope": "Pseudomonas_E is a database label correspondence, not a formal rename of the source stock.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudomonas_E_veronii",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E veronii",
+            "gtdb_taxon": "Pseudomonas_E veronii",
+            "is_reclassified": true,
+            "majority_fraction": 0.93,
+            "ncbi_source_id": "NCBITaxon:76761",
+            "total_genomes": 70,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:200451",
+            "label": "Pseudomonas poae"
+          },
+          "strain_name": "HN2",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract names P.poae HN2 as a separate NC1 stock. The native route is species-name fallback, not an exact HN2 strain lookup.",
+          "population_scope": "Two name-route reference genomes do not establish HN2's genome or stock equivalence with other poae records.",
+          "name_scope": "Preserve source nomenclature and strain field despite the reference suffix.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudomonas_E_poae",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E poae",
+            "gtdb_taxon": "Pseudomonas_E poae",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:200451",
+            "total_genomes": 2,
+            "via": "ncbi_name"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:592361",
+            "label": "Pseudomonas peli"
+          },
+          "strain_name": "HN3",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The source lists P.peli HN3 in NC1; retain the separate study-stock identity and aggregate functional scope.",
+          "population_scope": "17 species-reference genomes do not independently classify HN3 or demonstrate an intermember transfer.",
+          "name_scope": "The E suffix is not formal study-stock reidentification.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudomonas_E_peli",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E peli",
+            "gtdb_taxon": "Pseudomonas_E peli",
+            "is_reclassified": true,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:592361",
+            "total_genomes": 17,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {
+            "id": "NCBITaxon:642",
+            "label": "Aeromonas"
+          },
+          "strain_name": "AD1",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "The abstract identifies Aeromonas sp.AD1 only to genus within DC1. Keep that rank rather than selecting a species from database references.",
+          "population_scope": "2176 genus-reference genomes do not identify AD1 or represent the six experimental strains or their input proportions.",
+          "name_scope": "No species claim or culture-collection alias is introduced.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Aeromonas",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Aeromonadaceae;g__Aeromonas",
+            "gtdb_taxon": "Aeromonas",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:642",
+            "support_genomes": 2176,
+            "total_genomes": 2176,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {
+            "id": "NCBITaxon:359110",
+            "label": "Pseudomonas extremaustralis"
+          },
+          "strain_name": "AD2",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract names P.extremaustralis AD2 in DC1. Preserve the study-stock spelling and unavailable-methods limit.",
+          "population_scope": "33 species-reference genomes and rounded0.85 are not a direct AD2 genome assignment, an exact numerator or measured abundance.",
+          "name_scope": "The native suffix does not change the source's stock identity or establish a formal name change.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Pseudomonas_E_extremaustralis",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E extremaustralis",
+            "gtdb_taxon": "Pseudomonas_E extremaustralis",
+            "is_reclassified": true,
+            "majority_fraction": 0.85,
+            "ncbi_source_id": "NCBITaxon:359110",
+            "total_genomes": 33,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 5,
+          "term": {
+            "id": "NCBITaxon:614",
+            "label": "Serratia liquefaciens"
+          },
+          "strain_name": "AD3",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract separately lists S.liquefaciens AD3 in DC1. Keep its stock field and the aggregate assay boundaries.",
+          "population_scope": "127 species-reference genomes and rounded0.89 do not identify AD3's assembly or establish reciprocal benefit among the six stocks.",
+          "name_scope": "The J suffix is a reference correspondence only; original source and NCBI labels remain unchanged.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Serratia_J_liquefaciens",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Serratia_J;s__Serratia_J liquefaciens",
+            "gtdb_taxon": "Serratia_J liquefaciens",
+            "is_reclassified": true,
+            "majority_fraction": 0.89,
+            "ncbi_source_id": "NCBITaxon:614",
+            "total_genomes": 127,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve six named stocks, one community node/zero arrows and all historical first-pass crosswalk-unavailable notes. Retain CLOSED1197/1198 fixes: no MUTUALISM or invented intermember flux, NC1/DC1 module1:1 is not per-strain equal ratio, three-day10C removal versus separate10.2C/pH7.2/C:N6/156rpm optimization and89.8% verification remain distinct; full medium and vessel details stay unresolved. Batch76's unchanged historical row, zero old events and old allowed-fields statements remain historical facts, with current aggregate biological predicates intact. Only strict proof may admit the new current hash; no rewrite of that ledger or old scientific assessment. OPEN1635 concerns other batch76 records, not NDC6, and is not assigned to this record. No full scientific completion or crosswalk-release inference is claimed."
+    }
+  ]
+}
