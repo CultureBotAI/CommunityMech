@@ -8,6 +8,87 @@ registry neither changes historical biology predicates nor approves science.
 from scoped_gtdb_successor import admit
 
 ALLOWANCES = {
+    "kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-339-001-successor.json"
+            ),
+            "sha256": "eb258d2c17a5f4fd9fd69df0d7d29fc6b027f3d5f587232423604aad1a46d5f9",
+        },
+    },
+    "kb/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-491-001-successor.json"
+            ),
+            "sha256": "f235a13393645008c245dbd4e4d4a0c2dd6163153d4c859476b8ed4375486be4",
+        },
+    },
+    "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-414-001-successor.json"
+            ),
+            "sha256": "e11b6ba308c4e6d51b9efa4f217dcc1e98da943bc71df877250674a8d212c5ec",
+        },
+    },
+    "kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-391-001-successor.json"
+            ),
+            "sha256": "857ffe01920e24f8a00331ea0ee923abd2a164e4ce0fbd5d0b918334ac10ce6b",
+        },
+    },
+    "kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-358-001-successor.json"
+            ),
+            "sha256": "86b14cbad1df841082a7f08352c004848ed63ef6f2504467cf6b22d611b0d48a",
+        },
+    },
+    "kb/communities/Bacillus_B81_A1_PAH_Biofilm_Consortium_1.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-502-001-successor.json"
+            ),
+            "sha256": "d75be094da229f35e6b408a19276b94cf45fff4f804cd781aae1833343932542",
+        },
+    },
+    "kb/communities/Bacillus_B81_A3_Naphthalene_Biofilm_Consortium_2.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-503-001-successor.json"
+            ),
+            "sha256": "b6735798d328a013b5581ef0750665b8a460ab03bb0b7cf925466f712f8bd96a",
+        },
+    },
+    "kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-504-001-successor.json"
+            ),
+            "sha256": "98d15e91afbcc6a95a8531634442adbb143addcbbdaf0a1da6421718600dd708",
+        },
+    },
+    "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": (
+                "reports/gtdb-species-third-batch-20261115/" "remaining-nine-550-001-successor.json"
+            ),
+            "sha256": "74438fa2ad00d085867c574d9b4efd119efe56a114a82624356e1b90e8ef5dda",
+        },
+    },
     "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": {
         "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
         "manifest": {

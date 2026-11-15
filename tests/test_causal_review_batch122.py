@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml"
@@ -164,8 +165,12 @@ def test_ledger_accounts_for_topology_history_and_unchanged_caches():
     assert ledger["edison"]["provider_submissions"] == 0
     assert ledger["unresolved_non_graph_issues"] == [1951, 1952]
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
+        admitted = admission(ROOT, row["path"], row["record_sha256"])
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == admitted.current_sha256
+        )
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert len(row["history_files"]) == 1 and historical["curation_history"][-1]["llm_assisted"]
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [n["node"] for n in row["node_decisions"]] == names
         assert all(

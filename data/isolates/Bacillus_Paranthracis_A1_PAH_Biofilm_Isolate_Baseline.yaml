@@ -86,7 +86,16 @@ taxonomy:
     term:
       id: NCBITaxon:2026186
       label: Bacillus paranthracis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_A_paranthracis
+      gtdb_taxon: Bacillus_A paranthracis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Bacillus_A;s__Bacillus_A paranthracis
+      ncbi_source_id: NCBITaxon:2026186
+      majority_fraction: 0.99
+      total_genomes: 210
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Identified by 16S rRNA sequence analysis as Bacillus paranthracis isolate A1.
   strain_designation:
     strain_name: A1
@@ -247,3 +256,11 @@ curation_history:
     biofilm-enhanced PAH-biodegradation node from 3 to 5 non-overlapping, bracket-free verbatim snippets without inventing
     unsupported downstream edges.
   llm_assisted: true
+- timestamp: '2026-11-15T10:02:01Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:02:01Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

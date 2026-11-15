@@ -14,6 +14,11 @@ import yaml
 from gtdb_species_batch_successors_20261115 import ALLOWANCES as SPECIES_BATCH_ALLOWANCES
 
 SHARED_ALLOWANCES = {
+    "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml": (
+        SPECIES_BATCH_ALLOWANCES[
+            "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml"
+        ]
+    ),
     "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": (
         SPECIES_BATCH_ALLOWANCES[
             "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml"

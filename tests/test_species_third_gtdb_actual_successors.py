@@ -15,6 +15,15 @@ from gtdb_species_batch_successors_20261115 import ALLOWANCES
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "549": "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml",
+    "339": "kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
+    "491": "kb/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.yaml",
+    "414": "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml",
+    "391": "kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml",
+    "358": "kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml",
+    "502": "kb/communities/Bacillus_B81_A1_PAH_Biofilm_Consortium_1.yaml",
+    "503": "kb/communities/Bacillus_B81_A3_Naphthalene_Biofilm_Consortium_2.yaml",
+    "504": "kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml",
+    "550": "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml",
 }
 
 

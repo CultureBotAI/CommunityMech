@@ -22,7 +22,16 @@ taxonomy:
     term:
       id: NCBITaxon:160808
       label: Acidithiobacillus ferrivorans
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Acidithiobacillus_ferrivorans
+      gtdb_taxon: Acidithiobacillus ferrivorans
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Acidithiobacillales;f__Acidithiobacillaceae;g__Acidithiobacillus;s__Acidithiobacillus ferrivorans
+      ncbi_source_id: NCBITaxon:160808
+      majority_fraction: 0.95
+      total_genomes: 20
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Chemolithotrophic acidophilic iron- and sulfur-oxidizing bacterium used in first-step acidic copper bioleaching
       from discarded PCBs (PMID:26704063).
   functional_role:
@@ -343,3 +352,11 @@ curation_history:
     second-step alkaline gold mobilization (44.0% Au from Cu-leached PCBs), and removed redundant pairwise target_taxon slots
     on COMMUNITY_LEVEL nodes.
   llm_assisted: true
+- timestamp: '2026-11-15T10:00:30Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:00:30Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
