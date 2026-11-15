@@ -1,13 +1,20 @@
 # Four source-bound correspondences
 
+The next [PPHET checkpoint](359-outcome-001.md) records the bounded 359 generic
+PCC 6803 correspondence, preserving engineered PPT1 and open scientific limits.
+Its eight actual native gates, immutable partial review, both-host 84-input
+audits and complete 86-file checkpoints are verified. All 27 public artifacts
+are bound by strict proof; 47 composed proof/caller tests and native lint passed.
+Record 497's separately accepted M5 application is in progress; 454 is unapplied.
+
 The [Q5-1 canary outcome](492-canary-outcome-001.md) records the completed bounded
 492 application on frozen M5 revision `bfef6b2a`: eight native checks, an immutable
 partial diagnostic, verified 81-input audits and complete 83-file checkpoints on
 both hosts, 27 public evidence artifacts, and strict historical admission. One
 positive proof canary, 20 focused proof/caller tests, native lint and the native
 345-review integrity check passed. These checks cover the declared mapping and
-provenance scope; issue 2918 and broader scientific work remain open. Records
-359, 497 and 454 have not been applied in this lane.
+provenance scope; issue 2918 and broader scientific work remain open. At that
+earlier checkpoint, records 359, 497 and 454 had not been applied in this lane.
 
 The following preparation account is retained as the earlier checkpoint, before
 the 492 M5 application. Its pending steps describe that earlier state.
