@@ -385,6 +385,13 @@ proof controls, 17 actual467 compatibility controls and native lint. Both
 complete 81-file checkpoints are verified. The bounded status-only correction
 does not close its scientific blocker or complete full QC.
 
+The [corrected Soymilk448 integration at aa1c9543](soymilk448-integration-aa1c9543.md)
+brings the count to **79 integrated taxonomy corrections**, including **75 of
+the historical126 partition**, with **51 remaining**. Both 27-test integration
+groups and native lint pass on the clean revision. The corrected120-file
+checkpoint is independently verified; the earlier attribution error and its
+immutable evidence remain recorded under issue2892. Scientific findings remain.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
