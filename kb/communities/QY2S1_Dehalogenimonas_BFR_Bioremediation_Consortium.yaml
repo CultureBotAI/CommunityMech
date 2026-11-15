@@ -57,7 +57,17 @@ taxonomy:
     term:
       id: NCBITaxon:670486
       label: Dehalogenimonas
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Dehalogenimonas
+      gtdb_taxon: Dehalogenimonas
+      gtdb_lineage: d__Bacteria;p__Chloroflexota;c__Dehalococcoidia;o__Dehalococcoidales;f__Dehalococcoidaceae;g__Dehalogenimonas
+      ncbi_source_id: NCBITaxon:670486
+      majority_fraction: 1.0
+      support_genomes: 17
+      total_genomes: 17
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: QY2-S1 was resolved by 16S rRNA amplicon sequencing to the genus Dehalogenimonas; no species or strain was reported.
       The NCBI genus identifier was verified through E-utilities; no GTDB grounding was asserted for this newly resolved genus.
   functional_role:
@@ -86,8 +96,6 @@ taxonomy:
       id: NCBITaxon:1485
       label: Clostridium
     gtdb_grounding_status: AMBIGUOUS
-    notes: The 16S rRNA amplicon result resolved this member only as the NCBI genus Clostridium, which is split across many
-      GTDB genera.
     gtdb_candidates:
     - GTDB:g__Clostridium
     - GTDB:g__Otoolea
@@ -135,6 +143,8 @@ taxonomy:
     - GTDB:g__Aminipila
     - GTDB:g__BRXR01
     - GTDB:g__Lacrimispora
+    notes: The 16S rRNA amplicon result resolved this member only as the NCBI genus Clostridium, which is split across many
+      GTDB genera.
   functional_role:
   - SECONDARY_FERMENTER
   - SYNTROPHIC_PARTNER
@@ -462,3 +472,11 @@ curation_history:
     on Dehalogenimonas (NCBITaxon:670486), Clostridium (NCBITaxon:1485), Sedimentibacter (NCBITaxon:190972), and Methanoculleus
     (NCBITaxon:45989) while preserving existing discussions (#2747).'
   llm_assisted: true
+- timestamp: '2026-11-15T07:45:04Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:45:05Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
