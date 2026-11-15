@@ -308,6 +308,14 @@ run, configuration checks and post-write drift check; independent review verifie
 the actual side effects. Twelve focused integration tests and native lint pass.
 This does not merge the CommunityMech PR or complete its remaining QC and science.
 
+The [347 and 410 integration at ec3bda4e](two-canary-integration-ec3bda4e.md)
+adds two complete technical canaries, with sixteen actual M5 scoped commands,
+verified immutable reviews and complete checkpoints. The combined branch passes
+30 species/caller checks, 17 actual genus-proof controls and native lint. At this
+checkpoint there are 32 integrated corrections, including 28 of 126 partition
+records; 98 remain. Concurrent applications and the 393 final mapping are not
+yet included. These partial diagnostics do not complete scientific review.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)

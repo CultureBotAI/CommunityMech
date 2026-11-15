@@ -1,0 +1,101 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+date: '2026-11-15'
+source_revision: 1ab0004e8dd2d15984e5cbf8b9ebb5e2adefe331
+scope: >-
+  Prepare one bounded status/candidate correction for the existing Arthrobacter
+  descriptor in KZ. The full current record, retained primary abstract, prior
+  decision row and actual historical test caller were read. This is not a staged
+  candidate, completed scientific review, fresh native mapping result or release
+  clearance. The linked corrigendum and full experimental Methods remain unread.
+native_inspection:
+  report: reports/phase2-completion-20261115/kz-source-inspection-001.json
+  sha256: 41d380c127ea36d2b028fccf78f40e771d5f6b948addeeede10791d800bf8fae
+  command: >-
+    .venv/bin/python scripts/record_review.py inspect
+    --targets .temp/phase2-integration-20261115/kz-source-targets-001.yaml
+    --input references_cache/PMID_41365368.txt
+    --input reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+    --input tests/test_causal_review_batch60.py
+    --input reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  result: Inspection only; five input hashes captured, no validator or curation run.
+records:
+  - record_id: CommunityMech:000344
+    path: kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml
+    before_sha256: 65275177a514ceb42276f4f416da7b727e5200b3a8f79fb1510cf6c49bbd083c
+    operations: status-only
+    occurrence:
+      selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:1663', label: Arthrobacter}
+      preferred_term: Arthrobacter sp. SZ-3
+      stock: SZ-3
+      historical_expected_status: AMBIGUOUS
+      historical_route: ncbi_rank_g
+      historical_expected_candidates:
+        - GTDB:g__Arthrobacter_B
+        - GTDB:g__Arthrobacter
+        - GTDB:g__Arthrobacter_D
+        - GTDB:g__Specibacter
+        - GTDB:g__Arthrobacter_E
+        - GTDB:g__Arthrobacter_F
+        - GTDB:g__Arthrobacter_C
+        - GTDB:g__Arthrobacter_J
+        - GTDB:g__Arthrobacter_M
+        - GTDB:g__Renibacterium
+        - GTDB:g__Zafaria
+      boundary: >-
+        These eleven alternatives come from the historical assignment ledger.
+        Reproduce the exact whole-record route through the unchanged native
+        reporter before staging. They are genus-descriptor correspondences, not
+        SZ-3 species identities, assembly assignments or candidate probabilities.
+    primary:
+      reference: PMID:41365368
+      url: https://doi.org/10.1016/j.biortech.2025.133782
+      retained_path: references_cache/PMID_41365368.txt
+      retained_sha256: 181b208bcf0f0961381d266a85ae94398ce40dfada4e0885c1a80a3b882ff900
+      coverage: Complete retained PubMed abstract; no new full text, figures, supplement or correction-body read.
+      locator: Abstract, consortium assembly sentence.
+      exact_short_quote: Arthrobacter sp. SZ-3
+      judgment: >-
+        The primary abstract explicitly pairs SZ-3 with Klebsiella sp. CW-D3T
+        in the defined KZ consortium. Both reported identities remain at genus
+        rank. Neither the abstract nor this inspection establishes an exact
+        study-stock genome placement within the Arthrobacter correspondence set.
+    preserve:
+      - Both distinct source stocks and all taxonomy evidence and notes.
+      - The existing Klebsiella genus block with 44527 support genomes and 44529 total genomes; no replacement from a newer lookup.
+      - The one COMMUNITY_LEVEL node, its two participating taxa, PARTIAL assay-based division of labor and positive monoculture comparison.
+      - The absence of a donor-to-recipient direction, interaction type and causal arrow in that node.
+      - The 25 mg/L Cd2+ condition and assay-specific distinctions between degradation, mineralization and inferred catabolic roles.
+      - Full cultivation uncertainty, including the unresolved exact co-contamination medium, inoculation ratio and phenanthrene dose.
+      - Both OPEN discussions, prior needs_research disposition, all old history and the linked corrigendum uncertainty.
+      - Metagenomic gene content does not independently establish expression or necessary mechanistic mediation.
+    retained_blocker:
+      issue: https://github.com/CultureBotAI/CommunityMech/issues/1541
+      state_observed: OPEN
+      observation_date: '2026-11-15'
+      reason: >-
+        The correction PMID:41456976 / doi:10.1016/j.biortech.2025.133853 and
+        full original Methods/supplements remain unverified. Do not assume the
+        correction is biologically immaterial or use a mapping change to clear it.
+    historical_guard:
+      ledger: reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+      ledger_sha256: 1e64150e4f7f3cde4b39dfc6bd97f2984ac3fcf26486b31bdbcdc710e2874a69
+      caller: tests/test_causal_review_batch60.py
+      caller_sha256: dd1e198d098c1fb74896d4820253859100932c708930bd55c287af99174e2133
+      required_successor: >-
+        The final loop pins each current record hash and its latest historical
+        LLM event. Add only an explicit strict proof for KZ, retaining the old
+        ledger hash and event as predecessor evidence. Every current biological
+        predicate and both other records, KMC and Komagataella/Ecoli, must remain
+        enforced. Do not replace whole current documents with predecessors.
+    next_steps:
+      - Fresh whole-record native route and source binding using exact captured input bytes.
+      - One independently reviewed status-only candidate; preserve all eleven alternatives if reproduced and do not choose a species.
+      - Actual guarded M5 application, native sidecar, eight scoped native checks and saved partial diagnostic.
+      - Verify the complete review-input checkpoint before adapting the historical caller, then run actual strict proof and current biological controls.
+limits:
+  - No source, canonical record, historical review, validator, shared classifier or threshold was changed by this preparation.
+  - No new paper acquisition, paid call, biological completeness finding or scientific approval is claimed.
+  - The ignore-independent discovery included references_cache, reports, reviews and the current checkout's .temp; it did not establish absence from every other checkout or external source.
