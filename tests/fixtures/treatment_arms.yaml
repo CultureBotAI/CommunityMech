@@ -1,0 +1,70 @@
+# Synthetic structural fixture for #2796, not a curated biological claim.
+id: CommunityMech:999998
+name: Synthetic treatment-arm contract
+description: Illustrative values for schema, strict-validator and renderer controls.
+taxonomy:
+  - member_id: ecoli
+    taxon_term:
+      preferred_term: Escherichia coli
+      term: {id: 'NCBITaxon:562', label: Escherichia coli}
+    strain_designation: {strain_name: X}
+    relative_abundance: 0.5
+    relative_abundance_unit: fraction
+    abundance_observations:
+      - treatment_arm_id: amended
+        timepoint_id: day-one
+        replicate: biological replicate 1
+        measurement_basis: viable colony counts on the stated selective plates
+        absolute_abundance: 1200000
+        absolute_abundance_unit: CFU/mL
+      - treatment_arm_id: amended
+        timepoint_id: day-one
+        replicate: biological replicate 2
+        measurement_basis: amplicon read fraction
+        relative_abundance: 0.4
+        relative_abundance_unit: FRACTION
+  - member_id: bacillus
+    taxon_term:
+      preferred_term: Bacillus subtilis
+      term: {id: 'NCBITaxon:1423', label: Bacillus subtilis}
+    strain_designation: {strain_name: Y}
+treatment_arms:
+  - id: vehicle
+    name: Vehicle control
+    context: broth-growth-assay
+    membership_status: DEFINED_MEMBERS
+    participant_member_ids: [ecoli, bacillus]
+    timepoints:
+      - id: day-one
+        name: One day after inoculation
+        elapsed: {value: 24, unit: {id: 'UO:0000032', label: hour}}
+        reference_event: inoculation
+  - id: amended
+    name: Dopamine amendment
+    context: broth-growth-assay
+    membership_status: DEFINED_MEMBERS
+    participant_member_ids: [ecoli, bacillus]
+    comparator_arm_ids: [vehicle]
+    conditions:
+      - name: dopamine amendment
+        term: {id: 'CHEBI:18243', label: dopamine}
+        value: '100'
+        unit: micromolar
+      - name: incubation temperature
+        term: {id: 'PATO:0000146', label: temperature}
+        value: '25'
+        unit: degrees Celsius
+    timepoints:
+      - id: day-one
+        name: One day after inoculation
+        elapsed: {value: 24, unit: {id: 'UO:0000032', label: hour}}
+        reference_event: inoculation
+  - id: sterile-control
+    name: No-microbe control
+    context: broth-growth-assay
+    membership_status: NO_MICROBES
+ecological_interactions:
+  - name: Illustrative community response
+    scope: COMMUNITY_LEVEL
+    treatment_arm_ids: [amended]
+    description: A structural test only; this fixture is not scientific evidence.

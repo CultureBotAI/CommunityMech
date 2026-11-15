@@ -120,6 +120,7 @@ OBO_DATABASES: dict[str, str] = {
     "UBERON": "uberon",
     "PO": "po",
     "UO": "uo",
+    "PATO": "pato",
 }
 
 

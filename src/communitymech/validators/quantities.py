@@ -20,10 +20,10 @@ def _quantities(value: object, class_name: str, path: str = "") -> Iterator[tupl
     """Follow schema class ranges, never guess Quantity from a dict's key names."""
     if not isinstance(value, dict):
         return
-    if class_name == "Quantity":
+    schema = _schema()
+    if "Quantity" in schema.class_ancestors(class_name):
         yield path, value
         return
-    schema = _schema()
     for slot in schema.class_induced_slots(class_name):
         if slot.range not in schema.all_classes():
             continue
@@ -42,7 +42,9 @@ def check_record(instance: dict) -> Iterator[tuple[str, str]]:
         return
     for path, quantity in _quantities(instance, "MicrobialCommunity"):
         value = quantity.get("value")
-        if isinstance(value, (int, float)) and not math.isfinite(value):
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            yield "quantity_invalid_value", f"{path}.value: Quantity requires a number, not null"
+        if isinstance(value, float) and not math.isfinite(value):
             yield "quantity_nonfinite", f"{path}.value: Quantity values must be finite"
     for index, soil in enumerate(instance.get("soils") or []):
         if not isinstance(soil, dict) or not isinstance(soil.get("ph"), dict):

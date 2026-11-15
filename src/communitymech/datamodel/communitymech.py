@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-05T22:49:55
+# Generation date: 2026-11-14T18:01:56
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -36,6 +36,7 @@ GITHUB = CurieNamespace("GITHUB", "https://github.com/")
 GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
+PATO = CurieNamespace("PATO", "http://purl.obolibrary.org/obo/PATO_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
 PO = CurieNamespace("PO", "http://purl.obolibrary.org/obo/PO_")
 UBERON = CurieNamespace("UBERON", "http://purl.obolibrary.org/obo/UBERON_")
@@ -540,12 +541,14 @@ class StrainDesignation(YAMLRoot):
         if self.strain_name is not None and not isinstance(self.strain_name, str):
             self.strain_name = str(self.strain_name)
 
-        self._normalize_inlined_as_dict(
-            slot_name="culture_collections",
-            slot_type=CultureCollectionID,
-            key_name="collection",
-            keyed=False,
-        )
+        if not isinstance(self.culture_collections, list):
+            self.culture_collections = (
+                [self.culture_collections] if self.culture_collections is not None else []
+            )
+        self.culture_collections = [
+            v if isinstance(v, CultureCollectionID) else CultureCollectionID(**as_dict(v))
+            for v in self.culture_collections
+        ]
 
         if self.type_strain is not None and not isinstance(self.type_strain, Bool):
             self.type_strain = Bool(self.type_strain)
@@ -582,6 +585,7 @@ class TaxonomicComposition(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TaxonomicComposition
 
     taxon_term: Union[dict, TaxonDescriptor] = None
+    member_id: Optional[str] = None
     strain_designation: Optional[Union[dict, StrainDesignation]] = None
     abundance_level: Optional[Union[str, "AbundanceEnum"]] = None
     abundance_value: Optional[str] = None
@@ -589,6 +593,9 @@ class TaxonomicComposition(YAMLRoot):
     absolute_abundance_unit: Optional[str] = None
     relative_abundance: Optional[float] = None
     relative_abundance_unit: Optional[str] = None
+    abundance_observations: Optional[
+        Union[Union[dict, "AbundanceObservation"], list[Union[dict, "AbundanceObservation"]]]
+    ] = empty_list()
     common_taxon: Optional[str] = None
     functional_role: Optional[
         Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]
@@ -602,6 +609,9 @@ class TaxonomicComposition(YAMLRoot):
             self.MissingRequiredField("taxon_term")
         if not isinstance(self.taxon_term, TaxonDescriptor):
             self.taxon_term = TaxonDescriptor(**as_dict(self.taxon_term))
+
+        if self.member_id is not None and not isinstance(self.member_id, str):
+            self.member_id = str(self.member_id)
 
         if self.strain_designation is not None and not isinstance(
             self.strain_designation, StrainDesignation
@@ -629,6 +639,15 @@ class TaxonomicComposition(YAMLRoot):
             self.relative_abundance_unit, str
         ):
             self.relative_abundance_unit = str(self.relative_abundance_unit)
+
+        if not isinstance(self.abundance_observations, list):
+            self.abundance_observations = (
+                [self.abundance_observations] if self.abundance_observations is not None else []
+            )
+        self.abundance_observations = [
+            v if isinstance(v, AbundanceObservation) else AbundanceObservation(**as_dict(v))
+            for v in self.abundance_observations
+        ]
 
         if self.common_taxon is not None and not isinstance(self.common_taxon, str):
             self.common_taxon = str(self.common_taxon)
@@ -692,6 +711,7 @@ class EcologicalInteraction(YAMLRoot):
 
     name: str = None
     description: Optional[str] = None
+    treatment_arm_ids: Optional[Union[str, list[str]]] = empty_list()
     interaction_type: Optional[Union[str, "InteractionTypeEnum"]] = None
     scope: Optional[Union[str, "InteractionScopeEnum"]] = "PAIRWISE"
     source_taxon: Optional[Union[dict, TaxonDescriptor]] = None
@@ -724,6 +744,14 @@ class EcologicalInteraction(YAMLRoot):
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
+
+        if not isinstance(self.treatment_arm_ids, list):
+            self.treatment_arm_ids = (
+                [self.treatment_arm_ids] if self.treatment_arm_ids is not None else []
+            )
+        self.treatment_arm_ids = [
+            v if isinstance(v, str) else str(v) for v in self.treatment_arm_ids
+        ]
 
         if self.interaction_type is not None and not isinstance(
             self.interaction_type, InteractionTypeEnum
@@ -795,6 +823,7 @@ class EnvironmentalFactor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.EnvironmentalFactor
 
     name: str = None
+    term: Optional[Union[dict, Term]] = None
     value: Optional[str] = None
     unit: Optional[str] = None
     description: Optional[str] = None
@@ -808,6 +837,9 @@ class EnvironmentalFactor(YAMLRoot):
         if not isinstance(self.name, str):
             self.name = str(self.name)
 
+        if self.term is not None and not isinstance(self.term, Term):
+            self.term = Term(**as_dict(self.term))
+
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
 
@@ -820,6 +852,215 @@ class EnvironmentalFactor(YAMLRoot):
         self._normalize_inlined_as_dict(
             slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False
         )
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class TreatmentArm(YAMLRoot):
+    """
+    A named experimental arm within one assay/stage context. Membership refers only to this record's canonical
+    taxonomy. Earlier or larger source-study rosters must not be smuggled into that membership; retain their evidence
+    separately or represent them as distinct community records.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["TreatmentArm"]
+    class_class_curie: ClassVar[str] = "communitymech:TreatmentArm"
+    class_name: ClassVar[str] = "TreatmentArm"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TreatmentArm
+
+    id: str = None
+    name: str = None
+    context: str = None
+    membership_status: Union[str, "TreatmentMembershipStatusEnum"] = None
+    participant_member_ids: Optional[Union[str, list[str]]] = empty_list()
+    comparator_arm_ids: Optional[Union[str, list[str]]] = empty_list()
+    conditions: Optional[
+        Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]
+    ] = empty_list()
+    timepoints: Optional[
+        Union[Union[dict, "TreatmentTimepoint"], list[Union[dict, "TreatmentTimepoint"]]]
+    ] = empty_list()
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self._is_empty(self.context):
+            self.MissingRequiredField("context")
+        if not isinstance(self.context, str):
+            self.context = str(self.context)
+
+        if self._is_empty(self.membership_status):
+            self.MissingRequiredField("membership_status")
+        if not isinstance(self.membership_status, TreatmentMembershipStatusEnum):
+            self.membership_status = TreatmentMembershipStatusEnum(self.membership_status)
+
+        if not isinstance(self.participant_member_ids, list):
+            self.participant_member_ids = (
+                [self.participant_member_ids] if self.participant_member_ids is not None else []
+            )
+        self.participant_member_ids = [
+            v if isinstance(v, str) else str(v) for v in self.participant_member_ids
+        ]
+
+        if not isinstance(self.comparator_arm_ids, list):
+            self.comparator_arm_ids = (
+                [self.comparator_arm_ids] if self.comparator_arm_ids is not None else []
+            )
+        self.comparator_arm_ids = [
+            v if isinstance(v, str) else str(v) for v in self.comparator_arm_ids
+        ]
+
+        if not isinstance(self.conditions, list):
+            self.conditions = [self.conditions] if self.conditions is not None else []
+        self.conditions = [
+            v if isinstance(v, EnvironmentalFactor) else EnvironmentalFactor(**as_dict(v))
+            for v in self.conditions
+        ]
+
+        if not isinstance(self.timepoints, list):
+            self.timepoints = [self.timepoints] if self.timepoints is not None else []
+        self.timepoints = [
+            v if isinstance(v, TreatmentTimepoint) else TreatmentTimepoint(**as_dict(v))
+            for v in self.timepoints
+        ]
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class TreatmentTimepoint(YAMLRoot):
+    """
+    A named arm-local sampling or observation time.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["TreatmentTimepoint"]
+    class_class_curie: ClassVar[str] = "communitymech:TreatmentTimepoint"
+    class_name: ClassVar[str] = "TreatmentTimepoint"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TreatmentTimepoint
+
+    id: str = None
+    name: str = None
+    elapsed: Optional[Union[dict, "TimeQuantity"]] = None
+    reference_event: Optional[str] = None
+    description: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.elapsed is not None and not isinstance(self.elapsed, TimeQuantity):
+            self.elapsed = TimeQuantity(**as_dict(self.elapsed))
+
+        if self.reference_event is not None and not isinstance(self.reference_event, str):
+            self.reference_event = str(self.reference_event)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AbundanceObservation(YAMLRoot):
+    """
+    One source-supported observation of a canonical member in a named arm. Preserve repeated timepoints/replicates and
+    the measurement basis. Counts, viable counts, read fractions and concentrations are not interchangeable.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["AbundanceObservation"]
+    class_class_curie: ClassVar[str] = "communitymech:AbundanceObservation"
+    class_name: ClassVar[str] = "AbundanceObservation"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.AbundanceObservation
+
+    treatment_arm_id: str = None
+    measurement_basis: str = None
+    timepoint_id: Optional[str] = None
+    replicate: Optional[str] = None
+    absolute_abundance: Optional[float] = None
+    absolute_abundance_unit: Optional[str] = None
+    relative_abundance: Optional[float] = None
+    relative_abundance_unit: Optional[Union[str, "RelativeAbundanceUnitEnum"]] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.treatment_arm_id):
+            self.MissingRequiredField("treatment_arm_id")
+        if not isinstance(self.treatment_arm_id, str):
+            self.treatment_arm_id = str(self.treatment_arm_id)
+
+        if self._is_empty(self.measurement_basis):
+            self.MissingRequiredField("measurement_basis")
+        if not isinstance(self.measurement_basis, str):
+            self.measurement_basis = str(self.measurement_basis)
+
+        if self.timepoint_id is not None and not isinstance(self.timepoint_id, str):
+            self.timepoint_id = str(self.timepoint_id)
+
+        if self.replicate is not None and not isinstance(self.replicate, str):
+            self.replicate = str(self.replicate)
+
+        if self.absolute_abundance is not None and not isinstance(self.absolute_abundance, float):
+            self.absolute_abundance = float(self.absolute_abundance)
+
+        if self.absolute_abundance_unit is not None and not isinstance(
+            self.absolute_abundance_unit, str
+        ):
+            self.absolute_abundance_unit = str(self.absolute_abundance_unit)
+
+        if self.relative_abundance is not None and not isinstance(self.relative_abundance, float):
+            self.relative_abundance = float(self.relative_abundance)
+
+        if self.relative_abundance_unit is not None and not isinstance(
+            self.relative_abundance_unit, RelativeAbundanceUnitEnum
+        ):
+            self.relative_abundance_unit = RelativeAbundanceUnitEnum(self.relative_abundance_unit)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
 
         super().__post_init__(**kwargs)
 
@@ -1771,6 +2012,36 @@ class Quantity(YAMLRoot):
 
 
 @dataclass(repr=False)
+class TimeQuantity(Quantity):
+    """
+    A nonnegative finite duration in a specific UO time unit.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["TimeQuantity"]
+    class_class_curie: ClassVar[str] = "communitymech:TimeQuantity"
+    class_name: ClassVar[str] = "TimeQuantity"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TimeQuantity
+
+    value: float = None
+    unit: Union[dict, Term] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.value):
+            self.MissingRequiredField("value")
+        if not isinstance(self.value, float):
+            self.value = float(self.value)
+
+        if self._is_empty(self.unit):
+            self.MissingRequiredField("unit")
+        if not isinstance(self.unit, Term):
+            self.unit = Term(**as_dict(self.unit))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class GeoLocation(YAMLRoot):
     """
     A collection site, as a point in decimal degrees (WGS84).
@@ -1834,6 +2105,9 @@ class MicrobialCommunity(YAMLRoot):
     taxonomy: Optional[
         Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
     ] = empty_list()
+    treatment_arms: Optional[Union[Union[dict, TreatmentArm], list[Union[dict, TreatmentArm]]]] = (
+        empty_list()
+    )
     ecological_interactions: Optional[
         Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]
     ] = empty_list()
@@ -1939,9 +2213,19 @@ class MicrobialCommunity(YAMLRoot):
             v if isinstance(v, SoilDescriptor) else SoilDescriptor(**as_dict(v)) for v in self.soils
         ]
 
-        self._normalize_inlined_as_dict(
-            slot_name="taxonomy", slot_type=TaxonomicComposition, key_name="taxon_term", keyed=False
-        )
+        if not isinstance(self.taxonomy, list):
+            self.taxonomy = [self.taxonomy] if self.taxonomy is not None else []
+        self.taxonomy = [
+            v if isinstance(v, TaxonomicComposition) else TaxonomicComposition(**as_dict(v))
+            for v in self.taxonomy
+        ]
+
+        if not isinstance(self.treatment_arms, list):
+            self.treatment_arms = [self.treatment_arms] if self.treatment_arms is not None else []
+        self.treatment_arms = [
+            v if isinstance(v, TreatmentArm) else TreatmentArm(**as_dict(v))
+            for v in self.treatment_arms
+        ]
 
         self._normalize_inlined_as_dict(
             slot_name="ecological_interactions",
@@ -3623,7 +3907,7 @@ class CommunityRelationBasisEnum(EnumDefinitionImpl):
 
     SHARED_STRAIN_DESIGNATIONS = PermissibleValue(
         text="SHARED_STRAIN_DESIGNATIONS",
-        description="""Computed by comparing the two records' strain designations. Required for the four membership relations; the validator recomputes it.""",
+        description="""A curator asserts that corresponding local strain designations refer to the same study stocks. The validator checks roster multiplicity, available identity metadata and the set relation; name or taxon agreement alone is not independent proof of global stock identity. Scientific review must verify the underlying stock assertion.""",
     )
     SOURCE_STATEMENT = PermissibleValue(
         text="SOURCE_STATEMENT",
@@ -3633,6 +3917,48 @@ class CommunityRelationBasisEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="CommunityRelationBasisEnum",
         description="How a `related_communities` relation was established.",
+    )
+
+
+class TreatmentMembershipStatusEnum(EnumDefinitionImpl):
+    """
+    How completely a treatment arm's microbial membership is stated.
+    """
+
+    DEFINED_MEMBERS = PermissibleValue(
+        text="DEFINED_MEMBERS",
+        description="participant_member_ids states the arm's complete microbial roster.",
+    )
+    NO_MICROBES = PermissibleValue(
+        text="NO_MICROBES",
+        description="An explicitly microbe-free arm; no microbial participant references.",
+    )
+    NOT_REPORTED = PermissibleValue(
+        text="NOT_REPORTED",
+        description="The arm's microbial roster is not reported; an empty list does not mean none.",
+    )
+
+    _defn = EnumDefinition(
+        name="TreatmentMembershipStatusEnum",
+        description="How completely a treatment arm's microbial membership is stated.",
+    )
+
+
+class RelativeAbundanceUnitEnum(EnumDefinitionImpl):
+    """
+    Explicit numerical scale of an arm-specific relative abundance.
+    """
+
+    FRACTION = PermissibleValue(
+        text="FRACTION", description="A share in the closed interval zero to one."
+    )
+    PERCENT = PermissibleValue(
+        text="PERCENT", description="A percentage in the closed interval zero to one hundred."
+    )
+
+    _defn = EnumDefinition(
+        name="RelativeAbundanceUnitEnum",
+        description="Explicit numerical scale of an arm-specific relative abundance.",
     )
 
 
@@ -3731,6 +4057,30 @@ class SoilSterilizationEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="SoilSterilizationEnum",
         description="Treatment applied to remove the soil's resident microbes before use.",
+    )
+
+
+class EnvironmentalFactorTerm(EnumDefinitionImpl):
+    """
+    A chemical agent, measured quality or environmental condition. Does not itself encode an exposure event, dose,
+    assay stage or causal effect. Roots checked in OAK on 2026-11-15. Exclude the three generic roots so uncertain
+    factors remain ungrounded rather than acquiring vacuous terms.
+    """
+
+    _defn = EnumDefinition(
+        name="EnvironmentalFactorTerm",
+        description="""A chemical agent, measured quality or environmental condition. Does not itself encode an exposure event, dose, assay stage or causal effect. Roots checked in OAK on 2026-11-15. Exclude the three generic roots so uncertain factors remain ungrounded rather than acquiring vacuous terms.""",
+    )
+
+
+class TimeUnitTerm(EnumDefinitionImpl):
+    """
+    Specific time units below UO time unit, checked against the UO source ontology.
+    """
+
+    _defn = EnumDefinition(
+        name="TimeUnitTerm",
+        description="Specific time units below UO time unit, checked against the UO source ontology.",
     )
 
 
@@ -4543,6 +4893,16 @@ slots.strainDesignation__notes = Slot(
     range=Optional[str],
 )
 
+slots.taxonomicComposition__member_id = Slot(
+    uri=COMMUNITYMECH.member_id,
+    name="taxonomicComposition__member_id",
+    curie=COMMUNITYMECH.curie("member_id"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__member_id,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
 slots.taxonomicComposition__taxon_term = Slot(
     uri=COMMUNITYMECH.taxon_term,
     name="taxonomicComposition__taxon_term",
@@ -4615,6 +4975,17 @@ slots.taxonomicComposition__relative_abundance_unit = Slot(
     range=Optional[str],
 )
 
+slots.taxonomicComposition__abundance_observations = Slot(
+    uri=COMMUNITYMECH.abundance_observations,
+    name="taxonomicComposition__abundance_observations",
+    curie=COMMUNITYMECH.curie("abundance_observations"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__abundance_observations,
+    domain=None,
+    range=Optional[
+        Union[Union[dict, AbundanceObservation], list[Union[dict, AbundanceObservation]]]
+    ],
+)
+
 slots.taxonomicComposition__common_taxon = Slot(
     uri=COMMUNITYMECH.common_taxon,
     name="taxonomicComposition__common_taxon",
@@ -4677,6 +5048,16 @@ slots.ecologicalInteraction__description = Slot(
     model_uri=COMMUNITYMECH.ecologicalInteraction__description,
     domain=None,
     range=Optional[str],
+)
+
+slots.ecologicalInteraction__treatment_arm_ids = Slot(
+    uri=COMMUNITYMECH.treatment_arm_ids,
+    name="ecologicalInteraction__treatment_arm_ids",
+    curie=COMMUNITYMECH.curie("treatment_arm_ids"),
+    model_uri=COMMUNITYMECH.ecologicalInteraction__treatment_arm_ids,
+    domain=None,
+    range=Optional[Union[str, list[str]]],
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
 )
 
 slots.ecologicalInteraction__interaction_type = Slot(
@@ -4795,6 +5176,15 @@ slots.environmentalFactor__name = Slot(
     range=str,
 )
 
+slots.environmentalFactor__term = Slot(
+    uri=COMMUNITYMECH.term,
+    name="environmentalFactor__term",
+    curie=COMMUNITYMECH.curie("term"),
+    model_uri=COMMUNITYMECH.environmentalFactor__term,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
 slots.environmentalFactor__value = Slot(
     uri=COMMUNITYMECH.value,
     name="environmentalFactor__value",
@@ -4827,6 +5217,239 @@ slots.environmentalFactor__evidence = Slot(
     name="environmentalFactor__evidence",
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.environmentalFactor__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.treatmentArm__id = Slot(
+    uri=COMMUNITYMECH.id,
+    name="treatmentArm__id",
+    curie=COMMUNITYMECH.curie("id"),
+    model_uri=COMMUNITYMECH.treatmentArm__id,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.treatmentArm__name = Slot(
+    uri=COMMUNITYMECH.name,
+    name="treatmentArm__name",
+    curie=COMMUNITYMECH.curie("name"),
+    model_uri=COMMUNITYMECH.treatmentArm__name,
+    domain=None,
+    range=str,
+)
+
+slots.treatmentArm__context = Slot(
+    uri=COMMUNITYMECH.context,
+    name="treatmentArm__context",
+    curie=COMMUNITYMECH.curie("context"),
+    model_uri=COMMUNITYMECH.treatmentArm__context,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"\S"),
+)
+
+slots.treatmentArm__membership_status = Slot(
+    uri=COMMUNITYMECH.membership_status,
+    name="treatmentArm__membership_status",
+    curie=COMMUNITYMECH.curie("membership_status"),
+    model_uri=COMMUNITYMECH.treatmentArm__membership_status,
+    domain=None,
+    range=Union[str, "TreatmentMembershipStatusEnum"],
+)
+
+slots.treatmentArm__participant_member_ids = Slot(
+    uri=COMMUNITYMECH.participant_member_ids,
+    name="treatmentArm__participant_member_ids",
+    curie=COMMUNITYMECH.curie("participant_member_ids"),
+    model_uri=COMMUNITYMECH.treatmentArm__participant_member_ids,
+    domain=None,
+    range=Optional[Union[str, list[str]]],
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.treatmentArm__comparator_arm_ids = Slot(
+    uri=COMMUNITYMECH.comparator_arm_ids,
+    name="treatmentArm__comparator_arm_ids",
+    curie=COMMUNITYMECH.curie("comparator_arm_ids"),
+    model_uri=COMMUNITYMECH.treatmentArm__comparator_arm_ids,
+    domain=None,
+    range=Optional[Union[str, list[str]]],
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.treatmentArm__conditions = Slot(
+    uri=COMMUNITYMECH.conditions,
+    name="treatmentArm__conditions",
+    curie=COMMUNITYMECH.curie("conditions"),
+    model_uri=COMMUNITYMECH.treatmentArm__conditions,
+    domain=None,
+    range=Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]],
+)
+
+slots.treatmentArm__timepoints = Slot(
+    uri=COMMUNITYMECH.timepoints,
+    name="treatmentArm__timepoints",
+    curie=COMMUNITYMECH.curie("timepoints"),
+    model_uri=COMMUNITYMECH.treatmentArm__timepoints,
+    domain=None,
+    range=Optional[Union[Union[dict, TreatmentTimepoint], list[Union[dict, TreatmentTimepoint]]]],
+)
+
+slots.treatmentArm__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="treatmentArm__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.treatmentArm__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.treatmentArm__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="treatmentArm__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.treatmentArm__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.treatmentTimepoint__id = Slot(
+    uri=COMMUNITYMECH.id,
+    name="treatmentTimepoint__id",
+    curie=COMMUNITYMECH.curie("id"),
+    model_uri=COMMUNITYMECH.treatmentTimepoint__id,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.treatmentTimepoint__name = Slot(
+    uri=COMMUNITYMECH.name,
+    name="treatmentTimepoint__name",
+    curie=COMMUNITYMECH.curie("name"),
+    model_uri=COMMUNITYMECH.treatmentTimepoint__name,
+    domain=None,
+    range=str,
+)
+
+slots.treatmentTimepoint__elapsed = Slot(
+    uri=COMMUNITYMECH.elapsed,
+    name="treatmentTimepoint__elapsed",
+    curie=COMMUNITYMECH.curie("elapsed"),
+    model_uri=COMMUNITYMECH.treatmentTimepoint__elapsed,
+    domain=None,
+    range=Optional[Union[dict, TimeQuantity]],
+)
+
+slots.treatmentTimepoint__reference_event = Slot(
+    uri=COMMUNITYMECH.reference_event,
+    name="treatmentTimepoint__reference_event",
+    curie=COMMUNITYMECH.curie("reference_event"),
+    model_uri=COMMUNITYMECH.treatmentTimepoint__reference_event,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.treatmentTimepoint__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="treatmentTimepoint__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.treatmentTimepoint__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.abundanceObservation__treatment_arm_id = Slot(
+    uri=COMMUNITYMECH.treatment_arm_id,
+    name="abundanceObservation__treatment_arm_id",
+    curie=COMMUNITYMECH.curie("treatment_arm_id"),
+    model_uri=COMMUNITYMECH.abundanceObservation__treatment_arm_id,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.abundanceObservation__timepoint_id = Slot(
+    uri=COMMUNITYMECH.timepoint_id,
+    name="abundanceObservation__timepoint_id",
+    curie=COMMUNITYMECH.curie("timepoint_id"),
+    model_uri=COMMUNITYMECH.abundanceObservation__timepoint_id,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^[a-z][a-z0-9_-]*$"),
+)
+
+slots.abundanceObservation__replicate = Slot(
+    uri=COMMUNITYMECH.replicate,
+    name="abundanceObservation__replicate",
+    curie=COMMUNITYMECH.curie("replicate"),
+    model_uri=COMMUNITYMECH.abundanceObservation__replicate,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.abundanceObservation__measurement_basis = Slot(
+    uri=COMMUNITYMECH.measurement_basis,
+    name="abundanceObservation__measurement_basis",
+    curie=COMMUNITYMECH.curie("measurement_basis"),
+    model_uri=COMMUNITYMECH.abundanceObservation__measurement_basis,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"\S"),
+)
+
+slots.abundanceObservation__absolute_abundance = Slot(
+    uri=COMMUNITYMECH.absolute_abundance,
+    name="abundanceObservation__absolute_abundance",
+    curie=COMMUNITYMECH.curie("absolute_abundance"),
+    model_uri=COMMUNITYMECH.abundanceObservation__absolute_abundance,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.abundanceObservation__absolute_abundance_unit = Slot(
+    uri=COMMUNITYMECH.absolute_abundance_unit,
+    name="abundanceObservation__absolute_abundance_unit",
+    curie=COMMUNITYMECH.curie("absolute_abundance_unit"),
+    model_uri=COMMUNITYMECH.abundanceObservation__absolute_abundance_unit,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.abundanceObservation__relative_abundance = Slot(
+    uri=COMMUNITYMECH.relative_abundance,
+    name="abundanceObservation__relative_abundance",
+    curie=COMMUNITYMECH.curie("relative_abundance"),
+    model_uri=COMMUNITYMECH.abundanceObservation__relative_abundance,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.abundanceObservation__relative_abundance_unit = Slot(
+    uri=COMMUNITYMECH.relative_abundance_unit,
+    name="abundanceObservation__relative_abundance_unit",
+    curie=COMMUNITYMECH.curie("relative_abundance_unit"),
+    model_uri=COMMUNITYMECH.abundanceObservation__relative_abundance_unit,
+    domain=None,
+    range=Optional[Union[str, "RelativeAbundanceUnitEnum"]],
+)
+
+slots.abundanceObservation__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="abundanceObservation__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.abundanceObservation__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.abundanceObservation__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="abundanceObservation__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.abundanceObservation__evidence,
     domain=None,
     range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
@@ -5999,6 +6622,24 @@ slots.quantity__conditions = Slot(
     range=Optional[str],
 )
 
+slots.timeQuantity__value = Slot(
+    uri=COMMUNITYMECH.value,
+    name="timeQuantity__value",
+    curie=COMMUNITYMECH.curie("value"),
+    model_uri=COMMUNITYMECH.timeQuantity__value,
+    domain=None,
+    range=float,
+)
+
+slots.timeQuantity__unit = Slot(
+    uri=COMMUNITYMECH.unit,
+    name="timeQuantity__unit",
+    curie=COMMUNITYMECH.curie("unit"),
+    model_uri=COMMUNITYMECH.timeQuantity__unit,
+    domain=None,
+    range=Union[dict, Term],
+)
+
 slots.geoLocation__latitude = Slot(
     uri=COMMUNITYMECH.latitude,
     name="geoLocation__latitude",
@@ -6146,6 +6787,15 @@ slots.microbialCommunity__taxonomy = Slot(
     range=Optional[
         Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
     ],
+)
+
+slots.microbialCommunity__treatment_arms = Slot(
+    uri=COMMUNITYMECH.treatment_arms,
+    name="microbialCommunity__treatment_arms",
+    curie=COMMUNITYMECH.curie("treatment_arms"),
+    model_uri=COMMUNITYMECH.microbialCommunity__treatment_arms,
+    domain=None,
+    range=Optional[Union[Union[dict, TreatmentArm], list[Union[dict, TreatmentArm]]]],
 )
 
 slots.microbialCommunity__ecological_interactions = Slot(

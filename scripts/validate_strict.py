@@ -47,6 +47,7 @@ from communitymech.validators.prokaryotic_lineage import check_record as check_p
 from communitymech.validators.quantities import check_record as check_quantities
 from communitymech.validators.related_communities import check_record as check_related_communities
 from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
+from communitymech.validators.treatment_arms import check_record as check_treatment_arms
 from communitymech.validators.yaml_scalars import find_truncated_scalars
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -239,7 +240,11 @@ def validate_one(path: Path) -> list[dict]:
     # Links between records and the host/member boundary (#319). A membership
     # relation is recomputed from both records' strain designations, so it needs
     # the corpus, not just this file.
-    for category, message in (*check_related_communities(instance), *check_quantities(instance)):
+    for category, message in (
+        *check_related_communities(instance),
+        *check_quantities(instance),
+        *check_treatment_arms(instance),
+    ):
         rows.append(
             {
                 "file": str(path),
