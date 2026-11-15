@@ -253,6 +253,22 @@ render. The [three-genus source plan](genus-three-source-context-001.yaml)
 prepares records 000342, 000390 and 000406 while retaining their experimental
 and stock-identity limits. It records no canonical application.
 
+The [PES/Faecalibacterium integration at 9b70c66c](pes-faecalibacterium-integration-9b70c66c.md)
+adds two actual M5 community canaries, independently verified 77- and 81-input
+partial reviews, strict historical admission, 208 passing combined controls,
+lint and native community render probes. Eleven corrections are integrated,
+seven from the historical 126-record partition. The actual 554/340/401 proof
+mutation cases all run by default. Source-specific scientific limitations and
+the failed earlier aggregate remain explicit.
+
+The [R226 source comparison](../gtdb-ambiguity-20261115/paenibacillus-source-comparison-001.md)
+separates the five-name, six-taxon NCBI and three-option native populations for
+record 393. Its captured-byte verification addresses the retained-evidence gap
+in #2870; #2869's canonical source-note/candidate correction remains unresolved.
+The [additional genus source plan](genus-additional-three-source-context-001.yaml)
+prepares records 410, 415 and 477 without changing their biology or declaring
+scientific approval.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
