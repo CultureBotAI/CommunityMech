@@ -16,7 +16,12 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"492": registry.Q5_PATH, "359": registry.PPHET_PATH, "497": registry.BUTANOL_PATH}
+TARGETS = {
+    "492": registry.Q5_PATH,
+    "359": registry.PPHET_PATH,
+    "497": registry.BUTANOL_PATH,
+    "454": registry.ARSENIC_PATH,
+}
 
 
 @pytest.fixture(params=TARGETS, ids=TARGETS)
