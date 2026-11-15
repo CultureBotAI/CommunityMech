@@ -6,8 +6,10 @@ and biofilm ambiguities plus sixteen hexamine correspondences. Record 505 is the
 first application canary: one species-reference correspondence and one ambiguous
 genus descriptor. Its [completed bounded canary checkpoint](505-canary-outcome-002.md)
 now binds the actual M5 write, saved partial assessment, complete verified inputs
-and passing historical controls. The other seven applications remain separate;
-no full scientific approval is claimed.
+and passing historical controls. The [other seven completed applications](seven-record-outcome-001.md)
+have their own saved partial assessment, complete checkpoint, 56 native checks
+and 119 passing evidence controls. All eight bounded taxonomy corrections are
+complete on this branch; full scientific approval is not claimed.
 
 The source judgments come from the previously reviewed
 [three-record plan](../phase2-completion-20261115/status-biofilm-pesticide-three-source-context-001.yaml)

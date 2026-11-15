@@ -13,6 +13,13 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "400": "kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml",
+    "499": "kb/communities/Cyantraniliprole_Consortium_T2.yaml",
+    "500": "kb/communities/Cyantraniliprole_Consortium_T3.yaml",
+    "506": "kb/communities/Hexamine_Formaldehyde_Consortium_C2.yaml",
+    "507": "kb/communities/Hexamine_Formaldehyde_Consortium_C3.yaml",
+    "508": "kb/communities/Hexamine_Formaldehyde_Consortium_C4.yaml",
+    "509": "kb/communities/Hexamine_Formaldehyde_Consortium_C5.yaml",
     "505": "kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml",
     "373": "kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml",
     "365": "kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml",
