@@ -17,6 +17,7 @@ def driver(tmp_path, monkeypatch):
     state.mkdir(parents=True)
     monkeypatch.setattr(module, "ROOT", tmp_path)
     monkeypatch.setattr(module, "STATE", state)
+    monkeypatch.setattr(module, "missing_history", lambda: [])
     revision = "a" * 40
     monkeypatch.setattr(module, "git", lambda *args: revision if args[0] == "rev-parse" else "")
     monkeypatch.setattr(module.shutil, "which", lambda *args, **kwargs: "/usr/local/bin/just")
@@ -59,6 +60,29 @@ def test_finalized_exact_canary_receipt_unlocks_batch_control(driver):
     path.write_text(json.dumps(receipt))
     assert module.main() == 0
     assert calls == [("phase2-test-qc", ["qc"])]
+
+
+def test_missing_immutable_review_base_prevents_expensive_qc(driver, monkeypatch):
+    module, receipt, path, _, calls = driver
+    path.write_text(json.dumps(receipt))
+    monkeypatch.setattr(module, "missing_history", lambda: ["b" * 40])
+    with pytest.raises(SystemExit):
+        module.main()
+    assert not calls
+
+
+@pytest.mark.parametrize("suffix", ["main", "--force", "abc", ""])
+def test_native_history_command_requires_immutable_objects_only(driver, suffix):
+    module, _, _, _, calls = driver
+    path = module.ROOT / ".github/workflows/validate-strict.yaml"
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        "      - name: Fetch historical cache review bases\n"
+        "        run: |\n          git fetch --no-tags origin " + suffix + "\n"
+    )
+    with pytest.raises(ValueError, match="historical-base prerequisite"):
+        module.historical_command()
+    assert not calls
 
 
 @pytest.mark.parametrize(

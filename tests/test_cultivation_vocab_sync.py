@@ -62,6 +62,10 @@ _NOT_STAGED_FOR_METPO = {
     "HostDevelopmentalStageTerm": "dynamic enum over PO and UBERON; already an ontology",
     "SoilTerm": "dynamic enum over ENVO; already an ontology",
     "UnitTerm": "dynamic enum over UO; already an ontology",
+    "TimeUnitTerm": "dynamic time-unit slice of UO; already an ontology",
+    "EnvironmentalFactorTerm": "dynamic CHEBI/PATO/ENVO union; already ontology-grounded",
+    "RelativeAbundanceUnitEnum": "units for relative abundance, not cultivation processes",
+    "TreatmentMembershipStatusEnum": "how arm membership is known; record bookkeeping",
     "CommunityRelationEnum": "how two records in this repo relate; record-linking bookkeeping",
     "CommunityRelationBasisEnum": "how a record link was established; curation bookkeeping",
     "HostParticipationEnum": "host role in an interaction edge; a graph-modelling distinction",
@@ -187,10 +191,9 @@ def test_every_enum_is_either_staged_or_explicitly_exempt():
     )
 
     stale = sorted(classified - schema_enums)
-    assert (
-        stale == []
-    ), "these are classified here but no longer exist in the schema:\n" + "\n".join(
-        f"  {name}" for name in stale
+    assert stale == [], (
+        "these are classified here but no longer exist in the schema:\n"
+        + "\n".join(f"  {name}" for name in stale)
     )
 
     assert not (set(ENUMS) & set(_NOT_STAGED_FOR_METPO)), "an enum cannot be both"

@@ -9,6 +9,8 @@ This driver does not acquire references, edit records or declare scientific appr
 import argparse
 import hashlib
 import json
+import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -18,9 +20,39 @@ from m5_completion_checks import ROOT, STATE, environment, git, now, run_check
 RECORD = "kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml"
 
 
+def historical_command():
+    """Use the same immutable review-base prerequisite as native CI (#2813)."""
+    workflow = (ROOT / ".github/workflows/validate-strict.yaml").read_text()
+    block = workflow.split("      - name: Fetch historical cache review bases\n", 1)[1]
+    block = block.split("\n      - ", 1)[0]
+    command = shlex.split(block.split("run: |", 1)[1].replace("\\\n", " "))
+    if (
+        command[:4] != ["git", "fetch", "--no-tags", "origin"]
+        or not command[4:]
+        or not all(re.fullmatch(r"[0-9a-f]{40}", value) for value in command[4:])
+    ):
+        raise ValueError("unexpected native historical-base prerequisite")
+    return command
+
+
+def missing_history():
+    return [
+        revision
+        for revision in historical_command()[4:]
+        if subprocess.run(
+            ["git", "cat-file", "-e", revision + "^{commit}"],
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode
+    ]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=["install", "plan", "canary", "qc", "products", "docs"])
+    parser.add_argument(
+        "stage", choices=["install", "plan", "history", "canary", "qc", "products", "docs"]
+    )
     parser.add_argument("--expected-revision", required=True)
     parser.add_argument("--attempt", required=True)
     args = parser.parse_args()
@@ -73,6 +105,36 @@ def main():
         return run_check(
             f"{prefix}-plan", ["qc"], dry_run=True, expected_revision=args.expected_revision
         )
+    if args.stage == "history":
+        proof = STATE / f"{prefix}-history-objects.json"
+        if proof.exists():
+            parser.error("historical object proof already exists; use a new attempt")
+        before = missing_history()
+        code = run_check(
+            f"{prefix}-history",
+            [],
+            native_command=historical_command(),
+            expected_revision=args.expected_revision,
+        )
+        if code:
+            return code
+        if missing_history() or git("rev-parse", "HEAD") != args.expected_revision:
+            raise ValueError("historical acquisition did not preserve revision/object identities")
+        objects = []
+        for revision in historical_command()[4:]:
+            if git("rev-parse", revision + "^{commit}") != revision:
+                raise ValueError("historical commit identity mismatch")
+            objects.append(
+                {
+                    "commit": revision,
+                    "tree": git("rev-parse", revision + "^{tree}"),
+                    "present_before_fetch": revision not in before,
+                }
+            )
+        with proof.open("x") as handle:
+            json.dump({"head": args.expected_revision, "objects": objects}, handle, indent=2)
+            handle.write("\n")
+        return 0
     if args.stage == "canary":
         return run_check(
             f"{prefix}-canary",
@@ -110,6 +172,8 @@ def main():
     ):
         parser.error("a persisted passing canary on this exact revision is required")
     recipe = {"qc": "qc", "products": "validate-products", "docs": "check-docs-current"}[args.stage]
+    if args.stage == "qc" and missing_history():
+        parser.error("immutable review bases are missing; run this driver's history stage first")
     return run_check(f"{prefix}-{args.stage}", [recipe], expected_revision=args.expected_revision)
 
 
