@@ -4,7 +4,9 @@ This branch prepares current-reference taxonomy corrections for records 436,
 416 and 494. All three canonical records, historical ledgers, source caches,
 shared curation helpers and scientific claims remain unchanged. No canonical
 application, remote source transfer, native post-application gate or saved
-diagnostic has occurred in this lane.
+diagnostic had occurred at the preparation checkpoint described below. Later
+local previews, the isolated M5 setup and the pending private-transfer
+permission are recorded in [local-preview-checkpoint-001.md](local-preview-checkpoint-001.md).
 
 The isolated checkout starts at published integration revision
 `2db92b640ae1300d0945f4d635ba899c74068249`. Its development environment was
