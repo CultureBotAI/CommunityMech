@@ -1,0 +1,79 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.log",
+    "sha256": "9f3096341153cba346788b1e7c24a5d2b5d50e7fe0fb7b340be10cc6cc04053d"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.json",
+    "sha256": "2f332715894393b61d8018f1210abdb0386644194958d220aee0eb2938d7cf55"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/ambiguity-five-route-five-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record_id": "CommunityMech:000412",
+      "record": "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
+      "before_sha256": "583655d32e85bb7a2786ba99f814f00b83dde9a5dca8e3d3b6d0b4f38ab28d46",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/diatom-ramc-ambiguity-source-context-001.yaml": "42f04ed637404cd0437cf359c2883bb7620deb5aabe5b6c69829026e1e3c006b",
+        "tests/test_causal_review_batch93.py": "d1a08c05d59cd6ba52c215aaf29ebad1dd9ab07a7ff8e2471da480f32ca67c3f",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml": "500c0c50004d7468d58773f647750f745900bfa6463bcd8622ef2e8093ed7651",
+        "reports/gtdb-ambiguity-five-20261115/five-authored-source-context-002.json": "505b806393fc307ddac81904d1452739bd3a13ee0fa70c1ec83ca90dfa226eff",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+        "reports/gtdb-ambiguity-five-20261115/five-source-config-002.json": "3e9a4dc29efc1e526759222ab84e8dc176ca7b3a9ce0f8b36fccb4f3852e5573"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:41381587",
+          "path": "references_cache/PMID_41381587.txt",
+          "sha256": "22b647f41a2c4121d372997b605124a847299d0ddafd289e214fbde1858437cc",
+          "locator": "Retained source excerpts78-106 and bacterial-strains Methods, mixed-oxygenate Results, Figure5 caption and succinate Discussion in flattened line150.",
+          "coverage": "Full current record and selected retained primary passages; no new supplement, raw data, figure pixels or full scientific review.",
+          "identity_tokens": [
+            "41381587",
+            "10.1038/s41467-025-67409-w"
+          ],
+          "anchors": [
+            "Rhodococcus jostii strain PET",
+            "ATCC identification number: 33305"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:132919",
+            "label": "Rhodococcus jostii"
+          },
+          "strain_name": "PET",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary's in-house wild-typePET stock is also RPET/SR and is paired with ADP1/ATCC33305. Keep these stocks distinct from engineered SR-P/SA-P in RAMC-P and from PET polymer feedstock.",
+          "population_scope": "Both native species-name alternatives remain unselected. No species correspondence identifies the PET stock's assembly placement or experimentally traces a cross-feeding flux.",
+          "name_scope": "Preserve PET/RPET/SR source identity without a formal rename, stock merger or reference-genome claim.",
+          "native_result": {
+            "ambiguous": true,
+            "gtdb_options": [
+              "GTDB:s__Rhodococcus_jostii",
+              "GTDB:s__Rhodococcus_jostii_A"
+            ],
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:132919",
+            "ncbi_species": "Rhodococcus jostii",
+            "via": "ncbi_name"
+          },
+          "classify_status": {
+            "candidates": [
+              "GTDB:s__Rhodococcus_jostii",
+              "GTDB:s__Rhodococcus_jostii_A"
+            ],
+            "status": "AMBIGUOUS"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Preserve ADP1's28/.96block, oneNICHE_PARTITIONINGnode and absent succinatearrow, complementary aromatic/aliphatic substrate use and chemical plasticdeconstruction. Keep125-750mM totalcarbon distinct from moleculemM,9:1to1:9 inocula and engineeredRAMC-P products distinct from wildtype. Openramc_succinate_node_cross_feeding remains; issue1753 is not itsowner. Batch93 unchangedrow/zeroeventledger stayshistorical, with388proof and allotherrecords/currentbiology preserved; only explicit412proof projects its oldhash."
+    }
+  ]
+}
