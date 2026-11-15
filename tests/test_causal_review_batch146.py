@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from ambiguity_status_successor import current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -130,10 +131,12 @@ def test_batch146_ledger_matches_curated_records() -> None:
 
         yaml_path = ROOT / row["path"]
         digest = hashlib.sha256(yaml_path.read_bytes()).hexdigest()
-        assert digest == expected["record_sha256"]
+        assert digest == current_record_sha256(ROOT, row["path"], expected["record_sha256"])
         doc = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
 
-        validate_batch146_entry(row, doc, digest)
+        # The strict successor proves all original biological assertions remain
+        # equal; the immutable ledger continues to describe its original bytes.
+        validate_batch146_entry(row, doc, expected["record_sha256"])
 
         nodes = doc.get("ecological_interactions") or []
         edges = [e for n in nodes for e in (n.get("downstream") or [])]

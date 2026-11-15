@@ -1,0 +1,37 @@
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Faecalibacterium_Prausnitzii_A2_165_2FL_FOS_Monoculture_Baseline.yaml
+  slug: Faecalibacterium_Prausnitzii_A2_165_2FL_FOS_Monoculture_Baseline
+session:
+  id: 2026-11-15T060616Z-codex-7ba0d3
+  timestamp: '2026-11-15T06:06:16Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2848
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2804
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - curation_history
+  summary: Retain all native GTDB alternatives for the existing species descriptor
+  details: 'Applied the independently reviewed status-only M5 candidate SHA256 d1843b01c495ca1a2c44820435e3a60b76e65089eff627590c26b5d0e003bcb6.
+    PMID:42655156 Methods2.1 identifies A2-165 as JCM31915, using the source name Faecalibacterium
+    prausnitzii. The exact NCBI2GTDB snapshot SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    returns three alternatives for the existing NCBITaxon:853 species descriptor: Faecalibacterium
+    longum, Faecalibacterium prausnitzii and Faecalibacterium prausnitzii_D. Persist AMBIGUOUS
+    and the complete native list without selecting a species, reidentifying A2-165, changing
+    its stock designation, or modifying any biology, graph, source quotation or historical
+    batch146 ledger. The cited literature also uses Faecalibacterium duncaniae for A2-165;
+    stock-specific nomenclature/genome identity remains outside this computability correction.
+    Actual raw application receipt .temp/gtdb-ambiguity-20261115/ambiguity-apply-001/receipt.json
+    SHA256 9aae41ac2845de3d650de74e2913d0b469c30fc8fddd332eb70eb9fa8293e785. A scoped diagnostic
+    assessment and actual native focused gates follow.'
