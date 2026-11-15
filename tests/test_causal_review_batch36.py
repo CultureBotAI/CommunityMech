@@ -6,6 +6,7 @@ from pathlib import Path
 
 import yaml
 from m5_review_successor import assert_cache_successor, current_record_sha256
+from phase2_review_successor import historical_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml"
@@ -31,7 +32,9 @@ def latest_record_sha256(row):
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
-    return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
+    # Historical claims stay tested against their preserved pre-Phase-2 bytes.
+    # The hash test below separately proves the current scientific successor.
+    return ledger, [yaml.safe_load(historical_bytes(ROOT, r["path"])) for r in ledger["records"]]
 
 
 def test_ecofab_excludes_sterile_plant_experiment_and_keeps_treatment_effects():

@@ -47,6 +47,11 @@ _EXEMPT = {
         "under .temp/phase2-science-20261115; verifies current scientific inputs "
         "and native receipts without editing records, caches or history (#2788)"
     ),
+    "scripts/adhoc/build_phase2_successor_manifest_20261115.py": (
+        "writes only an exclusive reports/phase2-completion-20261115 lineage manifest; "
+        "reads canonical records, actual apply receipts and native saved reviews without "
+        "curating any record or changing earlier evidence (#2788, #2816)"
+    ),
     "scripts/adhoc/check_phase2_linked_records_20261115.py": (
         "writes only exclusive private native receipts, OAK configuration and exact "
         "record/cache copies under .temp/phase2-science-20261115; reads the three "

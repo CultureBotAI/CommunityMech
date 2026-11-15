@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from phase2_review_successor import current_record_sha256, historical_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml"
@@ -26,14 +27,15 @@ def latest_record_sha256(row):
             "record_sha256": row["record_sha256"],
         }:
             assert successor["original_sha256"] == row["record_sha256"]
-            return successor["record_sha256"]
+            return current_record_sha256(ROOT, row["path"], successor["record_sha256"])
     return row["record_sha256"]
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = {Path(row["path"]).stem: row for row in ledger["records"]}
-    docs = {name: yaml.safe_load((ROOT / row["path"]).read_text()) for name, row in rows.items()}
+    # Preserve old scientific checks; require a bound current successor below.
+    docs = {name: yaml.safe_load(historical_bytes(ROOT, row["path"])) for name, row in rows.items()}
     return ledger, rows, docs
 
 

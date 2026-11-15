@@ -5,6 +5,8 @@ import json
 import subprocess
 
 import yaml
+from phase2_review_successor import TARGETS
+from phase2_review_successor import current_record_sha256 as phase2_record_sha256
 
 PROVENANCE = "reports/m5-completion-20261114/successor-provenance.yaml"
 BASELINE = "76aa644cd6803ea2c9545d4c704276ede219d354"
@@ -57,6 +59,8 @@ def current_record_sha256(root, predecessor, row, *, provenance=None, current=No
         before = receipt["after_sha256"]
     assert before == successor["record_sha256"]
     current = (root / row["path"]).read_bytes() if current is None else current
+    if row["path"] in TARGETS:
+        return phase2_record_sha256(root, row["path"], before, current=current)
     assert digest(current) == before
     return before
 
