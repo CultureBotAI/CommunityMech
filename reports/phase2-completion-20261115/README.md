@@ -343,10 +343,17 @@ remain explicit; this is not final combined M5 QC.
 
 The [four further integrations at 82113fe3](four-record-integration-82113fe3.md)
 add 350, 364, 458 and 456 with their complete M5 evidence and private checkpoints.
-There are now 65 integrated corrections, including 61 of the 126 partition
-records; 65 remain. The clean revision passed 58 affected registry/caller tests
+At that checkpoint there were 65 integrated corrections, including 61 of the 126
+partition records; 65 remained. The clean revision passed 58 affected registry/caller tests
 and native lint. Independent review accepted the composed 338/400/456 batch10
 admissions. Source plans and note-only intermediates remain outside these counts.
+
+The [completed Mulberry435 integration at 57e97e99](mulberry435-integration-57e97e99.md)
+adds its strict source-note/mapping proof and verified complete checkpoint.
+There are now 66 integrated corrections, including 62 of the 126 partition
+records; 64 remain. Thirteen affected registry, batch75 and historical-fetch
+tests passed on the clean combined revision, as did native lint. Its actual M5
+execution and partial scientific scope remain distinct from integration checks.
 
 ## Campaign restart
 
