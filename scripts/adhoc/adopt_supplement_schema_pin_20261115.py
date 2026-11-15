@@ -1,10 +1,13 @@
-"""Prepare the reviewed Claw #1283 schema pin; CommunityMech #1996, 2026-11-15.
+"""Finalize the reviewed Claw #1283 schema pin; CommunityMech #1996, 2026-11-15.
 
 Inputs: reviewed immutable Claw checkout and this exact clean
 CommunityMech worktree. Outputs: native plan/application plus exclusive private
 before/after evidence. Defaults to planning; apply uses RepositorySettings,
 LockManager and the maintained transactional synchronizer. No other consumer,
 record, cache, live configuration or merge is changed by this helper.
+The initial three-file adoption used this helper as committed at 09254e5d;
+its schema-apply-001 receipt remains immutable. This follow-up advances only
+the governance pin after Claw's native template baseline correction.
 """
 
 import argparse
@@ -17,11 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-PIN = "75ce01bdd326ce74278bc2bbcde7f78f002eb803"
+PIN = "846c4635c305ff1d837fcb4aa7e261a01c4258e3"
 EXPECTED_BEFORE = {
-    "scripts/.vendored_canon_ref": "cfb2d8425f0b4fa2a3c77636c68644002c140281181d69d4186d4c78671595e9",
-    "scripts/check_vendored_sync.py": "673ecd7ea0b34a29ebef8d1068d8d8973a460680e956237c8e09d97a8a22deb3",
-    "src/communitymech/schema/mech_shared.yaml": "cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11",
+    "scripts/.vendored_canon_ref": "fd0d27c3ef06c3880e429242131ee858335988d0229393800a3a12288445e1bf",
 }
 EXPECTED = set(EXPECTED_BEFORE)
 EXPECTED_ROOT = Path("/Users/marcin/agent-work/CommunityMech/supplement-adoption-1996-20261115")
@@ -65,7 +66,7 @@ def main():
         parser.error("configured repository differs from this worktree")
     changes = plan_sync("communitymech", ROOT, PIN)
     if {change.path for change in changes} != EXPECTED:
-        parser.error("native plan differs from the reviewed schema, checker and pin")
+        parser.error("native plan differs from the reviewed pin-only follow-up")
     before = {name: (ROOT / name).read_bytes() for name in sorted(EXPECTED)}
     if {name: sha(raw) for name, raw in before.items()} != EXPECTED_BEFORE:
         parser.error("target bytes differ from the reviewed adoption predecessor")
