@@ -1,4 +1,4 @@
-"""Publish immutable metadata for five verified Phase2 writes, 2026-11-15.
+"""Publish immutable metadata for six verified Phase2 writes, 2026-11-15.
 
 Inputs: original applied receipts, exact retained canonical before/after copies,
 current three records and native history sidecars. Output: exclusive public
@@ -25,6 +25,7 @@ STEPS = (
     ("ecofab-linked-stock", "linked-stock-plan-003/ecofab", "apply/receipt.json"),
     ("dopamine-linked-stock", "linked-stock-plan-003/dopamine", "apply/receipt.json"),
     ("lbnl-linked-stock", "linked-stock-plan-003/lbnl", "apply/receipt.json"),
+    ("ecofab-source-scope", "ecofab-scope-plan-002", "apply/receipt.json"),
 )
 
 
@@ -108,7 +109,7 @@ def main():
             sidecars[str(path.relative_to(ROOT))] = sha(path.read_bytes())
     result = {
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "scope": "Five applied scientific/metadata writes through linked-stock checkpoint; no later1427/2675 correction or full-QC completion claimed.",
+        "scope": "Six applied scientific/metadata writes, including the EcoFAB source correction for issues 1427/2675. This applied chain does not claim full QC completion.",
         "baseline_revision": BASE,
         "checkpoint_revision": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
