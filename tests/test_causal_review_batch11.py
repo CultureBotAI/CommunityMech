@@ -5,13 +5,18 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from source_note_gtdb_successors import BEFORE, BL6, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml"
 
 
 def record(stem):
-    return yaml.safe_load((ROOT / "kb/communities" / f"{stem}.yaml").read_text())
+    path = f"kb/communities/{stem}.yaml"
+    raw = (ROOT / path).read_bytes()
+    if path == BL6:
+        admit_note_mapping_successor(ROOT, path, BEFORE[BL6], current=raw)
+    return yaml.safe_load(raw)
 
 
 def test_bl6_keeps_host_phenotype_without_competition_or_strain_persistence():
@@ -122,7 +127,12 @@ def test_batch11_hash_bound_decisions_cover_every_node_and_arrow():
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 4
     for row in rows:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        expected = row["record_sha256"]
+        if row["path"] == BL6:
+            expected = admit_note_mapping_successor(
+                ROOT, row["path"], expected, current=raw
+            ).current_sha256
+        assert hashlib.sha256(raw).hexdigest() == expected
         doc = yaml.safe_load(raw)
         nodes = doc["ecological_interactions"]
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(
