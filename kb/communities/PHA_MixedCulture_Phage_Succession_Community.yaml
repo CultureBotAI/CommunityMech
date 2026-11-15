@@ -43,7 +43,17 @@ taxonomy:
     term:
       id: NCBITaxon:12960
       label: Azoarcus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Azoarcus
+      gtdb_taxon: Azoarcus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Rhodocyclaceae;g__Azoarcus
+      ncbi_source_id: NCBITaxon:12960
+      majority_fraction: 1.0
+      support_genomes: 11
+      total_genomes: 11
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: 'A dominant PHA-producing genus, dominant in Reactors A and B but not C and D; named in the
       paper''s summary as a dominant producer depleted by phages.
 
@@ -62,7 +72,17 @@ taxonomy:
     term:
       id: NCBITaxon:265
       label: Paracoccus <a-proteobacteria>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Paracoccus
+      gtdb_taxon: Paracoccus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus
+      ncbi_source_id: NCBITaxon:265
+      majority_fraction: 1.0
+      support_genomes: 486
+      total_genomes: 486
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: 'A dominant PHA-producing genus. NCBITaxon carries a metazoan homonym (NCBITaxon:249411); this
       record uses the bacterial genus. Its phage linkages were among the most variable across time points,
       appearing and disappearing between samplings in Reactors C, D, and E.
@@ -82,7 +102,17 @@ taxonomy:
     term:
       id: NCBITaxon:69961
       label: Azomonas
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Azomonas
+      gtdb_taxon: Azomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Azomonas
+      ncbi_source_id: NCBITaxon:69961
+      majority_fraction: 1.0
+      support_genomes: 6
+      total_genomes: 6
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: 'A dominant PHA-producing genus whose phage linkages were among the most stable across time,
       in Reactors B, C, and E.
 
@@ -101,7 +131,17 @@ taxonomy:
     term:
       id: NCBITaxon:33057
       label: Thauera
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Thauera
+      gtdb_taxon: Thauera
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Rhodocyclaceae;g__Thauera
+      ncbi_source_id: NCBITaxon:33057
+      majority_fraction: 0.924
+      support_genomes: 85
+      total_genomes: 92
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
     notes: 'A dominant PHA-producing genus, dominant in Reactor E; its phage linkages in Reactor A varied
       between time points.
 
@@ -120,7 +160,17 @@ taxonomy:
     term:
       id: NCBITaxon:41275
       label: Brevundimonas
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Brevundimonas
+      gtdb_taxon: Brevundimonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Caulobacterales;f__Caulobacteraceae;g__Brevundimonas
+      ncbi_source_id: NCBITaxon:41275
+      majority_fraction: 1.0
+      support_genomes: 221
+      total_genomes: 221
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: 'A dominant genus holding a persistent linkage to phage 1010E_19 in Reactor A across all sampled
       time points.
 
@@ -544,3 +594,11 @@ curation_history:
     predictions and transcripts; remove unsupported infection typing and causal arrow; omit assay-only
     oxygen control from enrichment setup.'
   llm_assisted: true
+- timestamp: '2026-11-15T11:12:59Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 5 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T11:13:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 5 taxonomy entries (#294, #395).'
