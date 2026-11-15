@@ -1,0 +1,103 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.log",
+    "sha256": "12309d2473eb63a427dbf7d6bfbaf6c918f2cb7fbd24352936bbbd36dde825e4"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.json",
+    "sha256": "13743e5b761423956606cb5e5f9f16de485a597a362b2e563664ff7308988276"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/species-route-ten-002.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
+      "record_id": "CommunityMech:000388",
+      "before_sha256": "5b74bd01d770c894a9dd65240bf47b4754d997013fa2681a63abf653a1fb82d0",
+      "additional_inputs": {
+        "reports/gtdb-species-status-20261115/jmp134-source-evidence-001.json": "97fea5d3d87de7879155a45b29e8f0a754821f27fd87f4b875653bfc70e18d7f",
+        "reports/gtdb-species-status-20261115/yljm2c-source-evidence-001.json": "7741938514a8f5ff8d4336e12716c9f53207eb1806ee6339891a8a178ae9bad0",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml": "500c0c50004d7468d58773f647750f745900bfa6463bcd8622ef2e8093ed7651",
+        "tests/test_causal_review_batch93.py": "4fd15b6e98e64b9e83fbcd7fe9a3309bc579fb8f368ff1e149c85b86622d1d4f",
+        "reports/gtdb-species-status-20261115/next-ten-authored-source-context-001.json": "d3f8c7e6ace5dcbc9977b71b85e985b9be6c93ee171ff327b07c7ca47dc2a1d6",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+        "reports/gtdb-species-status-20261115/next-ten-source-config-001.json": "07cda7b4fc2d9b7e88f742cbae442a453a17d910e12f297ff5f28517aae63391"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:42364169",
+          "path": "references_cache/PMID_42364169.txt",
+          "sha256": "76ae187fe615a75d522443b9deb085bc8499efb54df080407563f901c514a4d4",
+          "locator": "Main Methods strains and culture conditions; Results ANI-based YL-JM2C identification; data availability.",
+          "coverage": "Retained main-text stock contexts and the two accepted isolate source assessments; no fresh supplement-pixel or closed-carbon-balance review.",
+          "identity_tokens": [
+            "10.1093/ismejo/wrag163",
+            "Metabolic interactions enable aerobic degradation"
+          ],
+          "anchors": [
+            "R. wittichii YL-JM2C",
+            "C. necator JMP134",
+            "PRJNA1397584"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:160791",
+            "label": "Rhizorhabdus wittichii"
+          },
+          "strain_name": "YL-JM2C",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The primary study names YL-JM2C and reports an ANI-based Rhizorhabdus wittichii interpretation; the accepted 000554 assessment separately verifies this same descriptor and source. Preserve the stock and all consortium biology.",
+          "population_scope": "Seven reference genomes and reported majority fraction 0.86 describe the species-ID crosswalk population. No membership of YL-JM2C in that population or numerator is inferred; PRJNA1397584 is a BioProject, not an assembly accession.",
+          "name_scope": "Preserve the primary Rhizorhabdus name and canonical species ID; no formal nomenclatural event is inferred from a database correspondence.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Rhizorhabdus_wittichii",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Rhizorhabdus;s__Rhizorhabdus wittichii",
+            "gtdb_taxon": "Rhizorhabdus wittichii",
+            "is_reclassified": false,
+            "majority_fraction": 0.86,
+            "ncbi_source_id": "NCBITaxon:160791",
+            "total_genomes": 7,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:264198",
+            "label": "Cupriavidus pinatubonensis JMP134"
+          },
+          "strain_name": "JMP134",
+          "expected_ncbi_rank": "NCBITaxon:strain",
+          "source_assessment": "The primary study uses C. necator JMP134; the accepted 000555 local NCBI evidence binds that synonym to exact strain taxon 264198. This applies the same verified correspondence to the unchanged consortium member.",
+          "population_scope": "The exact strain-ID route has one reference genome and fraction 1.0. It does not certify another study stock, pathway gene genotype or an uninspected assembly accession.",
+          "name_scope": "Keep source C. necator wording, preferred stock name and canonical C. pinatubonensis JMP134 label distinct; no source naming is rewritten.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Cupriavidus_pinatubonensis",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus;s__Cupriavidus pinatubonensis",
+            "gtdb_taxon": "Cupriavidus pinatubonensis",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "ncbi_source_id": "NCBITaxon:264198",
+            "total_genomes": 1,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Batch 93 retains the positive forward intermediate cross-feeding, no reverse rescue, parent disappearance versus intermediate clearance, source limitations and last old llm-assisted history. Admit the exact predecessor and preserve those predicates; append the new native events without editing the original ledger. Existing issue 1753 non-graph role boundary remains outside this correction."
+    }
+  ]
+}
