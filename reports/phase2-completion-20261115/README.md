@@ -192,6 +192,26 @@ Phase 2 targets again have 270 actual comparisons, 268 matches and the same two
 switchgrass mismatches. This reuses the existing owners without claiming a fresh
 issue-state audit or resolving scientific findings.
 
+A [separate issue-state snapshot](code006-reference-issue-states-002.md) at
+`2026-11-15T05:33:40Z` confirms all eleven existing owner issues are open.
+Every one of the seventeen affected records has an open owner. The
+[JSON snapshot](code006-reference-issue-states-002.json) binds the unchanged
+occurrence ledger and the individual read times and metadata hashes. This
+retains the reference failures as blockers; it does not resolve them.
+Review finding [#2859](https://github.com/CultureBotAI/CommunityMech/issues/2859)
+identified separate parse/hash reads in the first unpublished exporter attempt.
+The corrected helper derives state and digest from one captured byte sequence
+and checks every snapshot again before publication. Two focused controls pass,
+including mutation of a non-canary snapshot followed by successful restoration.
+The original attempt remains private and unchanged; this numbered report came
+from a fresh one-issue canary followed by the remaining ten reads.
+
+Two scoped taxonomy corrections now have complete M5 canary evidence:
+[Sulfobacillus](../gtdb-source-routes-2849-20261115/README.md) and
+[Mycobacterium](../gtdb-code006-20261115/canary-000434-003/README.md).
+Their saved technical assessments preserve the older scientific limitations.
+They do not constitute a combined full-QC pass or restart the scientific campaign.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
