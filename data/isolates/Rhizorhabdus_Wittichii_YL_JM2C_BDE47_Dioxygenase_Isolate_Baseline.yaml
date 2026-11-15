@@ -75,7 +75,16 @@ taxonomy:
     term:
       id: NCBITaxon:160791
       label: Rhizorhabdus wittichii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Rhizorhabdus_wittichii
+      gtdb_taxon: Rhizorhabdus wittichii
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Rhizorhabdus;s__Rhizorhabdus wittichii
+      ncbi_source_id: NCBITaxon:160791
+      majority_fraction: 0.86
+      total_genomes: 7
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Reclassified from Sphingomonas to Rhizorhabdus wittichii YL-JM2C based on ~97% whole-genome ANIb with R. wittichii
       RW1.
   strain_designation:
@@ -258,3 +267,11 @@ curation_history:
     TcsAaAb BDE-47 dioxygenation / dead-end 2,4-DBP node from 3 to 5 non-overlapping, bracket-free verbatim snippets without
     inventing unsupported downstream edges.
   llm_assisted: true
+- timestamp: '2026-11-15T06:20:50Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T06:20:50Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

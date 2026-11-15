@@ -119,6 +119,28 @@ def gate_payload(review, captured, row, gate, directory, check_id, revision):
     return public_log, exit_raw, (json.dumps(public, indent=2) + "\n").encode()
 
 
+def gate_artifacts(captured, directory, output, prefix, gate, check_id, values):
+    """Link published bytes to the exact raw triplet already bound to the review."""
+    payloads, proof = {}, {"check_id": check_id}
+    for key, suffix, raw_name, raw in zip(
+        ("log", "exit", "receipt"),
+        ("log.txt", "exit.txt", "receipt.json"),
+        ("native.log", "native.exit", "receipt.json"),
+        values,
+        strict=True,
+    ):
+        destination = output / f"{prefix}-{gate}.{suffix}"
+        source = directory / raw_name
+        payloads[destination] = raw
+        proof[key] = {
+            "path": str(destination.relative_to(ROOT)),
+            "sha256": audit.digest(raw),
+            "raw_path": str(source.relative_to(ROOT)),
+            "raw_sha256": audit.digest(captured[source]),
+        }
+    return payloads, proof
+
+
 def prepare(config_path, expected_config_sha):
     config_path = config_path.resolve()
     raw_config = config_path.read_bytes()
@@ -208,6 +230,7 @@ def prepare(config_path, expected_config_sha):
             RECIPES
         ):
             raise ValueError("required native gate set differs")
+        check_evidence = {}
         for gate, item in gates.items():
             directory = safe_path(item["directory"])
             values = gate_payload(
@@ -219,8 +242,11 @@ def prepare(config_path, expected_config_sha):
                 item["check_id"],
                 config["execution_revision"],
             )
-            for suffix, raw in zip(("log.txt", "exit.txt", "receipt.json"), values, strict=True):
-                payloads[out / f"{prefix}-{gate}.{suffix}"] = raw
+            gate_outputs, proof = gate_artifacts(
+                captured, directory, out, prefix, gate, item["check_id"], values
+            )
+            payloads.update(gate_outputs)
+            check_evidence[gate] = proof
         manifest = {
             "execution_revision": config["execution_revision"],
             "target": row["target"],
@@ -235,6 +261,7 @@ def prepare(config_path, expected_config_sha):
             "grounding_evidence": source_artifact,
             "history_sidecar": sidecar_artifact,
             "required_checks": list(gates),
+            "check_evidence": check_evidence,
             "review_inputs_verified": len(review["source"]["inputs"]),
             "native_markdown_verified": True,
             "mutable_taxonomy_indices": row["mutable_taxonomy_indices"],

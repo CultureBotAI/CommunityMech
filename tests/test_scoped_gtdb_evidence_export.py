@@ -84,6 +84,35 @@ def test_actual_scope_and_raw_hashes_are_retained(gate):
     assert proof["public_log_sha256"] == module.audit.digest(log)
 
 
+def test_successor_links_each_public_triplet_to_its_bound_raw_bytes(gate):
+    module, review, captured, row, directory, _receipt = gate
+    values = module.gate_payload(review, captured, row, "schema", directory, "schema", "b" * 40)
+    payloads, proof = module.gate_artifacts(
+        captured, directory, module.ROOT / "reports", "unit", "schema", "schema", values
+    )
+    assert proof["check_id"] == "schema" and set(proof) == {"check_id", "log", "exit", "receipt"}
+    for key, raw_name in (
+        ("log", "native.log"),
+        ("exit", "native.exit"),
+        ("receipt", "receipt.json"),
+    ):
+        item = proof[key]
+        assert item["sha256"] == module.audit.digest(payloads[module.ROOT / item["path"]])
+        assert item["raw_path"] == str((directory / raw_name).relative_to(module.ROOT))
+        assert item["raw_sha256"] == module.audit.digest(captured[directory / raw_name])
+    assert proof["receipt"]["sha256"] != proof["receipt"]["raw_sha256"]
+    source = directory / "native.log"
+    saved = captured.pop(source)
+    with pytest.raises(KeyError):
+        module.gate_artifacts(
+            captured, directory, module.ROOT / "reports", "unit", "schema", "schema", values
+        )
+    captured[source] = saved
+    assert module.gate_artifacts(
+        captured, directory, module.ROOT / "reports", "unit", "schema", "schema", values
+    ) == (payloads, proof)
+
+
 @pytest.mark.parametrize(
     "mutation",
     [
