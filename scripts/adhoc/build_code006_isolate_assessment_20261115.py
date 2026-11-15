@@ -363,7 +363,7 @@ def main():
         "targets": targets,
         "scope": {
             "description": "Only the database correspondence, guarded application/history chain and technical checks were assessed.",
-            "selection": "First independently accepted pure same-name higher-rank isolate candidate; original basename and source identity retained.",
+            "selection": "Independently accepted pure same-name higher-rank isolate candidate; original basename and source identity retained.",
             "population_size": 1,
             "reviewed_target_ids": [identity],
             "coverage": "partial",

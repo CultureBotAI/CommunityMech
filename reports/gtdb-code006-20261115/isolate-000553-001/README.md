@@ -1,0 +1,5 @@
+# Isolate 000553: scoped genus correspondence
+
+The native saved [assessment](../../../reviews/structured/20261115T062629Z-gtdb-genus-000553-canary/review.yaml) binds 84 inputs. Seven scoped checks and both unchanged outstanding-grounding tests passed. Public logs/exits are byte-identical to the review-bound raw artifacts except the strict log: its one absolute native checkout prefix is replaced with <checkout>, with raw and derived hashes plus the exact transformation recorded in the manifest. The term CLI reports `Validation passed` without assertion counters; its local adapter identity check used file stats, not database byte hashes.
+
+The exact application receipt and native recomputation are reproduced byte-for-byte. Only the genus block, grounding status and native inline history changed; study-stock species/genome identity, all biological content and historical scientific findings remain unchanged. This is a partial technical assessment with scientific_review:false. Full scientific review and full corpus QC are separate.
