@@ -1,0 +1,70 @@
+{
+  "scope": "taxonomy-notes-only",
+  "scientific_review": false,
+  "target": "kb/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.yaml",
+  "target_id": "CommunityMech:000393",
+  "before_sha256": "2003158329c3f2113f6239f65b1e6a1b85bd3c19204f7aaf9d90be7f1f5c68f0",
+  "event_changes": "Clarified the Paenibacillus descriptor's pinned native NCBI-name correspondence versus distinct R226 GTDB-name and NCBI-defined reference populations, preserving unresolved experimental-stock placement (#2869). This note-only intermediate leaves the separate native mapping correction pending.",
+  "notes": [
+    {
+      "taxonomy_index": 2,
+      "existing_descriptor": {
+        "preferred_term": "Paenibacillus polymyxa",
+        "term": {"id": "NCBITaxon:1406", "label": "Paenibacillus polymyxa"},
+        "gtdb_grounding_status": "AMBIGUOUS",
+        "gtdb_candidates": [
+          "GTDB:s__Paenibacillus_polymyxa",
+          "GTDB:s__Paenibacillus_polymyxa_B",
+          "GTDB:s__Paenibacillus_polymyxa_C",
+          "GTDB:s__Paenibacillus_polymyxa_D",
+          "GTDB:s__Paenibacillus_polymyxa_E"
+        ],
+        "notes": "The local kg-microbe NCBI2GTDB crosswalk was unavailable during curation; direct inspection of the GTDB bac120 taxonomy table showed Paenibacillus polymyxa split across five GTDB species clusters with no majority."
+      },
+      "existing_stock": {
+        "isolation_source": "tomato root",
+        "notes": "Raw genome reads reported under SRA run SRR33221449."
+      },
+      "before": "The local kg-microbe NCBI2GTDB crosswalk was unavailable during curation; direct inspection of the GTDB bac120 taxonomy table showed Paenibacillus polymyxa split across five GTDB species clusters with no majority.",
+      "after": "The pinned kg-microbe NCBI2GTDB.tsv.gz correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves this species descriptor by the native ncbi_name route, with no exact NCBITaxon:1406 rows, to three GTDB alternatives: Paenibacillus polymyxa, P. polymyxa_B and P. polymyxa_C. This source's GTDB release is not established. A separate verified R226 GTDB name query finds 193 genomes in five bins (83 unsuffixed, 65 _B, 20 _C, 24 _D, 1 _E); it is not an NCBI-defined population. R226's NCBI correspondence workbook, Species row 331, instead reports 128 genomes across six taxa: unsuffixed 55.47%, _B 23.44%, _C 9.38%, _D 7.81%, P. ottowii 3.12%, _E 0.78%. The original five-candidate table's release could not be established. These reference populations do not assign the experimental root isolate to a GTDB species; the primary paper reports raw reads SRR33221449, not an assembly-grounded GTDB assignment."
+    }
+  ],
+  "inputs": {
+    "kb/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.yaml": "2003158329c3f2113f6239f65b1e6a1b85bd3c19204f7aaf9d90be7f1f5c68f0",
+    "references_cache/PMID_41387930.txt": "28088317360ce0a54f4245a898a662748ffce070f080cf47f96994f5eaa5588f",
+    "reports/gtdb-ambiguity-20261115/paenibacillus-source-comparison-001.md": "cee75efa0c44463745b1c7898db69f48a758967c4158ab4c190f74126d7f8dd2",
+    "reports/gtdb-ambiguity-20261115/paenibacillus-native-route-001.json": "f8d6b56b29fae6e15258fe440fe69c8b6e77df672077f564ef99fe6aa0316220",
+    "reports/gtdb-ambiguity-20261115/r226-paenibacillus-name-population-001.json": "6871416b623d93a3b453b841ef99fb4f225206f71fe89bac2ca2730e4a83dd2a",
+    "reports/gtdb-ambiguity-20261115/r226-paenibacillus-ncbi-correspondence-001.json": "87a1aee395657c7d71ccc620c46c8761afaf909be827442b9d0eb84bb6496b40",
+    "reports/gtdb-ambiguity-20261115/r226-retained-verification-001.json": "fdf92a29da268c643229929d9eeb07e45d71b747fa3185ec27f0156e6be0a85b",
+    "reports/gtdb-ambiguity-20261115/r226-official-md5sum-001.txt": "00715faa537d601027d611377f7d7dedb4da2decf6fda4c950faab41da64bf3f"
+  },
+  "source_anchors": [
+    {
+      "path": "references_cache/PMID_41387930.txt",
+      "locator": "Data availability, retained cache line 75",
+      "text": "Paenibacillus polymyxa (SRR33221449)"
+    },
+    {
+      "path": "reports/gtdb-ambiguity-20261115/r226-paenibacillus-name-population-001.json",
+      "locator": "species_row_counts; all 193 matching rows retained",
+      "text": "\"s__Paenibacillus polymyxa\": 83"
+    },
+    {
+      "path": "reports/gtdb-ambiguity-20261115/r226-paenibacillus-ncbi-correspondence-001.json",
+      "locator": "Species sheet, row 331",
+      "text": "s__Paenibacillus polymyxa 55.47%, s__Paenibacillus polymyxa_B 23.44%, s__Paenibacillus polymyxa_C 9.38%, s__Paenibacillus polymyxa_D 7.81%, s__Paenibacillus ottowii 3.12%, s__Paenibacillus polymyxa_E 0.78%"
+    },
+    {
+      "path": "reports/gtdb-ambiguity-20261115/r226-retained-verification-001.json",
+      "locator": "Additive exact-byte verification of retained primary tables; #2870",
+      "text": "\"all_saved_extractions_equal\": true"
+    },
+    {
+      "path": "reports/gtdb-ambiguity-20261115/paenibacillus-native-route-001.json",
+      "locator": "records[0].occurrences[2].native_result and lookup_indexes",
+      "text": "\"ncbi_species\": \"Paenibacillus polymyxa\""
+    }
+  ],
+  "limits": "Partial source-population note correction only. Current candidates remain unchanged in this first transition until the separately reviewed mapping-only application. No experimental-stock species choice, new assembly identity, other-taxonomy changes, biological-claim review, or corpus-QC completion. Original source-table identity remains unknown; adjacent Rhodanobacter's manual R226 block is preserved."
+}
