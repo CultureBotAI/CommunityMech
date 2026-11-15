@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml"
@@ -118,8 +119,16 @@ def test_batch66_whole_node_ledger_history_and_no_false_completion():
     assert sum(len(r["node_decisions"]) for r in rows.values()) == 9
     for name, row in rows.items():
         doc = docs[name]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        raw = (ROOT / row["path"]).read_bytes()
+        expected = row["record_sha256"]
+        historical = doc
+        if name == B:
+            assert doc == yaml.safe_load(raw)
+            proof = admit_genus_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        assert hashlib.sha256(raw).hexdigest() == expected
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         assert len(row["history_files"]) == 1
         assert row["status"] == ("needs_research" if name == B else "reviewed")
         assert row["edges_before"] == row["edges_after"] == []

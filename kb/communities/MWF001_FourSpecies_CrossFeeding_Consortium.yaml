@@ -54,7 +54,12 @@ taxonomy:
     term:
       id: NCBITaxon:358
       label: Agrobacterium tumefaciens
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Agrobacterium_fabacearum
+    - GTDB:s__Agrobacterium_leguminum
+    - GTDB:s__Agrobacterium_oryzihabitans
+    - GTDB:s__Agrobacterium_tumefaciens
     notes: The source abbreviates this toxic-metal-working-fluid isolate as At.
   strain_designation:
     strain_name: MWF001
@@ -72,7 +77,11 @@ taxonomy:
     term:
       id: NCBITaxon:285
       label: Comamonas testosteroni
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Comamonas_testosteroni
+    - GTDB:s__Comamonas_testosteroni_B
+    - GTDB:s__Comamonas_thiooxydans
     notes: The source abbreviates this toxic-metal-working-fluid isolate as Ct.
   strain_designation:
     strain_name: MWF001
@@ -90,7 +99,16 @@ taxonomy:
     term:
       id: NCBITaxon:33918
       label: Microbacterium maritypicum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Microbacterium_maritypicum
+      gtdb_taxon: Microbacterium maritypicum
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Microbacteriaceae;g__Microbacterium;s__Microbacterium maritypicum
+      ncbi_source_id: NCBITaxon:33918
+      majority_fraction: 1.0
+      total_genomes: 22
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The source names this member Microbacterium liquefaciens MWF001, abbreviates it as Ml, and states that it is now
       classified as M. maritypicum.
   strain_designation:
@@ -109,7 +127,16 @@ taxonomy:
     term:
       id: NCBITaxon:529
       label: Brucella anthropi
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ochrobactrum_anthropi
+      gtdb_taxon: Ochrobactrum anthropi
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Ochrobactrum;s__Ochrobactrum anthropi
+      ncbi_source_id: NCBITaxon:529
+      majority_fraction: 0.94
+      total_genomes: 100
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: The source names this member Ochrobactrum anthropi MWF001, abbreviates it as Oa, and states that it is now classified
       as Brucella anthropi.
   strain_designation:
@@ -394,3 +421,11 @@ curation_history:
   changes: 'Qualify MWF001 cross-feeding and finite coexistence; keep causal extension research open. Issue #1572;
     reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T13:47:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T13:47:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

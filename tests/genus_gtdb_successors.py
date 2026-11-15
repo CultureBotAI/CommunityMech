@@ -9,6 +9,13 @@ from scoped_gtdb_successor import admit
 
 BASE = "68699871415fda3c9eebf20382a315f9f3c7b17a"
 ALLOWANCES = {
+    "kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml": {
+        "baseline_revision": BASE,
+        "manifest": {
+            "path": "reports/gtdb-genia-hambi-mwf-20261115/mwf443-001-successor.json",
+            "sha256": "8fc9d2d1d4d63907cff82a0e9f8a848372d8af1d6431c41eb81aa7431bf3bfb0",
+        },
+    },
     "kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml": {
         "baseline_revision": BASE,
         "manifest": {

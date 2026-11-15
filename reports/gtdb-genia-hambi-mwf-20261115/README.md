@@ -1,8 +1,14 @@
-# GENIA, HAMBI and MWF001 source preparation
+# GENIA, HAMBI and MWF001 reference correspondence
 
-This branch prepares scoped GTDB reference correspondence for CommunityMech
-352, 423 and 443. Canonical records, source caches and historical assessments
-remain unchanged. This preparation is not a new full scientific review.
+The [MWF001 checkpoint](mwf443-outcome-001.md) records the actual isolated M5
+application, eight native checks, saved partial diagnostic, complete input
+checkpoints and strict successor proof for CommunityMech:000443. GENIA352 and
+HAMBI423 remain preparation with private local previews; neither is applied.
+These are scoped reference correspondences, not new full scientific reviews.
+
+The preparation below describes the earlier published revision
+`9b770f6603aa2714fc4f7f317768d8857fbb8d1e`, when all three canonical records,
+source caches and historical assessments were unchanged.
 
 The isolated checkout starts at published integration revision
 `f18ca5b7f83eae0a9c8f537bdde6703760fee90e`. Its development environment was
