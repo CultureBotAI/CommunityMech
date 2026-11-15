@@ -12,7 +12,7 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"379": registry.DICLOFENAC}
+TARGETS = {"379": registry.DICLOFENAC, "437": registry.TCP, "429": registry.WHEAT_DT}
 
 
 @pytest.fixture(params=TARGETS, ids=TARGETS)

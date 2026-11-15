@@ -7,12 +7,20 @@ evidence exports and strict historical admission. The diagnostic remains partial
 with `scientific_review: false`; the four prior scientific findings remain open.
 The canary outcome records exact revisions, hashes, checks and retained failures.
 
-TCP437 and WheatDT429 source preparations are authored, bound and independently
-read. They have not yet been applied. PPCP420 is explicitly held under
-[issue2904](https://github.com/CultureBotAI/CommunityMech/issues/2904): the current
-bounded helper refused its mixed bacterial/fungal unit before any write, and a
-separate affirmative domain-proof implementation is under review. All existing
-native engines and executed helpers remain unchanged.
+The [TCP437 and WheatDT429 outcome](remaining-two-outcome-001.md) now records
+both actual M5 applications, sixteen passed native commands, an independently
+reviewed immutable pair and a complete130-file checkpoint verified on both hosts.
+All54 public evidence artifacts verified. The exact historical admissions and
+current biological predicates passed87 controls; lint also passed. These are
+partial correspondence diagnostics, not full scientific completion.
+
+PPCP420 is a separate unit under
+[issue2904](https://github.com/CultureBotAI/CommunityMech/issues/2904).
+The original helper refusal remains preserved. Additive fungal-domain support
+has since been reviewed and published, with its actual record execution being
+handled in the separate `gtdb-ppcp420-domain-20261115` checkout. This branch's
+three completed units do not certify that fourth record. Existing native
+engines and previously executed helpers remain unchanged.
 
 The following paragraphs preserve the initial source-preparation checkpoint;
 they describe the state before the379 canary, not the current completion state.

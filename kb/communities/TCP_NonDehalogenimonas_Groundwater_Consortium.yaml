@@ -46,7 +46,11 @@ taxonomy:
     term:
       id: NCBITaxon:76008
       label: Fusibacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Fusibacter_C
+    - GTDB:g__Fusibacter
+    - GTDB:g__Fusibacter_A
     notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
       unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
       with that mapping.
@@ -63,7 +67,17 @@ taxonomy:
     term:
       id: NCBITaxon:872
       label: Desulfovibrio
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Desulfovibrio
+      gtdb_taxon: Desulfovibrio
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio
+      ncbi_source_id: NCBITaxon:872
+      majority_fraction: 0.931
+      support_genomes: 551
+      total_genomes: 592
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 9 GTDB taxa under the NCBI taxon]
     notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
       unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
       with that mapping.
@@ -80,7 +94,17 @@ taxonomy:
     term:
       id: NCBITaxon:2802295
       label: Nitratidesulfovibrio
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Nitratidesulfovibrio
+      gtdb_taxon: Nitratidesulfovibrio
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Nitratidesulfovibrio
+      ncbi_source_id: NCBITaxon:2802295
+      majority_fraction: 0.567
+      support_genomes: 17
+      total_genomes: 30
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
       unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
       with that mapping.
@@ -97,7 +121,17 @@ taxonomy:
     term:
       id: NCBITaxon:375288
       label: Parabacteroides
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Parabacteroides
+      gtdb_taxon: Parabacteroides
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides
+      ncbi_source_id: NCBITaxon:375288
+      majority_fraction: 1.0
+      support_genomes: 15116
+      total_genomes: 15122
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
     notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
       unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
       with that mapping.
@@ -356,3 +390,11 @@ curation_history:
     Retain positive amendment and removal endpoints without assigning culture-wide rates to each substrate. Issue#1963;
     reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T13:08:23Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T13:08:23Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

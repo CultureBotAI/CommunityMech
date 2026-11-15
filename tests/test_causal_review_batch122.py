@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import yaml
+from environment_gtdb_successors import WHEAT_DT, admit_environment_successor
 from gtdb_species_batch_successors_20261115 import admission
 from source_note_gtdb_successors import WHEAT, admit_note_mapping_successor
 
@@ -11,6 +12,8 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-bat
 
 
 def admitted_record(row):
+    if row["path"] == WHEAT_DT:
+        return admit_environment_successor(ROOT, row["path"], row["record_sha256"])
     if row["path"] == WHEAT:
         return admit_note_mapping_successor(ROOT, row["path"], row["record_sha256"])
     return admission(ROOT, row["path"], row["record_sha256"])
