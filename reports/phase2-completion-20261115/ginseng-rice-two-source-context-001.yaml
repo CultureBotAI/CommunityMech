@@ -1,0 +1,92 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only; bind fresh native results and local authority observations before any staging.
+records:
+  - id: CommunityMech:000376
+    path: kb/communities/Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml
+    before_sha256: e228c2b46ce20acca93762d68d61fe0945620902a42deb516e65fb5f87eee720
+    primary_sources:
+      - reference: PMID:42305112
+        url: https://doi.org/10.1016/j.synbio.2026.04.003
+        retained_path: references_cache/PMID_42305112.txt
+        retained_sha256: 8fb13fc57c6f0be2aef871a80ba0d89f99b991aa0933c1eec2c4862a4de0a415
+        locator: Main Methods lines 205-207, strain provenance and OD-normalized consortium construction; labeled-strain recovery at line 221.
+        coverage: Selected retained Methods read, alongside the complete canonical record. Fresh DOI access failed; no new full-paper, figure-pixel, raw-marker or genome analysis.
+        judgment: The laboratory supplied the named biocontrol stocks. Separate cultures were prepared at 28 degrees C, normalized to OD600 2.0 and combined in a factorial design. Equal normalized volumes do not establish equal viable abundance or stock-genome identity.
+      - reference: PMID:42305112 supplementary mmc1.docx
+        retained_path: references_cache/PMID_42305112.supplement.md
+        retained_sha256: 7a67c97aa2aead8294100ba895a393e1259010c9d14553273d2fc46facba197b
+        locator: Table S1 lines 30-74, FG14 at 49-50 and JI6 at 58-59; Table S3 CL95 roster at 528-530.
+        coverage: Separate retained supplementary text, not article-body text or a new DOCX-layout audit.
+        judgment: Table S1 identifies FG14 as B. amyloliquefaciens and JI6 as Pseudomonas thivervalensis; Table S3 identifies CL95 as NJ13+NT35+FG14+TU26+JI6. These are source-local isolate names, without exact assemblies in the inspected roster.
+    proposed_occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:1390', label: Bacillus amyloliquefaciens}
+        stock: FG14
+        historical_expected:
+          ambiguous: true
+          via: ncbi_name
+          n_alt: 2
+          gtdb_options: ['GTDB:s__Bacillus_amyloliquefaciens', 'GTDB:s__Bacillus_velezensis']
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:86265', label: Pseudomonas thivervalensis}
+        stock: JI6
+        historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Pseudomonas_E_thivervalensis', total_genomes: 18, majority_fraction: 1.0, is_reclassified: true}
+    preservation_contract:
+      - Keep FG14 distinct from NJ13 and NT35 even if one reference alternative shares their species label. Keep all three ordered TU26 alternatives and both unselected Bacillus blocks unchanged.
+      - Pseudomonas_E is a native lineage label, not a formal taxonomic renaming or an exact JI6 genome classification. The eighteen reference genomes do not identify the study stock.
+      - Preserve every historical mapping-availability note and old event; those notes describe prior curation. The new crosswalk hash does not establish a release or certify legacy release prose in unselected blocks.
+      - Keep five bacterial members, separate pathogen and host participants, three community-level nodes and zero arrows. Preserve the 73 percent plate versus 66.67 percent field endpoints, plate nutrient-screen proxies and the labeled NJ13/NT35/FG14 recovery limitation.
+      - Keep the 180 percent catalase versus abstract range discrepancy and the open member-level mechanism discussion. Scientific issue 1487 is historically closed, not newly re-reviewed here.
+      - Keep article and supplement caches separate. The saved 1994 boundary-repair review is historical provenance; its unresolved supplement-routing issue 1996 remains. The recorded reference sweep has twelve ginseng mismatches; taxonomy changes do not repair these or authorize cache union/fallback.
+    prior_boundary_review:
+      path: reviews/structured/20261013T044252Z-1994-source-boundaries-after/review.yaml
+      sha256: 90af5a079c89dbb667c78605c040015009737f94368a88c247f75d93c133313a
+      scope: Boundary repair and explicitly retained source-routing failures; scientific claims were not re-reviewed.
+    historical_guard:
+      path: tests/test_causal_review_batch48.py
+      sha256: 38bfc80d9666276306183f0b13a7207c454f0840ee15cfb06a9814cc921347bf
+      ledger: reports/causal_graph_review/decisions/20261006-ginseng-s11-batch48.yaml
+      ledger_sha256: c36d6bc71789c7f48d2e2c93d66e5f587aea15dd5c2c7bc9665092074befae33
+      note: Add only exact 376 successor admission before original hash/last-LLM projection. Preserve current biological and source-cache assertions, all old ledger bytes, and the already-integrated 411 S11 successor in the same caller.
+  - id: CommunityMech:000419
+    path: kb/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml
+    before_sha256: be926207b3e99ec9dae97be3b8f0cac07462d7e3a9adcba2305a1efe481c5470
+    primary_source:
+      reference: PMID:42596554
+      url: https://doi.org/10.1071/FP26125
+      retained_path: references_cache/PMID_42596554.txt
+      retained_sha256: ae947107b038bbbf9652351f360cb09e9d5301f94cf3dd1f54daca82c1a9e500
+      locator: Complete retained primary abstract, lines 20-41, four-stock roster and separate sequencing/prediction endpoints.
+      coverage: Abstract only. Fresh DOI resolution reached an inaccessible publisher page; no complete Methods, inoculum recipe, marker sequence or exact-stock genome was inspected.
+      judgment: FSQN comprises FH1, S112, QZR14 and NH1; the separate comparator is single-strain NH1. The abstract names strains and comparative microbiome outcomes but does not establish accessions, media, ratios or a complete rice-growth protocol.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1390', label: Bacillus amyloliquefaciens}
+        stock: FH1
+        historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Bacillus_amyloliquefaciens', 'GTDB:s__Bacillus_velezensis']}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:89584', label: Gluconacetobacter liquefaciens}
+        stock: QZR14
+        historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Gluconacetobacter_liquefaciens', total_genomes: 8, majority_fraction: 0.88, is_reclassified: false}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:293', label: Brevundimonas diminuta}
+        stock: NH1
+        historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 3, gtdb_options: ['GTDB:s__Brevundimonas_diminuta', 'GTDB:s__Brevundimonas_diminuta_A', 'GTDB:s__Brevundimonas_diminuta_B']}
+    preservation_contract:
+      - Preserve FH1/QZR14/NH1 and the unselected S112 descriptor, its source-preferred Ochrobactrum name and canonical Brucella identity. No source-stock equivalence, sequence accession or genome placement is inferred.
+      - Eight reference genomes and rounded fraction 0.88 are species-ID population evidence, not a measured inoculum population, exact numerator or QZR14 membership probability. Complete ambiguity alternatives remain ordered and unselected.
+      - Preserve the two community-level nodes without ecological type or arrows, measured beta-diversity/composition and explicitly computational fungal-guild predictions. Enriched taxa are not additional inoculum members; associations do not establish colonization or growth mediation.
+      - Keep every historical mapping-unavailable note, source quotation and old event. Preserve the explicit open fsqn_full_protocol discussion; abstract review does not fill the missing experimental protocol.
+    historical_guard:
+      path: tests/test_causal_review_batch95.py
+      sha256: 2369d46118722c2373a4932939a5ef31f7b6bec1b8debc23a57116c266388b75
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch95.yaml
+      ledger_sha256: 5a071df7d816e530b9c9547f096e16ce4be51d45a63a6a8be8a4117259b97021
+      note: Preserve the original unchanged-row and zero-event disposition as historical. Strict exact 419 successor admission precedes old-byte checks; retain current prediction and absent-mediation predicates and unrelated 110 c14s5 chain. Historical review was abstract-limited.
+completion_limit: Five selected descriptor occurrences in two complete records. Preparation changes no canonical record, proves no native route on a new revision and resolves no scientific or reference-routing blocker. Fresh binding, candidate review, native application/gates/history, immutable partial assessment, complete checkpoint and strict successor integration remain required.
