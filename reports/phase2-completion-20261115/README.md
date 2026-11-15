@@ -233,6 +233,12 @@ while preserving all earlier scientific findings. The assignment ledger above
 remains the historical planning snapshot; these new partial assessments do not
 declare the remaining partition or scientific campaign complete.
 
+The [ambiguity integration at 5cc6f2aa](ambiguity-integration-5cc6f2aa.md)
+also preserves the completed A2-165 technical canary, independently verified
+67-input saved review, 57 passing integration controls, lint and a native
+isolate render. All three GTDB alternatives remain explicit; none is promoted
+to the study strain's identity. Full QC and scientific review remain separate.
+
 ## Campaign restart
 
 The separate [inventory PR #2797](https://github.com/CultureBotAI/CommunityMech/pull/2797)
