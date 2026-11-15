@@ -1,0 +1,247 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/source-intake-four-routes-001.log", "sha256": "1872c779ca2039cc698cb7ec8b56d3ec292aedab93f6d324287641c7a7ba793d"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/source-intake-four-routes-001.json", "sha256": "478be7056c4ee9f35f9f4474fe2305d419aaf4059b5c3680d3389a1b8d2d44c7"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/source-intake-four-routes-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml",
+      "record_id": "CommunityMech:000344",
+      "before_sha256": "65275177a514ceb42276f4f416da7b727e5200b3a8f79fb1510cf6c49bbd083c",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/kz-ambiguity-source-context-001.yaml": "9ce1bb4e004628e9973f245d13768ef6647e8b4568b58027462cd2eef7289a32",
+        "tests/test_causal_review_batch60.py": "dd1e198d098c1fb74896d4820253859100932c708930bd55c287af99174e2133",
+        "reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml": "1e64150e4f7f3cde4b39dfc6bd97f2984ac3fcf26486b31bdbcdc710e2874a69",
+        ".temp/phase2-schema-20261115/source-intake-four-issue1541-001.log": "aafe723ae7b5bc74592d4f88216f2ed1196848ac6b67d42ee2e4460a62c266f2"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:1663", "label": "Arthrobacter"},
+          "strain_name": "SZ-3",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"ambiguous": true, "n_alt": 11, "via": "ncbi_rank_g"},
+          "source_assessment": "The retained primary abstract names Arthrobacter sp. SZ-3 and Klebsiella sp. CW-D3T as the two KZ stocks. It does not resolve SZ-3 to a GTDB species or assembly. Preserve the current genus descriptor and all eleven native genus alternatives; the source's assay-inferred upstream activity is not taxonomic genome evidence.",
+          "population_scope": "The pinned761 native ncbi_rank_g population yields eleven genus alternatives. It is not an exact SZ-3 genome route, an experimental abundance or an identity probability. Crosswalk release remains unestablished. The adjacent Klebsiella block is already GROUNDED and remains byte-identical.",
+          "name_scope": "Keep Arthrobacter sp. SZ-3, CW-D3T and the two-stock community. Use status-only application for index1. The unread corrigendum PMID41456976 and full Methods/supplement remain unresolved under live OPEN1541; do not infer that the correction is immaterial or that a causal transfer mechanism is verified."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:41365368",
+          "path": "references_cache/PMID_41365368.txt",
+          "sha256": "181b208bcf0f0961381d266a85ae94398ce40dfada4e0885c1a80a3b882ff900",
+          "locator": "Complete retained abstract: named KZ stocks, cadmium assay and upstream/downstream activity attribution; linked erratum metadata.",
+          "coverage": "Whole current record, complete retained abstract, parent source plan, original batch60 caller/ledger and live1541 body read for a bounded reference-status correction. Full paper, correction body, Methods and supplementary text have not been acquired or re-reviewed here.",
+          "identity_tokens": ["PMID: 41365368", "10.1016/j.biortech.2025.133782"],
+          "anchors": ["functionally specialized bacterial consortium (KZ) by assembling Klebsiella sp.\nCW-D3T and Arthrobacter sp. SZ-3", "biomass-normalized enzyme\nactivity assays", "doi: 10.1016/j.biortech.2025.133853."]
+        }
+      ],
+      "historical_guard_assessment": "Batch60 pins the complete original record and latest llm_assisted history. Preserve its immutable ledger, KMC/Komagataella checks and all current KZ biological predicates. Admit a later change only through explicit original686-to-actual-application proof after native gates, saved partial review and complete input checkpoint. Retain one untyped community node, two participants, no arrow, assay-versus-causal-transfer limits, cultivation uncertainty and OPEN1541. This status correction is not full scientific approval."
+    },
+    {
+      "record": "kb/communities/Cyantraniliprole_Consortium_T1.yaml",
+      "record_id": "CommunityMech:000498",
+      "before_sha256": "9ebd2f07ce536e4e92569e93b36f69ac1c3f8efce458c1520a5879000cbb2c90",
+      "additional_inputs": {
+        "tests/test_causal_review_batch137.py": "8ef95eddfb9c812877ca873fbaee97639a11c2379652910cef5300c96918edd6",
+        "reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml": "10d325e5990b4ce70493f31b6c00b0e595685232df40ff8c2bb9fb59964821e5",
+        "reviews/structured/20261104T034000Z-c5s4-record-deep-audit/review.yaml": "47b83251ea42a654fe539b006b8afef9b7f80194351ccefd838ba66054d0488e"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 0, "term": {"id": "NCBITaxon:135461", "label": "Bacillus subtilis subsp. subtilis"},
+          "strain_name": "Re1", "expected_ncbi_rank": "NCBITaxon:subspecies",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacillus_subtilis", "total_genomes": 101, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "Table2 and Results3.1 identify Re1 as B.subtilis subsp.subtilis. Table3's DSM10 score2.335 is a MALDI Biotyper best match, not proof that Re1 is the deposited DSM10 stock or its genome. Preserve Re1 and its current source note; add only the exact encoded subspecies reference correspondence.",
+          "population_scope": "Exact NCBITaxon135461 row gives101 reference genomes, fraction1.0 and GTDB B.subtilis. This database population is not a Re1-specific denominator, stock assembly, assay abundance or identity probability. The pinned761 release is unestablished.",
+          "name_scope": "Preserve the source subspecies name and Re1 identifier even though GTDB resolves to species rank. Retain all six Re stocks and all MALDI reference-match qualifiers; no strain alias or genotype is introduced."
+        },
+        {
+          "taxonomy_index": 2, "term": {"id": "NCBITaxon:1408", "label": "Bacillus pumilus"},
+          "strain_name": "Re3", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 4, "via": "ncbi_name"},
+          "source_assessment": "The source calls Re3 Bacillus pumilus; Table3 lists ATCC7061 as its best MALDI match, not as verified stock identity. Preserve Re3 and the source name while retaining all four native species-descriptor alternatives. No candidate is selected for this environmental isolate.",
+          "population_scope": "The ncbi_name route returns four alternatives for the reference species descriptor. They are not four strain genomes, measured community abundances or stock probabilities. No independent Re3 assembly placement or crosswalk release was established.",
+          "name_scope": "Keep B.pumilus Re3 and its ATCC7061 best-match qualification. Do not replace the study name with an alternative GTDB bin or conflate Re3 with Fahmy AZFS5, which is a different stock in T4."
+        },
+        {
+          "taxonomy_index": 3, "term": {"id": "NCBITaxon:2026194", "label": "Bacillus paramycoides"},
+          "strain_name": "Re4", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacillus_A_paramycoides", "total_genomes": 9, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "Table2/3 identify Re4 as B.paramycoides with HS-1 as the MALDI database best match. This supports preserving the encoded species descriptor and stock wording, not an HS-1 alias or a Re4 genome assignment. Native exact-ID reference correspondence may be recorded separately.",
+          "population_scope": "Exact NCBITaxon2026194 row gives9 reference genomes and fraction1.0. It is not a Re4 experimental population or stock-specific genotype. Crosswalk release remains unestablished.",
+          "name_scope": "Preserve Bacillus paramycoides Re4 and its HS-1 match note. The GTDB Bacillus_A spelling is confined to the database block, with native is_reclassified semantics; no source-name rewrite or conflation with AZFS18."
+        },
+        {
+          "taxonomy_index": 4, "term": {"id": "NCBITaxon:1405", "label": "Bacillus mycoides"},
+          "strain_name": "Re5", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 2, "via": "ncbi_name"},
+          "source_assessment": "The paper identifies Re5 as B.mycoides and gives DSM2048 as a MALDI best match. Neither fact selects one of the two native descriptor alternatives. Preserve the environmental isolate name and encode complete ambiguity only.",
+          "population_scope": "Two alternatives arise through ncbi_name in the pinned761 table. They are not two study stocks or an identity probability; no Re5 assembly is independently verified and no release is inferred.",
+          "name_scope": "Keep Re5 and B.mycoides with its existing DSM2048-match qualifier. Do not silently choose B.cereus or B.mycoides for GTDB strain identity; retain all alternatives in native order."
+        },
+        {
+          "taxonomy_index": 5, "term": {"id": "NCBITaxon:1390", "label": "Bacillus amyloliquefaciens"},
+          "strain_name": "Re6", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 2, "via": "ncbi_name"},
+          "source_assessment": "The T1 roster names B.amyloliquefaciens Re6; DSM7 is only its Table3 MALDI best match. Preserve that source-level identity and both native species alternatives, without claiming genomic resolution of Re6.",
+          "population_scope": "The native name route returns two descriptor alternatives. No exact Re6 genome, assembly-specific denominator or probability is established; the crosswalk release remains unestablished.",
+          "name_scope": "Preserve Re6, B.amyloliquefaciens and DSM7-match wording. The unselected Re2 B.cereus block already has all23 native alternatives and must stay byte-identical. All experimental quantities and predicted-versus-measured boundaries remain unchanged."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42354927", "path": "references_cache/PMID_42354927.txt",
+          "sha256": "2b47a77cf230a1f61781cf3020710ad3e469dfe4fdebe0eb0c1981a457082f43",
+          "locator": "Retained full-text Methods2.2/2.3, Results3.1, Tables2/3 and computational-versus-HPLC context.",
+          "coverage": "Whole current T1 record, selected primary isolation/identification/roster and assay passages, actual batch137 contract and prior c5s4 metric assessment read. This is a taxonomy correspondence review, not a new whole-paper/figure/supplement or causal assessment.",
+          "identity_tokens": ["42354927", "10.3390/microorganisms14061303"],
+          "anchors": ["The Biotyper system identifies organisms by matching their protein mass spectra against a comprehensive database of reference strains, producing similarity scores", "Consortium No. 1 consisted of B. subtilis subsp. subtilis Re1, B. cereus Re2, B. pumilus Re3, B. paramycoides Re4, B. mycoides Re5, and B. amyloliquefaciens Re6.", "Re1 (+++) (A) B. subtilis subsp. subtilis DSM 10 2.335 Re2 (+++) (A) B. cereus DSM 31 2.333 Re3 (+++) (A) Bacillus pumilus ATCC 7061 2.344 Re4 (+++) (A) Bacillus paramycoides HS-1 2.321 Re5 (+++) (A) Bacillus mycoides DSM 2048 2.359 Re6 (+++) (A) B. amyloliquefaciens DSM 7 2.381"]
+        }
+      ],
+      "historical_guard_assessment": "Batch137 already has explicit shared admission for other records. Add only an exact498 allowance after the actual saved-input checkpoint; preserve existing499/500 successors and all497 predicates, immutable ledger, history-projection equality, current snippets and positive/fabricated-snippet/changed-summary controls. Keep Re2's current23 alternatives exact. The prior c5s4 completeness100 metric is not scientific clearance. Retain six distinct Re stocks, two separate computational-repertoire and HPLC-removal nodes, no arrows, source concentration/temperature/salinity qualifications and OPEN functional discussion."
+    },
+    {
+      "record": "kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml",
+      "record_id": "CommunityMech:000369",
+      "before_sha256": "0ecd37ff8b4675764844c6d704c634832fecd8635b80e6f9c5759c217345595c",
+      "additional_inputs": {
+        "tests/test_causal_review_batch28.py": "6e0f1bf11083032868200230d907e72e43df4451cfe9773b98bc74df161939c9",
+        "reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml": "b6c1f9081c2d4a75c3db896187e3e20dffac6d339c7ad455c03e07719c17a29f",
+        "reviews/structured/20261022T024259Z-cyantraniliprole-fahmy-record-review/review.yaml": "e2ecfa53654a7e1e6f5d89c8cb28923031484d46f0ed88b14f36f214e3b899ab",
+        ".temp/phase2-schema-20261115/source-intake-four-issue1371-001.log": "2aac4f08612c8b3b1e4af91e327cb8e277297e53280bb127e89bf8f0a7c80a21"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 0, "term": {"id": "NCBITaxon:135461", "label": "Bacillus subtilis subsp. subtilis"},
+          "strain_name": "AZFS3", "expected_ncbi_rank": "NCBITaxon:subspecies",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacillus_subtilis", "total_genomes": 101, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "Table3 identifies B.subtilis subsp.subtilis AZFS3 with LC599401.1. The prior full source review identifies it as a partial16S marker, not a whole-genome assembly. Keep the named T4 benchmark stock and record only the exact encoded subspecies reference correspondence.",
+          "population_scope": "Exact NCBITaxon135461 row gives101 genomes/fraction1.0. The count belongs to the reference taxon population, not AZFS3 or T1 Re1. No exact study-stock genome or crosswalk release is established.",
+          "name_scope": "Retain AZFS3, the source subspecies label and marker accession. Do not identify it with T1 Re1 or a type strain; the GTDB species field is separate reference correspondence."
+        },
+        {
+          "taxonomy_index": 1, "term": {"id": "NCBITaxon:1408", "label": "Bacillus pumilus"},
+          "strain_name": "AZFS5", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 4, "via": "ncbi_name"},
+          "source_assessment": "The T4 roster and marker LC599402.1 identify AZFS5 under B.pumilus. Partial16S identity does not select one of the four native GTDB descriptor alternatives. Preserve the source name and complete ambiguity.",
+          "population_scope": "Four options are the native ncbi_name result. They are not four AZFS5 genomes, an experimental abundance or probabilities. No independent stock assembly or mapping release was established.",
+          "name_scope": "Keep AZFS5 and LC599402.1; do not replace its source name with another GTDB species or conflate it with T1 Re3. All four native options must remain complete and ordered."
+        },
+        {
+          "taxonomy_index": 2, "term": {"id": "NCBITaxon:72360", "label": "Bacillus mojavensis"},
+          "strain_name": "AZFS15", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 2, "via": "ncbi_name"},
+          "source_assessment": "Table3 assigns AZFS15 marker LC599403.1 to B.mojavensis. The native name route remains split between two GTDB reference species. No marker-based assertion resolves the stock to one option.",
+          "population_scope": "Two ncbi_name alternatives describe reference correspondence only. No AZFS15 genome or probability, study-stock denominator or crosswalk release is independently established.",
+          "name_scope": "Preserve B.mojavensis AZFS15 and its partial16S accession. Do not choose B.halotolerans or B.mojavensis as a verified GTDB stock placement."
+        },
+        {
+          "taxonomy_index": 3, "term": {"id": "NCBITaxon:2026194", "label": "Bacillus paramycoides"},
+          "strain_name": "AZFS18", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Bacillus_A_paramycoides", "total_genomes": 9, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "The T4 benchmark roster names AZFS18 and marker LC599406.1 under B.paramycoides. Its exact encoded NCBI reference row can be mapped; the marker does not establish a study-stock assembly inside that GTDB cluster.",
+          "population_scope": "The exact-ID row gives9 reference genomes/fraction1.0. It is not an AZFS18 count, an experimental relative abundance or an identity probability. Crosswalk release remains unestablished.",
+          "name_scope": "Keep B.paramycoides AZFS18 and LC599406.1, distinct from T1 Re4. GTDB Bacillus_A spelling belongs only to the database block."
+        },
+        {
+          "taxonomy_index": 4, "term": {"id": "NCBITaxon:287", "label": "Pseudomonas aeruginosa"},
+          "strain_name": "KZFS4", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Pseudomonas_aeruginosa", "total_genomes": 17191, "majority_fraction": 0.99, "via": "ncbi_id"},
+          "source_assessment": "Table3 preserves P.aeruginosa KZFS4 with partial16S accession LC599404.1. Add the exact species reference correspondence without promoting the marker to a genome assignment or inferring stock-specific enzyme activity from the predicted repertoire.",
+          "population_scope": "Exact NCBITaxon287 row has17191 reference genomes and rounded fraction0.99; do not infer an exact support numerator, study-stock genotype or biological abundance. Crosswalk release is unestablished.",
+          "name_scope": "Preserve KZFS4, LC599404.1 and source P.aeruginosa wording, all broad-role qualifications and the absence of a predicted-enzyme-to-removal causal edge."
+        },
+        {
+          "taxonomy_index": 5, "term": {"id": "NCBITaxon:323284", "label": "Alcaligenes aquatilis"},
+          "strain_name": "KZFS11", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Alcaligenes_aquatilis", "total_genomes": 12, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "The primary comparison roster names A.aquatilis KZFS11 with marker LC599405.1. Native correspondence maps the encoded reference species, not the study-stock genome. Preserve the benchmark identity and current experimental claims unchanged.",
+          "population_scope": "Exact NCBITaxon323284 row gives12 reference genomes/fraction1.0. This is neither the number of T4 strains nor a KZFS11-specific denominator or abundance. The pinned761 release remains unestablished.",
+          "name_scope": "Keep KZFS11 and LC599405.1, all six stocks and the existing source conditions. The three non-GTDB findings in the saved full review remain unresolved; live OPEN1371 is not closed by database mapping."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42354927", "path": "references_cache/PMID_42354927.txt",
+          "sha256": "2b47a77cf230a1f61781cf3020710ad3e469dfe4fdebe0eb0c1981a457082f43",
+          "locator": "Retained Methods2.2 benchmark distinction, Table2 T4 roster, Table3 six marker accessions; Results3.2.3 and assay scope; prior full native source review for partial16S provenance.",
+          "coverage": "Whole current T4 record, selected primary roster/identification and assay passages, prior full review findings and batch28 caller/ledger read. No new full scientific review or revalidation of all earlier-stock sources, figures or conditions.",
+          "identity_tokens": ["42354927", "10.3390/microorganisms14061303"],
+          "anchors": ["For comparative analysis, a previously characterized group, designated here as Consortium No. 4, was also included.", "AZFS3 Bacillus subtilis subsp. subtilis AZFS3 LC599401.1 AZFS5 Bacillus pumilus AZFS5 LC599402.1 AZFS15 Bacillus mojavensis AZFS15 LC599403.1 AZFS18 Bacillus paramycoides AZFS18 LC599406.1 KZFS4 Pseudomonas aeruginosa KZFS4 LC599404.1 KZFS11 Alcaligenes aquatilis KZFS11 LC599405.1", "Optimal growth, corresponding to the highest biomass yield for all consortia, was observed at NaCl concentrations between 0.0% and 0.5%."]
+        }
+      ],
+      "historical_guard_assessment": "Batch28 hashes all four records and protects two separate untyped T4 nodes, computational versus in-vitro evidence, exact HPLC quantities, no restored workflow arrow and open source limitations. Admit only the explicit369 change through original686/actual-apply/saved-review proof after complete checkpoint; other three records, ledger and cache hashes stay exact. The prior full review retains salinity-optimum, assay-temperature and protocol-detail findings. Current OPEN1371 is bounded to source conditions, not a reason to erase mapping evidence or claim full scientific clearance."
+    },
+    {
+      "record": "kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml",
+      "record_id": "CommunityMech:000405",
+      "before_sha256": "275243762d5d3c3032178fcc68b9005177a5d0f1924ff6ef01e3aeaf114e8d08",
+      "additional_inputs": {
+        "tests/test_causal_review_batch50.py": "428e33029e55cd2b58566e8db92cd79ecc502488d59651f019d67672a0848341",
+        "reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml": "13a2eed2a8504570b0b7e47e924f4a63d1c7d03714098078abe4a0405ecc7472"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 0, "term": {"id": "NCBITaxon:293", "label": "Brevundimonas diminuta"},
+          "strain_name": "SRCHD03", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 3, "via": "ncbi_name"},
+          "source_assessment": "The abstract and Table1 identify SRCHD03 as one of two distinct B.diminuta stocks in C6. Methods report partial16S sequencing. Preserve this stock and all three native species-descriptor alternatives; the marker data do not select a GTDB bin.",
+          "population_scope": "Three ncbi_name alternatives are a reference-species result, not three genomes of SRCHD03 or a strain identity probability. Crosswalk release and independent stock-genome placement are unestablished.",
+          "name_scope": "Keep SRCHD03 separately from SRCHD04 despite their shared NCBI293 term. Preserve the complete six-stock roster, original partial16S scope and all biological content."
+        },
+        {
+          "taxonomy_index": 1, "term": {"id": "NCBITaxon:293", "label": "Brevundimonas diminuta"},
+          "strain_name": "SRCHD04", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "n_alt": 3, "via": "ncbi_name"},
+          "source_assessment": "The source's second B.diminuta isolate SRCHD04 remains a separate community member. Its shared species descriptor produces the same complete three-option reference ambiguity as SRCHD03, without evidence that the two stocks have the same genome.",
+          "population_scope": "The native alternatives come from the reference name population, not a combined two-stock experimental denominator. No stock assembly, abundance or identity probability and no crosswalk release is inferred.",
+          "name_scope": "Preserve SRCHD04 independently, including its source-preferred term and all evidence. Do not deduplicate it with SRCHD03 or choose a GTDB bin from shared source nomenclature."
+        },
+        {
+          "taxonomy_index": 2, "term": {"id": "NCBITaxon:370111", "label": "Brucella pseudintermedia"},
+          "strain_name": "SRCHD05", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Ochrobactrum_pseudintermedium", "total_genomes": 18, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "The primary roster identifies SRCHD05 as Brucella pseudintermedia using the source's partial16S framework. Native exact-ID correspondence uses the GTDB name Ochrobactrum pseudintermedium; add that database relation without rewriting the study stock or asserting assembly-level confirmation.",
+          "population_scope": "The exact370111 row has18 reference genomes/fraction1.0. It is not18 experimental isolates or a stock-specific support denominator. The pinned crosswalk release remains unestablished.",
+          "name_scope": "Keep Brucella pseudintermedia SRCHD05 and native is_reclassified provenance. SRCHD07 is distinct even though it shares the reference species ID and resulting mapping."
+        },
+        {
+          "taxonomy_index": 3, "term": {"id": "NCBITaxon:370111", "label": "Brucella pseudintermedia"},
+          "strain_name": "SRCHD07", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Ochrobactrum_pseudintermedium", "total_genomes": 18, "majority_fraction": 1.0, "via": "ncbi_id"},
+          "source_assessment": "The source separately names SRCHD07 as Brucella pseudintermedia. Its reference species can carry the same exact-ID database correspondence as SRCHD05 while both study stocks remain separate and without an independently verified study genome.",
+          "population_scope": "The18-genome fraction1.0 row is one reference taxon population reused for this descriptor; do not add the two occurrences or call it36 genomes, two stock assemblies or measured abundance. Crosswalk release remains unestablished.",
+          "name_scope": "Retain SRCHD07, all source-preferred Brucella wording and stock-specific observations. Put Ochrobactrum pseudintermedium only in the native GTDB block, with no organism-name or causal-claim changes."
+        },
+        {
+          "taxonomy_index": 4, "term": {"id": "NCBITaxon:528", "label": "Ochrobactrum"},
+          "strain_name": "SRCHD06", "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"ambiguous": true, "n_alt": 3, "via": "ncbi_rank_g"},
+          "source_assessment": "The source identifies SRCHD06 only as Ochrobactrum sp.; the current note explicitly avoids species assignment. Preserve that genus-level scope while storing all three native genus alternatives. Do not infer that it shares the species assigned to the neighboring Brucella stocks.",
+          "population_scope": "Three ncbi_rank_g alternatives describe a genus reference population. They do not resolve the study stock to a species, quantify stock abundance or provide identity probabilities. Crosswalk release remains unestablished.",
+          "name_scope": "Keep Ochrobactrum sp. SRCHD06, its species-unasserted note and complete alternatives. Retain the six-stock equal-ratio design and all radiation/assay limitations."
+        },
+        {
+          "taxonomy_index": 5, "term": {"id": "NCBITaxon:1270", "label": "Micrococcus luteus"},
+          "strain_name": "SRCHD02", "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Micrococcus_luteus", "total_genomes": 236, "majority_fraction": 0.95, "via": "ncbi_id"},
+          "source_assessment": "The abstract, Table1 and Results explicitly add M.luteus SRCHD02 to the five-stock C5 combination to make C6. Preserve this sixth member. The exact reference-species map does not independently verify its study genome or prove survival of every member after irradiation.",
+          "population_scope": "Exact NCBITaxon1270 row gives236 reference genomes and rounded majority0.95. It is not an SRCHD02-specific denominator, exact support numerator, experimental abundance or identity probability. Release remains unestablished.",
+          "name_scope": "Keep SRCHD02 and M.luteus; do not reuse the C1–C5 roster that excludes this isolate. All assay notes, quotations, equal six-member ratio, two outcome nodes and molecular-division-of-labor discussion remain unchanged."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:41743136", "path": "references_cache/PMID_41743136.txt",
+          "sha256": "0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6",
+          "locator": "Complete retained abstract; Methods partial16S identification; Table1 six-stock C6 row and Results addition of SRCHD02; current batch50 source limitations.",
+          "coverage": "Whole current C6 record, selected retained primary identification/roster/assay passages and original batch50 ledger/caller read. No new whole-paper, figure-image, stock-assembly or causal assessment. Source text/Table2 and irradiation concentration disagreements remain preserved rather than repaired by taxonomy work.",
+          "identity_tokens": ["41743136", "10.3389/fmicb.2026.1753858"],
+          "anchors": ["partial 16S ribosomal DNA (rDNA) sequencing", "6 SRCHD02: SRCHD03: SRCHD04: SRCHD05: SRCHD06: SRCHD07 (1:1:1: 1:1:1) C6", "Upon further modification with the addition of isolate SRCHD02 (consortium C6)"]
+        }
+      ],
+      "historical_guard_assessment": "Batch50 pins the complete record, latest llm_assisted event, six distinct preferred terms despite repeated NCBI293/370111, current participants and exact scientific phrases. Admit only405 through the explicit actual native chain after immutable review/checkpoint, leaving the original ledger and HAMBI/Hanford assertions intact. Preserve two community-level nodes with no arrows, ammonia production versus removal, irradiation recovery versus all-stock survival, no formal equivalence test and the existing source discrepancy discussion. No new issue closure or full scientific clearance."
+    }
+  ]
+}
