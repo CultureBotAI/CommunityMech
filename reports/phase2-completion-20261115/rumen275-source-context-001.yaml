@@ -1,0 +1,59 @@
+kind: source_context_plan
+scientific_review: false
+status: awaiting_guarded_native_null_support
+inspected_at: '2026-11-15'
+record:
+  id: CommunityMech:000275
+  path: kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  before_sha256: f9ad860387600c64fa0ba428afdfd9fa4cc0e960097b445b5253eb953ed1336e
+  primary_source:
+    reference: PMID:42343824
+    url: https://doi.org/10.1021/acssynbio.6c00072
+    title: Genome-Scale Community Models for Designing Efficient Lignocellulolytic Bacterial Consortia Using Bovine Rumen Microbes
+    retained_path: .temp/phase2-integration-20261115/rumen275-source-001/response.json
+    retained_sha256: 29998eb0fb207064b80283b792b30f6026ab26d248490f816db8e4c32cf9276e
+    locator: resultList.result[0].abstractText, freshly retrieved Europe PMC core record.
+    retrieval_receipt: .temp/phase2-integration-20261115/rumen275-source-001/receipt.json
+    retrieval_receipt_sha256: e2f4020575075be7ad668b279ca137d725c5596b0d9ee9229ed9cb0663e0f77f
+    acquisition_helper: scripts/adhoc/fetch_rumen275_source_20261115.py
+    acquisition_helper_sha256: 9fd6a77879de11082f40b69fd630627a55e3728c7d20fd662b45023829b94d31
+    coverage: Whole canonical record and causal guard read; complete primary abstract recovered through anonymous API and checked after Valency discovery/direct lookup. Europe PMC returned no PMCID and isOpenAccess=N; this does not prove that no legal full-text copy exists elsewhere. No full Methods, figures, supplements or exact-stock genomes inspected.
+    judgment: The abstract distinguishes six screened rumen strains, eleven model-predicted compatible communities, pairwise validation and the focal three-member consortium. It names source Selenomonas ruminantium alongside Butyrivibrio fibrisolvens and Ruminococcus albus. Enzyme synergy does not establish reciprocal organism fitness or resolve exact metabolite transfer.
+  selected_occurrence:
+    selector: taxonomy[1].taxon_term
+    descriptor: {id: 'NCBITaxon:971', label: Pseudoselenomonas ruminantium}
+    source_preferred_name: Selenomonas ruminantium
+    stock: null
+    existing_status: AMBIGUOUS
+    existing_candidates: ['GTDB:s__Selenomonas_A_lactilytica', 'GTDB:s__Selenomonas_A_ruminantium', 'GTDB:s__Selenomonas_A_ruminantium_B']
+    observed_native_result: null
+    observed_classify_status: {status: UNRESOLVED, candidates: []}
+  native_observation:
+    execution_revision: 679919a8eecec20fe539827e700d112c8b2a74be
+    state: Recorded local working tree containing the new target plan and acquisition helper; no canonical writes.
+    plan: reports/phase2-completion-20261115/rumen275-source-target-001.json
+    plan_sha256: 59d30eb043ad617670c8f27a983d8f726492d4137449cef86bb870c679368de0
+    report: .temp/phase2-schema-20261115/rumen275-native-route-001.log
+    report_sha256: c747d17dcd79feb0c0c87625ac40a184f08720abdcbdc9ac49115e857e4b22b4
+    receipt: .temp/phase2-schema-20261115/rumen275-native-route-001.json
+    receipt_sha256: 4b63f053308c031d4d280952b6767a09c54913abc3bdafa32099d898fb6dad13
+    exit_code: 0
+    inputs_rehashed: true
+    limit: Current encoded label/ID yields no native correspondence and UNRESOLVED with no candidates. This is neither NO_GTDB_EQUIVALENT nor proof of a missing biological species. File-directory naming and mtime do not establish the crosswalk release.
+  preservation_contract:
+    - Preserve all three current NCBI identities, source-preferred names and absent strain designations. Do not revert Pseudoselenomonas ruminantium or Hominimerdicola alba to source synonyms in canonical ontology labels.
+    - Preserve the unselected Butyrivibrio three-candidate ambiguity and Hominimerdicola unresolved descriptor. No grounded block or manual exception may be removed. Any later selected candidate withdrawal means only that the current pinned native route does not reproduce it.
+    - Keep two biological nodes and zero downstream arrows. The pair's measured endoglucanase increase is distinct from modeled compatibility and from the three-member substrate endpoint. Do not infer a denominator, cross-feeding metabolite, direction of transfer or reciprocal mutualism from the abstract.
+    - Preserve the open discussion, source quotes and all previous history. The source abstract does not identify exact stock accessions or a sequenced study genome; no source absence claim extends to unread full text.
+  historical_guard:
+    path: tests/test_causal_review_batch8.py
+    sha256: 32847632160fbd72d5f83b6906e5cb6b60da1c885130fe376753fa4e90f9d4cc
+    ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    ledger_sha256: a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25
+    note: Current rumen predicates require the qualified denominator, current971/1264 labels, absent mutualism and absent workflow arrows. Preserve the accepted calcium393 composite admission, all other current biological tests, ledger counts and historical needs_research dispositions.
+  blockers:
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/2888
+      assessment: The existing guarded staging/proof path admits complete grounded or ambiguous results, not a null native route. No stage or canonical application has been attempted. A separately reviewed bounded UNRESOLVED path, refusal tests and actual M5 end-to-end canary are required; already frozen helpers and proofs must remain reproducible.
+    - issue: https://github.com/CultureBotAI/CommunityMech/issues/1268
+      assessment: Non-graph role and source metadata findings remain outside this status correction. Enzyme synergy and modeled compatibility do not independently establish every stored functional role.
+completion_limit: One selected descriptor, read-only primary and native observations only. No canonical correction, saved scientific review, reference-comparison run or M5 application is supplied by this plan.
