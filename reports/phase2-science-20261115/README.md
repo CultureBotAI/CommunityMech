@@ -1,4 +1,26 @@
-# Phase 2 scientific curation checkpoint
+# Phase 2 scientific curation checkpoints
+
+The full current scientific assessment of EcoFAB 000025, dopamine SynCom16 000516 and the Methods-defined LBNL collection 000087 is saved at source commit `a821ec7ca48adb5232cfc7a92e86d1d20330d278`. Its 105 assessments cover all 49 stock assertions, ten interaction nodes, four downstream arrows, cultivation and host contexts, related communities, resources, discussions and provenance. EcoFAB now has four explicit treatment arms, four arm/timepoint-bound relative-read observations and 17 exact source-reported IMG/GOLD pairs.
+
+- [Full scientific review YAML](../../reviews/structured/20261115T031503Z-phase2-three-record-final-science/review.yaml) and [native Markdown](../../reviews/structured/20261115T031503Z-phase2-three-record-final-science/review.md).
+- [Dated persistence audit](final-three-retained-inputs.json): all 196 inputs matched at 03:15:33 UTC on 2026-11-15; Markdown exactly matched the native renderer. The YAML is 180,783 bytes and Markdown is 268,923 bytes.
+- [Six actual applied writes and seven native sidecars](applied-chain-ecofab-final-002/chain.json), preserving all earlier receipt bytes and checkpoints.
+- [Source correction checkpoint](ecofab-source-checkpoint.md), including the exact current record hashes and focused gate provenance.
+
+| Verification | Actual result | Interpretation |
+| --- | --- | --- |
+| Maintained current reference measurement | 149 of 149 snippet occurrences compared; 147 matched, two mismatched | Actual traversal includes `SupportingReference`; the native issue count is not used as a coverage proxy. |
+| Focused native gates | 26 passed, one failed out of 27 | LBNL references fail on the two exact Table S1 cells. All checks executed; failure is retained. |
+| Generated documents | `check-docs-current` passed on the committed source | Generated pages match canonical records. |
+| Review persistence | Native validation/save passed; 196 input hashes and native Markdown verified | Persistence does not establish scientific truth or repository-wide QC completion. |
+
+The final review resolves the three retained EcoFAB causal/study-stage/genome findings and the narrow LBNL unannotated-discussion finding. Two boundaries remain: the Methods/Table S1 stock correspondence under [1548](https://github.com/CultureBotAI/CommunityMech/issues/1548), and source-aware routing of two correct supplemental quotations under [1996](https://github.com/CultureBotAI/CommunityMech/issues/1996). The earlier linked-stock review separately resolved the paired metadata defects. Source ambiguity and native reference failure are not silently converted to passing verdicts.
+
+The full review has `completion: completed`, `verdict: needs_curation`, and `scientific_review: true`. Every scoped claim was assessed and every required focused check executed. Combined Phase 2 QC, other records, the broader campaign and merge decisions remain separately accounted for. The metrics correction recorded in [2825](https://github.com/CultureBotAI/CommunityMech/issues/2825) preserves the rejected draft and uses the native zero-node default without inventing an evidence-per-node ratio; a capped score never overrides findings or failed checks.
+
+## Historical first canary — 02:17 UTC
+
+The status descriptions below describe the original canary checkpoint. Its immutable review and receipts remain unchanged; the full current assessment above supersedes its current-state descriptions where explicitly stated.
 
 The first canary, `CommunityMech:000087`, is saved and independently reviewed. It represents the **Methods-defined final 16-stock collection**, with the paper's earlier 18/17-member observations preserved separately. This checkpoint does not complete Phase 2, the all-record campaign, or full repository QC.
 
