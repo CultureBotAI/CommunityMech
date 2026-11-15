@@ -1,0 +1,44 @@
+{
+  "scope": "taxonomy-notes-only",
+  "scientific_review": false,
+  "target": "kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml",
+  "target_id": "CommunityMech:000448",
+  "before_sha256": "f8b17ce636bfb8c48470f7664fc1497566777d760886bb9c557c7e5c16fa8cf3",
+  "event_changes": "Clarified the Lactiplantibacillus plantarum taxonomy note using the exact-ID reference population while retaining the abstract's unidentified experimental stock (#2848). This note-only intermediate preserves current ambiguity candidates and all biological content; separate native mapping and strict two-transition proof remain pending. No whole-record scientific approval is asserted.",
+  "notes": [
+    {
+      "taxonomy_index": 2,
+      "existing_descriptor": {
+        "preferred_term": "Lactiplantibacillus plantarum",
+        "term": {"id": "NCBITaxon:1590", "label": "Lactiplantibacillus plantarum"},
+        "gtdb_grounding_status": "AMBIGUOUS",
+        "gtdb_candidates": ["GTDB:s__Lactiplantibacillus_plantarum", "GTDB:s__Lactiplantibacillus_plantarum_A", "GTDB:s__Lactiplantibacillus_paraplantarum"],
+        "notes": "The source names L. plantarum only at species level. GTDB splits this NCBI species with no single majority holder, so likely candidates are retained rather than forcing one exact GTDB species."
+      },
+      "existing_stock": null,
+      "before": "The source names L. plantarum only at species level. GTDB splits this NCBI species with no single majority holder, so likely candidates are retained rather than forcing one exact GTDB species.",
+      "after": "The inspected primary abstract names Lactiplantibacillus plantarum as one of three soymilk starter members but provides no strain accession. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:1590 descriptor row to GTDB Lactiplantibacillus plantarum, with 2,061 reference genomes and stored majority fraction 1.0. Broader same-name rows from other NCBI IDs do not establish ambiguity for this exact descriptor. The crosswalk's GTDB release is not established. This reference population does not identify the experimental starter stock's genome or supply its missing strain designation. Counts and fractions are not measurements of the inoculum or stock-identity probabilities."
+    }
+  ],
+  "inputs": {
+    "kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml": "f8b17ce636bfb8c48470f7664fc1497566777d760886bb9c557c7e5c16fa8cf3",
+    "references_cache/PMID_42637460.txt": "16e9e90e05f2a011316d814b1e23277fb256c30c1f0b07d420b57ed6d02d0d85",
+    ".temp/gtdb-source-holds-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/soymilk448-native-route-001.log": "691b8e2d01908d737be65bdab155da0ebc092fb28c799a3c32bcaa3e14d7b350",
+    ".temp/phase2-schema-20261115/soymilk448-native-route-001.json": "c979859152eafbd8515cda87c1f82652ffb95bea9d3158325a324fd72cdba336",
+    ".temp/phase2-schema-20261115/soymilk448-native-route-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/gtdb-source-holds-20261115/soymilk448-route-plan-001.json": "1fce9103a9fb7fe962a51231afeb194ac267b52d03d8d9244c24305a1e850ca2",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "tests/test_causal_review_batch104.py": "5aa4b6810bd927d9672282816327de9fa0deb6a61eadf3518600e4d16eebf24c",
+    "reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml": "b2805bed0762cdddc489bef41347dd62e870147b75bf0712faca6fd28c2a5351",
+    "reports/causal_graph_review/decisions/20261031-c3s5-review-remediation.yaml": "94fce730acc4a1465ed5395d0e510586dadb90cb9eff77af0370a0cb758a34ce",
+    "reviews/structured/20261031T081500Z-c3s5-remediation-verification/review.yaml": "8708419cb818a798f8be8e9cfc595eeaaf6d59636b2a4e9f1833a78b5c3c47af"
+  },
+  "source_anchors": [
+    {"path": "references_cache/PMID_42637460.txt", "locator": "Complete retained PubMed abstract, source roster", "text": "Lactiplantibacillus plantarum) during soymilk fermentation."},
+    {"path": "references_cache/PMID_42637460.txt", "locator": "Retained primary abstract, dropout design remains unchanged", "text": "the late-stage. Controlled soymilk fermentation with systematic exclusion of"},
+    {"path": ".temp/phase2-schema-20261115/soymilk448-native-route-001.log", "locator": "taxonomy[2] exact1590 native result", "text": "\"total_genomes\": 2061"}
+  ],
+  "limits": "Preparation only. Preserve the three-member starter, absent stock designations, both unselected grounded blocks, their historical provenance text, source-preferred names, current statuses/options, all evidence, two HYPOTHESIZED/PARTIAL computational nodes, zero arrows and all previous history. Exact stock identities, formulations, timepoints and experimental transfer mechanisms remain unresolved in the inspected abstract; no absence claim about unread full text. Preserve completed1819/2084 provenance without reopening or pretending new scientific clearance. Use an actual note-only transition, real maintained intermediate and unchanged native mapping final leg. The locally bound original batch104 caller retains the448 c3s5 predecessor chain; its accepted378 extension is published895024765ecd69a5337f0202a7e023de97a4f25b, integratedROOT7ed0013e, and must be preserved when adding final448 admission. No104 caller edit or broad exception is authorized by this plan. Final saved diagnostic, complete checkpoint, exact composite admission, generated products and combined QC remain subsequent work."
+}
