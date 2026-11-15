@@ -1,0 +1,164 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: b68bd656265c73c5fa5fcc6dab5601001cf85861
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical routes are expectations. Fresh whole-record native routes, local authority and exact source binding are required before staging.
+records:
+  - id: CommunityMech:000458
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    before_sha256: ff5a241eec381f83352135c004e32f39407dc4d82fb4f2bbba2c2bbb299a71d9
+    primary_source:
+      reference: doi:10.21203/rs.3.rs-7812930/v1
+      url: https://doi.org/10.21203/rs.3.rs-7812930/v1
+      retained_path: references_cache/doi_10.21203_rs.3.rs-7812930_v1.md
+      retained_sha256: 2ad3c01c867db352addb589ed069ed6bd76b4e10db5146a0329dea91f59509ae
+      locator: Selected excerpts, Introduction/Methods lines 32-50 and limitations line 70.
+      coverage: Selected preprint excerpts only; fresh DOI access returned no usable source. The cache explicitly disclaims complete independent full-text retrieval.
+      exact_short_quote: Bacillus sp. G3 and G12, and Acinetobacter sp. G13
+      judgment: >-
+        The source distinguishes G3, G12 and G13 from the two Plantibacter
+        flavus strains M251/M259. The first three are genus-level study stocks.
+        Broth preculture, washed and resuspended inoculum, drought-phase
+        measurements and recovery endpoints are distinct. Strain persistence
+        was not tracked. Genus-reference counts add no study-stock assembly
+        identity or evidence for reciprocal benefit.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1386', label: 'Bacillus <firmicutes>'}
+        stock: G3
+        historical_expected: {gtdb_id: 'GTDB:g__Bacillus', support_genomes: 4981, total_genomes: 8737, majority_fraction: 0.57, via: ncbi_rank_g, n_alt: 44}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:1386', label: 'Bacillus <firmicutes>'}
+        stock: G12
+        historical_expected: {gtdb_id: 'GTDB:g__Bacillus', support_genomes: 4981, total_genomes: 8737, majority_fraction: 0.57, via: ncbi_rank_g, n_alt: 44}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:469', label: Acinetobacter}
+        stock: G13
+        historical_expected: {gtdb_id: 'GTDB:g__Acinetobacter', support_genomes: 21984, total_genomes: 21984, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve all five distinct stock descriptors and both unselected Plantibacter statuses; inspect their fresh routes but do not silently expand the selected correction.
+      - Preserve phase-specific root biomass, recovery nodulation, lack of reciprocal-benefit evidence and the explicit results/discussion discrepancy. Closed graph issue 1241 remains historical.
+      - Preserve separate broth and resuspended-inoculum stages, source symbols and limited excerpt coverage. Do not normalize a quotation and call it verbatim.
+      - Open findings 2209/2210/2211/2212 cover role vocabulary, preparation wording, quotation transcription and external medium linkage. Their live OPEN states were checked; genus mapping does not resolve them.
+    prior_review:
+      path: reviews/structured/20261020T040850Z-alfalfa-syncom-record/review.yaml
+      sha256: 43fce638ada691b2cddbda63744b84847ebac487ebcd13a89b05c0fd5607b181
+    historical_guard:
+      ledger: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+      note: Current bytes match the reviewed ff5a predecessor. Ignore-independent tests search found only a GTDB-coherence population comment for this target, not a direct record-specific hash/history caller. Preserve the original graph ledger and all current biology; require a separate explicit strict current-baseline proof despite the absence of such a caller.
+  - id: CommunityMech:000456
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    before_sha256: 5fe2262acd9eb4de81a2f454ac2954ab5d347a1ce7915d1cdcaf73fc584ff678
+    primary_source:
+      reference: PMID:41634815
+      url: https://doi.org/10.1186/s40168-026-02350-8
+      retained_path: references_cache/PMID_41634815.txt
+      retained_sha256: 0dc288d29a3f599742315a0034ddf4aad7c0f6523c898bd0e7f54091f5131037
+      locator: Retained main-text line 70, construction of fifteen-member consortium and comparison with streamlined five-member derivative.
+      coverage: Selected retained main-text passages and separate S7 table text read. Fresh DOI access returned no usable source; no fresh figure pixels or sequence audit.
+      exact_short_quote: four functional strains with 11 core microbial strains
+      judgment: >-
+        This record describes SynCom15, not its SynCom5 derivative. The separate
+        S7 rows identify DB2L1 and ETQL6 as Priestia, YCL9 as Peribacillus,
+        WSR4 as Cupriavidus and WST6 as Kocuria. CM numbers are member aliases;
+        ASV match percentages are sequence similarities. Neither measures
+        member abundance or exact assembly correspondence.
+    supplementary_source:
+      retained_path: references_cache/PMID_41634815.supplement.md
+      retained_sha256: 99cbaf310c20323f40cf7005ad997da21098e7ef867c86336a2f0affd8e929a9
+      locator: Table S7 text lines 1062-1197, CM-1/CM-7/CM-8/CM-13/CM-15.
+      coverage: Explicit separate supplementary table text, not article-cache fallback. Retain this source boundary and issue 1996.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:2800373', label: Priestia}
+        stock: DB2L1
+        historical_expected: {gtdb_id: 'GTDB:g__Priestia', support_genomes: 103, total_genomes: 156, majority_fraction: 0.66, via: ncbi_rank_g, n_alt: 5}
+      - selector: taxonomy[6].taxon_term
+        descriptor: {id: 'NCBITaxon:2675229', label: Peribacillus}
+        stock: YCL9
+        historical_expected: {gtdb_id: 'GTDB:g__Peribacillus', support_genomes: 115, total_genomes: 131, majority_fraction: 0.878, via: ncbi_rank_g, n_alt: 5}
+      - selector: taxonomy[7].taxon_term
+        descriptor: {id: 'NCBITaxon:2800373', label: Priestia}
+        stock: ETQL6
+        historical_expected: {gtdb_id: 'GTDB:g__Priestia', support_genomes: 103, total_genomes: 156, majority_fraction: 0.66, via: ncbi_rank_g, n_alt: 5}
+      - selector: taxonomy[12].taxon_term
+        descriptor: {id: 'NCBITaxon:106589', label: Cupriavidus}
+        stock: WSR4
+        historical_expected: {gtdb_id: 'GTDB:g__Cupriavidus', support_genomes: 199, total_genomes: 199, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[14].taxon_term
+        descriptor: {id: 'NCBITaxon:57493', label: Kocuria}
+        stock: WST6
+        historical_expected: {gtdb_id: 'GTDB:g__Kocuria', support_genomes: 528, total_genomes: 540, majority_fraction: 0.978, via: ncbi_rank_g, n_alt: 2}
+    preservation_contract:
+      - Preserve all fifteen stock identities and the ten unselected mappings, including existing alternative-genus fractions. Genus correspondence does not resolve species or match study assemblies.
+      - Preserve current DNA-abundance versus expression and SynCom15 versus SynCom5 mechanism boundaries. Do not turn ASV matches or CM aliases into abundance values.
+      - The saved full review found the SynCom5 membership availability premise obsolete after figure/S7 inspection; retain open 2492 explicitly rather than newly asserting the missing roster. Updating it is separate curation.
+      - Live OPEN 2490/2491/2492/1996 retain assay-context, member-code abundance, obsolete derivative-gap and supplementary-reference blockers. Mapping does not certify the remaining graph or quotations.
+    prior_review:
+      path: reviews/structured/20261021T161103Z-caragana-wheat-drought-syncom15-record/review.yaml
+      sha256: c2d465a4cf10338d76a4657594398211b6836cf08e457d2d6c2bc1bc525bc55c
+    historical_guard:
+      path: tests/test_causal_review_batch10.py
+      ledger: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+      note: Exact current hash and node/edge predicates apply. Admit only this strict successor before the old hash comparison, and preserve current scientific checks, literal old ledger and the separate Cheese_Rind historical-source path. No old last-event predicate applies here.
+  - id: CommunityMech:000403
+    path: kb/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml
+    before_sha256: 23c898adcb069d4f4f36cc49783674e02fa33a814b11cdc8a3a7ed7f84f74239
+    primary_source:
+      reference: PMID:42482240
+      url: https://doi.org/10.1186/s40168-026-02470-1
+      retained_path: references_cache/PMID_42482240.txt
+      retained_sha256: fa818b4fb415527b08960aeb8aa118fef46555bc01b18126eb99b66dbae61210
+      locator: Selected main-text lines 13-23, individual screens, equal-ratio preparation, pots and targeted ASV observations.
+      coverage: Retained selected main-text and separate S2 table text read, with prior full review inspected for boundaries. Fresh DOI access returned no usable source; no fresh figure or assembly audit.
+      exact_short_quote: selected five members of SynLA V
+      judgment: >-
+        Five source-local stocks L11/L29/L75/L44/L115 are distinct from the
+        comparator SynHAV and the plant host. S2 identifies their genera and
+        individual 72-hour residual-DEHP screens. Those screens do not measure
+        strain-resolved pot flux, complete mineralization or complementarity.
+        Equal-ratio OD-normalized preparation does not establish equal viable
+        counts, endpoint dominance or persistence of every stock.
+    supplementary_source:
+      retained_path: references_cache/PMID_42482240.supplement.md
+      retained_sha256: 45614f71bd112451ce0a5bb4b11f201c4e80278cb56c2cc591d5fc9bd0fcc726
+      locator: Table S2 lines 10-16, all five SynLAV strain rows.
+      coverage: Separate supplement text. The prior full review already identifies source-attributed phylum errors; preserve quotations and do not import those phyla into canonical authority grounding.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:237', label: Flavobacterium}
+        stock: L11
+        historical_expected: {gtdb_id: 'GTDB:g__Flavobacterium', support_genomes: 859, total_genomes: 860, majority_fraction: 0.999, via: ncbi_rank_g, n_alt: 2}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:286', label: Pseudomonas}
+        stock: L29
+        historical_expected: {gtdb_id: 'GTDB:g__Pseudomonas', support_genomes: 17956, total_genomes: 25706, majority_fraction: 0.699, via: ncbi_rank_g, n_alt: 11}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:13687', label: Sphingomonas}
+        stock: L75
+        historical_expected: {gtdb_id: 'GTDB:g__Sphingomonas', support_genomes: 449, total_genomes: 610, majority_fraction: 0.736, via: ncbi_rank_g, n_alt: 19}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:1827', label: 'Rhodococcus <high G+C Gram-positive bacteria>'}
+        stock: L44
+        historical_expected: {gtdb_id: 'GTDB:g__Rhodococcus', support_genomes: 514, total_genomes: 514, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:2053', label: 'Gordonia <high G+C Gram-positive bacteria>'}
+        stock: L115
+        historical_expected: {gtdb_id: 'GTDB:g__Gordonia', support_genomes: 450, total_genomes: 453, majority_fraction: 0.993, via: ncbi_rank_g, n_alt: 2}
+    preservation_contract:
+      - Preserve genus-only stock identities; neither alternative-genus support nor L115's separate exact-ID row establishes a stock-specific GTDB species.
+      - Preserve the three targeted ASVs in LAV versus none in HAV, identity/viability limits, soil residue versus plant concentration and hypothetical mediation.
+      - Preserve distinct 100 mg/L liquid individual assays and 100 mg/kg pot soil, ten-day Methods versus two-week Results discrepancy, and all quotations with their main/supplement boundaries.
+      - Existing 2535 owns the bounded genus-mapping follow-up; 1311 owns unsupported member prominence, 2534 preparation context, and 1996 source-specific quotation routing. They remain explicit; no issue is closed by preparation.
+    prior_review:
+      path: reviews/structured/20261021T192924Z-choysum-synlav-record/review.yaml
+      sha256: 8bc00677f77589ef843099ed024a48ab5f00d960ed199958168e51554f1ce850
+    historical_guard:
+      path: tests/test_causal_review_batch15.py
+      ledger: reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml
+      note: Exact current hash, graph/edge/discussion and immutable historical ledger predicates apply. Require strict predecessor admission while retaining all current biological assertions and historical_cache original-source hash validation. Do not alter old allowed_changed_fields, event counts or source-attributed phylum quotations. No last-event predicate applies here.
+completion_limit: Thirteen genus occurrences in three whole records only. Preparation is not application or scientific completion. Bind fresh whole-record routes and original source bytes, inspect exact candidates, persist guarded M5 corrections and native checks/history, save a partial immutable diagnostic and complete checkpoint, then integrate strict successor proof. All prior scientific blockers remain separately owned.
