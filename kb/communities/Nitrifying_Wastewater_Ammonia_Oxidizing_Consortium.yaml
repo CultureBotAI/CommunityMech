@@ -68,7 +68,17 @@ taxonomy:
     term:
       id: NCBITaxon:35798
       label: Nitrosospira
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Nitrosospira
+      gtdb_taxon: Nitrosospira
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Nitrosomonadaceae;g__Nitrosospira
+      ncbi_source_id: NCBITaxon:35798
+      majority_fraction: 1.0
+      support_genomes: 16
+      total_genomes: 16
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >
       MAG MBSoxNitrifying4mlFreshRep3_metaMDBG_complete.48 was classified to
       the genus Nitrosospira; the source did not assign a species-level name.
@@ -90,7 +100,17 @@ taxonomy:
     term:
       id: NCBITaxon:911
       label: Nitrobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Nitrobacter
+      gtdb_taxon: Nitrobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Nitrobacter
+      ncbi_source_id: NCBITaxon:911
+      majority_fraction: 1.0
+      support_genomes: 17
+      total_genomes: 17
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >
       MAG MBSoxNitrifying4mLFreshRep3_complete.11 was classified to the genus
       Nitrobacter; the source reported it as an unidentified species.
@@ -108,7 +128,17 @@ taxonomy:
     term:
       id: NCBITaxon:445
       label: Legionella
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Legionella
+      gtdb_taxon: Legionella
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Legionellales;f__Legionellaceae;g__Legionella
+      ncbi_source_id: NCBITaxon:445
+      majority_fraction: 0.943
+      support_genomes: 5067
+      total_genomes: 5375
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 7 GTDB taxa under the NCBI taxon]
     notes: >
       The study detected Legionella-affiliated MAGs and used them in a
       virulence-gene risk assessment; the source did not assert pathogenicity
@@ -295,3 +325,11 @@ curation_history:
   changes: 'Qualify the guild handoff and introductory evidence; preserve measured redox-dependent performance while
     missing outcome nodes remain research work. Issue #1644; reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T08:37:54Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:37:55Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'

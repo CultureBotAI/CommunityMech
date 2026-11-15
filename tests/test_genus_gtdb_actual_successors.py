@@ -13,6 +13,14 @@ from test_scoped_gtdb_actual_successor import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
+    "415": "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+    "477": "kb/communities/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom.yaml",
+    "353": "kb/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",
+    "440": "kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
+    "447": "kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml",
+    "433": "kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml",
+    "474": "kb/communities/Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium.yaml",
+    "403": "kb/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml",
     "410": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
     "372": "kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml",
     "349": "kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml",
