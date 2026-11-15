@@ -1,4 +1,16 @@
-# Four source-bound correspondence preparations
+# Four source-bound correspondences
+
+The [Q5-1 canary outcome](492-canary-outcome-001.md) records the completed bounded
+492 application on frozen M5 revision `bfef6b2a`: eight native checks, an immutable
+partial diagnostic, verified 81-input audits and complete 83-file checkpoints on
+both hosts, 27 public evidence artifacts, and strict historical admission. One
+positive proof canary, 20 focused proof/caller tests, native lint and the native
+345-review integrity check passed. These checks cover the declared mapping and
+provenance scope; issue 2918 and broader scientific work remain open. Records
+359, 497 and 454 have not been applied in this lane.
+
+The following preparation account is retained as the earlier checkpoint, before
+the 492 M5 application. Its pending steps describe that earlier state.
 
 This separate branch prepares one GTDB reference correspondence each for
 CommunityMech492 (Q5-1),359 (PPHET),497 (Synechocystis/E.coli butanol) and454
