@@ -73,3 +73,13 @@ with independently accepted bindings. Their scientific limits and original
 canonical bytes are preserved. The final native integrity check passed for 338
 reviews within their declared scopes. Whole-corpus scientific and reference QC
 remain outside this checkpoint.
+
+The later [three-record checkpoint](remaining-three-checkpoint-outcome-001.md)
+preserves actual 389/381/482 applications, 24 native passes, the independently
+reviewed partial diagnostic, both complete 181-file input snapshots and 81
+verified public proof artifacts. It stops before strict registry/caller
+adaptations and their tests, which are **NOT RUN**. This draft evidence
+checkpoint must not be integrated into the maintained branch yet. The earlier
+441 canary result remains separate; source and scientific limitations are not
+cleared. [Continuation instructions](continuation-001.md) identify the exact
+pending work and frozen execution paths for resumption after the Intel handoff.

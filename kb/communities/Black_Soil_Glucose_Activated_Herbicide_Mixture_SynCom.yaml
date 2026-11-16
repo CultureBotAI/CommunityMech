@@ -22,6 +22,7 @@ taxonomy:
     term:
       id: NCBITaxon:32008
       label: Burkholderia
+    gtdb_grounding_status: GROUNDED
     notes: Keystone taxon from the Burkholderia-Caballeronia-Paraburkholderia complex enriched for atzF and gst herbicide-degrading
       genes.
     gtdb_classification:
@@ -35,7 +36,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
         under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -52,9 +52,19 @@ taxonomy:
     term:
       id: NCBITaxon:75309
       label: Rhodanobacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Rhodanobacter
+      gtdb_taxon: Rhodanobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter
+      ncbi_source_id: NCBITaxon:75309
+      majority_fraction: 1.0
+      support_genomes: 15
+      total_genomes: 15
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Keystone bacterial genus in the four-isolate black-soil SynCom contributing to glucose-activated co-metabolic herbicide
       degradation.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -71,6 +81,7 @@ taxonomy:
     term:
       id: NCBITaxon:222
       label: Achromobacter
+    gtdb_grounding_status: GROUNDED
     notes: Keystone bacterial genus in the four-isolate black-soil SynCom carrying atzF and gst catabolic functions.
     gtdb_classification:
       gtdb_id: GTDB:g__Achromobacter
@@ -83,7 +94,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
         under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -260,3 +270,11 @@ curation_history:
   changes: Curate 3-node community-level causal chain with explicit participating_taxa linking glucose-activated central carbon
     metabolism to atzF/gst keystone enrichment and SynCom herbicide-mixture degradation.
   llm_assisted: true
+- timestamp: '2026-11-16T02:27:44Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-16T02:27:44Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
