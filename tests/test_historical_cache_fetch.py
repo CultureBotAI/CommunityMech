@@ -37,6 +37,8 @@ SCIENTIFIC_BASES = [
     "38f11cfac83036ed7e2feeea8cb19db74eed3306",
     # Actual maintained Wetland identity intermediate for production admission.
     "faad27a2d22971ab0e50594ff4cb4fdf6f63d8c7",
+    # Dated 143-block reclassification census, separate from current semantic guards.
+    "edd740d502690303a691935d1ee8deef911362f8",
 ]
 
 

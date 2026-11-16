@@ -242,3 +242,23 @@ def test_infra_0004_corpus_count_decoupling_preserves_invariants():
             pass
         else:
             raise AssertionError("strain_dropped regression was not caught")
+
+    # A valid addition may change descriptive proportions, while historical
+    # counts remain bound to their real Git corpus (#2947).
+    with patch.object(
+        ir_mod,
+        "_blocks",
+        side_effect=lambda: iter(
+            [
+                *base_blocks,
+                *[("Veillonella parvula", "Veillonella parvula_A", "GTDB:s__0003")] * 100,
+            ]
+        ),
+    ):
+        ir_mod.test_the_buckets_partition_the_whole_set()
+        ir_mod.test_the_majority_of_true_values_are_not_reclassifications()
+
+    # Restore immediately; neither the current zero invariant nor the genuine
+    # historical population is replaced by the synthetic control.
+    ir_mod.test_each_bucket_holds_what_it_held("strain_dropped")
+    ir_mod.test_the_majority_of_true_values_are_not_reclassifications()

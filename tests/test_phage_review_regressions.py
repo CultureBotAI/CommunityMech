@@ -5,10 +5,19 @@ from pathlib import Path
 
 import pytest
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 PHA = ROOT / "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml"
 ALSETH = ROOT / "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml"
+PHAGE_BEFORE = {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": (
+        "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5"
+    ),
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": (
+        "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
+    ),
+}
 
 
 def _record(path=PHA):
@@ -95,8 +104,9 @@ def test_review_contract_rejects_regressions_and_accepts_restoration(mutation):
 
 
 def test_phage_corpus_addition_explains_the_grounding_baseline_delta():
+    """The introduction census is historical; current mappings require full proof (#2947)."""
     for path, bacterial_count in ((ALSETH, 4), (PHA, 5)):
-        members = _record(path)["taxonomy"]
+        members = _historical_members(path)
         unresolved = [
             m for m in members if m["taxon_term"]["gtdb_grounding_status"] == "UNRESOLVED"
         ]
@@ -104,6 +114,16 @@ def test_phage_corpus_addition_explains_the_grounding_baseline_delta():
         assert all("could not locate" in m["taxon_term"]["notes"] for m in unresolved)
         assert len(members) == bacterial_count + 1
         assert members[-1]["taxon_term"]["gtdb_grounding_status"] == "NO_GTDB_EQUIVALENT"
+
+
+def _historical_members(path):
+    relative = path.relative_to(ROOT).as_posix()
+    assert relative in PHAGE_BEFORE, "no historical phage census allowance"
+    admission = admit_genus_successor(
+        ROOT, relative, PHAGE_BEFORE[relative], current=path.read_bytes()
+    )
+    assert admission.changed, "current phage mapping proof is required"
+    return yaml.safe_load(admission.historical_bytes)["taxonomy"]
 
 
 def test_pha_supporting_snippets_are_contiguous_in_the_primary_cache():

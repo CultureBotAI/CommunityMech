@@ -21,14 +21,16 @@ withheld on purpose (#292, pinned by `tests/test_gtdb_withheld_groundings.py`) â
 re-running the grounding tool over the whole KB. #294's status enum is the real
 fix; this is the cheap half that works today and needs no schema change.
 
-`ncbi_source_id` holds for all 647 grounded taxa right now, so this is a guard
-against the next id edit, not a report on this one.
+Those counts describe the original #314 snapshot. The reviewed Terrabacter
+ancestor route (#2849) intentionally differs from its unchanged stock ID.
+Only its exact source/application/review proof may admit that mismatch (#2946).
 """
 
 from pathlib import Path
 
 import pytest
 import yaml
+from batch144_mapping_successor import TERRABACTER, current_record_sha256, digest
 
 from communitymech.paths import taxon_descriptor_roots
 from communitymech.taxon_blocks import iter_taxon_descriptors
@@ -43,6 +45,9 @@ REPO = Path(__file__).parent.parent
 # records live in kb/taxa, which this list omitted -- harmlessly, but only because
 # kb/taxa holds 0 gtdb_classification blocks today (#656).
 RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
+ANCESTOR_MANIFEST = "reports/gtdb-source-routes-2849-20261115/terrabacter-successor-001.json"
+ANCESTOR_MANIFEST_SHA = "3ebccc9e03e97580ba4333d7b8863e0b1991916ad9a48d48481a5ea7c2f626cb"
+ANCESTOR_BEFORE = "81c8fd983bc57050595d7a4d51b64acdf2617ce9fea0f03f7ec9db4fa617c05e"
 
 
 def _grounded_taxa():
@@ -57,13 +62,36 @@ def _grounded_taxa():
                 continue
             found.append(
                 (
-                    path.name,
+                    path.relative_to(REPO).as_posix(),
                     term_block.get("preferred_term"),
                     (term_block.get("term") or {}).get("id"),
                     grounding,
                 )
             )
     return found
+
+
+def _source_matches_descriptor(record, name, term_id, grounding):
+    """Admit one authenticated ancestor route; require equality everywhere else."""
+    if record != TERRABACTER:
+        return grounding.get("ncbi_source_id") == term_id
+    manifest_raw = (REPO / ANCESTOR_MANIFEST).read_bytes()
+    assert digest(manifest_raw) == ANCESTOR_MANIFEST_SHA, "ancestor manifest changed"
+    current = (REPO / record).read_bytes()
+    current_record_sha256(
+        REPO,
+        record,
+        ANCESTOR_BEFORE,
+        manifest=yaml.safe_load(manifest_raw),
+        current=current,
+    )
+    descriptor = yaml.safe_load(current)["taxonomy"][0]["taxon_term"]
+    assert (name, term_id, grounding) == (
+        descriptor.get("preferred_term"),
+        descriptor["term"]["id"],
+        descriptor["gtdb_classification"],
+    ), "inspected row differs from the authenticated current descriptor"
+    return True
 
 
 @pytest.fixture(scope="module")
@@ -97,7 +125,7 @@ def test_grounding_is_not_stale_against_its_taxon_id(grounded):
         f"      term.id        = {term_id}\n"
         f"      ncbi_source_id = {grounding.get('ncbi_source_id')}"
         for record, name, term_id, grounding in grounded
-        if grounding.get("ncbi_source_id") != term_id
+        if not _source_matches_descriptor(record, name, term_id, grounding)
     ]
     assert not stale, (
         "gtdb_classification derived from a different id than the taxon now carries â€” "
