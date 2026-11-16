@@ -4,9 +4,18 @@ Record 436 now has a saved, independently audited genus-reference diagnostic
 with eight actual native checks, complete input checkpoints and public proof.
 The exact application, source-population limits, immutable saved review and
 strict-admission results are recorded in
-[436-canary-outcome-001.md](436-canary-outcome-001.md). Records 416 and 494 remain
-unapplied. The earlier transfer refusal was preserved; only the subsequently
+[436-canary-outcome-001.md](436-canary-outcome-001.md). The earlier transfer refusal was preserved; only the subsequently
 explicitly approved seven inputs were copied and verified for this canary.
+
+Record 416 now has six native rank-level reference blocks, eight actual M5
+checks, a saved partial diagnostic, verified 83-input/85-file checkpoints on
+both hosts and 27 public proof artifacts. Its 17 actual proof controls, all
+15 historical batch 120 tests and native lint passed. The narrow phylum
+majorities and unresolved issue 1935 remain bounded; scientific review and
+combined QC are not complete. See [416-canary-outcome-001.md](416-canary-outcome-001.md).
+The separately approved Thermophilic/Sahara transfers are recorded in
+[approved-input-transfers-20261116.md](approved-input-transfers-20261116.md).
+Record 494 has a private M5 candidate only and remains unapplied.
 
 ## Historical preparation checkpoint
 
