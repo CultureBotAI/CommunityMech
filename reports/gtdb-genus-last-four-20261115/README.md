@@ -1,8 +1,8 @@
 # Four-record source preparation
 
-This branch prepares scoped GTDB reference correspondence for records 441,
-389, 381 and 482. No canonical application or new scientific review has
-occurred here. Black Soil's unresolved membership and mechanism findings
+The original preparation checkpoint at `308081a8` prepared scoped GTDB reference
+correspondence for records 441, 389, 381 and 482, before any canonical application
+or new scientific review. Black Soil's unresolved membership and mechanism findings
 remain explicit; independent review accepted its term-only preparation without
 clearing those biological findings. All four source configurations have had
 independent content review; this does not authorize whole-record scientific
@@ -62,3 +62,14 @@ The first route canary proved native routing and persisted evidence through
 the same launcher. It did not prove canonical curation, remote execution,
 aggregate QC or whole-paper scientific completion. All older scientific
 reviews and their unresolved findings remain unchanged.
+
+The later [441 canary outcome](441-canary-outcome-001.md) records the actual M5
+application, eight native gates, immutable partial diagnostic, complete
+both-host input checkpoints and exact public successor proof. The
+[approved transfer report](approved-transfer-001.md) retains the original
+denial and subsequent explicit approval without changing the source lineage.
+Only 441 is corrected in this checkpoint; 389, 381 and 482 remain preparation
+with independently accepted bindings. Their scientific limits and original
+canonical bytes are preserved. The final native integrity check passed for 338
+reviews within their declared scopes. Whole-corpus scientific and reference QC
+remain outside this checkpoint.

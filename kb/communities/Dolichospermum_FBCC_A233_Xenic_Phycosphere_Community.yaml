@@ -23,7 +23,11 @@ taxonomy:
     term:
       id: NCBITaxon:1166
       label: Dolichospermum flos-aquae
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Dolichospermum_heterosporum
+    - GTDB:s__Dolichospermum_planctonicum
+    - GTDB:s__Dolichospermum_sp000312705
     notes: The GTDB-Tk analysis placed the recovered cyanobacterial genome in the Dolichospermum
       flosaquae species cluster; the paper names the maintained culture as FBCC-A233.
   strain_designation:
@@ -54,7 +58,17 @@ taxonomy:
     term:
       id: NCBITaxon:1434046
       label: Sphingorhabdus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingorhabdus_B
+      gtdb_taxon: Sphingorhabdus_B
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingorhabdus_B
+      ncbi_source_id: NCBITaxon:1434046
+      majority_fraction: 1.0
+      support_genomes: 27
+      total_genomes: 27
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Associated alphaproteobacterial genome recovered from the xenic FBCC-A233 culture and
       resolved by the source article only to Sphingorhabdus sp.
   abundance_level: RARE
@@ -77,7 +91,17 @@ taxonomy:
     term:
       id: NCBITaxon:41275
       label: Brevundimonas
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Brevundimonas
+      gtdb_taxon: Brevundimonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Caulobacterales;f__Caulobacteraceae;g__Brevundimonas
+      ncbi_source_id: NCBITaxon:41275
+      majority_fraction: 1.0
+      support_genomes: 221
+      total_genomes: 221
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Putative undescribed Brevundimonas species-level lineage recovered from the xenic
       FBCC-A233 culture and reported only at genus level in the source article.
   abundance_level: RARE
@@ -301,3 +325,11 @@ curation_history:
   changes: 'Retain computational biotin potential without a categorical exchange claim.; Retain corrinoid potential
     without canonical B12 identity or a causal link to biotin. Issue #1403; reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml'
   llm_assisted: true
+- timestamp: '2026-11-16T01:55:18Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-16T01:55:18Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'
