@@ -5,10 +5,12 @@ import subprocess
 from pathlib import Path
 
 import yaml
+from final_four_gtdb_successors import admit_final_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml"
 OKEKE_BASE = "f42697b3660d8832a54852f9b3593aafe229bc6b"
+RUMEN_PATH = "kb/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.yaml"
 
 
 def record_bytes(path):
@@ -21,7 +23,13 @@ def record_bytes(path):
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load(record_bytes(r["path"])) for r in rows]
+    docs = [yaml.safe_load(record_bytes(r["path"])) for r in rows]
+    for row, doc in zip(rows, docs, strict=True):
+        if row["path"] == RUMEN_PATH:
+            current = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(current)
+            admit_final_four_successor(ROOT, row["path"], row["record_sha256"], current=current)
+    return ledger, rows, docs
 
 
 def test_frc_controlled_tolerance_and_selection_survive():
@@ -177,5 +185,11 @@ def test_history_and_research_lifecycle_are_explicit():
         }
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         assert all((ROOT / p).exists() for p in row["history_files"])
-        assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256(record_bytes(row["path"])).hexdigest() == row["record_sha256"]
+        if row["path"] == RUMEN_PATH:
+            admission = admit_final_four_successor(ROOT, row["path"], row["record_sha256"])
+            historical = yaml.safe_load(admission.historical_bytes)
+            assert historical["curation_history"][-1]["llm_assisted"] is True
+            assert hashlib.sha256(admission.historical_bytes).hexdigest() == row["record_sha256"]
+        else:
+            assert doc["curation_history"][-1]["llm_assisted"] is True
+            assert hashlib.sha256(record_bytes(row["path"])).hexdigest() == row["record_sha256"]

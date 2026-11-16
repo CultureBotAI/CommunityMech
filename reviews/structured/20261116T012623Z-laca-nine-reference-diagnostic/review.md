@@ -1,0 +1,795 @@
+# LaCa SynCom C: nine reference correspondences with source-stock and persistence limits
+
+- Review: 20261116T012623Z-laca-nine-reference-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-16T01:26:23.709671Z
+- Finished UTC: 2026-11-16T01:26:23.857564Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Nine separately preserved LaCa SynCom C inoculum descriptors now carry native GTDB species-reference blocks and GROUNDED statuses. Seven use exact NCBI IDs and two use species-name fallbacks. Original source and NCBI names, nine stock identities, source quotations, experimental boundaries, empty interaction graph and previous history remain unchanged. Actual M5 application, two native inline events, one sidecar and eight scoped native commands are bound. Reference totals and fractions do not identify study-stock genomes, establish persistence of all inoculated stocks or support new causal roles.
+
+## Scope And Provenance
+
+Nine taxonomy blocks and grounding statuses at indices 0-8; source-stock, species-route and reference-population boundaries; actual guarded application, append-only native history and eight scoped technical checks. Existing biological claims and scientific limitations are preserved without a new approval judgment.
+
+Selection: CommunityMech:000395 follows the completed, independently verified Sorghum 348 canary on the same frozen c9bb M5 path. Transwell 091 completed its separate saved-input checkpoint before this application. Record 398 remains unapplied. This diagnostic covers only LaCa SynCom C, record 395.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c9bb51a8b2a5591400dc8f170f043e59642116ce.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000395 | kb/communities/Nasal_SynCom_C_Bioreactor.yaml # taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_grounding_status | maintained | LaCa SynCom C nine source-stock reference correspondences |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000395 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Nine distinct inoculum stocks with unchanged experimental boundaries
+
+grounding: supported. Targets: CommunityMech:000395.
+
+The retained main source and separate Table S2 support the nine preserved inoculum identities and exclusion of challenge rows from membership. They do not establish all-nine persistence, direct causal roles or study-stock genomic identity. Experimental boundaries, source access and publication limits, empty graph and prior scientific findings remain explicit.
+
+### Seven exact-ID and two species-name reference correspondences
+
+grounding: supported. Targets: CommunityMech:000395.
+
+Nine native species results retain their exact reference totals and fractions, including Ml C 236/0.95 and Cv C 96/0.99. Ct C 36/1.0 and Ph C 2/1.0 use explicit species-name fallbacks to suffixed GTDB populations. No numerator, assembly identity, stock rename, abundance or functional transfer is inferred.
+
+### Actual application, append-only history and eight scoped native commands
+
+provenance: supported. Targets: CommunityMech:000395.
+
+The actual before/after receipt, two inline events, one native sidecar and eight completed commands bind frozen c9bb M5 execution. All old source, stock, biological and history content remains unchanged. Saved-input checkpoints, strict successor admission, measured source matching, generated products and final combined QC remain separate requirements.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000395-schema | .temp/gtdb-final-four-20261115/395-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-strict | .temp/gtdb-final-four-20261115/395-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-gtdb | .temp/gtdb-final-four-20261115/395-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-domain | .temp/gtdb-final-four-20261115/395-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-scalars | .temp/gtdb-final-four-20261115/395-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-history | .temp/gtdb-final-four-20261115/395-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-new-history | .temp/gtdb-final-four-20261115/395-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-terms | .temp/gtdb-final-four-20261115/395-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000395-primary | references_cache/doi_10.64898_2026.03.16.712028.md; Selected retained Methods 2.1-2.2, Results 3.5, Figure 6 caption and Discussion 4.2-4.3 passages; exact source anchors are captured in the source proof. | supports | The source distinguishes the nine-stock SynCom C inoculum and experiment 5 from earlier swab experiments. It supplies biological context for the unchanged source-stock descriptors, without generic reference genomes proving experimental persistence or mechanisms. |
+| 000395-supplement | references_cache/doi_10.64898_2026.03.16.712028.supplement.md; Separate retained supplementary extraction, Table S2 species/LaCa identifier/source/inclusion rows and footnotes, with Table S3 endpoint distinction. | supports | All nine included inoculum stocks remain distinct, with the Vol. C/Volunteer 1 bridge preserved. The two excluded S. aureus challenge rows are not added as inoculum members. Inclusion does not establish endpoint detection or maintenance of every stock. |
+| 000395-database | reports/gtdb-final-four-20261115/395-source-evidence-001.json; Nine selected native_result/classify_status entries, species-rank observations, exact-ID versus name routes, lookup-row hashes and captured primary-source identities. | supports | Seven exact-ID and two species-name routes yield nine generic species-reference correspondences. Non-unanimous Ml C 0.95 and Cv C 0.99 fractions remain visible; Ct C and Ph C suffixes remain generic reference labels, without an inferred support numerator or source-stock genome placement. |
+| 000395-application | .temp/gtdb-final-four-20261115/395-applied-001/receipt.json; Actual applied flag, c9bb execution revision, exact before/after, independently accepted stage, captured source inputs and native validated serialization; separate native sidecar. | supports | The guarded M5 writer persisted a61c65e9 from 4bd66811 after independent candidate review. Only nine correspondence blocks/statuses and two native inline events changed; all source quotes, stock fields, biological content, empty graph and earlier history are preserved. |
+| 000395-open-scope | .temp/gtdb-final-four-20261115/issue1640-001.json; Captured OPEN issue 1640 source-backed outcomes and causal-research boundaries; not a fresh issue-state claim at diagnostic save time. | context_only | The current empty graph remains needs_research. All-nine persistence and the proposed tyrosine mechanism remain unresolved; taxonomy correspondence supplies no mechanistic or functional evidence and does not close the prior issue. |
+| 000395-publication-scope | .temp/gtdb-final-four-20261115/395-valency-versions-001.json; Retained bounded version-index lookup; source preparation separately records the publisher 403 access limit. | context_only | The lookup did not establish current publication status. The diagnostic uses the exact retained preprint and separate supplement without asserting that newer versions or a journal article do not exist. |
+| 000395-history-boundary | reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml; Original 395 unchanged decision, empty graph and needs_research disposition; complete current batch 77 caller is captured through source evidence. | context_only | The old ledger remains byte-identical and historical. Later successor proof must preserve its zero-event/unchanged decision, all current biological predicates and existing sibling admissions while admitting only this bounded current transition. |
+
+## Limits And Additional Notes
+
+- Partial technical diagnostic with scientific_review:false. Native validator success does not establish full scientific approval, fresh source-snippet certification, generated-product verification, aggregate QC completion or closure of earlier findings.
+- Primary coverage consists of selected retained preprint Methods 2.1-2.2, Results 3.5, Figure 6 caption and Discussion 4.2-4.3 passages, plus the complete retained supplementary extraction including Table S2 and Table S3. No fresh complete paper, figure-pixel, original supplementary PDF, raw-data or LaCa stock-collection audit was performed. Article and supplementary text remain separate sources.
+- The nine included inoculum stocks remain distinct from both excluded Staphylococcus aureus challenge rows. Experiment 5 is distinct from earlier swab experiments 1-4; their metabolomics and pH-resilience results are not imported into this record. Original experimental and donor/source boundaries remain unchanged.
+- Native total reference genomes and majority fractions are Se C 5694/1.0, Sc C 391/1.0, Ml C 236/0.95, Ct C 36/1.0, Cv C 96/0.99, Cc C 3654/1.0, Cg C 215/1.0, Ao C 28/1.0 and Ph C 2/1.0. These are totals and fractions, not explicit support numerators, experimental abundance, replication counts or probabilities of the source stock's placement. No numerator is reconstructed from a rounded fraction.
+- Ct C uses a species-name fallback to Corynebacterium tuberculostearicum_C and Ph C to Peptoniphilus_A harei_A. Seven other routes use exact NCBI species IDs. The suffixed GTDB labels do not rename the source stocks, replace their original NCBI names or establish an experimental assembly/genome identity.
+- The empty interaction graph remains an explicit research gap. The captured OPEN issue 1640 retains source-backed outcome and causal-research work, the lack of evidence for all-nine persistence and the proposed rather than isolated tyrosine mechanism. This taxonomy change neither closes that issue nor adds any ecological node, arrow, phenotype or challenge claim.
+- The retained version query returned no indexed paper and the recorded direct publisher attempt returned 403. Neither establishes absence of later versions or journal publication; current publication status remains unverified. No paid research submission or new acquisition was performed for this diagnostic.
+- Crosswalk SHA256 761d5537 identifies exact bytes without an established release or chronology. Native mapping_source reflects file mtime, not release provenance. Local NCBI label/rank observations retain database identity/stat rather than a full database digest or certified release.
+- Source preparation used its recorded earlier revision; actual M5 staging, application and all eight native commands used c9bb51a8b2a5591400dc8f170f043e59642116ce with Python 3.13.2 on named isolated branch review/gtdb-final-four-m5-20261116. The execution tree contains applied records and is not a clean-HEAD aggregate QC run. Local mirroring is a verified copy of actual M5 bytes, not a separate local application.
+- Nine statuses changed among nine processed descriptors. Two native inline events and one native sidecar preserve previous history. The batch 77 ledger's original unchanged outcome and zero events remain historical facts; later strict successor admission must authenticate the bounded current transition before projecting only the old hash/history expectations, retaining current biology and sibling admissions.
+- The native term command explicitly passed but did not emit an assertion denominator; none is invented. Complete saved-input checkpoints, public proof export, strict historical admission, current measured source comparisons, generated products and final combined QC remain separate required steps.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261116T012623Z-laca-nine-reference-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'LaCa SynCom C: nine reference correspondences with source-stock and persistence
+  limits'
+started_at: '2026-11-16T01:26:23.709671Z'
+finished_at: '2026-11-16T01:26:23.857564Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The whole current record, selected retained primary body passages,
+    complete retained supplementary-table extraction, original batch77 decision and
+    complete historical caller were read before source preparation. Independent source,
+    local preview and actual M5 candidate/input reviews preceded guarded application.
+    The check/history configuration was independently reviewed before eight serial
+    native commands. This is a partial technical diagnostic, not a new full scientific
+    review.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Nine separately preserved LaCa SynCom C inoculum descriptors now carry native
+  GTDB species-reference blocks and GROUNDED statuses. Seven use exact NCBI IDs and
+  two use species-name fallbacks. Original source and NCBI names, nine stock identities,
+  source quotations, experimental boundaries, empty interaction graph and previous
+  history remain unchanged. Actual M5 application, two native inline events, one sidecar
+  and eight scoped native commands are bound. Reference totals and fractions do not
+  identify study-stock genomes, establish persistence of all inoculated stocks or
+  support new causal roles.
+source:
+  git_revision: c9bb51a8b2a5591400dc8f170f043e59642116ce
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-final-four-20261115/395-applied-001/before.yaml
+    sha256: 4bd66811333c6960ebab5553e7ce71c8a4f92aa1d81f0fc2c9e2b4f6b75dac2e
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-applied-001/receipt.json
+    sha256: ba2598fa9a9abe453d226666b0e0a20c0125b1f1bcd50eadd959d98af475df77
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-domain-001/native.log
+    sha256: 05d52b3a3b93547ba344552cd84c978a0f722f749d8b79825918b58f37c7312c
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-domain-001/receipt.json
+    sha256: 642e736372d86f7e8d15a946cb4ec64b81d7dac13fb6f5f2dd92c27e684e8384
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-domain-001/start.json
+    sha256: d07a311e1f544087339721cb99fa5711f74469dbff78264ce84603c572585225
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-gtdb-001/native.log
+    sha256: 4ed8e5fbddba22bd0b641957397b790053e9a687ef1281883c355365d4273ff4
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-gtdb-001/receipt.json
+    sha256: e2fee0af1cae8b5c03e8535db3db8bb2e2ce536ac0101133e9eb42adab14f119
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-gtdb-001/start.json
+    sha256: ead535a75074ab85dad5faa2244f46848d2d3db4711fde3e0c3adaa263c27364
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-history-001/receipt.json
+    sha256: 47406911c2cefdc235e87b59196064792c2906fcdec9b27c46d86204027ed6ad
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-history-001/start.json
+    sha256: 2fd029380f582be67fd47824b6b2ea8f6ba816418642757026a4198ec77ffba5
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-m5-candidate-001/Nasal_SynCom_C_Bioreactor.yaml
+    sha256: a61c65e955695342999b9ec8b822740d1bd88e135de2d170a4890a2550a40475
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-m5-candidate-001/receipt.json
+    sha256: d4d920934db1fe21896fa13b9f09493e04c5909b06759c27351d5c27ad8682b8
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-new-history-001/native.log
+    sha256: b58c13c49011dd86a0618567eccd41a5a816fed11fdf03eca3a26a6113d96baf
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-new-history-001/receipt.json
+    sha256: 7a414317c69503612ceac1ca40c25d2376f5e88483d048b2d89abeb1150626f3
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-new-history-001/start.json
+    sha256: 46531a9d49adb3a3924f95482641221e64eadef8a1d71a6d00eb2217bcf32e6b
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-scalars-001/native.log
+    sha256: 0cefe28a066e6a5e0e9ec56a27968f0a2f92037cde1744c8593d3846be28348f
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-scalars-001/receipt.json
+    sha256: 2d1cdac6a0937a7bd79d900f1d770b985143db3d11e6371bd759d4223ba05bcb
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-scalars-001/start.json
+    sha256: 82f10f5efd8899361c6b0211d40ae82489fc65d8f94647d7955b4a9df0633a61
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-schema-001/native.log
+    sha256: 96e582333bb72110212c0b94647616894608f2b96fbac1bda46e11f3eeded6d4
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-schema-001/receipt.json
+    sha256: b7d03f9904a3670191939c9de7e8bd10295a38412923547b8b3f71c5aae77e09
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-schema-001/start.json
+    sha256: 74ed2bf47d5ebba70e0e3c79a3d6c04fd5c71fb07e8a23e752188642bfb6114d
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-strict-001/native.log
+    sha256: 3dc926fca889fb4a9aac5ed9307acac88e9c5b9c2b5a885b87150b5828d25db7
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-strict-001/receipt.json
+    sha256: 30c95087b9ee0679446cdfbddbdf51e054bb65f59a4a3765f24862f455fa0fe6
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-strict-001/start.json
+    sha256: a0df22defe67a0929b80af2a8dacb6c93daaa7f4c47dccbe846c6c06a78486c3
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-terms-001/native.log
+    sha256: 996f130dbf6ba80ffabc81134d9e83d31ae494e003e9cc8c084c7ff277648e27
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-terms-001/receipt.json
+    sha256: 8ca59babe02583cd8e383577fbbd0356a5ff3073d8ca62faf4f8458fdb2f8e38
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-terms-001/start.json
+    sha256: 03073001646cf819cab9da56353765ed592f0073d93345cf5ebb0a3a340e9f13
+    role: context
+  - path: .temp/gtdb-final-four-20261115/395-valency-versions-001.json
+    sha256: 2766fd710ddc8bcdfb235982ceb7beb9dd20d13a38e694d9de7178ee4fd389d7
+    role: context
+  - path: .temp/gtdb-final-four-20261115/issue1640-001.json
+    sha256: aefe8c931a65464b22301a58c87877f98263b20323731a59801be7da1a41f53f
+    role: context
+  - path: .temp/gtdb-final-four-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/final-four-395-source-bind-001.log
+    sha256: c0adb52854f0dffe61b515c0945335c52a47473d61ec00cd571e0df25fa4a2ee
+    role: context
+  - path: .temp/phase2-schema-20261115/final-four-routes-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/final-four-routes-001.json
+    sha256: 709197cbcd3531118a2f704af0b8ec3630f7f333641aacc0c3a9c6f9b92569b4
+    role: context
+  - path: .temp/phase2-schema-20261115/final-four-routes-001.log
+    sha256: c7fa6442d249c780907b32b878e95a002d63862bc80ab06363a99be9781e8606
+    role: context
+  - path: history/records/Nasal_SynCom_C_Bioreactor/2026-09-20T152230Z-claude-code-6b4afe.yaml
+    sha256: dca9e0c648902c57abcf530e838b9305ee2afb8aef1abfc666835656fcc5881b
+    role: context
+  - path: history/records/Nasal_SynCom_C_Bioreactor/2026-11-16T012133Z-codex-4e8002.yaml
+    sha256: 4f4839e7b07203d5bef547fecede0deb919e61d13189c261632f006d2f07bc3b
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+    sha256: a61c65e955695342999b9ec8b822740d1bd88e135de2d170a4890a2550a40475
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/doi_10.64898_2026.03.16.712028.md
+    sha256: 269c016a80b6efdb7215dad886853871c0b8e3cbaa849516c85c66cb1256f0ac
+    role: context
+  - path: references_cache/doi_10.64898_2026.03.16.712028.supplement.md
+    sha256: 90b71bdcf0f071f2b99b53174601664edf903690f1bc4e61cda1b282ee85e23e
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+    sha256: 0a99a772e824fc64f57a5bb1fb0d68a7f35fb6ad10b12e71fcef5a75739487cc
+    role: context
+  - path: reports/gtdb-final-four-20261115/395-authored-source-context-001.json
+    sha256: ba2f141cdfd77c591aea1f4a22bc14c67ef2871c68ef4fe9cbce5bf387d18272
+    role: context
+  - path: reports/gtdb-final-four-20261115/395-check-config-001.json
+    sha256: 42d14f52720d9cdb01f28098637259f1cf8d837a84954fcf234bd4fa16603102
+    role: context
+  - path: reports/gtdb-final-four-20261115/395-review-config-001.json
+    sha256: dd6f200ceaf0bc11c8ad6be03f13e27c2f27ab91a024a80e62f758046b99fae9
+    role: context
+  - path: reports/gtdb-final-four-20261115/395-source-config-001.json
+    sha256: fb45e83dbb8c2ce85c403e346afc4c16c0ac5be923bf5b4a31981092c57bbe0b
+    role: context
+  - path: reports/gtdb-final-four-20261115/395-source-evidence-001.json
+    sha256: da168df8a6bd58a5a1a76b475082ffa03809edc2e1f32cb731e0b7066fe8ce13
+    role: context
+  - path: reports/gtdb-final-four-20261115/four-route-plan-001.json
+    sha256: 363b429295ff605c1c31d96e6cea347dfcf05ddf792659d3edd1701ba501c924
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch77.py
+    sha256: 5abf58fc77760a6fa04fb957bb5bfa06305a0d84c581ee708b29beb264255346
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000395
+  path: kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  selector: taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_classification; taxonomy[0,1,2,3,4,5,6,7,8].taxon_term.gtdb_grounding_status
+  label: LaCa SynCom C nine source-stock reference correspondences
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: Nine taxonomy blocks and grounding statuses at indices 0-8; source-stock,
+    species-route and reference-population boundaries; actual guarded application,
+    append-only native history and eight scoped technical checks. Existing biological
+    claims and scientific limitations are preserved without a new approval judgment.
+  selection: CommunityMech:000395 follows the completed, independently verified Sorghum
+    348 canary on the same frozen c9bb M5 path. Transwell 091 completed its separate
+    saved-input checkpoint before this application. Record 398 remains unapplied.
+    This diagnostic covers only LaCa SynCom C, record 395.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000395
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000395-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+    --out .temp/gtdb-final-four-20261115/395-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-history history/records/Nasal_SynCom_C_Bioreactor
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    Nasal_SynCom_C_Bioreactor --target-root kb/communities --event EDIT --outcome
+    changed --sections taxonomy,curation_history --actor-name codex --model gpt-6
+    --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record nine GTDB species-reference correspondences for the distinct
+    LaCa SynCom C inoculum stocks.' --details 'The exact pinned crosswalk supports
+    seven exact NCBI-ID species routes and two NCBI-name fallback routes for the nine
+    separately preserved LaCa inoculum descriptors. Native reference totals and fractions
+    are Se C 5694/1.0, Sc C 391/1.0, Ml C 236/0.95, Ct C 36/1.0, Cv C 96/0.99, Cc
+    C 3654/1.0, Cg C 215/1.0, Ao C 28/1.0 and Ph C 2/1.0, where each pair means total
+    reference genomes and majority fraction, not an explicit support numerator. Ct
+    C uses the species-name route to Corynebacterium tuberculostearicum_C and Ph C
+    to Peptoniphilus_A harei_A; their original unsuffixed NCBI/source names and stock
+    identifiers remain unchanged. No reference result identifies an experimental stock
+    genome, assembly, abundance, phenotype or persistence. The nine inoculum stocks
+    remain distinct from the two excluded Staphylococcus aureus challenge rows in
+    the separate supplement. Only nine correspondence blocks/statuses and two native
+    inline events changed. All source quotations, donor and strain notes, experimental
+    boundaries, empty interaction graph, biological content and previous history remain
+    unchanged. The outstanding all-nine-persistence and proposed-tyrosine-mechanism
+    limitations documented under issue 1640 remain unresolved; no causal or functional
+    claim is added. The retained preprint and separate supplementary text remain distinct
+    sources, and latest publication status is unverified. The crosswalk hash identifies
+    exact bytes without an established release or chronology. This partial technical
+    correspondence diagnostic does not complete scientific review, generated products
+    or aggregate QC. Actual apply receipt .temp/gtdb-final-four-20261115/395-applied-001/receipt.json
+    sha256:ba2598fa9a9abe453d226666b0e0a20c0125b1f1bcd50eadd959d98af475df77.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000395-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000395
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000395-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000395-schema
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-schema-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-strict
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-strict-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-gtdb
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-gtdb-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-domain
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-domain-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-scalars
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-scalars-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-history
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-history-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-new-history
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-new-history-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-terms
+  kind: validation
+  reference: .temp/gtdb-final-four-20261115/395-terms-001/native.log
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000395-primary
+  kind: primary_source
+  reference: references_cache/doi_10.64898_2026.03.16.712028.md
+  locator: Selected retained Methods 2.1-2.2, Results 3.5, Figure 6 caption and Discussion
+    4.2-4.3 passages; exact source anchors are captured in the source proof.
+  support: supports
+  summary: The source distinguishes the nine-stock SynCom C inoculum and experiment
+    5 from earlier swab experiments. It supplies biological context for the unchanged
+    source-stock descriptors, without generic reference genomes proving experimental
+    persistence or mechanisms.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-supplement
+  kind: primary_source
+  reference: references_cache/doi_10.64898_2026.03.16.712028.supplement.md
+  locator: Separate retained supplementary extraction, Table S2 species/LaCa identifier/source/inclusion
+    rows and footnotes, with Table S3 endpoint distinction.
+  support: supports
+  summary: All nine included inoculum stocks remain distinct, with the Vol. C/Volunteer
+    1 bridge preserved. The two excluded S. aureus challenge rows are not added as
+    inoculum members. Inclusion does not establish endpoint detection or maintenance
+    of every stock.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-database
+  kind: database
+  reference: reports/gtdb-final-four-20261115/395-source-evidence-001.json
+  locator: Nine selected native_result/classify_status entries, species-rank observations,
+    exact-ID versus name routes, lookup-row hashes and captured primary-source identities.
+  support: supports
+  summary: Seven exact-ID and two species-name routes yield nine generic species-reference
+    correspondences. Non-unanimous Ml C 0.95 and Cv C 0.99 fractions remain visible;
+    Ct C and Ph C suffixes remain generic reference labels, without an inferred support
+    numerator or source-stock genome placement.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-application
+  kind: record_content
+  reference: .temp/gtdb-final-four-20261115/395-applied-001/receipt.json
+  locator: Actual applied flag, c9bb execution revision, exact before/after, independently
+    accepted stage, captured source inputs and native validated serialization; separate
+    native sidecar.
+  support: supports
+  summary: The guarded M5 writer persisted a61c65e9 from 4bd66811 after independent
+    candidate review. Only nine correspondence blocks/statuses and two native inline
+    events changed; all source quotes, stock fields, biological content, empty graph
+    and earlier history are preserved.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-open-scope
+  kind: prior_review
+  reference: .temp/gtdb-final-four-20261115/issue1640-001.json
+  locator: Captured OPEN issue 1640 source-backed outcomes and causal-research boundaries;
+    not a fresh issue-state claim at diagnostic save time.
+  support: context_only
+  summary: The current empty graph remains needs_research. All-nine persistence and
+    the proposed tyrosine mechanism remain unresolved; taxonomy correspondence supplies
+    no mechanistic or functional evidence and does not close the prior issue.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-publication-scope
+  kind: record_content
+  reference: .temp/gtdb-final-four-20261115/395-valency-versions-001.json
+  locator: Retained bounded version-index lookup; source preparation separately records
+    the publisher 403 access limit.
+  support: context_only
+  summary: The lookup did not establish current publication status. The diagnostic
+    uses the exact retained preprint and separate supplement without asserting that
+    newer versions or a journal article do not exist.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+- evidence_id: 000395-history-boundary
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+  locator: Original 395 unchanged decision, empty graph and needs_research disposition;
+    complete current batch 77 caller is captured through source evidence.
+  support: context_only
+  summary: The old ledger remains byte-identical and historical. Later successor proof
+    must preserve its zero-event/unchanged decision, all current biological predicates
+    and existing sibling admissions while admitting only this bounded current transition.
+  accessed_at: '2026-11-16T01:26:23.709671Z'
+assessments:
+- assessment_id: 000395-source
+  area: grounding
+  topic: Nine distinct inoculum stocks with unchanged experimental boundaries
+  outcome: supported
+  target_ids:
+  - CommunityMech:000395
+  evidence_ids:
+  - 000395-primary
+  - 000395-supplement
+  - 000395-open-scope
+  - 000395-publication-scope
+  - 000395-terms
+  summary: The retained main source and separate Table S2 support the nine preserved
+    inoculum identities and exclusion of challenge rows from membership. They do not
+    establish all-nine persistence, direct causal roles or study-stock genomic identity.
+    Experimental boundaries, source access and publication limits, empty graph and
+    prior scientific findings remain explicit.
+- assessment_id: 000395-population
+  area: grounding
+  topic: Seven exact-ID and two species-name reference correspondences
+  outcome: supported
+  target_ids:
+  - CommunityMech:000395
+  evidence_ids:
+  - 000395-database
+  - 000395-gtdb
+  - 000395-domain
+  summary: Nine native species results retain their exact reference totals and fractions,
+    including Ml C 236/0.95 and Cv C 96/0.99. Ct C 36/1.0 and Ph C 2/1.0 use explicit
+    species-name fallbacks to suffixed GTDB populations. No numerator, assembly identity,
+    stock rename, abundance or functional transfer is inferred.
+- assessment_id: 000395-provenance
+  area: provenance
+  topic: Actual application, append-only history and eight scoped native commands
+  outcome: supported
+  target_ids:
+  - CommunityMech:000395
+  evidence_ids:
+  - 000395-application
+  - 000395-schema
+  - 000395-strict
+  - 000395-scalars
+  - 000395-new-history
+  - 000395-history
+  - 000395-history-boundary
+  summary: The actual before/after receipt, two inline events, one native sidecar
+    and eight completed commands bind frozen c9bb M5 execution. All old source, stock,
+    biological and history content remains unchanged. Saved-input checkpoints, strict
+    successor admission, measured source matching, generated products and final combined
+    QC remain separate requirements.
+findings: []
+actions: []
+limitations:
+- Partial technical diagnostic with scientific_review:false. Native validator success
+  does not establish full scientific approval, fresh source-snippet certification,
+  generated-product verification, aggregate QC completion or closure of earlier findings.
+- Primary coverage consists of selected retained preprint Methods 2.1-2.2, Results
+  3.5, Figure 6 caption and Discussion 4.2-4.3 passages, plus the complete retained
+  supplementary extraction including Table S2 and Table S3. No fresh complete paper,
+  figure-pixel, original supplementary PDF, raw-data or LaCa stock-collection audit
+  was performed. Article and supplementary text remain separate sources.
+- The nine included inoculum stocks remain distinct from both excluded Staphylococcus
+  aureus challenge rows. Experiment 5 is distinct from earlier swab experiments 1-4;
+  their metabolomics and pH-resilience results are not imported into this record.
+  Original experimental and donor/source boundaries remain unchanged.
+- Native total reference genomes and majority fractions are Se C 5694/1.0, Sc C 391/1.0,
+  Ml C 236/0.95, Ct C 36/1.0, Cv C 96/0.99, Cc C 3654/1.0, Cg C 215/1.0, Ao C 28/1.0
+  and Ph C 2/1.0. These are totals and fractions, not explicit support numerators,
+  experimental abundance, replication counts or probabilities of the source stock's
+  placement. No numerator is reconstructed from a rounded fraction.
+- Ct C uses a species-name fallback to Corynebacterium tuberculostearicum_C and Ph
+  C to Peptoniphilus_A harei_A. Seven other routes use exact NCBI species IDs. The
+  suffixed GTDB labels do not rename the source stocks, replace their original NCBI
+  names or establish an experimental assembly/genome identity.
+- The empty interaction graph remains an explicit research gap. The captured OPEN
+  issue 1640 retains source-backed outcome and causal-research work, the lack of evidence
+  for all-nine persistence and the proposed rather than isolated tyrosine mechanism.
+  This taxonomy change neither closes that issue nor adds any ecological node, arrow,
+  phenotype or challenge claim.
+- The retained version query returned no indexed paper and the recorded direct publisher
+  attempt returned 403. Neither establishes absence of later versions or journal publication;
+  current publication status remains unverified. No paid research submission or new
+  acquisition was performed for this diagnostic.
+- Crosswalk SHA256 761d5537 identifies exact bytes without an established release
+  or chronology. Native mapping_source reflects file mtime, not release provenance.
+  Local NCBI label/rank observations retain database identity/stat rather than a full
+  database digest or certified release.
+- Source preparation used its recorded earlier revision; actual M5 staging, application
+  and all eight native commands used c9bb51a8b2a5591400dc8f170f043e59642116ce with
+  Python 3.13.2 on named isolated branch review/gtdb-final-four-m5-20261116. The execution
+  tree contains applied records and is not a clean-HEAD aggregate QC run. Local mirroring
+  is a verified copy of actual M5 bytes, not a separate local application.
+- Nine statuses changed among nine processed descriptors. Two native inline events
+  and one native sidecar preserve previous history. The batch 77 ledger's original
+  unchanged outcome and zero events remain historical facts; later strict successor
+  admission must authenticate the bounded current transition before projecting only
+  the old hash/history expectations, retaining current biology and sibling admissions.
+- The native term command explicitly passed but did not emit an assertion denominator;
+  none is invented. Complete saved-input checkpoints, public proof export, strict
+  historical admission, current measured source comparisons, generated products and
+  final combined QC remain separate required steps.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1640
+- https://github.com/CultureBotAI/CommunityMech/pull/2927
+```
