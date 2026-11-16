@@ -144,6 +144,17 @@ The current local caller evolved only after both exact checkpoints and
 public export. M5 retains the captured caller. The immutable saved review was
 not rewritten to imply that later test code ran during native assessment.
 
+Final publication review recorded [issue 2955](https://github.com/CultureBotAI/CommunityMech/issues/2955):
+`git diff --check` reported a new blank line at EOF in each executed review
+and export config and in the original outcome. The retained committed-diff
+check `sahara494-committed-whitespace-check-001` exits 2, raw log
+`c82661cc8935adee842b804153bbf3d9111ec9b04aa035125daf93eb9a2a9977`.
+The executed config bytes remain exact to preserve their provenance pins;
+the original outcome remains in commit `9cad9b34c454326208b3447f778f831948a352f8`.
+This documentation adds the disposition without reformatting executed inputs.
+The passing native gates, proof controls and lint do not imply a passing
+Git whitespace check. This formatting limitation adds no scientific claim.
+
 Issue 2924, combined 491/492/494 admission, current generated products,
 measured references and full current-revision QC remain separate obligations.
 This checkpoint makes no new whole-record scientific approval or merge claim.
