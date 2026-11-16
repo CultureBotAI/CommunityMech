@@ -1,0 +1,522 @@
+{
+  "record": "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml",
+  "record_id": "CommunityMech:000091",
+  "source_inspection_sha256": "f1ed9e7d452c0ef684dd47c7dd25c173b6ec7dfddc34bc341df27e5047396db7",
+  "source_inputs": {
+    ".temp/gtdb-final-four-20261115/issue1467-001.json": "58cdead515b44e53cec250f870c060fc4ae85a35ed8ae8d1a276728463fc7805",
+    ".temp/gtdb-final-four-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/final-four-routes-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    ".temp/phase2-schema-20261115/final-four-routes-001.json": "709197cbcd3531118a2f704af0b8ec3630f7f333641aacc0c3a9c6f9b92569b4",
+    ".temp/phase2-schema-20261115/final-four-routes-001.log": "c7fa6442d249c780907b32b878e95a002d63862bc80ab06363a99be9781e8606",
+    "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml": "51bf55d56342aa28864c0dd458a172209f9ef1e14e51a0cd210bb46521a17f47",
+    "pyproject.toml": "be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655",
+    "references_cache/PMID_29152587.txt": "2e773cfbd68cb0dde8b53d5f97ed3576433fc0bea771e916ab08836828c75f73",
+    "references_cache/PMID_33159606.txt": "fb50e1811b956b9a6c0e77b6f0f5b4a985baf1501772935f7abe91b2276db9cc",
+    "reports/causal_graph_review/decisions/20261015-transwell-ci.yaml": "34357636a559637e7f5397049073e2020e9201363d230ad4e8c6adf3c49a66d2",
+    "reports/causal_graph_review/decisions/20261015-transwell.yaml": "ba5cf71650f9f49348185ef7a0f2661673078b14f46b481f32746d1b49bdf5a4",
+    "reports/causal_graph_review/sources/20261015-transwell/taxonomy.xml": "560dcbce4af198f5e8e779c0827c1747c354d42790dfec670823126d5963732e",
+    "reports/gtdb-final-four-20261115/091-authored-source-context-002.json": "67ac07ce8d71b9a6adeb54723d4f86906d3afeda0832fa126df93394a07fc2cc",
+    "reports/gtdb-final-four-20261115/091-source-config-002.json": "3ccf7b2d39c047e6390cab79ea59f9b757e707b5b73dd91a0193210fb798af15",
+    "reports/gtdb-final-four-20261115/four-route-plan-001.json": "363b429295ff605c1c31d96e6cea347dfcf05ddf792659d3edd1701ba501c924",
+    "scripts/adhoc/bind_gtdb_batch_source_context_20261115.py": "6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3",
+    "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    "src/communitymech/__init__.py": "c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66",
+    "src/communitymech/curate/__init__.py": "a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324",
+    "src/communitymech/curate/curation_event.py": "58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc",
+    "src/communitymech/ontology_adapters.py": "7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45",
+    "src/communitymech/validators/__init__.py": "975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93",
+    "src/communitymech/validators/ncbi_domain.py": "b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262",
+    "tests/test_transwell_participants.py": "1463525ceb71cfd1cf624d471474eadf5bae3becd027232309e04910da77abbc",
+    "uv.lock": "712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4"
+  },
+  "occurrences": [
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI Taxonomy name/rank verified 2026-10-15. PMID:33159606 supports the modern C. subtsugae assignment; retain source C. violaceum in provenance. GTDB lookup did not complete: the local NCBI2GTDB.tsv.gz crosswalk was unavailable at the configured/default paths on 2026-10-15. This is not evidence of no GTDB counterpart. No GTDB classification is asserted; rerun the native grounding and status tools when the crosswalk is available.",
+        "preferred_term": "Chromobacterium subtsugae Cv017",
+        "term": {
+          "id": "NCBITaxon:251747",
+          "label": "Chromobacterium subtsugae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "251747": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "chromobacterium subtsugae": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Chromobacterium_subtsugae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Chromobacteriaceae;g__Chromobacterium;s__Chromobacterium subtsugae",
+        "gtdb_taxon": "Chromobacterium subtsugae",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:251747",
+        "total_genomes": 25,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[0].taxon_term",
+      "strain_name": "Cv017",
+      "taxonomy_index": 0,
+      "term": {
+        "id": "NCBITaxon:251747",
+        "label": "Chromobacterium subtsugae"
+      },
+      "source_assessment": "The 2017 reporter experiment names Cv017 as producer and Table1 makes it a derivative of SC11,378. The later reclassification supports C. subtsugae for the ATCC31532 parent lineage. The existing species anchor is retained; the database correspondence does not identify or resequence this reporter stock.",
+      "population_scope": "Native species-reference population total25 and fraction1.0; no explicit numerator is supplied and none is invented. These are not25Cv017 genomes or independent functional replicates.",
+      "name_scope": "Keep Cv017 separate from recipient Cv026 and the wild-type Table1 member. Preserve source C. violaceum wording, participant direction, strain notes and dated unavailable-crosswalk provenance as historical context.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:label",
+          "value": "Chromobacterium subtsugae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:535"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI Taxonomy name/rank verified 2026-10-15. PMID:33159606 supports the modern C. subtsugae assignment; retain source C. violaceum in provenance. GTDB lookup did not complete: the local NCBI2GTDB.tsv.gz crosswalk was unavailable at the configured/default paths on 2026-10-15. This is not evidence of no GTDB counterpart. No GTDB classification is asserted; rerun the native grounding and status tools when the crosswalk is available.",
+        "preferred_term": "Chromobacterium subtsugae Cv026",
+        "term": {
+          "id": "NCBITaxon:251747",
+          "label": "Chromobacterium subtsugae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "251747": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "chromobacterium subtsugae": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Chromobacterium_subtsugae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Chromobacteriaceae;g__Chromobacterium;s__Chromobacterium subtsugae",
+        "gtdb_taxon": "Chromobacterium subtsugae",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:251747",
+        "total_genomes": 25,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[1].taxon_term",
+      "strain_name": "Cv026",
+      "taxonomy_index": 1,
+      "term": {
+        "id": "NCBITaxon:251747",
+        "label": "Chromobacterium subtsugae"
+      },
+      "source_assessment": "The primary reporter experiment directly names Cv026 and Table1 identifies it as a Cv017 derivative. The later primary reclassification explicitly includes the CV026 biosensor. Shared species identity does not collapse the distinct producer and recipient strains into a self-interaction.",
+      "population_scope": "Native species-reference population total25 and fraction1.0, without an explicit support count; no reporter-specific genome or mechanism claim follows.",
+      "name_scope": "Preserve Cv026 designation and recipient endpoint, lineage notes and absence from the separate three-member assay. No strain accession, phenotype or experimental condition is added.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:label",
+          "value": "Chromobacterium subtsugae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:535"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI Taxonomy name/rank verified 2026-10-15. PMID:33159606 supports the modern C. subtsugae assignment; retain source C. violaceum in provenance. GTDB lookup did not complete: the local NCBI2GTDB.tsv.gz crosswalk was unavailable at the configured/default paths on 2026-10-15. This is not evidence of no GTDB counterpart. No GTDB classification is asserted; rerun the native grounding and status tools when the crosswalk is available.",
+        "preferred_term": "Chromobacterium subtsugae SC11,378 (ATCC 31532)",
+        "term": {
+          "id": "NCBITaxon:251747",
+          "label": "Chromobacterium subtsugae"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "251747": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "chromobacterium subtsugae": [
+            "7cd86fff75ce22414a8a3adec294806314565691c6519bbb2d9a1813c0836634"
+          ]
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Chromobacterium_subtsugae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Chromobacteriaceae;g__Chromobacterium;s__Chromobacterium subtsugae",
+        "gtdb_taxon": "Chromobacterium subtsugae",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:251747",
+        "total_genomes": 25,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[2].taxon_term",
+      "strain_name": "SC11,378 (ATCC 31532)",
+      "taxonomy_index": 2,
+      "term": {
+        "id": "NCBITaxon:251747",
+        "label": "Chromobacterium subtsugae"
+      },
+      "source_assessment": "Table1 identifies the wild type as SC11,378/ATCC31532, whereas the Results demonstration says SC11,368. The reclassification resolves the species of the parent lineage but does not resolve this stock-designation conflict. Retain the existing explicitly provisional Table1 identity.",
+      "population_scope": "Generic species-reference total25/fraction1.0 does not verify the experimental wild-type stock, distinguish SC11,378 from SC11,368, or reproduce the source genome analysis.",
+      "name_scope": "Keep the qualified strain string, both conflicting source spellings in notes, and membership only in the three-member series. Do not silently equate the two stock numbers.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0000006"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:species"
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:label",
+          "value": "Chromobacterium subtsugae",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:251747",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:535"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI Taxonomy name/rank verified 2026-10-15. GTDB lookup did not complete: the local NCBI2GTDB.tsv.gz crosswalk was unavailable at the configured/default paths on 2026-10-15. This is not evidence of no GTDB counterpart. No GTDB classification is asserted; rerun the native grounding and status tools when the crosswalk is available.",
+        "preferred_term": "Burkholderia thailandensis E264",
+        "term": {
+          "id": "NCBITaxon:271848",
+          "label": "Burkholderia thailandensis E264"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "271848": [
+            "1f48e3773695f75707a12b4d2044fd96955535a2a9d80eb4829a3c082b6b077e"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "burkholderia thailandensis e264": []
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Burkholderia_thailandensis",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Burkholderia;s__Burkholderia thailandensis",
+        "gtdb_taxon": "Burkholderia thailandensis",
+        "is_reclassified": false,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:271848",
+        "total_genomes": 6,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[3].taxon_term",
+      "strain_name": "E264",
+      "taxonomy_index": 3,
+      "term": {
+        "id": "NCBITaxon:271848",
+        "label": "Burkholderia thailandensis E264"
+      },
+      "source_assessment": "Table1 identifies E264 as the wild-type ATCC700388 strain. Retained authoritative taxonomy XML independently records NCBI271848 at strain rank with that synonym. The native exact-ID reference correspondence is to a GTDB species and is not a newly measured study-isolate genome.",
+      "population_scope": "Six filtered reference entries/fraction1.0 for the native ID route, with no separate numerator. No inference about reservoir abundance, bactobolin flux or reporter membership.",
+      "name_scope": "Keep the NCBI strain identity and separate three-member-assay role. The species-level GTDB field does not replace strain metadata or establish inhibition mediation.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0001001"
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:strain"
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Burkholderia thailandensis str. E264",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Burkholderia thailandensis strain E264",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Burkholderia thailandensis ATCC 700388",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "rdfs:label",
+          "value": "Burkholderia thailandensis E264",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:271848",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:57975"
+        }
+      ]
+    },
+    {
+      "classify_status": {
+        "candidates": [],
+        "status": "NOT_ATTEMPTED"
+      },
+      "existing_descriptor": {
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI Taxonomy name/rank verified 2026-10-15. GTDB lookup did not complete: the local NCBI2GTDB.tsv.gz crosswalk was unavailable at the configured/default paths on 2026-10-15. This is not evidence of no GTDB counterpart. No GTDB classification is asserted; rerun the native grounding and status tools when the crosswalk is available.",
+        "preferred_term": "Pseudomonas syringae DC3000",
+        "term": {
+          "id": "NCBITaxon:223283",
+          "label": "Pseudomonas syringae pv. tomato str. DC3000"
+        }
+      },
+      "lookup_indexes": {
+        "exact_ncbi_id": {
+          "223283": [
+            "9df9e48b5a57d65e129d2b475e2b053afdbde42c53b1c3e73d6a22545140cc39"
+          ]
+        },
+        "ncbi_higher_name": {},
+        "ncbi_species_name": {
+          "pseudomonas syringae pv. tomato str. dc3000": []
+        }
+      },
+      "manual_curated_reason": null,
+      "manual_withheld_reason": null,
+      "native_result": {
+        "gtdb_id": "GTDB:s__Pseudomonas_E_avellanae",
+        "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E avellanae",
+        "gtdb_taxon": "Pseudomonas_E avellanae",
+        "is_reclassified": true,
+        "majority_fraction": 1.0,
+        "ncbi_source_id": "NCBITaxon:223283",
+        "total_genomes": 2,
+        "via": "ncbi_id"
+      },
+      "selector": "taxonomy[4].taxon_term",
+      "strain_name": "DC3000",
+      "taxonomy_index": 4,
+      "term": {
+        "id": "NCBITaxon:223283",
+        "label": "Pseudomonas syringae pv. tomato str. DC3000"
+      },
+      "source_assessment": "Table1 identifies DC3000 as ATCCBAA-871 and retained taxonomy XML records NCBI223283 at strain rank with that synonym. The native exact-ID crosswalk returns Pseudomonas_E avellanae. This database classification differs from the source/NCBI name and must not silently rename the source strain or imply a changed organism.",
+      "population_scope": "Native ID-route total2/fraction1.0 is a filtered reference population, not two study stocks or assay replicates; no explicit numerator or assembly identity is invented.",
+      "name_scope": "Preserve DC3000, current NCBI canonical label and source P. syringae terminology. Add only the native GTDB correspondence and status; retain the name difference and no new biological claim.",
+      "ncbi_identity_rows": [
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "TAXRANK:1000000",
+          "value": null,
+          "object": "TAXRANK:0001001"
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "obo:ncbitaxon#has_rank",
+          "value": null,
+          "object": "NCBITaxon:strain"
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Pseudomonas syringae DC3000",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "oio:hasExactSynonym",
+          "value": "Pseudomonas syringae pv. tomato DC3000",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "oio:hasRelatedSynonym",
+          "value": "Pseudomonas syringae pv. tomato str. ATCC BAA-871",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "rdfs:label",
+          "value": "Pseudomonas syringae pv. tomato str. DC3000",
+          "object": null
+        },
+        {
+          "subject": "NCBITaxon:223283",
+          "predicate": "rdfs:subClassOf",
+          "value": null,
+          "object": "NCBITaxon:323"
+        }
+      ]
+    }
+  ],
+  "primary_locators": [
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 13262,
+      "line": 52
+    },
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 19757,
+      "line": 52
+    },
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 19916,
+      "line": 53
+    },
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 19939,
+      "line": 53
+    },
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 20003,
+      "line": 53
+    },
+    {
+      "reference": "PMID:29152587",
+      "path": "references_cache/PMID_29152587.txt",
+      "character_offset": 18413,
+      "line": 52
+    },
+    {
+      "reference": "PMID:33159606",
+      "path": "references_cache/PMID_33159606.txt",
+      "character_offset": 247,
+      "line": 5
+    },
+    {
+      "reference": "PMID:33159606",
+      "path": "references_cache/PMID_33159606.txt",
+      "character_offset": 17335,
+      "line": 8
+    },
+    {
+      "reference": "PMID:33159606",
+      "path": "references_cache/PMID_33159606.txt",
+      "character_offset": 18127,
+      "line": 8
+    }
+  ],
+  "database_observation": {
+    "stat": {
+      "database": [
+        16777230,
+        125619556,
+        13521600512,
+        1787644036036147819,
+        1787644036036147819
+      ],
+      "-wal": null,
+      "-shm": null,
+      "-journal": null
+    },
+    "stat_unchanged": true,
+    "content_sha256": null
+  },
+  "historical_guard_assessment": "All five descriptors remain assay-specific: two reporter strains and the separate three-member series, not one five-member culture. Preserve two graph nodes, zero arrows, exact source quotations, old inline/sidecar histories and the historical 20261015 ledger chain. Live issue1467 remains OPEN, although its original umbrella-roster description predates the saved partial repair; the SC11,368/SC11,378 conflict, cultivation conflation and new-antagonism research remain unresolved. The977 mass features are not identified metabolites; bactobolin accumulation does not prove selective inhibition mediation. Retained dated no-crosswalk notes describe the previous curation and cannot override current explicit native fields. Later caller admission must prove the actual current candidate and project only this strict historical target, preserving biological mutation guards and the exact historical census comparison without lowering unrelated corpus thresholds. No old review becomes current scientific approval. Complete348 on M5 end to end before applying091 or the other two records.",
+  "scientific_review": false
+}

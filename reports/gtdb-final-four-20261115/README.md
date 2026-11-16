@@ -90,3 +90,18 @@ integrity passed for 350 reviews with `declared_scopes_only` coverage. The origi
 failed-transfer observations above remain historical. Transwell 091, Nasal 395
 and Rumen 398 remain unapplied in this lane. Full scientific review, generated
 products and aggregate QC remain separate.
+
+The later [Transwell 091 outcome](091-outcome-001.md) records its actual M5
+application at the same frozen execution revision, eight native checks and a
+saved partial diagnostic. Both hosts verified the 85 captured inputs and
+complete 87-file checkpoints; all 27 exported artifacts rehash. Strict
+admission preserves current biological predicates and evaluates the original
+mapping and census obligations against the authenticated predecessor. The
+actual proof matrix passed 17 tests after its separate positive canary, and
+all 17 participant/batch42 tests passed. Native lint passed, and append-only
+review integrity passed for 352 reviews with `declared_scopes_only` coverage.
+The retained
+pre-admission failures and refused first lint invocation remain explicit.
+Nasal 395 and Rumen 398 are separate, independently coordinated units and are
+excluded from this Transwell publication. Scientific completion, aggregate QC
+and generated products remain pending.
