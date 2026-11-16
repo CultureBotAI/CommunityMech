@@ -6,9 +6,14 @@ from pathlib import Path
 
 import yaml
 from environment_gtdb_successors import DICLOFENAC, admit_environment_successor
+from genus_last_four_gtdb_successors import DOLICHOSPERMUM, admit_genus_last_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml"
+ADMIT_SUCCESSOR = {
+    DICLOFENAC: admit_environment_successor,
+    DOLICHOSPERMUM: admit_genus_last_four_successor,
+}
 
 
 def records():
@@ -16,8 +21,8 @@ def records():
     docs = []
     for row in ledger["records"]:
         raw = (ROOT / row["path"]).read_bytes()
-        if row["path"] == DICLOFENAC:
-            admit_environment_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        if row["path"] in ADMIT_SUCCESSOR:
+            ADMIT_SUCCESSOR[row["path"]](ROOT, row["path"], row["record_sha256"], current=raw)
         docs.append(yaml.safe_load(raw))
     return ledger, docs
 
@@ -112,8 +117,8 @@ def test_batch33_canonical_terms_anchors_histories_and_exact_hashes():
         }
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         current = (ROOT / row["path"]).read_bytes()
-        if row["path"] == DICLOFENAC:
-            admission = admit_environment_successor(
+        if row["path"] in ADMIT_SUCCESSOR:
+            admission = ADMIT_SUCCESSOR[row["path"]](
                 ROOT, row["path"], row["record_sha256"], current=current
             )
             assert hashlib.sha256(current).hexdigest() == admission.current_sha256
