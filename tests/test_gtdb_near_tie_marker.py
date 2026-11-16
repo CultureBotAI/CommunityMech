@@ -28,6 +28,8 @@ from pathlib import Path
 import pytest
 import yaml
 from genus_gtdb_successors import admit_genus_successor
+from shrimp_lane_gtdb_successors import BEFORE as SHRIMP_BEFORE
+from shrimp_lane_gtdb_successors import THERMO_PATH, admit_shrimp_lane_successor
 
 from communitymech.paths import taxon_descriptor_roots
 from communitymech.taxon_blocks import iter_taxon_descriptors
@@ -109,7 +111,27 @@ def _grounded():
 
 
 def _known_uncurated_near_tie(name, block):
-    """Preserve the Bacillota contract plus one source-bound 13/24 addition (#2947)."""
+    """Preserve historical Bacillota plus exact source-bound additions (#2947)."""
+    if name == THERMO_PATH:
+        current = (REPO / name).read_bytes()
+        admission = admit_shrimp_lane_successor(REPO, name, SHRIMP_BEFORE[name], current=current)
+        assert admission.changed, "reviewed Thermophilic mapping proof is required"
+        descriptors = yaml.safe_load(current)["taxonomy"]
+        expected = {
+            "GTDB:p__Methanobacteriota": (0, 2815, 5300, 0.531),
+            "GTDB:p__Bacillota_A": (1, 226306, 451729, 0.501),
+        }
+        assert block["gtdb_id"] in expected, "inspected near-tie block differs"
+        index, support, total, fraction = expected[block["gtdb_id"]]
+        assert (
+            block == descriptors[index]["taxon_term"]["gtdb_classification"]
+        ), "inspected near-tie block differs"
+        assert (block["support_genomes"], block["total_genomes"], block["majority_fraction"]) == (
+            support,
+            total,
+            fraction,
+        )
+        return True
     if name != ALGAL:
         return block["gtdb_id"] == "GTDB:p__Bacillota_A"
     current = (REPO / name).read_bytes()
