@@ -42,6 +42,11 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/build_switchgrass_successor_manifest_20261116.py": (
+        "writes only an exclusive scientific successor manifest and exact retained failed-build "
+        "metadata; preserves the other four rows and verifies all five through the unchanged "
+        "strict core, without editing canonical records or historical reviews (#1996/#2944)"
+    ),
     "scripts/adhoc/check_code006_local_terms_20261115.py": (
         "writes only an exclusive private OAK adapter configuration, native term "
         "log/exit/receipt and label cache under .temp/gtdb-code006-20261115; "

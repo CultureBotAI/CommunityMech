@@ -1,0 +1,202 @@
+# Authored full-record scientific judgments for CommunityMech:000087, 2026-11-16.
+# Inputs: current bcc2759 record and retained primary articles/Table S1/figures.
+# Output: content consumed by the separately reviewed native review builder.
+# Serves #1996/#1548/#2938; this file alone is not a saved or validated review.
+target: CommunityMech:000087
+path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+after_sha256: bcc2759c9da7c4059330726a1b154df600ec394d1106be2dcc1f4d247eed5eb9
+before_sha256: bb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368
+prior_review:
+  path: reviews/structured/20261115T031503Z-phase2-three-record-final-science/review.yaml
+  sha256: 8c0858a89c224421ab05a9a7a02cdb882e501f687fe5fef24a7d56ef4fc26563
+coverage: full
+scientific_review: true
+verdict: needs_curation
+summary: >-
+  Every populated field of the current Methods-defined sixteen-stock collection was
+  reassessed against the retained main article, exact Table S1 cells, relevant figures,
+  related-study Methods and retained taxonomic authority observations. The three added
+  source locators change quotation routing only. Earlier 18/17-member experiments are
+  not promoted to effects in the final sixteen stocks. The Methods/Table S1 stock
+  correspondence remains unresolved under #1548. Two inaccurate statements in the
+  prior review are corrected here under #2938 without changing that immutable review.
+scope_description: >-
+  Full current record: identity and design, all sixteen stock/deposit/taxon assertions,
+  environment, both media contexts, related-community claims, all five discussions and
+  quotations, absence of a causal graph, and provenance. Technical checks and measured
+  quotation coverage are bound separately to their actual execution artifacts.
+independence_basis: >-
+  The review author reread the complete retained primary article, complete current
+  record, Table S1 stock columns and Figures 2, 3 and 5. A peer independently challenged
+  the current stock, assay and culture boundaries and read both related-study Methods.
+  These reads do not constitute new experimental replication or an audit of all raw data.
+sections:
+  - id: identity
+    area: identity
+    topic: Methods-defined final collection and source-panel disagreement
+    outcome: concern
+    fields: [id, name, description, ecological_state, community_origin, community_category, engineering_design, taxonomy]
+    evidence: [record, primary, table-s1, prior-review]
+    summary: >-
+      The deposited final Methods roster contains sixteen individually named stocks.
+      An engineered, synthetic soil/rhizosphere model is supported by the isolation and
+      bottom-up assembly description. Earlier eighteen- and seventeen-member panels
+      have different or incompletely reconciled membership. Table S1 has eighteen stock
+      rows, names Methylobacterium OAE516 and Bacillus OAE603, and lacks Marmoricola,
+      whereas final Methods names OAE515 and Marmoricola OAE513. The canonical record
+      states that conflict; similar names do not establish aliases or stock equivalence.
+  - id: environment
+    area: grounding
+    topic: Physical assay setting versus source and modeled environment
+    outcome: supported
+    fields: [environment_term, modeled_environment, environmental_factors]
+    evidence: [record, primary, grounding]
+    summary: >-
+      ENVO:01001405 laboratory environment describes liquid cultures and fabricated
+      plant assays. ENVO:00001998 soil describes isolation origin and the modeled
+      ecological context, not soil as the substrate for every experiment. The source
+      isolates came from soil/rhizosphere surrounding one switchgrass plant; this does
+      not establish independent field replication. The represented-collection factor
+      correctly identifies the final sixteen deposited stocks rather than a pooled assay.
+  - id: media
+    area: scope
+    topic: Separate isolate, community, plant and preservation protocols
+    outcome: supported
+    fields: [growth_media, engineering_design.perturbation_design]
+    evidence: [record, primary]
+    summary: >-
+      Isolate precultures used 3–5 mL 1x R2A in 14 mL tubes, aerobic at 30°C without
+      shaking for 5–7 days. Individual growth curves instead used starting OD600 0.05
+      and 200 microliters of 0.1x R2A. Community cultures used 200 microliters in plates
+      at 30°C without shaking, with assay-specific dilution and harvest. Seed germination
+      at 24°C on 0.1x MS plates is not a member cultivation condition; the cited Methods
+      does not separately specify the post-transfer EcoFAB temperature. Preservation used separate
+      20% glycerol/DMSO or lyophilized treatments, three days at -80°C and assay-specific
+      regrowth; the record makes no long-term stability or universal 72-hour claim.
+  - id: nutrient
+    area: scope
+    topic: Earlier eighteen-member nutrient experiment
+    outcome: supported
+    fields: ['discussions[1]']
+    evidence: [record, primary, figure2]
+    summary: >-
+      The earlier eighteen-member experiment compared 1x, 0.2x and 0.1x R2A after
+      three days. Lower nutrient concentration reduced bulk growth while increasing
+      reported diversity/evenness. Relative taxonomic profiles are not absolute viable
+      abundances, and this observation is not assigned to all final sixteen stocks.
+      The source's figure/table labels do not resolve the remaining stock correspondence.
+  - id: ratios
+    area: scope
+    topic: Starting ratios and time-dependent community profiles
+    outcome: supported
+    fields: ['discussions[2]']
+    evidence: [record, primary, figure3]
+    summary: >-
+      The source tests twenty-two starting combinations in the with/without-Pseudomonas
+      panels and reports two- and six-day profiles. The source's 3x cutoff is an FSR-based
+      three-tier allocation: FSR below 0.05, between 0.05 and 1, and above 1 receive
+      2000, 200 and 2 drops, respectively. It is not a threefold starting-density factor.
+      The source reports the highest alpha-diversity among tested starting compositions
+      for that allocation without Pseudomonas, not a universal biological optimum.
+      Current prose preserves panel identity and temporal dependence instead of asserting
+      one initial ratio, stable final abundance or a final-sixteen interaction mechanism.
+  - id: host
+    area: scope
+    topic: Earlier seventeen/eighteen-member EcoFAB experiment
+    outcome: supported
+    fields: ['discussions[3]']
+    evidence: [record, primary, figure5, prior-review]
+    summary: >-
+      The earlier EcoFAB comparison is with versus without Pseudomonas, not without
+      Burkholderia. Twelve-day-old plants received inoculum and were harvested seven
+      days later. The source qualifies before/after taxon significance because the
+      inoculant was one batch; relative enrichment does not establish member-specific
+      growth, host benefit or reciprocal fitness. Neither panel is silently equated
+      with the final Methods collection. This corrects the prior assessment's wrong
+      omitted genus under #2938 while leaving the correct canonical discussion intact.
+  - id: mechanisms
+    area: evidence
+    topic: Dropout hypotheses, profile measurements and open mechanism discussion
+    outcome: concern
+    fields: ['discussions[0]', engineering_design, ecological_interactions]
+    evidence: [record, primary, figure2, figure3, figure5]
+    summary: >-
+      The source's isolate/dropout observations motivate hypotheses such as Lysobacter
+      facilitation and fast-grower competition; they do not identify exchanged compounds,
+      selective pathways or pairwise mechanisms in the final collection. PMA/relic-DNA
+      tests and E. coli DNA spike-ins do not establish absolute viable-cell counts for
+      every stock. The open mechanism discussion is appropriate. There are zero current
+      ecological nodes and zero arrows, so no measured profile or workflow is promoted
+      to a causal interaction. No gene/regulator assertion requires iModulonDB evidence.
+  - id: source-locators
+    area: evidence
+    topic: Exact Table S1 quotations and unaltered scientific assertions
+    outcome: supported
+    fields: ['discussions[4]']
+    evidence: [record, primary, table-s1, locator-application]
+    summary: >-
+      The three locators select the retained published DOCX, table 1, row 12 cell 2
+      (OAE516), row 18 cell 1 (Bacillus) and row 18 cell 2 (OAE603), counting the header
+      row. The source asset and extracted stock cells support those exact quotations.
+      Every original quotation, taxon, discussion rationale and biological field is
+      unchanged. Successful routing cannot decide whether OAE515 and OAE516 are the
+      same stock or reconcile Marmoricola and Bacillus; #1548 remains open.
+  - id: relations
+    area: consistency
+    topic: Two populated relations use exact shared strain designations
+    outcome: supported
+    fields: [related_communities]
+    evidence: [record, primary, ring-primary, dopamine-primary]
+    summary: >-
+      Ring-trial Methods SynCom17 contains the final Coker sixteen plus Gottfriedia
+      (formerly Bacillus) OAE603. The ring trial's own SynCom16 treatment instead omits
+      OAS925 and must not be confused with Coker's final sixteen. The dopamine Methods
+      roster contains the other fifteen Coker stocks plus OAE603, without OAE829, so
+      overlap of fifteen is supported. The related sources explicitly preserve OAE515,
+      Marmoricola OAE513 and same-stock genus renamings. Neither relation establishes
+      Table S1 aliases, equivalent experimental protocols or full scientific approval
+      of the neighboring records.
+  - id: taxonomy-populations
+    area: grounding
+    topic: Genus authority and retained reference populations
+    outcome: supported
+    fields: [taxonomy]
+    evidence: [record, primary, grounding]
+    summary: >-
+      All sixteen terms are genus-level source grounding. Thirteen retained GTDB blocks
+      describe aggregate named-species reference populations, not study-stock genomes.
+      Arthrobacter retains eleven alternatives; Paenibacillus retains thirty-three;
+      neither has a selected GTDB block. Allobosea 85413 remains UNRESOLVED with no GTDB
+      classification in both current bytes and retained native result. The old review's
+      Bosea 34/34 claim was inaccurate and is corrected under #2938. The crosswalk hash
+      identifies bytes, not an established upstream release or chronology.
+stocks:
+  - {index: 0, stock: OAP107, genus: Arthrobacter, ncbi: 'NCBITaxon:1663', dsm: '113524', status: AMBIGUOUS, detail: 'Genus term; all eleven alternatives remain unselected.'}
+  - {index: 1, stock: OAE506, genus: Allobosea, ncbi: 'NCBITaxon:85413', dsm: '113628', status: UNRESOLVED, detail: 'Source Bosea name is retained; current authority uses Allobosea. No GTDB block or 34/34 assignment is present.'}
+  - {index: 2, stock: OAE829, genus: Bradyrhizobium, ncbi: 'NCBITaxon:374', dsm: '113701', status: GROUNDED, detail: 'Retained genus-reference population; no study-stock genome assignment.'}
+  - {index: 3, stock: OAP136, genus: Brevibacillus, ncbi: 'NCBITaxon:55080', dsm: '113525', status: GROUNDED, detail: 'Retained genus-reference population; minority mappings remain possible.'}
+  - {index: 4, stock: OAS925, genus: Paraburkholderia, ncbi: 'NCBITaxon:1822464', dsm: '113627', status: GROUNDED, detail: 'Methods Burkholderia and later same-stock Paraburkholderia are distinguished from consortium deposit DSM200000SY.'}
+  - {index: 5, stock: OAE865, genus: Chitinophaga, ncbi: 'NCBITaxon:79328', dsm: '113563', status: GROUNDED, detail: 'Retained genus-reference population; no functional role inferred.'}
+  - {index: 6, stock: OAE881, genus: Lysobacter, ncbi: 'NCBITaxon:68', dsm: '113522', status: GROUNDED, detail: 'Generic placement does not establish the dropout mechanism or facilitation in the final collection.'}
+  - {index: 7, stock: OAE513, genus: Marmoricola, ncbi: 'NCBITaxon:86795', dsm: '114042', status: GROUNDED, detail: 'Supported by final Methods and related-study Methods; absence from Table S1 remains a source conflict.'}
+  - {index: 8, stock: OAE612, genus: Mucilaginibacter, ncbi: 'NCBITaxon:423349', dsm: '113562', status: GROUNDED, detail: 'Retained genus-reference population; no study-stock genome assignment.'}
+  - {index: 9, stock: OAE515, genus: Methylobacterium, ncbi: 'NCBITaxon:407', dsm: '113602', status: GROUNDED, detail: 'Final Methods OAE515 is not silently equated with Table S1 OAE516 or the separately retained Ding Data1 spelling.'}
+  - {index: 10, stock: OAE908, genus: Mycobacterium, ncbi: 'NCBITaxon:1763', dsm: '113539', status: GROUNDED, detail: 'Retained genus-reference population; no species identity or independent genome placement.'}
+  - {index: 11, stock: OAS944, genus: Niastella, ncbi: 'NCBITaxon:354354', dsm: '113593', status: GROUNDED, detail: 'Retained genus-reference population; no functional role inferred.'}
+  - {index: 12, stock: OAE614, genus: Paenibacillus, ncbi: 'NCBITaxon:44249', dsm: '113526', status: AMBIGUOUS, detail: 'All thirty-three genus alternatives remain unselected.'}
+  - {index: 13, stock: OAE497, genus: Rhizobium, ncbi: 'NCBITaxon:379', dsm: '113517', status: GROUNDED, detail: 'Retained genus-reference population; minority mappings and species identity remain uncertain.'}
+  - {index: 14, stock: OAS809, genus: Rhodococcus, ncbi: 'NCBITaxon:1827', dsm: '113518', status: GROUNDED, detail: 'Retained bacterial genus authority; no study-stock genome assignment.'}
+  - {index: 15, stock: OAS795, genus: Variovorax, ncbi: 'NCBITaxon:34072', dsm: '113622', status: GROUNDED, detail: 'Retained genus-reference population; no functional role inferred.'}
+stock_scope: >-
+  Each DSM number is an individual-stock deposit reported in final Methods, not a new
+  current culture-collection catalogue verification. Original isolation notes, source
+  names, exact quotations and genus-only uncertainty remain intact. A reference
+  population cannot establish the genomic identity or ecological function of a stock.
+limitations:
+  - Full scientific assessment means every current field was assessed; it does not mean every scientific uncertainty is resolved or that aggregate corpus QC passed.
+  - The Methods/Table S1 and earlier-panel correspondence remains open under issue1548; no similar-name alias, inferred membership, or stock-genome assignment is introduced.
+  - Native source matching establishes lexical correspondence with selected retained bytes. It does not independently validate experimental interpretation, lineage assignments or causal mechanisms.
+  - The actual full retained main article, Table S1 stock cells and Figures2/3/5 were read. Other supplementary cells and all raw numerical data were not comprehensively reanalyzed.
+  - Current catalogue availability, sequences, assembly quality, species identity, source statistics and experimental reproducibility were not independently recertified.
+  - Related-paper checks support the two populated stock-set relations only, not full scientific completion of the related records or equivalence of their protocols.
+  - Old reviews, failed matcher outputs, runtime revisions and application receipts remain immutable. The new review corrects its own current statements rather than rewriting historical evidence.
