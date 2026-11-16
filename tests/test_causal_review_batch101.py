@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from shrimp_lane_gtdb_successors import admit_shrimp_lane_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml"
@@ -75,6 +76,7 @@ def test_pda_preserves_indicator_result_without_flux_or_feedback_equivalence():
 def test_shrimp_remains_unchanged_and_does_not_gain_unsupported_edges():
     _, rows, docs = records()
     row, doc = rows[3], docs[3]
+    admit_shrimp_lane_successor(ROOT, row["path"], row["record_sha256"])
     assert row["outcome"] == "unchanged"
     assert row["original_sha256"] == row["record_sha256"]
     assert row["curation_events_added"] == 0 and row["history_files"] == []
@@ -109,9 +111,12 @@ def test_decision_coverage_and_append_only_provenance():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        expected_sha = latest["record_sha256"]
+        if row["id"] == "CommunityMech:000436":
+            expected_sha = admit_shrimp_lane_successor(
+                ROOT, row["path"], expected_sha
+            ).current_sha256
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_sha
         count = int(row["outcome"] == "changed")
         assert row["curation_events_added"] == len(row["history_files"]) == count
         if count:

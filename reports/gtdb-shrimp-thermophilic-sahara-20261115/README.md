@@ -1,5 +1,15 @@
 # Shrimp, thermophilic reactor and Sahara source preparation
 
+Record 436 now has a saved, independently audited genus-reference diagnostic
+with eight actual native checks, complete input checkpoints and public proof.
+The exact application, source-population limits, immutable saved review and
+strict-admission results are recorded in
+[436-canary-outcome-001.md](436-canary-outcome-001.md). Records 416 and 494 remain
+unapplied. The earlier transfer refusal was preserved; only the subsequently
+explicitly approved seven inputs were copied and verified for this canary.
+
+## Historical preparation checkpoint
+
 This branch prepares current-reference taxonomy corrections for records 436,
 416 and 494. All three canonical records, historical ledgers, source caches,
 shared curation helpers and scientific claims remain unchanged. No canonical
