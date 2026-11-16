@@ -814,30 +814,43 @@ def test_a_denominator_is_not_a_function_of_the_label(gtdb, mapping):
 
 
 def _population_for_denominator(record, block):
-    """Only the exact source-reviewed #2833 assertion has a distinct population.
+    """Only exact source-reviewed #2833 assertions have distinct populations.
 
     Curator labels alone never create a new population. The complete block is
-    pinned for drift detection, not as independent verification of its lineage.
+    pinned for drift detection. Akkermansia additionally binds independent
+    official workbook and lineage evidence; the existing Blautia check does not
+    independently verify lineage.
     """
+    from communitymech.validators.gtdb_source_provenance import (
+        DEFAULT,
+        EXPECTED,
+        AkkermansiaSources,
+    )
+
+    # Preserve the existing exact Blautia guard and its refusal contract (#2953).
     if (
-        record != "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml"
-        or block.get("ncbi_source_id") != "NCBITaxon:53443"
+        record == "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml"
+        and block.get("ncbi_source_id") == "NCBITaxon:53443"
     ):
-        return "legacy-shared-population"
-    proof_path = REPO / "reports/phase2-completion-20261115/gtdb-r232-blautia-source-proof.json"
-    raw = proof_path.read_bytes()
-    assert (
-        hashlib.sha256(raw).hexdigest()
-        == "2159cc47f0c772fdf3d9fcd01495466e2196735c0a7ef4a34642b8160d9b8b51"
-    ), "reviewed R232 source proof changed"
-    proof = json.loads(raw)
-    semantic_hash = hashlib.sha256(
-        json.dumps(block, sort_keys=True, separators=(",", ":")).encode()
-    ).hexdigest()
-    assert (
-        semantic_hash == proof["record_assertion"]["semantic_block_sha256"]
-    ), "pinned R232 assertion changed; fresh source review required"
-    return proof["source"]["sha256"]
+        proof_path = REPO / "reports/phase2-completion-20261115/gtdb-r232-blautia-source-proof.json"
+        raw = proof_path.read_bytes()
+        assert (
+            hashlib.sha256(raw).hexdigest()
+            == "2159cc47f0c772fdf3d9fcd01495466e2196735c0a7ef4a34642b8160d9b8b51"
+        ), "reviewed R232 source proof changed"
+        proof = json.loads(raw)
+        semantic_hash = hashlib.sha256(
+            json.dumps(block, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        assert (
+            semantic_hash == proof["record_assertion"]["semantic_block_sha256"]
+        ), "pinned R232 assertion changed; fresh source review required"
+        return proof["source"]["sha256"]
+    if record in EXPECTED or block.get("ncbi_source_id") == "NCBITaxon:239935":
+        source = AkkermansiaSources(REPO).population(record, block)
+        if source != DEFAULT:
+            return source
+    return DEFAULT
 
 
 def test_every_kb_taxon_reports_one_denominator(grounded_with_paths):
@@ -846,7 +859,7 @@ def test_every_kb_taxon_reports_one_denominator(grounded_with_paths):
     Different NCBI taxa mapping to one GTDB species legitimately differ —
     `NCBITaxon:562` (*E. coli*) sits at 166398 while its K-12 substrains report
     37, 50 and 4 — because the denominator is scoped to the taxon grounded, not
-    to the GTDB species. #2833 also verifies one distinct R232 population against
+    to the GTDB species. #2833 also verifies exact distinct R232 populations against
     primary source cells. Other records retain the existing shared comparison;
     no arbitrary mapping_source or curated flag exempts them.
     """

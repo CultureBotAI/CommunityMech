@@ -31,6 +31,7 @@ from communitymech.validators.gtdb_lineage_tree import (
     check_corpus,
     check_lineage_shape,
 )
+from communitymech.validators.gtdb_source_provenance import check_source_bound_corpus
 
 REPO = pathlib.Path(__file__).parent.parent
 RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
@@ -134,7 +135,7 @@ def test_a_block_on_an_interaction_participant_is_checked_too():
 def _corpus():
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
-            yield path.name, yaml.safe_load(path.read_text())
+            yield str(path.relative_to(REPO)), yaml.safe_load(path.read_text())
 
 
 def test_the_committed_kb_is_a_consistent_hierarchy():
@@ -148,7 +149,7 @@ def test_the_committed_kb_is_a_consistent_hierarchy():
     blocks = sum(1 for _, doc in corpus for _ in _blocks(doc))
     assert blocks > 700, f"expected the KB's ~727 gtdb_classification blocks, walked {blocks}"
 
-    conflicts = check_corpus(corpus)
+    conflicts = check_source_bound_corpus(corpus, root=REPO)
     assert conflicts == [], "\n".join(conflicts)
 
     shape = [f"{name}: {m}" for name, doc in corpus for m in check_lineage_shape(doc)]

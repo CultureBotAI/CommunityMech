@@ -32,8 +32,10 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence  # noqa: E402
 from communitymech.validators.gtdb_lineage_tree import (  # noqa: E402
-    check_corpus,
     check_lineage_shape,
+)
+from communitymech.validators.gtdb_source_provenance import (  # noqa: E402
+    check_source_bound_corpus,
 )
 
 
@@ -61,7 +63,13 @@ def main(argv: list[str] | None = None) -> int:
     corpus = []
     for path in args.files:
         try:
-            corpus.append((path.name, yaml.safe_load(path.read_text())))
+            resolved = path.resolve()
+            label = (
+                str(resolved.relative_to(REPO_ROOT))
+                if resolved.is_relative_to(REPO_ROOT)
+                else str(resolved)
+            )
+            corpus.append((label, yaml.safe_load(path.read_text())))
         except yaml.YAMLError:
             continue
     # Shape first: a lineage skipping a rank would otherwise surface as a
@@ -70,7 +78,7 @@ def main(argv: list[str] | None = None) -> int:
     for message in malformed:
         print(f"[gtdb-lineage-shape] {message}")
 
-    conflicts = check_corpus(corpus)
+    conflicts = check_source_bound_corpus(corpus, root=REPO_ROOT)
     for message in conflicts:
         print(f"[gtdb-lineage-tree] {message}")
 
