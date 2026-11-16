@@ -820,6 +820,15 @@ curation_history:
     discussions, cultivation conditions or graph assertions changed. Resolves only linked-stock metadata under
     #2806; Main Methods/Table S1 correspondence #1548 remains unresolved.'
   llm_assisted: true
+- timestamp: '2026-11-16T00:24:59Z'
+  curator: Codex
+  action: ADD_SUPPLEMENT_SOURCE_LOCATORS
+  changes: Added three explicit Table S1 cell locators for unchanged OAE516, Bacillus and OAE603 snippets under
+    PMID:36472419. Actual consumer selected/restored controls matched all 37 unchanged quotations; wrong-cell and
+    wrong-parent controls refused their exact targets. Only lexical source routing changed; stock identities, final16/earlier
+    panel disagreement, all biological content and prior history remain unchanged. The documented scientific panel-correspondence
+    issue1548 is not resolved by this lexical correction. Bound selected receipt SHA256=1ca6c88fcb76f5a6ca0060e25b7f28f91723c8e7f946c324ce1a07867cea432f.
+  llm_assisted: true
 discussions:
 - discussion_id: lbnl_soil_variant_scope_and_ecological_mediators
   prompt: Which interactions explain diversity responses within each defined SynCom variant?
@@ -950,17 +959,38 @@ discussions:
     explanation: 'Separate Table S1, table 1, row 12, Strain column: the adjacent Genus cell is Methylobacterium.
       This differs from Methods OAE515; no alias is inferred. The original DOCX and exact table extraction are
       retained separately from the article cache.'
+    source_locator:
+      kind: supplement
+      asset_id: msystems.00951-22-s0006.docx
+      version: published
+      table: 1
+      row: 12
+      cell: 2
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: supplement_table_S1
     snippet: Bacillus
     explanation: Separate Table S1, table 1, row 18, Genus column; the adjacent Strain cell is OAE603. The complete
       table contains no Marmoricola row, unlike the final Methods roster.
+    source_locator:
+      kind: supplement
+      asset_id: msystems.00951-22-s0006.docx
+      version: published
+      table: 1
+      row: 18
+      cell: 1
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: supplement_table_S1
     snippet: OAE603
     explanation: Separate Table S1, table 1, row 18, Strain column; paired with Bacillus in the adjacent Genus
       cell. This is not one of the final Methods-defined 16 stocks.
+    source_locator:
+      kind: supplement
+      asset_id: msystems.00951-22-s0006.docx
+      version: published
+      table: 1
+      row: 18
+      cell: 2
   posed_by: codex
   posed_date: '2026-11-15'

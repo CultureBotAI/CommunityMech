@@ -7,7 +7,9 @@ controls in `reports/reference_cli_coverage/probe.py` and
 records. They remain unchanged.
 
 `just reference-assertion-coverage` measures actual native traversal and matcher
-calls, using the pinned `linkml-reference-validator==0.2.1`. It invokes the real
+calls, using the pinned validator revision
+`6b71e7f4b353b5b36000fda03da78b61734e3fc8`
+(`0.2.1.post1.dev0+6b71e7f`). It invokes the real
 Typer `validate data` command and calls the original traversal, validation and
 substring functions. It inventories every `snippet` and `supporting_text` field
 independently, then reconciles those occurrences against the instrumented calls.
@@ -18,6 +20,12 @@ to the plugin and actual validator arguments using native identifier normalizati
 A wrong-reference comparison invalidates the measurement even when the other
 source contains identical text (#2795). Parsed cache reference IDs are retained
 as metadata; they are not independent proof that a source is correct.
+For an explicit supplementary `source_locator`, the census also checks the
+declared, dispatched and validated parent/asset/version/table/row/cell identity.
+The receipt retains the catalog, asset, projection and selected-cell hashes.
+A comparison against the wrong cell cannot count as coverage merely because
+that cell contains the same text. A failed source selection is an invocation,
+but is not an actual text comparison.
 This is a lexical coverage diagnostic, not a scientific review or a count of all
 possible scientific claims in prose.
 
@@ -80,7 +88,7 @@ them before publishing.
 | `snippet_surfaces` | Independently enumerated snippet/supporting-text fields, including unsupported/empty surfaces. |
 | `excerpt_validator_invocations` | Actual native excerpt validator calls; includes prefix skips and missing caches. |
 | `snippet_occurrences_compared` | Unique occurrences reaching a real substring comparison. |
-| `matcher_calls` | Native `find_text_in_reference` calls; an empty normalized query may not compare text. |
+| `matcher_calls` | Native `find_text_in_reference` calls on article content or an explicitly selected supplement cell; an empty normalized query may not compare text. |
 | `substring_calls` | Actual native substring matcher invocations. |
 | `substring_parts_compared` | Native loop iterations, including ellipsis-separated parts; early mismatch stops the loop. |
 | `title_only_invocations` | Separate native title validation; never counted as snippet comparison. |
@@ -109,9 +117,12 @@ child processes are refused during native dispatch. All input hashes must be
 unchanged afterward. Missing content remains a visible failure; there is no
 network retry or fallback to `pmc_full_*`, supplement files or other sources.
 
-The maintained shared-schema gap in SupportingReference is tracked in #476;
-unannotated fields remain uncovered in this measurement. Source-specific
-supplement routing is tracked in #1996; faithful supplement excerpts may remain
-article-cache mismatches. This command neither repairs those gaps nor treats
-their findings as evidence that the scientific claim is false. Online
-`just qc-references` retains its separate acquisition policy and scope.
+The adopted shared schema annotates SupportingReference assertions (#476).
+Unannotated fields still remain uncovered rather than being silently counted.
+Explicit supplement routing (#1996) requires the configured source catalog and
+its exact local asset/projection. The input manifest hashes those files even
+when Git ignores them. Missing or invalid selected sources fail without falling
+back to the article; an assertion without a locator retains the article route.
+Neither a successful match nor a source-selection failure establishes the
+scientific claim's truth. Online `just qc-references` retains its separate
+acquisition policy and scope.
