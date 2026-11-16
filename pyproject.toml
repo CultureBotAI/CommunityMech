@@ -14,9 +14,10 @@ dependencies = [
     "linkml>=1.7.0",
     "linkml-runtime>=1.7.0",
     "linkml-term-validator>=0.1.0",
-    # 0.2.1 adds literal bracket preservation for source quotations (#622).
-    # Keep this focused upgrade separate from later matcher/cache migrations.
-    "linkml-reference-validator==0.2.1",
+    # Reviewed supplement selection on the 0.2.1 base preserves its literal
+    # bracket policy (#622) and article matching. Exact owned-fork commit (#1996);
+    # later upstream matcher/cache migrations remain separate.
+    "linkml-reference-validator @ git+https://github.com/realmarcin/linkml-reference-validator@6b71e7f4b353b5b36000fda03da78b61734e3fc8",
     "pydantic>=2.0.0",
     "pyyaml>=6.0",
     "click>=8.0.0",

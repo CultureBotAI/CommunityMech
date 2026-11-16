@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-14T18:26:04
+# Generation date: 2026-11-15T15:34:41
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -114,6 +114,7 @@ class EvidenceItem(YAMLRoot):
     supports: Union[str, "EvidenceItemSupportEnum"] = None
     evidence_source: Union[str, "EvidenceSourceEnum"] = None
     snippet: str = None
+    source_locator: Optional[Union[dict, "SourceLocator"]] = None
     explanation: Optional[str] = None
     confidence_score: Optional[float] = None
     computational_provenance: Optional[Union[dict, "ComputationalProvenance"]] = None
@@ -138,6 +139,9 @@ class EvidenceItem(YAMLRoot):
             self.MissingRequiredField("snippet")
         if not isinstance(self.snippet, str):
             self.snippet = str(self.snippet)
+
+        if self.source_locator is not None and not isinstance(self.source_locator, SourceLocator):
+            self.source_locator = SourceLocator(**as_dict(self.source_locator))
 
         if self.explanation is not None and not isinstance(self.explanation, str):
             self.explanation = str(self.explanation)
@@ -2597,11 +2601,69 @@ class CrossCorpusLink(YAMLRoot):
 
 
 @dataclass(repr=False)
+class SourceLocator(YAMLRoot):
+    """
+    Select one supplementary DOCX cell for the enclosing citation's reference. A reviewed source catalog must bind
+    that reference, asset_id and version to immutable asset and extraction hashes. Table, row and cell positions count
+    from one in document order, including header rows. The validator must replay the extraction against the retained
+    asset and refuse an unavailable or unsupported selection without falling back to article text. This locator
+    describes source selection, not scientific support.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MECH_SHARED["SourceLocator"]
+    class_class_curie: ClassVar[str] = "mech_shared:SourceLocator"
+    class_name: ClassVar[str] = "SourceLocator"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.SourceLocator
+
+    kind: Union[str, "SourceLocatorKindEnum"] = None
+    asset_id: str = None
+    version: str = None
+    table: int = None
+    row: int = None
+    cell: int = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.kind):
+            self.MissingRequiredField("kind")
+        if not isinstance(self.kind, SourceLocatorKindEnum):
+            self.kind = SourceLocatorKindEnum(self.kind)
+
+        if self._is_empty(self.asset_id):
+            self.MissingRequiredField("asset_id")
+        if not isinstance(self.asset_id, str):
+            self.asset_id = str(self.asset_id)
+
+        if self._is_empty(self.version):
+            self.MissingRequiredField("version")
+        if not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        if self._is_empty(self.table):
+            self.MissingRequiredField("table")
+        if not isinstance(self.table, int):
+            self.table = int(self.table)
+
+        if self._is_empty(self.row):
+            self.MissingRequiredField("row")
+        if not isinstance(self.row, int):
+            self.row = int(self.row)
+
+        if self._is_empty(self.cell):
+            self.MissingRequiredField("cell")
+        if not isinstance(self.cell, int):
+            self.cell = int(self.cell)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class SupportingReference(YAMLRoot):
     """
     A lightweight literature/database citation supporting a Discussion or Dataset. Self-contained (so this module has
-    no dependency on each repo's EvidenceItem); carries a verbatim `snippet` so the same anti-hallucination
-    snippet-vs-cached-abstract check the Mechs already run can validate it.
+    no dependency on each repo's EvidenceItem); carries a verbatim `snippet` for comparison against the cached
+    reference or an explicitly selected supplementary source.
     """
 
     _inherited_slots: ClassVar[list[str]] = []
@@ -2616,6 +2678,7 @@ class SupportingReference(YAMLRoot):
     supports: Optional[Union[str, "SupportLevelEnum"]] = None
     evidence_source: Optional[str] = None
     snippet: Optional[str] = None
+    source_locator: Optional[Union[dict, SourceLocator]] = None
     explanation: Optional[str] = None
     notes: Optional[str] = None
 
@@ -2636,6 +2699,9 @@ class SupportingReference(YAMLRoot):
 
         if self.snippet is not None and not isinstance(self.snippet, str):
             self.snippet = str(self.snippet)
+
+        if self.source_locator is not None and not isinstance(self.source_locator, SourceLocator):
+            self.source_locator = SourceLocator(**as_dict(self.source_locator))
 
         if self.explanation is not None and not isinstance(self.explanation, str):
             self.explanation = str(self.explanation)
@@ -4143,6 +4209,21 @@ class UnitTerm(EnumDefinitionImpl):
     )
 
 
+class SourceLocatorKindEnum(EnumDefinitionImpl):
+    """
+    Explicit source selection supported by the reference validator.
+    """
+
+    supplement = PermissibleValue(
+        text="supplement", description="One cell in a retained supplementary DOCX table."
+    )
+
+    _defn = EnumDefinition(
+        name="SourceLocatorKindEnum",
+        description="Explicit source selection supported by the reference validator.",
+    )
+
+
 class DiscussionKindEnum(EnumDefinitionImpl):
     """
     Kind of unresolved / in-progress item captured by a Discussion. Knowledge gaps are represented as a discussion
@@ -4408,6 +4489,15 @@ slots.evidenceItem__snippet = Slot(
     model_uri=COMMUNITYMECH.evidenceItem__snippet,
     domain=None,
     range=str,
+)
+
+slots.evidenceItem__source_locator = Slot(
+    uri=COMMUNITYMECH.source_locator,
+    name="evidenceItem__source_locator",
+    curie=COMMUNITYMECH.curie("source_locator"),
+    model_uri=COMMUNITYMECH.evidenceItem__source_locator,
+    domain=None,
+    range=Optional[Union[dict, SourceLocator]],
 )
 
 slots.evidenceItem__explanation = Slot(
@@ -7204,6 +7294,62 @@ slots.crossCorpusLink__source_version = Slot(
     range=Optional[str],
 )
 
+slots.sourceLocator__kind = Slot(
+    uri=MECH_SHARED.kind,
+    name="sourceLocator__kind",
+    curie=MECH_SHARED.curie("kind"),
+    model_uri=COMMUNITYMECH.sourceLocator__kind,
+    domain=None,
+    range=Union[str, "SourceLocatorKindEnum"],
+)
+
+slots.sourceLocator__asset_id = Slot(
+    uri=MECH_SHARED.asset_id,
+    name="sourceLocator__asset_id",
+    curie=MECH_SHARED.curie("asset_id"),
+    model_uri=COMMUNITYMECH.sourceLocator__asset_id,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"\S"),
+)
+
+slots.sourceLocator__version = Slot(
+    uri=MECH_SHARED.version,
+    name="sourceLocator__version",
+    curie=MECH_SHARED.curie("version"),
+    model_uri=COMMUNITYMECH.sourceLocator__version,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"\S"),
+)
+
+slots.sourceLocator__table = Slot(
+    uri=MECH_SHARED.table,
+    name="sourceLocator__table",
+    curie=MECH_SHARED.curie("table"),
+    model_uri=COMMUNITYMECH.sourceLocator__table,
+    domain=None,
+    range=int,
+)
+
+slots.sourceLocator__row = Slot(
+    uri=MECH_SHARED.row,
+    name="sourceLocator__row",
+    curie=MECH_SHARED.curie("row"),
+    model_uri=COMMUNITYMECH.sourceLocator__row,
+    domain=None,
+    range=int,
+)
+
+slots.sourceLocator__cell = Slot(
+    uri=MECH_SHARED.cell,
+    name="sourceLocator__cell",
+    curie=MECH_SHARED.curie("cell"),
+    model_uri=COMMUNITYMECH.sourceLocator__cell,
+    domain=None,
+    range=int,
+)
+
 slots.supportingReference__reference = Slot(
     uri=MECH_SHARED.reference,
     name="supportingReference__reference",
@@ -7247,6 +7393,15 @@ slots.supportingReference__snippet = Slot(
     model_uri=COMMUNITYMECH.supportingReference__snippet,
     domain=None,
     range=Optional[str],
+)
+
+slots.supportingReference__source_locator = Slot(
+    uri=MECH_SHARED.source_locator,
+    name="supportingReference__source_locator",
+    curie=MECH_SHARED.curie("source_locator"),
+    model_uri=COMMUNITYMECH.supportingReference__source_locator,
+    domain=None,
+    range=Optional[Union[dict, SourceLocator]],
 )
 
 slots.supportingReference__explanation = Slot(

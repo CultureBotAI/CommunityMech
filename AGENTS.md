@@ -141,10 +141,12 @@ An `EvidenceItem` requires:
 - `evidence_source`;
 - an exact supporting `snippet`.
 
-The pinned reference validator matches committed article caches (abstracts and
-cached open-access full text), not separate supplementary files. Preserve
-supplementary text separately and report supplement-only validator failures
-explicitly; source-specific routing is tracked in #1996. Do not paraphrase a
+The pinned reference validator uses committed article caches (abstracts and
+cached open-access full text) by default. An explicit `source_locator` selects
+one supplement cell through `conf/reference_sources/catalog.json`; its exact
+local asset and projection must be available. Preserve supplementary text
+separately and report missing or invalid selected sources explicitly; the
+validator must not fall back to the article (#1996). Do not paraphrase a
 snippet, combine non-contiguous text, remove meaningful bracketed text, or move
 supplement text into the article cache. If support is absent, omit the claim or
 record uncertainty instead of weakening the validator.
