@@ -42,7 +42,9 @@ def fingerprint(paths):
 def run_probe(stem, output):
     """Run one record end to end; only the explicitly new .temp output is writable."""
     if version("linkml-reference-validator") != coverage.SUPPORTED_VERSION:
-        raise ValueError("The maintained tracer requires reviewed validator 0.2.1")
+        raise ValueError(
+            f"The maintained tracer requires reviewed validator {coverage.SUPPORTED_VERSION}"
+        )
     output = Path(output).resolve()
     private = (ROOT / ".temp").resolve()
     if output == private or not output.is_relative_to(private):
