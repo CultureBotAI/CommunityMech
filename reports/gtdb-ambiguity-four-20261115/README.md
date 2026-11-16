@@ -1,5 +1,10 @@
 # Four-record correspondence preparation
 
+The later [M5 resident-input checkpoint](m5-resident-route-checkpoint-20261116.md)
+records one completed read-only 363 route canary using existing M5 data and the
+unexecuted continuation boundary. The denied 40-file transfer remains held.
+The original preparation account below remains historical and unchanged.
+
 This branch prepares ten selected taxonomy descriptors in records363,376,419
 and501 for the unchanged guarded correction workflow. Five species-reference
 correspondences and five ambiguity sets are in scope. Existing stock names,
