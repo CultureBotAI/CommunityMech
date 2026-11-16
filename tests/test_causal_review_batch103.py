@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from final_four_gtdb_successors import admit_final_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml"
@@ -12,6 +13,8 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
+    for row in rows:
+        admit_final_four_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
@@ -115,10 +118,14 @@ def test_decisions_cover_all_original_nodes_and_directions():
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 2
     assert sum(len(r["removed_edge_decisions"]) for r in rows) == 0
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        assert doc == yaml.safe_load(raw)
+        admitted = admit_final_four_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        assert hashlib.sha256(raw).hexdigest() == admitted.current_sha256
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"]
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"]
     assert ledger["primary_graph_snippet_count"] == len(ledger["snippet_checks"]) == 16
     assert len(ledger["discussion_snippet_checks"]) == 4
     assert all(
