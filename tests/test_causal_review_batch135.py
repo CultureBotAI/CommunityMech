@@ -7,6 +7,7 @@ from pathlib import Path
 import yaml
 from gtdb_species_batch_successors_20261115 import admission as species_admission
 from remaining_four_gtdb_successors import Q5_PATH, admit_remaining_four_successor
+from shrimp_lane_gtdb_successors import SAHARA_PATH, admit_shrimp_lane_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml"
@@ -46,7 +47,13 @@ def _ref_to_cache_path(ref: str) -> Path:
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    docs = []
+    for row in rows:
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["path"] == SAHARA_PATH:
+            admit_shrimp_lane_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs.append(yaml.safe_load(raw))
+    return ledger, rows, docs
 
 
 def test_batch135_covers_all_five_c3s1_records_with_verified_hashes_and_history():
@@ -69,7 +76,14 @@ def test_batch135_covers_all_five_c3s1_records_with_verified_hashes_and_history(
     for row, _doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        admitted = admission(ROOT, row["path"], row["record_sha256"])
+        if row["path"] == SAHARA_PATH:
+            raw = (ROOT / row["path"]).read_bytes()
+            assert _doc == yaml.safe_load(raw)
+            admitted = admit_shrimp_lane_successor(
+                ROOT, row["path"], row["record_sha256"], current=raw
+            )
+        else:
+            admitted = admission(ROOT, row["path"], row["record_sha256"])
         assert (
             hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == admitted.current_sha256
         )
