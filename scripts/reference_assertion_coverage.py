@@ -31,6 +31,7 @@ from unittest.mock import patch
 from linkml.validator import Validator
 from linkml_reference_validator.cli.validate import validate_app
 from linkml_reference_validator.etl.reference_fetcher import ReferenceFetcher
+from linkml_reference_validator.etl.source_locator import ABSENT, SourceCatalog
 from linkml_reference_validator.plugins.reference_validation_plugin import ReferenceValidationPlugin
 from linkml_reference_validator.validation.supporting_text_validator import SupportingTextValidator
 from ruamel.yaml import YAML
@@ -42,7 +43,7 @@ SCHEMA = "src/communitymech/schema/communitymech.yaml"
 CONFIG = "conf/reference_validator.yaml"
 ASGARD = "kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml"
 CANARY_PATH = "related_ingredients[2].evidence[0].snippet"
-SUPPORTED_VERSION = "0.2.1"
+SUPPORTED_VERSION = "0.2.1.post1.dev0+6b71e7f"
 
 
 def digest(data):
@@ -83,6 +84,23 @@ def input_manifest(root, records):
     paths = {root / p for p in [*records, CONFIG, "uv.lock", "pyproject.toml"]}
     for directory in (root / "references_cache", root / "src/communitymech/schema"):
         paths.update(p for p in directory.rglob("*") if p.is_file())
+    config = YAML(typ="safe").load((root / CONFIG).read_text())
+    if config.get("source_catalog") is not None:
+        catalog_path = Path(config["source_catalog"])
+        if not catalog_path.is_absolute():
+            catalog_path = root / catalog_path
+        if not catalog_path.resolve().is_relative_to(root.resolve()):
+            raise ValueError("Source catalog must be inside the measured repository")
+        if catalog_path.is_file():
+            paths.add(catalog_path)
+            catalog = SourceCatalog.model_validate_json(catalog_path.read_bytes())
+            for source in catalog.sources:
+                for name in (source.asset_path, source.extraction_path):
+                    path = catalog_path.parent / name
+                    if not path.resolve().is_relative_to(catalog_path.parent.resolve()):
+                        raise ValueError("Source input escapes its catalog directory")
+                    if path.is_file():
+                        paths.add(path)
     if any(p.is_symlink() for p in paths):
         raise ValueError("Input symlinks are not accepted")
     return {str(p.relative_to(root)): digest(p.read_bytes()) for p in sorted(paths)}
@@ -214,12 +232,16 @@ class Trace:
             }
             yield from native_visit(plugin, instance, class_name, path)
 
-        def excerpt(plugin, text, reference_id, expected_title, path):
+        def excerpt(plugin, text, reference_id, expected_title, path, *, source_locator=ABSENT):
             event = self.new_event(path, reference_id, text)
             event["normalized_reference"] = self.normalize_reference(reference_id)
+            event["source_locator_supplied"] = source_locator is not ABSENT
+            if source_locator is not ABSENT:
+                event["source_locator"] = deepcopy(source_locator)
             self.current["excerpts"].append(event)
             self.event = event
-            yield from native_excerpt(plugin, text, reference_id, expected_title, path)
+            options = {} if source_locator is ABSENT else {"source_locator": source_locator}
+            yield from native_excerpt(plugin, text, reference_id, expected_title, path, **options)
             self.event = None
 
         def title(plugin, text, reference_id, path):
@@ -261,7 +283,14 @@ class Trace:
             event["is_valid"] = result.is_valid
             event["severity"] = result.severity.value
             prefix = event["validated_reference"].split(":")[0].upper()
-            if prefix in {p.upper() for p in validator.config.skip_prefixes}:
+            if event.get("source_locator_supplied"):
+                event["source_identity"] = deepcopy(result.source_identity)
+                event["message"] = result.message
+                if result.match_result is None:
+                    event["status"] = "source_selection_failed"
+                else:
+                    event["status"] = "matched" if result.match_result.found else "mismatched"
+            elif prefix in {p.upper() for p in validator.config.skip_prefixes}:
                 event["status"] = "skipped_prefix"
             elif not event.get("cache", {}).get("loaded"):
                 event["status"] = (
@@ -278,12 +307,24 @@ class Trace:
                 event["title_mismatch"] = result.match_result.found and not result.is_valid
             return result
 
-        def validate(validator, supporting_text, reference_id, expected_title=None, path=None):
+        def validate(
+            validator,
+            supporting_text,
+            reference_id,
+            expected_title=None,
+            path=None,
+            *,
+            source_locator=ABSENT,
+        ):
             self.event["validator_calls"] += 1
             self.event["validated_reference"] = reference_id
             self.event["normalized_validated_reference"] = self.normalize_reference(reference_id)
             self.event["validated_text_sha256"] = digest(str(supporting_text).encode())
             self.event["validated_path"] = path
+            self.event["validated_source_locator_supplied"] = source_locator is not ABSENT
+            if source_locator is not ABSENT:
+                self.event["validated_source_locator"] = deepcopy(source_locator)
+            options = {} if source_locator is ABSENT else {"source_locator": source_locator}
             return finish(
                 validator,
                 native_validate(
@@ -292,6 +333,7 @@ class Trace:
                     reference_id,
                     expected_title=expected_title,
                     path=path,
+                    **options,
                 ),
             )
 
@@ -389,6 +431,27 @@ def reconcile(trace, native_exit):
                 )
                 if not item["reference_binding_consistent"]:
                     errors.append(f"Reference identity mismatch: {native['record']}:{path}")
+                supplied = "source_locator" in instance
+                item["source_binding_consistent"] = (
+                    item.get("source_locator_supplied") is supplied
+                    and item.get("validated_source_locator_supplied") is supplied
+                    and (
+                        not supplied
+                        or (
+                            item.get("source_locator") == instance["source_locator"]
+                            and item.get("validated_source_locator") == instance["source_locator"]
+                        )
+                    )
+                )
+                identity = item.get("source_identity")
+                if supplied and item.get("status") in {"matched", "mismatched"}:
+                    item["source_binding_consistent"] &= bool(
+                        isinstance(identity, dict)
+                        and identity.get("locator") == instance["source_locator"]
+                        and identity.get("reference") == item["normalized_expected_reference"]
+                    )
+                if not item["source_binding_consistent"]:
+                    errors.append(f"Source locator identity mismatch: {native['record']}:{path}")
             elif not isinstance(value, str):
                 item["status"] = "invalid_excerpt_type"
             elif not value.strip():
@@ -400,8 +463,11 @@ def reconcile(trace, native_exit):
             else:
                 item["status"] = "no_extractable_reference"
             item["native_class"] = visit["class"] if visit else None
-            item["actually_compared"] = item.get("substring_parts_compared", 0) > 0 and item.get(
-                "reference_binding_consistent", False
+            item["actually_compared"] = (
+                item.get("substring_parts_compared", 0) > 0
+                and item.get("reference_binding_consistent", False)
+                and item.get("source_binding_consistent", False)
+                and item.get("status") != "source_selection_failed"
             )
             assertions.append(item)
         if by_path:
@@ -502,7 +568,9 @@ def write_json(path, value):
 
 def run(root, output, selected, canary=False):
     if version("linkml-reference-validator") != SUPPORTED_VERSION:
-        raise ValueError("Instrumentation requires reviewed linkml-reference-validator 0.2.1")
+        raise ValueError(
+            f"Instrumentation requires reviewed linkml-reference-validator {SUPPORTED_VERSION}"
+        )
     revision, inventory = declared_records(root)
     selected = selected or inventory
     if len(set(selected)) != len(selected) or any(p not in inventory for p in selected):
