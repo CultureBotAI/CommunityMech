@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from shrimp_lane_gtdb_successors import admit_shrimp_lane_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml"
@@ -12,7 +13,13 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    docs = []
+    for row in rows:
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["id"] == "CommunityMech:000416":
+            admit_shrimp_lane_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs.append(yaml.safe_load(raw))
+    return ledger, rows, docs
 
 
 def test_arsenic_preserves_direct_carbon_cross_feeding():
@@ -205,12 +212,18 @@ def test_review_accounts_for_all_nodes_arrows_and_preserves_caches():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        expected = latest["record_sha256"]
+        historical = doc
+        if row["id"] == "CommunityMech:000416":
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_shrimp_lane_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [r["node"] for r in row["node_decisions"]] == names
-        assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
+        assert len(row["history_files"]) == 1 and historical["curation_history"][-1]["llm_assisted"]
         for node in doc["ecological_interactions"]:
             assert "downstream" not in node or node["downstream"]
             assert all(e["target"] in names for e in node.get("downstream", []))
