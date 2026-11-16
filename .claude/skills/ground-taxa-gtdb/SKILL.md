@@ -297,10 +297,12 @@ taxonomy entries and their id anchors do not line up.
   *Chlorobium* went unprotected — it survived earlier sweeps only because its
   recompute happened to fail (#376).
 - **`is_reclassified: true`** — GTDB uses a different name than NCBI at that
-  rank. Read it as exactly that and no more: 54 of 143 true values (38%) are a
+  rank. Read it as exactly that and no more: in the 2026-10-23 census at Git
+  `edd740d502690303a691935d1ee8deef911362f8`, 54 of 143 true values (38%) were a
   dropped strain designation, a polyphyly suffix, a GTDB placeholder
   epithet, or a nomenclatural ending rather than any kind of
-  reclassification (#441, #480)
+  reclassification (#441, #480). These are historical counts, not current
+  population proportions (#2947)
   (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
   both groundings; the disagreement is the point.
 - **AMBIGUOUS** — GTDB splits the NCBI taxon into several with no majority
