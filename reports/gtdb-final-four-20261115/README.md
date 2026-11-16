@@ -79,3 +79,14 @@ guard must retain current biology and the literal old reviews; new evidence
 may admit only the exact declared successor. Passing these scoped checks
 will not complete full scientific review, reference validation, current
 generated products or aggregate QC. No merge is authorized by this checkpoint.
+
+The subsequent [Sorghum 348 canary outcome](348-canary-outcome-001.md) records
+the approved six-file transfer, actual frozen-M5 application, eight native
+checks, saved partial diagnostic, independently verified 80-input audit and
+complete 82-file checkpoints, 27 verified public artifacts and strict
+historical admission. Its actual proof/caller matrix passed 25 tests after the
+separate positive canary; native lint passed. Native append-only review
+integrity passed for 350 reviews with `declared_scopes_only` coverage. The original preparation and
+failed-transfer observations above remain historical. Transwell 091, Nasal 395
+and Rumen 398 remain unapplied in this lane. Full scientific review, generated
+products and aggregate QC remain separate.
