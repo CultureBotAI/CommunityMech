@@ -1,4 +1,4 @@
-# Shrimp, thermophilic reactor and Sahara source preparation
+# Shrimp, thermophilic reactor and Sahara checkpoints
 
 Record 436 now has a saved, independently audited genus-reference diagnostic
 with eight actual native checks, complete input checkpoints and public proof.
@@ -15,7 +15,13 @@ majorities and unresolved issue 1935 remain bounded; scientific review and
 combined QC are not complete. See [416-canary-outcome-001.md](416-canary-outcome-001.md).
 The separately approved Thermophilic/Sahara transfers are recorded in
 [approved-input-transfers-20261116.md](approved-input-transfers-20261116.md).
-Record 494 has a private M5 candidate only and remains unapplied.
+Record 494 now has six native reference blocks, eight actual M5 checks,
+a saved partial diagnostic, verified 83-input/85-file checkpoints on both
+hosts and 27 public proof artifacts. Its 17 actual proof controls, all three
+historical batch 135 tests and native lint passed. All 33 Paenibacillus
+alternatives remain unchanged; abstract-only source coverage and issue 2924
+remain explicit limits. Root will compose the separately accepted 492 caller
+admission during integration. See [494-canary-outcome-001.md](494-canary-outcome-001.md).
 
 ## Historical preparation checkpoint
 

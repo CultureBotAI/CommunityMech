@@ -12,7 +12,7 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"436": registry.SHRIMP_PATH, "416": registry.THERMO_PATH}
+TARGETS = {"436": registry.SHRIMP_PATH, "416": registry.THERMO_PATH, "494": registry.SAHARA_PATH}
 
 
 @pytest.fixture(params=TARGETS, ids=TARGETS)
@@ -25,7 +25,7 @@ def actual(tmp_path, monkeypatch, request):
         manifest=allowed["manifest"]["path"],
         manifest_sha=allowed["manifest"]["sha256"],
         baseline_revision=allowed["baseline_revision"],
-        historical_llm=request.param == "416",
+        historical_llm=request.param in {"416", "494"},
     )
 
 
