@@ -5,11 +5,16 @@ Adapted from the reviewed Claw #1283 shared-contract controls; both evidence
 classes must preserve old citations and reject malformed explicit selections.
 """
 
+import importlib
 import json
+import subprocess
+import sys
 from copy import deepcopy
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
+import yaml
 from jsonschema.validators import validator_for
 from linkml.generators.jsonschemagen import JsonSchemaGenerator
 
@@ -28,9 +33,24 @@ LOCATOR = {
 
 @pytest.fixture(scope="module", params=["EvidenceItem", "SupportingReference"])
 def evidence_contract(request):
-    schema = json.loads(
-        JsonSchemaGenerator(str(SCHEMA), top_class=request.param, not_closed=False).serialize()
+    # Follow Claw #263: generate the actual closed schema outside any damaged
+    # process-global parent YAML loader, retaining this interpreter/dependencies.
+    generated = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "from linkml.generators.jsonschemagen import JsonSchemaGenerator\n"
+            "import sys\n"
+            "print(JsonSchemaGenerator(sys.argv[1], top_class=sys.argv[2], "
+            "not_closed=False).serialize())\n",
+            str(SCHEMA),
+            request.param,
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
     )
+    schema = json.loads(generated.stdout)
     validator_type = validator_for(schema)
     validator_type.check_schema(schema)
     citation = {"reference": "PMID:36472419", "snippet": "The exact source cell text."}
@@ -88,3 +108,30 @@ def test_generated_model_preserves_locator_and_original_citation(model):
     assert str(selected.source_locator.kind) == "supplement"
     for field in ("asset_id", "version", "table", "row", "cell"):
         assert getattr(selected.source_locator, field) == LOCATOR[field]
+
+
+@pytest.mark.parametrize("top_class", ["EvidenceItem", "SupportingReference"])
+def test_consumer_schema_survives_damaged_parent_loader_and_restoration(monkeypatch, top_class):
+    """Prevent the observed Claw #263 fixture failure at both consumer roots."""
+
+    class NullTagLoader(yaml.SafeLoader):
+        def resolve(self, kind, value, implicit):
+            return None
+
+    loader = importlib.import_module("linkml_runtime.loaders.yaml_loader")
+    original = loader.DupCheckYamlLoader
+    request = SimpleNamespace(param=top_class)
+    with monkeypatch.context() as changed:
+        changed.setattr(loader, "DupCheckYamlLoader", NullTagLoader)
+        with pytest.raises(yaml.constructor.ConstructorError, match="tag None"):
+            JsonSchemaGenerator(str(SCHEMA), top_class=top_class, not_closed=False).serialize()
+        isolated, citation = evidence_contract.__wrapped__(request)
+        isolated.validate(citation)
+        isolated.validate({**citation, "source_locator": LOCATOR})
+        incomplete = {key: value for key, value in LOCATOR.items() if key != "cell"}
+        assert not isolated.is_valid({**citation, "source_locator": incomplete})
+        assert not isolated.is_valid({**citation, "source_locator": {**LOCATOR, "row": 0}})
+        assert loader.DupCheckYamlLoader is NullTagLoader
+    assert loader.DupCheckYamlLoader is original
+    restored, citation = evidence_contract.__wrapped__(request)
+    restored.validate({**citation, "source_locator": LOCATOR})
