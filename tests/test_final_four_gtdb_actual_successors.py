@@ -12,10 +12,17 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"348": registry.SORGHUM_PATH, "091": registry.TRANSWELL_PATH}
+TARGETS = {
+    "348": registry.SORGHUM_PATH,
+    "091": registry.TRANSWELL_PATH,
+    "395": registry.NASAL_PATH,
+    "398": registry.RUMEN_PATH,
+}
 TARGET_IDS = {
     registry.SORGHUM_PATH: "CommunityMech:000348",
     registry.TRANSWELL_PATH: "CommunityMech:000091",
+    registry.NASAL_PATH: "CommunityMech:000395",
+    registry.RUMEN_PATH: "CommunityMech:000398",
 }
 
 

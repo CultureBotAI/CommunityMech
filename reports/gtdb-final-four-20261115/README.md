@@ -105,3 +105,22 @@ pre-admission failures and refused first lint invocation remain explicit.
 Nasal 395 and Rumen 398 are separate, independently coordinated units and are
 excluded from this Transwell publication. Scientific completion, aggregate QC
 and generated products remain pending.
+
+The later [LaCa 395 outcome](395-outcome-001.md) and
+[optimized rumen 398 outcome](398-outcome-001.md) complete the two remaining
+bounded correspondence units on the same frozen M5 execution revision.
+They add nine and four reference blocks/statuses, respectively, preserving
+stock identities, the rumen Streptococcus ambiguity, source conflicts,
+current biology and prior scientific limits. Each completed eight native
+checks and an immutable partial diagnostic. Both hosts verified the 395
+80-input/82-file and 398 82-input/84-file checkpoints before caller edits;
+all 54 public export artifacts rehash. Each actual proof matrix passed
+17 controls, and the affected historical callers passed nine and ten tests.
+Final native lint passed Black 790 files, Ruff and mypy 52 source files.
+Original historical refusals and later expected current-input refusals remain
+recorded, with preserved predecessor callers in the complete checkpoints.
+The four cases are explicit strict admissions; no shared matching engine or
+historical ledger was weakened. The earlier preparation and intermediate
+status paragraphs remain historical. Full scientific review, measured current
+source comparisons, generated products, final combined QC and any merge remain
+separate obligations.

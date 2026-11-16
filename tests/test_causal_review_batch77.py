@@ -4,16 +4,24 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from final_four_gtdb_successors import admit_final_four_successor
 from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml"
+NASAL_PATH = "kb/communities/Nasal_SynCom_C_Bioreactor.yaml"
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    docs = [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    for row, doc in zip(rows, docs, strict=True):
+        if row["path"] == NASAL_PATH:
+            current = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(current)
+            admit_final_four_successor(ROOT, row["path"], row["record_sha256"], current=current)
+    return ledger, rows, docs
 
 
 def test_empty_nasal_graph_is_an_explicit_research_gap_not_a_completed_review():
@@ -168,7 +176,10 @@ def test_scoped_histories_and_issue_lifecycle_remain_explicit():
     assert ledger["unresolved_non_graph_issues"] == [1642]
     assert sum(r["curation_events_added"] for r in rows) == 3
     for row, _doc in zip(rows, docs, strict=True):
-        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        if row["path"] == NASAL_PATH:
+            admission = admit_final_four_successor(ROOT, row["path"], row["record_sha256"])
+        else:
+            admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
         assert hashlib.sha256(admission.historical_bytes).hexdigest() == row["record_sha256"]
         changed = row["outcome"] == "changed"
         assert row["curation_events_added"] == len(row["history_files"]) == int(changed)
