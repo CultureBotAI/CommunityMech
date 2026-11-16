@@ -12,8 +12,11 @@ from test_scoped_gtdb_actual_successor import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = {"348": registry.SORGHUM_PATH}
-TARGET_IDS = {registry.SORGHUM_PATH: "CommunityMech:000348"}
+TARGETS = {"348": registry.SORGHUM_PATH, "091": registry.TRANSWELL_PATH}
+TARGET_IDS = {
+    registry.SORGHUM_PATH: "CommunityMech:000348",
+    registry.TRANSWELL_PATH: "CommunityMech:000091",
+}
 
 
 @pytest.fixture(params=TARGETS, ids=TARGETS)
