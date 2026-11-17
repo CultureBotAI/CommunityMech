@@ -1,0 +1,58 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_named_attempt_controls_preserve_both_versions ______________
+
+exporter = <module 'm5_evidence_export' from '<REPO>/scripts/adhoc/export_m5_technical_evidence_20261114.py'>
+
+    def test_named_attempt_controls_preserve_both_versions(exporter):
+        names = (
+            "final-sync-plan",
+            "final-sync-receipt",
+            "final-orchestration-inputs",
+        )
+        for name in names:
+            (exporter.STATE / f"{name}.json").write_text(json.dumps({"attempt": "first"}))
+        exporter.main()
+        first = snapshot(exporter.OUT)
+        later = [name.replace("final-", "final-c2-", 1) for name in names]
+        later.append("c1-reference-supersession")
+        for name in later:
+            (exporter.STATE / f"{name}.json").write_text(json.dumps({"attempt": "second"}))
+        exporter.main()
+        for name in later:
+            source = exporter.STATE / f"{name}.json"
+>           published = json.loads((exporter.OUT / f"{name}.json").read_text())
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_m5_completion_evidence_export.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Caskroom/miniforge/base/lib/python3.13/pathlib/_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Caskroom/miniforge/base/lib/python3.13/pathlib/_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/7w/ksxs106s7_sg14v6cb2y70vr0000gn/T/pytest-of-marcin/pytest-1838/test_named_attempt_controls_pr0/reports/m5-completion-20261114/technical-evidence/final-c2-sync-plan.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/7w/ksxs106s7_sg14v6cb2y70vr0000gn/T/pytest-of-marcin/pytest-1838/test_named_attempt_controls_pr0/reports/m5-completion-20261114/technical-evidence/final-c2-sync-plan.json'
+
+/opt/homebrew/Caskroom/miniforge/base/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+----------------------------- Captured stdout call -----------------------------
+{"public_check_receipts": 0, "directory": "reports/m5-completion-20261114/technical-evidence"}
+{"public_check_receipts": 0, "directory": "reports/m5-completion-20261114/technical-evidence"}
+=========================== short test summary info ============================
+FAILED tests/test_m5_completion_evidence_export.py::test_named_attempt_controls_preserve_both_versions
+1 failed in 0.23s

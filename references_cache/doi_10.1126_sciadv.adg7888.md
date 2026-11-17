@@ -17,7 +17,7 @@ authors:
 journal: Science Advances
 year: '2024'
 doi: 10.1126/sciadv.adg7888
-content_type: abstract_only
+content_type: abstract_and_full_text
 ---
 
 # Reproducible growth of Brachypodium in EcoFAB 2.0 reveals that nitrogen form and starvation modulate root exudation

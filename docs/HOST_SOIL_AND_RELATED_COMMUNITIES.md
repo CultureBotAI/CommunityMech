@@ -13,7 +13,7 @@ EcoFAB 2.0 ring trial) and PMID:36472419 (Coker et al. 2022):
 
 | Record | Shows |
 |---|---|
-| `Brachypodium_Natural_Variation_Dopamine_SynCom16` (000516) | `host` with ten genotypes, a computed `MEMBER_SUBSET_OF`, a quoted `OVERLAPPING_MEMBERSHIP`, `host_participation`, `effect_direction`, `HYDROPONIC_VESSEL` |
+| `Brachypodium_Natural_Variation_Dopamine_SynCom16` (000516) | `host` with ten genotypes, a computed `MEMBER_SUBSET_OF`, a quoted `OVERLAPPING_MEMBERSHIP`, isolate-growth `effect_direction`, `HYDROPONIC_VESSEL` |
 | `Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm` (000515) | `soils` with texture, location, sieve size and water content; no host; `SAME_STUDY_AS`; `SOIL_MICROCOSM` |
 | `EcoFAB_Ring_Trial_SynCom17` (000025) | `host` with one line; computed `MEMBER_SUPERSET_OF` |
 | `LBNL_Switchgrass_Soil_SynCom16` (000087) | links from a record with no strain roster, so `SOURCE_STATEMENT` |
@@ -91,9 +91,13 @@ Not for liquid or agar media, which stay in `growth_media`.
 
 `EffectDirectionEnum` (`INCREASES`, `DECREASES`, `NO_DETECTED_CHANGE`,
 `MIXED`) gives the sign of the effect on the target's measured response.
-Set it only when the source reports a direction. Prefer two interactions to
-one `MIXED`: 000516 splits its exudate-dopamine correlation into a positive
-edge (five members) and a negative edge (OAS925).
+Set it for a measured intervention effect, keeping the assay and measured
+response explicit. A correlation's sign does not establish an effect or a
+host source/target mechanism. Prefer two interactions to one `MIXED` when
+the experiments support different effects: 000516 records dopamine stimulation
+of five isolates and inhibition of OAS925 in separate culture assays. Its
+exudate-abundance correlations retain their signs in descriptive text without
+causal `effect_direction` or `host_participation` annotations.
 
 ## `CultivationSystemEnum` additions
 

@@ -657,8 +657,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  host_participation: HOST_IS_SOURCE
-  effect_direction: INCREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -692,8 +690,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  host_participation: HOST_IS_SOURCE
-  effect_direction: DECREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -860,8 +856,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  host_participation: HOST_IS_TARGET
-  effect_direction: DECREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -964,4 +958,20 @@ curation_history:
   changes: 'Renumbered a fourth time while the PR was open (#2425): main assigned CommunityMech:000510-000514
     to other records (#2328). Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm is now CommunityMech:000515
     and Brachypodium_Natural_Variation_Dopamine_SynCom16 is CommunityMech:000516; links updated.'
+  llm_assisted: true
+- timestamp: '2026-11-14T21:39:52Z'
+  curator: codex
+  action: EDIT
+  changes: Removed causal host/source effect tags from correlation-only nodes0/1 (#2773), and removed the unsupported
+    host-target assertion from the lower-exudate-dopamine observation (#2710). Preserved all five nodes, source
+    snippets, isolated-culture growth effects and the unresolved microbial-utilization versus altered-host-production
+    explanation.
+  llm_assisted: true
+- timestamp: '2026-11-14T21:44:03Z'
+  curator: codex
+  action: EDIT
+  changes: 'Removed the residual effect_direction from the lower-exudate-dopamine observation (#2778): the measured
+    endpoint is extracellular dopamine after SynCom inoculation, whereas this schema direction would encode a dopamine
+    effect on participating taxa. Preserved the measured decrease in prose, both quotations, and the unresolved
+    host-versus-microbial explanation; isolate growth directions remain intact.'
   llm_assisted: true

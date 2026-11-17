@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_filtered_export_preserves_previous_index_entries _____________
+
+exporter = <module 'm5_evidence_export' from '<REPO>/scripts/adhoc/export_m5_technical_evidence_20261114.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x106870770>
+
+    def test_filtered_export_preserves_previous_index_entries(exporter, monkeypatch):
+        add_run(exporter, "old-failed", 1)
+        exporter.main()
+        original = snapshot(exporter.OUT)
+        add_run(exporter, "new-passed")
+        monkeypatch.setattr("sys.argv", [str(SCRIPT), "--name", "new-passed"])
+        exporter.main()
+        index = (exporter.OUT / "README.md").read_text()
+>       assert "| old-failed | FAILED | 1 |" in index
+E       AssertionError: assert '| old-failed | FAILED | 1 |' in '# Durable technical evidence\n\nEach receipt preserves the original native-log SHA-256 and the published derivative S...:|---|---|\n| new-passed | PASSED | 0 | [new-passed.log.txt](new-passed.log.txt) | [JSON](new-passed.receipt.json) |\n'
+
+tests/test_m5_completion_evidence_export.py:60: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"public_check_receipts": 1, "directory": "reports/m5-completion-20261114/technical-evidence"}
+{"public_check_receipts": 1, "directory": "reports/m5-completion-20261114/technical-evidence"}
+=========================== short test summary info ============================
+FAILED tests/test_m5_completion_evidence_export.py::test_filtered_export_preserves_previous_index_entries
+1 failed in 0.11s

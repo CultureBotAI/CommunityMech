@@ -1,0 +1,92 @@
+{
+  "name": "qc",
+  "started_at": "2026-11-14T21:09:34+00:00",
+  "status": "FAILED",
+  "head": "76aa644cd6803ea2c9545d4c704276ede219d354",
+  "branch": "review/m5-completion-20261114",
+  "python": "3.13.2 (main, Mar 17 2025, 21:26:38) [Clang 20.1.0 ]",
+  "command": [
+    "/opt/homebrew/bin/just",
+    "--verbose",
+    "--no-dotenv",
+    "--color",
+    "never",
+    "qc"
+  ],
+  "environment_overrides": {
+    "UV_NO_SYNC": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "NO_COLOR": "1",
+    "TERM": "dumb"
+  },
+  "runner_sha256": "351a9baa808825ab39369f4a9d8ceee9c876ce3e95db008bb849330dc8adb877",
+  "uv_lock_sha256": "937fc64c52ddde9859c4231c12177e5b662ca40a7323fe21a5c0794d58ebbbc0",
+  "justfile_sha256": "4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453",
+  "initial_git_status": "?? scripts/adhoc/m5_completion_checks.py",
+  "dry_run": false,
+  "diagnostic_no_deps": false,
+  "log": "reports/m5-completion-20261114/technical-evidence/qc.log.txt",
+  "finished_at": "2026-11-14T21:26:31+00:00",
+  "exit_code": 1,
+  "stages": [
+    {
+      "recipe": "lint",
+      "status": "PASSED"
+    },
+    {
+      "recipe": "test",
+      "status": "FAILED"
+    },
+    {
+      "recipe": "validate-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-taxa",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-strict",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-gtdb-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-scalars",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-scalars-idiomatic",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-terms-all",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "validate-terms-taxa",
+      "status": "NOT RUN"
+    },
+    {
+      "recipe": "qc",
+      "status": "NOT RUN"
+    }
+  ],
+  "log_bytes": 740812,
+  "log_sha256": "53a690d6f9dd0c49f35f2b21916d54c4f40e1ca7a99947b3e53036ba4411a11a",
+  "skip_markers": [],
+  "final_git_status": "?? reviews/structured/20261114T212137Z-m5-ecofab-completion-canary/\n?? scripts/adhoc/m5_completion_checks.py",
+  "public_evidence": {
+    "original_log_sha256": "53a690d6f9dd0c49f35f2b21916d54c4f40e1ca7a99947b3e53036ba4411a11a",
+    "public_log_sha256": "6b2790251e36dfed4efbc0580f6cc70fb63ab3f030c97e8f11b4c6387fe688b3",
+    "original_log_bytes": 740812,
+    "public_log_bytes": 739080,
+    "redactions": {
+      "private_home_path": 6,
+      "repository_absolute_path": 36
+    },
+    "note": "Only path/privacy/credential-shaped text is replaced; raw logs remain in .temp in both checkouts."
+  }
+}

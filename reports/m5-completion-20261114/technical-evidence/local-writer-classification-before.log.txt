@@ -1,0 +1,46 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________ test_every_writer_is_classified ________________________
+
+audit = [{'appends_curation_history': 'yes', 'has_write_safeguard': 'yes', 'path': 'scripts/add_community_ids.py', 'validates_...rd': 'no', 'path': 'scripts/adhoc/build_lbnl_completion_review_20261114.py', 'validates_before_write': 'no', ...}, ...]
+
+    def test_every_writer_is_classified(audit):
+        """A new tool must say whether it owes a trace, when it is written."""
+        unclassified = sorted(
+            row["path"]
+            for row in audit
+            if row["writes_yaml"] == "yes"
+            and row["appends_curation_history"] == "no"
+            and row["path"] not in _EXEMPT
+            and row["path"] not in _OWED
+        )
+>       assert unclassified == [], (
+            "these write record YAML and append no curation event, and are in "
+            "neither list:\n"
+            + "\n".join(f"  {path}" for path in unclassified)
+            + "\n\nAdd `record_curation_event(...)`, or classify it: `_EXEMPT` "
+            "with a reason if it does not touch kb/communities, `_OWED` if it "
+            "does and the trace is simply not written yet (#325)."
+        )
+E       AssertionError: these write record YAML and append no curation event, and are in neither list:
+E           scripts/adhoc/build_dopamine_syncom_review_20261114.py
+E           scripts/adhoc/build_ecofab_completion_review_20261114.py
+E           scripts/adhoc/build_lbnl_completion_review_20261114.py
+E           scripts/adhoc/build_lbnl_environment_addendum_20261114.py
+E           scripts/adhoc/build_m5_postcuration_review_20261114.py
+E           scripts/adhoc/build_m5_successor_provenance_20261114.py
+E           scripts/adhoc/build_yolo_completion_review_20261114.py
+E           scripts/adhoc/inspect_m5_postcuration_20261114.py
+E           scripts/adhoc/recover_m5_completion_scope.py
+E           scripts/adhoc/review_dopamine_syncom_20261114.py
+E         
+E         Add `record_curation_event(...)`, or classify it: `_EXEMPT` with a reason if it does not touch kb/communities, `_OWED` if it does and the trace is simply not written yet (#325).
+E       assert ['scripts/adh...1114.py', ...] == []
+E         
+E         Left contains 10 more items, first extra item: 'scripts/adhoc/build_dopamine_syncom_review_20261114.py'
+E         Use -v to get more diff
+
+tests/test_writers_leave_a_trace.py:161: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_writers_leave_a_trace.py::test_every_writer_is_classified
+1 failed in 0.32s
