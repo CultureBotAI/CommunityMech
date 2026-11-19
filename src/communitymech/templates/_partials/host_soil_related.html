@@ -33,7 +33,7 @@
                 <p><strong>Anatomical sites:</strong> {% for s in host.anatomical_sites %}{{ s.preferred_term }}{% if s.term and s.term.id %} ({{ term_ref(s.term) }}){% endif %}{% if s.description %} <span class="muted">{{ s.description }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
                 {% endif %}
                 {% if host.developmental_stage %}
-                <p><strong>Developmental stage:</strong> {{ host.developmental_stage.preferred_term }}{% if host.developmental_stage.term and host.developmental_stage.term.id %} ({{ term_ref(host.developmental_stage.term) }}){% endif %}</p>
+                <p><strong>Developmental stage:</strong> {{ host.developmental_stage.preferred_term }}{% if host.developmental_stage.term and host.developmental_stage.term.id %} ({{ term_ref(host.developmental_stage.term) }}){% endif %}{% if host.developmental_stage.description %} <span class="muted">{{ host.developmental_stage.description }}</span>{% endif %}</p>
                 {% endif %}
                 {% if host.description %}<p class="prewrap">{{ host.description }}</p>{% endif %}
                 {{ evidence_block(host.evidence) }}
@@ -50,7 +50,7 @@
                 <dl class="kv">
                     {% if soil.term %}<dt>Soil type</dt><dd>{{ term_ref(soil.term) }}</dd>{% endif %}
                     {% if soil.texture %}<dt>Texture</dt><dd>{{ term_ref(soil.texture) }}</dd>{% endif %}
-                    {% if soil.location %}<dt>Location</dt><dd>{{ soil.location.place_name or '' }}{% if soil.location.latitude is not none and soil.location.longitude is not none %} ({{ soil.location.latitude }}, {{ soil.location.longitude }}){% endif %}</dd>{% endif %}
+                    {% if soil.location %}<dt>Location</dt><dd>{{ soil.location.place_name or '' }}{% if soil.location.get('latitude') is not none and soil.location.get('longitude') is not none %} ({{ soil.location.latitude }}, {{ soil.location.longitude }}){% endif %}</dd>{% endif %}
                     {% for key, label in [("sampling_depth", "Sampling depth"), ("sieve_size", "Sieve size"), ("ph", "pH"), ("water_content", "Water content"), ("organic_carbon", "Organic carbon")] %}
                     {% if soil[key] %}<dt>{{ label }}</dt><dd>{{ quantity(soil[key]) }}</dd>{% endif %}
                     {% endfor %}

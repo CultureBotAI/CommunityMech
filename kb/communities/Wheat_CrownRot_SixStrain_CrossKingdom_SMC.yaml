@@ -137,7 +137,16 @@ taxonomy:
     term:
       id: NCBITaxon:96241
       label: Bacillus spizizenii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_spizizenii
+      gtdb_taxon: Bacillus spizizenii
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus spizizenii
+      ncbi_source_id: NCBITaxon:96241
+      majority_fraction: 0.92
+      total_genomes: 38
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Growth-promoting Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
       during curation.
   strain_designation:
@@ -163,7 +172,16 @@ taxonomy:
     term:
       id: NCBITaxon:2715209
       label: Bacillus rugosus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_rugosus
+      gtdb_taxon: Bacillus rugosus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus rugosus
+      ncbi_source_id: NCBITaxon:2715209
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Growth-promoting Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
       during curation.
   strain_designation:
@@ -189,7 +207,16 @@ taxonomy:
     term:
       id: NCBITaxon:2715209
       label: Bacillus rugosus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_rugosus
+      gtdb_taxon: Bacillus rugosus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus rugosus
+      ncbi_source_id: NCBITaxon:2715209
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Auxiliary Bacillus member with the same species-level NCBITaxon grounding as PM16; GTDB grounding was not resolved
       because the local NCBI2GTDB mapping was unavailable during curation.
   strain_designation:
@@ -215,7 +242,16 @@ taxonomy:
     term:
       id: NCBITaxon:260554
       label: Bacillus halotolerans
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_halotolerans
+      gtdb_taxon: Bacillus halotolerans
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus halotolerans
+      ncbi_source_id: NCBITaxon:260554
+      majority_fraction: 1.0
+      total_genomes: 96
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Auxiliary Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
       during curation.
   strain_designation:
@@ -385,6 +421,14 @@ curation_history:
     Keep relative community-profile observations distinct from colonization facilitation and inferred ecological
     functions. Issue#1942; reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T10:00:44Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:00:45Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: crown_causal_scope_batch121
   prompt: Which SMC-dependent routes cause protection beyond community and metabolite associations?

@@ -4,6 +4,9 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
+from wetland_gtdb_successors import admit_wetland_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = (
@@ -37,15 +40,40 @@ def test_batch133_covers_all_fifteen_stage1_records_with_verified_hashes_and_his
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] in {
+            "CommunityMech:000471",
+            "CommunityMech:000472",
+            "CommunityMech:000474",
+            "CommunityMech:000475",
+            "CommunityMech:000476",
+            "CommunityMech:000477",
+            "CommunityMech:000481",
+        }:
+            # Do not discard mutations of an already loaded current document.
+            assert doc == yaml.safe_load(raw)
+            if row["id"] == "CommunityMech:000471":
+                admit_successor = admit_wetland_successor
+            else:
+                admit_successor = (
+                    admit_genus_successor
+                    if row["id"]
+                    in {"CommunityMech:000474", "CommunityMech:000475", "CommunityMech:000477"}
+                    else admit_species_successor
+                )
+            admitted = admit_successor(ROOT, row["path"], row["record_sha256"])
+            raw = admitted.historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "curation_history",
         }
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).exists()
-        assert doc["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
+        assert historical["curation_history"][-1]["llm_assisted"] is True
 
 
 def test_batch133_each_record_has_three_nodes_two_directed_edges_and_verbatim_abstract_snippets():

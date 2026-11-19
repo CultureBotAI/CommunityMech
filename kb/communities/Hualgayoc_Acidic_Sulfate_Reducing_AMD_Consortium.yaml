@@ -77,7 +77,17 @@ taxonomy:
     term:
       id: NCBITaxon:79206
       label: Desulfosporosinus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Desulfosporosinus
+      gtdb_taxon: Desulfosporosinus
+      gtdb_lineage: d__Bacteria;p__Bacillota_B;c__Desulfitobacteriia;o__Desulfitobacteriales;f__Desulfitobacteriaceae;g__Desulfosporosinus
+      ncbi_source_id: NCBITaxon:79206
+      majority_fraction: 1.0
+      support_genomes: 32
+      total_genomes: 32
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       High-quality sulfate-reducing MAG003 was assigned only to
       Desulfosporosinus sp.; the study reported no species-level close
@@ -125,7 +135,17 @@ taxonomy:
     term:
       id: NCBITaxon:2924872
       label: Acididesulfobacillus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Acididesulfobacillus
+      gtdb_taxon: Acididesulfobacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota_B;c__Desulfitobacteriia;o__Desulfitobacteriales;f__Desulfitobacteriaceae;g__Acididesulfobacillus
+      ncbi_source_id: NCBITaxon:2924872
+      majority_fraction: 1.0
+      support_genomes: 3
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: >-
       High-quality sulfate-reducing MAG013 was assigned to
       Acididesulfobacillus sp.; the 16S and metagenomic profiles support this
@@ -640,3 +660,11 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Qualify MAG-specific carbon flow; retain unresolved remediation outcome extension. Issue #1502; reports/causal_graph_review/decisions/20261006-urls-amd-proteome-batch52.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T08:37:26Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:37:27Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

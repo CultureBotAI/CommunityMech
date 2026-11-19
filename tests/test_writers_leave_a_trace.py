@@ -42,6 +42,74 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/build_switchgrass_successor_manifest_20261116.py": (
+        "writes only an exclusive scientific successor manifest and exact retained failed-build "
+        "metadata; preserves the other four rows and verifies all five through the unchanged "
+        "strict core, without editing canonical records or historical reviews (#1996/#2944)"
+    ),
+    "scripts/adhoc/check_code006_local_terms_20261115.py": (
+        "writes only an exclusive private OAK adapter configuration, native term "
+        "log/exit/receipt and label cache under .temp/gtdb-code006-20261115; "
+        "checks exact record/revision/input hashes and unchanged adapter stats, "
+        "blocks network acquisition, and never writes canonical records or history"
+    ),
+    "scripts/adhoc/check_gut_successor_20261115.py": (
+        "writes exclusive native-check receipts, private OAK configuration and exact "
+        "record/cache copies beneath .temp/phase2-gut-20261115; checks unchanged "
+        "canonical inputs and never applies curation or appends history (#2788/#2831)"
+    ),
+    "scripts/adhoc/build_phase2_brachypodium_review_20261115.py": (
+        "writes only an exclusive private native inspection and review candidate "
+        "under .temp/phase2-brachypodium-20261115; binds source, applied record and "
+        "native-check receipts without curating the record (#2788)"
+    ),
+    "scripts/adhoc/check_phase2_brachypodium_20261115.py": (
+        "writes private native-check receipts, ontology configuration and exact "
+        "record/cache copies under .temp/phase2-brachypodium-20261115; verifies "
+        "unchanged canonical inputs and never applies curation (#2788)"
+    ),
+    "scripts/adhoc/build_phase2_final_science_20261115.py": (
+        "writes only caller-exclusive private targets, native inspection and review "
+        "candidates under .temp/phase2-science-20261115; binds actual source and "
+        "gate receipts without changing canonical records, caches or history (#2788)"
+    ),
+    "scripts/adhoc/build_phase2_linked_review_20261115.py": (
+        "writes only caller-exclusive private target/inspection/review candidates "
+        "under .temp/phase2-science-20261115; verifies current scientific inputs "
+        "and native receipts without editing records, caches or history (#2788)"
+    ),
+    "scripts/adhoc/build_phase2_successor_manifest_20261115.py": (
+        "writes only an exclusive reports/phase2-completion-20261115 lineage manifest; "
+        "reads canonical records, actual apply receipts and native saved reviews without "
+        "curating any record or changing earlier evidence (#2788, #2816)"
+    ),
+    "scripts/adhoc/check_phase2_linked_records_20261115.py": (
+        "writes only exclusive private native receipts, OAK configuration and exact "
+        "record/cache copies under .temp/phase2-science-20261115; reads the three "
+        "canonical records and never curates them (#2788)"
+    ),
+    "scripts/adhoc/build_phase2_lbnl_review_20261115.py": (
+        "writes only a caller-exclusive .temp/phase2-science-20261115 review "
+        "candidate and native inspection; binds source/record/check hashes and "
+        "never changes canonical records, caches or history (#2788)"
+    ),
+    "scripts/adhoc/check_phase2_lbnl_canary_20261115.py": (
+        "writes unique private native receipts, an OAK adapter configuration "
+        "and exact record/cache copies under .temp/phase2-science-20261115; "
+        "native checks read canonical data and verify unchanged inputs (#2788)"
+    ),
+    "scripts/adhoc/build_gut_review_20261115.py": (
+        "writes only an exclusive private native inspection/scientific-review candidate "
+        "and metadata-only public application proof under reports/phase2-gut-20261115; "
+        "verifies the externally reviewed actual application and nine current native gates, "
+        "reads canonical000122 and source caches without editing them (#1548/#2816)"
+    ),
+    "scripts/adhoc/check_gut_record_20261115.py": (
+        "writes exclusive native-check receipts, private ontology configuration, "
+        "exact record copies and source-cache copies only beneath .temp/phase2-gut-20261115; "
+        "canonical record/cache input hashes are checked unchanged, and this launcher "
+        "does not apply curation or append record history (#1548)"
+    ),
     "scripts/adhoc/build_dopamine_syncom_review_20261114.py": (
         "writes inspection JSON, a structured-review candidate and metric/checkpoint "
         "JSON under .temp/m5-completion-20261114; verifies input hashes and reads "

@@ -4,6 +4,8 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml"
@@ -12,7 +14,18 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return (
+        ledger,
+        rows,
+        [
+            yaml.safe_load(
+                (ROOT / row["path"]).read_bytes()
+                if row["id"] == "CommunityMech:000412"
+                else admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+            )
+            for row in rows
+        ],
+    )
 
 
 def test_rammelsberg_uses_the_exact_study_without_pairwise_benefit_claims():
@@ -109,7 +122,15 @@ def test_all_original_nodes_and_edges_have_dispositions_and_no_new_direction():
             before, after = decision["before"], decision["after"]
             for key in ["source", "target"]:
                 assert row["renamed_nodes"].get(before[key], before[key]) == after[key]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        current_proof = (
+            admit_status_successor(ROOT, row["path"], row["record_sha256"])
+            if row["id"] == "CommunityMech:000412"
+            else admission(ROOT, row["path"], row["record_sha256"])
+        )
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == current_proof.current_sha256
+        )
 
 
 def test_source_provenance_history_and_unresolved_scope_are_honest():

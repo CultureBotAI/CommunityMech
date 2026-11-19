@@ -1,52 +1,62 @@
 id: CommunityMech:000025
 name: EcoFAB 2.0 Root Microbiome Ring Trial SynCom17
-description: 'A 17-member synthetic bacterial community (SynCom17) used in a standardized inter-laboratory
-  ring trial across five international laboratories (LBNL, UNC Chapel Hill, Max Planck Cologne, Forschungszentrum
-  Julich, U Melbourne) to study root microbiome recruitment and exudate composition of the model grass
-  Brachypodium distachyon in EcoFAB 2.0 fabricated ecosystem devices. All 17 members were originally isolated
-  from switchgrass rhizosphere soil and span four bacterial phyla (Actinomycetota, Bacillota, Bacteroidota,
-  Pseudomonadota). In the full SynCom17, Paraburkholderia sp. OAS925 reproducibly dominates root colonization
-  (~98% relative abundance) across all five labs, uniquely possessing a Type 3 Secretion System (T3SS),
-  high motility, and acid resistance. Removing Paraburkholderia (SynCom16) yields a more variable community
-  dominated by Rhodococcus sp. OAS809 (~68%), Mycobacterium sp. OAE908 (~14%), and Methylobacterium sp.
-  OAE515 (~15%). The study demonstrated that EcoFAB 2.0 with standardized protocols achieves reproducible
-  plant phenotype, exudate, and community structure data across continents, providing benchmark datasets
-  for plant-microbiome research.
-
-  '
+description: A 17-member synthetic bacterial inoculum used in a five-laboratory EcoFAB 2.0 ring trial with Brachypodium
+  distachyon Bd21-3. SynCom17, SynCom16 lacking OAS925, axenic plants and plant-free medium were compared under
+  standardized protocols. At 22 days after inoculation, OAS925 accounted for 98 ± 0.03% of root bacterial 16S
+  reads in SynCom17; the omission treatment had more variable relative profiles. Whole-treatment differences in
+  plant biomass and bulk spent-medium metabolites do not identify OAS925-specific uptake, toxicity, competitive
+  exclusion or absolute loss of other stocks. Separate genomic, isolate-culture and reporter-plant assays identify
+  candidate colonization traits, not selectively demonstrated mechanisms in SynCom17. The 17 stocks originate
+  from the source switchgrass isolate collection; physical cultivation here is a laboratory hydroponic model,
+  not native soil.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: A 17-member synthetic bacterial community (SynCom17) used in a standardized inter-laboratory
-    ring trial across five international laboratories (LBNL, UNC Chapel Hill, Max Planck Cologne, Forschungszentrum
-    Julich, U Melbourne) to study root microbiome recruitment and exudate composition of the model grass
-    Brachypodium distachyon in EcoFAB 2.0 fabricated ecosystem devices.
-  assembly_strategy: Bottom-up synthetic assembly of a 17-member consortium from selected isolates/strains.
+  objective: A 17-member synthetic bacterial community (SynCom17) used in a standardized inter-laboratory ring
+    trial across five international laboratories (LBNL, UNC Chapel Hill, Max Planck Cologne, Forschungszentrum
+    Julich, U Melbourne) to study root microbiome recruitment and exudate composition of the model grass Brachypodium
+    distachyon in EcoFAB 2.0 fabricated ecosystem devices.
+  assembly_strategy: Seventeen source stocks were grown separately, washed with half-strength MS and combined
+    using OD600-to-CFU conversions into equal-cell concentrated stocks in 20% glycerol. The inoculation calculation
+    assumed 50% freeze-thaw survival and a theoretical 1e5 CFU per plant; neither equal realized abundance nor
+    actual post-thaw survival is inferred.
   measurement_endpoints:
-  - 16S amplicon-based community composition profiling
-  - Metabolite profiling and exchange analysis
-  - Growth and phenotype readouts
-  - Genome-informed trait and pathway annotation
-  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters
-    when available.
-  perturbation_design: 'Designed condition space included: Nitrogen Source, Light Regime.'
+  - Relative 16S read composition of root and unfiltered medium samples
+  - Net extracellular LC-MS metabolite profiles in filtered spent medium
+  - Whole-treatment plant fresh/dry biomass and root-development readouts
+  - Separate isolate-culture traits and computational genome annotations
+  notes: Ring-trial Methods 4.1–4.2 and S2 Table define inoculum/arm identity. Physical device culture, isolate
+    stock preparation, separate RFP-isolate microscopy and computational genomic analysis remain distinct. Ring-trial
+    Methods distinguishes individual source stocks from the complete SynCom17 consortium deposit DSM 200000SY.
+    DSM 113627 is the individual OAS925 accession reported in Coker Methods; this source-reported stock identity
+    is not an independent current DSMZ catalog verification.
+  perturbation_design: 'Four ring-trial arms: SynCom17, SynCom16 omitting OAS925, mock-inoculated axenic plant
+    control, and mock-inoculated plant-free medium control. The nitrogen-form/starvation study is a separate sterile-plant
+    experiment, not this trial''s factorial intervention.'
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mock-inoculated axenic plant control, ii) SynCom16-inoculated plants, iii) SynCom17-inoculated plants,
+      and iv) Mock-inoculated technical control (plant-free)
+    explanation: Methods 4.2 names the four actual ring-trial arms; no competitive-exclusion mechanism or nitrogen/light
+      factorial is implied.
+  - reference: PMID:40920748
+    supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Paraburkholderia sp. OAS925 could dramatically shift microbiome composition
-    explanation: Documents competitive exclusion by Paraburkholderia across multiple labs
+    snippet: or as a collection (DSM 200000SY
+    explanation: Ring-trial Methods describes the consortium collection separately from individual strains; this
+      is not an OAS925 stock accession.
 environment_term:
   preferred_term: EcoFAB 2.0 hydroponic device
   term:
     id: ENVO:01001405
     label: laboratory environment
-  notes: 'Fabricated ecosystem (EcoFAB 2.0) devices for standardized hydroponic plant growth. Plants grown
-    in 0.5x Murashige-Skoog medium with NH4NO3 nitrogen source under controlled light conditions (16h/8h
-    light/dark cycle). Protocol available at https://dx.doi.org/10.17504/protocols.io.kxygxyydkl8j/v1.
-
-    '
+  notes: Sterile EcoFAB 2.0 laboratory hydroponic devices containing 9 mL half-strength MS plus 1 mL inoculum
+    or mock at inoculation. Methods 4.2 specifies 14 h light at 26 °C and 10 h dark at 20 °C (16 h light for laboratory
+    C), 110–140 µmol/m2/s PPFD and 70% humidity if tunable. Chamber deviations are reported separately in S1 Table;
+    these conditions are not uniform measured exposures or the reporter-isolate protocol.
 related_communities:
 - identifier: CommunityMech:000516
   relation: MEMBER_SUPERSET_OF
@@ -54,18 +64,20 @@ related_communities:
   description: SynCom17 is the dopamine-study 16-strain SynCom plus Bradyrhizobium OAE829.
 - identifier: CommunityMech:000087
   relation: MEMBER_SUPERSET_OF
-  basis: SOURCE_STATEMENT
-  description: SynCom17 is the Coker et al. final 16 plus Gottfriedia (formerly Bacillus) OAE603; CommunityMech:000087 does
-    not yet list strains, so this is not recomputed.
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: SynCom17 is the Methods-defined final 16 deposited stocks in CommunityMech:000087 plus Gottfriedia
+    (formerly Bacillus) OAE603. Earlier Coker assay rosters and Table S1 discrepancies are not equated with that
+    final16.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829), DSM 113525 (Brevibacillus
-      OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM 113522 (Lysobacter OAE881), DSM 114042
-      (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602 (Methylobacterium OAE515), DSM 113539 (Mycobacterium
-      OAE908), DSM 113593 (Niastella OAS944), DSM 113526 (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518
-      (Rhodococcus OAS809), and DSM 113622 (Variovorax OAS795)
+    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829),
+      DSM 113525 (Brevibacillus OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM
+      113522 (Lysobacter OAE881), DSM 114042 (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602
+      (Methylobacterium OAE515), DSM 113539 (Mycobacterium OAE908), DSM 113593 (Niastella OAS944), DSM 113526
+      (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518 (Rhodococcus OAS809), and DSM 113622 (Variovorax
+      OAS795)
     explanation: 'Coker et al. final 16-member roster: includes Bradyrhizobium OAE829 and no OAE603.'
   - reference: PMID:40920748
     supports: SUPPORT
@@ -119,30 +131,54 @@ taxonomy:
       support_genomes: 680
       total_genomes: 685
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-    notes: 'Dominant root colonizer in SynCom17 (~98% relative abundance across all 5 labs). Uniquely
-      possesses a Type 3 Secretion System (T3SS), acid resistance genes (glutamate/arginine transporters
-      and decarboxylases), and highest motility at 24h among all SynCom members. Formerly classified as
-      Burkholderia sp. OAS925. Decreases plant shoot biomass relative to axenic controls.
-
-      '
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
+    notes: In SynCom17, OAS925 averaged 98 ± 0.03% of root 16S reads at 22 DAI. Separate genomic annotations and
+      isolate assays motivate traits, but do not establish a selective mechanism or OAS925-only plant harm. Formerly
+      classified as Burkholderia sp. OAS925.
   strain_designation:
     strain_name: OAS925
     culture_collections:
     - collection: DSM
-      accession: 200000SY
-      notes: Available as part of complete SynCom collection DSM 200000SY from DSMZ
+      accession: '113627'
+      notes: Individual-stock deposit reported in Coker Methods; current collection catalog not independently
+        inspected. The complete SynCom17 collection DSM 200000SY is not an individual-stock accession.
     isolation_source: Switchgrass rhizosphere soil
-  functional_role:
-  - PRIMARY_DEGRADER
-  abundance_level: DOMINANT
-  abundance_value: ~98% relative abundance on roots in SynCom17
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: Paraburkholderia sp. OAS925 could dramatically shift microbiome composition
     explanation: Documents reproducible dominance of Paraburkholderia in the ring trial
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113627 (Burkholderia OAS925)
+    explanation: Source-reported individual OAS925 stock accession; this is distinct from the complete SynCom17
+      collection.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formerly known as Burkholderia sp. OAS925
+    explanation: Ring-trial Methods explicitly supplies the same-stock Paraburkholderia rename; no phenotype is
+      transferred.
+  member_id: oas925
+  abundance_observations:
+  - treatment_arm_id: syncom17
+    timepoint_id: harvest-22dai
+    replicate: Across five laboratories; reported mean ± SD
+    measurement_basis: Relative bacterial 16S rRNA amplicon read abundance in root samples
+    relative_abundance: 98.0
+    relative_abundance_unit: PERCENT
+    description: Source Results 2.4 reports mean 98% ± 0.03 percentage points SD at 22 DAI in the named arm. Relative
+      reads are not absolute cell numbers, viable counts, growth rates or competitive extinction.
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp. OAS925 across
+        all laboratories
+      explanation: Results 2.4 reports this arm-specific root relative-read composition at 22 DAI.
 - taxon_term:
     preferred_term: Rhodococcus sp. OAS809
     term:
@@ -158,25 +194,36 @@ taxonomy:
       support_genomes: 514
       total_genomes: 514
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: 'Dominant in SynCom16 (without Paraburkholderia) at ~68% relative abundance. Fast growth and
-      high motility similar to Paraburkholderia.
-
-      '
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
+    notes: In the OAS925-omission SynCom16 arm, OAS809 averaged 68 ± 33% of root 16S reads at 22 DAI; no unscoped
+      default abundance or functional role is inferred.
   strain_designation:
     strain_name: OAS809
     isolation_source: Switchgrass rhizosphere soil
-  functional_role:
-  - PRIMARY_DEGRADER
-  abundance_level: RARE
-  abundance_value: Low abundance in SynCom17 due to Paraburkholderia dominance; ~68% in SynCom16
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member presence in the ring trial community
+  member_id: oas809
+  abundance_observations:
+  - treatment_arm_id: syncom16-minus-oas925
+    timepoint_id: harvest-22dai
+    replicate: Across five laboratories; reported mean ± SD
+    measurement_basis: Relative bacterial 16S rRNA amplicon read abundance in root samples
+    relative_abundance: 68.0
+    relative_abundance_unit: PERCENT
+    description: Source Results 2.4 reports mean 68% ± 33 percentage points SD at 22 DAI in the named arm. Relative
+      reads are not absolute cell numbers, viable counts, growth rates or competitive extinction.
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Rhodococcus sp. OAS809 (68 ± 33%)
+      explanation: Results 2.4 reports this arm-specific root relative-read composition at 22 DAI.
 - taxon_term:
     preferred_term: Mycobacterium sp. OAE908
     term:
@@ -192,20 +239,36 @@ taxonomy:
       support_genomes: 18589
       total_genomes: 18589
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: High relative abundance in SynCom16 roots (~14%).
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
+    notes: In the OAS925-omission SynCom16 arm, OAE908 averaged 14 ± 27% of root 16S reads at 22 DAI; no unscoped
+      default abundance or functional role is inferred.
   strain_designation:
     strain_name: OAE908
     isolation_source: Switchgrass rhizosphere soil
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member presence in the ring trial community
+  member_id: oae908
+  abundance_observations:
+  - treatment_arm_id: syncom16-minus-oas925
+    timepoint_id: harvest-22dai
+    replicate: Across five laboratories; reported mean ± SD
+    measurement_basis: Relative bacterial 16S rRNA amplicon read abundance in root samples
+    relative_abundance: 14.0
+    relative_abundance_unit: PERCENT
+    description: Source Results 2.4 reports mean 14% ± 27 percentage points SD at 22 DAI in the named arm. Relative
+      reads are not absolute cell numbers, viable counts, growth rates or competitive extinction.
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Mycobacterium sp. OAE908 (14 ± 27%)
+      explanation: Results 2.4 reports this arm-specific root relative-read composition at 22 DAI.
 - taxon_term:
     preferred_term: Methylobacterium sp. OAE515
     term:
@@ -221,20 +284,36 @@ taxonomy:
       support_genomes: 279
       total_genomes: 279
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: High relative abundance in SynCom16 roots (~15%).
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
+    notes: In the OAS925-omission SynCom16 arm, OAE515 averaged 15 ± 20% of root 16S reads at 22 DAI; no unscoped
+      default abundance or functional role is inferred.
   strain_designation:
     strain_name: OAE515
     isolation_source: Switchgrass rhizosphere soil
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member presence in the ring trial community
+  member_id: oae515
+  abundance_observations:
+  - treatment_arm_id: syncom16-minus-oas925
+    timepoint_id: harvest-22dai
+    replicate: Across five laboratories; reported mean ± SD
+    measurement_basis: Relative bacterial 16S rRNA amplicon read abundance in root samples
+    relative_abundance: 15.0
+    relative_abundance_unit: PERCENT
+    description: Source Results 2.4 reports mean 15% ± 20 percentage points SD at 22 DAI in the named arm. Relative
+      reads are not absolute cell numbers, viable counts, growth rates or competitive extinction.
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Methylobacterium sp. OAE515 (15 ± 20%)
+      explanation: Results 2.4 reports this arm-specific root relative-read composition at 22 DAI.
 - taxon_term:
     preferred_term: Variovorax sp. OAS795
     term:
@@ -250,17 +329,19 @@ taxonomy:
       support_genomes: 40
       total_genomes: 40
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAS795
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oas795
 - taxon_term:
     preferred_term: Rhizobium sp. OAE497
     term:
@@ -276,7 +357,8 @@ taxonomy:
       support_genomes: 694
       total_genomes: 798
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 12 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
     notes: Most closely related to R. endophyticum.
   strain_designation:
     strain_name: OAE497
@@ -284,10 +366,11 @@ taxonomy:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae497
 - taxon_term:
     preferred_term: Bosea sp. OAE506
     term:
@@ -296,13 +379,11 @@ taxonomy:
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
       curated: true
-      curation_note: 'NCBITaxon:169215 is the plant genus Bosea (Amaranthaceae); this
-        entry had it, and so asserted a plant was a bacterium (#365). The bacterium
-        is NCBITaxon:85413, which NCBI renamed Allobosea and aliases "Bosea Das et
-        al. 1996" — the two genera are homonyms. The lineage below was always right
-        for the organism, so it is pinned rather than dropped; the tool cannot
-        re-derive it because the mapping snapshot still carries the pre-rename genus
-        name, and matching it on the corrected label finds nothing.'
+      curation_note: NCBITaxon:169215 is the plant genus Bosea (Amaranthaceae); this entry had it, and so asserted
+        a plant was a bacterium (#365). The bacterium is NCBITaxon:85413, which NCBI renamed Allobosea and aliases
+        "Bosea Das et al. 1996" — the two genera are homonyms. The lineage below was always right for the organism,
+        so it is pinned rather than dropped; the tool cannot re-derive it because the mapping snapshot still carries
+        the pre-rename genus name, and matching it on the corrected label finds nothing.
       gtdb_id: GTDB:g__Bosea
       gtdb_taxon: Bosea
       gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Bosea
@@ -311,17 +392,20 @@ taxonomy:
       support_genomes: 34
       total_genomes: 34
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified;
+        curated legacy bacterial Bosea name, verified NCBI Allobosea synonym
   strain_designation:
     strain_name: OAE506
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae506
 - taxon_term:
     preferred_term: Bradyrhizobium sp. OAE829
     term:
@@ -337,7 +421,8 @@ taxonomy:
       support_genomes: 592
       total_genomes: 595
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
     notes: Grown in 1/10 R2A medium (unlike other members grown in R2A).
   strain_designation:
     strain_name: OAE829
@@ -345,10 +430,11 @@ taxonomy:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae829
 - taxon_term:
     preferred_term: Lysobacter sp. OAE881
     term:
@@ -364,7 +450,8 @@ taxonomy:
       support_genomes: 25
       total_genomes: 33
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 4 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
     notes: Enriched in rhizosphere at 21 DPI (order Xanthomonadales).
   strain_designation:
     strain_name: OAE881
@@ -372,29 +459,49 @@ taxonomy:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae881
 - taxon_term:
     preferred_term: Arthrobacter sp. OAP107
     term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
-    gtdb_grounding_status: UNRESOLVED
-    notes: Low relative abundance (<0.2%) at 21 DPI.
+      id: NCBITaxon:1663
+      label: Arthrobacter
+    gtdb_grounding_status: AMBIGUOUS
+    notes: Source identifies an unknown species within Arthrobacter; NCBITaxon:1663 is genus-level grounding,
+      not an independently verified stock genome. The inspected crosswalk has 11 genus candidates; no single GTDB
+      lineage is selected.
+    gtdb_candidates:
+    - GTDB:g__Arthrobacter_B
+    - GTDB:g__Arthrobacter
+    - GTDB:g__Arthrobacter_D
+    - GTDB:g__Specibacter
+    - GTDB:g__Arthrobacter_E
+    - GTDB:g__Arthrobacter_F
+    - GTDB:g__Arthrobacter_C
+    - GTDB:g__Arthrobacter_J
+    - GTDB:g__Arthrobacter_M
+    - GTDB:g__Renibacterium
+    - GTDB:g__Zafaria
   strain_designation:
     strain_name: OAP107
     isolation_source: Switchgrass rhizosphere soil
-  abundance_level: RARE
-  abundance_value: <0.2% at 21 DPI
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107)
+    explanation: Primary Methods identifies the same stock under the Arthrobacter genus, not a named species or
+      sequenced-genome assignment.
+  member_id: oap107
 - taxon_term:
     preferred_term: Marmoricola sp. OAE513
     term:
@@ -410,17 +517,19 @@ taxonomy:
       support_genomes: 3
       total_genomes: 3
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAE513
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae513
 - taxon_term:
     preferred_term: Chitinophaga sp. OAE865
     term:
@@ -436,17 +545,19 @@ taxonomy:
       support_genomes: 133
       total_genomes: 133
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAE865
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae865
 - taxon_term:
     preferred_term: Mucilaginibacter sp. OAE612
     term:
@@ -462,17 +573,19 @@ taxonomy:
       support_genomes: 173
       total_genomes: 173
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAE612
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae612
 - taxon_term:
     preferred_term: Niastella sp. OAS944
     term:
@@ -488,17 +601,19 @@ taxonomy:
       support_genomes: 21
       total_genomes: 21
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAS944
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oas944
 - taxon_term:
     preferred_term: Gottfriedia sp. OAE603
     term:
@@ -514,7 +629,8 @@ taxonomy:
       support_genomes: 7
       total_genomes: 7
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
     notes: Formerly classified as Bacillus sp. OAE603.
   strain_designation:
     strain_name: OAE603
@@ -522,10 +638,11 @@ taxonomy:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae603
 - taxon_term:
     preferred_term: Brevibacillus sp. OAP136
     term:
@@ -541,17 +658,19 @@ taxonomy:
       support_genomes: 151
       total_genomes: 188
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 5 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        native genus-rank mapping; aggregate denominator, named species only; no release/build date certified
   strain_designation:
     strain_name: OAP136
     isolation_source: Switchgrass rhizosphere soil
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oap136
 - taxon_term:
     preferred_term: Paenibacillus sp. OAE614
     term:
@@ -598,17 +717,186 @@ taxonomy:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
+  member_id: oae614
+treatment_arms:
+- id: syncom17
+  name: SynCom17-inoculated plants
+  context: Five-laboratory EcoFAB 2.0 Bd21-3 ring trial
+  membership_status: DEFINED_MEMBERS
+  comparator_arm_ids:
+  - syncom16-minus-oas925
+  - axenic-mock
+  - plant-free-mock
+  conditions:
+  - name: Host presence
+    value: B. distachyon Bd21-3
+    description: Source-defined host condition, not microbial taxonomy membership.
+  timepoints:
+  - id: harvest-22dai
+    name: 22 days after inoculation
+    reference_event: Inoculation with SynCom or mock
+    description: Final plant harvest/sampling and medium sterility check; plant-free arm has no plant harvest.
+  description: Source-defined intended sterile/microbial status; occasional contamination diagnostics do not redefine
+    the intended arm. Laboratory variation is preserved separately. Inoculum stocks are not equated with realized
+    final composition.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mock-inoculated axenic plant control, ii) SynCom16-inoculated plants, iii) SynCom17-inoculated plants,
+      and iv) Mock-inoculated technical control (plant-free)
+    explanation: Methods 4.2 four arms; S2 Table columns K/L independently confirm 17 stocks and omission of OAS925
+      only.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plant harvest and sampling happened at 22 DAI.
+    explanation: Methods 4.2 final sampling anchor.
+  participant_member_ids:
+  - oas925
+  - oas809
+  - oae908
+  - oae515
+  - oas795
+  - oae497
+  - oae506
+  - oae829
+  - oae881
+  - oap107
+  - oae513
+  - oae865
+  - oae612
+  - oas944
+  - oae603
+  - oap136
+  - oae614
+- id: syncom16-minus-oas925
+  name: SynCom16-inoculated plants (OAS925 omitted)
+  context: Five-laboratory EcoFAB 2.0 Bd21-3 ring trial
+  membership_status: DEFINED_MEMBERS
+  comparator_arm_ids:
+  - syncom17
+  - axenic-mock
+  - plant-free-mock
+  conditions:
+  - name: Host presence
+    value: B. distachyon Bd21-3
+    description: Source-defined host condition, not microbial taxonomy membership.
+  timepoints:
+  - id: harvest-22dai
+    name: 22 days after inoculation
+    reference_event: Inoculation with SynCom or mock
+    description: Final plant harvest/sampling and medium sterility check; plant-free arm has no plant harvest.
+  description: Source-defined intended sterile/microbial status; occasional contamination diagnostics do not redefine
+    the intended arm. Laboratory variation is preserved separately. Inoculum stocks are not equated with realized
+    final composition.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mock-inoculated axenic plant control, ii) SynCom16-inoculated plants, iii) SynCom17-inoculated plants,
+      and iv) Mock-inoculated technical control (plant-free)
+    explanation: Methods 4.2 four arms; S2 Table columns K/L independently confirm 17 stocks and omission of OAS925
+      only.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plant harvest and sampling happened at 22 DAI.
+    explanation: Methods 4.2 final sampling anchor.
+  participant_member_ids:
+  - oas809
+  - oae908
+  - oae515
+  - oas795
+  - oae497
+  - oae506
+  - oae829
+  - oae881
+  - oap107
+  - oae513
+  - oae865
+  - oae612
+  - oas944
+  - oae603
+  - oap136
+  - oae614
+- id: axenic-mock
+  name: Mock-inoculated axenic plant control
+  context: Five-laboratory EcoFAB 2.0 Bd21-3 ring trial
+  membership_status: NO_MICROBES
+  comparator_arm_ids:
+  - syncom17
+  - syncom16-minus-oas925
+  - plant-free-mock
+  conditions:
+  - name: Host presence
+    value: B. distachyon Bd21-3
+    description: Source-defined host condition, not microbial taxonomy membership.
+  timepoints:
+  - id: harvest-22dai
+    name: 22 days after inoculation
+    reference_event: Inoculation with SynCom or mock
+    description: Final plant harvest/sampling and medium sterility check; plant-free arm has no plant harvest.
+  description: Source-defined intended sterile/microbial status; occasional contamination diagnostics do not redefine
+    the intended arm. Laboratory variation is preserved separately. Inoculum stocks are not equated with realized
+    final composition.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mock-inoculated axenic plant control, ii) SynCom16-inoculated plants, iii) SynCom17-inoculated plants,
+      and iv) Mock-inoculated technical control (plant-free)
+    explanation: Methods 4.2 four arms; S2 Table columns K/L independently confirm 17 stocks and omission of OAS925
+      only.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plant harvest and sampling happened at 22 DAI.
+    explanation: Methods 4.2 final sampling anchor.
+- id: plant-free-mock
+  name: Mock-inoculated technical control (plant-free)
+  context: Five-laboratory EcoFAB 2.0 Bd21-3 ring trial
+  membership_status: NO_MICROBES
+  comparator_arm_ids:
+  - syncom17
+  - syncom16-minus-oas925
+  - axenic-mock
+  conditions:
+  - name: Host presence
+    value: No plant
+    description: Source-defined host condition, not microbial taxonomy membership.
+  timepoints:
+  - id: harvest-22dai
+    name: 22 days after inoculation
+    reference_event: Inoculation with SynCom or mock
+    description: Final plant harvest/sampling and medium sterility check; plant-free arm has no plant harvest.
+  description: Source-defined intended sterile/microbial status; occasional contamination diagnostics do not redefine
+    the intended arm. Laboratory variation is preserved separately. Inoculum stocks are not equated with realized
+    final composition.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mock-inoculated axenic plant control, ii) SynCom16-inoculated plants, iii) SynCom17-inoculated plants,
+      and iv) Mock-inoculated technical control (plant-free)
+    explanation: Methods 4.2 four arms; S2 Table columns K/L independently confirm 17 stocks and omission of OAS925
+      only.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plant harvest and sampling happened at 22 DAI.
+    explanation: Methods 4.2 final sampling anchor.
 ecological_interactions:
 - name: SynCom17 EcoFAB Ring-Trial Perturbation
-  description: The full 17-member inoculum was applied to 10-day-old Brachypodium distachyon plants in EcoFAB 2.0
-    devices and compared with axenic plants, SynCom16 lacking OAS925, and plant-free medium controls in five laboratories.
-    Its three downstream arrows represent whole-treatment effects on root composition, bulk spent-medium profiles
-    and plant development, not a claim that protocol standardization itself is a biological mechanism or that every
-    member facilitates colonization.
+  description: The full 17-member inoculum was applied to 10-day-old Brachypodium distachyon plants in EcoFAB
+    2.0 devices and compared with axenic plants, SynCom16 lacking OAS925, and plant-free medium controls in five
+    laboratories. Its three downstream arrows represent whole-treatment effects on root composition, bulk spent-medium
+    profiles and plant development, not a claim that protocol standardization itself is a biological mechanism
+    or that every member facilitates colonization.
   scope: COMMUNITY_LEVEL
   downstream:
   - target: Paraburkholderia-Dominated SynCom17 Root Assembly
@@ -626,9 +914,9 @@ ecological_interactions:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype, root
-      exudate composition, and final bacterial community structure
+    evidence_source: IN_VIVO
+    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
+      root exudate composition, and final bacterial community structure
     explanation: 'Anchors the standardized EcoFAB 2.0 SynCom ring trial and its treatment-dependent plant, exudate,
       and community-structure outcomes.
 
@@ -672,8 +960,8 @@ ecological_interactions:
       label: Lysobacter
   - preferred_term: Arthrobacter sp. OAP107
     term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
+      id: NCBITaxon:1663
+      label: Arthrobacter
   - preferred_term: Marmoricola sp. OAE513
     term:
       id: NCBITaxon:86795
@@ -702,18 +990,20 @@ ecological_interactions:
     term:
       id: NCBITaxon:44249
       label: Paenibacillus
+  treatment_arm_ids:
+  - syncom17
 - name: Paraburkholderia Acid-Tolerant Root Colonization Traits
-  description: OAS925 carried uniquely detected surveyed acid-resistance and type III secretion modules among the
-    17 genomes. Separate RFP-isolate plant assays showed root colonization at 1 DAI and biofilm at 3 DAI; separate
-    culture assays showed high liquid growth and acid-tolerant motility. OAS925 was sixth, not first, in the biofilm
-    assay. These are one-strain observations, not facilitation of another taxon. No selective gene or trait perturbation
-    established which mechanism causes dominance in SynCom17.
+  description: OAS925 carried uniquely detected surveyed acid-resistance and type III secretion modules among
+    the 17 genomes. Separate RFP-isolate plant assays showed root colonization at 1 DAI and biofilm at 3 DAI;
+    separate culture assays showed high liquid growth and acid-tolerant motility. OAS925 was sixth, not first,
+    in the biofilm assay. These are one-strain observations, not facilitation of another taxon. No selective gene
+    or trait perturbation established which mechanism causes dominance in SynCom17.
   scope: PAIRWISE
   downstream:
   - target: Paraburkholderia-Dominated SynCom17 Root Assembly
-    description: HYPOTHESIZED - acid-tolerant motility, colonization traits and associated genomic modules may help
-      OAS925 establish and expand on roots, contributing to its relative dominance. Separate isolate assays and
-      gene annotation support candidate mechanisms, but none was selectively disrupted or rescued in the 17-member
+    description: HYPOTHESIZED - acid-tolerant motility, colonization traits and associated genomic modules may
+      help OAS925 establish and expand on roots, contributing to its relative dominance. Separate isolate assays
+      and gene annotation support candidate mechanisms, but none was selectively disrupted or rescued in the 17-member
       community.
   evidence:
   - reference: PMID:40920748
@@ -724,9 +1014,10 @@ ecological_interactions:
       mechanism of community dominance.
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: Clear RFP signals were detected at the root tip and in the maturation zone at 1 DAI
-    explanation: Supports early colonization in the separate RFP-isolate assay, not a selective trait test in SynCom17.
+    explanation: Supports early colonization in the separate RFP-isolate assay, not a selective trait test in
+      SynCom17.
   source_taxon:
     preferred_term: Paraburkholderia sp. OAS925
     term:
@@ -778,8 +1069,8 @@ ecological_interactions:
       label: Lysobacter
   - preferred_term: Arthrobacter sp. OAP107
     term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
+      id: NCBITaxon:1663
+      label: Arthrobacter
   - preferred_term: Marmoricola sp. OAE513
     term:
       id: NCBITaxon:86795
@@ -811,19 +1102,21 @@ ecological_interactions:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp. OAS925 across all
-      laboratories
-    explanation: 'Reports the reproducible Paraburkholderia dominance in root samples and the altered SynCom16 community
-      observed when OAS925 was removed.
+    evidence_source: IN_VIVO
+    snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp. OAS925 across
+      all laboratories
+    explanation: 'Reports the reproducible Paraburkholderia dominance in root samples and the altered SynCom16
+      community observed when OAS925 was removed.
 
       '
+  treatment_arm_ids:
+  - syncom17
 - name: Treatment-Structured Rhizosphere Exometabolites
   description: Bulk spent EcoFAB medium showed treatment-dependent targeted and untargeted LC-MS profiles, including
-    an amino-acid-rich cluster depleted under SynCom17 and other clusters elevated under SynCom17 or SynCom16. This
-    is net extracellular abundance in a plant-microbe system, not identified donor-to-recipient cross-feeding. Plant
-    or microbial production and uptake, and extracellular enzyme activity, remain alternative contributors; OAS925-specific
-    amino-acid flux was not isolated.
+    an amino-acid-rich cluster depleted under SynCom17 and other clusters elevated under SynCom17 or SynCom16.
+    This is net extracellular abundance in a plant-microbe system, not identified donor-to-recipient cross-feeding.
+    Plant or microbial production and uptake, and extracellular enzyme activity, remain alternative contributors;
+    OAS925-specific amino-acid flux was not isolated.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
@@ -833,7 +1126,7 @@ ecological_interactions:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: A second large cluster consisted of metabolites with lower relative concentrations in the SynCom17
       treatment, represented mainly by amino acids
     explanation: 'Identifies the amino-acid-rich metabolite cluster whose abundance was reduced in the SynCom17
@@ -879,8 +1172,8 @@ ecological_interactions:
       label: Lysobacter
   - preferred_term: Arthrobacter sp. OAP107
     term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
+      id: NCBITaxon:1663
+      label: Arthrobacter
   - preferred_term: Marmoricola sp. OAE513
     term:
       id: NCBITaxon:86795
@@ -909,6 +1202,8 @@ ecological_interactions:
     term:
       id: NCBITaxon:44249
       label: Paenibacillus
+  treatment_arm_ids:
+  - syncom17
 - name: SynCom17 Plant Biomass and Root Development Decrease
   description: Compared with axenic plants, SynCom17 reduced shoot fresh and dry biomass in the combined-laboratory
     analysis and reduced root development from 14 DAI onward. SynCom16 had a smaller shoot effect. These are whole-treatment
@@ -923,10 +1218,10 @@ ecological_interactions:
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: SynCom17 caused a consistent decrease in root development observed after 14 DAI onwards
-    explanation: 'Supports the reproducible root-development decrease measured for the full SynCom17 treatment across
-      EcoFAB laboratories.
+    explanation: 'Supports the reproducible root-development decrease measured for the full SynCom17 treatment
+      across EcoFAB laboratories.
 
       '
   participating_taxa:
@@ -968,8 +1263,8 @@ ecological_interactions:
       label: Lysobacter
   - preferred_term: Arthrobacter sp. OAP107
     term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
+      id: NCBITaxon:1663
+      label: Arthrobacter
   - preferred_term: Marmoricola sp. OAE513
     term:
       id: NCBITaxon:86795
@@ -998,35 +1293,44 @@ ecological_interactions:
     term:
       id: NCBITaxon:44249
       label: Paenibacillus
+  treatment_arm_ids:
+  - syncom17
 environmental_factors:
-- name: Nitrogen Source
-  value: NH4NO3
-  unit: mM
-  description: 'Ammonium nitrate in 0.5x Murashige-Skoog medium. Nitrogen form affects root exudation
-    and community structure.
-
-    '
+- name: Ring-trial host growth medium
+  value: Half-strength Murashige-Skoog basal salts
+  description: Common hydroponic medium, not a nitrogen-form intervention. 9 mL before addition of 1 mL inoculum/mock.
   evidence:
-  - reference: doi:10.1126/sciadv.adg7888
+  - reference: PMID:40920748
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the three inorganic nitrogen forms caused differential exudation, generalized by abundant
-      amino acids-peptides and alkaloids
-    explanation: Documents nitrogen form effects on exudation in EcoFAB 2.0
-- name: Light Regime
-  value: 16h/8h light/dark
-  description: Controlled photoperiod for Brachypodium distachyon growth in EcoFAB 2.0 devices.
-- name: Growth Medium
-  value: 0.5x Murashige-Skoog
-  description: Half-strength MS medium used across all five ring trial laboratories.
+    evidence_source: IN_VIVO
+    snippet: 9 mL of ½ MS basal salts (pH 5.5–6.0)
+    explanation: Methods 4.2 device medium before inoculation.
+- name: Ring-trial photoperiod and temperature
+  value: 14 h light 26 °C /10 h dark 20 °C; laboratory C 16 h light
+  description: Reported prescribed protocol, retaining the laboratory C exception without inferring its unstated
+    dark duration. S1 Table and logger measurements report deviations.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C
+    explanation: Methods 4.2 laboratory protocol.
+- name: Ring-trial illumination and humidity
+  value: 110–140 µmol/m2/s PPFD; 70% humidity if tunable
+  description: Protocol targets, not a claim all chambers achieved identical measured values.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 110–140 µmol/m2/s and 70% humidity if tunable
+    explanation: Methods 4.2 target conditions; S1 Table reports chamber variation.
 associated_datasets:
 - title: 16S rRNA Amplicon Sequencing
   dataset_type: AMPLICON_16S
   repository: NCBI_BIOPROJECT
   accession: PRJNA1151037
   url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1151037
-  description: 16S rRNA amplicon sequencing data from all five ring trial laboratories for root and medium
-    samples.
+  description: 16S rRNA amplicon sequencing data from all five ring trial laboratories for root and medium samples.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
@@ -1039,8 +1343,7 @@ associated_datasets:
   repository: GNPS
   accession: gnps.task:2ccbf82840724c99a2acc2c9e512a302
   url: https://gnps2.org/status?task=2ccbf82840724c99a2acc2c9e512a302
-  description: HILIC-pos untargeted metabolomics with feature annotations and .mzml files for root exudate
-    analysis.
+  description: HILIC-pos untargeted metabolomics with feature annotations and .mzml files for root exudate analysis.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
@@ -1059,62 +1362,397 @@ associated_datasets:
   repository: NMDC
   accession: nmdc:sty-11-ev70y104
   url: https://data.microbiomedata.org/details/study/nmdc:sty-11-ev70y104
-  description: Integrated study record in the National Microbiome Data Collaborative, linking amplicon,
-    metabolomics, and phenotype data.
+  description: Integrated study record in the National Microbiome Data Collaborative, linking amplicon, metabolomics,
+    and phenotype data.
 - title: Phenotype and Raw Data Collection
   dataset_type: PHENOTYPE
   repository: FIGSHARE
   accession: doi:10.6084/m9.figshare.c.7373842
   url: https://doi.org/10.6084/m9.figshare.c.7373842
-  description: Plant phenotypes, sterility tests, metabolite identifications, and in vitro assay data
-    from all five laboratories.
-- title: Bacterial Genome Annotations
+  description: Plant phenotypes, sterility tests, metabolite identifications, and in vitro assay data from all
+    five laboratories.
+- title: 'Genome annotation: Paraburkholderia sp. OAS925'
   dataset_type: GENOMICS
   repository: JGI_IMG
-  accession: Gp0588949-Gp0589682
-  url: https://img.jgi.doe.gov/
-  description: Annotated whole genome sequences for all 17 SynCom bacterial isolates, searchable by isolate
-    name or GOLD Project ID.
+  accession: '2931840637'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931840637
+  organism: Paraburkholderia sp. OAS925
+  description: Source Methods 4.8 and S2 Table row 17 associate stock OAS925 with IMG/M taxon 2931840637 and GOLD
+    project Gp0589681. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589681. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Paraburkholderia sp. OAS925 (2931840637, Gp0589681
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 17 columns
+      A–D.
+- title: 'Genome annotation: Rhodococcus sp. OAS809'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931833612'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931833612
+  organism: Rhodococcus sp. OAS809
+  description: Source Methods 4.8 and S2 Table row 16 associate stock OAS809 with IMG/M taxon 2931833612 and GOLD
+    project Gp0589680. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589680. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Rhodococcus sp. OAS809 (2931833612, Gp0589680
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 16 columns
+      A–D.
+- title: 'Genome annotation: Mycobacterium sp. OAE908'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2852593896'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2852593896
+  organism: Mycobacterium sp. OAE908
+  description: Source Methods 4.8 and S2 Table row 12 associate stock OAE908 with IMG/M taxon 2852593896 and GOLD
+    project Gp0440934. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0440934. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Mycobacterium sp. OAE908 (2852593896, Gp0440934
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 12 columns
+      A–D.
+- title: 'Genome annotation: Methylobacterium sp. OAE515'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931791092'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931791092
+  organism: Methylobacterium sp. OAE515
+  description: Source Methods 4.8 and S2 Table row 5 associate stock OAE515 with IMG/M taxon 2931791092 and GOLD
+    project Gp0589674. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589674. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Methylobacterium sp. OAE515 (2931791092, Gp0589674
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 5 columns A–D.
+- title: 'Genome annotation: Variovorax sp. OAS795'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931827682'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931827682
+  organism: Variovorax sp. OAS795
+  description: Source Methods 4.8 and S2 Table row 15 associate stock OAS795 with IMG/M taxon 2931827682 and GOLD
+    project Gp0588950. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0588950. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Variovorax sp. OAS795 (2931827682, Gp0588950
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 15 columns
+      A–D.
+- title: 'Genome annotation: Rhizobium sp. OAE497'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931775946'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931775946
+  organism: Rhizobium sp. OAE497
+  description: Source Methods 4.8 and S2 Table row 2 associate stock OAE497 with IMG/M taxon 2931775946 and GOLD
+    project Gp0589671. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589671. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Rhizobium sp. OAE497 (2931775946, Gp0589671
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 2 columns A–D.
+- title: 'Genome annotation: Bosea sp. OAE506'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931782253'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931782253
+  organism: Bosea sp. OAE506
+  description: Source Methods 4.8 and S2 Table row 3 associate stock OAE506 with IMG/M taxon 2931782253 and GOLD
+    project Gp0589672. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589672. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bosea sp. OAE506 (2931782253, Gp0589672
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 3 columns A–D.
+- title: 'Genome annotation: Bradyrhizobium sp. OAE829'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931808876'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931808876
+  organism: Bradyrhizobium sp. OAE829
+  description: Source Methods 4.8 and S2 Table row 9 associate stock OAE829 with IMG/M taxon 2931808876 and GOLD
+    project Gp0589676. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589676. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bradyrhizobium sp. OAE829 (2931808876, Gp0589676
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 9 columns A–D.
+- title: 'Genome annotation: Lysobacter sp. OAE881'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931823763'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931823763
+  organism: Lysobacter sp. OAE881
+  description: Source Methods 4.8 and S2 Table row 11 associate stock OAE881 with IMG/M taxon 2931823763 and GOLD
+    project Gp0589678. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589678. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Lysobacter sp. OAE881 (2931823763, Gp0589678
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 11 columns
+      A–D.
+- title: 'Genome annotation: Arthrobacter sp. OAP107'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931867202'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931867202
+  organism: Arthrobacter sp. OAP107
+  description: Source Methods 4.8 and S2 Table row 13 associate stock OAP107 with IMG/M taxon 2931867202 and GOLD
+    project Gp0588953. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0588953. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Arthrobacter sp. OAP107 (2931867202, Gp0588953
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 13 columns
+      A–D.
+- title: 'Genome annotation: Marmoricola sp. OAE513'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931787146'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931787146
+  organism: Marmoricola sp. OAE513
+  description: Source Methods 4.8 and S2 Table row 4 associate stock OAE513 with IMG/M taxon 2931787146 and GOLD
+    project Gp0589673. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589673. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Marmoricola sp. OAE513 (2931787146, Gp0589673
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 4 columns A–D.
+- title: 'Genome annotation: Chitinophaga sp. OAE865'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931817136'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931817136
+  organism: Chitinophaga sp. OAE865
+  description: Source Methods 4.8 and S2 Table row 10 associate stock OAE865 with IMG/M taxon 2931817136 and GOLD
+    project Gp0589677. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589677. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Chitinophaga sp. OAE865 (2931817136, Gp0589677
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 10 columns
+      A–D.
+- title: 'Genome annotation: Mucilaginibacter sp. OAE612'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931861231'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931861231
+  organism: Mucilaginibacter sp. OAE612
+  description: Source Methods 4.8 and S2 Table row 7 associate stock OAE612 with IMG/M taxon 2931861231 and GOLD
+    project Gp0588952. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0588952. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Mucilaginibacter sp. OAE612 (2931861231, Gp0588952
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 7 columns A–D.
+- title: 'Genome annotation: Niastella sp. OAS944'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931847253'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931847253
+  organism: Niastella sp. OAS944
+  description: Source Methods 4.8 and S2 Table row 18 associate stock OAS944 with IMG/M taxon 2931847253 and GOLD
+    project Gp0589682. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589682. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Niastella sp. OAS944 (2931847253, Gp0589682
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 18 columns
+      A–D.
+- title: 'Genome annotation: Gottfriedia sp. OAE603'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931797537'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931797537
+  organism: Gottfriedia sp. OAE603
+  description: Source Methods 4.8 and S2 Table row 6 associate stock OAE603 with IMG/M taxon 2931797537 and GOLD
+    project Gp0588949. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0588949. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Gottfriedia sp. OAE603 (2931797537, Gp0588949
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 6 columns A–D.
+- title: 'Genome annotation: Brevibacillus sp. OAP136'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931855177'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931855177
+  organism: Brevibacillus sp. OAP136
+  description: Source Methods 4.8 and S2 Table row 14 associate stock OAP136 with IMG/M taxon 2931855177 and GOLD
+    project Gp0588951. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0588951. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Brevibacillus sp. OAP136 (2931855177, Gp0588951
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 14 columns
+      A–D.
+- title: 'Genome annotation: Paenibacillus sp. OAE614'
+  dataset_type: GENOMICS
+  repository: JGI_IMG
+  accession: '2931801854'
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2931801854
+  organism: Paenibacillus sp. OAE614
+  description: Source Methods 4.8 and S2 Table row 8 associate stock OAE614 with IMG/M taxon 2931801854 and GOLD
+    project Gp0589675. This is an exact source identifier pair, not a synthetic accession range or a claim that
+    the study stock's GTDB placement was independently recomputed from this genome.
+  publication: PMID:40920748
+  notes: 'Source GOLD Project ID: Gp0589675. Current repository availability and genome sequence quality were
+    not revalidated.'
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Paenibacillus sp. OAE614 (2931801854, Gp0589675
+    explanation: Main Methods 4.8 exact stock/IMG/GOLD pair; corroborated by separate S2 Table row 8 columns A–D.
 related_ingredients:
 - preferred_term: amino acid
   chebi_term:
     id: CHEBI:33709
     label: amino acid
-  relevance: Root-exudate-derived class whose relative abundance drops in SynCom17 treatment — the
-    targeted LC-MS metabolomics identifies amino acids as the dominant chemical class of the second
-    cluster (lower abundance in SynCom17 vs SynCom16/axenic), evidencing Paraburkholderia-driven
-    amino-acid uptake from B. distachyon exudates.
+  relevance: An amino-acid-rich metabolite cluster had lower net extracellular abundance under the whole SynCom17
+    treatment. The bulk spent-medium comparison does not identify OAS925-specific uptake, donor-recipient cross-feeding
+    or plant versus microbial production/consumption.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: A second large cluster consisted of metabolites with lower relative concentrations in the
-      SynCom17 treatment, represented mainly by amino acids
-    explanation: Names amino acids as the metabolite class whose abundance Paraburkholderia-dominated
-      SynCom17 lowers in the rhizosphere exudate metabolome.
+    snippet: A second large cluster consisted of metabolites with lower relative concentrations in the SynCom17
+      treatment, represented mainly by amino acids
+    explanation: Results 2.5 identifies an amino-acid-rich cluster with lower relative concentrations in SynCom17
+      spent medium; no individual taxon's flux is isolated.
 growth_media:
-- name: R2A (bacterial preculture); half-strength Murashige-Skoog (MS) basal salts for the EcoFAB 2.0 plant system
-  temperature: '27'
-  temperature_unit: °C
-  shaking_speed: '200'
-  shaking_speed_unit: rpm
-  light_regime: 14 h photoperiod (16 h for lab C) / 10 h dark
+- name: 'Half-strength MS basal salts: ring-trial hydroponic host culture'
+  vessel_type: EcoFAB 2.0 device
+  light_regime: 14 h light (16 h for lab C); 10 h dark as source protocol, lab C dark duration not separately
+    stated
   light_intensity: 110-140
   light_intensity_unit: µmol/m²/s
-  vessel_type: EcoFAB 2.0 device
   protocol_url: https://dx.doi.org/10.17504/protocols.io.kxygxyydkl8j/v1
-  preparation_notes: SynCom strains were grown from single colonies in R2A liquid at 27 °C (the Paraburkholderia RFP strain grown overnight in R2A shaken at 200 rpm at 27 °C), washed in ½ MS basal salts, and used to inoculate 3-day-old B. distachyon seedlings in EcoFAB 2.0 devices; plants were grown in a chamber at 26 °C (light) / 20 °C (dark) with 110-140 µmol/m²/s PPFD and 70% humidity.
+  preparation_notes: Surface-sterilized Bd21-3 seed was stratified 3 days at 4 °C, germinated 3 days and transferred
+    into devices with 9 mL half MS; 4 days later 1 mL inoculum/mock was added. Results calls these 10-day seedlings.
+    Ring harvest 22 DAI; growth chamber 26 °C light/20 °C dark, 70% humidity if tunable. No bacterial shaking
+    or reporter 3-day-plant condition applies to this host culture.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plant harvest and sampling happened at 22 DAI.
+    explanation: Ring-trial final harvest, distinct from the reporter microscopy 1/3 DAI.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The cells were resuspended and added to 10-day-old B. distachyon seedlings
+    explanation: Results 2.4 describes ring inoculation age.
+- name: 'Separate ring inoculum stock preparation: R2A, 0.1x R2A or LB by strain'
+  temperature: '27'
+  temperature_unit: °C
+  preparation_notes: 'Methods 4.1: single colonies grown 2–8 days in preferred medium, washed with half MS, mixed
+    using OD-to-CFU conversions and stored in 20% glycerol at −80 °C. S2 Table: OAE497/OAE829/OAE908/OAS944 use
+    0.1x R2A; OAE603 LB; other 12 R2A. This is separate from Methods 4.8 genomic-DNA cultivation and Methods 4.7
+    NLDM assays; no global 200 rpm speed is inferred.'
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The Paraburkholderia sp. OAS925 expressing RFP was grown overnight in 7 mL of R2A medium with Kan 20 mg/L, shaken at 200 rpm at 27 °C.
-    explanation: Names R2A medium, 200 rpm shaking, and 27 °C for the bacterial preculture.
+    snippet: After 2–8 days at 27 °C
+    explanation: Methods 4.1 stock cultivation; separate S2 Table assigns strain-specific medium.
+- name: Separate RFP-OAS925 reporter preculture and microscopy
+  temperature: '27'
+  temperature_unit: °C
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  preparation_notes: 'Methods 4.9: reporter OAS925 overnight in 7 mL R2A with kanamycin 20 mg/L; washed into half
+    MS and inoculated separately onto 3-day plants at OD600 0.01. Microscopy 1/3 DAI. These are not the ring inoculum
+    or ring host timing.'
+  evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The plates were then moved to the growth chamber with a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C with photosynthetic photon flux density (PPFD) at 110–140 µmol/m2/s and 70% humidity if tunable.
-    explanation: Names the plant growth-chamber photoperiod, light/dark temperatures, light intensity, and humidity.
+    snippet: The Paraburkholderia sp. OAS925 expressing RFP was grown overnight in 7 mL of R2A medium with Kan
+      20 mg/L, shaken at 200 rpm at 27 °C.
+    explanation: Methods 4.9 reporter preculture.
 curation_history:
 - timestamp: '2026-10-02T05:49:32Z'
   curator: codex
@@ -1174,6 +1812,28 @@ curation_history:
   changes: 'Corrected the dopamine-study subset description: SynCom17 already includes OAE829; typed relation and
     stocks unchanged. Primary Methods and ring S2 independently verified; resolves #2772. Other EcoFAB scientific
     findings remain open.'
+  llm_assisted: true
+- timestamp: '2026-11-15T02:29:37Z'
+  curator: codex
+  action: EDIT
+  changes: 'Corrected OAP107 to the source-supported Arthrobacter genus and retained its 11-way GTDB ambiguity;
+    updated all graph participant identifiers consistently. Replaced unsupported GTDB build-date prose with the
+    inspected crosswalk SHA/method while preserving every numerical mapping core, the curated bacterial Bosea
+    mapping and Paenibacillus ambiguity. Distinguished OAS925 individual DSM113627 from the complete SynCom17
+    DSM200000SY collection, and recomputed paired membership against the Methods-defined final16. Addresses #2674/#2806;
+    non-graph causal/study-stage claims #1427 and exact genome accessions #2675 remain unresolved.'
+  llm_assisted: true
+- timestamp: '2026-11-15T02:56:43Z'
+  curator: codex
+  action: EDIT
+  changes: 'Separated measured ring-trial outcomes from unproved OAS925-specific uptake, plant harm, competitive
+    exclusion and member roles; retained all five graph nodes and four qualified arrows. Distinguished ring inoculum/host
+    culture from reporter and isolate assays, removed unrelated nitrogen-study factor attribution, added four
+    source-defined treatment arms and four arm/timepoint-specific relative 16S observations without converting
+    reads to cells. Removed unverified OAP107 21 DPI abundance prose while preserving stock/grounding. Replaced
+    the genome pseudo-range with 17 exact source stock-to-IMG/GOLD identifiers including Mycobacterium Gp0440934.
+    Addresses #1427/#2675; source-only supplement/metadata limits remain explicit, all prior history and linked
+    taxon mapping cores preserved.'
   llm_assisted: true
 discussions:
 - discussion_id: ecofab_syncom17_mediation_and_study_scope

@@ -149,11 +149,12 @@ cache-supplements *refs:
 # This note was not enough: #466 was filed reading exactly that output as a
 # vacuous pass. The claim is now mechanical rather than prose —
 # tests/test_reference_validator_actually_validates.py plants a snippet that is
-# in no publication and fails if the validator accepts it. It also pins the two
-# real gaps: a snippet truncated mid-word still passes (a cut quote is still a
-# substring — #295/#465), and SupportingReference, the range of
-# Discussion.evidence, carries no `implements:` so its snippets are never
-# checked at all.
+# in no publication and fails if the validator accepts it. It also pins a
+# remaining quotation limitation: a snippet truncated mid-word still passes
+# (a cut quote is still a substring — #295/#465). SupportingReference now
+# carries the shared reference/excerpt annotations, so Discussion and Dataset
+# snippets also reach the native matcher. Measured assertion coverage remains
+# the evidence for the number actually compared; the issue counter is not.
 #
 # Its matching is strict-substring, so it also reports faithful quotes whose
 # CACHE carries a PDF/XML extraction artefact (record "10% CO 2" vs cached

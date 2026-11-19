@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as admit_species_successor
 from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -103,9 +104,15 @@ def test_every_original_node_and_arrow_has_a_hash_bound_decision():
             == []
         )
         assert len(row["removed_edge_decisions"]) == len(row["edges_before"])
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        historical = doc
+        if row["id"] == "CommunityMech:000411":
+            assert doc == yaml.safe_load(raw)
+            raw = admit_species_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
+            historical = yaml.safe_load(raw)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         names = {n["name"] for n in doc["ecological_interactions"]}
         for gap in doc["discussions"]:
             assert all(a.split("#", 1)[1] in names for a in gap["attaches_to"] if "#" in a)

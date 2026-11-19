@@ -1,0 +1,85 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 7a0ff49a1d1a77ddf33e96b6f073696d0b82d073
+inspected_at: '2026-11-15'
+record:
+  id: CommunityMech:000468
+  path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+  before_sha256: aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected populations only; fresh complete native routes and authority observations are required before staging.
+primary_source:
+  reference: PMID:40152616
+  url: https://doi.org/10.1128/msystems.00200-25
+  retained_path: references_cache/PMID_40152616.txt
+  retained_sha256: 65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b
+  locator: Abstract lines 29-49; retained main text line 113, Results dominant genera and Materials/Methods reactor setup and MAG classification; line 115 dRep processing.
+  coverage: Current record, selected retained primary main-text passages and historical graph assessment read. No new figure pixels, supplementary tables, raw reads, individual MAG identities or executable models inspected.
+  exact_short_quote: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera
+  judgment: >-
+    These five descriptors summarize genera across five different enrichments,
+    not a defined five-isolate inoculum or five co-dominant populations in one
+    vessel. Municipal activated sludge seeded five 2 L sequencing batch
+    reactors. Reactors A-E used acetate, propionate, butyrate, valerate and
+    lactate respectively, with 12-hour aerobic dynamic feeding at 26 degrees
+    Celsius over 145 days. Dominance varies by reactor. The study recovered
+    963 MAGs and obtained 711 unique MAGs after dereplication; the methods
+    report GTDB-Tk 2.1.1 for MAG classification. That study method is distinct
+    from the present NCBI-to-GTDB descriptor crosswalk: this pass neither
+    reconstructs study MAG placement nor assigns exact genomes to the five
+    genus descriptors.
+proposed_occurrences:
+  - selector: taxonomy[0].taxon_term
+    descriptor: {id: 'NCBITaxon:12960', label: Azoarcus}
+    expected_rank: genus
+    historical_expected: {gtdb_id: 'GTDB:g__Azoarcus', support_genomes: 11, total_genomes: 11, majority_fraction: 1.0, n_alt: 1, via: ncbi_rank_g}
+  - selector: taxonomy[1].taxon_term
+    descriptor: {id: 'NCBITaxon:265', label: 'Paracoccus <a-proteobacteria>'}
+    expected_rank: genus
+    historical_expected: {gtdb_id: 'GTDB:g__Paracoccus', support_genomes: 486, total_genomes: 486, majority_fraction: 1.0, n_alt: 1, via: ncbi_rank_g}
+    boundary: Preserve the bacterial genus identity and canonical disambiguated label; do not substitute its metazoan homonym NCBITaxon:249411.
+  - selector: taxonomy[2].taxon_term
+    descriptor: {id: 'NCBITaxon:69961', label: Azomonas}
+    expected_rank: genus
+    historical_expected: {gtdb_id: 'GTDB:g__Azomonas', support_genomes: 6, total_genomes: 6, majority_fraction: 1.0, n_alt: 1, via: ncbi_rank_g}
+  - selector: taxonomy[3].taxon_term
+    descriptor: {id: 'NCBITaxon:33057', label: Thauera}
+    expected_rank: genus
+    historical_expected: {gtdb_id: 'GTDB:g__Thauera', support_genomes: 85, total_genomes: 92, majority_fraction: 0.924, n_alt: 3, via: ncbi_rank_g}
+    boundary: Preserve the complete three-genus population and its native majority; do not equate its denominator or fraction with reactor abundance, MAG completeness or a study-genome placement.
+  - selector: taxonomy[4].taxon_term
+    descriptor: {id: 'NCBITaxon:41275', label: Brevundimonas}
+    expected_rank: genus
+    historical_expected: {gtdb_id: 'GTDB:g__Brevundimonas', support_genomes: 221, total_genomes: 221, majority_fraction: 1.0, n_alt: 1, via: ncbi_rank_g}
+preservation_contract:
+  - Only the five selected native GTDB blocks/statuses and append-only native provenance may change. Preserve all genus descriptors, absent formal stock fields, quotes, discussions and old history.
+  - Preserve the sixth Viruses descriptor, its NO_GTDB_EQUIVALENT status and its explicitly broad uncultivated-assemblage scope. The 4,294 pOTUs and predicted lifestyles are distinct from bacterial reference genome populations.
+  - Preserve five COMMUNITY_LEVEL nodes and no directed causal edges. Fitted SEM and correlated turnover do not establish phage-induced lysis, causal direction or a controlled kill-the-winner mechanism.
+  - Preserve predicted host links and DefenseFinder annotations as predictions. AMG transcripts do not establish translated function, productive infection or increased PHA yield.
+  - Preserve reactor-specific dominance and the five-reactors-one-record discussion. Reference fractions are not inoculum ratios or reactor abundance measurements.
+  - Preserve the separate 400 mL PHA-accumulation assay versus 2 L enrichment setup; the assay oxygen-control value must not migrate into enrichment claims.
+  - Preserve the historical crosswalk-unavailability notes as historical prose, without claiming the taxa are absent from GTDB. Do not infer an upstream crosswalk release from file mtime or from the paper's GTDB-Tk version.
+historical_guard:
+  path: tests/test_causal_review_batch130.py
+  sha256: fc51ae1f93310f1317f78fbd11b7468b4ab6043bff4c577e8c52c1d96ac2c07b
+  ledger: reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml
+  ledger_sha256: 88a433392f6b1ad7214280eb4d71f3fb55768f2803359afb0ee5490330bea785
+  note: >-
+    Batch 130 pins PHA bytes in its preservation dictionary and again in the
+    shared two-record ledger loop. Its PHA row has zero curation events and
+    no history files, and remains immutable. Only those historical hash
+    checks may admit a strictly proved native successor. Current node/edge
+    predicates stay on current bytes. Preserve the Alseth record's separate
+    causal/model contract, every mutation control and both article cache pins.
+    Coordinate with eventual record 467 work in the same caller; neither
+    record's admission may bypass the other's scientific assertions.
+prior_findings:
+  checked_live: '2026-11-15'
+  issues:
+    - {number: 1985, state: CLOSED, scope: Preserve inferred phage mechanisms and genomic observations}
+    - {number: 1986, state: CLOSED, scope: Separate accumulation-assay oxygen control from enrichment reactors}
+  limit: These earlier corrections are preserved; their closed status is not new scientific clearance. Current unresolved local discussions remain open.
+completion_limit: Fresh source binding, exact native candidate review, guarded M5 application, eight scoped commands, saved partial assessment, complete checkpoint and strict actual proofs are required before integration. This plan alone changes no canonical record and completes no full scientific assessment.

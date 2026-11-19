@@ -65,7 +65,7 @@ def mapping(gtdb):
 
 
 @pytest.fixture(scope="module")
-def grounded():
+def grounded_with_paths():
     """Every stored gtdb_classification block in the KB."""
     found = []
     for directory in RECORD_DIRS:
@@ -77,9 +77,15 @@ def grounded():
                 term = entry.get("taxon_term") or {}
                 block = term.get("gtdb_classification")
                 if block:
-                    found.append((path.name, term.get("preferred_term"), block))
+                    found.append((str(path.relative_to(REPO)), term.get("preferred_term"), block))
     assert len(found) > 500, f"expected the grounded KB, swept only {len(found)}"
     return found
+
+
+@pytest.fixture(scope="module")
+def grounded(grounded_with_paths):
+    """Keep historical filename-based count pins unchanged."""
+    return [(Path(path).name, name, block) for path, name, block in grounded_with_paths]
 
 
 def _higher_rank_row(gtdb_genus, genomes, species="Testgenus namedspecies"):
@@ -807,20 +813,63 @@ def test_a_denominator_is_not_a_function_of_the_label(gtdb, mapping):
     assert len(answers) == 1, f"the label changed the denominator: {sorted(answers)}"
 
 
-def test_every_kb_taxon_reports_one_denominator(grounded):
-    """KB-level: the same NCBI taxon must never carry two different totals.
+def _population_for_denominator(record, block):
+    """Only exact source-reviewed #2833 assertions have distinct populations.
+
+    Curator labels alone never create a new population. The complete block is
+    pinned for drift detection. Akkermansia additionally binds independent
+    official workbook and lineage evidence; the existing Blautia check does not
+    independently verify lineage.
+    """
+    from communitymech.validators.gtdb_source_provenance import (
+        DEFAULT,
+        EXPECTED,
+        AkkermansiaSources,
+    )
+
+    # Preserve the existing exact Blautia guard and its refusal contract (#2953).
+    if (
+        record == "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml"
+        and block.get("ncbi_source_id") == "NCBITaxon:53443"
+    ):
+        proof_path = REPO / "reports/phase2-completion-20261115/gtdb-r232-blautia-source-proof.json"
+        raw = proof_path.read_bytes()
+        assert (
+            hashlib.sha256(raw).hexdigest()
+            == "2159cc47f0c772fdf3d9fcd01495466e2196735c0a7ef4a34642b8160d9b8b51"
+        ), "reviewed R232 source proof changed"
+        proof = json.loads(raw)
+        semantic_hash = hashlib.sha256(
+            json.dumps(block, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        assert (
+            semantic_hash == proof["record_assertion"]["semantic_block_sha256"]
+        ), "pinned R232 assertion changed; fresh source review required"
+        return proof["source"]["sha256"]
+    if record in EXPECTED or block.get("ncbi_source_id") == "NCBITaxon:239935":
+        source = AkkermansiaSources(REPO).population(record, block)
+        if source != DEFAULT:
+            return source
+    return DEFAULT
+
+
+def test_every_kb_taxon_reports_one_denominator(grounded_with_paths):
+    """KB-level: one NCBI taxon within one population has a consistent total.
 
     Different NCBI taxa mapping to one GTDB species legitimately differ —
     `NCBITaxon:562` (*E. coli*) sits at 166398 while its K-12 substrains report
     37, 50 and 4 — because the denominator is scoped to the taxon grounded, not
-    to the GTDB species. What must not vary is one taxon against itself.
+    to the GTDB species. #2833 also verifies exact distinct R232 populations against
+    primary source cells. Other records retain the existing shared comparison;
+    no arbitrary mapping_source or curated flag exempts them.
     """
     from collections import defaultdict
 
     by_taxon = defaultdict(set)
-    for _record, _name, block in grounded:
+    for record, _name, block in grounded_with_paths:
+        population = _population_for_denominator(record, block)
         if block.get("support_genomes") is None and block.get("total_genomes"):
-            by_taxon[block.get("ncbi_source_id")].add(block["total_genomes"])
+            by_taxon[(block.get("ncbi_source_id"), population)].add(block["total_genomes"])
 
     inconsistent = {tid: sorted(v) for tid, v in by_taxon.items() if len(v) > 1}
     assert not inconsistent, f"one taxon, several denominators: {inconsistent}"

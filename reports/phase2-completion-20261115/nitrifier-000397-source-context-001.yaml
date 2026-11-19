@@ -1,0 +1,54 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 8a8b070d3ea9257d47af9fbcd9d6c71ce99ea273
+record:
+  id: CommunityMech:000397
+  path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  before_sha256: c70bbd5b522140d6b6cf6a2c4ea9ae97cdf10dda7d45534071997a5b1786dbcd
+primary_source:
+  reference: PMID:42668143
+  url: https://doi.org/10.1093/bbb/zbag131
+  retained_path: references_cache/PMID_42668143.txt
+  retained_sha256: 534023632f8dd66866ee7d231899d31656d90877316f87f60448b2a3e2adc4c6
+  locator: Abstract, first sentence.
+  coverage: Retained abstract only; publisher main text and supplementary methods were not inspected.
+  exact_short_quote: Bacillus badius NBRC 15713
+  judgment: >-
+    The abstract explicitly names NBRC 15713, N. europaea NBRC 14298 and
+    N. winogradskyi NBRC 14297. It reports aggregate nitrogen conversion and
+    abundance associations, not complete cultivation conditions or stock-resolved flux.
+authority_context:
+  inspected_at: '2026-11-15'
+  sources:
+    - url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1455&mode=Info
+      locator: Current name, basionym, type-strain list and rank.
+      observation: NCBITaxon:1455 is species Pseudobacillus badius; Bacillus badius is its basionym and NBRC 15713 appears in the type-strain list.
+    - url: https://www.nite.go.jp/nbrc/catalogue/NBRCCatalogueDetailServlet?CAT=00015713&ID=IFO
+      locator: Catalogue heading, synonymous name and sequence information.
+      observation: NBRC 15713 is currently listed as Pseudobacillus badius with synonym Bacillus badius.
+  limit: >-
+    These are read observations with exact URLs, not archived page bytes or native
+    database proof. The catalogue lists genome resources, but this plan does not
+    claim their GTDB membership or add them to the canonical record. Catalogue
+    cultivation instructions do not establish the paper's experimental conditions.
+proposed_occurrence:
+  selector: taxonomy[0].taxon_term
+  descriptor: {id: 'NCBITaxon:1455', label: Pseudobacillus badius}
+  stock: NBRC 15713
+  historical_expected: {gtdb_id: 'GTDB:s__Pseudobacillus_badius', total_genomes: 26, majority_fraction: 1.0, via: ncbi_id}
+preservation_contract:
+  - Historical expected mapping is preparation only; require fresh native proof and exact local authority rows before staging.
+  - Preserve the source's Bacillus wording, current canonical species label, NBRC stock and all other scientific content.
+  - Preserve N. europaea's existing 2-genome block and N. winogradskyi_A's existing 8-genome, 0.88 block.
+  - Preserve the open cultivation-details discussion and abstract-only scientific limitations; do not fill conditions from a catalogue.
+  - Require guarded application, native checks and immutable partial diagnostic before counting completion.
+historical_guard:
+  path: tests/test_causal_review_batch27.py
+  current_predecessor_ledger: reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml
+  original_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+  note: >-
+    Preserve the existing original-to-remediation chain and biological predicates.
+    The next strict admission must use the remediation hash c70bbd5b as predecessor.
+    Batch36 and batch97 only reference the shared remediation ledger; their own
+    record loops do not include 000397 and are not callers to modify for this unit.

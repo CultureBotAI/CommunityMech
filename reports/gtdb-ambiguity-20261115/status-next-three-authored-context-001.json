@@ -1,0 +1,108 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/status-next-three-route-001.log", "sha256": "0cd9fc985c4dd5f6c7a59dd1f87b3e773164bf9e7f9561c03645338b53a538e5"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/status-next-three-route-001.json", "sha256": "0d8f53261e1f509e11bbce7b24bae03100587729106af4445350115b0b051f47"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/status-next-three-route-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml",
+      "record_id": "CommunityMech:000373",
+      "before_sha256": "c9f62a78e6ca7a6c6fc3f3886a77fb9d7e0583f3ce931dd474aeefa2217a1e9d",
+      "additional_inputs": {
+        "reports/gtdb-ambiguity-20261115/next-status-source-context-001.yaml": "f2327859cebb6eef868667d8b1e74dacd35ca7a229571885b8c51b9b14e681bb",
+        "reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml": "5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3",
+        "tests/test_causal_review_batch5.py": "132a9a4c09acddd2c0a640029eda8412aa10ebd29ea3ba23f2665749b4b295d4"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:1390", "label": "Bacillus amyloliquefaciens"},
+          "strain_name": "G12",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "gtdb_options": ["GTDB:s__Bacillus_amyloliquefaciens", "GTDB:s__Bacillus_velezensis"], "n_alt": 2, "via": "ncbi_name"},
+          "source_assessment": "Retained Methods identifies tobacco-rhizosphere stock G12 as B. amyloliquefaciens based on prior studies. This is source-reported stock naming, not an inspected genome or assembly classification. Preserve the identity and all measured biocontrol outcomes.",
+          "population_scope": "The pinned native species-name descriptor route has two alternatives. Preserve both without selecting the study stock's GTDB species, assigning a probability, or inferring a genome denominator. The X25 1163-genome block is outside the mutable scope.",
+          "name_scope": "Canonical NCBITaxon:1390 and source G12 naming remain unchanged. Descriptor alternatives do not override the taxonomic determination reported by the paper."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:1408", "label": "Bacillus pumilus"},
+          "strain_name": "Y4",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "gtdb_options": ["GTDB:s__Bacillus_altitudinis", "GTDB:s__Bacillus_pumilus", "GTDB:s__Bacillus_pumilus_O", "GTDB:s__Bacillus_sp002998085"], "n_alt": 4, "via": "ncbi_name"},
+          "source_assessment": "Retained Methods names tobacco-tissue endophyte Y4 as B. pumilus based on prior studies. No exact-stock genome was inspected for this bounded status correction; keep reported stock, source quotations and experimental context.",
+          "population_scope": "Four complete native species-name alternatives are descriptor correspondence, not four possible experimentally measured stocks or quantified probabilities. Keep every option in native order and preserve all other classification blocks.",
+          "name_scope": "Preserve NCBITaxon:1408, B. pumilus and Y4. No candidate is promoted to a selected stock identity."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42388034", "path": "references_cache/PMID_42388034.txt", "sha256": "7c411b8884969706099963aa4cf8b7f6b1cda8810a8b38ca1dc392420d3dd393",
+          "locator": "Retained PMC13569317 Methods paragraph identifying G12, Y4 and X25; line13.",
+          "coverage": "Selected Methods, Results and Discussion passages; the cache header alone is not proof of complete full-text coverage. No new supplemental/genome review.",
+          "identity_tokens": ["PMID: 42388034", "PMC13569317", "10.1002/ps.71069"],
+          "anchors": ["Their taxonomic identities, confirmed in previous studies, were B. amyloliquefaciens (G12), B. pumilus (Y4) and B. velezensis (X25).", "strain G12 was isolated from the tobacco rhizosphere, whereas Y4 and X25 were endophytes from tobacco tissues"]
+        }
+      ],
+      "historical_guard_assessment": "Preserve the batch5 decision ledger and all current graph/evidence predicates. The status-only scope admits indices0/1 only, not X25, source roles or disease-response interpretation. After actual application/gates/saved diagnostic, add explicit strict successor admission without rewriting historical rows or resolving colonization, hormone mediation, fitness or persistence gaps."
+    },
+    {
+      "record": "kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml",
+      "record_id": "CommunityMech:000365",
+      "before_sha256": "a284ede66ef1dee551a8ba37b94d2a0dd0e63578f7b4bb6899792dd08d53a74a",
+      "additional_inputs": {
+        "reports/gtdb-ambiguity-20261115/next-status-source-context-001.yaml": "f2327859cebb6eef868667d8b1e74dacd35ca7a229571885b8c51b9b14e681bb",
+        "reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml": "23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96",
+        "tests/test_causal_review_batch6.py": "50b34ffc062a83e281b562a02b794f2b82b2ad46e43a0b066136d7b10c0349b0"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 1, "term": {"id": "NCBITaxon:255204", "label": "Pseudoclavibacter"}, "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"ambiguous": true, "gtdb_options": ["GTDB:g__Pseudoclavibacter_B", "GTDB:g__Pseudoclavibacter", "GTDB:g__Pseudoclavibacter_C", "GTDB:g__Pseudoclavibacter_A"], "n_alt": 4, "via": "ncbi_rank_g"},
+          "source_assessment": "The inspected abstract identifies Pseudoclavibacter among dominant prokaryotes. It supplies no exact stock or species roster. Preserve genus-level source wording and the unknown strain; this diagnostic does not fill missing cultivation or member identity.",
+          "population_scope": "The native genus-rank correspondence splits into four genus alternatives. Preserve all four, with no selected species, implied isolate roster, majority count or stock genome. The existing C. kluyveri five-genome block remains unchanged.",
+          "name_scope": "Preserve canonical Pseudoclavibacter genus and null strain. This is genus ambiguity, not species-level classification."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42442429", "path": "references_cache/PMID_42442429.txt", "sha256": "c40ed908a704f8e694953bd4147a9d5987ebdbfbea1f8d35eb0157880f0bd973",
+          "locator": "PubMed abstract, dominant-prokaryote sentence at lines36–37.",
+          "coverage": "Abstract only. Full Methods, supplements, exact membership and stocks are not established by this source inspection.",
+          "identity_tokens": ["PMID: 42442429", "10.1016/j.biortech.2026.135395"],
+          "anchors": ["Clostridium sensu stricto 18 and Pseudoclavibacter"]
+        }
+      ],
+      "historical_guard_assessment": "The batch6 unchanged-history row is a literal statement about its original review, not a claim that later technical changes cannot occur. Keep that row and original hash/outcome unchanged, preserve every current biological predicate, and require explicit strict successor proof against a284ede6 after actual application/gates/review. Abstract 86-percent denominator, Clostridium sensu stricto18 identity and incomplete cultivation remain unresolved."
+    },
+    {
+      "record": "kb/communities/At_RSPHERE_SynCom.yaml", "record_id": "CommunityMech:000003",
+      "before_sha256": "b615c84fa2415eecbf9eb3964ee830fdb3bc573508fbc42ce601fb340f3500c0",
+      "additional_inputs": {
+        "reports/gtdb-ambiguity-20261115/next-status-source-context-001.yaml": "f2327859cebb6eef868667d8b1e74dacd35ca7a229571885b8c51b9b14e681bb",
+        "reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml": "5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3",
+        "tests/test_causal_review_batch5.py": "132a9a4c09acddd2c0a640029eda8412aa10ebd29ea3ba23f2665749b4b295d4"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 2, "term": {"id": "NCBITaxon:930166", "label": "Pseudomonas brassicacearum"}, "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "gtdb_options": ["GTDB:s__Pseudomonas_E_brassicacearum", "GTDB:s__Pseudomonas_E_neoaurantiaca"], "n_alt": 2, "via": "ncbi_name"},
+          "source_assessment": "The primary text names opportunistic challenge stock Root401/R401 and distinguishes it from commensal SynCom members. The canonical descriptor has no strain_designation; preserve that exact representation. This status change does not certify the inherited representative roster or turn the host into a microbial member.",
+          "population_scope": "Two native species-name alternatives belong to the current stored descriptor. Neither is selected for Root401, and no stock assembly or genome denominator is inferred. Preserve all other taxa and classification blocks, including the inherited host entry pending its separate scientific owner.",
+          "name_scope": "Keep P. brassicacearum canonical naming and the paper's Root401 challenge context; do not add a strain alias, migrate the host or equate the earlier large recolonization mixture with the later17-member assays."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:40663585", "path": "references_cache/PMID_40663585.txt", "sha256": "a57fec8c2fb4c37ebd5c724e38406be4c6cdb098edcb79bd575cd7028678c09f",
+          "locator": "Retained PMC12262851 Introduction and Results, flattened main-text line94.",
+          "coverage": "Retained open-access main text; no new source acquisition, supplement or stock-genome inspection. Appended editorial material is not used as experimental evidence.",
+          "identity_tokens": ["PMID: 40663585", "PMC12262851", "10.1371/journal.pbio.3002882"],
+          "anchors": ["opportunistic Pseudomonas brassicacearum strain Root401 (R401)"]
+        }
+      ],
+      "historical_guard_assessment": "Preserve batch5 source/evidence and current biological assertions. Existing issue1251 owns the umbrella/roster identity concerns; this partial technical correction does not clear them. No host migration or membership rewrite is allowed. If native strict/term gates expose a pre-existing problem, preserve the failure and handle its owner explicitly, without an exemption. Explicit strict successor admission is required after actual application and saved partial diagnostic."
+    }
+  ]
+}

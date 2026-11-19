@@ -21,6 +21,7 @@ taxonomy:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
     notes: Six low-phosphorus rhizosphere Bacillus isolates in the 19-strain cross-kingdom SynCom.
     gtdb_classification:
       gtdb_id: GTDB:g__Bacillus
@@ -33,7 +34,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa
         under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
   abundance_level: DOMINANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -53,6 +53,7 @@ taxonomy:
     term:
       id: NCBITaxon:46913
       label: Devosia
+    gtdb_grounding_status: GROUNDED
     notes: Two Devosia isolates in the cross-kingdom SynCom; forms mutualistic biofilm interaction with Amesia sp. F7.
     gtdb_classification:
       gtdb_id: GTDB:g__Devosia
@@ -65,7 +66,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
         under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
   abundance_level: ABUNDANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -84,8 +84,18 @@ taxonomy:
     term:
       id: NCBITaxon:165697
       label: Sphingopyxis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingopyxis
+      gtdb_taxon: Sphingopyxis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingopyxis
+      ncbi_source_id: NCBITaxon:165697
+      majority_fraction: 1.0
+      support_genomes: 79
+      total_genomes: 79
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Two Sphingopyxis isolates in the cross-kingdom SynCom.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: ABUNDANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -104,8 +114,18 @@ taxonomy:
     term:
       id: NCBITaxon:106589
       label: Cupriavidus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Cupriavidus
+      gtdb_taxon: Cupriavidus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus
+      ncbi_source_id: NCBITaxon:106589
+      majority_fraction: 1.0
+      support_genomes: 199
+      total_genomes: 199
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Three Cupriavidus isolates in the cross-kingdom SynCom.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: ABUNDANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -124,8 +144,8 @@ taxonomy:
     term:
       id: NCBITaxon:5052
       label: Aspergillus
-    notes: Five Aspergillus fungal isolates in the cross-kingdom SynCom; Eukaryota.
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Five Aspergillus fungal isolates in the cross-kingdom SynCom; Eukaryota.
   abundance_level: ABUNDANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -144,9 +164,9 @@ taxonomy:
     term:
       id: NCBITaxon:1934349
       label: Amesomyces
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
     notes: Reported in paper as fungal genus Amesia (Chaetomiaceae, renamed Amesomyces in NCBI Taxonomy because Amesia is
       a pre-existing moth homonym); Eukaryota.
-    gtdb_grounding_status: NO_GTDB_EQUIVALENT
   abundance_level: ABUNDANT
   functional_role:
   - PATHOGEN_ANTAGONIST
@@ -327,3 +347,11 @@ curation_history:
   changes: Add explicit participating_taxa to the community-level biocontrol node and link both pairwise cross-kingdom facilitation/mutualism
     nodes to community-level Fusarium wilt suppression.
   llm_assisted: true
+- timestamp: '2026-11-15T08:37:21Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:37:22Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

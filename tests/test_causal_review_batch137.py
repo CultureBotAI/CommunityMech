@@ -7,6 +7,9 @@ from pathlib import Path
 
 import pytest
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
+from remaining_four_gtdb_successors import BUTANOL_PATH, admit_remaining_four_successor
+from source_intake_gtdb_successors import T1_PATH, admit_source_intake_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml"
@@ -73,12 +76,25 @@ def _check_batch137_invariants(ledger: dict, rows: list[dict], docs: list[dict])
     for row, doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["path"] == BUTANOL_PATH:
+            admission = admit_remaining_four_successor(ROOT, row["path"], row["record_sha256"])
+        elif row["path"] == T1_PATH:
+            admission = admit_source_intake_successor(ROOT, row["path"], row["record_sha256"])
+        else:
+            admission = admit_status_successor(ROOT, row["path"], row["record_sha256"])
+        assert hashlib.sha256(raw).hexdigest() == admission.current_sha256
+        historical = doc
+        if admission.changed:
+            # Keep mutations in the caller's parsed document observable. Only
+            # the old last-event assertions use the proved historical bytes.
+            assert doc["curation_history"] == yaml.safe_load(raw)["curation_history"]
+            historical = yaml.safe_load(admission.historical_bytes)
         assert row["curation_events_added"] == 1
         assert len(row["history_files"]) >= 1
         assert all((ROOT / hf).exists() for hf in row["history_files"])
-        assert doc["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        assert historical["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
+        assert historical["curation_history"][-1]["llm_assisted"] is True
 
         nodes = doc["ecological_interactions"]
         exp_nodes, exp_edges = expected_node_edge_counts[row["id"]]

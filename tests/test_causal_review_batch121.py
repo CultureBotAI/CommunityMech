@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml"
@@ -199,12 +200,14 @@ def test_review_accounts_for_nodes_arrows_and_append_only_cache():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
+        admitted = admission(ROOT, row["path"], latest["record_sha256"])
         assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == admitted.current_sha256
         )
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [r["node"] for r in row["node_decisions"]] == names
-        assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert len(row["history_files"]) == 1 and historical["curation_history"][-1]["llm_assisted"]
         assert len(doc["discussions"]) == 1
         assert all(
             a.removeprefix("ecological_interactions#") in names

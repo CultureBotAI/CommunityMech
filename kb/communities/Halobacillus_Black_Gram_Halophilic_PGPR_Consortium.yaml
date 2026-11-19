@@ -19,8 +19,8 @@ taxonomy:
     term:
       id: NCBITaxon:2699466
       label: Halobacillus marinus
-    notes: Halophilic plant growth-promoting bacterium strain MKM3 in the three-strain HPGPB consortium.
     gtdb_grounding_status: UNRESOLVED
+    notes: Halophilic plant growth-promoting bacterium strain MKM3 in the three-strain HPGPB consortium.
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -37,8 +37,17 @@ taxonomy:
     term:
       id: NCBITaxon:1570
       label: Halobacillus halophilus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Halobacillus_halophilus
+      gtdb_taxon: Halobacillus halophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__Halobacillaceae;g__Halobacillus;s__Halobacillus halophilus
+      ncbi_source_id: NCBITaxon:1570
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: Halophilic plant growth-promoting bacterial strains MKM4 and MKM11 co-inoculated with H. marinus MKM3.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -176,3 +185,11 @@ curation_history:
   changes: Curate 3-node pairwise mutualistic causal chain linking Halobacillus rhizosphere restructuring to Na+ toxicity
     alleviation and black gram yield improvement.
   llm_assisted: true
+- timestamp: '2026-11-15T08:40:12Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:40:12Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

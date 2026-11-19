@@ -1,0 +1,120 @@
+kind: source-context-plan
+date: '2026-11-15'
+scientific_review: false
+canonical_apply: false
+scope: >-
+  Six species-reference occurrences across two whole records. This source-only
+  preparation does not save a scientific assessment or apply a correction.
+  Fresh native routes, reviewed candidates, actual M5 application, native gates,
+  saved partial reviews, checkpoint verification and strict proofs remain required.
+crosswalk_sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+source_access: >-
+  Fresh DOI opens failed for both sources on2026-11-15. The selected retained
+  space-habitat main-text Methods/Table1 and cultivability discussion, plus the
+  PCB abstract, were read directly. No fresh whole-paper, image, supplement or
+  genome-assembly classification audit is claimed.
+records:
+- id: CommunityMech:000339
+  path: kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+  before_sha256: 31961a821395f2b2f8731998529c4035f2dac3477154c8258239bc0f6cdfab48
+  primary:
+    reference: PMID:42577390
+    doi: 10.3389/fmicb.2026.1869903
+    pmcid: PMC13454065
+    primary_contexts:
+    - path: references_cache/PMID_42577390.md
+      sha256: 9473c68e543cdd3bd59af3190f1f7c4fc560e9f364d55d653c5427da0f13dc9c
+      locator: Methods line50, Table1 transcriptions349–355 and Discussion220/232.
+      role: Selected main-text stock/assembly/preparation and recovery-scope context.
+    - path: references_cache/PMID_42577390.txt
+      sha256: 1f7d43248a4fc1729e504dee77e0d5cba52872a1ba8f319eda3ca5f2994fdf92
+      locator: Published abstract.
+      role: Separate abstract cache; not the source of Table1 stock metadata.
+  selected_occurrences:
+  - selector: taxonomy[0].taxon_term
+    source_stock: K1-2-2-23
+    source_deposit: DSM111179
+    retained_assembly: GCA_025272695
+    ncbi_id: NCBITaxon:29388
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Staphylococcus_capitis', total_genomes: 391, majority_fraction: 1.0}
+  - selector: taxonomy[3].taxon_term
+    source_stock: HTS9T
+    source_deposit: DSM101996
+    retained_assembly: GCA_001598035
+    ncbi_id: NCBITaxon:1814128
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Streptococcus_halotolerans', total_genomes: 3, majority_fraction: 1.0}
+  - selector: taxonomy[4].taxon_term
+    source_stock: TA-12T
+    source_deposit: DSM16859
+    retained_assembly: GCA_900111365
+    ncbi_id: NCBITaxon:64702
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Propionibacterium_cyclohexanicum', total_genomes: 4, majority_fraction: 1.0}
+  - selector: taxonomy[5].taxon_term
+    source_stock: W4-Al-K1
+    retained_assembly: GCA_057816565.1
+    ncbi_id: NCBITaxon:1270
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Micrococcus_luteus', total_genomes: 236, majority_fraction: 0.95}
+  - selector: taxonomy[6].taxon_term
+    source_stock: 50V1
+    retained_assembly: GCA_002834555.1
+    ncbi_id: NCBITaxon:40216
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Acinetobacter_radioresistens', total_genomes: 135, majority_fraction: 1.0}
+  preserve:
+  - All seven stocks, exact current genome-accession strings and culture-collection fields; these expected species-ID populations are not direct classifications of those assemblies.
+  - The existing Bacillus subtilis W2-B1-K4 member and its unselected mapping; do not import a similarly named stock from another study.
+  - The unselected Pseudomonas antarctica CMS35T descriptor remains unresolved; its type-strain/genome fields do not justify a guessed GTDB assignment.
+  - The laboratory model includes ISS isolates and representative terrestrial/type strains; it is neither a flown consortium nor a direct whole-ISS sample.
+  - Equal adjusted-OD input is not measured equal abundance, and different stressors/culture conditions remain separate.
+  - Decreased recoverable Bacillus CFU is not definitive death or identified reciprocal competition; crystal-violet biomass does not establish viable cells or architecture.
+  - Keep the single qualified current graph node, all participating taxa and source snippets; closed1823/2048 record earlier completed graph/member corrections, not present scientific clearance.
+  historical_contract:
+    caller: tests/test_causal_review_batch105.py
+    caller_sha256_at_read: 0716e26444e771cc71d281e86c5ae50e581f5d0cf10019ca19fe18556c488a4d
+    latest_ledger: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+    latest_ledger_sha256: efe4b6b56ae2ad5cb78452493088e5c046f10602461d581920791b19f9178119
+    requirements: >-
+      Preserve339's existing original-to-stage5 supersedes/hash chain before the
+      new exact proof. The accepted362 species successor already shares this
+      caller and must stay intact. Current cultivability, source/strain and
+      graph predicates remain. Batch123 references this shared ledger only for
+      other IDs and has no established339 admission requirement.
+- id: CommunityMech:000491
+  path: kb/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.yaml
+  before_sha256: 1d08be9793a28d66c9dabd74e48ea132d3b8dc44a16e394d7c259fbfca0aa486
+  primary:
+    reference: PMID:26704063
+    doi: 10.1016/j.wasman.2015.11.033
+    path: references_cache/PMID_26704063.md
+    sha256: 8368362d818a149b8baaaae7707f2cdc02eddf8496ec8e1deb83d5f097f071a6
+    locator: Abstract lines55–70, two-step material transfer and pure-culture cyanide preparation.
+    actual_read_scope: Abstract only; the publisher redirect was inaccessible.
+  selected_occurrences:
+  - selector: taxonomy[0].taxon_term
+    ncbi_id: NCBITaxon:160808
+    expected_native: {via: ncbi_id, gtdb_id: 'GTDB:s__Acidithiobacillus_ferrivorans', total_genomes: 20, majority_fraction: 0.95}
+    boundary: Reference-species correspondence only; exact experimental stock/assembly is not identified by this lookup.
+  preserve:
+  - A.ferrivorans belongs to the first acidic copper-leaching mixture; do not assign WCS361 or another second-stage stock to it.
+  - Keep the existing unselected A.thiooxidans block and complete P.putida/P.fluorescens ambiguity alternatives.
+  - Preserve all old source text, record graph and history during this bounded mapping step, while explicitly retaining the newly filed scientific blocker.
+  - Keep acidic copper extraction separate from alkaline treatment of its solid residue; no simultaneous four-member culture is established by this abstract.
+  retained_blocker:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/2876
+    evidence_report: reports/phase2-completion-20261115/pcb491-source-finding-001.md
+    boundary: >-
+      Cited pure P.putida WCS361 cyanide preparation/44.0% gold result does not
+      support the encoded broader organism attribution or reciprocal MUTUALISM
+      labels. Verify the main article before scientific correction; unread
+      material is not declared devoid of additional experiments. This mapping
+      plan neither fixes nor silently approves that existing biology.
+  historical_contract:
+    caller: tests/test_causal_review_batch135.py
+    caller_sha256_at_read: 4269cdaf70207ea2665e6809f894125d87db24968521a6b44bdce06573067520
+    ledger: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+    ledger_sha256: b883e52b1bd5393d07b7ba3d10791965ee49be62f7380618424e270041ed6436
+    requirements: >-
+      Preserve the five-record literal ledger, exact original/current hashes,
+      historical CURATE_CAUSAL_GRAPH/LLM checks,14nodes/9edges/49quotations and
+      source-specific txt/md cache selection. Strict proof must establish unchanged
+      current biology before a predecessor is used for old last-event assertions.
+      Retain all other records and corpus-summary checks without admitting new paths.

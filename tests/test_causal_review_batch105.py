@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml"
@@ -12,7 +13,18 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return (
+        ledger,
+        rows,
+        [
+            yaml.safe_load(
+                admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+                if row["id"] == "CommunityMech:000362"
+                else (ROOT / row["path"]).read_bytes()
+            )
+            for row in rows
+        ],
+    )
 
 
 def test_colony_recovery_does_not_assert_competition_or_viability_loss():
@@ -99,7 +111,7 @@ def test_all_original_nodes_and_directions_have_dispositions():
         ROOT / "reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml"
     )
     successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
-    for row, doc in zip(rows, docs, strict=True):
+    for row, _doc in zip(rows, docs, strict=True):
         latest = row
         if row["id"] == "CommunityMech:000339":
             latest = successor_by_id[row["id"]]
@@ -108,13 +120,15 @@ def test_all_original_nodes_and_directions_have_dispositions():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
+        admitted = admission(ROOT, row["path"], latest["record_sha256"])
         assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == admitted.current_sha256
         )
         assert row["status"] == "reviewed"
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"]
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"]
     assert ledger["primary_graph_snippet_count"] == len(ledger["snippet_checks"]) == 17
     assert len(ledger["discussion_snippet_checks"]) == 5
     assert all(

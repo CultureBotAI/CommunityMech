@@ -20,8 +20,17 @@ taxonomy:
     term:
       id: NCBITaxon:2684212
       label: Pseudomonas izuensis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_E_izuensis
+      gtdb_taxon: Pseudomonas_E izuensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E izuensis
+      ncbi_source_id: NCBITaxon:2684212
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Strain SaPI1; ACC deaminase-positive, IAA-producing (55.1 ug/mL), high Cd resistance (4.0 mM).
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -48,8 +57,8 @@ taxonomy:
     term:
       id: NCBITaxon:150026
       label: Leifsonia shinshuensis
-    notes: Strain SaLS1; ACC deaminase-positive, high IAA producer (150.0 ug/mL), Cd resistance 0.5 mM.
     gtdb_grounding_status: UNRESOLVED
+    notes: Strain SaLS1; ACC deaminase-positive, high IAA producer (150.0 ug/mL), Cd resistance 0.5 mM.
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -76,8 +85,17 @@ taxonomy:
     term:
       id: NCBITaxon:529
       label: Brucella anthropi
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ochrobactrum_anthropi
+      gtdb_taxon: Ochrobactrum anthropi
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Ochrobactrum;s__Ochrobactrum anthropi
+      ncbi_source_id: NCBITaxon:529
+      majority_fraction: 0.94
+      total_genomes: 100
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Reported as Ochrobactrum anthropi strain SaOA1; IAA producer (64.2 ug/mL), Cd resistance 0.6 mM.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -104,8 +122,17 @@ taxonomy:
     term:
       id: NCBITaxon:1329895
       label: Novosphingobium lindaniclasticum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Novosphingobium_lindaniclasticum
+      gtdb_taxon: Novosphingobium lindaniclasticum
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Novosphingobium;s__Novosphingobium lindaniclasticum
+      ncbi_source_id: NCBITaxon:1329895
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Strain SaNL1; IAA producer (53.9 ug/mL), Cd resistance 2.0 mM.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -305,3 +332,11 @@ curation_history:
   changes: Curate 3-node community-level causal chain with explicit participating_taxa linking glutathione/phenylpropanoid
     defense reprogramming to HMA4 regulation and shoot Cd phytoextraction.
   llm_assisted: true
+- timestamp: '2026-11-15T11:12:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T11:12:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 3 taxonomy entries (#294, #395).'

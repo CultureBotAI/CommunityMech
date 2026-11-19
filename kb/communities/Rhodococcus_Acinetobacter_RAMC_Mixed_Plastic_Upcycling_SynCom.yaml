@@ -92,7 +92,10 @@ taxonomy:
     term:
       id: NCBITaxon:132919
       label: Rhodococcus jostii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Rhodococcus_jostii
+    - GTDB:s__Rhodococcus_jostii_A
     notes: >
       NCBI exact scientific-name search resolves R. jostii to NCBITaxon:132919;
       the source reports strain PET from an in-house collection, and the local
@@ -506,3 +509,7 @@ curation_history:
     ChEBI rac-lactic acid term, CHEBI:28358, in the division-of-labor
     interaction and simulated mixed-plastic medium.
   llm_assisted: true
+- timestamp: '2026-11-15T11:54:18Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

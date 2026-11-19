@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
 import sys
 from pathlib import Path
@@ -35,6 +36,7 @@ EDGE_COLS = [
     "knowledge_level",
     "agent_type",
     "primary_knowledge_source",
+    "communitymech_context",
 ]
 
 # Pattern: anything matching `<prefix>:<localpart>` where prefix is
@@ -104,7 +106,16 @@ def validate_edges(
                     f"{path.name}:{i}: expected {len(EDGE_COLS)} cols, " f"got {len(row)}"
                 )
                 continue
-            eid, subj, pred, obj, cat, pubs, _supp, _kl, _at, _pks = row
+            eid, subj, pred, obj, cat, pubs, _supp, _kl, _at, _pks, context = row
+            if context:
+                try:
+                    payload = json.loads(context)
+                    if not isinstance(payload.get("field"), str) or not isinstance(
+                        payload.get("assertion"), dict
+                    ):
+                        raise ValueError("expected field and assertion")
+                except (ValueError, AttributeError):
+                    errors.append(f"{path.name}:{i}: invalid CommunityMech context JSON")
             if not eid:
                 errors.append(f"{path.name}:{i}: empty edge id")
             if eid in seen:

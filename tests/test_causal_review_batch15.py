@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -85,7 +86,8 @@ def test_batch15_ledger_covers_every_node_and_retained_edge():
     assert len(ledger["records"]) == 3
     for row in ledger["records"]:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        assert hashlib.sha256(raw).hexdigest() == admission.current_sha256
         doc = yaml.safe_load(raw)
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(names)

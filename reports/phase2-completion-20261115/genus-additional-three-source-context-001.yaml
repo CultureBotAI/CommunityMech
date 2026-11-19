@@ -1,0 +1,132 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: 5f89423aad7d6b8148bcc8cb9a725debce4326df
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected results only; fresh native routes and captured local NCBI rank evidence remain required.
+records:
+  - id: CommunityMech:000410
+    path: kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml
+    before_sha256: f9b1a67fb3fcd903a1adcb16f0eb5279a3738ff6807ddc4cc9203553be36bc3a
+    primary_source:
+      reference: PMID:42613016
+      url: https://doi.org/10.1111/1462-2920.70404
+      retained_path: references_cache/PMID_42613016.txt
+      retained_sha256: a5b89d867b4d0264fe7cbce7ff2e0abdf55a50e00d93ef3ee63a23511895b398
+      locator: Retained selected PMC13485441 passages after the abstract; stock list and optimal three-strain consortium.
+      coverage: Retained abstract and selected article excerpts. Live PubMed metadata agrees; fresh PMC full text hit a browser challenge. No new complete-paper or supplementary audit.
+      exact_short_quote: 'Sphingopyxis sp. DBS4, Sphingopyxis sp. DCP‐4'
+      judgment: >-
+        The source identifies two distinct Sphingopyxis stocks at genus rank.
+        The modeled and experimentally assessed three-member combination also
+        includes Achromobacter DCP-11d; it must not be expanded to the five
+        strains screened. New genus correspondences do not identify species or
+        exact reference assemblies for DBS4 or DCP-4.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:165697', label: Sphingopyxis}
+        stock: DBS4
+        historical_expected: {gtdb_id: 'GTDB:g__Sphingopyxis', support_genomes: 79, total_genomes: 79, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:165697', label: Sphingopyxis}
+        stock: DCP-4
+        historical_expected: {gtdb_id: 'GTDB:g__Sphingopyxis', support_genomes: 79, total_genomes: 79, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve both Sphingopyxis stocks as separate occurrences and the existing Achromobacter DCP-11d genus block.
+      - Preserve (R)-DCPP versus 2,4-DCP substrate distinctions and modeled exchange versus experimental metabolite or inhibition measurements.
+      - Preserve the absence of downstream arrows and unresolved full scientific review; partial retained excerpts do not close issue 596 or independently verify all original biological claims.
+      - Preserve liquid 30 mg/L versus soil 5 mg/kg conditions and the non-detection of predicted D-glucosamine; do not turn degradation or LC-MS into full mineralization or traced exchange.
+    historical_guard:
+      path: tests/test_causal_review_batch27.py
+      ledger: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+      note: Exact current hash needs strict predecessor admission. Preserve the old needs_research/unchanged/no-history disposition as historical, current biological tests and the separate 000397 remediation chain; do not rewrite the ledger as a current scientific pass.
+  - id: CommunityMech:000415
+    path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+    before_sha256: d317416542deab471a12785f688c23d08ed5a7eea2894dbde489f40c0df80806
+    primary_source:
+      reference: PMID:41745484
+      url: https://www.mdpi.com/1660-3397/24/2/81
+      retained_path: references_cache/PMID_41745484.txt
+      retained_sha256: ad543c6e92b26ff25763f25f499719f0075bdfe85af9d006b20ae5865f50b9ae
+      locator: Results community characterization and 2.3.1 C1 metabolism; Methods 3.1-3.2 culture assembly and 3.4 metagenomics, retained flattened article line 51.
+      coverage: Selected retained main-text passages, with live publisher main text available. No new supplementary, MAG-sequence, isotope or individual-stock audit.
+      exact_short_quote: 'two dominant genera, Methylophaga and Methylonatrum (50:40%)'
+      judgment: >-
+        These are enrichment-community genus descriptors, not four named isolate
+        stocks. The study distinguishes algal, methanotrophic and combined
+        cultures; it reports Leptolyngbya within the bacterial community and
+        Methylotuvimicrobium within a methanotrophic fraction. The quoted
+        Methylophaga/Methylonatrum proportions refer to methylotroph composition,
+        not percentages of the whole mixed community or an inoculation recipe.
+    proposed_occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:47251', label: Leptolyngbya}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Leptolyngbya', support_genomes: 13, total_genomes: 24, majority_fraction: 0.542, via: ncbi_rank_g, n_alt: 6}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:2822410', label: Methylotuvimicrobium}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Methylotuvimicrobium', support_genomes: 8, total_genomes: 8, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[4].taxon_term
+        descriptor: {id: 'NCBITaxon:40222', label: Methylophaga}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Methylophaga', support_genomes: 45, total_genomes: 45, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[5].taxon_term
+        descriptor: {id: 'NCBITaxon:455252', label: Methylonatrum}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Methylonatrum', support_genomes: 1, total_genomes: 1, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve Chlorella and Dunaliella as eukaryotic NO_GTDB_EQUIVALENT entries, and all six existing taxonomy descriptors.
+      - Leptolyngbya 13/24 across six genera is a narrow reference-genome majority, not unanimity or a measured community abundance.
+      - Preserve metagenomic functional potential versus gene expression, demonstrated exchange or exact strain placement. Do not assign a species from the paper's examples.
+      - Preserve separate culture contrasts, the 50:50 culture inoculum, 6% NaCl main assay versus 3% enrichment, and gas-removal/product measurements without asserting closed carbon balance.
+    historical_guard:
+      original_ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+      current_predecessor_ledger: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+      other_test: tests/test_participating_taxa.py
+      note: >-
+        Preserve original 3e009885 to current d3174165 remediation provenance.
+        Ignore-independent Python-test searches for the ID, stem and original
+        ledger found no direct original-ledger caller; tests105/123 reference
+        the shared remediation ledger for other records. Do not edit them on
+        that basis. Run unchanged participant checks and explicit strict
+        successor admission; dynamic consumers remain possible.
+  - id: CommunityMech:000477
+    path: kb/communities/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom.yaml
+    before_sha256: 2647853142ba6426234854ef5ec1c925ce72086f7e3fc480a4949b7d34fdf549
+    primary_source:
+      reference: PMID:41882811
+      url: https://doi.org/10.1186/s40168-026-02381-1
+      retained_path: references_cache/PMID_41882811.txt
+      retained_sha256: dec747f6c57b4d919b7935ef153e012c999d4798a19dcd2aae2e5d91fead4ac6
+      locator: Results, Exploring low phosphorus-mediated rhizosphere cross-kingdom interactions and disease suppression, retained line 53.
+      coverage: Selected retained PMC13137495 main-text passages; fresh PMC access hit a browser challenge. No complete isolate-table or supplement audit.
+      exact_short_quote: 'three Cupriavidus strains, two Sphingopyxis strains'
+      judgment: >-
+        The six genus-level canonical entries summarize 13 bacterial and six
+        fungal strains. The two selected entries represent two Sphingopyxis and
+        three Cupriavidus stocks, not one stock each or verified species. The
+        low-phosphorus discovery community, reconstructed consortium, metabolite
+        additions and high-phosphorus disease tests remain separate conditions.
+    proposed_occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:165697', label: Sphingopyxis}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Sphingopyxis', support_genomes: 79, total_genomes: 79, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+      - selector: taxonomy[3].taxon_term
+        descriptor: {id: 'NCBITaxon:106589', label: Cupriavidus}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Cupriavidus', support_genomes: 199, total_genomes: 199, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve Bacillus and Devosia existing mappings and Aspergillus/Amesomyces NO_GTDB_EQUIVALENT status; retain the source Amesia nomenclature note.
+      - Preserve each entry's stated number of stocks and the 19-stock consortium boundary; no collapse into a six-strain SynCom.
+      - Preserve pair-specific mutual versus one-directional facilitation and community disease outcomes; no genus-wide mechanism or genome claim is authorized.
+      - Preserve source limitations, all existing nodes/arrows and prior scientific dispositions without new whole-record clearance.
+    historical_guard:
+      path: tests/test_causal_review_batch133.py
+      ledger: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+      note: Exact hash and historical CURATE_CAUSAL_GRAPH/llm_assisted predicates require strict predecessor projection; all current graph tests stay unchanged. Coordinate explicit disjoint allowances with other records in this ledger.
+completion_limit: No canonical changes or full scientific approval. Fresh source/rank binding, independent candidate review, actual M5 application/checks, immutable partial review/checkpoint and strict successor admission remain required.

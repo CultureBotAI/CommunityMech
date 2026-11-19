@@ -7,8 +7,10 @@ import json
 import socket
 import subprocess
 from copy import deepcopy
+from io import BytesIO
 from pathlib import Path
 from unittest.mock import patch
+from zipfile import ZipFile
 
 import pytest
 import yaml
@@ -154,8 +156,8 @@ def test_reference_routing_mutation_with_identical_source_text_fails(fixture_rep
     control, _ = invoke(fixture_repo, document, "control")
     native = coverage.ReferenceValidationPlugin._validate_excerpt
 
-    def misroute(plugin, text, reference, expected_title, path):
-        yield from native(plugin, text, "PMID:4", expected_title, path)
+    def misroute(plugin, text, reference, expected_title, path, **kwargs):
+        yield from native(plugin, text, "PMID:4", expected_title, path, **kwargs)
 
     with patch.object(coverage.ReferenceValidationPlugin, "_validate_excerpt", misroute):
         mutated, _ = invoke(fixture_repo, document, "mutation")
@@ -312,3 +314,137 @@ def test_record_inventory_uses_native_yaml_scalar_semantics(fixture_repo, monkey
     result = coverage.run(fixture_repo, fixture_repo / ".temp/native-parser", ["record.yaml"])
     assert result["exit_code"] == 0, result["cases"][0]["errors"]
     assert result["cases"][0]["counts"]["snippet_occurrences_compared"] == 1
+
+
+@pytest.fixture
+def selected_source(fixture_repo):
+    """Real DOCX extraction, catalog and native matcher; no provider substitutes."""
+    from linkml_reference_validator.etl.source_locator import extract_docx_tables
+
+    root = fixture_repo
+    schema_path = root / coverage.SCHEMA
+    schema = yaml.safe_load(schema_path.read_text())
+    schema["classes"]["EvidenceItem"]["attributes"]["source_locator"] = {
+        "range": "SourceLocator",
+        "inlined": True,
+    }
+    schema["classes"]["SourceLocator"] = {
+        "attributes": {
+            key: {"range": "integer" if key in {"table", "row", "cell"} else "string"}
+            for key in ("kind", "asset_id", "version", "table", "row", "cell")
+        }
+    }
+    schema_path.write_text(yaml.safe_dump(schema))
+    folder = root / ".temp/sources"
+    folder.mkdir(parents=True)
+    buffer = BytesIO()
+    with ZipFile(buffer, "w") as archive:
+        archive.writestr(
+            "word/document.xml",
+            (
+                '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+                "<w:body><w:tbl><w:tr>"
+                + "".join(
+                    f"<w:tc><w:p><w:r><w:t>{text}</w:t></w:r></w:p></w:tc>"
+                    for text in ("alpha", "gamma", "alpha")
+                )
+                + "</w:tr></w:tbl></w:body></w:document>"
+            ),
+        )
+    asset = buffer.getvalue()
+    projection = json.dumps(extract_docx_tables(asset)).encode()
+    (folder / "table.docx").write_bytes(asset)
+    (folder / "cells.json").write_bytes(projection)
+    catalog = {
+        "version": 1,
+        "sources": [
+            {
+                "reference": "PMID:1",
+                "asset_id": "table.docx",
+                "version": "published",
+                "asset_path": "table.docx",
+                "asset_sha256": coverage.digest(asset),
+                "extraction_path": "cells.json",
+                "extraction_sha256": coverage.digest(projection),
+            }
+        ],
+    }
+    (folder / "catalog.json").write_text(json.dumps(catalog))
+    config = yaml.safe_load((root / coverage.CONFIG).read_text())
+    config["source_catalog"] = str(folder / "catalog.json")
+    (root / coverage.CONFIG).write_text(yaml.safe_dump(config))
+    locator = {
+        "kind": "supplement",
+        "asset_id": "table.docx",
+        "version": "published",
+        "table": 1,
+        "row": 1,
+        "cell": 1,
+    }
+    return root, {
+        "evidence": [
+            {"snippet": "beta", "reference": "PMID:1"},
+            {"snippet": "alpha", "reference": "PMID:1", "source_locator": locator},
+        ]
+    }
+
+
+def test_selected_sources_keep_native_comparisons_and_failure_boundaries(selected_source):
+    root, good = selected_source
+    before = {p: p.read_bytes() for p in (root / ".temp/sources").iterdir()}
+    cases = [deepcopy(good) for _ in range(5)]
+    cases[1]["evidence"][1]["source_locator"]["cell"] = 2
+    cases[2]["evidence"][1]["reference"] = "PMID:4"
+    cases[3]["evidence"][1]["source_locator"] = None
+    results = [invoke(root, doc, f"selected-{i}")[0] for i, doc in enumerate(cases)]
+    assert all(r["measurement_valid"] for r in results), results
+    assert [r["native_exit_code"] for r in results] == [0, 1, 1, 1, 0]
+    assert [r["counts"]["snippet_occurrences_compared"] for r in results] == [2, 2, 1, 1, 2]
+    assert [r["validation_passed"] for r in results] == [True, False, False, False, True]
+    selected = [r["records"][0]["assertions"][1] for r in results]
+    assert [a["status"] for a in selected] == [
+        "matched",
+        "mismatched",
+        "source_selection_failed",
+        "source_selection_failed",
+        "matched",
+    ]
+    assert selected[0]["source_identity"]["locator"] == good["evidence"][1]["source_locator"]
+    assert selected[0]["source_identity"] == selected[4]["source_identity"]
+    assert all("cache" not in a for a in selected)  # No article fallback, even for alpha.
+    assert before == {p: p.read_bytes() for p in (root / ".temp/sources").iterdir()}
+
+
+def test_wrong_locator_with_identical_text_invalidates_coverage_then_restores(selected_source):
+    root, good = selected_source
+    original = coverage.ReferenceValidationPlugin._validate_excerpt
+
+    def misroute(plugin, text, reference, title, path, *, source_locator=coverage.ABSENT):
+        if source_locator is not coverage.ABSENT:
+            source_locator = {**source_locator, "cell": 3}
+        yield from original(plugin, text, reference, title, path, source_locator=source_locator)
+
+    control, _ = invoke(root, good, "before")
+    with patch.object(coverage.ReferenceValidationPlugin, "_validate_excerpt", misroute):
+        mutated, _ = invoke(root, good, "misroute")
+    restored, _ = invoke(root, good, "restored")
+    assert control["validation_passed"] and restored["validation_passed"]
+    assert mutated["native_validation_passed"]  # Same text in a different cell.
+    assert not mutated["measurement_valid"] and not mutated["assertion_coverage_complete"]
+    assert mutated["counts"]["snippet_occurrences_compared"] == 1
+    assert any("Source locator identity mismatch" in e for e in mutated["errors"])
+
+
+def test_manifest_binds_ignored_catalog_asset_and_projection(selected_source):
+    root, _ = selected_source
+    for name in ("uv.lock", "pyproject.toml"):
+        (root / name).write_text("fixture\n")
+    before = coverage.input_manifest(root, [])
+    names = {f".temp/sources/{name}" for name in ("catalog.json", "table.docx", "cells.json")}
+    assert names.issubset(before)
+    asset = root / ".temp/sources/table.docx"
+    original = asset.read_bytes()
+    asset.write_bytes(original + b"changed")
+    assert coverage.input_manifest(root, []) != before
+    asset.write_bytes(original)
+    assert coverage.input_manifest(root, []) == before

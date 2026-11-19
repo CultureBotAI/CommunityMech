@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml"
@@ -132,9 +133,11 @@ def test_batch69_caches_and_history_are_bound_to_reviewed_content():
     for path, digest in ledger["reference_cache_original_hashes"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
     for stem, row in rows.items():
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        assert hashlib.sha256(admission.historical_bytes).hexdigest() == row["record_sha256"]
         assert len(row["history_files"]) == 1
-        assert docs[stem]["curation_history"][-1]["llm_assisted"] is True
+        historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         assert all("interaction_type" not in n for n in docs[stem]["ecological_interactions"])
 
 

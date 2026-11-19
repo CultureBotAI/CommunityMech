@@ -74,7 +74,17 @@ taxonomy:
     term:
       id: NCBITaxon:2800685
       label: Pelagerythrobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pelagerythrobacter
+      gtdb_taxon: Pelagerythrobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Pelagerythrobacter
+      ncbi_source_id: NCBITaxon:2800685
+      majority_fraction: 1.0
+      support_genomes: 16
+      total_genomes: 16
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Clusters within the same core branch as Pelagerythrobacter sp. Ery1 (NR_171421).
   strain_designation:
     strain_name: N7
@@ -259,3 +269,11 @@ curation_history:
     upstream pyrene oxidation / 4,5-dicarboxyphenanthrene bottleneck node from 3 to 5 non-overlapping, bracket-free verbatim
     snippets without inventing unsupported downstream edges.
   llm_assisted: true
+- timestamp: '2026-11-15T05:35:28Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T05:35:28Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

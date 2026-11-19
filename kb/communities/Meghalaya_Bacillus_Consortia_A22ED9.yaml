@@ -61,7 +61,17 @@ taxonomy:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
     notes: The article resolves SK22 only to Bacillus sp.; the local NCBI2GTDB mapping was unavailable during curation, so
       no reproducible GTDB grounding was stored.
   strain_designation:
@@ -85,7 +95,17 @@ taxonomy:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
     notes: The article resolves KHED9 only to Bacillus sp.; the local NCBI2GTDB mapping was unavailable during curation, so
       no reproducible GTDB grounding was stored.
   strain_designation:
@@ -321,3 +341,11 @@ curation_history:
   changes: 'Retain positive element depletion at assay scope without redox, exclusive biosorption or emergent-advantage
     claims. Issue #1591; reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T07:17:52Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T07:17:53Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

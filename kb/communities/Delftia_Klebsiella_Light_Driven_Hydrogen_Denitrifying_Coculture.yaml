@@ -20,11 +20,11 @@ taxonomy:
     term:
       id: NCBITaxon:80866
       label: Delftia acidovorans
-    notes: Strain YP-3; light-responsive electroactive bacterium acting as a biological photosensitizer and electron donor.
+    gtdb_grounding_status: AMBIGUOUS
     gtdb_candidates:
     - GTDB:s__Comamonas_acidovorans
     - GTDB:s__Comamonas_tsuruhatensis
-    gtdb_grounding_status: AMBIGUOUS
+    notes: Strain YP-3; light-responsive electroactive bacterium acting as a biological photosensitizer and electron donor.
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
@@ -40,8 +40,17 @@ taxonomy:
     term:
       id: NCBITaxon:571
       label: Klebsiella oxytoca
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Klebsiella_oxytoca
+      gtdb_taxon: Klebsiella oxytoca
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella;s__Klebsiella oxytoca
+      ncbi_source_id: NCBITaxon:571
+      majority_fraction: 0.85
+      total_genomes: 855
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Strain DX-3; hydrogen-producing and nitrate/nitrite-reducing partner receiving photo-excited electrons.
-    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - ELECTRON_ACCEPTOR
@@ -222,3 +231,11 @@ curation_history:
   changes: Curate 3-node pairwise syntrophic causal chain linking light-driven interspecies electron transfer to batch H2/denitrification
     synergy and swine wastewater nitrogen removal.
   llm_assisted: true
+- timestamp: '2026-11-15T08:39:23Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:39:24Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml"
@@ -138,8 +139,16 @@ def test_batch39_complete_dispositions_canonical_participants_and_history():
         assert gap["kind"] == "KNOWLEDGE_GAP" and gap["status"] == "OPEN"
         assert set(gap["attaches_to"]) == {"ecological_interactions#" + n for n in names}
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        raw = (ROOT / row["path"]).read_bytes()
+        expected = row["record_sha256"]
+        historical = doc
+        if row["id"] == "CommunityMech:000466":
+            assert doc == yaml.safe_load(raw)
+            proof = admit_genus_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
+        assert hashlib.sha256(raw).hexdigest() == expected
 
 
 def test_fos_expansion_stays_pending_and_nongraph_fields_are_not_certified():

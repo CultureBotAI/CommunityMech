@@ -664,7 +664,9 @@
                 </div>{% set participating_taxa = interaction.participating_taxa | default([], true) %}
                 {%- if interaction.description %}
                 <p class="prewrap interaction-description">{{ interaction.description }}</p>
-                {%- endif %}
+                {%- endif %}{% if interaction.treatment_arm_ids %}
+                <p><strong>Treatment arms:</strong> {% for identifier in interaction.treatment_arm_ids %}{% set arm = community.treatment_arms | default([], true) | selectattr('id', 'equalto', identifier) | first %}{% if arm %}<a href="#arm-{{ identifier }}">{{ arm.name }}</a>{% else %}{{ identifier }} (unresolved arm){% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
+                {% endif %}
 
                 {% if interaction.source_taxon %}
                 <p><strong>Source Taxon:</strong> {{ interaction.source_taxon.preferred_term or interaction.source_taxon.term.label }}</p>
@@ -912,7 +914,7 @@
         </section>
         {% endif %}
 
-        {% include "_partials/host_soil_related.html" %}{% if community.environmental_factors %}
+        {% include "_partials/host_soil_related.html" %}{% include "_partials/treatment_arms.html" %}{% if community.environmental_factors %}
         <section>
             <h2>Environmental Factors</h2>
             <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
@@ -927,7 +929,7 @@
                 <tbody>
                     {% for factor in community.environmental_factors %}
                     <tr>
-                        <td><strong>{{ factor.name }}</strong></td>
+                        <td><strong>{{ factor.name }}</strong>{% if factor.term %}<br><a href="https://www.ebi.ac.uk/ols4/search?q={{ factor.term.id|urlencode }}" class="term-link" target="_blank" rel="noopener noreferrer">{{ factor.term.id }}</a> {{ factor.term.label }}{% endif %}</td>
                         <td>{{ factor.value }}</td>
                         <td>{{ factor.unit or 'N/A' }}</td>
                     </tr>

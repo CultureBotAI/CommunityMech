@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from environment_gtdb_successors import TCP, admit_environment_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml"
@@ -12,6 +13,9 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-six-records-batc
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
+    for row in rows:
+        if row["path"] == TCP:
+            admit_environment_successor(ROOT, row["path"], row["record_sha256"])
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
@@ -182,10 +186,16 @@ def test_ledger_preserves_topology_history_and_limited_caches():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
-        assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
+        historical = doc
+        if row["path"] == TCP:
+            admitted = admit_environment_successor(ROOT, row["path"], row["record_sha256"])
+            historical = yaml.safe_load(admitted.historical_bytes)
+        else:
+            assert (
+                hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+                == latest["record_sha256"]
+            )
+        assert len(row["history_files"]) == 1 and historical["curation_history"][-1]["llm_assisted"]
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [n["node"] for n in row["node_decisions"]] == names
         assert all(

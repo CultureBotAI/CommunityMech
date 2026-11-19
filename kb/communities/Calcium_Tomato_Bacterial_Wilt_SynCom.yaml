@@ -165,12 +165,17 @@ taxonomy:
     - GTDB:s__Paenibacillus_polymyxa
     - GTDB:s__Paenibacillus_polymyxa_B
     - GTDB:s__Paenibacillus_polymyxa_C
-    - GTDB:s__Paenibacillus_polymyxa_D
-    - GTDB:s__Paenibacillus_polymyxa_E
     notes: >-
-      The local kg-microbe NCBI2GTDB crosswalk was unavailable during curation;
-      direct inspection of the GTDB bac120 taxonomy table showed Paenibacillus
-      polymyxa split across five GTDB species clusters with no majority.
+      The pinned kg-microbe NCBI2GTDB.tsv.gz correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves this species descriptor by
+      the native ncbi_name route, with no exact NCBITaxon:1406 rows, to three GTDB alternatives: Paenibacillus
+      polymyxa, P. polymyxa_B and P. polymyxa_C. This source's GTDB release is not established. A separate
+      verified R226 GTDB name query finds 193 genomes in five bins (83 unsuffixed, 65 _B, 20 _C, 24 _D, 1 _E);
+      it is not an NCBI-defined population. R226's NCBI correspondence workbook, Species row 331, instead
+      reports 128 genomes across six taxa: unsuffixed 55.47%, _B 23.44%, _C 9.38%, _D 7.81%, P. ottowii 3.12%,
+      _E 0.78%. The original five-candidate table's release could not be established. These reference
+      populations do not assign the experimental root isolate to a GTDB species; the primary paper reports raw
+      reads SRR33221449, not an assembly-grounded GTDB assignment.
   strain_designation:
     isolation_source: tomato root
     notes: Raw genome reads reported under SRA run SRR33221449.
@@ -538,3 +543,14 @@ curation_history:
   changes: 'Separate calcium compound assays, exudate responses and pot disease protection; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1266'
   llm_assisted: true
+- timestamp: '2026-11-15T08:05:14Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: Clarified the Paenibacillus descriptor's pinned native NCBI-name correspondence versus distinct R226
+    GTDB-name and NCBI-defined reference populations, preserving unresolved experimental-stock placement (#2869).
+    This note-only intermediate leaves the separate native mapping correction pending.
+  llm_assisted: true
+- timestamp: '2026-11-15T08:27:30Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

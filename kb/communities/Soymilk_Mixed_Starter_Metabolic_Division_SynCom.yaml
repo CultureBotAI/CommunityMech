@@ -123,13 +123,25 @@ taxonomy:
     term:
       id: NCBITaxon:1590
       label: Lactiplantibacillus plantarum
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Lactiplantibacillus_plantarum
-    - GTDB:s__Lactiplantibacillus_plantarum_A
-    - GTDB:s__Lactiplantibacillus_paraplantarum
-    notes: The source names L. plantarum only at species level. GTDB splits this NCBI species with no single majority holder,
-      so likely candidates are retained rather than forcing one exact GTDB species.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactiplantibacillus_plantarum
+      gtdb_taxon: Lactiplantibacillus plantarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactiplantibacillus;s__Lactiplantibacillus plantarum
+      ncbi_source_id: NCBITaxon:1590
+      majority_fraction: 1.0
+      total_genomes: 2061
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
+    notes: >-
+      The inspected primary abstract names Lactiplantibacillus plantarum as one of three soymilk starter
+      members but provides no strain accession. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference
+      correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the
+      exact NCBITaxon:1590 descriptor row to GTDB Lactiplantibacillus plantarum, with 2,061 reference genomes
+      and stored majority fraction 1.0. Broader same-name rows from other NCBI IDs do not establish ambiguity
+      for this exact descriptor. The crosswalk's GTDB release is not established. This reference population
+      does not identify the experimental starter stock's genome or supply its missing strain designation.
+      Counts and fractions are not measurements of the inoculum or stock-identity probabilities.
   abundance_level: DOMINANT
   abundance_value: Member of the mixed starter culture that dominated late-stage soymilk fermentation.
   evidence:
@@ -302,3 +314,19 @@ curation_history:
     starter members, and participating_taxa plus fermentation biological_processes (GO:0006113) to Inferred Soymilk Nutrient
     Cross-Feeding per PMID:42637460 (#2084).
   llm_assisted: true
+- timestamp: '2026-11-15T09:59:47Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: Clarified the Lactiplantibacillus plantarum taxonomy note using the exact-ID reference population while
+    retaining the abstract's unidentified experimental stock (#2848). This note-only intermediate preserves current
+    ambiguity candidates and all biological content; separate native mapping and strict two-transition proof remain
+    pending. No whole-record scientific approval is asserted.
+  llm_assisted: true
+- timestamp: '2026-11-15T10:32:06Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:32:06Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

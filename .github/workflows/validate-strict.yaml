@@ -49,6 +49,8 @@ jobs:
 
       # Full depth covers advertised refs, not every pre-squash review base.
       # Keep these immutable inputs available without changing old ledgers (#1998).
+      # 38f11c is the actual Wetland identity source fixture, not a ROOT integration claim.
+      # faad27 is its maintained identity intermediate for production admission.
       - name: Fetch historical cache review bases
         run: |
           git fetch --no-tags origin \
@@ -56,7 +58,21 @@ jobs:
             9174d5c1ce9c92966a4d270b4109071d81aa25f5 \
             ba082c3e8c3f34f78e3f9dc32b35f57cc303bc7f \
             e5ce1f8d359d1690b8cc0bd03d43ff41056f1339 \
-            5fb1fb3d8fa26c4f424be17f7a380e3f9c0eaee6
+            5fb1fb3d8fa26c4f424be17f7a380e3f9c0eaee6 \
+            68699871415fda3c9eebf20382a315f9f3c7b17a \
+            6db62bda10f9ff88df9561475112f47d08d332c3 \
+            17616c9cad16a1b62cd6e9b39d82af4276e5188a \
+            de4c6450dd3e42f205c2f7e8f11b8fe44f03bd6b \
+            53007c13842a0fa9785916e6e17b9ff2228407ac \
+            4d7a127e31c5de7278618e6025a037440c862da9 \
+            25de294d4a2a6c4654cbf8b824e44e8222568925 \
+            1380734c73dfcebe631ea6964b9e010da6172f31 \
+            35667772f9fde01fd2cce34672a4f4417381943c \
+            0794bf80ebd15a073dc2103cfd1ed0c5234e6d74 \
+            2139fa42fe538c110f2b91a6e85872e9a30b472b \
+            38f11cfac83036ed7e2feeea8cb19db74eed3306 \
+            faad27a2d22971ab0e50594ff4cb4fdf6f63d8c7 \
+            edd740d502690303a691935d1ee8deef911362f8
 
       - uses: extractions/setup-just@v3
 

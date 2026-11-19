@@ -1,0 +1,156 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/genus-next-three-route-batch-001.log", "sha256": "d522164f23f8a21aca9ce7d3c2898e819ecfa3afffda367fb7023d971e19e6fd"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/genus-next-three-route-batch-001.json", "sha256": "04a43507b022ed523e81816079082368998799861f631e4f178c4466111b93c0"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/genus-next-three-route-batch-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml",
+      "record_id": "CommunityMech:000372",
+      "before_sha256": "0e4ab9a02b384bc08912fba28e9873d6c98d408ebd7aa68187adbc423a7b4c38",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/genus-next-four-source-context-001.yaml": "75833bba7cae775e5dcaa925f5f9e160d3e7730df4d3b0906aa2206bbb7a8965",
+        "tests/test_causal_review_batch89.py": "987e5577383d761bf17c8d4c8546fdd765d3c6a48674032efa44c047345de3eb",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml": "b51f0eba09e676c943911efa627077808bc2bbf7719b9319ab07883c3c1f71a4"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:570", "label": "Klebsiella"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Klebsiella", "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella",
+            "gtdb_taxon": "Klebsiella", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:570", "support_genomes": 44527, "total_genomes": 44529, "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The retained abstract names a Klebsiella sp. consortium member without a strain designation. Its genus authority supports a database correspondence only; iron/PAM treatment responses and metagenomic interpretation do not identify its species or genome.",
+          "population_scope": "The fresh native genus route yields 44527 of 44529 filtered reference genomes across two GTDB genera. The displayed 1.0 is rounded, not unanimity; this does not count study isolates or their genomes.",
+          "name_scope": "Preserve NCBITaxon:570, Klebsiella, absent stock fields and all biological claims. Preserve the unselected Stutzerimonas/Pseudomonas ambiguity and its ten alternatives."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:507", "label": "Alcaligenes"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Alcaligenes", "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Alcaligenes",
+            "gtdb_taxon": "Alcaligenes", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:507", "support_genomes": 36, "total_genomes": 36, "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The abstract explicitly identifies Alcaligenes sp. as a heterotrophic nitrifying-aerobic denitrifying member but provides no stock identity. Apply only the existing genus's reference correspondence, preserving source-access and mechanistic interpretation limits.",
+          "population_scope": "36 of 36 filtered reference genomes support the same genus. This is a database genus population, not a measurement of stock abundance, replicated cultures or an exact study genome.",
+          "name_scope": "Preserve NCBITaxon:507, Alcaligenes, absent strain name, cultivation and evidence. No species, assembly, intermember flux or complete nitrogen-removal inference."
+        }
+      ],
+      "primary_sources": [{
+        "reference": "PMID:42520901", "path": "references_cache/PMID_42520901.txt", "sha256": "d5b4b1fe44232381e93d57ccf677c58cb6b95f46378acf7b4ed5e9fd284259cd",
+        "locator": "Abstract, reconstructed consortium membership and iron/PAM comparisons.",
+        "coverage": "Retained abstract and independently accepted source-context plan only; no complete paper or supplementary-method audit.",
+        "identity_tokens": ["PMID: 42520901", "10.1016/j.envres.2026.125349"],
+        "anchors": ["the facultative anaerobic denitrifier Klebsiella sp.", "the heterotrophic nitrifying-aerobic denitrifying bacterium Alcaligenes sp."]
+      }],
+      "historical_guard_assessment": "Preserve batch89's current biological predicates and original scientific ledger, including the unrelated000331 remediation branch. Require exact successor admission before projecting the original record hash/last llm_assisted event. Preserve unknown stocks, iron/PAM contrasts, source-access limitations and nitrate-removal versus complete nitrogen-removal distinctions."
+    },
+    {
+      "record": "kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml",
+      "record_id": "CommunityMech:000349",
+      "before_sha256": "1f5a47edf08cf2ef71d33f42caaa341929e6900422787e13dea0c61c1f0b1453",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/genus-next-four-source-context-001.yaml": "75833bba7cae775e5dcaa925f5f9e160d3e7730df4d3b0906aa2206bbb7a8965",
+        "tests/test_causal_review_batch8.py": "c4dbbd3060db8153107d29343e58cf1536792fef2653969e4e0043e954d631bf",
+        "reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml": "a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25"
+      },
+      "occurrences": [
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:2207", "label": "Methanosarcina"},
+          "strain_name": "GAC.MBAT.2",
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Methanosarcina", "gtdb_lineage": "d__Archaea;p__Halobacteriota;c__Methanosarcinia;o__Methanosarcinales;f__Methanosarcinaceae;g__Methanosarcina",
+            "gtdb_taxon": "Methanosarcina", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:2207", "support_genomes": 301, "total_genomes": 301, "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The retained source names Baltic-Methanosarcina GAC.MBAT.2. Preserve this MAG designation while adding only a same-genus reference correspondence; protein homology against a reference genome does not establish an identical study assembly or species cluster.",
+          "population_scope": "301 of301 filtered native reference genomes map at genus rank. The study's GTDB R214 classification provenance is separate from the exact761d crosswalk and its file mtime; no release equivalence or assembly match is asserted.",
+          "name_scope": "Preserve NCBITaxon:2207, Methanosarcina, GAC.MBAT.2 and all scientific notes. Preserve the unselected Bacteria-level GAC.MBAT.93/Candidatus Geosyntrophus and existing Sedimentibacter15/16 block."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:1840214", "label": "Lentimicrobium"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Lentimicrobium", "gtdb_lineage": "d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Lentimicrobiaceae;g__Lentimicrobium",
+            "gtdb_taxon": "Lentimicrobium", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:1840214", "support_genomes": 3, "total_genomes": 3, "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The source distinguishes a GAC-specific Lentimicrobium MAG from a close relative also seen in controls. This correspondence stays at the current genus and does not collapse MAG variants or select a reference assembly. Alternative acetate-oxidation/fermentation interpretations remain qualified.",
+          "population_scope": "Three of three filtered reference genomes support the genus. The source's3.4percent read fraction and the three reference genomes have unrelated denominators; neither implies three study stocks.",
+          "name_scope": "Preserve NCBITaxon:1840214, Lentimicrobium, absent stock field and original GAC-specific MAG notes. Do not assign species, assembly or directly measured electron-transfer flux."
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {"id": "NCBITaxon:40413", "label": "Desulforhopalus"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Desulforhopalus", "gtdb_lineage": "d__Bacteria;p__Desulfobacterota;c__Desulfobulbia;o__Desulfobulbales;f__Desulfocapsaceae;g__Desulforhopalus",
+            "gtdb_taxon": "Desulforhopalus", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:40413", "support_genomes": 6, "total_genomes": 6, "via": "ncbi_rank_g"
+          },
+          "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+          "source_assessment": "The source names a Desulforhopalus MAG unique to GAC incubations and explicitly discusses incomplete EET machinery and possible biomass turnover. A genus-reference mapping preserves those limits and does not promote it to a proven acetate-oxidizing electrical partner.",
+          "population_scope": "Six of six filtered reference genomes support the genus. This reference population is separate from the source's3percent read fraction and does not identify the exact MAG or genome.",
+          "name_scope": "Preserve NCBITaxon:40413, Desulforhopalus, absent stock identity and all biochemical/ecological qualifications. No species, assembly or new role claim."
+        }
+      ],
+      "primary_sources": [{
+        "reference": "PMID:41876513", "path": "references_cache/PMID_41876513.txt", "sha256": "a505eb5947488ad1903638447461880f6397685e6517ee1c741267f555892e81",
+        "locator": "Results auxiliary lineages and MAG interpretations; Methods reference homology for Baltic-Methanosarcina GAC.MBAT.2 and GTDBR214 classification.",
+        "coverage": "Selected retained main-text passages and independently accepted source-context plan. No fresh supplements, sequence or assembly audit.",
+        "identity_tokens": ["PMID: 41876513", "10.1038/s41467-026-70468-2"],
+        "anchors": ["Baltic-Methanosarcina (GAC.MBAT.2)", "Lentimicrobium (3.4%), and Desulforhopalus (3%)", "release R214"]
+      }],
+      "historical_guard_assessment": "Keep batch8's current biological and immutable-ledger predicates unchanged. Add only explicit current-baseline successor proof; absence of an old current-hash/last-event assertion is not permission for unrelated edits. Preserve GAC dependence versus genomic interpretation, auxiliary-lineage alternatives, unselected broad-rank descriptors and every original MAG label/read fraction."
+    },
+    {
+      "record": "kb/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml",
+      "record_id": "CommunityMech:000424",
+      "before_sha256": "2eede18215821618a8acacbe5d47754774d268e044e47b80368100e8e4927fc0",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/genus-next-four-source-context-001.yaml": "75833bba7cae775e5dcaa925f5f9e160d3e7730df4d3b0906aa2206bbb7a8965",
+        "tests/test_causal_review_batch92.py": "3a9c9c539a89d51bcfd0059187d5ac6c1939d97b76cc0ee0e192c3b343f0aa63",
+        "reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml": "73d40c40dca10b7548a1fe0346ea8de924df5bb224ae256fcba5b48912d1fff5",
+        "reports/causal_graph_review/decisions/20261110-c13s5-review-remediation.yaml": "65d5b4a8de4ac40aace227596b5f30ba1b8dfbae9f7b9c3d2f447d64c70c0d9e"
+      },
+      "occurrences": [{
+        "taxonomy_index": 0,
+        "term": {"id": "NCBITaxon:670486", "label": "Dehalogenimonas"},
+        "strain_name": null,
+        "expected_ncbi_rank": "NCBITaxon:genus",
+        "native_result": {
+          "gtdb_id": "GTDB:g__Dehalogenimonas", "gtdb_lineage": "d__Bacteria;p__Chloroflexota;c__Dehalococcoidia;o__Dehalococcoidales;f__Dehalococcoidaceae;g__Dehalogenimonas",
+          "gtdb_taxon": "Dehalogenimonas", "is_reclassified": false, "majority_fraction": 1.0, "n_alt": 1,
+          "ncbi_source_id": "NCBITaxon:670486", "support_genomes": 17, "total_genomes": 17, "via": "ncbi_rank_g"
+        },
+        "classify_status": {"status": "NOT_ATTEMPTED", "candidates": []},
+        "source_assessment": "The retained primary culture description and genus-level16S results identify Dehalogenimonas in the QY2-S1 enrichment, not a named isolate. Add only the genus correspondence; single/co-exposure responses and amplicon abundance do not establish species, substrate-linked growth or all proposed partner exchanges.",
+        "population_scope": "17 of17 filtered reference genomes support the genus. These are reference genomes, not seventeen study strains, an enrichment abundance denominator or an exact study assembly match.",
+        "name_scope": "Preserve NCBITaxon:670486, Dehalogenimonas, absent strain designation, QY-2/QY2-S1 provenance, existing partner mappings and Clostridium ambiguity. The no-grounding-was-asserted note remains historical curation context, not a current withholding instruction."
+      }],
+      "primary_sources": [{
+        "reference": "PMID:42511722", "path": "references_cache/PMID_42511722.txt", "sha256": "e7ce26edc63832f754798c439403265bf167c8eb883e4d8184a8fedd101f94ac",
+        "locator": "Results genus-level community composition and time course, with Methods culture provenance/amplicon sequencing context.",
+        "coverage": "Selected retained main-text passages and accepted source plan only; no fresh supplementary images or sequencing reanalysis.",
+        "identity_tokens": ["PMID: 42511722", "10.3390/ijms27146379"],
+        "anchors": ["only the genus Dehalogenimonas was detected"]
+      }],
+      "historical_guard_assessment": "Preserve batch92 original-to-c13s5 remediation chain and use exact current2eede predecessor. Keep all supporting-evidence corrections and five previously owned1996 reference mismatches explicit; source validation is not repaired by this mapping. Batch123 excludes this target from its loop and must not be weakened. No scientific graph or experimental-context edits are authorized."
+    }
+  ]
+}

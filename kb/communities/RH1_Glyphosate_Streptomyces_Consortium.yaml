@@ -81,7 +81,16 @@ taxonomy:
     term:
       id: NCBITaxon:1928
       label: Streptomyces rochei
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Streptomyces_rochei
+      gtdb_taxon: Streptomyces rochei
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces;s__Streptomyces rochei
+      ncbi_source_id: NCBITaxon:1928
+      majority_fraction: 0.87
+      total_genomes: 15
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession PP413751 in the source paper.
   strain_designation:
     strain_name: IT
@@ -121,7 +130,16 @@ taxonomy:
     term:
       id: NCBITaxon:29305
       label: Streptomyces griseoincarnatus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Streptomyces_griseoincarnatus
+      gtdb_taxon: Streptomyces griseoincarnatus
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces;s__Streptomyces griseoincarnatus
+      ncbi_source_id: NCBITaxon:29305
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: 16S accession PP413754 in the source paper.
   strain_designation:
     strain_name: SC
@@ -388,3 +406,11 @@ curation_history:
     carbon-fate arrow.; Retain the 91.03% processed-sample TOC endpoint without MUTUALISM or treating it as measured
     mineralization or a closed carbon balance. Issue #1748; reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T08:40:37Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T08:40:38Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 2 taxonomy entries (#294, #395).'

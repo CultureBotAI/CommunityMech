@@ -1,64 +1,833 @@
 id: CommunityMech:000122
 name: LBNL Human Gut Interaction SynCom
-description: A diverse synthetic human gut microbiome community used with model-guided time-series experiments
-  to infer pairwise ecological interactions and metabolic drivers of coexistence.
+description: A defined twelve-stock anaerobic human-gut model studied in laboratory serial-transfer cultures.
+  Monospecies, pairwise and full/single-dropout assemblages support fitted effective ecological interactions and
+  model-bounded coexistence analyses; metabolomics suggests candidate mechanisms rather than demonstrating specific
+  interspecies metabolite transfer.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: OTHER
 engineering_design:
-  objective: Infer ecological interaction structure and metabolic design principles in a synthetic human
-    gut microbiome community.
-  assembly_strategy: Defined human gut species were assembled into lower-order and higher-order consortia
-    for time-resolved community measurements.
-  perturbation_design: Initial species proportions and lower-order community combinations were varied
-    to predict higher-dimensional dynamics.
+  objective: Infer effective ecological interaction structure and test model predictions in a defined twelve-stock
+    human gut model.
+  assembly_strategy: The twelve Methods stocks were combined as monospecies, pairwise, full-community and single-species
+    dropout assemblages. Full and dropout arms below describe intended inoculated membership, not an assertion
+    of constant realized composition.
+  perturbation_design: PW1 used approximately equal initial OD600 contributions; PW2 used reciprocal 95:5 proportions,
+    with Methods specifying major/minor inocula of 0.0158/0.0008 OD600. Full and all twelve single-stock dropout
+    assemblages were monitored with serial 1:20 transfers every 24 h over 72 h.
   measurement_endpoints:
   - time-resolved abundance dynamics
   - ecological interaction network
   - extracellular metabolites
   - coexistence stability
   evidence:
-  - &id001
-    reference: PMID:29930200
+  - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This method was employed to decipher microbial interactions in a diverse human gut microbiome
-      synthetic community.
+    snippet: This method was employed to decipher microbial interactions in a diverse human gut microbiome synthetic
+      community.
     explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For PW2, the major and minor strains were inoculated at 0.0158 and 0.0008 OD600, respectively.
+    explanation: PW2 inoculation rule, separate from PW1 and full/dropout designs.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: Defines the full and all single-dropout arm set; Figure3 and DatasetEV3 distinguish their membership.
 environment_term:
-  preferred_term: human gut microbiome
+  preferred_term: laboratory culture environment
   term:
-    id: UBERON:0001007
-    label: digestive system
-  notes: Synthetic human-associated intestinal community studied in vitro.
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: 'Physical setting: anaerobic laboratory broth cultures. This is not a sampled intestine or an in vivo
+    host experiment.'
+modeled_environment:
+- preferred_term: human gut
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The source describes a synthetic human gut microbiome community; the modeled habitat is distinct from
+    the laboratory culture environment.
 taxonomy:
-- taxon_term:
-    preferred_term: human gut bacterial SynCom members
+- member_id: bh
+  taxon_term:
+    preferred_term: Blautia hydrogenotrophica
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:53443
+      label: Blautia hydrogenotrophica
+    notes: Paper abbreviation BH; source name Blautia hydrogenotrophica; exact Methods stock DSM 10507. Current
+      NCBI label is independently checked against the retained local ontology. GTDB mapping is species-level and
+      does not identify this individual stock's genome.
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
+      gtdb_id: GTDB:s__Blautia_A_hydrogenotrophica
+      gtdb_taxon: Blautia_A hydrogenotrophica
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Blautia_A;s__Blautia_A
+        hydrogenotrophica
+      ncbi_source_id: NCBITaxon:53443
       majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
+      total_genomes: 15
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: DSM 10507
+    culture_collections:
+    - collection: DSM
+      accession: '10507'
+    notes: BH in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
   evidence:
-  - *id001
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. hydrogenotrophica (BH, DSM 10507)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: fp
+  taxon_term:
+    preferred_term: Faecalibacterium duncaniae
+    term:
+      id: NCBITaxon:411483
+      label: Faecalibacterium duncaniae
+    notes: 'Paper abbreviation FP; source name Faecalibacterium prausnitzii; exact Methods stock DSM 17677. Current
+      NCBI label is independently checked against the retained local ontology. GTDB mapping is species-level and
+      does not identify this individual stock''s genome. DSMZ DSM17677 (A2-165) catalogue explicitly records reassignment
+      from F. prausnitzii to F. duncaniae in May2022: https://www.dsmz.de/collection/catalogue/details/culture/DSM-17677
+      (inspected 2026-11-15). The historical FP abbreviation is retained.'
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Faecalibacterium_duncaniae
+      gtdb_taxon: Faecalibacterium duncaniae
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Faecalibacterium;s__Faecalibacterium
+        duncaniae
+      ncbi_source_id: NCBITaxon:411483
+      majority_fraction: 1.0
+      total_genomes: 5099
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: DSM 17677
+    culture_collections:
+    - collection: DSM
+      accession: '17677'
+    notes: FP in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: F. prausnitzii (FP, DSM 17677)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: ca
+  taxon_term:
+    preferred_term: Collinsella aerofaciens
+    term:
+      id: NCBITaxon:74426
+      label: Collinsella aerofaciens
+    notes: Paper abbreviation CA; source name Collinsella aerofaciens; exact Methods stock DSM 3979. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome. The retained crosswalk produced no species grounding; no nearby
+      taxon was substituted.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: DSM 3979
+    culture_collections:
+    - collection: DSM
+      accession: '3979'
+    notes: CA in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. aerofaciens (CA, DSM 3979)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: pc
+  taxon_term:
+    preferred_term: Segatella copri
+    term:
+      id: NCBITaxon:165179
+      label: Segatella copri
+    notes: Paper abbreviation PC; source name Prevotella copri; exact Methods stock DSM 18205. Current NCBI label
+      is independently checked against the retained local ontology. GTDB mapping is species-level and does not
+      identify this individual stock's genome. The source spelling is retained; the NCBI synonym assertion supports
+      the current canonical species label. The crosswalk splits this species; no stock-specific genome assignment
+      was made.
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Prevotella_copri
+    - GTDB:s__Prevotella_copri_H
+  strain_designation:
+    strain_name: DSM 18205
+    culture_collections:
+    - collection: DSM
+      accession: '18205'
+    notes: PC in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. copri (PC, DSM 18205)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: er
+  taxon_term:
+    preferred_term: Agathobacter rectalis
+    term:
+      id: NCBITaxon:39491
+      label: Agathobacter rectalis
+    notes: Paper abbreviation ER; source name Eubacterium rectale; exact Methods stock ATCC 33656. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome. The source spelling is retained; the NCBI synonym assertion
+      supports the current canonical species label.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Agathobacter_rectalis
+      gtdb_taxon: Agathobacter rectalis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Agathobacter;s__Agathobacter
+        rectalis
+      ncbi_source_id: NCBITaxon:39491
+      majority_fraction: 0.99
+      total_genomes: 418
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: ATCC 33656
+    culture_collections:
+    - collection: ATCC
+      accession: '33656'
+    notes: ER in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. rectale (ER, ATCC 33656)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: dp
+  taxon_term:
+    preferred_term: Desulfovibrio piger
+    term:
+      id: NCBITaxon:901
+      label: Desulfovibrio piger
+    notes: Paper abbreviation DP; source name Desulfovibrio piger; exact Methods stock ATCC 29098. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Desulfovibrio_piger
+      gtdb_taxon: Desulfovibrio piger
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__Desulfovibrio
+        piger
+      ncbi_source_id: NCBITaxon:901
+      majority_fraction: 1.0
+      total_genomes: 156
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established [mapped via NCBI species name — no species-level NCBI id in table]
+  strain_designation:
+    strain_name: ATCC 29098
+    culture_collections:
+    - collection: ATCC
+      accession: '29098'
+    notes: DP in the source; starter culture incubated 41 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. piger (DP, ATCC 29098)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: bu
+  taxon_term:
+    preferred_term: Bacteroides uniformis
+    term:
+      id: NCBITaxon:820
+      label: Bacteroides uniformis
+    notes: Paper abbreviation BU; source name Bacteroides uniformis; exact Methods stock DSM 6597. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_uniformis
+      gtdb_taxon: Bacteroides uniformis
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides
+        uniformis
+      ncbi_source_id: NCBITaxon:820
+      majority_fraction: 1.0
+      total_genomes: 16741
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: DSM 6597
+    culture_collections:
+    - collection: DSM
+      accession: '6597'
+    notes: BU in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. uniformis (BU, DSM 6597)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: bv
+  taxon_term:
+    preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+    notes: Paper abbreviation BV; source name Bacteroides vulgatus; exact Methods stock ATCC 8482. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome. The source spelling is retained; the NCBI synonym assertion
+      supports the current canonical species label.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Phocaeicola_vulgatus
+      gtdb_taxon: Phocaeicola vulgatus
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__Phocaeicola
+        vulgatus
+      ncbi_source_id: NCBITaxon:821
+      majority_fraction: 0.86
+      total_genomes: 1446
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: ATCC 8482
+    culture_collections:
+    - collection: ATCC
+      accession: '8482'
+    notes: BV in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. vulgatus (BV, ATCC 8482)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: bt
+  taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+    notes: Paper abbreviation BT; source name Bacteroides thetaiotaomicron; exact Methods stock ATCC 29148. Current
+      NCBI label is independently checked against the retained local ontology. GTDB mapping is species-level and
+      does not identify this individual stock's genome.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_thetaiotaomicron
+      gtdb_taxon: Bacteroides thetaiotaomicron
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides
+        thetaiotaomicron
+      ncbi_source_id: NCBITaxon:818
+      majority_fraction: 0.99
+      total_genomes: 1011
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: ATCC 29148
+    culture_collections:
+    - collection: ATCC
+      accession: '29148'
+    notes: BT in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. thetaiotaomicron (BT, ATCC 29148)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: bo
+  taxon_term:
+    preferred_term: Bacteroides ovatus
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+    notes: Paper abbreviation BO; source name Bacteroides ovatus; exact Methods stock ATCC 8483. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_ovatus
+      gtdb_taxon: Bacteroides ovatus
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides
+        ovatus
+      ncbi_source_id: NCBITaxon:28116
+      majority_fraction: 0.99
+      total_genomes: 3107
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: ATCC 8483
+    culture_collections:
+    - collection: ATCC
+      accession: '8483'
+    notes: BO in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. ovatus (BO, ATCC 8483)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: ch
+  taxon_term:
+    preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+    notes: Paper abbreviation CH; source name Clostridium hiranonis; exact Methods stock DSM 13275. Current NCBI
+      label is independently checked against the retained local ontology. GTDB mapping is species-level and does
+      not identify this individual stock's genome. The source spelling is retained; the NCBI synonym assertion
+      supports the current canonical species label.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Peptacetobacter_hiranonis
+      gtdb_taxon: Peptacetobacter hiranonis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptacetobacter;s__Peptacetobacter
+        hiranonis
+      ncbi_source_id: NCBITaxon:89152
+      majority_fraction: 1.0
+      total_genomes: 82
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: DSM 13275
+    culture_collections:
+    - collection: DSM
+      accession: '13275'
+    notes: CH in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. hiranonis (CH, DSM 13275)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+- member_id: el
+  taxon_term:
+    preferred_term: Eggerthella lenta
+    term:
+      id: NCBITaxon:84112
+      label: Eggerthella lenta
+    notes: Paper abbreviation EL; source name Eggerthella lenta; exact Methods stock DSM 2243. Current NCBI label
+      is independently checked against the retained local ontology. GTDB mapping is species-level and does not
+      identify this individual stock's genome.
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Eggerthella_lenta
+      gtdb_taxon: Eggerthella lenta
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Eggerthellaceae;g__Eggerthella;s__Eggerthella
+        lenta
+      ncbi_source_id: NCBITaxon:84112
+      majority_fraction: 1.0
+      total_genomes: 220
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+        release/build date not established
+  strain_designation:
+    strain_name: DSM 2243
+    culture_collections:
+    - collection: DSM
+      accession: '2243'
+    notes: EL in the source; starter culture incubated 16 h before community inoculation. This is starter timing,
+      not community incubation time.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. lenta (EL, DSM 2243)
+    explanation: 'Methods: exact stock in the defined twelve-member roster. Current species naming and crosswalk
+      interpretation are separately documented in taxon notes and the saved review.'
+treatment_arms:
+- id: full
+  name: Full 12-member community (NONE in Dataset EV3)
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  description: Intended full inoculum; species abundances vary across the 72h serial-transfer time series. No
+    measured abundance values are pooled across sampling times.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: Results Model validation and DatasetEV3 identify the full community.
+- id: dropout_bh
+  name: BH-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes BH (DSM 10507); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the BH- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_fp
+  name: FP-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes FP (DSM 17677); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the FP- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_ca
+  name: CA-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes CA (DSM 3979); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the CA- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_pc
+  name: PC-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes PC (DSM 18205); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the PC- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_er
+  name: ER-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes ER (ATCC 33656); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the ER- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_dp
+  name: DP-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes DP (ATCC 29098); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the DP- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_bu
+  name: BU-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bv
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes BU (DSM 6597); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point. BU contamination was detected at47.5h
+    (0.4%) and persisted to72h (2%); the final three sampling points are not complete BU absence.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the BU- arm, also explicitly labeled in DatasetEV3.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: BU contamination was detected in the BU‐ consortium at 47.5 h (0.4% of the community) and BU persisted
+      in the community until 72 h (2% of the community).
+    explanation: Explicit exception to intended dropout membership.
+- id: dropout_bv
+  name: BV-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bt
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes BV (ATCC 8482); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the BV- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_bt
+  name: BT-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bo
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes BT (ATCC 29148); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the BT- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_bo
+  name: BO-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - ch
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes BO (ATCC 8483); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the BO- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_ch
+  name: CH-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - el
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes CH (DSM 13275); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the CH- arm, also explicitly labeled in DatasetEV3.
+- id: dropout_el
+  name: EL-
+  context: full-and-single-dropout community time series
+  membership_status: DEFINED_MEMBERS
+  participant_member_ids:
+  - bh
+  - fp
+  - ca
+  - pc
+  - er
+  - dp
+  - bu
+  - bv
+  - bt
+  - bo
+  - ch
+  comparator_arm_ids:
+  - full
+  description: Intended inoculum excludes EL (DSM 2243); every other Methods stock is included. This arm definition
+    is not proof that an omitted organism remained absent at every time point.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: time‐resolved measurements of relative abundance of the full (12‐member) and all single‐species dropout
+      communities
+    explanation: All single-species dropout communities includes the EL- arm, also explicitly labeled in DatasetEV3.
 ecological_interactions:
 - name: Pairwise Model Prediction Of Community Dynamics
   description: A generalized Lotka-Volterra model trained on monospecies and pairwise time series predicted much
     of the tested 11- and 12-member community dynamics; additional full-community training improved predictions.
     PARTIAL - model success supports important pairwise effects in these conditions, not absence of higher-order
-    effects, perfect prediction or universal acetate cross-feeding. Abundance inputs combined 16S proportions with
-    OD600, not direct viable-cell counts.
+    effects, perfect prediction or universal acetate cross-feeding. Abundance inputs combined 16S proportions
+    with OD600, not direct viable-cell counts.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -71,8 +840,8 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: This method was employed to decipher microbial interactions in a diverse human gut microbiome synthetic
       community.
-    explanation: Defines the tested synthetic gut community; this context statement does not itself identify a metabolite
-      mediator.
+    explanation: Defines the tested synthetic gut community; this context statement does not itself identify a
+      metabolite mediator.
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -80,15 +849,59 @@ ecological_interactions:
     explanation: Supports the fitted model and experimental predictive comparison within the tested assemblages;
       higher-order effects are not categorically excluded.
   participating_taxa:
-  - preferred_term: human gut bacterial SynCom members
+  - preferred_term: Blautia hydrogenotrophica
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:53443
+      label: Blautia hydrogenotrophica
+  - preferred_term: Faecalibacterium duncaniae
+    term:
+      id: NCBITaxon:411483
+      label: Faecalibacterium duncaniae
+  - preferred_term: Collinsella aerofaciens
+    term:
+      id: NCBITaxon:74426
+      label: Collinsella aerofaciens
+  - preferred_term: Segatella copri
+    term:
+      id: NCBITaxon:165179
+      label: Segatella copri
+  - preferred_term: Agathobacter rectalis
+    term:
+      id: NCBITaxon:39491
+      label: Agathobacter rectalis
+  - preferred_term: Desulfovibrio piger
+    term:
+      id: NCBITaxon:901
+      label: Desulfovibrio piger
+  - preferred_term: Bacteroides uniformis
+    term:
+      id: NCBITaxon:820
+      label: Bacteroides uniformis
+  - preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  - preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides ovatus
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+  - preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+  - preferred_term: Eggerthella lenta
+    term:
+      id: NCBITaxon:84112
+      label: Eggerthella lenta
 - name: Inferred Positive-Negative Ecological Network Topology
   description: The fitted 12-species gut network contains frequent negative and positive interaction coefficients,
-    including coupled positive/negative pairwise motifs. These are effective ecological effects inferred from abundance
-    dynamics. Their signs do not uniquely identify nutrient competition, cross-feeding, niche partitioning or molecular
-    mechanisms; conditioned-medium and metabolomics results provide complementary but imperfect support.
+    including coupled positive/negative pairwise motifs. These are effective ecological effects inferred from
+    abundance dynamics. Their signs do not uniquely identify nutrient competition, cross-feeding, niche partitioning
+    or molecular mechanisms; conditioned-medium and metabolomics results provide complementary but imperfect support.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -97,10 +910,10 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Modeled Pairwise Coexistence Feedback
-    description: PARTIAL - in the fitted pairwise gLV models, coupled positive and negative effects create negative
-      feedback that limits the higher-fitness partner and permits coexistence with the lower-fitness partner across
-      a broader tested growth-rate range than mutual inhibition. This preserves the source-supported model mechanism,
-      not proof of a universal or molecularly resolved feedback in the entire gut community.
+    description: PARTIAL - the fitted CH-ER pair model uses coupled positive and negative effects to implement
+      negative feedback and support coexistence across a broader tested growth-rate regime than mutual inhibition.
+      This links the inferred topology to its specific pairwise model exemplar; it does not assert a twelve-member
+      molecular feedback.
   evidence:
   - reference: PMID:29930200
     supports: SUPPORT
@@ -108,17 +921,62 @@ ecological_interactions:
     snippet: The inferred ecological network exhibits a high proportion of negative and frequent positive interactions.
     explanation: Supports signs of inferred gLV interaction coefficients, not uniquely identified molecular mechanisms.
   participating_taxa:
-  - preferred_term: human gut bacterial SynCom members
+  - preferred_term: Blautia hydrogenotrophica
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:53443
+      label: Blautia hydrogenotrophica
+  - preferred_term: Faecalibacterium duncaniae
+    term:
+      id: NCBITaxon:411483
+      label: Faecalibacterium duncaniae
+  - preferred_term: Collinsella aerofaciens
+    term:
+      id: NCBITaxon:74426
+      label: Collinsella aerofaciens
+  - preferred_term: Segatella copri
+    term:
+      id: NCBITaxon:165179
+      label: Segatella copri
+  - preferred_term: Agathobacter rectalis
+    term:
+      id: NCBITaxon:39491
+      label: Agathobacter rectalis
+  - preferred_term: Desulfovibrio piger
+    term:
+      id: NCBITaxon:901
+      label: Desulfovibrio piger
+  - preferred_term: Bacteroides uniformis
+    term:
+      id: NCBITaxon:820
+      label: Bacteroides uniformis
+  - preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  - preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides ovatus
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+  - preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+  - preferred_term: Eggerthella lenta
+    term:
+      id: NCBITaxon:84112
+      label: Eggerthella lenta
 - name: Modeled Pairwise Coexistence Feedback
-  description: Within the inferred pairwise gLV models, a positive/negative motif implements negative feedback that
-    balances monospecies fitness differences and supports coexistence over a broader tested parameter range than
-    mutual inhibition. The CH-ER pair provides an experimentally coexisting example. PARTIAL - the mathematical
-    mechanism is model-bounded; neither its molecular mediator nor universal stability of the full 12-member system
-    follows from this analysis.
-  scope: COMMUNITY_LEVEL
+  description: The fitted CH-ER pairwise gLV model contains a positive CH-to-ER coefficient and a negative ER-to-CH
+    coefficient, forming the source's model-bounded negative-feedback coexistence motif (Figure4B/C). Source/target
+    name the positive limb; the reverse inhibitory limb is part of the coupled motif. CH is Peptacetobacter hiranonis
+    DSM13275 (paper Clostridium hiranonis); ER is Agathobacter rectalis ATCC33656 (paper Eubacterium rectale).
+    The model comparison supports coexistence across broader tested growth-rate regimes than mutual inhibition,
+    not a demonstrated molecular mediator or a feedback involving all twelve members.
+  scope: PAIRWISE
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -128,38 +986,26 @@ ecological_interactions:
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: positive and negative interaction topology enables robust coexistence by implementing a negative feedback
-      loop
+    snippet: positive and negative interaction topology enables robust coexistence by implementing a negative
+      feedback loop
     explanation: Supports a negative-feedback coexistence mechanism in analyzed pairwise gLV motifs, not demonstrated
       niche partitioning or a traced metabolite loop.
-  participating_taxa:
-  - preferred_term: human gut bacterial SynCom members
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-environmental_factors:
-- name: model-guided synthetic community design
-  value: Lower-order assemblages were used to predict higher-dimensional human gut SynCom dynamics.
-  description: Initial species proportions and lower-order community combinations were varied to predict
-    higher-dimensional dynamics.
-  evidence:
-  - *id001
-related_ingredients:
-- preferred_term: acetate
-  chebi_term:
-    id: CHEBI:15366
-    label: acetic acid
-  relevance: Canonical gut-microbial cross-fed by-product — Venturelli et al. 2018 invoke acetate as
-    the paradigmatic cross-fed metabolite whose secretion and consumption between gut species alters
-    environmental pH and underlies the conditioned-media interaction phenotypes they map.
-  evidence:
   - reference: PMID:29930200
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: cross‐feeding of metabolic by‐products such as acetate in the gut microbiota is a prevalent
-      mechanism that could alter environmental pH
-    explanation: Names acetate as the exemplar cross-fed metabolite mediating pairwise interactions
-      in the gut SynCom.
+    evidence_source: COMPUTATIONAL
+    snippet: The inferred pairwise network for the CH, ER community exhibited coupled positive and negative interactions
+    explanation: Figure4B/C and retained CodeEV1 T3 specify the CH-ER motif. This is computational pairwise attribution,
+      not twelve-member or molecular-transfer evidence.
+  source_taxon:
+    preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+  target_taxon:
+    preferred_term: Agathobacter rectalis
+    term:
+      id: NCBITaxon:39491
+      label: Agathobacter rectalis
 growth_media:
 - name: Anaerobic Basal Broth (ABB) (Oxoid)
   temperature: '37'
@@ -169,51 +1015,76 @@ growth_media:
   incubation_time: '72'
   incubation_time_unit: h
   vessel_type: 96-well deep-well plate
-  preparation_notes: Cultured in a Coy anaerobic chamber; synthetic assemblages arrayed
-    into 96-well deep-well plates and incubated at 37°C without shaking; communities
-    serially transferred at ~24 h intervals using a 1:20 dilution over 72 h.
+  preparation_notes: Cultured in a Coy anaerobic chamber; synthetic assemblages arrayed into 96-well deep-well
+    plates and incubated at 37°C without shaking; communities serially transferred at ~24 h intervals using a
+    1:20 dilution over 72 h.
   evidence:
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: into 15 ml of Anaerobic Basal Broth (ABB) media (Oxoid) in an anaerobic
-      chamber and incubated at 37°C without shaking.
-    explanation: Names ABB medium, anaerobic chamber, 37°C, and no shaking for the
-      synthetic human gut community.
+    snippet: into 15 ml of Anaerobic Basal Broth (ABB) media (Oxoid) in an anaerobic chamber and incubated at
+      37°C without shaking.
+    explanation: Methods explicitly describes the 15mL starter culture, not the deep-well community working volume.
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cells were cultured in an anaerobic chamber (Coy Lab Products) using mixed
-      gas tanks containing 85% N2, 5% H2, and 10% CO2.
+    snippet: Cells were cultured in an anaerobic chamber (Coy Lab Products) using mixed gas tanks containing 85%
+      N2, 5% H2, and 10% CO2.
     explanation: Gives the anaerobic chamber gas mix (85% N2, 5% H2, 10% CO2).
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Serial transfers were performed at 24‐h intervals into fresh media using a 1:20 dilution.
+    explanation: Repeated fresh-medium transfers distinguish the 72h experiment from one closed batch.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The microbial communities were arrayed using a liquid‐handling robot (Biomek) into 96‐well deep‐well
+      plates covered with a gas‐permeable seal (Breathe Easy) and incubated at 37°C without shaking
+    explanation: Community culture vessel and incubation condition; the shaken absorbance assay is separate.
 cultivation_setup:
-- cultivation_mode: BATCH
+- cultivation_mode: OTHER
   system_type: OTHER
-  instrument_detail: 96-well deep-well plates under a gas-permeable seal (Breathe
-    Easy), arrayed by a Biomek liquid-handling robot.
+  instrument_detail: 96-well deep-well plates under a gas-permeable seal (Breathe Easy), arrayed by a Biomek liquid-handling
+    robot.
   operating_temperature: 37.0
   operating_temperature_unit: °C
-  controls_notes: Each strain inoculated at 0.01 OD600, so a multi-species assemblage
-    starts at 0.01 x n; incubated without shaking. A parallel aliquot was read in a
-    384-well plate with shaking for OD600 every 30 min.
-  notes: 'The inoculation rule is the interesting part and is why it is recorded
-    verbatim: the community''s starting density scales with its size rather than being
-    held constant, so a larger assemblage begins denser. Two of the pairwise designs
-    depart from it deliberately (PW2 at 0.0158 and 0.0008 OD600 for major and minor
-    strains). The deep-well plate is the culture; the shaken plate-reader aliquot is
-    measurement, and its shaking is not the community''s condition.'
+  controls_notes: Each strain inoculated at 0.01 OD600, so a multi-species assemblage starts at 0.01 x n; incubated
+    without shaking. A parallel aliquot was read in a 384-well plate with shaking for OD600 every 30 min.
+  notes: 'Serial-transfer cultivation: fresh-medium transfers every 24 h at 1:20 over 72 h. OTHER is used because
+    the controlled vocabulary has no exact serial-transfer mode; the paper does not specify same-vessel draw-and-fill.
+    Total initial density scales with community size (0.01 OD600 per strain), with distinct PW2 major/minor inocula.
+    Deep-well cultures were static; parallel 384-well aliquots were shaken for OD600 readings. Separate monospecies
+    metabolomics cultures supplemented only ER and FP with 33 mM acetate; this is not evidence of acetate cross-feeding
+    in the community.'
   evidence:
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The microbial communities were arrayed using a liquid‐handling robot
-      (Biomek) into 96‐well deep‐well plates covered with a gas‐permeable seal
-      (Breathe Easy) and incubated at 37°C without shaking
+    snippet: The microbial communities were arrayed using a liquid‐handling robot (Biomek) into 96‐well deep‐well
+      plates covered with a gas‐permeable seal (Breathe Easy) and incubated at 37°C without shaking
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In multi‐species assemblages, the total initial OD600 was 0.01 OD600 × n,
-      where n represents the number of strains in the community
+    snippet: In multi‐species assemblages, the total initial OD600 was 0.01 OD600 × n, where n represents the
+      number of strains in the community
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Serial transfers were performed at 24‐h intervals into fresh media using a 1:20 dilution.
+    explanation: Exact repeated-transfer protocol; no continuous dilution rate or culture residence time inferred.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In parallel, aliquots of the communities were transferred into a 384‐well absorbance plate and grown
+      in a Tecan Infinite F200 Pro plate reader with shaking for OD600 measurements at 30‐min intervals.
+    explanation: Shaking applies to the parallel optical measurement, not the static deep-well community culture.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ER and FP were grown in ABB media supplemented with 33 mM acetate (Sigma).
+    explanation: Bacterial culturing for metabolomics subsection only; no traced interspecies acetate transfer
+      is shown.
 discussions:
 - discussion_id: lbnl_gut_effective_interactions_and_molecular_mechanisms
   prompt: Which molecular mechanisms realize the inferred signed interactions and feedback?
@@ -228,15 +1099,62 @@ discussions:
     supplemented ER and FP with acetate, which does not prove cross-feeding throughout this graph. Co-consumption/secretion
     only yields an ecological effect when relevant substrates limit growth, and conditioned-medium signs do not
     always match inferred coefficients. Higher-order effects, parameter uncertainty and OD-scaled abundance remain
-    limitations. Canonical NCBITaxon:2 is only an aggregate placeholder for the 12-species experimental roster;
-    #1548 tracks its grounding and non-graph metadata. No original figure pixels, separate supplements, raw data
-    or executable model reproduction was performed.'
+    limitations. At the October 6, 2026 review checkpoint, the record still used one aggregate bacterial entry
+    instead of the experimental twelve-stock roster; #1548 tracked that historical grounding and non-graph metadata
+    gap. That review had not inspected original figure pixels or separate supplements, and had not reanalysed
+    raw data or reproduced the executable model. The November 15 reassessment subsequently grounded the twelve
+    Methods stocks and inspected the complete article text/captions, Figure 4B/C pixels, Appendix and EV1-EV4.
+    Raw-data reanalysis, all supplemental figure pixels and executable model reproduction remain outside the reassessment''s
+    scope.'
   posed_by: codex
   posed_date: '2026-10-06'
+- discussion_id: gut_roster_protocol_reassessment_20261115
+  prompt: Which stock-resolved molecular transfers explain the model-inferred signed interactions?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - cultivation_setup
+  - ecological_interactions
+  rationale: The November2026 reassessment replaces the old aggregate roster and unsupported acetate-mediator
+    assertion. Main Methods, Appendix, EV1-EV4 and stock grounding were inspected. Monospecies metabolite depletion/secretion
+    and conditioned-medium responses nominate mechanisms but do not demonstrate direct transfer between named
+    stocks. Acetate addition is confined to the ER/FP metabolomics protocol; it does not establish a community-wide
+    mediator. CA GTDB is unresolved and PC has two crosswalk candidates; no individual stock genome is assigned.
+    The October discussion is now explicitly scoped to its historical checkpoint; its original wording is preserved
+    in the prior Git and review artifacts.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the metabolite profiles failed to predict the influential role of EL in mediating community assembly,
+      fitness, and diversity
+    explanation: Explicit limit of the metabolomics-to-mechanism inference.
+  posed_by: codex
+  posed_date: '2026-11-15'
 curation_history:
 - timestamp: '2026-10-06T20:44:04Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Preserve modeled gut coexistence feedback and remove unsupported acetate and inference-workflow claims.
     Issue #1546; reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
+  llm_assisted: true
+- timestamp: '2026-11-15T02:37:46Z'
+  curator: codex
+  action: EDIT
+  changes: 'Grounded the twelve Methods stocks, retaining source names and the DSM17677 reclassification to Faecalibacterium
+    duncaniae; replaced the aggregate Bacteria/CROSS_FEEDER placeholder. Distinguished laboratory and modeled
+    gut environments, serial transfers and the shaken OD assay, and removed the unsupported acetate mediator assertion.
+    Added full-community and single-dropout intended arm membership with the reported late BU contamination qualification;
+    retained the model-bounded graph. CA GTDB remains unresolved and PC ambiguous; no stock-specific genome or
+    molecular mediator inferred. Addresses the 000122 portion of #1548 only.'
+  llm_assisted: true
+- timestamp: '2026-11-15T03:27:56Z'
+  curator: codex
+  action: EDIT
+  changes: 'Clarified that the October discussion''s aggregate roster and uninspected-figure/supplement limits
+    describe its historical checkpoint, not the current twelve-stock record. Retained the model-bounded interaction,
+    acetate and unresolved mechanism/stock-grounding limits; distinguished the November source inspection from
+    unperformed raw-data/model reanalysis. No taxonomy, evidence quotation, protocol or graph assertion changed.
+    Addresses #2831.'
   llm_assisted: true

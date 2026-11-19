@@ -17,6 +17,7 @@ reintroduce the gap the way `data/isolates/` did.
 
 import collections
 import re
+import sys
 from pathlib import Path
 
 import pytest
@@ -36,6 +37,7 @@ EXCLUDED = (
     "references_cache",
     ".git",
     ".venv",  # ~160 dependency YAMLs; leaving them in made the sweep machine-dependent
+    ".temp",  # durable review inputs/handoffs, explicitly owned by docs/record-reviews.md (#2840)
     "site",
     "docs",
     "notes",
@@ -229,3 +231,44 @@ def test_sweep_finds_every_document_in_a_multi_document_file(tmp_path):
 )
 def test_under_matches_whole_path_components(rel, roots, expected):
     assert _under(Path(rel), roots) is expected
+
+
+def _write_scanned_record(root, relative, identifier):
+    path = root / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(f"id: {identifier}\n")
+
+
+def test_durable_review_snapshots_do_not_declare_production_ids(tmp_path, monkeypatch):
+    """#2840: the documented private work root holds exact historical copies."""
+    monkeypatch.setattr(sys.modules[__name__], "REPO", tmp_path)
+    _write_scanned_record(tmp_path, "kb/communities/current.yaml", "CommunityMech:000025")
+    _write_scanned_record(
+        tmp_path, ".temp/review-checkpoint/inputs/before.yaml", "CommunityMech:000025"
+    )
+    found = _declared_ids()
+    assert found == [("CommunityMech:000025", "kb/communities/current.yaml")]
+    test_every_communitymech_id_is_used_exactly_once(found)
+    test_no_id_bearing_records_outside_known_dirs(found)
+
+
+@pytest.mark.parametrize(
+    "directory", [".temp_archive", ".temporary", "new_records", "data/isolates"]
+)
+def test_unexpected_copy_still_reaches_production_id_guards(tmp_path, monkeypatch, directory):
+    """Private-state exclusion must not hide new directories or real duplicates."""
+    monkeypatch.setattr(sys.modules[__name__], "REPO", tmp_path)
+    _write_scanned_record(tmp_path, "kb/communities/current.yaml", "CommunityMech:000025")
+    extra = f"{directory}/copy.yaml"
+    _write_scanned_record(tmp_path, extra, "CommunityMech:000025")
+    found = _declared_ids()
+    assert ("CommunityMech:000025", extra) in found
+    with pytest.raises(AssertionError, match="ids used more than once"):
+        test_every_communitymech_id_is_used_exactly_once(found)
+    if directory not in RECORD_DIRS:
+        with pytest.raises(AssertionError, match="live outside"):
+            test_no_id_bearing_records_outside_known_dirs(found)
+        # Even a unique identifier in an unexpected directory must be visible.
+        _write_scanned_record(tmp_path, extra, "CommunityMech:000999")
+        with pytest.raises(AssertionError, match="live outside"):
+            test_no_id_bearing_records_outside_known_dirs(_declared_ids())

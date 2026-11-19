@@ -1,0 +1,115 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: d834256fca00de2cc76b779dd09056ec098f978e
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected results only; require fresh native route, local authority and complete captured-input proof before staging.
+records:
+  - id: CommunityMech:000342
+    path: kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+    before_sha256: b782163d991445cbfabe4645db8c21b3597c0cb40046148fa0f5a208c5342838
+    primary_source:
+      reference: PMID:42641428
+      url: https://doi.org/10.1016/j.watres.2026.126774
+      retained_path: references_cache/PMID_42641428.txt
+      retained_sha256: 5b37f9f81a87c465d6f573bf0853a3bc5fb846464d5a26f26f1024d84f794520
+      locator: Abstract, reconstructed consortium membership and genomic/proteomic interpretation.
+      coverage: Retained abstract only; publisher DOI could not be opened by the web tool. No full paper or supplements assessed.
+      exact_short_quote: Nitratireductor sp. Z-1 and Gordonia spp. Z-2 and Z-3
+      judgment: >-
+        The abstract identifies three stocks from one enrichment. Reported polymer
+        changes and recombinant-enzyme assays do not establish stock-specific
+        species identities, carbon assimilation or intermember flux.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:245876', label: Nitratireductor}
+        stock: Z-1
+        historical_expected: {gtdb_id: 'GTDB:g__Nitratireductor', support_genomes: 49, total_genomes: 61, majority_fraction: 0.803, via: ncbi_rank_g, n_alt: 3}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:2053', label: 'Gordonia <high G+C Gram-positive bacteria>'}
+        stock: Z-2
+        historical_expected: {gtdb_id: 'GTDB:g__Gordonia', support_genomes: 450, total_genomes: 453, majority_fraction: 0.993, via: ncbi_rank_g, n_alt: 2}
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:2053', label: 'Gordonia <high G+C Gram-positive bacteria>'}
+        stock: Z-3
+        historical_expected: {gtdb_id: 'GTDB:g__Gordonia', support_genomes: 450, total_genomes: 453, majority_fraction: 0.993, via: ncbi_rank_g, n_alt: 2}
+    preservation_contract:
+      - Preserve all three stocks, including the distinct Gordonia Z-2 and Z-3 occurrences.
+      - Genus correspondence is not an identification of these stocks to species or an assembly match.
+      - Preserve the partial graph, enzyme-assay context and hypotheses about functional division; do not invent missing causal endpoints.
+      - Retain unknown medium, temperature, inoculum ratio and stock-resolved enzyme assignments from the abstract-only scope.
+    historical_guard:
+      path: tests/test_causal_review_batch77.py
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+      note: Exact record-hash and last historical llm_assisted assertions require verified predecessor projection; retain all biological predicates and the unchanged original ledger.
+  - id: CommunityMech:000390
+    path: kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+    before_sha256: 13f107e9c60dafb1f45527dc041ea9c9d1ddb9f72642a368c771a87293d045fa
+    primary_source:
+      reference: PMID:42188319
+      url: https://www.mdpi.com/1660-3397/24/5/184
+      retained_path: references_cache/PMID_42188319.txt
+      retained_sha256: f67300fc699806cb36d28d52c820f29c8e49cd473d9cd05a8222fe47863c64b2
+      locator: Abstract, Results consortium definitions, and Methods 3.1 Samples and Reagents.
+      coverage: Selected retained main-text passages and live publisher Methods; no complete supplementary or proteomics audit.
+      exact_short_quote: C2 was a consortium comprising Kamptonema sp.
+      judgment: >-
+        The paper distinguishes C1 and C2 biomasses. Kamptonema belongs to C2;
+        the five listed taxa are not one combined experimental community.
+        Protein extraction and hydrolysate antioxidant measurements do not
+        establish ecological causal interactions among members.
+    proposed_occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:1501433', label: Kamptonema}
+        stock: null
+        historical_expected: {gtdb_id: 'GTDB:g__Kamptonema', support_genomes: 5, total_genomes: 5, majority_fraction: 1.0, via: ncbi_rank_g, n_alt: 1}
+    preservation_contract:
+      - Preserve the two-community panel and empty ecological_interactions; do not combine C1 and C2 into one five-member mixture.
+      - Preserve the existing Limnospira/Arthrospira ambiguity and all three eukaryote NO_GTDB_EQUIVALENT statuses.
+      - No named Kamptonema stock is established here; do not infer PCC 6506 from a reference-proteome match.
+      - Preserve cultivation versus extraction/hydrolysis distinctions; proteomics accessions do not establish stock genome assemblies.
+    historical_guard:
+      path: tests/test_causal_review_batch72.py
+      ledger: reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml
+      note: Exact record-hash and last historical llm_assisted assertions require verified predecessor projection; retain the explicit existing AMBIGUOUS predicate at taxonomy[1].
+  - id: CommunityMech:000406
+    path: kb/communities/Meghalaya_Bacillus_Consortia_A22ED9.yaml
+    before_sha256: 53d309aa32e37b083b7cc046a89dcdb8f1b559ca89c978920811f57fdd2f164a
+    primary_source:
+      reference: PMID:42135302
+      url: https://www.nature.com/articles/s41598-026-49136-4
+      retained_path: references_cache/PMID_42135302.txt
+      retained_sha256: 2624517ca038b8cce7baaff7b566f9b3f7b08d08c2f0027bb0da5b91715c8f0d
+      locator: Methods 16S identification and metal-removal assays; Results isolate identities and consortia development.
+      coverage: Selected retained main-text passages and live publisher abstract; supplementary images and raw measurements were not independently reassessed.
+      exact_short_quote: Isolate SK22 was highly stimulated by KHED9
+      judgment: >-
+        The Results identify A22ED9 as the SK22/KHED9 pair from active mine
+        sites. The wider isolate screen is not its membership. The reported
+        accessions accompany 16S identification, not complete genomes.
+    proposed_occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1386', label: 'Bacillus <firmicutes>'}
+        stock: SK22
+        historical_expected: {gtdb_id: 'GTDB:g__Bacillus', support_genomes: 4981, total_genomes: 8737, majority_fraction: 0.57, via: ncbi_rank_g, n_alt: 44}
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:1386', label: 'Bacillus <firmicutes>'}
+        stock: KHED9
+        historical_expected: {gtdb_id: 'GTDB:g__Bacillus', support_genomes: 4981, total_genomes: 8737, majority_fraction: 0.57, via: ncbi_rank_g, n_alt: 44}
+    preservation_contract:
+      - Preserve both stocks and their 16S accessions KX896657 and MK554507 without species or assembly inference.
+      - The genus population is a majority correspondence with 44 alternatives, not unanimity or exact-stock placement.
+      - Preserve the separate 24-hour LB metal-removal assay and its pH context; do not substitute the 72-hour resistance or growth assays.
+      - Preserve limitations on oxidation state, uptake, biosorption versus precipitation and field applicability; no new consortium superiority claim.
+    historical_guard:
+      path: tests/test_causal_review_batch69.py
+      ledger: reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml
+      note: Exact record-hash and last historical llm_assisted assertions require verified predecessor projection; retain all source-cache hashes and biological predicates.
+completion_limit: >-
+  This source plan changes no canonical record and is not a saved scientific
+  review. Every application still requires independent source-context review,
+  current native proof, guarded staging, verified M5 execution, native checks,
+  immutable diagnostic evidence and strict admission of the resulting successor.

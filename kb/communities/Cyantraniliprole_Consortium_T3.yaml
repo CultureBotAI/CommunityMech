@@ -112,7 +112,10 @@ taxonomy:
     term:
       id: NCBITaxon:72360
       label: Bacillus mojavensis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_halotolerans
+    - GTDB:s__Bacillus_mojavensis
     notes: 'MALDI-TOF-MS best match: Bacillus mojavensis B1811 (Biotyper score 2.330, Table 3).'
   strain_designation:
     strain_name: Ht3
@@ -584,3 +587,7 @@ curation_history:
     evidence (6.11 x 10^6 CFU/mL), keeping downstream edges empty because Table 8 is post-assay bioinformatic prediction rather
     than demonstrated causal enzyme mediation.
   llm_assisted: true
+- timestamp: '2026-11-15T09:27:05Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

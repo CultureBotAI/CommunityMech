@@ -77,7 +77,17 @@ taxonomy:
     term:
       id: NCBITaxon:404432
       label: Salinicola
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Salinicola
+      gtdb_taxon: Salinicola
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Halomonadaceae;g__Salinicola
+      ncbi_source_id: NCBITaxon:404432
+      majority_fraction: 1.0
+      support_genomes: 46
+      total_genomes: 46
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Forms a tight phylogenetic cluster with Salinicola sp. N4 (NR_157001); 4.37 Mb draft genome sequenced under SRR38848454.
   strain_designation:
     strain_name: A11
@@ -271,3 +281,11 @@ curation_history:
     Emulsan-like bioemulsifier / candidate hphtC-5 decarboxylase node from 3 to 5 non-overlapping, bracket-free verbatim snippets
     without inventing unsupported downstream edges.
   llm_assisted: true
+- timestamp: '2026-11-15T06:17:34Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T06:17:35Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

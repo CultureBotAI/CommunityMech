@@ -114,7 +114,19 @@ taxonomy:
     term:
       id: NCBITaxon:1663
       label: Arthrobacter
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Arthrobacter_B
+    - GTDB:g__Arthrobacter
+    - GTDB:g__Arthrobacter_D
+    - GTDB:g__Specibacter
+    - GTDB:g__Arthrobacter_E
+    - GTDB:g__Arthrobacter_F
+    - GTDB:g__Arthrobacter_C
+    - GTDB:g__Arthrobacter_J
+    - GTDB:g__Arthrobacter_M
+    - GTDB:g__Renibacterium
+    - GTDB:g__Zafaria
     notes: >-
       The article identifies isolate SZ-3 to genus level; NCBI Taxonomy has a
       genus-level Arthrobacter term but no exact SZ-3 strain taxon was curated
@@ -278,3 +290,7 @@ curation_history:
   changes: 'Bound KZ catabolic roles to the reported assays and flag unresolved corrigendum verification. Issue
     #1540; reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T12:21:43Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'

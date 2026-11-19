@@ -1,0 +1,50 @@
+{
+  "issue": "https://github.com/CultureBotAI/CommunityMech/issues/2848",
+  "crosswalk": ".temp/gtdb-species-status-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz",
+  "additional_inputs": {
+    "reports/causal_graph_review/decisions/20261110-stage2-seven-records-batch147.yaml": "732db4d507546996774aca3835d77c4a2b7feba7c2690522700488e2b8c4fe19",
+    "reviews/structured/20261111T121000Z-c15s4-record-deep-audit/review.yaml": "d6273b3c8723adc01ea4d71bc589e99bb8952da3cbd9067c6a0680979a4e7c71",
+    "tests/test_causal_review_batch147.py": "dc6618679c150174a29fa1dea603ae63d6af9f485d948f9bfb13805b9a627816"
+  },
+  "records": [
+    {
+      "record": "data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml",
+      "record_id": "CommunityMech:000554",
+      "before_sha256": "e70a8434bd8db3852302899814f08a19d97c0e9d73a6636cb7715295642fdf59",
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:160791", "label": "Rhizorhabdus wittichii"},
+          "strain_name": "YL-JM2C",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native_result": {
+            "ncbi_source_id": "NCBITaxon:160791",
+            "gtdb_id": "GTDB:s__Rhizorhabdus_wittichii",
+            "gtdb_taxon": "Rhizorhabdus wittichii",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Rhizorhabdus;s__Rhizorhabdus wittichii",
+            "majority_fraction": 0.86,
+            "total_genomes": 7,
+            "is_reclassified": false,
+            "via": "ncbi_id"
+          },
+          "source_assessment": "The primary Results identify YL-JM2C as R. wittichii by approximately 97% ANI to RW1. The preserved NCBI species identifier is consistent with that declared identification. The study stock is not asserted to be represented in the older seven-genome crosswalk population.",
+          "population_scope": "The exact species-ID row reports seven genomes with rounded majority_fraction 0.86. This is a species-reference correspondence, not an exact YL-JM2C assembly classification; no numerator or stock membership is inferred.",
+          "name_scope": "The current canonical species and GTDB species names agree. Native is_reclassified:false is name comparison, not a claim reversing the paper's earlier Sphingomonas-to-Rhizorhabdus stock reassignment."
+        }
+      ],
+      "primary_sources": [
+        {
+          "reference": "PMID:42364169",
+          "path": "references_cache/PMID_42364169.txt",
+          "sha256": "76ae187fe615a75d522443b9deb085bc8499efb54df080407563f901c514a4d4",
+          "identity_tokens": ["PMID: 42364169", "PMC13440307", "10.1093/ismejo/wrag163"],
+          "anchors": [
+            "However, whole-genome analysis revealed that strain YL-JM2C shared the highest ANI value",
+            "The complete genome assembly of Rhizorhabdus wittichii YL-JM2C is available"
+          ]
+        }
+      ],
+      "historical_guard_assessment": "Original batch147 validator binds exact e70a bytes and separately validates preserved CREATED/CURATE history, node evidence and unresolved source-backed gaps. Its original mutation sample is 000555. The successor must preserve 686 historical biology and admit only the new block/status/two native events for 000554 via its own actual receipt/review/sidecar proof; unknown records receive no allowance. Current original guard code is input-bound; integration's disjoint genus/species caller remains separately owned."
+    }
+  ]
+}

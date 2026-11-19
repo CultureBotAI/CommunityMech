@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml"
@@ -145,8 +146,10 @@ def test_batch72_participants_are_canonical_and_histories_are_explicit():
         row = rows[stem]
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()
-        assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        admission = admit_genus_successor(ROOT, row["path"], row["record_sha256"])
+        historical = yaml.safe_load(admission.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
+        assert hashlib.sha256(admission.historical_bytes).hexdigest() == row["record_sha256"]
     assert docs[D]["taxonomy"][1]["taxon_term"]["gtdb_grounding_status"] == "UNRESOLVED"
     assert docs[C]["taxonomy"][1]["taxon_term"]["gtdb_grounding_status"] == "AMBIGUOUS"
 

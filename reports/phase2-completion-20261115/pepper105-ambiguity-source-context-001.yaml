@@ -1,0 +1,81 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+date: '2026-11-15'
+source_revision: f57bdef229277251aed4c341fae5e4b3903fb963
+inspection:
+  path: reports/phase2-completion-20261115/pepper105-source-inspection-001.json
+  sha256: f4c6735f7769d6c46b67199d88dbcc6106247ea90d38c1a45e78dfc1e1dd50bd
+  result: Five exact input hashes captured; inspection only, no native mapping or validation run.
+scope: >-
+  Prepare a bounded status/candidate correction for the existing Cytobacillus
+  firmus descriptor. The full current record, source abstract and specified
+  main-text passages, historical decision row and current test caller were read.
+  This is not scientific completion, a staged candidate or application approval.
+record:
+  record_id: CommunityMech:000105
+  path: kb/communities/Pepper_Phytophthora_SynCom5.yaml
+  before_sha256: ed26e547580e6b5fa6662c07720f45993a2a5a49e891a8574a635cbf0a44d81e
+  operations: status-only
+  occurrence:
+    selector: taxonomy[2].taxon_term
+    descriptor: {id: 'NCBITaxon:1399', label: Cytobacillus firmus}
+    source_stock: T8
+    stock_field_state: No strain_designation in the current selected member; this bounded mapping plan does not add one.
+    historical_route: ncbi_name
+    historical_expected_status: AMBIGUOUS
+    historical_expected_candidates: [GTDB:s__Cytobacillus_firmus, GTDB:s__Cytobacillus_firmus_A]
+    boundary: Reproduce both alternatives through the unchanged whole-record native reporter; neither is an established T8 genome assignment.
+primary:
+  reference: PMID:40508300
+  url: https://doi.org/10.3390/plants14111625
+  retained_path: references_cache/PMID_40508300.txt
+  retained_sha256: 25bfcc576d668e19cb3535cdbdee889e755b95a8b7d62030eff5834dfbadf729
+  exact_short_quote: Cytobacillus firmus T8
+  locators:
+    - Abstract, lines 22-25, complete five-isolate roster.
+    - Main-text Results, Table 1 and strain-growth description, flattened line 48.
+    - Methods, molecular characterization and ordered GenBank accessions, flattened line 48.
+    - Section 3.5 limitations and Methods 4.3/plant experiment, flattened line 48.
+  judgment: >-
+    The source names T3, T4, T8, T14 and A6 as five selected isolates and
+    identifies C. firmus T8 through 16S rRNA sequencing, with OR857502 as its
+    accession. That marker is not an assembly or a GTDB stock identification.
+    The mapping must preserve the existing NCBI descriptor and both alternatives
+    if freshly reproduced, without silently adding other species or stock fields.
+  coverage: Retained abstract and selected main-text passages/table/caption text only; no new supplementary Table S1 or figure-pixel review.
+preserve:
+  - All five existing taxonomy entries; Bacillus and Flavobacterium blocks remain exact, and unselected Streptomyces/Pseudomonas statuses stay unchanged.
+  - Existing YAML aliases and shared evidence values; the generic study-objective quotation is not newly certified as taxon-specific evidence.
+  - The host and P. capsici challenge remain outside the consortium taxonomy.
+  - Three current community-level nodes, both HYPOTHESIZED arrows, heterogeneous individual screens and absence of reciprocal-fitness or uniform-antagonism claims.
+  - Table 1 T14/A6 inhibition values 58.4%/17.6%, without converting traits into a proven pathogen-killing mechanism.
+  - Measured host growth and visible symptoms are distinct from unavailable direct disease scoring/pathogen load and the absent SynCom-only control.
+  - Source conflicts over trait rankings, TSB/LB and 180/200 rpm, pathogen accession and pot occupancy remain unresolved; no source is silently chosen.
+  - Predicted community functions are not measured flux; existing top-level disease/IAA wording is not recertified.
+  - The OPEN discussion, needs_research scientific disposition, every source quote and all historical events.
+retained_owners:
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1690
+    state_observed: OPEN
+    scope: Missing soil-response structure remains separate from this descriptor correction.
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1691
+    state_observed: OPEN
+    scope: Source identity/evidence, protocol conflicts and non-graph overstatement; its other affected records remain unresolved.
+historical_guard:
+  ledger: reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml
+  ledger_sha256: e13924aca3b858e78dcfa2074352e5a9a381bba97a83b2b94b8e864419dd9efe
+  caller: tests/test_causal_review_batch83.py
+  caller_sha256: 91b538ab0187ab3d9603a7156e29b4977c518ab89e79bedf600c25e8cad8b7df
+  boundary: >-
+    The current caller already uses the strict shared admission core for PES
+    and preserves the 052 c10s5 historical chain. Add only an explicit completed
+    105 proof; preserve both existing paths, original ledger hashes/events and
+    every current biological predicate. No blanket predecessor substitution.
+next_steps:
+  - Fresh native whole-record route and exact source binding before staging.
+  - Independently reviewed candidate and actual guarded M5 application through the established status-only path.
+  - Native sidecar, eight scoped commands, saved partial diagnostic and complete verified input checkpoint.
+  - Explicit actual successor controls and unchanged current batch83 biological tests, followed by final integration QC and generated products.
+limits:
+  - The two issue states were checked live on 2026-11-15; neither was changed or closed.
+  - No canonical record, source cache, historical ledger, shared classifier, threshold or validator changed during this preparation.

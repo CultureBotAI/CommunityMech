@@ -4,6 +4,11 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
+from ppcp_fungal_gtdb_successor import TARGET as PPCP_TARGET
+from ppcp_fungal_gtdb_successor import admit_ppcp_successor
+from remaining_four_gtdb_successors import BEFORE as REFERENCE_BEFORE
+from remaining_four_gtdb_successors import PPHET_PATH, admit_remaining_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml"
@@ -12,6 +17,11 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
+    for row in rows:
+        if row["path"] == PPCP_TARGET:
+            admit_ppcp_successor(ROOT, row["path"], row["record_sha256"])
+        elif row["path"] == PPHET_PATH:
+            admit_remaining_four_successor(ROOT, row["path"], REFERENCE_BEFORE[PPHET_PATH])
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
@@ -158,6 +168,34 @@ def test_history_source_scope_and_research_remain_explicit():
     )
     successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
+        historical = doc
+        expected = row["record_sha256"]
+        if row["path"] == PPCP_TARGET:
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_ppcp_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        elif row["id"] == "CommunityMech:000460":
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_status_successor(ROOT, row["path"], expected, current=raw)
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
+        elif row["id"] == "CommunityMech:000359":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_remaining_four_successor(
+                ROOT, row["path"], latest["record_sha256"], current=raw
+            )
+            expected = proof.current_sha256
+            historical = yaml.safe_load(proof.historical_bytes)
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "discussions",
@@ -165,15 +203,5 @@ def test_history_source_scope_and_research_remain_explicit():
         }
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert all((ROOT / p).exists() for p in row["history_files"])
-        assert doc["curation_history"][-1]["llm_assisted"] is True
-        latest = row
-        if row["id"] == "CommunityMech:000359":
-            latest = successor_by_id[row["id"]]
-            assert latest["supersedes_review"] == {
-                "review_file": str(LEDGER.relative_to(ROOT)),
-                "record_sha256": row["record_sha256"],
-            }
-            assert latest["original_sha256"] == row["record_sha256"]
-        assert (
-            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
-        )
+        assert historical["curation_history"][-1]["llm_assisted"] is True
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected

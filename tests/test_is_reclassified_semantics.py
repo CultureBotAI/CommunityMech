@@ -25,7 +25,8 @@ and GTDB reclassified nothing. Note the direction — the KB stores
 here. An earlier draft of this file had it backwards and tested a pair that
 does not exist in the corpus.
 
-These tests pin the breakdown so the description cannot go stale again. They
+The introductory counts describe the historical #441 investigation. These
+tests preserve its dated census separately from current semantic invariants. They
 deliberately do **not** assert the flag is correct — narrowing it is #480, a
 data migration and a modelling decision. They assert it still means what the
 schema now says.
@@ -35,8 +36,12 @@ from __future__ import annotations
 
 import glob
 import importlib.util
+import io
 import pathlib
 import re
+import subprocess
+import tarfile
+from functools import lru_cache
 
 import pytest
 import yaml
@@ -45,6 +50,7 @@ REPO = pathlib.Path(__file__).parent.parent
 GROUND = REPO / "scripts/gtdb_ground.py"
 SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 RECORD_GLOBS = ("kb/communities/*.yaml", "data/isolates/*.yaml", "kb/taxa/*.yaml")
+HISTORICAL_CENSUS = "edd740d502690303a691935d1ee8deef911362f8"
 
 # GTDB's polyphyly marker. `_[A-Z]+` rather than `_[A-Z]{1,2}`: the corpus
 # maxes out at `_AM`, but nothing upstream promises two characters, and a
@@ -53,11 +59,12 @@ _POLYPHYLY = re.compile(r"_[A-Z]+\b")
 # GTDB's placeholder epithet for an unnamed species — `sp017744695`.
 _PLACEHOLDER = re.compile(r"\bsp\d{6,}$")
 
-# Exact counts, not bands. An earlier draft used ±30 on 154, which let a
+# Exact historical counts, also retained as current lower bounds. An earlier draft used ±30
+# on 154, which let a
 # simulated #480 migration flip 15 of the 40 strain-drop blocks with every test
 # still green — a tolerance wide enough to hide the change the file exists to
-# notice. Exact numbers mean curation updates them deliberately, and the
-# failure message says where else the same number is written.
+# notice. These counts describe 2026-10-23 at HISTORICAL_CENSUS; later accepted
+# additions must preserve current semantic zero cases, not this snapshot's ratio (#2947).
 EXPECTED = {
     "different_name": 89,
     # 0 since #480: a dropped strain designation is no longer a difference.
@@ -128,21 +135,52 @@ def _blocks():
     """
     for pattern in RECORD_GLOBS:
         for path in sorted(glob.glob(str(REPO / pattern))):
-            stack = [yaml.safe_load(pathlib.Path(path).read_text()) or {}]
-            while stack:
-                node = stack.pop()
-                if isinstance(node, dict):
-                    grounding = node.get("gtdb_classification")
-                    if isinstance(grounding, dict) and grounding.get("is_reclassified") is True:
-                        label = (node.get("term") or {}).get("label") or ""
-                        yield (
-                            label,
-                            grounding.get("gtdb_taxon") or "",
-                            grounding.get("gtdb_id") or "",
-                        )
-                    stack.extend(node.values())
-                elif isinstance(node, list):
-                    stack.extend(node)
+            yield from _document_blocks(yaml.safe_load(pathlib.Path(path).read_text()) or {})
+
+
+def _document_blocks(document):
+    """Use the same complete traversal for current and authenticated historical bytes."""
+    stack = [document]
+    while stack:
+        node = stack.pop()
+        if isinstance(node, dict):
+            grounding = node.get("gtdb_classification")
+            if isinstance(grounding, dict) and grounding.get("is_reclassified") is True:
+                label = (node.get("term") or {}).get("label") or ""
+                yield label, grounding.get("gtdb_taxon") or "", grounding.get("gtdb_id") or ""
+            stack.extend(node.values())
+        elif isinstance(node, list):
+            stack.extend(node)
+
+
+@lru_cache(maxsize=1)
+def _historical_blocks():
+    """Read the real dated Git corpus, never a synthetic current-record replacement."""
+    roots = tuple(str(pathlib.Path(pattern).parent) for pattern in RECORD_GLOBS)
+    raw = subprocess.check_output(["git", "archive", HISTORICAL_CENSUS, *roots], cwd=REPO)
+    blocks = []
+    with tarfile.open(fileobj=io.BytesIO(raw)) as archive:
+        for member in archive:
+            path = pathlib.PurePosixPath(member.name)
+            if member.isfile() and path.parent.as_posix() in roots and path.suffix == ".yaml":
+                blocks.extend(_document_blocks(yaml.safe_load(archive.extractfile(member).read())))
+    return tuple(blocks)
+
+
+def _assert_historical_census(blocks):
+    tally = {}
+    for label, gtdb, _ in blocks:
+        bucket = classify(label, gtdb)
+        tally[bucket] = tally.get(bucket, 0) + 1
+    assert set(tally) <= set(EXPECTED), "unexpected historical bucket"
+    assert {key: tally.get(key, 0) for key in EXPECTED} == EXPECTED, "historical bucket counts"
+    assert len(blocks) == TOTAL_TRUE
+    above = sum(bool(gtdb_id) and not gtdb_id.startswith("GTDB:s__") for _, _, gtdb_id in blocks)
+    assert above == ABOVE_SPECIES, "historical above-species count"
+    not_reclassified = sum(value for key, value in tally.items() if key != "different_name")
+    assert not_reclassified == NOT_A_RECLASSIFICATION
+    # Retain the original band on the population it described, alongside exact counts.
+    assert 0.3 < not_reclassified / len(blocks) < 0.45
 
 
 def _counts() -> dict[str, int]:
@@ -153,9 +191,8 @@ def _counts() -> dict[str, int]:
 
 
 _DRIFT = (
-    "If curation moved this legitimately, update this file AND the "
-    "is_reclassified description in the schema, which quotes the same numbers, "
-    "AND the percentage in .claude/skills/ground-taxa-gtdb/SKILL.md (#441)."
+    "Current semantic floors and zero cases remain required. The schema and skill quote "
+    "the authenticated 2026-10-23 census, not a current population ratio (#441/#2947)."
 )
 
 
@@ -194,7 +231,7 @@ def test_each_bucket_holds_what_it_held(bucket: str):
 
 
 def test_the_majority_of_true_values_are_not_reclassifications():
-    """The headline claim, computed rather than asserted."""
+    """Keep the current floor and the dated ratio on their respective populations."""
     tally = _counts()
     total_true = len(list(_blocks()))
     not_reclassified = sum(v for k, v in tally.items() if k != "different_name")
@@ -202,15 +239,7 @@ def test_the_majority_of_true_values_are_not_reclassifications():
         f"{not_reclassified} of {total_true} are not reclassifications, "
         f"expected >= {NOT_A_RECLASSIFICATION}. {_DRIFT}"
     )
-    # No longer a majority, and that is the #480 improvement rather than a
-    # regression: removing the 40 strain-drop blocks took the
-    # non-reclassification share from 54% to 38%, and the genuinely-different
-    # share from 46% to 62%. Pinned as a band so the direction cannot quietly
-    # reverse.
-    assert 0.3 < not_reclassified / total_true < 0.45, (
-        f"{not_reclassified / total_true:.0%} of true values are not "
-        "reclassifications; #480 left this at 38%, and the schema says so"
-    )
+    _assert_historical_census(_historical_blocks())
 
 
 def test_the_flag_is_not_confined_to_species_rank():

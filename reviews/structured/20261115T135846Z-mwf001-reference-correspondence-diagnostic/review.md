@@ -1,0 +1,785 @@
+# MWF001: two reference correspondences and complete At/Ct alternatives
+
+- Review: 20261115T135846Z-mwf001-reference-correspondence-diagnostic
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T13:58:46.517260Z
+- Finished UTC: 2026-11-15T13:58:46.643420Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+Four existing species descriptors now have two native reference blocks with GROUNDED status and two complete ambiguity sets with AMBIGUOUS status. The four distinct MWF001 stocks, historical source names, current NCBI identities, original notes, biological content and old history remain unchanged. The reference populations and alternatives do not identify the study stocks' genomes or resolve the retained biological findings.
+
+## Scope And Provenance
+
+CommunityMech:000443 taxonomy indices 0 through 3: two reference blocks, four changed statuses, complete four-way At and three-way Ct alternatives and two native inline events, with guarded actual M5 application, appended native sidecar and eight scoped native checks. All other record content is preserved.
+
+Selection: First whole-record canary in the separately prepared 443/352/423 source lane. This diagnostic reviews exactly one record. GENIA and HAMBI have accepted source preparations but no canonical application in this lane yet; their eventual applications remain gated on this complete canary and its strict saved proof.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 9b770f6603aa2714fc4f7f317768d8857fbb8d1e.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000443 | kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml # taxonomy[2,3].taxon_term.gtdb_classification; taxonomy[0,1,2,3].taxon_term.gtdb_grounding_status; taxonomy[0,1].taxon_term.gtdb_candidates | maintained | Two species-reference mappings and complete four-way At/three-way Ct alternatives |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-strict | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-gtdb-domain | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-scalars | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-history | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| new-history | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| validate-terms | passed | True | CommunityMech:000443 | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+
+## Scientific And Domain Assessments
+
+### Four distinct MWF001 stocks and explicit source-name bridges
+
+grounding: supported. Targets: CommunityMech:000443.
+
+At, Ct, Ml and Oa retain their separate source identities despite sharing the MWF001 designation. Methods bridges liquefaciens/maritypicum and Ochrobactrum/Brucella; valid authority descriptors and the source's own naming context do not identify an experimental genome assembly.
+
+### Two current reference populations and two complete ambiguity sets
+
+grounding: supported. Targets: CommunityMech:000443.
+
+The accepted change follows two exact species-ID results with totals 22 and 100 and reported fractions 1.0 and 0.94. It preserves all four Agrobacterium and three Comamonas alternatives without selecting a single ambiguous cluster. These populations are neither study-stock genomes nor experimental abundance, and no exact support numerator is reconstructed.
+
+### Persisted bounded correction preserves biological and historical constraints
+
+provenance: supported. Targets: CommunityMech:000443.
+
+Actual application and native sidecar bind four changed descriptors and two native inline events. All eight scoped commands passed on the accepted record, with strict validation scanning one file and reporting zero errors. All biological predicates and prior needs_research scope remain. Strict saved-successor and historical caller controls are subsequent acceptance steps.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| 000443-schema | .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-strict | .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-gtdb | .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-domain | .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-scalars | .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-history | .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-new-history | .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-terms | .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/native.log | supports | Actual native command passed for this accepted record with retained nonempty output and unchanged captured inputs. |
+| 000443-paper | https://doi.org/10.1073/pnas.2607664123; Retained primary XML Materials and Methods, Strains, Media, and Culturing Conditions; exact xmllint text projection and acquisition receipts are bound inputs, with stock-name anchors in source metadata | supports | The inspected Methods names four distinct MWF001 stocks and explicitly supplies the Ml and Oa historical/current name bridges. It supplies source identity context, not independent placement of a study-stock genome in a current GTDB reference cluster. |
+| 000443-database | reports/gtdb-genia-hambi-mwf-20261115/mwf443-source-evidence-001.json; Indices 0 through 3: complete native_result, classify_status, lookup_indexes, crosswalk_rows and ncbi_identity_rows; explicit population and naming boundaries | supports | Exact-ID results support maritypicum total 22/fraction 1.0 and anthropi total 100/fraction 0.94; generic name routes retain all four At and three Ct alternatives. No stock assemblies or missing support numerators are inferred. |
+| 000443-application | .temp/gtdb-genia-hambi-mwf-20261115/443-applied-001/receipt.json; Actual before/after, externally pinned reviewed candidate/receipt, complete captured inputs, two-block/four-status native events and appended native history sidecar | supports | The exact independently reviewed M5 candidate was persisted. Only the four declared GTDB field groups and two native events changed; source stocks, biology, original notes and old history remained unchanged. |
+| 000443-prior | reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml; MWF001 needs_research decision and source-coverage limitations; complete captured tests/test_causal_review_batch66.py current biology and old digest/history predicates | context_only | The earlier biological assessment and its literal ledger remain unchanged. The scoped correction does not resolve finite coexistence, residual resources, unmeasured compounds or requested causal extensions, and does not promote scientific completion. |
+
+## Limits And Additional Notes
+
+- Partial technical database-correspondence diagnostic with scientific_review:false. These scoped checks are not full scientific approval, reference-snippet coverage, generated-page validation, final corpus QC, campaign completion or issue closure.
+- Microbacterium maritypicum uses the exact species-ID route with 22 reference genomes and fraction 1.0. Brucella anthropi uses the exact species-ID route to GTDB Ochrobactrum anthropi with 100 reference genomes and reported fraction 0.94. The latter is not unanimity; neither species result supplies support_genomes, so no exact numerator is reconstructed from either rounded fraction.
+- Agrobacterium tumefaciens retains all four ordered generic name-route alternatives: fabacearum, leguminum, oryzihabitans and tumefaciens. Comamonas testosteroni retains testosteroni, testosteroni_B and thiooxydans. These are alternative reference clusters, not extra experimental stocks, genome denominators or abundance estimates; no single block is selected for either ambiguity.
+- The primary Methods explicitly identifies At, Ct, Ml and Oa as distinct MWF001 stocks and bridges Microbacterium liquefaciens to maritypicum and Ochrobactrum anthropi to Brucella anthropi. The literal shared MWF001 designation does not collapse these stocks. The reference route does not independently identify an assembly, BioSample, strain-specific ANI placement or experimental genome.
+- Examination covered the complete current record and historical batch 66 caller/ledger, the retained primary XML identity/license, selected actual Methods stock/naming/culture passages and the captured native mapping/authority results. The committed cache is selected excerpts. No new whole-paper scientific audit, separate supplement, original figure-pixel, raw-data, source-code or assembly analysis was performed.
+- Generic cross-feeding remains PARTIAL. Residual resources and unmeasured exchanged compounds, generic model scope, both original nodes without an added arrow, eight-cycle/four-day finite observations, no-carbon and high-malate losses, and the citrate/inosine 1:10 exceptions remain explicit. No uniform persistence, exact metabolite exchange, stock-specific mechanism or newly resolved M9 recipe is claimed.
+- All source stock/medium/role statements, evidence and existing discussions remain unchanged. The historical batch 66 needs_research disposition and issues 1574/1575 remain outside this correction's closure scope. Current generic reference correspondence does not settle the remaining stock-assembly, source-protocol or causal-extension questions.
+- The original source-route layout refusal was preserved under issue 2913; the exact same table bytes were placed in the required layout before a fresh route canary and bulk route report. Issue 2916 preserves the corrected preparation wording that had incorrectly reconstructed support numerators. Neither finding changes the accepted biological scope or actual native candidate.
+- Source reporting and binding ran locally at f18ca5b7f83eae0a9c8f537bdde6703760fee90e with preparation files disclosed. Actual staging, application and all eight native commands ran in the isolated M5 checkout at frozen preparation revision 9b770f6603aa2714fc4f7f317768d8857fbb8d1e with native Python 3.13.2 and frozen offline dependencies. The applied record and additive check config are expected working-tree changes; no clean final-QC claim is made.
+- Crosswalk SHA-256 is 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; its file mtime does not establish an upstream release. Local authority observations retain file identity/stat provenance without an invented full-database digest. Native terms reports Validation passed without an assertion denominator. Complete input checkpoint, strict saved-successor admission and historical caller controls remain subsequent acceptance steps, not assumed results.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T135846Z-mwf001-reference-correspondence-diagnostic
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'MWF001: two reference correspondences and complete At/Ct alternatives'
+started_at: '2026-11-15T13:58:46.517260Z'
+finished_at: '2026-11-15T13:58:46.643420Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: The parent independently read the complete current record, historical
+    caller and ledger, retained primary Methods, authored source configuration and
+    exact local candidate. After preparation publication, the parent separately read
+    the actual M5 candidate, receipt and all 39 input bindings before guarded application,
+    and read the exact check/history configuration. The shared engine, checker, builder
+    and exporter have separate reviews and mutation controls. This is self-review
+    of the scoped technical correction, not an independent full scientific assessment.
+skill: curate-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Four existing species descriptors now have two native reference blocks with
+  GROUNDED status and two complete ambiguity sets with AMBIGUOUS status. The four
+  distinct MWF001 stocks, historical source names, current NCBI identities, original
+  notes, biological content and old history remain unchanged. The reference populations
+  and alternatives do not identify the study stocks' genomes or resolve the retained
+  biological findings.
+source:
+  git_revision: 9b770f6603aa2714fc4f7f317768d8857fbb8d1e
+  state: working_tree
+  inputs:
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-applied-001/before.yaml
+    sha256: e74f02ca9923e5df126fe571d3f6edc28a59451d385df9b89276f6a68882253b
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-applied-001/receipt.json
+    sha256: 21923636757e582234fadc80a15e75dcb538c45e6c7ed2edeea38eac1d5b0c10
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/native.log
+    sha256: 42b4cb4fce04d6e824d5931910a0016fabfeb20567adce74b7f6267efd8b0e3d
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/receipt.json
+    sha256: 1679f3e90051d31db5e5b613b58a6f74939520e0af4ec5f9d0ac409885ebcd58
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/start.json
+    sha256: 3e257250a9c385b4c5dfcea84790b53aa8867b6b8187de82f0ce9defe9e89c43
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/native.log
+    sha256: f29f2b77d5e6f59d0f8e18cac8396cee74ad5eaa07f8b358b74f84e038293891
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/receipt.json
+    sha256: 169ed3410af74cb74824bb88d1225487f2ca2008c5cdac1da49eb6be4c5a716d
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/start.json
+    sha256: fc2ae69aaf8c5fd681f071f7fdf363617ae2df311c9b8fb61658d92acbf3cae9
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/native.log
+    sha256: 700b44227c4cf01270ac26f16b308622de0b26f48d71aec49cdfaaab87620f0a
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/receipt.json
+    sha256: 8ae813e7fb3ef2dfc175bcb4aa6e12fa1ad3527ad71f50b6950ca74c95bf5c31
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/start.json
+    sha256: 9f3e808347adea472a8b071c693417433af2eae854676d1654fea88f90d976d4
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-m5-candidate-001/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+    sha256: 65e5f0ddf5548d3a5e4287222d0d2fde6c9a38b91874b4efa8bb7ed2976bae88
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-m5-candidate-001/receipt.json
+    sha256: ac5e3cfd08bcb2491ffc242f6b5aafd24987e3db84c97fe93454526de3b1b05e
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/native.log
+    sha256: 60852f63de0991bc92c05e630a304e679d5a367f417e8f3ec096e7a3041278ed
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/receipt.json
+    sha256: a5dd96b64958e7d89838a203d19aff6e096a1eed860087091ed05c4ce61ae2f5
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/start.json
+    sha256: 37f646220003aaf92906389c2d5e7f73b0a49bcc5256d0796cd89cd70b246ca8
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/native.log
+    sha256: 6fbcdc20ea38b47c3b780ae9067ced188ec1194bb7506ed09eec351b659f5e09
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/receipt.json
+    sha256: f787f2408882fadb503658a55b9b16286407b88db294a966cf428630d6c17078
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/start.json
+    sha256: b6b0a4e4254b9f0a71e420bbe6249a80f03f0b7089538b775a52380d7ba93dd4
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/native.log
+    sha256: f2cc6f41e51b1e455b0ead9b1e290a923dd0f30847275608a4439d0dbe55b40b
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/receipt.json
+    sha256: 5cf6ce0e78a9334bcbb40b3b65d117efd8d98c5ec058a1684edd86b60b8f6725
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/start.json
+    sha256: 6f03b9c11d8fdf276ae858728891493f37d279b41566fcf0db537a82396b82aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/native.log
+    sha256: 5d15edf796ff86c2ac1c27a3533f6d4f1694beda9585e9e473ab85a75d63f641
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/receipt.json
+    sha256: 3ef9460ef7bbeca836e2d6b177420316954e600a7f43975d18d1d6660e6c183c
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/start.json
+    sha256: ec45f53382bb33f4758a03642fd7067dba0f9b57abd27a652387fcf76266170c
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/native.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/native.log
+    sha256: 9ae412a7d50bc88d1776a366ef2d183e06b7fa015b003b59c117c5fa0170f9a0
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/receipt.json
+    sha256: 196809568d1ad291152dd9fe572449e211dac80b4b2f8f7e37609a1989641ba9
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/start.json
+    sha256: 57c1a04c3d88b7cb260f76839dd1cea43eb12c10e6691365a90ff4db829cf274
+    role: context
+  - path: .temp/gtdb-genia-hambi-mwf-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-capture-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-capture-001.json
+    sha256: 0a55c8b5b9d226af1a2f76473c5b4ef4fa4ed874c1322f587f7a56f08a9cc47f
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-capture-001.log
+    sha256: 657572afa216a9c45cbf2046b76b77d9b4b0d34beb7ec6758fe2e46ce92360ac
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-methods-001.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-methods-001.json
+    sha256: fe5be44dc39aef163d16b413837aadbc92417e490a514d958673897480617b40
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-primary-methods-001.log
+    sha256: 889aae444080a3a5a003a2b31887dbe006651479738494fc608433fdc4e54ae6
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-443-source-bind-002.log
+    sha256: eade95876fa7f5b4b1161c943dc057799da33efb629424a486d9da948e5151db
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.json
+    sha256: b6fc9baf2c3e87612b79814a55b34ef4e1b312c539795d9b882aefe4a27c71d4
+    role: context
+  - path: .temp/phase2-schema-20261115/genia-hambi-mwf-three-routes-002.log
+    sha256: 2ec58f9651808455646ff8cc0d5f35b93642ba386b58b8f90b0a42fdab1d51c5
+    role: context
+  - path: .temp/pr2062/root-resources/mwf443-20261115-001/mwf443-primary.body
+    sha256: d8937ac8a63e479f1dbb43ed2054ebf435c498ebd3ffc714d7c5424bee98509a
+    role: context
+  - path: .temp/pr2062/root-resources/mwf443-20261115-001/retrievals.json
+    sha256: 0339b9a5c8289802895a6d4d866d3c6e0352c6a0aeef68eb1113a3ab290a9353
+    role: context
+  - path: history/records/MWF001_FourSpecies_CrossFeeding_Consortium/2026-09-26T234011Z-claude-code-e099a2.yaml
+    sha256: 412123e61f15cead53edfd72b4fd05575dd8d029ac36259cca8c011dc9a61952
+    role: context
+  - path: history/records/MWF001_FourSpecies_CrossFeeding_Consortium/2026-09-26T234610Z-claude-code-708443.yaml
+    sha256: f8c0d5199de6e11682d9e43262ce999748bd5b67fb79c754ae767fa1a8a3e498
+    role: context
+  - path: history/records/MWF001_FourSpecies_CrossFeeding_Consortium/2026-10-06T230847Z-codex-73e39c.yaml
+    sha256: 67aeb3ce5056b05280a9cd14c578988cde6da9c697c3ebdbb32b0b6c0c0aae1a
+    role: context
+  - path: history/records/MWF001_FourSpecies_CrossFeeding_Consortium/2026-11-15T135621Z-codex-f7fbfc.yaml
+    sha256: 9753663fa596ac71d634a8220ad9b92255d9b1f0cfe791cc9fb51231d09cd6dc
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+    sha256: 65e5f0ddf5548d3a5e4287222d0d2fde6c9a38b91874b4efa8bb7ed2976bae88
+    role: target
+  - path: pyproject.toml
+    sha256: be952f0f137f85fed66bda0908f12014f1797a2dd229b44d832afc0c00471655
+    role: context
+  - path: references_cache/PMID_42752228.txt
+    sha256: ae2ac814391efb9b40bf9fa5cbe8d20286f3dc23f517081f5c370132abaa0852
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml
+    sha256: 25c1e04567419365da0bd38688918032decf12122cc83ab7c994b73d42a484f3
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-authored-source-context-002.json
+    sha256: 7ba159c3b809400b4165c8595b7471aed517e87c458c5bf048945ddaed31ffd3
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-check-config-001.json
+    sha256: 8972ade8f73586860094b3924e6ff65fd813f301a70eab68b4af7e96cce297d7
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-primary-fetch-plan-001.json
+    sha256: dcb4baeeee64fa27bd697d8423a9d835cb833a676ac3746240e18ff8aebff232
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-review-config-001.json
+    sha256: 62bed65e1ac0f9ff3c91ed0fc51e200d2fa45e46c4a310c2a7a70bd06c79f531
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-source-config-002.json
+    sha256: 8b58da7ec4c69de020e4392da27321c1e16f5794916c7aef86630be939666dae
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/mwf443-source-evidence-001.json
+    sha256: 8d7d177ee5657d756eab0c9272c22ba41cbb35bbaee1b209e92e6b239ac77113
+    role: context
+  - path: reports/gtdb-genia-hambi-mwf-20261115/three-route-plan-001.json
+    sha256: 1a0be5664d329c64ac0845c02152d06ba71fb12b4648a46dc974691c7b682b1a
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/bind_gtdb_batch_source_context_20261115.py
+    sha256: 6cdeb82122c130cd5b2e7e73bbe66bc5123fc951892f9f87edb589fb4929aac3
+    role: context
+  - path: scripts/adhoc/build_gtdb_batch_diagnostic_20261115.py
+    sha256: c6bf0d09dc3d01797ab5d956a4f7458a9a153a8704508f50e656729e4ee1b860
+    role: context
+  - path: scripts/adhoc/check_gtdb_batch_unit_20261115.py
+    sha256: 723047d1ec66fa752d6cedddbb6d399b18fa7f5b7a0e27fc435c76abfeb10493
+    role: context
+  - path: scripts/adhoc/compose_gtdb_source_config_20261115.jq
+    sha256: 45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5
+    role: context
+  - path: scripts/adhoc/export_m5_technical_evidence_20261114.py
+    sha256: a0f43f617e8921443e660d262d28713f40b4c23770b684203c37b65330cc4a5d
+    role: context
+  - path: scripts/adhoc/gtdb_batch_curation_20261115.py
+    sha256: bc488158440416db558133cfc0609111d96f46123b66c22efbafcfef1934d144
+    role: context
+  - path: scripts/adhoc/pr2062_resource_fetch.py
+    sha256: bd86266261a465f01040042fd44f96c4f65f459f0d9d8f9d4fd3cc6071698aac
+    role: context
+  - path: scripts/adhoc/report_gtdb_batch_routes_20261115.py
+    sha256: 2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/__init__.py
+    sha256: c003d906fef500e765c59c8f15ee821054e26c43e59a1be70dbc23c33f8aae66
+    role: context
+  - path: src/communitymech/curate/__init__.py
+    sha256: a591b57cbf73ef2ddb0da6d0b7be0dd784258115ae20cf4883f6f379bcad9324
+    role: context
+  - path: src/communitymech/curate/curation_event.py
+    sha256: 58ebdb58ac39d7a319156ec735db9ef2e9afb4c7350613039ad9dc49d65a5afc
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 7e0a621831b28ac0f718a29c22af8052f93e006012fff77e11d92849e4852c45
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validation/write_validated.py
+    sha256: d19dd3b1e46856b4de67ecc17fc856aaa1034a9a97259cab3bbd54c3891fb019
+    role: context
+  - path: src/communitymech/validators/__init__.py
+    sha256: 975d33a39c8e7173d25aa0de711f25a19158228ecfd837908c829b3f9f14cf93
+    role: context
+  - path: src/communitymech/validators/ncbi_domain.py
+    sha256: b1e7ffc3c35c237e36c2c19fab42f1d42a14161397de9c5e726ed85897f1e262
+    role: context
+  - path: tests/test_causal_review_batch66.py
+    sha256: 225c29cd014b09e296d9f0ebf98c787d7cc88061d3e25f4f2c939c5b1e715f3b
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000443
+  path: kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  selector: taxonomy[2,3].taxon_term.gtdb_classification; taxonomy[0,1,2,3].taxon_term.gtdb_grounding_status;
+    taxonomy[0,1].taxon_term.gtdb_candidates
+  label: Two species-reference mappings and complete four-way At/three-way Ct alternatives
+  kind: maintained
+  ownership_note: CommunityMech owns this record; only declared GTDB correspondence/status
+    and actual provenance are assessed.
+scope:
+  description: 'CommunityMech:000443 taxonomy indices 0 through 3: two reference blocks,
+    four changed statuses, complete four-way At and three-way Ct alternatives and
+    two native inline events, with guarded actual M5 application, appended native
+    sidecar and eight scoped native checks. All other record content is preserved.'
+  selection: First whole-record canary in the separately prepared 443/352/423 source
+    lane. This diagnostic reviews exactly one record. GENIA and HAMBI have accepted
+    source preparations but no canonical application in this lane yet; their eventual
+    applications remain gated on this complete canary and its strict saved proof.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000443
+  exclusions:
+  - target: Other scientific claims and records
+    reason: Existing biology is preserved, not newly certified by this database diagnostic.
+checks:
+- check_id: 000443-schema
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-schema
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-strict kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+    --out .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-strict
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-gtdb kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-gtdb
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-gtdb-domain kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-domain
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-scalars
+  name: validate-scalars
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-scalars kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-scalars
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-history history/records/MWF001_FourSpecies_CrossFeeding_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-new-history
+  name: new-history
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never new-history --kind record --slug
+    MWF001_FourSpecies_CrossFeeding_Consortium --target-root kb/communities --event
+    EDIT --outcome changed --sections taxonomy,curation_history --actor-name codex
+    --model gpt-6 --agent-tool codex --issue https://github.com/CultureBotAI/CommunityMech/issues/2848
+    --summary 'Record two native reference correspondences and two complete ambiguity
+    sets for the four MWF001 descriptors.' --details 'Preserve the four distinct MWF001
+    stocks and source name bridges. The unchanged native resolver provides Microbacterium
+    maritypicum with 22 reference genomes at majority_fraction 1.0, and Ochrobactrum
+    anthropi with 100 reference genomes at majority_fraction 0.94 for the encoded
+    Brucella anthropi descriptor; no exact support numerator is inferred. Agrobacterium
+    tumefaciens and Comamonas testosteroni retain all four and three alternatives
+    respectively. These reference populations do not identify the experimental stock
+    genomes, measure abundance or establish cross-feeding mechanisms. Only two GTDB
+    blocks, four statuses, two complete candidate lists and two native inline events
+    changed. Retain all existing stock notes, primary quotations, biological claims,
+    graph structure and old history. Crosswalk release is unestablished; file mtime
+    is not a release. The source Methods and existing excerpt cache preserve finite
+    coexistence, treatment-specific losses and residual-substrate/model limitations;
+    source recipe, stock-level and causal-extension findings under issues 1574 and
+    1575 remain open. This scoped technical correction is not a new full scientific
+    review, source-reference validation, generated-product check or aggregate QC.
+    Actual apply receipt .temp/gtdb-genia-hambi-mwf-20261115/443-applied-001/receipt.json
+    sha256:21923636757e582234fadc80a15e75dcb538c45e6c7ed2edeea38eac1d5b0c10.'
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-new-history
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+- check_id: 000443-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+  target_ids:
+  - CommunityMech:000443
+  command: just --verbose --no-dotenv --color never validate-terms kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - 000443-terms
+  scope_note: Scoped technical record gate, not whole-record scientific approval or
+    corpus QC.
+evidence:
+- evidence_id: 000443-schema
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-schema-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-strict
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-strict-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-gtdb
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-gtdb-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-domain
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-domain-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-scalars
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-scalars-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-history-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-new-history
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-new-history-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-terms
+  kind: validation
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-terms-001/native.log
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+  support: supports
+  summary: Actual native command passed for this accepted record with retained nonempty
+    output and unchanged captured inputs.
+- evidence_id: 000443-paper
+  kind: primary_source
+  reference: https://doi.org/10.1073/pnas.2607664123
+  locator: Retained primary XML Materials and Methods, Strains, Media, and Culturing
+    Conditions; exact xmllint text projection and acquisition receipts are bound inputs,
+    with stock-name anchors in source metadata
+  support: supports
+  summary: The inspected Methods names four distinct MWF001 stocks and explicitly
+    supplies the Ml and Oa historical/current name bridges. It supplies source identity
+    context, not independent placement of a study-stock genome in a current GTDB reference
+    cluster.
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+- evidence_id: 000443-database
+  kind: database
+  reference: reports/gtdb-genia-hambi-mwf-20261115/mwf443-source-evidence-001.json
+  locator: 'Indices 0 through 3: complete native_result, classify_status, lookup_indexes,
+    crosswalk_rows and ncbi_identity_rows; explicit population and naming boundaries'
+  support: supports
+  summary: Exact-ID results support maritypicum total 22/fraction 1.0 and anthropi
+    total 100/fraction 0.94; generic name routes retain all four At and three Ct alternatives.
+    No stock assemblies or missing support numerators are inferred.
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+- evidence_id: 000443-application
+  kind: record_content
+  reference: .temp/gtdb-genia-hambi-mwf-20261115/443-applied-001/receipt.json
+  locator: Actual before/after, externally pinned reviewed candidate/receipt, complete
+    captured inputs, two-block/four-status native events and appended native history
+    sidecar
+  support: supports
+  summary: The exact independently reviewed M5 candidate was persisted. Only the four
+    declared GTDB field groups and two native events changed; source stocks, biology,
+    original notes and old history remained unchanged.
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+- evidence_id: 000443-prior
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml
+  locator: MWF001 needs_research decision and source-coverage limitations; complete
+    captured tests/test_causal_review_batch66.py current biology and old digest/history
+    predicates
+  support: context_only
+  summary: The earlier biological assessment and its literal ledger remain unchanged.
+    The scoped correction does not resolve finite coexistence, residual resources,
+    unmeasured compounds or requested causal extensions, and does not promote scientific
+    completion.
+  accessed_at: '2026-11-15T13:58:46.517260Z'
+assessments:
+- assessment_id: 000443-source-scope
+  area: grounding
+  topic: Four distinct MWF001 stocks and explicit source-name bridges
+  outcome: supported
+  target_ids:
+  - CommunityMech:000443
+  evidence_ids:
+  - 000443-paper
+  - 000443-database
+  - 000443-terms
+  summary: At, Ct, Ml and Oa retain their separate source identities despite sharing
+    the MWF001 designation. Methods bridges liquefaciens/maritypicum and Ochrobactrum/Brucella;
+    valid authority descriptors and the source's own naming context do not identify
+    an experimental genome assembly.
+- assessment_id: 000443-native-correspondence
+  area: grounding
+  topic: Two current reference populations and two complete ambiguity sets
+  outcome: supported
+  target_ids:
+  - CommunityMech:000443
+  evidence_ids:
+  - 000443-database
+  - 000443-gtdb
+  - 000443-domain
+  summary: The accepted change follows two exact species-ID results with totals 22
+    and 100 and reported fractions 1.0 and 0.94. It preserves all four Agrobacterium
+    and three Comamonas alternatives without selecting a single ambiguous cluster.
+    These populations are neither study-stock genomes nor experimental abundance,
+    and no exact support numerator is reconstructed.
+- assessment_id: 000443-persistence
+  area: provenance
+  topic: Persisted bounded correction preserves biological and historical constraints
+  outcome: supported
+  target_ids:
+  - CommunityMech:000443
+  evidence_ids:
+  - 000443-application
+  - 000443-prior
+  - 000443-schema
+  - 000443-strict
+  - 000443-scalars
+  - 000443-new-history
+  - 000443-history
+  summary: Actual application and native sidecar bind four changed descriptors and
+    two native inline events. All eight scoped commands passed on the accepted record,
+    with strict validation scanning one file and reporting zero errors. All biological
+    predicates and prior needs_research scope remain. Strict saved-successor and historical
+    caller controls are subsequent acceptance steps.
+findings: []
+actions: []
+limitations:
+- Partial technical database-correspondence diagnostic with scientific_review:false.
+  These scoped checks are not full scientific approval, reference-snippet coverage,
+  generated-page validation, final corpus QC, campaign completion or issue closure.
+- Microbacterium maritypicum uses the exact species-ID route with 22 reference genomes
+  and fraction 1.0. Brucella anthropi uses the exact species-ID route to GTDB Ochrobactrum
+  anthropi with 100 reference genomes and reported fraction 0.94. The latter is not
+  unanimity; neither species result supplies support_genomes, so no exact numerator
+  is reconstructed from either rounded fraction.
+- 'Agrobacterium tumefaciens retains all four ordered generic name-route alternatives:
+  fabacearum, leguminum, oryzihabitans and tumefaciens. Comamonas testosteroni retains
+  testosteroni, testosteroni_B and thiooxydans. These are alternative reference clusters,
+  not extra experimental stocks, genome denominators or abundance estimates; no single
+  block is selected for either ambiguity.'
+- The primary Methods explicitly identifies At, Ct, Ml and Oa as distinct MWF001 stocks
+  and bridges Microbacterium liquefaciens to maritypicum and Ochrobactrum anthropi
+  to Brucella anthropi. The literal shared MWF001 designation does not collapse these
+  stocks. The reference route does not independently identify an assembly, BioSample,
+  strain-specific ANI placement or experimental genome.
+- Examination covered the complete current record and historical batch 66 caller/ledger,
+  the retained primary XML identity/license, selected actual Methods stock/naming/culture
+  passages and the captured native mapping/authority results. The committed cache
+  is selected excerpts. No new whole-paper scientific audit, separate supplement,
+  original figure-pixel, raw-data, source-code or assembly analysis was performed.
+- Generic cross-feeding remains PARTIAL. Residual resources and unmeasured exchanged
+  compounds, generic model scope, both original nodes without an added arrow, eight-cycle/four-day
+  finite observations, no-carbon and high-malate losses, and the citrate/inosine 1:10
+  exceptions remain explicit. No uniform persistence, exact metabolite exchange, stock-specific
+  mechanism or newly resolved M9 recipe is claimed.
+- All source stock/medium/role statements, evidence and existing discussions remain
+  unchanged. The historical batch 66 needs_research disposition and issues 1574/1575
+  remain outside this correction's closure scope. Current generic reference correspondence
+  does not settle the remaining stock-assembly, source-protocol or causal-extension
+  questions.
+- The original source-route layout refusal was preserved under issue 2913; the exact
+  same table bytes were placed in the required layout before a fresh route canary
+  and bulk route report. Issue 2916 preserves the corrected preparation wording that
+  had incorrectly reconstructed support numerators. Neither finding changes the accepted
+  biological scope or actual native candidate.
+- Source reporting and binding ran locally at f18ca5b7f83eae0a9c8f537bdde6703760fee90e
+  with preparation files disclosed. Actual staging, application and all eight native
+  commands ran in the isolated M5 checkout at frozen preparation revision 9b770f6603aa2714fc4f7f317768d8857fbb8d1e
+  with native Python 3.13.2 and frozen offline dependencies. The applied record and
+  additive check config are expected working-tree changes; no clean final-QC claim
+  is made.
+- Crosswalk SHA-256 is 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+  its file mtime does not establish an upstream release. Local authority observations
+  retain file identity/stat provenance without an invented full-database digest. Native
+  terms reports Validation passed without an assertion denominator. Complete input
+  checkpoint, strict saved-successor admission and historical caller controls remain
+  subsequent acceptance steps, not assumed results.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2848
+- https://github.com/CultureBotAI/CommunityMech/issues/1574
+- https://github.com/CultureBotAI/CommunityMech/issues/1575
+- https://github.com/CultureBotAI/CommunityMech/issues/2913
+- https://github.com/CultureBotAI/CommunityMech/issues/2916
+- https://github.com/CultureBotAI/CommunityMech/pull/2917
+```

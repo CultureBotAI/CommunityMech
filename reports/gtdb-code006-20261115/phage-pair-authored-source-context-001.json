@@ -1,0 +1,154 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/phage-pair-route-001.log", "sha256": "02177439996da7bc6f9cab2d51742f35cc3f8619fee4aef0b2eea179f3fa108d"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/phage-pair-route-001.json", "sha256": "4ce7fb599dd4dbcaafd9d729551f1a61c9950589a214fd0fec61ad06d7ab358a"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/phage-pair-route-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [
+    {
+      "record": "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
+      "record_id": "CommunityMech:000467",
+      "before_sha256": "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/phage467-source-context-001.yaml": "ab69eee5fc060977e77c617711225d905d551f5185d8c47cc9a3368ca5199bb6",
+        "tests/test_causal_review_batch130.py": "fc51ae1f93310f1317f78fbd11b7468b4ab6043bff4c577e8c52c1d96ac2c07b",
+        "reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml": "88a433392f6b1ad7214280eb4d71f3fb55768f2803359afb0ee5490330bea785"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:38648198",
+          "path": "references_cache/PMID_38648198.txt",
+          "sha256": "babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3",
+          "locator": "Retained main text, flattened line 120: Bacteria and phages; Evolution experiment; receptor-mutant sequencing caveat; condition-specific model results.",
+          "coverage": "Complete current record and selected retained primary Methods/Results passages. No new full scientific review, original figure pixels, supplementary data, stock sequence or assembly placement was inspected.",
+          "identity_tokens": ["38648198", "10.1371/journal.pbio.3002346"],
+          "anchors": [
+            "The bacteria P. aeruginosa UCBPP-PA14 strain marked with streptomycin resistance",
+            "The microbial community consisted of S. aureus strain 13 S44 S9 and A. baumannii clinical isolate FZ21",
+            "B. cenocepacia J2315 was originally isolated from a person with cystic fibrosis in the UK in 1989",
+            "Further sequencing of receptor mutants was not done"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:287", "label": "Pseudomonas aeruginosa"},
+          "strain_name": "UCBPP-PA14",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Pseudomonas_aeruginosa", "via": "ncbi_id", "total_genomes": 17191, "majority_fraction": 0.99, "is_reclassified": false},
+          "source_assessment": "The Methods name streptomycin-marked UCBPP-PA14 and the isogenic csy3::LacZ CRISPR-KO derivative. The existing species descriptor is preserved; both experimental backgrounds remain represented in its source notes and genetic-modification field.",
+          "population_scope": "The exact species-ID reference population contains 17,191 genomes with stored rounded fraction 0.99. This is not a stock-genome identification, exact inferred numerator, inoculum fraction or identity probability.",
+          "name_scope": "No species, stock label or genetic state changes. Preserve phage-free DOMINANT abundance versus phage-associated decline and the phenotype-based resistance classification; no specific evolved genotype is inferred."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:470", "label": "Acinetobacter baumannii"},
+          "strain_name": "FZ21",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Acinetobacter_baumannii", "via": "ncbi_id", "total_genomes": 15884, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The Methods identify the clinical isolate FZ21 from Queen Astrid Military Hospital. This supports the retained stock context, while the database correspondence uses the existing species ID rather than an independently identified FZ21 assembly.",
+          "population_scope": "The exact species-ID result covers 15,884 reference genomes with fraction 1.0. Neither this count nor the fraction measures FZ21 abundance, experimental identity certainty or a sequenced study-stock population.",
+          "name_scope": "Keep FZ21, isolation provenance and phage-free RARE versus competitive-release dominance distinct. Do not promote the existing PARTIAL diversity-mediation link."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:1280", "label": "Staphylococcus aureus"},
+          "strain_name": "13 S44 S9",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"gtdb_id": "GTDB:s__Staphylococcus_aureus", "via": "ncbi_id", "total_genomes": 37403, "majority_fraction": 1.0, "is_reclassified": false},
+          "source_assessment": "The same Methods passage identifies stock 13 S44 S9 and its clinical source. The native exact-ID mapping concerns the existing species descriptor and does not resolve a study assembly.",
+          "population_scope": "The 37,403 reference genomes and fraction 1.0 belong to the exact species-ID population. They do not count experimental stocks or specify the abundance or genome of 13 S44 S9.",
+          "name_scope": "Retain the full stock spelling, clinical provenance, abundance baseline and all original strain-specific observations. No new clinical or ecological efficacy claim follows."
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {"id": "NCBITaxon:95486", "label": "Burkholderia cenocepacia"},
+          "strain_name": "J2315",
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "expected_native": {"ambiguous": true, "via": "ncbi_name", "n_alt": 2, "gtdb_options": ["GTDB:s__Burkholderia_cenocepacia", "GTDB:s__Burkholderia_orbicola"]},
+          "source_assessment": "The Methods explicitly name J2315 and its original cystic-fibrosis isolation in 1989. The current descriptor has no exact-ID result in the pinned table; native species-name lookup retains two alternatives. A recognizable stock name is not evidence from this pass for choosing one reference cluster.",
+          "population_scope": "Preserve the complete ordered cenocepacia/orbicola alternative list and AMBIGUOUS state. No single majority, supporting genome count, stock assembly or identity probability is supplied by this name-route result.",
+          "name_scope": "Keep the source-preferred J2315 identity, low-density persistence and all original biological notes. Do not turn its persistence into extinction or choose a species correspondence by familiarity with the strain."
+        }
+      ],
+      "historical_guard_assessment": "Only the four selected descriptor GTDB fields and append-only native events may change. Preserve the fifth viral descriptor, parent NCBITaxon:389469, DMS3vir derivative, NO_GTDB_EQUIVALENT and assay-only DMS3vir+acrF1 role. Historical crosswalk-unavailability notes remain literal historical provenance; they are not a current database-absence claim. Preserve all five nodes, three arrows, two PARTIAL mediation links, four open discussions, 10-day serial transfers and condition-specific model limits. The original batch 130 ledger, cache pins, twelve graph mutation controls and current biological predicates remain unchanged. Its old taxonomy/whole-file/last-LLM expectations require strictly admitted historical projection after a complete actual saved chain; no broad exemption or full scientific approval is proposed. A complete 467 canary must precede the second record."
+    },
+    {
+      "record": "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml",
+      "record_id": "CommunityMech:000468",
+      "before_sha256": "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488",
+      "additional_inputs": {
+        "reports/phase2-completion-20261115/pha468-genus-source-context-001.yaml": "440d41870c22ac8fde3ec2a07d20d4a32b2fe05044ffd1ebe625e7ad9da9dc78",
+        "tests/test_causal_review_batch130.py": "fc51ae1f93310f1317f78fbd11b7468b4ab6043bff4c577e8c52c1d96ac2c07b",
+        "reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml": "88a433392f6b1ad7214280eb4d71f3fb55768f2803359afb0ee5490330bea785"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:40152616",
+          "path": "references_cache/PMID_40152616.txt",
+          "sha256": "65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b",
+          "locator": "Retained abstract and flattened main text lines 113/115: dominant genera, separate reactors, MAG recovery/dereplication and GTDB-Tk classification methods.",
+          "coverage": "Complete current record and selected retained primary passages. No fresh original figures, supplementary tables, raw reads, individual MAG placement or whole-record scientific review.",
+          "identity_tokens": ["40152616", "10.1128/msystems.00200-25"],
+          "anchors": [
+            "Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera",
+            "Five sequencing batch reactors (SBR), each with a working volume of 2 L",
+            "The taxonomy of MAGs was classified by GTDB-Tk version 2.1.1"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {"id": "NCBITaxon:12960", "label": "Azoarcus"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Azoarcus", "via": "ncbi_rank_g", "support_genomes": 11, "total_genomes": 11, "majority_fraction": 1.0, "n_alt": 1},
+          "source_assessment": "The source names Azoarcus among dominant genera across five separate sludge-derived enrichments. Current notes limit its dominance to Reactors A and B rather than all vessels. There is no formal isolate stock field.",
+          "population_scope": "The genus correspondence uses 11 of 11 filtered reference genomes. These are not 11 study MAGs, stocks, reactor members or relative-abundance measurements.",
+          "name_scope": "Retain genus rank, absent stock identity, reactor-specific dominance and all original evidence. No species or study assembly is assigned."
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {"id": "NCBITaxon:265", "label": "Paracoccus <a-proteobacteria>"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Paracoccus", "via": "ncbi_rank_g", "support_genomes": 486, "total_genomes": 486, "majority_fraction": 1.0, "n_alt": 1},
+          "source_assessment": "The primary genus list supports the existing bacterial Paracoccus descriptor. Its time-varying predicted phage links remain separate from a direct infection measurement.",
+          "population_scope": "The bacterial genus population is 486 of 486 filtered reference genomes, not a count of study MAGs or an experimental inoculum.",
+          "name_scope": "Preserve NCBITaxon:265 and its canonical disambiguated label; do not substitute the metazoan homonym NCBITaxon:249411. No isolate stock or species is inferred."
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {"id": "NCBITaxon:69961", "label": "Azomonas"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Azomonas", "via": "ncbi_rank_g", "support_genomes": 6, "total_genomes": 6, "majority_fraction": 1.0, "n_alt": 1},
+          "source_assessment": "Azomonas appears in the source's dominant-genus list; the current notes concern predicted phage linkage stability in specific reactors. This supports retaining the genus context, not a named isolate.",
+          "population_scope": "Six of six filtered reference genomes support the genus correspondence. This small reference denominator does not identify a study MAG or establish abundance or identity probability.",
+          "name_scope": "Keep the original genus, absent strain designation and inference-qualified phage observations. No species promotion or measured host-lysis claim is added."
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {"id": "NCBITaxon:33057", "label": "Thauera"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Thauera", "via": "ncbi_rank_g", "support_genomes": 85, "total_genomes": 92, "majority_fraction": 0.924, "n_alt": 3},
+          "source_assessment": "The source and current notes identify Thauera as a dominant genus, particularly in Reactor E. Its presence does not turn the five parallel enrichments into a defined mixed-isolate consortium.",
+          "population_scope": "The native majority is 85 of 92 filtered reference genomes over three genus alternatives, stored as 0.924. Preserve this non-unanimous population; it is not a reactor abundance, MAG completeness value or placement of a study genome.",
+          "name_scope": "Only the existing genus descriptor receives its native majority correspondence. Preserve all reactor and predicted-link qualifications and the absent stock field."
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {"id": "NCBITaxon:41275", "label": "Brevundimonas"},
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "expected_native": {"gtdb_id": "GTDB:g__Brevundimonas", "via": "ncbi_rank_g", "support_genomes": 221, "total_genomes": 221, "majority_fraction": 1.0, "n_alt": 1},
+          "source_assessment": "The primary genus list and current Reactor A predicted-link notes support the retained Brevundimonas descriptor. No isolated stock or independently established study assembly is named by this assessment.",
+          "population_scope": "The 221 of 221 filtered reference-genome correspondence does not quantify reactor dominance, inoculum composition or study-MAG identity.",
+          "name_scope": "Preserve genus rank and source wording. Predicted host linkage to the study-local phage remains a prediction, not demonstrated productive infection."
+        }
+      ],
+      "historical_guard_assessment": "Only the five selected genus GTDB fields and native appended events may change. Keep the sixth Viruses descriptor and NO_GTDB_EQUIVALENT, all five community-level nodes, no directed causal edges, open discussions, predicted host/defense relationships and transcript-versus-function limits. The 4,294 pOTUs are not bacterial reference genomes. Five separate 2 L enrichments differ in carbon source and reactor dominance; the 400 mL accumulation assay is separate. Study GTDB-Tk 2.1.1 placement of 711 dereplicated MAGs is not this crosswalk's release or an assembly mapping performed here. Preserve historical unavailable-crosswalk notes literally. Batch 130's original PHA ledger with no curation event/history remains immutable, and strict admission may adjust only its historical byte expectations while keeping current biological predicates and the separate accepted 467 chain. Earlier corrected scientific issues and remaining discussions receive no new scientific clearance. The actual 467 canary must be verified completely before this second application."
+    }
+  ]
+}

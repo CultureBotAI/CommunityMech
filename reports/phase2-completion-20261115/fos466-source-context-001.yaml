@@ -1,0 +1,47 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected routes only; fresh native binding and local authority observations remain required.
+record:
+  id: CommunityMech:000466
+  path: kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml
+  before_sha256: 0ca3ae19e967be3786f5495c5633b088efc2afd4dbe18c322eb2a3a6447d29ef
+  primary_source:
+    reference: PMID:42781020
+    url: https://doi.org/10.3389/fmicb.2026.1866842
+    retained_path: references_cache/PMID_42781020.txt
+    retained_sha256: 1d7403bbc62cf62cbd5793103be8e00982e4f8e13a53897a334d7ddd8c90201b
+    locator: Retained Methods2.1 and Table1 stock roster, DNA-qPCR calibration on flattened line77; host-active-compound limitation on line78.
+    coverage: Complete661-line canonical record and selected retained primary passages/table read. No fresh full-paper, figure-pixel, supplementary-data, stock-sequence or assembly audit. Earlier figure inspection remains historical evidence.
+    judgment: The source distinguishes the three PBS probiotic stocks from four minimal-core members. Table1 names PBS072/DSM25175, CL02T12C19/HM-726 and 1_3_50AFAA/HM-303, with the former Clostridium orbiscindens name for the last. These source collection identifiers establish attribution, not this pass's independent study-genome placement.
+  proposed_occurrences:
+    - selector: taxonomy[2].taxon_term
+      descriptor: {id: 'NCBITaxon:1598', label: Limosilactobacillus reuteri}
+      stock: PBS072
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 4, gtdb_options: ['GTDB:s__Limosilactobacillus_reuteri', 'GTDB:s__Limosilactobacillus_reuteri_E', 'GTDB:s__Limosilactobacillus_reuteri_G', 'GTDB:s__Limosilactobacillus_rodentium']}
+    - selector: taxonomy[3].taxon_term
+      descriptor: {id: 'NCBITaxon:246787', label: Bacteroides cellulosilyticus}
+      stock: CL02T12C19
+      historical_expected: {via: ncbi_name, gtdb_id: 'GTDB:s__Bacteroides_cellulosilyticus', total_genomes: 1018, majority_fraction: 1.0, is_reclassified: false}
+    - selector: taxonomy[5].taxon_term
+      descriptor: {id: 'NCBITaxon:292800', label: Flavonifractor plautii}
+      stock: 1_3_50AFAA
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Flavonifractor_plautii', total_genomes: 142, majority_fraction: 0.98, is_reclassified: false}
+  preservation_contract:
+    - Preserve all seven stock names, DSM/ATCC identifiers, BEI/HM notes and source-preferred/former names. Keep all four unselected blocks exactly, including the two manually curated R232 pins for L.acidophilus and C.symbiosum. This correction does not newly certify their release/provenance wording.
+    - Preserve all four ordered L.reuteri alternatives without choosing the PBS072 stock genome. B.cellulosilyticus uses a species-name fallback, not exact-ID coverage. Reference populations1018 and142, fraction1 and rounded0.98 are not inoculum counts, exact stock matches, exact numerators or strain-membership probabilities.
+    - Preserve historical unavailable-crosswalk notes and every original event. The new pinned table's upstream release remains unestablished. Collection names and source-reported genome-derived calibration do not independently establish the selected stock assemblies.
+    - Keep three community-level nodes, zero arrows, seven participants for abundance/metabolites and three for expression. Distinguish DNA-qPCR counts from viability and RNA/cDNA expression, 2-percent FOS from non-carbon-matched 1-percent glucose, qualitative GC-MS profiles from flux and chemical acid identities from ionic speciation.
+    - Preserve historical Figure7C scope and the absence-of-a-panel-label versus physiological-absence distinction. No fresh figure audit or new host endpoint is claimed. The two open discussions, active-compound uncertainty and pending host-response expansion remain; no cross-feeding, necessary enzyme, Cd36 mediator or clinical effect is established.
+    - Preserve all non-graph assay/pretreatment wording as unreviewed by this taxonomy pass. The original batch39 needs_research disposition and historical follow-ups1449/1450 remain literal; current issue status was not rechecked here. This preparation does not launch the separately bounded research job or relabel old figure evidence as current full review.
+  historical_guard:
+    path: tests/test_causal_review_batch39.py
+    sha256: b76b69039c1ae43beb42e957cc0cd508042adfa3d9d2786617eabeccc5c18a81
+    ledger: reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml
+    ledger_sha256: a1dee2681584def997c377ad6ae941a5595a60c864f2efbd465d907812d1ffe2
+    note: Preserve all eight original tests, current parsed biological/participant predicates, both unrelated records, source-cache hashes and pending expansion checks. Exact466 successor admission may project only the old digest and last-LLM expectation onto verified historical bytes; never replace current biological fields to pass an assertion. Original ledger and its needs_research status remain immutable.
+completion_limit: Three selected descriptors in one whole record. No canonical change, fresh native route proof, scientific finding resolution or reference validation is supplied. Fresh binding, candidate review, guarded application, eight native checks, immutable partial assessment, complete checkpoint and strict successor proof remain required.

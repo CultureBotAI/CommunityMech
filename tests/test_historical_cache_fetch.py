@@ -17,6 +17,29 @@ LEDGERS = [
     "20261007-four-records-batch88.yaml",
     "20261007-four-records-batch92.yaml",
 ]
+# Immutable scientific fixtures used by phase2_review_successor, its actual
+# 000087 canary control, the EcoFAB apply guard, and the gut historical-scope
+# guard respectively (#2832/#2838), followed by the real integrated note-only
+# predecessors for the Paenibacillus and wheat composite GTDB successors (#2874).
+SCIENTIFIC_BASES = [
+    "68699871415fda3c9eebf20382a315f9f3c7b17a",
+    "6db62bda10f9ff88df9561475112f47d08d332c3",
+    "17616c9cad16a1b62cd6e9b39d82af4276e5188a",
+    "de4c6450dd3e42f205c2f7e8f11b8fe44f03bd6b",
+    "53007c13842a0fa9785916e6e17b9ff2228407ac",
+    "4d7a127e31c5de7278618e6025a037440c862da9",
+    "25de294d4a2a6c4654cbf8b824e44e8222568925",
+    "1380734c73dfcebe631ea6964b9e010da6172f31",
+    "35667772f9fde01fd2cce34672a4f4417381943c",
+    "0794bf80ebd15a073dc2103cfd1ed0c5234e6d74",
+    "2139fa42fe538c110f2b91a6e85872e9a30b472b",
+    # Published Wetland identity source fixture; production integration is separate.
+    "38f11cfac83036ed7e2feeea8cb19db74eed3306",
+    # Actual maintained Wetland identity intermediate for production admission.
+    "faad27a2d22971ab0e50594ff4cb4fdf6f63d8c7",
+    # Dated 143-block reclassification census, separate from current semantic guards.
+    "edd740d502690303a691935d1ee8deef911362f8",
+]
 
 
 def workflow_command():
@@ -36,7 +59,7 @@ def workflow_command():
         ]
         for name in LEDGERS
     ]
-    assert command[4:] == expected
+    assert command[4:] == expected + SCIENTIFIC_BASES
     return command
 
 
@@ -59,7 +82,7 @@ def test_actual_fetch_control_mutation_and_restoration_in_fresh_clones(tmp_path)
     path = "references_cache/fixture.txt"
     (remote / path).parent.mkdir()
     inputs = []
-    for i in range(5):
+    for i in range(len(LEDGERS) + len(SCIENTIFIC_BASES)):
         content = f"Historical evidence {i}.\n".encode()
         (remote / path).write_bytes(content)
         git(remote, "add", path)

@@ -2,6 +2,8 @@
 
 from pathlib import Path
 
+import ambiguity_gtdb_successors as status_successor
+import gtdb_species_batch_successors_20261115 as species_successor
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +50,11 @@ def test_phage_isotope_measurement_is_distinct_from_predicted_hosts():
 
 
 def test_lignin_proxy_does_not_assert_structural_catabolism():
+    species_successor.admission(
+        ROOT,
+        "kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml",
+        "882c357a014a5814d0b7c792c6f299944e22a8a35f453a1d53ebdf20065d749e",
+    )
     signal, dropout, biofilm = nodes("Bacillales_Lignin_Degrading_LDSynCom")
     assert signal["name"] == "LDSynCom lignin-associated phenolic signal"
     assert "biological_processes" not in signal
@@ -57,6 +64,11 @@ def test_lignin_proxy_does_not_assert_structural_catabolism():
 
 
 def test_supported_exchange_and_reciprocal_plate_interference_are_preserved():
+    status_successor.admit_status_successor(
+        ROOT,
+        status_successor.TOBACCO_PATH,
+        status_successor.BEFORE[status_successor.TOBACCO_PATH],
+    )
     exchange, enzyme, field = nodes("Bacillus_Bradyrhizobium_Straw_Humification_SynCom")
     assert exchange["interaction_type"] == "CROSS_FEEDING"
     assert "interaction_type" not in enzyme
@@ -68,6 +80,12 @@ def test_supported_exchange_and_reciprocal_plate_interference_are_preserved():
     assert all("interaction_type" not in n for n in (iaa, disease, root, field))
     assert iaa["biological_processes"][0]["term"]["id"] == "GO:0009684"
     assert "biological_processes" not in root
+
+
+def test_at_rsphere_status_change_requires_complete_scoped_proof():
+    status_successor.admit_status_successor(
+        ROOT, status_successor.AT_PATH, status_successor.BEFORE[status_successor.AT_PATH]
+    )
 
 
 def test_removed_nodes_have_explicit_ledger_decisions():

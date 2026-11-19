@@ -57,6 +57,11 @@ tmp/
 # Reference cache (PubMed abstracts - keep in git for reproducibility)
 # references_cache/
 
+# Source catalog metadata is public; retained supplement content stays local.
+/conf/reference_sources/assets/
+/conf/reference_sources/extractions/
+/conf/reference_validator.yaml.bak-source-catalog-20261115
+
 # Media cache (CultureMech/MediaIngredientMech data - can be regenerated)
 media_cache/
 
@@ -97,6 +102,12 @@ config.local.mk
 *.log
 # Reviewed, immutable persistence proofs linked by the M5 completion report (#2794).
 !/reports/m5-completion-20261114/persistence-20261114/*.log
+# Exact retained Switchgrass failure evidence and actual audit fixture (#2945).
+!/reports/switchgrass-full-review-20261116/attempt001.log
+!/tests/fixtures/switchgrass-network-audit-20261116.log
+# Already published source-plan and measurement provenance (#2945, #2922).
+!/reports/switchgrass-m5-locator-source-plan-20261115.json
+!/reports/gtdb-wetland-identity-20261115/identity-evidence-001/471-identity-measurement.log
 
 # Curation / audit pipeline outputs — these are regeneratable artifacts
 # produced by scripts/curate_evidence_with_pdfs.py (removed in #410) and the

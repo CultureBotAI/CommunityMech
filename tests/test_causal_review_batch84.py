@@ -4,6 +4,8 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from ambiguity_gtdb_successors import admit_status_successor
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml"
@@ -12,7 +14,18 @@ LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-bat
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return (
+        ledger,
+        rows,
+        [
+            yaml.safe_load(
+                admission(ROOT, row["path"], row["record_sha256"]).historical_bytes
+                if row["id"] == "CommunityMech:000053"
+                else (ROOT / row["path"]).read_bytes()
+            )
+            for row in rows
+        ],
+    )
 
 
 def test_diatom_attachment_survives_competition_qualification():
@@ -142,7 +155,13 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
     assert [d["query_chars"] for d in ledger["edison"]["dry_runs"]] == [11324, 18291, 8897]
     for row, doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        historical = doc
+        if row["id"] == "CommunityMech:000446":
+            raw = (ROOT / row["path"]).read_bytes()
+            assert doc == yaml.safe_load(raw)
+            proof = admit_status_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+            historical = yaml.safe_load(proof.historical_bytes)
+        assert historical["curation_history"][-1]["llm_assisted"] is True
         expected_hash = row["record_sha256"]
         if row["id"] == "CommunityMech:000054":
             successor = yaml.safe_load(
@@ -159,4 +178,12 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
             assert successor["original_sha256"] == expected_hash
             assert successor["status"] == "needs_research"
             expected_hash = successor["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash
+        current_proof = (
+            admit_status_successor(ROOT, row["path"], expected_hash)
+            if row["id"] == "CommunityMech:000446"
+            else admission(ROOT, row["path"], expected_hash)
+        )
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+            == current_proof.current_sha256
+        )

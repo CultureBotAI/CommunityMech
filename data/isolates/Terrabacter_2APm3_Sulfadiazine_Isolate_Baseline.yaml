@@ -41,14 +41,23 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:g__Terrabacter
       gtdb_taxon: Terrabacter
-      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Intrasporangiaceae;g__Terrabacter
-      ncbi_source_id: NCBITaxon:1472881
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Dermatophilaceae;g__Terrabacter
+      ncbi_source_id: NCBITaxon:53355
       majority_fraction: 1.0
-      support_genomes: 9
-      total_genomes: 9
+      support_genomes: 12
+      total_genomes: 12
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded via genus ancestor NCBITaxon:37948
-        (Terrabacter); 9 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd [manual
+        verified genus-ancestor route NCBITaxon:53355 Terrabacter; native named-species-filtered aggregate support 12 / total
+        12, fraction 1.0; reference-genus population, not 12 genomes or strains of 2APm3; no GTDB release inferred from file time]
+      curated: true
+      curation_note: 'Manual reference-genus correspondence for the preserved NCBITaxon:1472881 Terrabacter sp. 2APm3 stock. PMID:42598292
+        Methods identifies DSMZ 28514; DSMZ BacDive 157986 links DSM 28514 to 2APm3. NCBI Taxonomy 1472881 LineageEx verifies
+        genus 53355 Terrabacter; the old 37948 ancestor assertion was incorrect. The native exact stock ID/name lookup returns
+        no result on the retained crosswalk bytes. A separately inspected native genus 53355 query gives the stored genus lineage
+        and 12/12 reference-genome counts after named-species filtering (18 raw genus rows were inspected). This does not establish
+        an exact stock genome, GTDB species assignment, or 12 strains of 2APm3. Preserve this evidenced manual ancestor mapping
+        rather than relabel the stock or invent exact-genome support. Issue #2849.'
     notes: Actinobacterial isolate DSMZ 28514 capable of mineralizing free 2-aminopyrimidine (2-AP) but unable to cleave intact
       sulfadiazine (SDZ) without Microbacterium sp. BR1.
   strain_designation:
@@ -225,4 +234,14 @@ curation_history:
   action: CURATE_CAUSAL_GRAPH
   changes: Reviewed the single COMMUNITY_LEVEL interaction node, the 0-edge boundary, and 1 KNOWLEDGE_GAP discussion against
     PMID:42598292 (PMC13472149); enriched interaction evidence from 3 to 5 non-overlapping, bracket-free verbatim snippets.
+  llm_assisted: true
+- timestamp: '2026-11-15T05:25:03Z'
+  curator: codex
+  action: EDIT
+  changes: 'Correct only the manually curated Terrabacter reference-genus mapping. PMID:42598292 Methods names DSMZ 28514;
+    primary DSMZ BacDive 157986 identifies this stock as 2APm3. NCBI Taxonomy 1472881 verifies genus ancestor 53355 Terrabacter,
+    replacing the incorrect 37948 provenance. The retained crosswalk genus mapping yields Actinomycetales/Dermatophilaceae,
+    support 12 / total 12 / fraction 1 from the native named-species-filtered reference population. Preserve outer stock NCBITaxon:1472881
+    and all biological/graph claims. No exact stock-genome or GTDB species identity is asserted; these counts do not describe
+    12 strains of 2APm3. Remove unsupported latest/build wording and document the manual ancestor route. Issue #2849.'
   llm_assisted: true

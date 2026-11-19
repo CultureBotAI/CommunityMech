@@ -1,0 +1,4920 @@
+# Full current EcoFAB, dopamine and Methods-defined LBNL scientific reassessment
+
+- Review: 20261115T031503Z-phase2-three-record-final-science
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-15T02:25:59Z
+- Finished UTC: 2026-11-15T03:15:03Z
+- Reviewer: codex-community-m5 (self_review)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Full current scientific assessment covers 49 stock assertions, 10 nodes, four arrows, four EcoFAB treatment arms and relative-read observations, and 17 exact genome pairs. EcoFAB causal, study-stage and genome findings and narrow LBNL annotation coverage resolve. LBNL source roster correspondence and two supplement-routing failures remain open. All 27 native focused gates executed: 26 passed and one failed. Actual snippet comparison coverage is measured separately; this is not a full-corpus or merge claim.
+
+## Scope And Provenance
+
+Every populated scientific field in current records 000025, 000516 and 000087: stocks, host, environment, cultivation, interactions, arrows, evidence, relations, resources, discussions and provenance. Full coverage applies only to these three records.
+
+Selection: Explicit Phase 2 cohort, following the accepted 000087 canary and linked correction; no all-record campaign sample inference.
+Coverage: full; 3 reviewed / 3 in the declared population.
+Source: working_tree at Git base a821ec7ca48adb5232cfc7a92e86d1d20330d278.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000025 | kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml | maintained | EcoFAB 2.0 Root Microbiome Ring Trial SynCom17 |
+| CommunityMech:000516 | kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml | maintained | Brachypodium Natural-Variation Hydroponic Dopamine SynCom16 |
+| CommunityMech:000087 | kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml | maintained | LBNL Switchgrass Soil SynCom16 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| ecofab schema | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab strict | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab gtdb | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab domain | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab scalars | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab terms | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab history | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab references | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| ecofab network | passed | True | CommunityMech:000025 | Executed current native gate; not scientific truth certification. |
+| dopamine schema | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine strict | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine gtdb | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine domain | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine scalars | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine terms | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine history | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine references | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| dopamine network | passed | True | CommunityMech:000516 | Executed current native gate; not scientific truth certification. |
+| lbnl schema | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl strict | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl gtdb | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl domain | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl scalars | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl terms | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl history | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl references | failed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+| lbnl network | passed | True | CommunityMech:000087 | Executed current native gate; not scientific truth certification. |
+
+## Scientific And Domain Assessments
+
+### Source-defined ring trial and four distinct arms
+
+identity: supported. Targets: CommunityMech:000025.
+
+Engineered17-stock Bd21-3 laboratory root model is distinct from source soil, Coker final16 and Ding16. Four native arms represent source SynCom17, OAS925-omission16, axenic mock and plant-free mock; NO_MICROBES denotes intended control design, not a claim every sterility test was negative.
+
+### Plant ring trial, inoculum stocks and reporter assay separated
+
+scope: supported. Targets: CommunityMech:000025.
+
+Ring inoculation at source10-day seedlings and harvest22DAI is separate from reporter3-day plants and microscopy1/3DAI. Nine mLhalfMS plus1mLinoculum/mock,14hlight26°C/10hdark20°C withlabC16hlight exception,PPFD110–140 and humidity70%if tunable are prescribed conditions, not uniform measured exposure. Stock27°C2–8day/media/glycerol preparation differs from reporter27°C200rpmKan20mg/L and genomic/trait assays. Unrelated nitrogen-form experiment is no longer a ring intervention.
+
+### Four observations retain arm, time and measurement scale
+
+scope: supported. Targets: CommunityMech:000025.
+
+OAS925 at 98 ± 0.03% belongs to SynCom17; OAS809 at 68 ± 33%, OAE908 at 14 ± 27%, and OAE515 at 15 ± 20% belong to the OAS925 omission treatment. All are root relative 16S means ± SD across laboratories, 22 days after inoculation. Absolute cell counts, growth rates and competitive extinction are not established. The unsupported OAP107 abundance statement at 21 days was removed.
+
+Selectors taxonomy[*].abundance_observations; timepoint harvest-22dai; relative_abundance_unit PERCENT.
+
+### Non-graph claims now respect measured endpoint scope
+
+evidence: supported. Targets: CommunityMech:000025.
+
+Generic degrader/cross-feeder roles are absent. Description, OAS925 notes, engineering endpoints and amino-acid relevance distinguish whole-treatment outcomes from strain-specific uptake/harm. Genomic annotations and separate culture/reporter data remain candidate mechanisms; graph hypotheses are not presented as selectively established causes.
+
+### Source-reported study resources and exact genome identifiers
+
+provenance: supported. Targets: CommunityMech:000025.
+
+The five preexisting study resources remain distinct amplicon, metabolomics, integrated study and phenotype datasets. The invalid GOLD pseudo-range is replaced by17 source stock/IMG/GOLD tuples including MycobacteriumGp0440934, with per-entry mainMethods evidence. Current server availability, raw reanalysis, assembly quality and exact strain genome-to-GTDB placement are not claimed.
+
+### Engineered hydroponic inoculum and ten host lines
+
+identity: supported. Targets: CommunityMech:000516.
+
+Sixteen declared stocks, ten B.distachyon genotypes, sterile start and root-bathing liquid are correctly distinguished from the separate native-soil000515 experiment. EqualOD inoculation is not equal realized abundance. Mucilaginibacter16S nondetection does not remove it from the intended inoculum.
+
+### Plant and isolate contexts remain separate
+
+scope: supported. Targets: CommunityMech:000516.
+
+Two seedlings in40mLhalfMS/PTL100,22°C16/8h150µmol/m2/s50%humidity, week1inoculation/week4harvest match Methods. Separate stocks useR2A/.1R2A/LB at30°C200rpm. NoPlants uses plant-spent medium and differs from fresh medium TeCtrl; no treatment arm or monoculture result is silently equated with the assembled community.
+
+### Dopamine identity and open substrate-versus-signal question
+
+evidence: supported. Targets: CommunityMech:000516.
+
+CHEBI18243 is supported by standard retention and MSMS/EIC. Relative spent-medium intensity is not absolute concentration or secretion rate; root2.71mg/gFW is not exudate dose. The open substrate/signalling question remains bounded because isolate finalOD effects do not identify consumption, catabolic flux or host biosynthesis mechanisms. Optional missing resources are not invented.
+
+### Methods-defined final16 collection with unresolved source correspondence
+
+identity: concern. Targets: CommunityMech:000087.
+
+The current record explicitly denotes sixteen Methods stock/DSM assertions. Earlier18/17 assays remain discussions, not final16 graph nodes. Methods/TableS1 OAE515/OAE516 and Marmoricola/Bacillus differences remain explicit; no alias or stock-equivalence inference is made.
+
+### Laboratory setting, source soil and assay-dependent cultivation
+
+scope: supported. Targets: CommunityMech:000087.
+
+ENVO01001405 laboratory setting and modeled/sourceENVO00001998soil are distinct. Isolate preculture3–5mL1xR2A30°C5–7days differs from200µLcommunity panels with dilution/time-dependent harvests and host24°C regime. No universal72h protocol, shaking condition or final16 treatment arm is invented.
+
+### Earlier18-member nutrient observation
+
+scope: supported. Targets: CommunityMech:000087.
+
+Discussion1 preserves the earlier18-member nutrient-dilution result and its3dayR2A context, without attributing the outcome to all16 current stock assertions.
+
+### Earlier inoculum-ratio/time observation
+
+scope: supported. Targets: CommunityMech:000087.
+
+Discussion2 retains initial-ratio and2/6day temporal-composition evidence with its original panel context; neither a universal abundance nor final16 causal graph is inferred.
+
+### Earlier18/17 host observations
+
+scope: supported. Targets: CommunityMech:000087.
+
+Discussion3 preserves the earlier18 and17-minus-Burkholderia plant experiment and its host-culture conditions without equating either roster with the final16 collection.
+
+### Ecological mediation and TableS1 uncertainty
+
+scope: concern. Targets: CommunityMech:000087.
+
+Discussions0/4 distinguish unresolved mechanism from measured compositional observations and retain the exact source stock disagreement. The two supplemental cell quotes remain true source quotes despite article-only matcher failures.
+
+### OAS925: Paraburkholderia
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia) is genus-level grounding with native status GROUNDED. Individual DSM113627 is distinct from complete ring consortium DSM200000SY.
+
+Selector taxonomy[0]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS809: Rhodococcus &lt;high G+C Gram-positive bacteria&gt;
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus &lt;high G+C Gram-positive bacteria&gt;) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[1]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE908: Mycobacterium
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[2]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE515: Methylobacterium
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium) is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+
+Selector taxonomy[3]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS795: Variovorax
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[4]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE497: Rhizobium
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[5]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE506: Allobosea
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea) is genus-level grounding with native status GROUNDED. Curated Allobosea85413/bacterial Bosea34/34 mapping and original flags are retained.
+
+Selector taxonomy[6]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE829: Bradyrhizobium
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE829; canonical NCBITaxon:374 (Bradyrhizobium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[7]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE881: Lysobacter
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[8]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAP107: Arthrobacter
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter) is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level, with11 unselected GTDB candidates.
+
+Selector taxonomy[9]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE513: Marmoricola
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[10]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE865: Chitinophaga
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[11]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE612: Mucilaginibacter
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[12]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS944: Niastella
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[13]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE603: Gottfriedia
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE603; canonical NCBITaxon:2837503 (Gottfriedia) is genus-level grounding with native status GROUNDED. Source Bacillus stock is preserved under curated Gottfriedia genus; no unrelated stock phenotype transferred.
+
+Selector taxonomy[14]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAP136: Brevibacillus
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[15]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE614: Paenibacillus
+
+grounding: supported. Targets: CommunityMech:000025.
+
+Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus) is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus mapping remains ambiguous; no candidate is selected.
+
+Selector taxonomy[16]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### All populated related-community claims reviewed
+
+consistency: supported. Targets: CommunityMech:000025.
+
+Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine link to000515 denotes a shared study, not matching community membership or whole-record scientific certification.
+
+### Actual corrections, immutable predecessors and native sidecars
+
+provenance: supported. Targets: CommunityMech:000025.
+
+All applied receipts affecting this three-record campaign and every new native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope correction preserve old history and review bytes. No planned or failed run is substituted for an applied receipt.
+
+### OAE881: Lysobacter
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[0]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS925: Paraburkholderia
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia) is genus-level grounding with native status GROUNDED. Individual DSM113627 is distinct from complete ring consortium DSM200000SY.
+
+Selector taxonomy[1]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS795: Variovorax
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[2]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE865: Chitinophaga
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[3]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE506: Allobosea
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea) is genus-level grounding with native status GROUNDED. Curated Allobosea85413/bacterial Bosea34/34 mapping and original flags are retained.
+
+Selector taxonomy[4]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS809: Rhodococcus &lt;high G+C Gram-positive bacteria&gt;
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus &lt;high G+C Gram-positive bacteria&gt;) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[5]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE513: Marmoricola
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[6]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE614: Paenibacillus
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus) is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus mapping remains ambiguous; no candidate is selected.
+
+Selector taxonomy[7]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE515: Methylobacterium
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium) is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+
+Selector taxonomy[8]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAP107: Arthrobacter
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter) is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level, with11 unselected GTDB candidates.
+
+Selector taxonomy[9]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE612: Mucilaginibacter
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[10]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAP136: Brevibacillus
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[11]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS944: Niastella
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[12]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE497: Rhizobium
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[13]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE908: Mycobacterium
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[14]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE603: Gottfriedia
+
+grounding: supported. Targets: CommunityMech:000516.
+
+Primary study list supports stock OAE603; canonical NCBITaxon:2837503 (Gottfriedia) is genus-level grounding with native status GROUNDED. Source Bacillus stock is preserved under curated Gottfriedia genus; no unrelated stock phenotype transferred.
+
+Selector taxonomy[15]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### All populated related-community claims reviewed
+
+consistency: supported. Targets: CommunityMech:000516.
+
+Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine link to000515 denotes a shared study, not matching community membership or whole-record scientific certification.
+
+### Actual corrections, immutable predecessors and native sidecars
+
+provenance: supported. Targets: CommunityMech:000516.
+
+All applied receipts affecting this three-record campaign and every new native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope correction preserve old history and review bytes. No planned or failed run is substituted for an applied receipt.
+
+### OAP107: Arthrobacter
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter) is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level, with11 unselected GTDB candidates.
+
+Selector taxonomy[0]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE506: Allobosea
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea) is genus-level grounding with native status UNRESOLVED. Curated Allobosea85413/bacterial Bosea34/34 mapping and original flags are retained.
+
+Selector taxonomy[1]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE829: Bradyrhizobium
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE829; canonical NCBITaxon:374 (Bradyrhizobium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[2]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAP136: Brevibacillus
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[3]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS925: Paraburkholderia
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia) is genus-level grounding with native status GROUNDED. Individual DSM113627 is distinct from complete ring consortium DSM200000SY.
+
+Selector taxonomy[4]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE865: Chitinophaga
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[5]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE881: Lysobacter
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[6]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE513: Marmoricola
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[7]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE612: Mucilaginibacter
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[8]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE515: Methylobacterium
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium) is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+
+Selector taxonomy[9]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE908: Mycobacterium
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[10]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS944: Niastella
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[11]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE614: Paenibacillus
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus) is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus mapping remains ambiguous; no candidate is selected.
+
+Selector taxonomy[12]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAE497: Rhizobium
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[13]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS809: Rhodococcus &lt;high G+C Gram-positive bacteria&gt;
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus &lt;high G+C Gram-positive bacteria&gt;) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[14]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### OAS795: Variovorax
+
+grounding: supported. Targets: CommunityMech:000087.
+
+Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax) is genus-level grounding with native status GROUNDED. No species identity, functional role or precise study-stock genome mapping is inferred from genus membership.
+
+Selector taxonomy[15]; primary stock/deposit claim is not independent current collection catalog verification. Current mapping inputs and retained numerical cores are hash-bound.
+
+### All populated related-community claims reviewed
+
+consistency: supported. Targets: CommunityMech:000087.
+
+Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine link to000515 denotes a shared study, not matching community membership or whole-record scientific certification.
+
+### Actual corrections, immutable predecessors and native sidecars
+
+provenance: supported. Targets: CommunityMech:000087.
+
+All applied receipts affecting this three-record campaign and every new native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope correction preserve old history and review bytes. No planned or failed run is substituted for an applied receipt.
+
+### Whole SynCom17 treatment
+
+graph: supported. Targets: CommunityMech:000025.
+
+IN_VIVO full17 inoculum versus source controls in Bd21-3 EcoFABs; three downstream arrows are treatment effects. Participants identify the inoculum, not equal final abundance or member-specific necessity.
+
+Exact selector ecological_interactions[0]. Participants: Paraburkholderia sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513, Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### OAS925 candidate traits
+
+graph: supported. Targets: CommunityMech:000025.
+
+COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED.
+
+Exact selector ecological_interactions[1]. Participants: Paraburkholderia sp. OAS925. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Relative root assembly
+
+graph: supported. Targets: CommunityMech:000025.
+
+IN_VIVO OAS925 relative16S dominance at22DAI, with a distinct omission16 comparator. Relative reads do not prove absolute suppression, extinction or a molecular competition mechanism.
+
+Exact selector ecological_interactions[2]. Participants: Paraburkholderia sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513, Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Net extracellular amino-acid cluster
+
+graph: supported. Targets: CommunityMech:000025.
+
+IN_VIVO bulk spent medium under whole treatment. CHEBI33709 amino-acid context is supported; plant/microbe production, uptake and extracellular enzymes remain alternatives. No OAS925-specific flux or donor-recipient exchange established.
+
+Exact selector ecological_interactions[3]. Participants: Paraburkholderia sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513, Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Plant biomass/development
+
+graph: supported. Targets: CommunityMech:000025.
+
+IN_VIVO SynCom17 versus axenic pooled-lab biomass and reduced root development after14DAI, with laboratory variation. GO0040007growth is an endpoint; no single-stock toxicity or reciprocity claim.
+
+Exact selector ecological_interactions[4]. Participants: Paraburkholderia sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513, Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Positive Spearman association
+
+graph: supported. Targets: CommunityMech:000516.
+
+IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506 across genotypes, n28. Positive association does not establish a host-to-microbe effect; current causal source/direction tags are absent.
+
+Exact selector ecological_interactions[0]. Participants: Rhodococcus sp. OAS809, Marmoricola sp. OAE513, Rhizobium sp. OAE497, Lysobacter sp. OAE881, Bosea sp. OAE506. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Negative OAS925 association
+
+graph: supported. Targets: CommunityMech:000516.
+
+IN_VIVO OAS925 relative abundance negatively correlates with dopamine, n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE and signed-effect tags are absent.
+
+Exact selector ecological_interactions[1]. Participants: Paraburkholderia sp. OAS925. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Separate-isolate growth increase
+
+graph: supported. Targets: CommunityMech:000516.
+
+IN_VITRO100µg/mL dopamine increases finalOD of five separately cultured isolates, n4 at30°C. These are not assembled-SynCom results or catabolic-flux measurements;50µg/mL does not uniformly stimulate all five.
+
+Exact selector ecological_interactions[2]. Participants: Rhodococcus sp. OAS809, Marmoricola sp. OAE513, Rhizobium sp. OAE497, Lysobacter sp. OAE881, Bosea sp. OAE506. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Separate-isolate growth decrease
+
+graph: supported. Targets: CommunityMech:000516.
+
+IN_VITRO OAS925 finalOD decreases at50/100µg/mL dopamine in monoculture, n4 at30°C. Mechanism remains unresolved; no host participation is implied.
+
+Exact selector ecological_interactions[3]. Participants: Paraburkholderia sp. OAS925. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Lower spent-medium dopamine
+
+graph: supported. Targets: CommunityMech:000516.
+
+IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction absent.
+
+Exact selector ecological_interactions[4]. Participants: Lysobacter sp. OAE881, Paraburkholderia sp. OAS925, Variovorax sp. OAS795, Chitinophaga sp. OAE865, Bosea sp. OAE506, Rhodococcus sp. OAS809, Marmoricola sp. OAE513, Paenibacillus sp. OAE614, Methylobacterium sp. OAE515, Arthrobacter sp. OAP107, Mucilaginibacter sp. OAE612, Brevibacillus sp. OAP136, Niastella sp. OAS944, Rhizobium sp. OAE497, Mycobacterium sp. OAE908, Gottfriedia sp. OAE603. Current source/target and mechanism are constrained to the authored summary; host is not microbial taxonomy. Every source quote and locator above is separate from validator success.
+
+### Treatment → root composition
+
+graph: supported. Targets: CommunityMech:000025.
+
+Full17 inoculation to22DAI root relative profile; omission16 supports composition effect, not molecular mechanism or absolute loss.
+
+ecological_interactions[0].downstream[0]; arrow direction and experimental context inspected separately from node wording.
+
+### Treatment → spent-medium profile
+
+graph: supported. Targets: CommunityMech:000025.
+
+Whole inoculation changes net extracellular abundance; plant versus microbial origin and flux remain unresolved.
+
+ecological_interactions[0].downstream[1]; arrow direction and experimental context inspected separately from node wording.
+
+### Treatment → plant growth
+
+graph: supported. Targets: CommunityMech:000025.
+
+SynCom17 versus axenic treatment reduces biomass/root development; no necessary stock, nutrient competition or direct OAS925 toxicity inferred.
+
+ecological_interactions[0].downstream[2]; arrow direction and experimental context inspected separately from node wording.
+
+### Trait hypothesis → root dominance
+
+graph: supported. Targets: CommunityMech:000025.
+
+Explicitly HYPOTHESIZED OAS925 traits may contribute; separate gene/culture/reporter data do not selectively establish mechanism in the17-member community.
+
+ecological_interactions[1].downstream[0]; arrow direction and experimental context inspected separately from node wording.
+
+### Five nodes and zero downstream arrows
+
+graph: supported. Targets: CommunityMech:000516.
+
+Every node was assessed above; downstream arrows are absent. Missing optional causal edges are not invented or treated as a defect.
+
+### Zero graph nodes and zero arrows
+
+graph: supported. Targets: CommunityMech:000087.
+
+All three earlier measured observations remain individually evidenced discussions with18/17 scope. No empty-participant graph node is allowed to imply an effect of all16 final stock assertions.
+
+### Rhizobium sp. OAE497
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row2 report IMG2931775946 paired with GOLDGp0589671. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Bosea sp. OAE506
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row3 report IMG2931782253 paired with GOLDGp0589672. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Marmoricola sp. OAE513
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row4 report IMG2931787146 paired with GOLDGp0589673. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Methylobacterium sp. OAE515
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row5 report IMG2931791092 paired with GOLDGp0589674. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Gottfriedia sp. OAE603
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row6 report IMG2931797537 paired with GOLDGp0588949. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Mucilaginibacter sp. OAE612
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row7 report IMG2931861231 paired with GOLDGp0588952. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Paenibacillus sp. OAE614
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row8 report IMG2931801854 paired with GOLDGp0589675. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Bradyrhizobium sp. OAE829
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row9 report IMG2931808876 paired with GOLDGp0589676. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Chitinophaga sp. OAE865
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row10 report IMG2931817136 paired with GOLDGp0589677. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Lysobacter sp. OAE881
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row11 report IMG2931823763 paired with GOLDGp0589678. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Mycobacterium sp. OAE908
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row12 report IMG2852593896 paired with GOLDGp0440934. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Arthrobacter sp. OAP107
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row13 report IMG2931867202 paired with GOLDGp0588953. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Brevibacillus sp. OAP136
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row14 report IMG2931855177 paired with GOLDGp0588951. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Variovorax sp. OAS795
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row15 report IMG2931827682 paired with GOLDGp0588950. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Rhodococcus sp. OAS809
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row16 report IMG2931833612 paired with GOLDGp0589680. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Paraburkholderia sp. OAS925
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row17 report IMG2931840637 paired with GOLDGp0589681. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Niastella sp. OAS944
+
+provenance: supported. Targets: CommunityMech:000025.
+
+MainMethods4.8 and S2 row18 report IMG2931847253 paired with GOLDGp0589682. Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair is explicitly retained. No numerical range or independent assembly/genome-to-GTDB inference remains.
+
+### Separate native completeness and validation-quality rubrics
+
+completeness: supported. Targets: CommunityMech:000025.
+
+Metrics describe the literal current rubric and denominators. Scientific outcomes and failed source-routing checks remain explicit and cannot be overridden by scores.
+
+### Separate native completeness and validation-quality rubrics
+
+completeness: supported. Targets: CommunityMech:000516.
+
+Metrics describe the literal current rubric and denominators. Scientific outcomes and failed source-routing checks remain explicit and cannot be overridden by scores.
+
+### Separate native completeness and validation-quality rubrics
+
+completeness: supported. Targets: CommunityMech:000087.
+
+Metrics describe the literal current rubric and denominators. Scientific outcomes and failed source-routing checks remain explicit and cannot be overridden by scores.
+
+## Findings
+
+### cm-000025-causal-role-evidence: Separate treatment outcomes from member-level mechanisms
+
+major / resolved / confirmed; issue key: cm-000025-causal-role-evidence.
+
+Unsupported member roles, competitive-exclusion and OAS925-specific uptake/harm claims were removed or bounded to measured whole-treatment endpoints. All5 nodes/4qualified arrows remain; evidence tiers now separate computational genome, living-plant and isolate contexts. No selective mechanism is invented.
+
+Disposition: Unsupported member roles, competitive-exclusion and OAS925-specific uptake/harm claims were removed or bounded to measured whole-treatment endpoints. All5 nodes/4qualified arrows remain; evidence tiers now separate computational genome, living-plant and isolate contexts. No selective mechanism is invented.
+
+### cm-000025-study-stage-scope: Separate ring-trial conditions from related studies and assays
+
+major / resolved / confirmed; issue key: cm-000025-study-stage-scope.
+
+Ring trial, stock preparation and reporter protocols are separated; unrelated nitrogen intervention removed. Four source-defined arms and four22DAIrelative-read observations are explicitly scoped. Unverified OAP10721DPIabundance is removed while stock/grounding remain intact.
+
+Disposition: Ring trial, stock preparation and reporter protocols are separated; unrelated nitrogen intervention removed. Four source-defined arms and four22DAIrelative-read observations are explicitly scoped. Unverified OAP10721DPIabundance is removed while stock/grounding remain intact.
+
+### cm-000025-genome-identifiers: Replace the genome pseudo-range with exact identifiers
+
+minor / resolved / confirmed; issue key: cm-000025-genome-identifiers.
+
+The invalid pseudo-range is replaced by17 exact stock-to-IMG/GOLD pairs from mainMethods4.8 and S2, including MycobacteriumGp0440934. Source identifiers are distinguished from current server availability or genome placement.
+
+Disposition: The invalid pseudo-range is replaced by17 exact stock-to-IMG/GOLD pairs from mainMethods4.8 and S2, including MycobacteriumGp0440934. Source identifiers are distinguished from current server availability or genome placement.
+
+### cm-000087-member-roster: Methods roster restored; unresolved supplementary stock correspondence remains
+
+major / open / confirmed; issue key: cm-000087-member-roster.
+
+All16 Methods stock/DSM claims remain represented; the actual Methods/TableS1 OAE515/OAE516 and Marmoricola/Bacillus correspondence remains unresolved. No stock alias, earlier-assay membership or exact genome identity is invented. This is a retained source-boundary issue, not continued absence of a roster.
+
+Disposition: All16 Methods stock/DSM claims remain represented; the actual Methods/TableS1 OAE515/OAE516 and Marmoricola/Bacillus correspondence remains unresolved. No stock alias, earlier-assay membership or exact genome identity is invented. This is a retained source-boundary issue, not continued absence of a roster.
+
+### cm-000087-discussion-reference-coverage: Native reference checks do not cover SupportingReference discussion snippets
+
+minor / resolved / confirmed; issue key: cm-000087-discussion-reference-coverage.
+
+The canonical shared SupportingReference annotation is adopted. Both the retained parent measurement and the current committed three-record measurement compare all 37 LBNL snippet surfaces: 35 match and two supplemental cells mismatch. The narrow unannotated-surface defect resolves; native validation still fails under issue 1996. This finding makes no whole-corpus coverage claim.
+
+Disposition: The canonical shared SupportingReference annotation is adopted. Both the retained parent measurement and the current committed three-record measurement compare all 37 LBNL snippet surfaces: 35 match and two supplemental cells mismatch. The narrow unannotated-surface defect resolves; native validation still fails under issue 1996. This finding makes no whole-corpus coverage claim.
+
+### cm-000087-supplement-reference-routing: Route two exact TableS1 stock cells to their retained supplement
+
+minor / open / confirmed; issue key: cm-000087-supplement-reference-routing.
+
+The exact TableS1 OAE516/OAE603 cells remain separately sourced and absent from the main-article cache. Current native check still fails at discussions[4].evidence[2/4]. Preserve correct quotations and primary source boundaries; issue1996 remains open.
+
+Disposition: The exact TableS1 OAE516/OAE603 cells remain separately sourced and absent from the main-article cache. Current native check still fails at discussions[4].evidence[2/4]. Preserve correct quotations and primary source boundaries; issue1996 remains open.
+
+## Recommended Actions And Acceptance Checks
+
+### retain-source-boundaries
+
+Resolve primary stock correspondence only with evidence, and route separately retained supplement text through the maintained source-aware validator.
+
+- Independently establish Methods/TableS1 stock correspondence without aliases inferred from similar names.
+- Validate exact supplemental cells against their original artifact while keeping article caches separate; retain failed predecessor logs and measure actual assertion traversal.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| ecofab-record | kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml; Every populated scientific field, exact current input SHA256, graph/roster and append-only provenance | supports | Full current record read against primary evidence; optional missing properties are not fabricated. |
+| ecofab-primary | https://doi.org/10.1371/journal.pbio.3003358; Results2.1–2.7; Methods4.1–4.10; DataAvailability | supports | Four treatment arms, seventeen stock/IMG/GOLD pairs, relative16S outcomes and separate culture/reporter/genomic contexts inspected. Treatment-level effects do not identify a necessary strain or molecular mechanism. |
+| ecofab-prior | reviews/structured/20261114T212137Z-m5-ecofab-completion-canary/review.yaml; Earlier full primary assessment, preserved unchanged | supports | Earlier inspected facts are rechecked against current fields; current assessments below replace stale state descriptions, not prior evidence bytes. |
+| dopamine-record | kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml; Every populated scientific field, exact current input SHA256, graph/roster and append-only provenance | supports | Full current record read against primary evidence; optional missing properties are not fabricated. |
+| dopamine-primary | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Results dopamine panels/Figs2–3; Methods Sec8–9/Sec19; SupplementaryFigs1/9/11 and Data1 | supports | Ten-host-line inoculum experiment, signed relative-abundance correlations, separate six-isolate dopamine doses and lower pooled spent-medium dopamine are different evidence contexts. |
+| dopamine-prior | reviews/structured/20261114T213444Z-m5-dopamine-syncom-primary-review/review.yaml; Earlier full primary assessment, preserved unchanged | supports | Earlier inspected facts are rechecked against current fields; current assessments below replace stale state descriptions, not prior evidence bytes. |
+| lbnl-record | kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml; Every populated scientific field, exact current input SHA256, graph/roster and append-only provenance | supports | Full current record read against primary evidence; optional missing properties are not fabricated. |
+| lbnl-primary | https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/; Results nutrient/ratio/preservation/plant panels/Figs2–3/5; Methods s4-1 throughs4-7 | supports | Methods-defined final sixteen stocks differ from earlier18/17 assay rosters and TableS1. Earlier measured observations remain separately scoped; no final16 graph attribution or inferred stock alias. |
+| lbnl-prior | reviews/structured/20261115T021628Z-phase2-lbnl-canary/review.yaml; Earlier full primary assessment, preserved unchanged | supports | Earlier inspected facts are rechecked against current fields; current assessments below replace stale state descriptions, not prior evidence bytes. |
+| ring-table | https://doi.org/10.1371/journal.pbio.3003358; S2Table rows2–18 columnsA–L | supports | All17 stocks, exact IMG/GOLD pairs, medium assignment and16-arm omission of OAS925 independently checked. |
+| ring-s1 | https://doi.org/10.1371/journal.pbio.3003358; S1Table rows2–6 | supports | Laboratory-specific chamber/light/humidity/logger differences; prescribed values are not uniform measured exposures. |
+| ring-s9 | https://doi.org/10.1371/journal.pbio.3003358; S9Table T3SS signaturesM00660/M00542 | supports | Computational module comparison does not establish expression, selective necessity or virulence. |
+| ring-s8 | https://doi.org/10.1371/journal.pbio.3003358; S8 figure genome/acid-resistance panels | supports | Surveyed gene profile supports hypothesis context, not unique causal necessity of each individual gene. |
+| ring-s10 | https://doi.org/10.1371/journal.pbio.3003358; S10 biofilm/growth plots and caption | supports | OAS925 is sixth for biofilm; growth groups and conditions are separate from ring-trial relative16S composition. |
+| ring-s11 | https://doi.org/10.1371/journal.pbio.3003358; S11 motility/pH/time plots and caption | supports | OAS925 motility advantage depends on assay pH/time/comparator, with no selective perturbation in SynCom17. |
+| ding-table | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Supplementary Data1 stock/media table; A16 | supports | Methods andFig3a identifyOAE515 while Data1A16 saysOAE51; preserve internal source discrepancy rather than create an alias. |
+| ding-fig2 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig2 standard/plant chromatograms and pooled endpoint | supports | Authentic standard supports dopamine identity; pooled extracellular ion intensity is not secretion rate or absolute concentration. |
+| ding-fig3 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3a six Spearman associations and3b isolate growth | supports | n28 unadjusted correlations differ from n4 separate-isolate0/50/100µg/mL intervention; finalOD does not establish catabolic flux. |
+| ding-supplement | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; SupplementaryFigs1/9/11 | supports | Experimental arms/timeline, dopamineMSMS/EIC identity and axenic genotype follow-up checked as separate contexts. |
+| coker-supplement | https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/; TableS1 DOCX table1 rows2–19; row12 OAE516 and row18 OAE603 | supports | Earlier18 list conflicts with Methods final16:OAE516/OAE515 and Bacillus/Marmoricola are not reconciled by guessing. |
+| coker-fig2 | https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/; Fig2 nutrient dilution panel | supports | Earlier18-member community R2A dilution changes diversity; it is not an experiment on the Methods final16 roster. |
+| coker-fig3 | https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/; Fig3 initial-ratio and time panels | supports | Earlier-panel starting composition and2/6day outcomes do not create universal final16 abundance. |
+| coker-fig5 | https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/; Fig5 in-planta and preservation-linked contexts | supports | Earlier18 and17-minus-Burkholderia host assays are kept separate from deposited final16 collection identity. |
+| ecofab-grounding | .temp/phase2-science-20261115/linked-ecofab-grounding-001.json; Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB reproduction | supports | Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537… and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence is explicit; ambiguous candidates remain unselected. This is not exact genome placement or current catalog verification. |
+| dopamine-grounding | .temp/phase2-science-20261115/linked-dopamine-grounding-001.json; Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB reproduction | supports | Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537… and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence is explicit; ambiguous candidates remain unselected. This is not exact genome placement or current catalog verification. |
+| lbnl-grounding | .temp/phase2-science-20261115/lbnl-grounding-final16.json; Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB reproduction | supports | Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537… and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence is explicit; ambiguous candidates remain unselected. This is not exact genome placement or current catalog verification. |
+| apply-0 | .temp/phase2-science-20261115/curation-applied-001/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| apply-1 | .temp/phase2-science-20261115/mapping-note-applied-001/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| apply-2 | .temp/phase2-science-20261115/linked-stock-plan-003/ecofab/apply/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| apply-3 | .temp/phase2-science-20261115/linked-stock-plan-003/dopamine/apply/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| apply-4 | .temp/phase2-science-20261115/linked-stock-plan-003/lbnl/apply/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| apply-5 | .temp/phase2-science-20261115/ecofab-scope-plan-002/apply/receipt.json; Actual guarded write before/after hashes, original receipt bytes | supports | Applied history is evidence, not a planned completion assertion. Every predecessor and corrected current record is linked through actual receipts; all new native sidecars are separately hash-bound. |
+| lbnl-coverage | .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/measurement.json; Maintained native assertion measurement on parent f52ff4ef36c59bace4271d4dc256e33d621ddabd, same current000087 hash | supports | 37 snippet surfaces were actually compared:35matched,2mismatched; SupportingReference is traversed. Measurement valid/coverage complete, native exit1 retained. This proves focal traversal, not scientific truth or corpus coverage. |
+| current-three-coverage | .temp/phase2-science-20261115/final-three-coverage-002/measurement.json; Maintained native occurrence measurement on exact committed source a821ec7ca48adb5232cfc7a92e86d1d20330d278 | supports | All 149 current snippet surfaces were actually compared; 147 matched and two LBNL supplemental cells mismatched. Inputs stayed unchanged. Complete lexical comparison coverage does not establish scientific truth. |
+| ecofab-node-0-source-0 | https://doi.org/10.1371/journal.pbio.3003358; Results2.1/2.3–2.5; Methods4.2 | supports | IN_VIVO full17 inoculum versus source controls in Bd21-3 EcoFABs; three downstream arrows are treatment effects. Participants identify the inoculum, not equal final abundance or member-specific necessity. |
+| ecofab-node-1-source-0 | https://doi.org/10.1371/journal.pbio.3003358; Results2.7; Methods4.7–4.10; S8–S11 | supports | COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED. |
+| ecofab-node-1-source-1 | https://doi.org/10.1371/journal.pbio.3003358; Results2.7; Methods4.7–4.10; S8–S11 | supports | COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED. |
+| ecofab-node-2-source-0 | https://doi.org/10.1371/journal.pbio.3003358; Results2.4; Fig3; Methods4.6 | supports | IN_VIVO OAS925 relative16S dominance at22DAI, with a distinct omission16 comparator. Relative reads do not prove absolute suppression, extinction or a molecular competition mechanism. |
+| ecofab-node-3-source-0 | https://doi.org/10.1371/journal.pbio.3003358; Results2.5; Fig4; Methods4.4–4.5 | supports | IN_VIVO bulk spent medium under whole treatment. CHEBI33709 amino-acid context is supported; plant/microbe production, uptake and extracellular enzymes remain alternatives. No OAS925-specific flux or donor-recipient exchange established. |
+| ecofab-node-4-source-0 | https://doi.org/10.1371/journal.pbio.3003358; Results2.3; Fig2b–c | supports | IN_VIVO SynCom17 versus axenic pooled-lab biomass and reduced root development after14DAI, with laboratory variation. GO0040007growth is an endpoint; no single-stock toxicity or reciprocity claim. |
+| dopamine-node-0-source-0 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3a; ResultsSec4 | supports | IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506 across genotypes, n28. Positive association does not establish a host-to-microbe effect; current causal source/direction tags are absent. |
+| dopamine-node-0-source-1 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3a; ResultsSec4 | supports | IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506 across genotypes, n28. Positive association does not establish a host-to-microbe effect; current causal source/direction tags are absent. |
+| dopamine-node-1-source-0 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3a; ResultsSec4 | supports | IN_VIVO OAS925 relative abundance negatively correlates with dopamine, n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE and signed-effect tags are absent. |
+| dopamine-node-1-source-1 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3a; ResultsSec4 | supports | IN_VIVO OAS925 relative abundance negatively correlates with dopamine, n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE and signed-effect tags are absent. |
+| dopamine-node-2-source-0 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3b; MethodsSec19 | supports | IN_VITRO100µg/mL dopamine increases finalOD of five separately cultured isolates, n4 at30°C. These are not assembled-SynCom results or catabolic-flux measurements;50µg/mL does not uniformly stimulate all five. |
+| dopamine-node-3-source-0 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig3b; MethodsSec19 | supports | IN_VITRO OAS925 finalOD decreases at50/100µg/mL dopamine in monoculture, n4 at30°C. Mechanism remains unresolved; no host participation is implied. |
+| dopamine-node-4-source-0 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig2c; ResultsSec4 | supports | IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction absent. |
+| dopamine-node-4-source-1 | https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/; Fig2c; ResultsSec4 | supports | IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction absent. |
+| ecofab-arrow-0-source | https://doi.org/10.1371/journal.pbio.3003358; Results2.4/Fig3 | supports | Full17 inoculation to22DAI root relative profile; omission16 supports composition effect, not molecular mechanism or absolute loss. |
+| ecofab-arrow-1-source | https://doi.org/10.1371/journal.pbio.3003358; Results2.5/Fig4 | supports | Whole inoculation changes net extracellular abundance; plant versus microbial origin and flux remain unresolved. |
+| ecofab-arrow-2-source | https://doi.org/10.1371/journal.pbio.3003358; Results2.3/Fig2 | supports | SynCom17 versus axenic treatment reduces biomass/root development; no necessary stock, nutrient competition or direct OAS925 toxicity inferred. |
+| ecofab-arrow-3-source | https://doi.org/10.1371/journal.pbio.3003358; Discussion/Results2.7 | supports | Explicitly HYPOTHESIZED OAS925 traits may contribute; separate gene/culture/reporter data do not selectively establish mechanism in the17-member community. |
+| check-ecofab-schema | .temp/phase2-science-20261115/linked-ecofab-schema-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-strict | .temp/phase2-science-20261115/linked-ecofab-strict-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-gtdb | .temp/phase2-science-20261115/linked-ecofab-gtdb-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-domain | .temp/phase2-science-20261115/linked-ecofab-domain-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-scalars | .temp/phase2-science-20261115/linked-ecofab-scalars-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-terms | .temp/phase2-science-20261115/linked-ecofab-terms-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-history | .temp/phase2-science-20261115/linked-ecofab-history-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-references | .temp/phase2-science-20261115/linked-ecofab-references-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-ecofab-network | .temp/phase2-science-20261115/linked-ecofab-network-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-schema | .temp/phase2-science-20261115/linked-dopamine-schema-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-strict | .temp/phase2-science-20261115/linked-dopamine-strict-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-gtdb | .temp/phase2-science-20261115/linked-dopamine-gtdb-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-domain | .temp/phase2-science-20261115/linked-dopamine-domain-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-scalars | .temp/phase2-science-20261115/linked-dopamine-scalars-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-terms | .temp/phase2-science-20261115/linked-dopamine-terms-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-history | .temp/phase2-science-20261115/linked-dopamine-history-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-references | .temp/phase2-science-20261115/linked-dopamine-references-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-dopamine-network | .temp/phase2-science-20261115/linked-dopamine-network-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-schema | .temp/phase2-science-20261115/linked-lbnl-schema-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-strict | .temp/phase2-science-20261115/linked-lbnl-strict-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-gtdb | .temp/phase2-science-20261115/linked-lbnl-gtdb-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-domain | .temp/phase2-science-20261115/linked-lbnl-domain-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-scalars | .temp/phase2-science-20261115/linked-lbnl-scalars-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-terms | .temp/phase2-science-20261115/linked-lbnl-terms-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-history | .temp/phase2-science-20261115/linked-lbnl-history-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-references | .temp/phase2-science-20261115/linked-lbnl-references-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit1; inputs unchanged. Reference failures remain literal. |
+| check-lbnl-network | .temp/phase2-science-20261115/linked-lbnl-network-003.log; Actual native focused command, exact current input hashes, full log | supports | Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368, exit0; inputs unchanged. Reference failures remain literal. |
+
+## Limits And Additional Notes
+
+- Scientific review completion means every current record claim was assessed and every required focused check ran. It does not mean all checks passed: the 000087 reference check remains exit 1 with two Table S1 mismatches.
+- Collection and genome IDs are primary-source assertions; no current catalog/server availability, genome sequence quality or independent study-stock GTDB genome placement is certified.
+- MainMethods/TableS1 and DingData1 stock spelling conflicts remain explicit; correct source quotes are not rewritten to make article-only matching pass.
+- The retained parent f52 measurement and new three-record measurement each retain their actual revision. Native gates ran on 17616 with the exact corrected working inputs; source inspection and current occurrence measurement use the subsequent committed source. None is relabeled as an execution on another revision.
+- No raw statistical reanalysis, unrequested experiments, paid provider calls or wider-corpus scientific approval occurs. Taxonomic ambiguity, source limitations and unknown molecular mechanisms are preserved.
+- Earlier structured reviews and history remain immutable. All six actual applied receipts and all native sidecars are current source inputs; prior failed/planned runs remain retained and do not enter the applied chain.
+- Wider combined QC, generated-document integration and publication/merge status are independently reported by the integration owner; this scientific bundle is not a substitute.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261115T031503Z-phase2-three-record-final-science
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: Full current EcoFAB, dopamine and Methods-defined LBNL scientific reassessment
+started_at: '2026-11-15T02:25:59Z'
+finished_at: '2026-11-15T03:15:03Z'
+reviewer:
+  identity: codex-community-m5
+  kind: agent
+  independence: self_review
+  independence_basis: Authored scientific corrections after direct primary/ontology
+    inspection; parent independently reviewed sources, candidate diffs and mutation
+    guards before apply, and reviews final bundle separately.
+skill: curate-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: 'Full current scientific assessment covers 49 stock assertions, 10 nodes,
+  four arrows, four EcoFAB treatment arms and relative-read observations, and 17 exact
+  genome pairs. EcoFAB causal, study-stage and genome findings and narrow LBNL annotation
+  coverage resolve. LBNL source roster correspondence and two supplement-routing failures
+  remain open. All 27 native focused gates executed: 26 passed and one failed. Actual
+  snippet comparison coverage is measured separately; this is not a full-corpus or
+  merge claim.'
+source:
+  git_revision: a821ec7ca48adb5232cfc7a92e86d1d20330d278
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/SKILL.md
+    sha256: c8c41017a57f2721975b97d1464be254601206386260f3e078e68f36666df035
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .temp/phase2-science-20261115/curation-applied-001/before.yaml
+    sha256: 58bb996c6056821c2e5bf3d3494108826b3f836c79fc95f0c07db967e65b04e4
+    role: context
+  - path: .temp/phase2-science-20261115/curation-applied-001/candidate.yaml
+    sha256: 2fe1ed016c1662df531daee34c1f2115fe19086677a63904f68180de0547c7f7
+    role: context
+  - path: .temp/phase2-science-20261115/curation-applied-001/receipt.json
+    sha256: c6e08b2fe8c7e26f49ff1c0f2032887d60973e017a16788c63e6733a6ce49fd3
+    role: context
+  - path: .temp/phase2-science-20261115/ecofab-scope-plan-002/apply/receipt.json
+    sha256: 500d1a61956c1b752142e04d3dd10fa65a53805219dbcf0704a035b63901bec5
+    role: context
+  - path: .temp/phase2-science-20261115/ecofab-scope-plan-002/before.yaml
+    sha256: 0adba2db63b8277d16d0a0e71db00a36009daf5e8ac6231b9081128421bd818c
+    role: context
+  - path: .temp/phase2-science-20261115/ecofab-scope-plan-002/candidate.yaml
+    sha256: 7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339
+    role: context
+  - path: .temp/phase2-science-20261115/ecofab-scope-plan-002/receipt.json
+    sha256: 5648373838d940367961fcef0c21e018388eb45a0c14b86f48d2fca7bb5f91b1
+    role: context
+  - path: .temp/phase2-science-20261115/final-full-review-002/targets.yaml
+    sha256: f54e3a8ee43f689bcb74366e9dfeea87c5c75589e155aa3619c6ab314bdb84ef
+    role: context
+  - path: .temp/phase2-science-20261115/final-three-coverage-002/measurement.json
+    sha256: c9c497d283076bd770d42a8d03730ea811b73f07975bb67836f684af033c6e54
+    role: context
+  - path: .temp/phase2-science-20261115/final-three-coverage-002/measurement.log
+    sha256: e91aa3dcf6ab7db42be5b5b3d73cb38a2bffddab096675db53ec0e2ed5dce8cb
+    role: context
+  - path: .temp/phase2-science-20261115/final-three-coverage-002/receipt.json
+    sha256: 35c72aa969affa3fa662a29192691d8415076221336ddd5c5ceacfab97869ad0
+    role: context
+  - path: .temp/phase2-science-20261115/final-three-coverage-002/started.json
+    sha256: 018c0f5c25970fa77eb92674538cfc581dec476e116efc0453f2d21a3e150a89
+    role: context
+  - path: .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/measurement.json
+    sha256: 64c9a1c9b53f372efdca908d389a0d6f27855ce90e6f9438edf0b9a24c5128c4
+    role: context
+  - path: .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/measurement.log
+    sha256: 01faa7c2aad154d76fda0a5199f1d348ce9fa337bd4590eb8da51ee66a7469a8
+    role: context
+  - path: .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/receipt.json
+    sha256: 0e15273cb752653d0dda84289b0385e147d188ae254d856fa8263d885f6a61f0
+    role: context
+  - path: .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/started.json
+    sha256: cfbfd452f44a35e488cc308eabed65a2caf79c83dd8404703a6a81e74e968345
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-grounding-final16.json
+    sha256: a5c8dec571bba0c42a52125a71ea2b6b97ea991137ceff8bde2874abc17d489a
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-retained/lbnl-sources/fig2.png
+    sha256: 42776325829e8966906175107cab130ed15b9863672294abb334351f25d9b4d4
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-retained/lbnl-sources/fig3.png
+    sha256: ee3893dea6e5c286578dcdaea6cd6fad94058816e561943015a871085a9edd18
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-retained/lbnl-sources/fig5.png
+    sha256: fa42a06754287b41e5503de315abe7f1770b179be030eee20033b1e0482e7ab5
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-supplement-tables.json
+    sha256: 57219c66db32125ddae247b04739592c61836399b3992f2d73ba49f29bfd9433
+    role: context
+  - path: .temp/phase2-science-20261115/lbnl-supplements/msystems.00951-22-s0006.docx
+    sha256: 5bfa02fdb94538e9405fb0ec7d7b0dad338791a5ca0b4b651589f33148c8e0e7
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-domain-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-domain-003.json
+    sha256: 641b865da0e5a33242d56de1c98babe07a31f0e2eadb973145610fb110473259
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-domain-003.log
+    sha256: 75531fe02dfbb05b4a1ae3e7d34e4b53b245563e172cfee71469fe65ded2804b
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-grounding-001.json
+    sha256: 867bbaff2936ac73bc2d9824eeffcba7f9bbdab3c8d2969eb07553d1983cd05e
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-gtdb-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-gtdb-003.json
+    sha256: a6345e35e85f67c7dcae68de7562c78bd2926aaaf29ae2f941306ea280c59b34
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-gtdb-003.log
+    sha256: 25d047d4b2b4591c03c31e6fb963b9a73c39d268cf03f212aec74e64e77c2105
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-history-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-history-003.json
+    sha256: c067e1ab4b0207ebb2d9257e2a5cf8693508bd79a7f8369639d2f31478ec33bd
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-history-003.log
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-network-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-network-003.json
+    sha256: 7ea9dceef052a7be0685a8ef78685d7a3a8899f5a01a84ccd0136f855ea1759c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-network-003.log
+    sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-references-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-references-003.json
+    sha256: dc0ce8757813670d8a5d4bf6c1c8b0545cb8cee68a6b20356ec875810467803d
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-references-003.log
+    sha256: 9df97d246eb85b184ad72d33991a103ae5449da5b8473375aae2bca47ea82c4e
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-scalars-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-scalars-003.json
+    sha256: 70569598149296758715f3c92c63ccf043ac90e3f96c96b06724de470e1af43f
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-scalars-003.log
+    sha256: b6ac161bbda73f2be83ec4a1e31c0021fbee8a37510e4be32905dbf1ab1df286
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-schema-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-schema-003.json
+    sha256: 4974a6bf6042b95d67fb8e57d682eadea49e197eb9ff23e37bc90f4203232d9d
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-schema-003.log
+    sha256: 5e2fedd9ada9f8a973ac8ce0eadcc4e7017f89d1eeed4043fe848dcd9ec4ec1c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-strict-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-strict-003.json
+    sha256: e90ff1d1bfbc71980fd1303a6b04c5033a85e27ab65584f6ab9d75982242d1de
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-strict-003.log
+    sha256: 97b4682aa685ff41f19cd51042e2d4b468d17ecc8eb482463b4acd8c8db137ee
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-terms-003-oak.yaml
+    sha256: 2b0ff6128a26d45b66f95fae2d9aab220b08bb474001a360c2cdffab789f8b3c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-terms-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-terms-003.json
+    sha256: a41fc9891b07a9f248710b63f0d8efc11872a85d092b5e90280e6b90d91d0767
+    role: context
+  - path: .temp/phase2-science-20261115/linked-dopamine-terms-003.log
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-domain-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-domain-003.json
+    sha256: 1ca7f1dc1034a4d130a81a404c145b645bfddeda2c269318d09b20272fc64324
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-domain-003.log
+    sha256: e90433f7f3f6a3e33f461a7476642228e8257c9ae388adf89f9af9a38d6e545c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-grounding-001.json
+    sha256: ad27b65c8e6304d86638115d31b30c61f5f937bfaa91f4873dec8b5150170ac8
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-gtdb-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-gtdb-003.json
+    sha256: 6d44db4a8d017b206587a669a9a7ac49a50bcbbe8cf74f540b55ba1ec6a8b1b9
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-gtdb-003.log
+    sha256: 7754de734052e6eba790c8a0bf4616281431443256c7d6ff23f400a232e44b0b
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-history-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-history-003.json
+    sha256: e02c61c76eb68942b7d882f5d3d2ffd59dc46b6da8178207d34e1c73c7ebe2bf
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-history-003.log
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-network-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-network-003.json
+    sha256: 6bbf960bffe3ce614d99ee113d1888602481a3e484861dfde78d35aad3c393cc
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-network-003.log
+    sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-references-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-references-003.json
+    sha256: 8d5dd73519383a88350dc8d1e7fed0877628af0ec5c8840c7bf97e1034c08b08
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-references-003.log
+    sha256: 9b42a460ae7517774e1b8adc066b933c8bfdbe6cd837753a17b381ce5864b898
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-scalars-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-scalars-003.json
+    sha256: 935aaaf71a9269ec2cdf5e8ef8666ab2fa2e67d7d9aa752517fc72907d66785c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-scalars-003.log
+    sha256: d314cd92c49d37ddaab0ea5b3b73786c702f58ba15fcb06f3b67a1e5f9e6b398
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-schema-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-schema-003.json
+    sha256: 80a541725edae7cb7a3f52c9e82f9875ea93176703bb64c61c2a7ec14a9fa398
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-schema-003.log
+    sha256: 3a83af40e1e58b814a9d9e5fa4a4e692da2fd0812271b8e71dc83cf79ead7057
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-strict-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-strict-003.json
+    sha256: b80895ef4582bf8b137c56a84067f805f5b630930831bfe41f07b2b822875e61
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-strict-003.log
+    sha256: e73dfab8349ba96da1b218cdeb5e0774ca13b4eec667993ad0e3cbd7551404b6
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-terms-003-oak.yaml
+    sha256: 2b0ff6128a26d45b66f95fae2d9aab220b08bb474001a360c2cdffab789f8b3c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-terms-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-terms-003.json
+    sha256: 8506dc72d87c0ea779e3f47bdeb05b4649c66f6b5a18e3d607e068fabab6a46b
+    role: context
+  - path: .temp/phase2-science-20261115/linked-ecofab-terms-003.log
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-domain-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-domain-003.json
+    sha256: b4f603db52f232c1c5869ef5ad2bd5342455a287a2c1aa3d6d432c621d3e54e6
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-domain-003.log
+    sha256: 99cc8917f7088f86a5a2b94cd69bd6163e61c9bb1aaf09ed5e45dac476edc6ff
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-gtdb-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-gtdb-003.json
+    sha256: 7eb77c8c8662e5e3966ec1b572689df9929cf943aefc46eae8dd54c4d1e5561a
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-gtdb-003.log
+    sha256: f104e8a06cf91e7abcaac4cc07bdb09fec51566e3eba2da5b497f5b150a581f4
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-history-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-history-003.json
+    sha256: daffb003483ddded3c0da5d0d3e486b533c47479e19c9e1388b6a1ba28aaebd9
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-history-003.log
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-network-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-network-003.json
+    sha256: 483ad7a6b78ae333598783c6096e58a8ebd5b33e5657beec3b0be499f26a7d79
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-network-003.log
+    sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-references-003.exit
+    sha256: 4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-references-003.json
+    sha256: 3708a5317e1ee0d1678ce4c882d5a07343ab63518bcd6a34eb5a99124bc29e7a
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-references-003.log
+    sha256: f462471ee398eb13cc149fef2bbdf57103bb73519c7a6af836c0e0ae6a143d74
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-scalars-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-scalars-003.json
+    sha256: 569969637441619778b1ee111e3ca76d2a1df3d5f1085efdb07fe5258b506fb8
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-scalars-003.log
+    sha256: 249ccea48fe35947940471c5d327c77f6d4bb3a7b2c20bf65e8d4eb327cc358c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-schema-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-schema-003.json
+    sha256: 1991082dceda14356292d76ea770de6ad03cde5e2f1fdcf3ab9fb1cc4fab3cfc
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-schema-003.log
+    sha256: e1bdbbed0d7b0947e15365018924e683ae7cb73330bc6383b3d1ca8c6c677eb5
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-strict-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-strict-003.json
+    sha256: 7ea34e25d2b6168e076ee5515b3522c3c1b1d4ab7776a72ef6be41d533441cd2
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-strict-003.log
+    sha256: 3ec616c890dc05f4c5ea7541dfc383c634409706aab1aa7aba6496408a0618bc
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-terms-003-oak.yaml
+    sha256: 2b0ff6128a26d45b66f95fae2d9aab220b08bb474001a360c2cdffab789f8b3c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-terms-003.exit
+    sha256: 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-terms-003.json
+    sha256: 5804c8d46300869d4f59a556720653b596f35f527099c7079d1b27d069eae96c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-lbnl-terms-003.log
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/dopamine-syncom-sources/fig2.png
+    sha256: 1ed2b386aa1f4a42251e71867119e7ac30b9363875f8ebb3c0329a57f5667dd8
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/dopamine-syncom-sources/fig3.png
+    sha256: 35a1928c8878800b9a2b849ebc07a49aac7ffb228ef32a094593a4563f9b9b3e
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/dopamine-syncom-sources/stocks.xlsx
+    sha256: 185d64e815b7ef418d51b0cea0e2a42136fc92423836497bfe88ecbf6c4abfa3
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/dopamine-syncom-sources/supplement.pdf
+    sha256: a8c0c9e3e74cd193ef2b69408a87b8d5b8450d27e23e8d0c22ffa0176cd6e6ff
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-main-plos.xml
+    sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s1.xlsx
+    sha256: c9b37b5e0289387b3235202de36a97a4cf618f3465d28c13a120f277fd54201d
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s10.tif
+    sha256: 87685139dd25676e631d90e532cbd5a3c7352d61a585c01f750785fb13a6ec5b
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s11.tif
+    sha256: 8197f933e4b1bc8d94e17d916c4d8658d9ca73558bb69d944b24ade81ea63086
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s2.xlsx
+    sha256: fd7882e673f62498ce2ac8c1215ece003edb7369fa780c106bfaa6db4b80e147
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s8.tif
+    sha256: 4d60e494ff1b26d46ea2015db9278694521dd2b2036eb2693147f7fa85f221d2
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-independent/ring-s9.xlsx
+    sha256: 83dea79fe391fff1fee305bd04db6731fd108505b21d25e73abb54040ef5c4f2
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-relations/PMC13522444.xml
+    sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+    role: context
+  - path: .temp/phase2-science-20261115/linked-retained/ecofab-relations/PMC9765266.xml
+    sha256: ad9774e85b789eaa1718f1f06984f59845f20e3108993418c0444f715e869922
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/dopamine/apply/receipt.json
+    sha256: d85e1dffe208d22240805e21b56069221743c120fb1e654cf18f6b1e3233260a
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/dopamine/before.yaml
+    sha256: 41aa3b07822847b7cb0670874225419e23a672c2b27f76417c35d8792bb87a5e
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/dopamine/candidate.yaml
+    sha256: 304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/ecofab/apply/receipt.json
+    sha256: 0beb718152a4c6e878c8815dfaca6dd795a53cd7663dbe06003cab76356db4f2
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/ecofab/before.yaml
+    sha256: 77625f064af7946f875460cb321e450b6bfcd667d0ad9ec1ebabb502a6865348
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/ecofab/candidate.yaml
+    sha256: 0adba2db63b8277d16d0a0e71db00a36009daf5e8ac6231b9081128421bd818c
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/lbnl/apply/receipt.json
+    sha256: 5aeb0e2a5b9e97f5ec9eb7f8251f9bc481bc26d70ec5c0136bda74b9cd9d7ec9
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/lbnl/before.yaml
+    sha256: aa146b5e21d2480725ed8a017372fd1dd9dc8b1e89778e7ca1f83477566845c4
+    role: context
+  - path: .temp/phase2-science-20261115/linked-stock-plan-003/lbnl/candidate.yaml
+    sha256: bb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368
+    role: context
+  - path: .temp/phase2-science-20261115/mapping-note-applied-001/before.yaml
+    sha256: 2fe1ed016c1662df531daee34c1f2115fe19086677a63904f68180de0547c7f7
+    role: context
+  - path: .temp/phase2-science-20261115/mapping-note-applied-001/candidate.yaml
+    sha256: aa146b5e21d2480725ed8a017372fd1dd9dc8b1e89778e7ca1f83477566845c4
+    role: context
+  - path: .temp/phase2-science-20261115/mapping-note-applied-001/receipt.json
+    sha256: 9034e937ade286fd15fda8e174e52b3363417aaac68c9c975a9e5ac4ed22cb5e
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 297b1fbd8a77ba2f89ca7126339deabc0f61ee91013d054d0fa64caef59a630d
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: eaedec5783b40925a3f0e159dfd1202c315a12e98c8859526378ceea5c547822
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-10-28T214431Z-claude-439dff.yaml
+    sha256: b2789ae4ea0f9756514a832c500d9b06cad6caaa2d82404b0a4633a1023bd37d
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-10-29T130342Z-claude-59e74a.yaml
+    sha256: 3b614f22fc374bc74c5fe6f5b7c95841fc7bed0c9080a624e23cdff450bd66ac
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-01T004958Z-claude-32bfaf.yaml
+    sha256: 91b7fbf89207f0fc05d568e847417ce207354c018308407b75d7fffdfe580a15
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-05T063753Z-claude-1e8c4a.yaml
+    sha256: fa23c7f0d6719fa6c2a1c6be77c03463cfad03dec3a13eb8245d8c8a70cbf37b
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-05T114036Z-claude-0d2ed1.yaml
+    sha256: 4d467d9d054f471ccbdb36f3179e0ae0ea20baa2cbce9ca85e8a77204e4a2d1a
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-06T064400Z-claude-a84f11.yaml
+    sha256: 2c79928d420da101fda7c16459ec4c1f88b430d66032829f9f4d0c2d53048ece
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-14T213955Z-codex-f630b3.yaml
+    sha256: 6d0523b2a3e27739d6946cecdf697a30196295d0c8ea6273b398b060d1d18557
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-14T214407Z-codex-162b39.yaml
+    sha256: 273df91896b0a77e5d543fec77530ca00ff98b5e22354111499321c04e6bb663
+    role: context
+  - path: history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16/2026-11-15T023512Z-codex-8979df.yaml
+    sha256: d21b45611e7eb19c4de292a2f44551d245f89da6b7ed48ba5e2020225c831b6c
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-10-02T054932Z-codex-ecf17a.yaml
+    sha256: 265fc37c2ef65720e26261c78ae6bbe627933d1bfac6703b0f13f1160ada0bfa
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-10-06T082610Z-codex-00f1fc.yaml
+    sha256: 74b79275ed965c83ebc9da67a25f604a0c707af6f69fa6fcf47c43a9326d91e1
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-10-29T130342Z-claude-a3f9ef.yaml
+    sha256: 42f30e2abd7e8e51f3739c407ef6a283a7ccc49bcc40b215ba87ffc90773fa13
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-01T004958Z-claude-ddaa73.yaml
+    sha256: c4014384ad950b86999cf3e9b403c12a5198b42754f7cbd3264cb4db13465d3c
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-05T063753Z-claude-6dacc1.yaml
+    sha256: 4e91dbba9b3d670c79a18cf1402a94574af8002e6924e5e2be810222ff75ff4c
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-05T114036Z-claude-dc6578.yaml
+    sha256: 609c08329274847367f727f305f0738a8323d12d84ebe67defaa609c0d68ada4
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-06T064400Z-claude-c84f13.yaml
+    sha256: 0780749b1264e0dc4267359eef46408c0921b30aa9367686d10302c9ee65ebb8
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-14T213756Z-claude-code-35bc4c.yaml
+    sha256: d670771ae56e89ce74349ee6d61af479ca18dc4b01f8ead6b31843cedd4861db
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-14T213828Z-codex-b2be80.yaml
+    sha256: 22768b2727c73b45e5d6bb3709d87024b5d409c209949152ea3c7abb18d0e4aa
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-15T023413Z-codex-9140bf.yaml
+    sha256: dfad9098af214765fd2118cc7fc0c129dce413a4a028451c76e89c073b8c1dc4
+    role: context
+  - path: history/records/EcoFAB_Ring_Trial_SynCom17/2026-11-15T025830Z-codex-a0048c.yaml
+    sha256: 3ed05a327a29385cafe02e4d6eaf9f68500ef3e311ce59380f804329e83f3ec2
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-10-02T055741Z-codex-lbs364.yaml
+    sha256: f4dd234b107d1a71a615ef87d937e9bb79ea73a14665129b8ba5070c6894586b
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-10-06T204405Z-codex-ae8721.yaml
+    sha256: 3fc8bb3c28c7fac843b3f4e3e1ae068d866c118c350b1f062a064a42edb765ad
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-10-29T130342Z-claude-f508b9.yaml
+    sha256: 6e2f41a734dbe0a35e28ccbd8e1bde3c5cf42eaf4480591dc717429591556978
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-01T004958Z-claude-2b289b.yaml
+    sha256: 4f262820ad20917cf3b036ecac171c3bf4cc3c426390b7824c7fc2df0d77a18f
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-05T063753Z-claude-06ad3a.yaml
+    sha256: 74005aa69cabbcf5f3f0ce4dd4d53773e1ef90c1c19d25a99fc852bf6720e060
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-05T114036Z-claude-b25799.yaml
+    sha256: 92447dc4e4a9d174ead58d54a96311840adce885cc6ad6a25d484b1a3e39d446
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-06T064400Z-claude-d84f14.yaml
+    sha256: 5ba540a0de453291e5cb685a9fa18bdec4864bd2657173973bffa1805b4c6225
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-15T021229Z-codex-948486.yaml
+    sha256: 665b57b6359f6dde408799f69f8f01b2a75c95ba9864a45e4b70dd1b73cd671f
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-15T021443Z-codex-7069cc.yaml
+    sha256: 040f94157fd7721bbe53e617398e20882c0e2bfb24812b52d2c902fb544a4fad
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-15T021456Z-codex-9052a8.yaml
+    sha256: 7aed6c98dce2f2bf8111474d646d57da547019c16a7d2335844e04fe44a4eb78
+    role: context
+  - path: history/records/LBNL_Switchgrass_Soil_SynCom16/2026-11-15T023530Z-codex-b4ec3a.yaml
+    sha256: 171d568005b997bead0aec59705145bd1b9980b2ce04cb7b59695a8d0ba1d1d3
+    role: context
+  - path: justfile
+    sha256: 40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f
+    role: context
+  - path: kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+    sha256: 304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a
+    role: target
+  - path: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    sha256: 7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339
+    role: target
+  - path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    sha256: bb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368
+    role: target
+  - path: references_cache/PMID_36472419.txt
+    sha256: af090796fe581c590b97b09d340412fef5bc735f0b4c94e8cef3f92a31f4c1a6
+    role: context
+  - path: references_cache/PMID_40920748.md
+    sha256: e941bcf804a045b43ed4cede7eddc57cc7bf3fe078d5915d1d1d8a89660b217f
+    role: context
+  - path: references_cache/PMID_42660928.md
+    sha256: 4b0186047599fd515aebc524d5e008ffbdf72ade572fc308443b60af2298bcdf
+    role: context
+  - path: references_cache/doi_10.1126_sciadv.adg7888.md
+    sha256: 53e9c9a977f934231d7855b11d459de2a740a0e474b908180c3d17fb9fac5150
+    role: context
+  - path: reviews/structured/20261114T212137Z-m5-ecofab-completion-canary/review.yaml
+    sha256: 6890ad1758bd592a685d774e87aa1aa57f48aabfdf12210611dfeff2a483260c
+    role: context
+  - path: reviews/structured/20261114T213444Z-m5-dopamine-syncom-primary-review/review.yaml
+    sha256: 8be7880af8e396735862cdf6fdaf919aa7c6d687b08962d43c537aa8765548b2
+    role: context
+  - path: reviews/structured/20261114T221158Z-m5-postcuration-scientific-delta/review.yaml
+    sha256: 35a9de97d4817d5b5a578954f1e67bb4a536de8703f3992ca4e101315379724f
+    role: context
+  - path: reviews/structured/20261115T021628Z-phase2-lbnl-canary/review.yaml
+    sha256: 6f96e422653a4f6925d592f06b08ef6b0bcaf72ed32ed6b671deda0af546a3cd
+    role: context
+  - path: reviews/structured/20261115T025004Z-phase2-linked-stock-delta/review.yaml
+    sha256: 1cd6a09d8a600c2067136b95df0afe2dadaee1686b8fed00b3127fa334254e98
+    role: context
+  - path: scripts/adhoc/build_phase2_final_science_20261115.py
+    sha256: 6fa8d3e468a19a6190fa7c51a6b4e0fa12e222343b3705004e76976fadecab00
+    role: context
+  - path: scripts/adhoc/build_phase2_linked_review_20261115.py
+    sha256: 0dcd560b8682446e1f54e1748afe63bcb0d5ad9dbc71ec3dbbe43bc9db8f7cb8
+    role: context
+  - path: scripts/adhoc/check_phase2_linked_records_20261115.py
+    sha256: effa36790cd5cea64a35eb4ccaa7fbcac608c30e08150c3b07c6ed7f0de77054
+    role: context
+  - path: scripts/adhoc/curate_phase2_ecofab_scope_20261115.py
+    sha256: 2b025394fe4adc933d86e7c9869cbb8a29a51759f1fc669b1fd834a771190841
+    role: context
+  - path: scripts/adhoc/run_phase2_linked_gates_20261115.sh
+    sha256: 99edd20f7c55662b63a7294f5ad8532d5a7a76cb78028b0dba01a5e8c4922910
+    role: context
+  - path: scripts/reference_assertion_coverage.py
+    sha256: 363cffb652bdd18733cd5c8c2d22abf663cb3314410ef237e531a8b2f3298908
+    role: context
+  - path: scripts/validate_strict.py
+    sha256: edf99346fb864eaeddb096841048fe02dd8e4003b9db4c3d7559e05caa033421
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11
+    role: context
+  - path: src/communitymech/validators/related_communities.py
+    sha256: e880859f8e5788253256848c4768120cdff8b4fcbef5975b22bc02569a9c561a
+    role: context
+  - path: src/communitymech/validators/treatment_arms.py
+    sha256: 2909d669c81a77741baf2046e828bb862b33b0ddab2bd39807d14d76057e8419
+    role: context
+  - path: uv.lock
+    sha256: 712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4
+    role: context
+targets:
+- target_id: CommunityMech:000025
+  path: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  label: EcoFAB 2.0 Root Microbiome Ring Trial SynCom17
+  kind: maintained
+  ownership_note: Full current canonical MicrobialCommunity record, all populated
+    scientific fields and explicit retained source boundaries assessed.
+- target_id: CommunityMech:000516
+  path: kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  label: Brachypodium Natural-Variation Hydroponic Dopamine SynCom16
+  kind: maintained
+  ownership_note: Full current canonical MicrobialCommunity record, all populated
+    scientific fields and explicit retained source boundaries assessed.
+- target_id: CommunityMech:000087
+  path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  label: LBNL Switchgrass Soil SynCom16
+  kind: maintained
+  ownership_note: Full current canonical MicrobialCommunity record, all populated
+    scientific fields and explicit retained source boundaries assessed.
+scope:
+  description: 'Every populated scientific field in current records 000025, 000516
+    and 000087: stocks, host, environment, cultivation, interactions, arrows, evidence,
+    relations, resources, discussions and provenance. Full coverage applies only to
+    these three records.'
+  selection: Explicit Phase 2 cohort, following the accepted 000087 canary and linked
+    correction; no all-record campaign sample inference.
+  coverage: full
+  population_size: 3
+  reviewed_target_ids:
+  - CommunityMech:000025
+  - CommunityMech:000516
+  - CommunityMech:000087
+checks:
+- check_id: check-ecofab-schema
+  name: ecofab schema
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-schema
+- check_id: check-ecofab-strict
+  name: ecofab strict
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate-strict kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    --out .temp/phase2-science-20261115/linked-ecofab-strict-003.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-strict
+- check_id: check-ecofab-gtdb
+  name: ecofab gtdb
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate-gtdb kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-gtdb
+- check_id: check-ecofab-domain
+  name: ecofab domain
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate-gtdb-domain kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-domain
+- check_id: check-ecofab-scalars
+  name: ecofab scalars
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate-scalars kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-scalars
+- check_id: check-ecofab-terms
+  name: ecofab terms
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: uv run --no-sync linkml-term-validator validate-data kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels --config .temp/phase2-science-20261115/linked-ecofab-terms-003-oak.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-ecofab-terms-003-labels
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-terms
+- check_id: check-ecofab-history
+  name: ecofab history
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: just --no-dotenv validate-history history/records/EcoFAB_Ring_Trial_SynCom17
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-history
+- check_id: check-ecofab-references
+  name: ecofab references
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: uv run --no-sync linkml-reference-validator validate data kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-ecofab-references-003-cache --no-full-text
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-references
+- check_id: check-ecofab-network
+  name: ecofab network
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000025
+  command: uv run --no-sync communitymech audit-network --communities-dir .temp/phase2-science-20261115/linked-ecofab-network-003-records
+    --json
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-ecofab-network
+- check_id: check-dopamine-schema
+  name: dopamine schema
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-schema
+- check_id: check-dopamine-strict
+  name: dopamine strict
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate-strict kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+    --out .temp/phase2-science-20261115/linked-dopamine-strict-003.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-strict
+- check_id: check-dopamine-gtdb
+  name: dopamine gtdb
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate-gtdb kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-gtdb
+- check_id: check-dopamine-domain
+  name: dopamine domain
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-domain
+- check_id: check-dopamine-scalars
+  name: dopamine scalars
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate-scalars kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-scalars
+- check_id: check-dopamine-terms
+  name: dopamine terms
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: uv run --no-sync linkml-term-validator validate-data kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels --config .temp/phase2-science-20261115/linked-dopamine-terms-003-oak.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-dopamine-terms-003-labels
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-terms
+- check_id: check-dopamine-history
+  name: dopamine history
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: just --no-dotenv validate-history history/records/Brachypodium_Natural_Variation_Dopamine_SynCom16
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-history
+- check_id: check-dopamine-references
+  name: dopamine references
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: uv run --no-sync linkml-reference-validator validate data kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+    -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-dopamine-references-003-cache
+    --no-full-text
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-references
+- check_id: check-dopamine-network
+  name: dopamine network
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000516
+  command: uv run --no-sync communitymech audit-network --communities-dir .temp/phase2-science-20261115/linked-dopamine-network-003-records
+    --json
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-dopamine-network
+- check_id: check-lbnl-schema
+  name: lbnl schema
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-schema
+- check_id: check-lbnl-strict
+  name: lbnl strict
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate-strict kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    --out .temp/phase2-science-20261115/linked-lbnl-strict-003.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-strict
+- check_id: check-lbnl-gtdb
+  name: lbnl gtdb
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate-gtdb kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-gtdb
+- check_id: check-lbnl-domain
+  name: lbnl domain
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate-gtdb-domain kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-domain
+- check_id: check-lbnl-scalars
+  name: lbnl scalars
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate-scalars kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-scalars
+- check_id: check-lbnl-terms
+  name: lbnl terms
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: uv run --no-sync linkml-term-validator validate-data kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels --config .temp/phase2-science-20261115/linked-lbnl-terms-003-oak.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-lbnl-terms-003-labels
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-terms
+- check_id: check-lbnl-history
+  name: lbnl history
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: just --no-dotenv validate-history history/records/LBNL_Switchgrass_Soil_SynCom16
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-history
+- check_id: check-lbnl-references
+  name: lbnl references
+  status: failed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: uv run --no-sync linkml-reference-validator validate data kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+    --cache-dir .temp/phase2-science-20261115/linked-lbnl-references-003-cache --no-full-text
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-references
+- check_id: check-lbnl-network
+  name: lbnl network
+  status: passed
+  required: true
+  summary: Executed current native gate; not scientific truth certification.
+  target_ids:
+  - CommunityMech:000087
+  command: uv run --no-sync communitymech audit-network --communities-dir .temp/phase2-science-20261115/linked-lbnl-network-003-records
+    --json
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-lbnl-network
+evidence:
+- evidence_id: ecofab-record
+  kind: record_content
+  reference: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+  locator: Every populated scientific field, exact current input SHA256, graph/roster
+    and append-only provenance
+  summary: Full current record read against primary evidence; optional missing properties
+    are not fabricated.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339
+- evidence_id: ecofab-primary
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.1–2.7; Methods4.1–4.10; DataAvailability
+  summary: Four treatment arms, seventeen stock/IMG/GOLD pairs, relative16S outcomes
+    and separate culture/reporter/genomic contexts inspected. Treatment-level effects
+    do not identify a necessary strain or molecular mechanism.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+- evidence_id: ecofab-prior
+  kind: prior_review
+  reference: reviews/structured/20261114T212137Z-m5-ecofab-completion-canary/review.yaml
+  locator: Earlier full primary assessment, preserved unchanged
+  summary: Earlier inspected facts are rechecked against current fields; current assessments
+    below replace stale state descriptions, not prior evidence bytes.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 6890ad1758bd592a685d774e87aa1aa57f48aabfdf12210611dfeff2a483260c
+- evidence_id: dopamine-record
+  kind: record_content
+  reference: kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  locator: Every populated scientific field, exact current input SHA256, graph/roster
+    and append-only provenance
+  summary: Full current record read against primary evidence; optional missing properties
+    are not fabricated.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a
+- evidence_id: dopamine-primary
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Results dopamine panels/Figs2–3; Methods Sec8–9/Sec19; SupplementaryFigs1/9/11
+    and Data1
+  summary: Ten-host-line inoculum experiment, signed relative-abundance correlations,
+    separate six-isolate dopamine doses and lower pooled spent-medium dopamine are
+    different evidence contexts.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+- evidence_id: dopamine-prior
+  kind: prior_review
+  reference: reviews/structured/20261114T213444Z-m5-dopamine-syncom-primary-review/review.yaml
+  locator: Earlier full primary assessment, preserved unchanged
+  summary: Earlier inspected facts are rechecked against current fields; current assessments
+    below replace stale state descriptions, not prior evidence bytes.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8be7880af8e396735862cdf6fdaf919aa7c6d687b08962d43c537aa8765548b2
+- evidence_id: lbnl-record
+  kind: record_content
+  reference: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+  locator: Every populated scientific field, exact current input SHA256, graph/roster
+    and append-only provenance
+  summary: Full current record read against primary evidence; optional missing properties
+    are not fabricated.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: bb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368
+- evidence_id: lbnl-primary
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/
+  locator: Results nutrient/ratio/preservation/plant panels/Figs2–3/5; Methods s4-1
+    throughs4-7
+  summary: Methods-defined final sixteen stocks differ from earlier18/17 assay rosters
+    and TableS1. Earlier measured observations remain separately scoped; no final16
+    graph attribution or inferred stock alias.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ad9774e85b789eaa1718f1f06984f59845f20e3108993418c0444f715e869922
+- evidence_id: lbnl-prior
+  kind: prior_review
+  reference: reviews/structured/20261115T021628Z-phase2-lbnl-canary/review.yaml
+  locator: Earlier full primary assessment, preserved unchanged
+  summary: Earlier inspected facts are rechecked against current fields; current assessments
+    below replace stale state descriptions, not prior evidence bytes.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 6f96e422653a4f6925d592f06b08ef6b0bcaf72ed32ed6b671deda0af546a3cd
+- evidence_id: ring-table
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S2Table rows2–18 columnsA–L
+  summary: All17 stocks, exact IMG/GOLD pairs, medium assignment and16-arm omission
+    of OAS925 independently checked.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: fd7882e673f62498ce2ac8c1215ece003edb7369fa780c106bfaa6db4b80e147
+- evidence_id: ring-s1
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S1Table rows2–6
+  summary: Laboratory-specific chamber/light/humidity/logger differences; prescribed
+    values are not uniform measured exposures.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: c9b37b5e0289387b3235202de36a97a4cf618f3465d28c13a120f277fd54201d
+- evidence_id: ring-s9
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S9Table T3SS signaturesM00660/M00542
+  summary: Computational module comparison does not establish expression, selective
+    necessity or virulence.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 83dea79fe391fff1fee305bd04db6731fd108505b21d25e73abb54040ef5c4f2
+- evidence_id: ring-s8
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S8 figure genome/acid-resistance panels
+  summary: Surveyed gene profile supports hypothesis context, not unique causal necessity
+    of each individual gene.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 4d60e494ff1b26d46ea2015db9278694521dd2b2036eb2693147f7fa85f221d2
+- evidence_id: ring-s10
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S10 biofilm/growth plots and caption
+  summary: OAS925 is sixth for biofilm; growth groups and conditions are separate
+    from ring-trial relative16S composition.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 87685139dd25676e631d90e532cbd5a3c7352d61a585c01f750785fb13a6ec5b
+- evidence_id: ring-s11
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: S11 motility/pH/time plots and caption
+  summary: OAS925 motility advantage depends on assay pH/time/comparator, with no
+    selective perturbation in SynCom17.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8197f933e4b1bc8d94e17d916c4d8658d9ca73558bb69d944b24ade81ea63086
+- evidence_id: ding-table
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Supplementary Data1 stock/media table; A16
+  summary: Methods andFig3a identifyOAE515 while Data1A16 saysOAE51; preserve internal
+    source discrepancy rather than create an alias.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 185d64e815b7ef418d51b0cea0e2a42136fc92423836497bfe88ecbf6c4abfa3
+- evidence_id: ding-fig2
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig2 standard/plant chromatograms and pooled endpoint
+  summary: Authentic standard supports dopamine identity; pooled extracellular ion
+    intensity is not secretion rate or absolute concentration.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 1ed2b386aa1f4a42251e71867119e7ac30b9363875f8ebb3c0329a57f5667dd8
+- evidence_id: ding-fig3
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3a six Spearman associations and3b isolate growth
+  summary: n28 unadjusted correlations differ from n4 separate-isolate0/50/100µg/mL
+    intervention; finalOD does not establish catabolic flux.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 35a1928c8878800b9a2b849ebc07a49aac7ffb228ef32a094593a4563f9b9b3e
+- evidence_id: ding-supplement
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: SupplementaryFigs1/9/11
+  summary: Experimental arms/timeline, dopamineMSMS/EIC identity and axenic genotype
+    follow-up checked as separate contexts.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: a8c0c9e3e74cd193ef2b69408a87b8d5b8450d27e23e8d0c22ffa0176cd6e6ff
+- evidence_id: coker-supplement
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/
+  locator: TableS1 DOCX table1 rows2–19; row12 OAE516 and row18 OAE603
+  summary: Earlier18 list conflicts with Methods final16:OAE516/OAE515 and Bacillus/Marmoricola
+    are not reconciled by guessing.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 5bfa02fdb94538e9405fb0ec7d7b0dad338791a5ca0b4b651589f33148c8e0e7
+- evidence_id: coker-fig2
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/
+  locator: Fig2 nutrient dilution panel
+  summary: Earlier18-member community R2A dilution changes diversity; it is not an
+    experiment on the Methods final16 roster.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 42776325829e8966906175107cab130ed15b9863672294abb334351f25d9b4d4
+- evidence_id: coker-fig3
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/
+  locator: Fig3 initial-ratio and time panels
+  summary: Earlier-panel starting composition and2/6day outcomes do not create universal
+    final16 abundance.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ee3893dea6e5c286578dcdaea6cd6fad94058816e561943015a871085a9edd18
+- evidence_id: coker-fig5
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC9765266/
+  locator: Fig5 in-planta and preservation-linked contexts
+  summary: Earlier18 and17-minus-Burkholderia host assays are kept separate from deposited
+    final16 collection identity.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: fa42a06754287b41e5503de315abe7f1770b179be030eee20033b1e0482e7ab5
+- evidence_id: ecofab-grounding
+  kind: database
+  reference: .temp/phase2-science-20261115/linked-ecofab-grounding-001.json
+  locator: Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB
+    reproduction
+  summary: Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537…
+    and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence
+    is explicit; ambiguous candidates remain unselected. This is not exact genome
+    placement or current catalog verification.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ad27b65c8e6304d86638115d31b30c61f5f937bfaa91f4873dec8b5150170ac8
+- evidence_id: dopamine-grounding
+  kind: database
+  reference: .temp/phase2-science-20261115/linked-dopamine-grounding-001.json
+  locator: Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB
+    reproduction
+  summary: Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537…
+    and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence
+    is explicit; ambiguous candidates remain unselected. This is not exact genome
+    placement or current catalog verification.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 867bbaff2936ac73bc2d9824eeffcba7f9bbdab3c8d2969eb07553d1983cd05e
+- evidence_id: lbnl-grounding
+  kind: database
+  reference: .temp/phase2-science-20261115/lbnl-grounding-final16.json
+  locator: Readonly NCBI genus labels/ranks/synonyms and native hash-pinned NCBI2GTDB
+    reproduction
+  summary: Genus-level identity and recorded mapping votes inspected; crosswalk SHA761d5537…
+    and original database hashes retained. Curated bacterial Bosea/Allobosea correspondence
+    is explicit; ambiguous candidates remain unselected. This is not exact genome
+    placement or current catalog verification.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: a5c8dec571bba0c42a52125a71ea2b6b97ea991137ceff8bde2874abc17d489a
+- evidence_id: apply-0
+  kind: record_content
+  reference: .temp/phase2-science-20261115/curation-applied-001/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: c6e08b2fe8c7e26f49ff1c0f2032887d60973e017a16788c63e6733a6ce49fd3
+- evidence_id: apply-1
+  kind: record_content
+  reference: .temp/phase2-science-20261115/mapping-note-applied-001/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9034e937ade286fd15fda8e174e52b3363417aaac68c9c975a9e5ac4ed22cb5e
+- evidence_id: apply-2
+  kind: record_content
+  reference: .temp/phase2-science-20261115/linked-stock-plan-003/ecofab/apply/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 0beb718152a4c6e878c8815dfaca6dd795a53cd7663dbe06003cab76356db4f2
+- evidence_id: apply-3
+  kind: record_content
+  reference: .temp/phase2-science-20261115/linked-stock-plan-003/dopamine/apply/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: d85e1dffe208d22240805e21b56069221743c120fb1e654cf18f6b1e3233260a
+- evidence_id: apply-4
+  kind: record_content
+  reference: .temp/phase2-science-20261115/linked-stock-plan-003/lbnl/apply/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 5aeb0e2a5b9e97f5ec9eb7f8251f9bc481bc26d70ec5c0136bda74b9cd9d7ec9
+- evidence_id: apply-5
+  kind: record_content
+  reference: .temp/phase2-science-20261115/ecofab-scope-plan-002/apply/receipt.json
+  locator: Actual guarded write before/after hashes, original receipt bytes
+  summary: Applied history is evidence, not a planned completion assertion. Every
+    predecessor and corrected current record is linked through actual receipts; all
+    new native sidecars are separately hash-bound.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 500d1a61956c1b752142e04d3dd10fa65a53805219dbcf0704a035b63901bec5
+- evidence_id: lbnl-coverage
+  kind: validation
+  reference: .temp/phase2-science-20261115/imported-root-lbnl-measurement-001/measurement.json
+  locator: Maintained native assertion measurement on parent f52ff4ef36c59bace4271d4dc256e33d621ddabd,
+    same current000087 hash
+  summary: 37 snippet surfaces were actually compared:35matched,2mismatched; SupportingReference
+    is traversed. Measurement valid/coverage complete, native exit1 retained. This
+    proves focal traversal, not scientific truth or corpus coverage.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 64c9a1c9b53f372efdca908d389a0d6f27855ce90e6f9438edf0b9a24c5128c4
+- evidence_id: current-three-coverage
+  kind: validation
+  reference: .temp/phase2-science-20261115/final-three-coverage-002/measurement.json
+  locator: Maintained native occurrence measurement on exact committed source a821ec7ca48adb5232cfc7a92e86d1d20330d278
+  summary: All 149 current snippet surfaces were actually compared; 147 matched and
+    two LBNL supplemental cells mismatched. Inputs stayed unchanged. Complete lexical
+    comparison coverage does not establish scientific truth.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: c9c497d283076bd770d42a8d03730ea811b73f07975bb67836f684af033c6e54
+- evidence_id: ecofab-node-0-source-0
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.1/2.3–2.5; Methods4.2
+  summary: IN_VIVO full17 inoculum versus source controls in Bd21-3 EcoFABs; three
+    downstream arrows are treatment effects. Participants identify the inoculum, not
+    equal final abundance or member-specific necessity.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: All participating laboratories observed consistent inoculum-dependent changes
+    in plant phenotype, root exudate composition, and final bacterial community structure
+- evidence_id: ecofab-node-1-source-0
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.7; Methods4.7–4.10; S8–S11
+  summary: COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO
+    culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective
+    perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: Comparative genomic analysis showed that the Paraburkholderia sp. OAS925
+    genome
+- evidence_id: ecofab-node-1-source-1
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.7; Methods4.7–4.10; S8–S11
+  summary: COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO
+    culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective
+    perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: Clear RFP signals were detected at the root tip and in the maturation zone
+    at 1 DAI
+- evidence_id: ecofab-node-2-source-0
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.4; Fig3; Methods4.6
+  summary: IN_VIVO OAS925 relative16S dominance at22DAI, with a distinct omission16
+    comparator. Relative reads do not prove absolute suppression, extinction or a
+    molecular competition mechanism.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia
+    sp. OAS925 across all laboratories
+- evidence_id: ecofab-node-3-source-0
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.5; Fig4; Methods4.4–4.5
+  summary: IN_VIVO bulk spent medium under whole treatment. CHEBI33709 amino-acid
+    context is supported; plant/microbe production, uptake and extracellular enzymes
+    remain alternatives. No OAS925-specific flux or donor-recipient exchange established.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: A second large cluster consisted of metabolites with lower relative concentrations
+    in the SynCom17 treatment, represented mainly by amino acids
+- evidence_id: ecofab-node-4-source-0
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.3; Fig2b–c
+  summary: IN_VIVO SynCom17 versus axenic pooled-lab biomass and reduced root development
+    after14DAI, with laboratory variation. GO0040007growth is an endpoint; no single-stock
+    toxicity or reciprocity claim.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: SynCom17 caused a consistent decrease in root development observed after
+    14 DAI onwards
+- evidence_id: dopamine-node-0-source-0
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3a; ResultsSec4
+  summary: IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506
+    across genotypes, n28. Positive association does not establish a host-to-microbe
+    effect; current causal source/direction tags are absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: Dopamine was positively associated with the relative abundances of two Actinobacteria,
+    Rhodococcus OAS809 and Marmoricola OAE513, and three Proteobacteria, Rhizobium
+    OAE497, Lysobacter OAE881, and Bosea OAE506, whereas it was negatively associated
+    with another Proteobacteria, Burkholderia OAS925
+- evidence_id: dopamine-node-0-source-1
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3a; ResultsSec4
+  summary: IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506
+    across genotypes, n28. Positive association does not establish a host-to-microbe
+    effect; current causal source/direction tags are absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: No multiple-comparison adjustment was applied.
+- evidence_id: dopamine-node-1-source-0
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3a; ResultsSec4
+  summary: IN_VIVO OAS925 relative abundance negatively correlates with dopamine,
+    n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE
+    and signed-effect tags are absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: Dopamine was positively associated with the relative abundances of two Actinobacteria,
+    Rhodococcus OAS809 and Marmoricola OAE513, and three Proteobacteria, Rhizobium
+    OAE497, Lysobacter OAE881, and Bosea OAE506, whereas it was negatively associated
+    with another Proteobacteria, Burkholderia OAS925
+- evidence_id: dopamine-node-1-source-1
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3a; ResultsSec4
+  summary: IN_VIVO OAS925 relative abundance negatively correlates with dopamine,
+    n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE
+    and signed-effect tags are absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: No multiple-comparison adjustment was applied.
+- evidence_id: dopamine-node-2-source-0
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3b; MethodsSec19
+  summary: IN_VITRO100µg/mL dopamine increases finalOD of five separately cultured
+    isolates, n4 at30°C. These are not assembled-SynCom results or catabolic-flux
+    measurements;50µg/mL does not uniformly stimulate all five.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: we observed that dopamine at 100 μg/mL significantly stimulated the growth
+    of all five isolates whose abundances were positively associated with dopamine
+- evidence_id: dopamine-node-3-source-0
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig3b; MethodsSec19
+  summary: IN_VITRO OAS925 finalOD decreases at50/100µg/mL dopamine in monoculture,
+    n4 at30°C. Mechanism remains unresolved; no host participation is implied.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: while inhibiting the growth of Burkholderia OAS925, whose abundance was negatively
+    correlated with dopamine
+- evidence_id: dopamine-node-4-source-0
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig2c; ResultsSec4
+  summary: IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is
+    lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output
+    versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction
+    absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: SynCom inoculation was consistently associated with reduced dopamine abundance
+    across lines
+- evidence_id: dopamine-node-4-source-1
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13522444/
+  locator: Fig2c; ResultsSec4
+  summary: IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is
+    lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output
+    versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction
+    absent.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9a58e566488461f6bda24554f2ab3c580e53fff58f5413b74e0957220acbe274
+  quote: suggesting potential microbial utilization of dopamine and/or altered dopamine
+    production or exudation in response to microbial colonization
+- evidence_id: ecofab-arrow-0-source
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.4/Fig3
+  summary: Full17 inoculation to22DAI root relative profile; omission16 supports composition
+    effect, not molecular mechanism or absolute loss.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: 98 ± 0.03%
+- evidence_id: ecofab-arrow-1-source
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.5/Fig4
+  summary: Whole inoculation changes net extracellular abundance; plant versus microbial
+    origin and flux remain unresolved.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: lower relative concentrations
+- evidence_id: ecofab-arrow-2-source
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Results2.3/Fig2
+  summary: SynCom17 versus axenic treatment reduces biomass/root development; no necessary
+    stock, nutrient competition or direct OAS925 toxicity inferred.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: consistent decrease
+- evidence_id: ecofab-arrow-3-source
+  kind: primary_source
+  reference: https://doi.org/10.1371/journal.pbio.3003358
+  locator: Discussion/Results2.7
+  summary: Explicitly HYPOTHESIZED OAS925 traits may contribute; separate gene/culture/reporter
+    data do not selectively establish mechanism in the17-member community.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 8ab7d3de83f7b92e7dc6443db61d9ed31471d7ccdbdd1c8cf6c3d3b2efc6e947
+  quote: might facilitate
+- evidence_id: check-ecofab-schema
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-schema-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 3a83af40e1e58b814a9d9e5fa4a4e692da2fd0812271b8e71dc83cf79ead7057
+- evidence_id: check-ecofab-strict
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-strict-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: e73dfab8349ba96da1b218cdeb5e0774ca13b4eec667993ad0e3cbd7551404b6
+- evidence_id: check-ecofab-gtdb
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-gtdb-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 7754de734052e6eba790c8a0bf4616281431443256c7d6ff23f400a232e44b0b
+- evidence_id: check-ecofab-domain
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-domain-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: e90433f7f3f6a3e33f461a7476642228e8257c9ae388adf89f9af9a38d6e545c
+- evidence_id: check-ecofab-scalars
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-scalars-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: d314cd92c49d37ddaab0ea5b3b73786c702f58ba15fcb06f3b67a1e5f9e6b398
+- evidence_id: check-ecofab-terms
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-terms-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+- evidence_id: check-ecofab-history
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-history-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+- evidence_id: check-ecofab-references
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-references-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9b42a460ae7517774e1b8adc066b933c8bfdbe6cd837753a17b381ce5864b898
+- evidence_id: check-ecofab-network
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-ecofab-network-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash7f5b0122647382d048e0b750d1c5f324b32f74868685d111db39d588c735b339,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+- evidence_id: check-dopamine-schema
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-schema-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 5e2fedd9ada9f8a973ac8ce0eadcc4e7017f89d1eeed4043fe848dcd9ec4ec1c
+- evidence_id: check-dopamine-strict
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-strict-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 97b4682aa685ff41f19cd51042e2d4b468d17ecc8eb482463b4acd8c8db137ee
+- evidence_id: check-dopamine-gtdb
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-gtdb-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 25d047d4b2b4591c03c31e6fb963b9a73c39d268cf03f212aec74e64e77c2105
+- evidence_id: check-dopamine-domain
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-domain-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 75531fe02dfbb05b4a1ae3e7d34e4b53b245563e172cfee71469fe65ded2804b
+- evidence_id: check-dopamine-scalars
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-scalars-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: b6ac161bbda73f2be83ec4a1e31c0021fbee8a37510e4be32905dbf1ab1df286
+- evidence_id: check-dopamine-terms
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-terms-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+- evidence_id: check-dopamine-history
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-history-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+- evidence_id: check-dopamine-references
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-references-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 9df97d246eb85b184ad72d33991a103ae5449da5b8473375aae2bca47ea82c4e
+- evidence_id: check-dopamine-network
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-dopamine-network-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hash304702c684faedb244d678e628ec174851dbdcafe46128eab86d824798e0482a,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+- evidence_id: check-lbnl-schema
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-schema-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: e1bdbbed0d7b0947e15365018924e683ae7cb73330bc6383b3d1ca8c6c677eb5
+- evidence_id: check-lbnl-strict
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-strict-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 3ec616c890dc05f4c5ea7541dfc383c634409706aab1aa7aba6496408a0618bc
+- evidence_id: check-lbnl-gtdb
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-gtdb-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: f104e8a06cf91e7abcaac4cc07bdb09fec51566e3eba2da5b497f5b150a581f4
+- evidence_id: check-lbnl-domain
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-domain-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 99cc8917f7088f86a5a2b94cd69bd6163e61c9bb1aaf09ed5e45dac476edc6ff
+- evidence_id: check-lbnl-scalars
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-scalars-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 249ccea48fe35947940471c5d327c77f6d4bb3a7b2c20bf65e8d4eb327cc358c
+- evidence_id: check-lbnl-terms
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-terms-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+- evidence_id: check-lbnl-history
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-history-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+- evidence_id: check-lbnl-references
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-references-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit1; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: f462471ee398eb13cc149fef2bbdf57103bb73519c7a6af836c0e0ae6a143d74
+- evidence_id: check-lbnl-network
+  kind: validation
+  reference: .temp/phase2-science-20261115/linked-lbnl-network-003.log
+  locator: Actual native focused command, exact current input hashes, full log
+  summary: Base 17616c9cad16a1b62cd6e9b39d82af4276e5188a, actual working record hashbb31b1df4a9be2241453528101fc5d55657c23eccf1d58ce1cc9639e5912b368,
+    exit0; inputs unchanged. Reference failures remain literal.
+  support: supports
+  accessed_at: '2026-11-15T03:15:03Z'
+  snapshot_sha256: ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+assessments:
+- assessment_id: ecofab-identity
+  target_ids:
+  - CommunityMech:000025
+  area: identity
+  topic: Source-defined ring trial and four distinct arms
+  outcome: supported
+  summary: Engineered17-stock Bd21-3 laboratory root model is distinct from source
+    soil, Coker final16 and Ding16. Four native arms represent source SynCom17, OAS925-omission16,
+    axenic mock and plant-free mock; NO_MICROBES denotes intended control design,
+    not a claim every sterility test was negative.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-conditions
+  target_ids:
+  - CommunityMech:000025
+  area: scope
+  topic: Plant ring trial, inoculum stocks and reporter assay separated
+  outcome: supported
+  summary: Ring inoculation at source10-day seedlings and harvest22DAI is separate
+    from reporter3-day plants and microscopy1/3DAI. Nine mLhalfMS plus1mLinoculum/mock,14hlight26°C/10hdark20°C
+    withlabC16hlight exception,PPFD110–140 and humidity70%if tunable are prescribed
+    conditions, not uniform measured exposure. Stock27°C2–8day/media/glycerol preparation
+    differs from reporter27°C200rpmKan20mg/L and genomic/trait assays. Unrelated nitrogen-form
+    experiment is no longer a ring intervention.
+  evidence_ids:
+  - ecofab-primary
+  - ring-s1
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-means
+  target_ids:
+  - CommunityMech:000025
+  area: scope
+  topic: Four observations retain arm, time and measurement scale
+  outcome: supported
+  summary: OAS925 at 98 ± 0.03% belongs to SynCom17; OAS809 at 68 ± 33%, OAE908 at
+    14 ± 27%, and OAE515 at 15 ± 20% belong to the OAS925 omission treatment. All
+    are root relative 16S means ± SD across laboratories, 22 days after inoculation.
+    Absolute cell counts, growth rates and competitive extinction are not established.
+    The unsupported OAP107 abundance statement at 21 days was removed.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  details: Selectors taxonomy[*].abundance_observations; timepoint harvest-22dai;
+    relative_abundance_unit PERCENT.
+- assessment_id: ecofab-mechanism
+  target_ids:
+  - CommunityMech:000025
+  area: evidence
+  topic: Non-graph claims now respect measured endpoint scope
+  outcome: supported
+  summary: Generic degrader/cross-feeder roles are absent. Description, OAS925 notes,
+    engineering endpoints and amino-acid relevance distinguish whole-treatment outcomes
+    from strain-specific uptake/harm. Genomic annotations and separate culture/reporter
+    data remain candidate mechanisms; graph hypotheses are not presented as selectively
+    established causes.
+  evidence_ids:
+  - ecofab-primary
+  - ring-s8
+  - ring-s9
+  - ring-s10
+  - ring-s11
+  - ecofab-record
+- assessment_id: ecofab-resources
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Source-reported study resources and exact genome identifiers
+  outcome: supported
+  summary: The five preexisting study resources remain distinct amplicon, metabolomics,
+    integrated study and phenotype datasets. The invalid GOLD pseudo-range is replaced
+    by17 source stock/IMG/GOLD tuples including MycobacteriumGp0440934, with per-entry
+    mainMethods evidence. Current server availability, raw reanalysis, assembly quality
+    and exact strain genome-to-GTDB placement are not claimed.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: dopamine-identity
+  target_ids:
+  - CommunityMech:000516
+  area: identity
+  topic: Engineered hydroponic inoculum and ten host lines
+  outcome: supported
+  summary: Sixteen declared stocks, ten B.distachyon genotypes, sterile start and
+    root-bathing liquid are correctly distinguished from the separate native-soil000515
+    experiment. EqualOD inoculation is not equal realized abundance. Mucilaginibacter16S
+    nondetection does not remove it from the intended inoculum.
+  evidence_ids:
+  - dopamine-primary
+  - ding-table
+  - ding-supplement
+  - dopamine-record
+- assessment_id: dopamine-conditions
+  target_ids:
+  - CommunityMech:000516
+  area: scope
+  topic: Plant and isolate contexts remain separate
+  outcome: supported
+  summary: Two seedlings in40mLhalfMS/PTL100,22°C16/8h150µmol/m2/s50%humidity, week1inoculation/week4harvest
+    match Methods. Separate stocks useR2A/.1R2A/LB at30°C200rpm. NoPlants uses plant-spent
+    medium and differs from fresh medium TeCtrl; no treatment arm or monoculture result
+    is silently equated with the assembled community.
+  evidence_ids:
+  - dopamine-primary
+  - ding-table
+  - ding-supplement
+  - dopamine-record
+- assessment_id: dopamine-discussion
+  target_ids:
+  - CommunityMech:000516
+  area: evidence
+  topic: Dopamine identity and open substrate-versus-signal question
+  outcome: supported
+  summary: CHEBI18243 is supported by standard retention and MSMS/EIC. Relative spent-medium
+    intensity is not absolute concentration or secretion rate; root2.71mg/gFW is not
+    exudate dose. The open substrate/signalling question remains bounded because isolate
+    finalOD effects do not identify consumption, catabolic flux or host biosynthesis
+    mechanisms. Optional missing resources are not invented.
+  evidence_ids:
+  - dopamine-primary
+  - ding-fig2
+  - ding-fig3
+  - ding-supplement
+  - dopamine-record
+- assessment_id: lbnl-identity
+  target_ids:
+  - CommunityMech:000087
+  area: identity
+  topic: Methods-defined final16 collection with unresolved source correspondence
+  outcome: concern
+  summary: The current record explicitly denotes sixteen Methods stock/DSM assertions.
+    Earlier18/17 assays remain discussions, not final16 graph nodes. Methods/TableS1
+    OAE515/OAE516 and Marmoricola/Bacillus differences remain explicit; no alias or
+    stock-equivalence inference is made.
+  evidence_ids:
+  - lbnl-primary
+  - coker-supplement
+  - lbnl-record
+- assessment_id: lbnl-conditions
+  target_ids:
+  - CommunityMech:000087
+  area: scope
+  topic: Laboratory setting, source soil and assay-dependent cultivation
+  outcome: supported
+  summary: ENVO01001405 laboratory setting and modeled/sourceENVO00001998soil are
+    distinct. Isolate preculture3–5mL1xR2A30°C5–7days differs from200µLcommunity panels
+    with dilution/time-dependent harvests and host24°C regime. No universal72h protocol,
+    shaking condition or final16 treatment arm is invented.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+- assessment_id: lbnl-nutrient
+  target_ids:
+  - CommunityMech:000087
+  area: scope
+  topic: Earlier18-member nutrient observation
+  outcome: supported
+  summary: Discussion1 preserves the earlier18-member nutrient-dilution result and
+    its3dayR2A context, without attributing the outcome to all16 current stock assertions.
+  evidence_ids:
+  - lbnl-primary
+  - coker-fig2
+  - lbnl-record
+- assessment_id: lbnl-ratios
+  target_ids:
+  - CommunityMech:000087
+  area: scope
+  topic: Earlier inoculum-ratio/time observation
+  outcome: supported
+  summary: Discussion2 retains initial-ratio and2/6day temporal-composition evidence
+    with its original panel context; neither a universal abundance nor final16 causal
+    graph is inferred.
+  evidence_ids:
+  - lbnl-primary
+  - coker-fig3
+  - lbnl-record
+- assessment_id: lbnl-plant
+  target_ids:
+  - CommunityMech:000087
+  area: scope
+  topic: Earlier18/17 host observations
+  outcome: supported
+  summary: Discussion3 preserves the earlier18 and17-minus-Burkholderia plant experiment
+    and its host-culture conditions without equating either roster with the final16
+    collection.
+  evidence_ids:
+  - lbnl-primary
+  - coker-fig5
+  - lbnl-record
+- assessment_id: lbnl-gaps
+  target_ids:
+  - CommunityMech:000087
+  area: scope
+  topic: Ecological mediation and TableS1 uncertainty
+  outcome: concern
+  summary: Discussions0/4 distinguish unresolved mechanism from measured compositional
+    observations and retain the exact source stock disagreement. The two supplemental
+    cell quotes remain true source quotes despite article-only matcher failures.
+  evidence_ids:
+  - lbnl-primary
+  - coker-supplement
+  - lbnl-record
+- assessment_id: ecofab-stock-oas925
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAS925: Paraburkholderia'
+  outcome: supported
+  summary: Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia)
+    is genus-level grounding with native status GROUNDED. Individual DSM113627 is
+    distinct from complete ring consortium DSM200000SY.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[0]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oas809
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAS809: Rhodococcus <high G+C Gram-positive bacteria>'
+  outcome: supported
+  summary: Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus
+    <high G+C Gram-positive bacteria>) is genus-level grounding with native status
+    GROUNDED. No species identity, functional role or precise study-stock genome mapping
+    is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[1]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae908
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE908: Mycobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[2]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae515
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE515: Methylobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium)
+    is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker
+    TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[3]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oas795
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAS795: Variovorax'
+  outcome: supported
+  summary: Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[4]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae497
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE497: Rhizobium'
+  outcome: supported
+  summary: Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[5]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae506
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE506: Allobosea'
+  outcome: supported
+  summary: Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea)
+    is genus-level grounding with native status GROUNDED. Curated Allobosea85413/bacterial
+    Bosea34/34 mapping and original flags are retained.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[6]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae829
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE829: Bradyrhizobium'
+  outcome: supported
+  summary: Primary study list supports stock OAE829; canonical NCBITaxon:374 (Bradyrhizobium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[7]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae881
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE881: Lysobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[8]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oap107
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAP107: Arthrobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter)
+    is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level,
+    with11 unselected GTDB candidates.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[9]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae513
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE513: Marmoricola'
+  outcome: supported
+  summary: Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[10]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae865
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE865: Chitinophaga'
+  outcome: supported
+  summary: Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[11]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae612
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE612: Mucilaginibacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[12]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oas944
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAS944: Niastella'
+  outcome: supported
+  summary: Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[13]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae603
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE603: Gottfriedia'
+  outcome: supported
+  summary: Primary study list supports stock OAE603; canonical NCBITaxon:2837503 (Gottfriedia)
+    is genus-level grounding with native status GROUNDED. Source Bacillus stock is
+    preserved under curated Gottfriedia genus; no unrelated stock phenotype transferred.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[14]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oap136
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAP136: Brevibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[15]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-stock-oae614
+  target_ids:
+  - CommunityMech:000025
+  area: grounding
+  topic: 'OAE614: Paenibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus)
+    is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus
+    mapping remains ambiguous; no candidate is selected.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-grounding
+  - ecofab-record
+  - ring-table
+  details: Selector taxonomy[16]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: ecofab-relations
+  target_ids:
+  - CommunityMech:000025
+  area: consistency
+  topic: All populated related-community claims reviewed
+  outcome: supported
+  summary: Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections
+    overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks
+    and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine
+    link to000515 denotes a shared study, not matching community membership or whole-record
+    scientific certification.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - dopamine-primary
+  - lbnl-primary
+  - ecofab-record
+- assessment_id: ecofab-provenance
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Actual corrections, immutable predecessors and native sidecars
+  outcome: supported
+  summary: All applied receipts affecting this three-record campaign and every new
+    native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope
+    correction preserve old history and review bytes. No planned or failed run is
+    substituted for an applied receipt.
+  evidence_ids:
+  - ecofab-record
+  - ecofab-prior
+  - apply-0
+  - apply-1
+  - apply-2
+  - apply-3
+  - apply-4
+  - apply-5
+- assessment_id: dopamine-stock-oae881
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE881: Lysobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[0]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oas925
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAS925: Paraburkholderia'
+  outcome: supported
+  summary: Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia)
+    is genus-level grounding with native status GROUNDED. Individual DSM113627 is
+    distinct from complete ring consortium DSM200000SY.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[1]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oas795
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAS795: Variovorax'
+  outcome: supported
+  summary: Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[2]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae865
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE865: Chitinophaga'
+  outcome: supported
+  summary: Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[3]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae506
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE506: Allobosea'
+  outcome: supported
+  summary: Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea)
+    is genus-level grounding with native status GROUNDED. Curated Allobosea85413/bacterial
+    Bosea34/34 mapping and original flags are retained.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[4]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oas809
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAS809: Rhodococcus <high G+C Gram-positive bacteria>'
+  outcome: supported
+  summary: Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus
+    <high G+C Gram-positive bacteria>) is genus-level grounding with native status
+    GROUNDED. No species identity, functional role or precise study-stock genome mapping
+    is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[5]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae513
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE513: Marmoricola'
+  outcome: supported
+  summary: Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[6]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae614
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE614: Paenibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus)
+    is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus
+    mapping remains ambiguous; no candidate is selected.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[7]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae515
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE515: Methylobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium)
+    is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker
+    TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[8]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oap107
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAP107: Arthrobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter)
+    is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level,
+    with11 unselected GTDB candidates.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[9]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae612
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE612: Mucilaginibacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[10]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oap136
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAP136: Brevibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[11]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oas944
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAS944: Niastella'
+  outcome: supported
+  summary: Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[12]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae497
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE497: Rhizobium'
+  outcome: supported
+  summary: Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[13]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae908
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE908: Mycobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[14]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-stock-oae603
+  target_ids:
+  - CommunityMech:000516
+  area: grounding
+  topic: 'OAE603: Gottfriedia'
+  outcome: supported
+  summary: Primary study list supports stock OAE603; canonical NCBITaxon:2837503 (Gottfriedia)
+    is genus-level grounding with native status GROUNDED. Source Bacillus stock is
+    preserved under curated Gottfriedia genus; no unrelated stock phenotype transferred.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-grounding
+  - dopamine-record
+  - ding-table
+  details: Selector taxonomy[15]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: dopamine-relations
+  target_ids:
+  - CommunityMech:000516
+  area: consistency
+  topic: All populated related-community claims reviewed
+  outcome: supported
+  summary: Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections
+    overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks
+    and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine
+    link to000515 denotes a shared study, not matching community membership or whole-record
+    scientific certification.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - dopamine-primary
+  - lbnl-primary
+  - dopamine-record
+- assessment_id: dopamine-provenance
+  target_ids:
+  - CommunityMech:000516
+  area: provenance
+  topic: Actual corrections, immutable predecessors and native sidecars
+  outcome: supported
+  summary: All applied receipts affecting this three-record campaign and every new
+    native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope
+    correction preserve old history and review bytes. No planned or failed run is
+    substituted for an applied receipt.
+  evidence_ids:
+  - dopamine-record
+  - dopamine-prior
+  - apply-0
+  - apply-1
+  - apply-2
+  - apply-3
+  - apply-4
+  - apply-5
+- assessment_id: lbnl-stock-oap107
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAP107: Arthrobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAP107; canonical NCBITaxon:1663 (Arthrobacter)
+    is genus-level grounding with native status AMBIGUOUS. Arthrobacter1663 is genus-level,
+    with11 unselected GTDB candidates.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[0]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae506
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE506: Allobosea'
+  outcome: supported
+  summary: Primary study list supports stock OAE506; canonical NCBITaxon:85413 (Allobosea)
+    is genus-level grounding with native status UNRESOLVED. Curated Allobosea85413/bacterial
+    Bosea34/34 mapping and original flags are retained.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[1]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae829
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE829: Bradyrhizobium'
+  outcome: supported
+  summary: Primary study list supports stock OAE829; canonical NCBITaxon:374 (Bradyrhizobium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[2]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oap136
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAP136: Brevibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAP136; canonical NCBITaxon:55080 (Brevibacillus)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[3]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oas925
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAS925: Paraburkholderia'
+  outcome: supported
+  summary: Primary study list supports stock OAS925; canonical NCBITaxon:1822464 (Paraburkholderia)
+    is genus-level grounding with native status GROUNDED. Individual DSM113627 is
+    distinct from complete ring consortium DSM200000SY.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[4]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae865
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE865: Chitinophaga'
+  outcome: supported
+  summary: Primary study list supports stock OAE865; canonical NCBITaxon:79328 (Chitinophaga)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[5]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae881
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE881: Lysobacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE881; canonical NCBITaxon:68 (Lysobacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[6]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae513
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE513: Marmoricola'
+  outcome: supported
+  summary: Primary study list supports stock OAE513; canonical NCBITaxon:86795 (Marmoricola)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[7]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae612
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE612: Mucilaginibacter'
+  outcome: supported
+  summary: Primary study list supports stock OAE612; canonical NCBITaxon:423349 (Mucilaginibacter)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[8]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae515
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE515: Methylobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE515; canonical NCBITaxon:407 (Methylobacterium)
+    is genus-level grounding with native status GROUNDED. Ding Data1OAE51 and Coker
+    TableS1OAE516 discrepancies remain distinct from this Methods stock assertion.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[9]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae908
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE908: Mycobacterium'
+  outcome: supported
+  summary: Primary study list supports stock OAE908; canonical NCBITaxon:1763 (Mycobacterium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[10]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oas944
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAS944: Niastella'
+  outcome: supported
+  summary: Primary study list supports stock OAS944; canonical NCBITaxon:354354 (Niastella)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[11]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae614
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE614: Paenibacillus'
+  outcome: supported
+  summary: Primary study list supports stock OAE614; canonical NCBITaxon:44249 (Paenibacillus)
+    is genus-level grounding with native status AMBIGUOUS. Paenibacillus split-genus
+    mapping remains ambiguous; no candidate is selected.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[12]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oae497
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAE497: Rhizobium'
+  outcome: supported
+  summary: Primary study list supports stock OAE497; canonical NCBITaxon:379 (Rhizobium)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[13]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oas809
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAS809: Rhodococcus <high G+C Gram-positive bacteria>'
+  outcome: supported
+  summary: Primary study list supports stock OAS809; canonical NCBITaxon:1827 (Rhodococcus
+    <high G+C Gram-positive bacteria>) is genus-level grounding with native status
+    GROUNDED. No species identity, functional role or precise study-stock genome mapping
+    is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[14]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-stock-oas795
+  target_ids:
+  - CommunityMech:000087
+  area: grounding
+  topic: 'OAS795: Variovorax'
+  outcome: supported
+  summary: Primary study list supports stock OAS795; canonical NCBITaxon:34072 (Variovorax)
+    is genus-level grounding with native status GROUNDED. No species identity, functional
+    role or precise study-stock genome mapping is inferred from genus membership.
+  evidence_ids:
+  - lbnl-primary
+  - lbnl-grounding
+  - lbnl-record
+  - coker-supplement
+  details: Selector taxonomy[15]; primary stock/deposit claim is not independent current
+    collection catalog verification. Current mapping inputs and retained numerical
+    cores are hash-bound.
+- assessment_id: lbnl-relations
+  target_ids:
+  - CommunityMech:000087
+  area: consistency
+  topic: All populated related-community claims reviewed
+  outcome: supported
+  summary: Ring17=Coker final16+OAE603 and ring17=Ding16+OAE829; the two16-stock collections
+    overlap15. Reciprocal SHARED_STRAIN_DESIGNATIONS compares complete source stocks
+    and coherent deposits; earlier Coker assay rosters remain distinct. The dopamine
+    link to000515 denotes a shared study, not matching community membership or whole-record
+    scientific certification.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - dopamine-primary
+  - lbnl-primary
+  - lbnl-record
+- assessment_id: lbnl-provenance
+  target_ids:
+  - CommunityMech:000087
+  area: provenance
+  topic: Actual corrections, immutable predecessors and native sidecars
+  outcome: supported
+  summary: All applied receipts affecting this three-record campaign and every new
+    native sidecar are explicit inputs. Linked stock correction and EcoFAB experimental-scope
+    correction preserve old history and review bytes. No planned or failed run is
+    substituted for an applied receipt.
+  evidence_ids:
+  - lbnl-record
+  - lbnl-prior
+  - apply-0
+  - apply-1
+  - apply-2
+  - apply-3
+  - apply-4
+  - apply-5
+- assessment_id: ecofab-node-0
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Whole SynCom17 treatment
+  outcome: supported
+  summary: IN_VIVO full17 inoculum versus source controls in Bd21-3 EcoFABs; three
+    downstream arrows are treatment effects. Participants identify the inoculum, not
+    equal final abundance or member-specific necessity.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  - ecofab-node-0-source-0
+  details: 'Exact selector ecological_interactions[0]. Participants: Paraburkholderia
+    sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium
+    sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium
+    sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513,
+    Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia
+    sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target
+    and mechanism are constrained to the authored summary; host is not microbial taxonomy.
+    Every source quote and locator above is separate from validator success.'
+- assessment_id: ecofab-node-1
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: OAS925 candidate traits
+  outcome: supported
+  summary: COMPUTATIONAL genomic profile, separate IN_VIVO RFP-root1/3DAI and IN_VITRO
+    culture/motility data are distinct. OAS925 ranks sixth for biofilm. No selective
+    perturbation identifies trait necessity; the arrow remains explicitly HYPOTHESIZED.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  - ecofab-node-1-source-0
+  - ecofab-node-1-source-1
+  details: 'Exact selector ecological_interactions[1]. Participants: Paraburkholderia
+    sp. OAS925. Current source/target and mechanism are constrained to the authored
+    summary; host is not microbial taxonomy. Every source quote and locator above
+    is separate from validator success.'
+- assessment_id: ecofab-node-2
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Relative root assembly
+  outcome: supported
+  summary: IN_VIVO OAS925 relative16S dominance at22DAI, with a distinct omission16
+    comparator. Relative reads do not prove absolute suppression, extinction or a
+    molecular competition mechanism.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  - ecofab-node-2-source-0
+  details: 'Exact selector ecological_interactions[2]. Participants: Paraburkholderia
+    sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium
+    sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium
+    sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513,
+    Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia
+    sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target
+    and mechanism are constrained to the authored summary; host is not microbial taxonomy.
+    Every source quote and locator above is separate from validator success.'
+- assessment_id: ecofab-node-3
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Net extracellular amino-acid cluster
+  outcome: supported
+  summary: IN_VIVO bulk spent medium under whole treatment. CHEBI33709 amino-acid
+    context is supported; plant/microbe production, uptake and extracellular enzymes
+    remain alternatives. No OAS925-specific flux or donor-recipient exchange established.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  - ecofab-node-3-source-0
+  details: 'Exact selector ecological_interactions[3]. Participants: Paraburkholderia
+    sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium
+    sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium
+    sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513,
+    Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia
+    sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target
+    and mechanism are constrained to the authored summary; host is not microbial taxonomy.
+    Every source quote and locator above is separate from validator success.'
+- assessment_id: ecofab-node-4
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Plant biomass/development
+  outcome: supported
+  summary: IN_VIVO SynCom17 versus axenic pooled-lab biomass and reduced root development
+    after14DAI, with laboratory variation. GO0040007growth is an endpoint; no single-stock
+    toxicity or reciprocity claim.
+  evidence_ids:
+  - ecofab-primary
+  - ecofab-record
+  - ecofab-node-4-source-0
+  details: 'Exact selector ecological_interactions[4]. Participants: Paraburkholderia
+    sp. OAS925, Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, Methylobacterium
+    sp. OAE515, Variovorax sp. OAS795, Rhizobium sp. OAE497, Bosea sp. OAE506, Bradyrhizobium
+    sp. OAE829, Lysobacter sp. OAE881, Arthrobacter sp. OAP107, Marmoricola sp. OAE513,
+    Chitinophaga sp. OAE865, Mucilaginibacter sp. OAE612, Niastella sp. OAS944, Gottfriedia
+    sp. OAE603, Brevibacillus sp. OAP136, Paenibacillus sp. OAE614. Current source/target
+    and mechanism are constrained to the authored summary; host is not microbial taxonomy.
+    Every source quote and locator above is separate from validator success.'
+- assessment_id: dopamine-node-0
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Positive Spearman association
+  outcome: supported
+  summary: IN_VIVO dopamine intensity versus relative16S abundance for OAS809/OAE513/OAE497/OAE881/OAE506
+    across genotypes, n28. Positive association does not establish a host-to-microbe
+    effect; current causal source/direction tags are absent.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-record
+  - dopamine-node-0-source-0
+  - dopamine-node-0-source-1
+  details: 'Exact selector ecological_interactions[0]. Participants: Rhodococcus sp.
+    OAS809, Marmoricola sp. OAE513, Rhizobium sp. OAE497, Lysobacter sp. OAE881, Bosea
+    sp. OAE506. Current source/target and mechanism are constrained to the authored
+    summary; host is not microbial taxonomy. Every source quote and locator above
+    is separate from validator success.'
+- assessment_id: dopamine-node-1
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Negative OAS925 association
+  outcome: supported
+  summary: IN_VIVO OAS925 relative abundance negatively correlates with dopamine,
+    n28; this does not establish depletion caused by dopamine. Current HOST_IS_SOURCE
+    and signed-effect tags are absent.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-record
+  - dopamine-node-1-source-0
+  - dopamine-node-1-source-1
+  details: 'Exact selector ecological_interactions[1]. Participants: Paraburkholderia
+    sp. OAS925. Current source/target and mechanism are constrained to the authored
+    summary; host is not microbial taxonomy. Every source quote and locator above
+    is separate from validator success.'
+- assessment_id: dopamine-node-2
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Separate-isolate growth increase
+  outcome: supported
+  summary: IN_VITRO100µg/mL dopamine increases finalOD of five separately cultured
+    isolates, n4 at30°C. These are not assembled-SynCom results or catabolic-flux
+    measurements;50µg/mL does not uniformly stimulate all five.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-record
+  - dopamine-node-2-source-0
+  details: 'Exact selector ecological_interactions[2]. Participants: Rhodococcus sp.
+    OAS809, Marmoricola sp. OAE513, Rhizobium sp. OAE497, Lysobacter sp. OAE881, Bosea
+    sp. OAE506. Current source/target and mechanism are constrained to the authored
+    summary; host is not microbial taxonomy. Every source quote and locator above
+    is separate from validator success.'
+- assessment_id: dopamine-node-3
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Separate-isolate growth decrease
+  outcome: supported
+  summary: IN_VITRO OAS925 finalOD decreases at50/100µg/mL dopamine in monoculture,
+    n4 at30°C. Mechanism remains unresolved; no host participation is implied.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-record
+  - dopamine-node-3-source-0
+  details: 'Exact selector ecological_interactions[3]. Participants: Paraburkholderia
+    sp. OAS925. Current source/target and mechanism are constrained to the authored
+    summary; host is not microbial taxonomy. Every source quote and locator above
+    is separate from validator success.'
+- assessment_id: dopamine-node-4
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Lower spent-medium dopamine
+  outcome: supported
+  summary: IN_VIVO wholeSynCom versus axenic pooledn29/n28 spent-medium dopamine is
+    lower. Endpoint direction is SynCom treatment to extracellular dopamine; host-output
+    versus microbial-use mechanism remains unresolved. Current HOST_IS_TARGET/effect_direction
+    absent.
+  evidence_ids:
+  - dopamine-primary
+  - dopamine-record
+  - dopamine-node-4-source-0
+  - dopamine-node-4-source-1
+  details: 'Exact selector ecological_interactions[4]. Participants: Lysobacter sp.
+    OAE881, Paraburkholderia sp. OAS925, Variovorax sp. OAS795, Chitinophaga sp. OAE865,
+    Bosea sp. OAE506, Rhodococcus sp. OAS809, Marmoricola sp. OAE513, Paenibacillus
+    sp. OAE614, Methylobacterium sp. OAE515, Arthrobacter sp. OAP107, Mucilaginibacter
+    sp. OAE612, Brevibacillus sp. OAP136, Niastella sp. OAS944, Rhizobium sp. OAE497,
+    Mycobacterium sp. OAE908, Gottfriedia sp. OAE603. Current source/target and mechanism
+    are constrained to the authored summary; host is not microbial taxonomy. Every
+    source quote and locator above is separate from validator success.'
+- assessment_id: ecofab-arrow-0
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Treatment → root composition
+  outcome: supported
+  summary: Full17 inoculation to22DAI root relative profile; omission16 supports composition
+    effect, not molecular mechanism or absolute loss.
+  evidence_ids:
+  - ecofab-arrow-0-source
+  - ecofab-record
+  details: ecological_interactions[0].downstream[0]; arrow direction and experimental
+    context inspected separately from node wording.
+- assessment_id: ecofab-arrow-1
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Treatment → spent-medium profile
+  outcome: supported
+  summary: Whole inoculation changes net extracellular abundance; plant versus microbial
+    origin and flux remain unresolved.
+  evidence_ids:
+  - ecofab-arrow-1-source
+  - ecofab-record
+  details: ecological_interactions[0].downstream[1]; arrow direction and experimental
+    context inspected separately from node wording.
+- assessment_id: ecofab-arrow-2
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Treatment → plant growth
+  outcome: supported
+  summary: SynCom17 versus axenic treatment reduces biomass/root development; no necessary
+    stock, nutrient competition or direct OAS925 toxicity inferred.
+  evidence_ids:
+  - ecofab-arrow-2-source
+  - ecofab-record
+  details: ecological_interactions[0].downstream[2]; arrow direction and experimental
+    context inspected separately from node wording.
+- assessment_id: ecofab-arrow-3
+  target_ids:
+  - CommunityMech:000025
+  area: graph
+  topic: Trait hypothesis → root dominance
+  outcome: supported
+  summary: Explicitly HYPOTHESIZED OAS925 traits may contribute; separate gene/culture/reporter
+    data do not selectively establish mechanism in the17-member community.
+  evidence_ids:
+  - ecofab-arrow-3-source
+  - ecofab-record
+  details: ecological_interactions[1].downstream[0]; arrow direction and experimental
+    context inspected separately from node wording.
+- assessment_id: dopamine-edges
+  target_ids:
+  - CommunityMech:000516
+  area: graph
+  topic: Five nodes and zero downstream arrows
+  outcome: supported
+  summary: Every node was assessed above; downstream arrows are absent. Missing optional
+    causal edges are not invented or treated as a defect.
+  evidence_ids:
+  - dopamine-record
+  - dopamine-primary
+- assessment_id: lbnl-edges
+  target_ids:
+  - CommunityMech:000087
+  area: graph
+  topic: Zero graph nodes and zero arrows
+  outcome: supported
+  summary: All three earlier measured observations remain individually evidenced discussions
+    with18/17 scope. No empty-participant graph node is allowed to imply an effect
+    of all16 final stock assertions.
+  evidence_ids:
+  - lbnl-record
+  - lbnl-primary
+  - coker-fig2
+  - coker-fig3
+  - coker-fig5
+- assessment_id: ecofab-genome-0
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Rhizobium sp. OAE497
+  outcome: supported
+  summary: MainMethods4.8 and S2 row2 report IMG2931775946 paired with GOLDGp0589671.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-1
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Bosea sp. OAE506
+  outcome: supported
+  summary: MainMethods4.8 and S2 row3 report IMG2931782253 paired with GOLDGp0589672.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-2
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Marmoricola sp. OAE513
+  outcome: supported
+  summary: MainMethods4.8 and S2 row4 report IMG2931787146 paired with GOLDGp0589673.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-3
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Methylobacterium sp. OAE515
+  outcome: supported
+  summary: MainMethods4.8 and S2 row5 report IMG2931791092 paired with GOLDGp0589674.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-4
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Gottfriedia sp. OAE603
+  outcome: supported
+  summary: MainMethods4.8 and S2 row6 report IMG2931797537 paired with GOLDGp0588949.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-5
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Mucilaginibacter sp. OAE612
+  outcome: supported
+  summary: MainMethods4.8 and S2 row7 report IMG2931861231 paired with GOLDGp0588952.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-6
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Paenibacillus sp. OAE614
+  outcome: supported
+  summary: MainMethods4.8 and S2 row8 report IMG2931801854 paired with GOLDGp0589675.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-7
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Bradyrhizobium sp. OAE829
+  outcome: supported
+  summary: MainMethods4.8 and S2 row9 report IMG2931808876 paired with GOLDGp0589676.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-8
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Chitinophaga sp. OAE865
+  outcome: supported
+  summary: MainMethods4.8 and S2 row10 report IMG2931817136 paired with GOLDGp0589677.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-9
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Lysobacter sp. OAE881
+  outcome: supported
+  summary: MainMethods4.8 and S2 row11 report IMG2931823763 paired with GOLDGp0589678.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-10
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Mycobacterium sp. OAE908
+  outcome: supported
+  summary: MainMethods4.8 and S2 row12 report IMG2852593896 paired with GOLDGp0440934.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-11
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Arthrobacter sp. OAP107
+  outcome: supported
+  summary: MainMethods4.8 and S2 row13 report IMG2931867202 paired with GOLDGp0588953.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-12
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Brevibacillus sp. OAP136
+  outcome: supported
+  summary: MainMethods4.8 and S2 row14 report IMG2931855177 paired with GOLDGp0588951.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-13
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Variovorax sp. OAS795
+  outcome: supported
+  summary: MainMethods4.8 and S2 row15 report IMG2931827682 paired with GOLDGp0588950.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-14
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Rhodococcus sp. OAS809
+  outcome: supported
+  summary: MainMethods4.8 and S2 row16 report IMG2931833612 paired with GOLDGp0589680.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-15
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Paraburkholderia sp. OAS925
+  outcome: supported
+  summary: MainMethods4.8 and S2 row17 report IMG2931840637 paired with GOLDGp0589681.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-genome-16
+  target_ids:
+  - CommunityMech:000025
+  area: provenance
+  topic: Niastella sp. OAS944
+  outcome: supported
+  summary: MainMethods4.8 and S2 row18 report IMG2931847253 paired with GOLDGp0589682.
+    Current JGI_IMG dataset uses the IMG identifier and direct source link; GOLD pair
+    is explicitly retained. No numerical range or independent assembly/genome-to-GTDB
+    inference remains.
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+- assessment_id: ecofab-metrics
+  target_ids:
+  - CommunityMech:000025
+  area: completeness
+  topic: Separate native completeness and validation-quality rubrics
+  outcome: supported
+  summary: Metrics describe the literal current rubric and denominators. Scientific
+    outcomes and failed source-routing checks remain explicit and cannot be overridden
+    by scores.
+  evidence_ids:
+  - ecofab-record
+  metrics:
+  - name: completeness
+    value: 45
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Literal native rubric: optional-role required block0; environment5;
+      three factors10 if present; three nodes10 if present; external resources5 if
+      present; media10; datasets5 if present; node metabolites5 if present. No fields
+      invented for score.'
+  - name: graph_nodes
+    value: 5
+    unit: nodes
+    definition: Exact current ecological_interactions list length; all nodes assessed.
+  - name: evidence_per_interaction
+    value: 1.2
+    unit: items per node
+    denominator: 5
+    definition: 6 attached evidence items divided by5nodes; quantity does not prove
+      quality.
+  - name: open_P1
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P2
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P3
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Native clamp[100−50P1−10P2−2P3+20min(meanEvidence/2,1)+15networkComplete].
+      P1=0, P2=0, P3=0; coverage bonus=12.0, verified complete-network bonus=15. The
+      capped score does not override source findings, failed checks or release status.
+- assessment_id: dopamine-metrics
+  target_ids:
+  - CommunityMech:000516
+  area: completeness
+  topic: Separate native completeness and validation-quality rubrics
+  outcome: supported
+  summary: Metrics describe the literal current rubric and denominators. Scientific
+    outcomes and failed source-routing checks remain explicit and cannot be overridden
+    by scores.
+  evidence_ids:
+  - dopamine-record
+  metrics:
+  - name: completeness
+    value: 30
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Literal native rubric: optional-role required block0; environment5;
+      three factors10 if present; three nodes10 if present; external resources5 if
+      present; media10; datasets5 if present; node metabolites5 if present. No fields
+      invented for score.'
+  - name: graph_nodes
+    value: 5
+    unit: nodes
+    definition: Exact current ecological_interactions list length; all nodes assessed.
+  - name: evidence_per_interaction
+    value: 1.6
+    unit: items per node
+    denominator: 5
+    definition: 8 attached evidence items divided by5nodes; quantity does not prove
+      quality.
+  - name: open_P1
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P2
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P3
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Native clamp[100−50P1−10P2−2P3+20min(meanEvidence/2,1)+15networkComplete].
+      P1=0, P2=0, P3=0; coverage bonus=16.0, verified complete-network bonus=15. The
+      capped score does not override source findings, failed checks or release status.
+- assessment_id: lbnl-metrics
+  target_ids:
+  - CommunityMech:000087
+  area: completeness
+  topic: Separate native completeness and validation-quality rubrics
+  outcome: supported
+  summary: Metrics describe the literal current rubric and denominators. Scientific
+    outcomes and failed source-routing checks remain explicit and cannot be overridden
+    by scores.
+  evidence_ids:
+  - lbnl-record
+  metrics:
+  - name: completeness
+    value: 15
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Literal native rubric: optional-role required block0; environment5;
+      three factors10 if present; three nodes10 if present; external resources5 if
+      present; media10; datasets5 if present; node metabolites5 if present. No fields
+      invented for score.'
+  - name: graph_nodes
+    value: 0
+    unit: nodes
+    definition: Exact current ecological_interactions list length; all nodes assessed.
+  - name: evidence_coverage_bonus
+    value: 0
+    unit: points
+    definition: The evidence-per-interaction ratio is undefined for zero nodes. The
+      native quality formula defaults missing average evidence to zero, giving zero
+      coverage bonus; no ratio is fabricated (#2825).
+  - name: open_P1
+    value: 0
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P2
+    value: 1
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: open_P3
+    value: 1
+    unit: findings
+    definition: Actual open native-severity findings affecting this target; resolved
+      predecessors are excluded.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Native clamp[100−50P1−10P2−2P3+20min(meanEvidence/2,1)+15networkComplete].
+      P1=0, P2=1, P3=1; coverage bonus=0.0, verified complete-network bonus=15. The
+      capped score does not override source findings, failed checks or release status.
+findings:
+- finding_id: cm-000025-causal-role-evidence
+  issue_key: cm-000025-causal-role-evidence
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: These assertions change biological mechanism and experimental
+    meaning, despite the correctly qualified graph.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: resolved
+  certainty: confirmed
+  title: Separate treatment outcomes from member-level mechanisms
+  description: Unsupported member roles, competitive-exclusion and OAS925-specific
+    uptake/harm claims were removed or bounded to measured whole-treatment endpoints.
+    All5 nodes/4qualified arrows remain; evidence tiers now separate computational
+    genome, living-plant and isolate contexts. No selective mechanism is invented.
+  target_ids:
+  - CommunityMech:000025
+  field_paths:
+  - description
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  - taxonomy[2].functional_role
+  - taxonomy[3].functional_role
+  - taxonomy[0].taxon_term.notes
+  - engineering_design.measurement_endpoints
+  - engineering_design.evidence[0]
+  - related_ingredients[0].relevance
+  - ecological_interactions[0].evidence[0].evidence_source
+  - ecological_interactions[1].evidence[1].evidence_source
+  - ecological_interactions[2].evidence[0].evidence_source
+  - ecological_interactions[3].evidence[0].evidence_source
+  - ecological_interactions[4].evidence[0].evidence_source
+  evidence_ids:
+  - ecofab-primary
+  - ring-s8
+  - ring-s9
+  - ring-s10
+  - ring-s11
+  - ecofab-record
+  - apply-5
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261114T221158Z-m5-postcuration-scientific-delta
+    finding_id: cm-000025-causal-role-evidence
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1427
+  disposition_reason: Unsupported member roles, competitive-exclusion and OAS925-specific
+    uptake/harm claims were removed or bounded to measured whole-treatment endpoints.
+    All5 nodes/4qualified arrows remain; evidence tiers now separate computational
+    genome, living-plant and isolate contexts. No selective mechanism is invented.
+- finding_id: cm-000025-study-stage-scope
+  issue_key: cm-000025-study-stage-scope
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: The pooled fields misdescribe the experimental design and
+    conditions needed to reproduce it.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: resolved
+  certainty: confirmed
+  title: Separate ring-trial conditions from related studies and assays
+  description: Ring trial, stock preparation and reporter protocols are separated;
+    unrelated nitrogen intervention removed. Four source-defined arms and four22DAIrelative-read
+    observations are explicitly scoped. Unverified OAP10721DPIabundance is removed
+    while stock/grounding remain intact.
+  target_ids:
+  - CommunityMech:000025
+  field_paths:
+  - engineering_design.perturbation_design
+  - engineering_design.notes
+  - environment_term.notes
+  - environmental_factors[0]
+  - environmental_factors[1]
+  - growth_media[0]
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ring-s1
+  - ecofab-record
+  - apply-5
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261114T221158Z-m5-postcuration-scientific-delta
+    finding_id: cm-000025-study-stage-scope
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1427
+  disposition_reason: Ring trial, stock preparation and reporter protocols are separated;
+    unrelated nitrogen intervention removed. Four source-defined arms and four22DAIrelative-read
+    observations are explicitly scoped. Unverified OAP10721DPIabundance is removed
+    while stock/grounding remain intact.
+- finding_id: cm-000025-genome-identifiers
+  issue_key: cm-000025-genome-identifiers
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Public collection identity and data availability are recoverable;
+    no wrong-study or raw-data finding is implied.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: resolved
+  certainty: confirmed
+  title: Replace the genome pseudo-range with exact identifiers
+  description: The invalid pseudo-range is replaced by17 exact stock-to-IMG/GOLD pairs
+    from mainMethods4.8 and S2, including MycobacteriumGp0440934. Source identifiers
+    are distinguished from current server availability or genome placement.
+  target_ids:
+  - CommunityMech:000025
+  field_paths:
+  - associated_datasets[5]
+  evidence_ids:
+  - ecofab-primary
+  - ring-table
+  - ecofab-record
+  - apply-5
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261114T221158Z-m5-postcuration-scientific-delta
+    finding_id: cm-000025-genome-identifiers
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2675
+  disposition_reason: The invalid pseudo-range is replaced by17 exact stock-to-IMG/GOLD
+    pairs from mainMethods4.8 and S2, including MycobacteriumGp0440934. Source identifiers
+    are distinguished from current server availability or genome placement.
+- finding_id: cm-000087-member-roster
+  issue_key: cm-000087-member-roster
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: Unresolved source stock correspondence affects experimental
+    identity across panels; current final16 representation is explicit, while cross-panel
+    equivalence remains materially uncertain.
+  rule_id: P2.3; review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Methods roster restored; unresolved supplementary stock correspondence remains
+  description: All16 Methods stock/DSM claims remain represented; the actual Methods/TableS1
+    OAE515/OAE516 and Marmoricola/Bacillus correspondence remains unresolved. No stock
+    alias, earlier-assay membership or exact genome identity is invented. This is
+    a retained source-boundary issue, not continued absence of a roster.
+  target_ids:
+  - CommunityMech:000087
+  field_paths:
+  - taxonomy
+  - discussions[4]
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    role: canonical_record
+  evidence_ids:
+  - lbnl-primary
+  - coker-supplement
+  - lbnl-record
+  - lbnl-grounding
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1548
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261115T021628Z-phase2-lbnl-canary
+    finding_id: member-roster
+  disposition_reason: All16 Methods stock/DSM claims remain represented; the actual
+    Methods/TableS1 OAE515/OAE516 and Marmoricola/Bacillus correspondence remains
+    unresolved. No stock alias, earlier-assay membership or exact genome identity
+    is invented. This is a retained source-boundary issue, not continued absence of
+    a roster.
+- finding_id: cm-000087-discussion-reference-coverage
+  issue_key: cm-000087-discussion-reference-coverage
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Source claims were manually inspected, but the native validator
+    leaves a known surface uncovered; this is a tooling coverage limitation, not a
+    demonstrated scientific falsehood.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: resolved
+  certainty: confirmed
+  title: Native reference checks do not cover SupportingReference discussion snippets
+  description: 'The canonical shared SupportingReference annotation is adopted. Both
+    the retained parent measurement and the current committed three-record measurement
+    compare all 37 LBNL snippet surfaces: 35 match and two supplemental cells mismatch.
+    The narrow unannotated-surface defect resolves; native validation still fails
+    under issue 1996. This finding makes no whole-corpus coverage claim.'
+  target_ids:
+  - CommunityMech:000087
+  field_paths:
+  - discussions
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    role: canonical_record
+  evidence_ids:
+  - lbnl-coverage
+  - current-three-coverage
+  - lbnl-record
+  - check-lbnl-references
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/476
+  disposition_reason: 'The canonical shared SupportingReference annotation is adopted.
+    Both the retained parent measurement and the current committed three-record measurement
+    compare all 37 LBNL snippet surfaces: 35 match and two supplemental cells mismatch.
+    The narrow unannotated-surface defect resolves; native validation still fails
+    under issue 1996. This finding makes no whole-corpus coverage claim.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261115T021628Z-phase2-lbnl-canary
+    finding_id: native-discussion-coverage
+- finding_id: cm-000087-supplement-reference-routing
+  issue_key: cm-000087-supplement-reference-routing
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Direct primary supplement inspection verifies both cell quotations;
+    the remaining failure is source routing rather than an established scientific
+    falsehood.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Route two exact TableS1 stock cells to their retained supplement
+  description: The exact TableS1 OAE516/OAE603 cells remain separately sourced and
+    absent from the main-article cache. Current native check still fails at discussions[4].evidence[2/4].
+    Preserve correct quotations and primary source boundaries; issue1996 remains open.
+  target_ids:
+  - CommunityMech:000087
+  field_paths:
+  - discussions[4].evidence[2].snippet
+  - discussions[4].evidence[4].snippet
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    role: canonical_record
+  evidence_ids:
+  - coker-supplement
+  - lbnl-coverage
+  - current-three-coverage
+  - check-lbnl-references
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1996
+  disposition_reason: The exact TableS1 OAE516/OAE603 cells remain separately sourced
+    and absent from the main-article cache. Current native check still fails at discussions[4].evidence[2/4].
+    Preserve correct quotations and primary source boundaries; issue1996 remains open.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261115T025004Z-phase2-linked-stock-delta
+    finding_id: lbnl-supplement-routing
+actions:
+- action_id: retain-source-boundaries
+  description: Resolve primary stock correspondence only with evidence, and route
+    separately retained supplement text through the maintained source-aware validator.
+  finding_ids:
+  - cm-000087-member-roster
+  - cm-000087-supplement-reference-routing
+  target_ids:
+  - CommunityMech:000087
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Independently establish Methods/TableS1 stock correspondence without aliases inferred
+    from similar names.
+  - Validate exact supplemental cells against their original artifact while keeping
+    article caches separate; retain failed predecessor logs and measure actual assertion
+    traversal.
+limitations:
+- 'Scientific review completion means every current record claim was assessed and
+  every required focused check ran. It does not mean all checks passed: the 000087
+  reference check remains exit 1 with two Table S1 mismatches.'
+- Collection and genome IDs are primary-source assertions; no current catalog/server
+  availability, genome sequence quality or independent study-stock GTDB genome placement
+  is certified.
+- MainMethods/TableS1 and DingData1 stock spelling conflicts remain explicit; correct
+  source quotes are not rewritten to make article-only matching pass.
+- The retained parent f52 measurement and new three-record measurement each retain
+  their actual revision. Native gates ran on 17616 with the exact corrected working
+  inputs; source inspection and current occurrence measurement use the subsequent
+  committed source. None is relabeled as an execution on another revision.
+- No raw statistical reanalysis, unrequested experiments, paid provider calls or wider-corpus
+  scientific approval occurs. Taxonomic ambiguity, source limitations and unknown
+  molecular mechanisms are preserved.
+- Earlier structured reviews and history remain immutable. All six actual applied
+  receipts and all native sidecars are current source inputs; prior failed/planned
+  runs remain retained and do not enter the applied chain.
+- Wider combined QC, generated-document integration and publication/merge status are
+  independently reported by the integration owner; this scientific bundle is not a
+  substitute.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261114T212137Z-m5-ecofab-completion-canary
+  relationship: Preserves immutable earlier source assessment; explicit stable finding
+    successors only
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261114T213444Z-m5-dopamine-syncom-primary-review
+  relationship: Preserves immutable earlier source assessment; explicit stable finding
+    successors only
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261115T021628Z-phase2-lbnl-canary
+  relationship: Preserves immutable earlier source assessment; explicit stable finding
+    successors only
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261114T221158Z-m5-postcuration-scientific-delta
+  relationship: Preserves immutable earlier source assessment; explicit stable finding
+    successors only
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261115T025004Z-phase2-linked-stock-delta
+  relationship: Preserves immutable earlier source assessment; explicit stable finding
+    successors only
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/1427
+- https://github.com/CultureBotAI/CommunityMech/issues/2675
+- https://github.com/CultureBotAI/CommunityMech/issues/1548
+- https://github.com/CultureBotAI/CommunityMech/issues/476
+- https://github.com/CultureBotAI/CommunityMech/issues/1996
+- https://github.com/CultureBotAI/CommunityMech/issues/2674
+- https://github.com/CultureBotAI/CommunityMech/issues/2774
+- https://github.com/CultureBotAI/CommunityMech/issues/2806
+- https://github.com/CultureBotAI/CommunityMech/issues/2816
+- https://github.com/CultureBotAI/CommunityMech/issues/2818
+- https://github.com/CultureBotAI/CommunityMech/issues/2821
+- https://github.com/CultureBotAI/CommunityMech/issues/2823
+- https://github.com/CultureBotAI/CommunityMech/issues/2825
+```

@@ -1,0 +1,218 @@
+{
+  "route_report": {
+    "path": ".temp/phase2-schema-20261115/shrimp-thermophilic-sahara-native-routes-001.log",
+    "sha256": "0ded5f54dacbbb462b75677374d973f7a41914f1ebc1df5b9551c3afdda4528d"
+  },
+  "route_receipt": {
+    "path": ".temp/phase2-schema-20261115/shrimp-thermophilic-sahara-native-routes-001.json",
+    "sha256": "58ec18e188ba06b5eb0a6aca16cb2bbae9cad1dbd1cc0f25eb044fe214e53480"
+  },
+  "route_exit": {
+    "path": ".temp/phase2-schema-20261115/shrimp-thermophilic-sahara-native-routes-001.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "records": [
+    {
+      "record": "kb/communities/Tunisian_Sahara_Saline_Spore_Forming_Halophile_Community.yaml",
+      "record_id": "CommunityMech:000494",
+      "before_sha256": "c6f381d8af6c86618d0d64bedf8d7e16f2c19aa7286be81579d6d8d9600d210b",
+      "additional_inputs": {
+        "tests/test_causal_review_batch135.py": "f4d5efbd9e66e11ba901a6bef414347541df7f204f2a74ebe7353a1acf5c8f1d",
+        "reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml": "b883e52b1bd5393d07b7ba3d10791965ee49be62f7380618424e270041ed6436",
+        "reports/gtdb-shrimp-thermophilic-sahara-20261115/sahara494-source-scope-finding-001.md": "0185f668c4136b8f5245befd5d1569f8b9fa79eceb97f8629d69e492c42f9db6",
+        ".temp/phase2-schema-20261115/source-issue2924-snapshot-001.log": "81ba949503c2c60b35c495d8c310603f752ecae36bf4a4b58e9fffadccc8c800",
+        "reports/gtdb-shrimp-thermophilic-sahara-20261115/sahara494-authored-source-context-001.json": "d44027a8e6823609caba9c8487c1082ef0ea92f9580a7cc89d7d5c9f92232994",
+        "scripts/adhoc/compose_gtdb_source_config_20261115.jq": "45f228d7cbd89ac7b39ff0f470d6a7602e822b866133d2f9a1b462ce38f9d5a5"
+      },
+      "primary_sources": [
+        {
+          "reference": "PMID:23949950",
+          "path": "references_cache/PMID_23949950.txt",
+          "sha256": "4ae7a27e2a079ae9e2d76647e7012414ef8439b76a33f0bded52e7f3ff21efba",
+          "identity_tokens": [
+            "23949950",
+            "10.1007/s00248-013-0274-4",
+            "Uneven distribution of Halobacillus trueperi species"
+          ],
+          "anchors": [
+            "collection of 336 spore-forming isolates",
+            "clustered the strains into seven",
+            "Halobacillus trueperi was the most encountered",
+            "genotypes whose distribution correlated"
+          ],
+          "locator": "Retained primary abstract: five-site culture collection, marker-based seven-genus classification, H. trueperi prevalence and geographic association.",
+          "coverage": "Complete current record, retained primary abstract and batch135 caller/target ledger read. No complete article, supplement, BOX-PCR table, original figures or source genomes were acquired or audited. Taxonomic reference correspondence is separate from a new scientific assessment of the existing causal graph."
+        }
+      ],
+      "occurrences": [
+        {
+          "taxonomy_index": 0,
+          "term": {
+            "id": "NCBITaxon:156205",
+            "label": "Halobacillus trueperi"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:species",
+          "source_assessment": "The abstract explicitly identifies H. trueperi among marker-typed isolates and distinguishes the 42-isolate dominant ITS subset. Current exact NCBI species-ID references have a majority under GTDB H. aidingensis. This database naming result does not reidentify the study isolates, assign their assemblies or convert the geographic collection into a single strain.",
+          "population_scope": "Seven reference genomes with reported majority fraction 0.86; no support numerator is reconstructed from the rounded fraction. This is unrelated to 336 source isolates, the 42-isolate subset, 14 BOX-PCR genotypes or environmental abundance.",
+          "name_scope": "Preserve source H. trueperi preferred term, NCBI label, all source quotations and absent strain designation. The separate GTDB block alone carries the native alternate species name and reclassification flag; no taxonomic act or experimental stock placement is claimed.",
+          "native_result": {
+            "gtdb_id": "GTDB:s__Halobacillus_aidingensis",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__Halobacillaceae;g__Halobacillus;s__Halobacillus aidingensis",
+            "gtdb_taxon": "Halobacillus aidingensis",
+            "is_reclassified": true,
+            "majority_fraction": 0.86,
+            "ncbi_source_id": "NCBITaxon:156205",
+            "total_genomes": 7,
+            "via": "ncbi_id"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 1,
+          "term": {
+            "id": "NCBITaxon:1386",
+            "label": "Bacillus <firmicutes>"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "The primary abstract lists Bacillus among seven genera classified from isolates by marker analysis. No species or individual stock is given. The current rank-level majority is a generic database correspondence only.",
+          "population_scope": "4981 of 8737 filtered references across 44 native clades; modest majority, not source isolate membership, salinity adaptation or environmental abundance.",
+          "name_scope": "Keep the source genus, qualified NCBI label and unknown species/stock identities. Do not alter roles or the biological graph through this taxonomy correction.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Bacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus",
+            "gtdb_taxon": "Bacillus",
+            "is_reclassified": false,
+            "majority_fraction": 0.57,
+            "n_alt": 44,
+            "ncbi_source_id": "NCBITaxon:1386",
+            "support_genomes": 4981,
+            "total_genomes": 8737,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 2,
+          "term": {
+            "id": "NCBITaxon:84406",
+            "label": "Virgibacillus"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Virgibacillus appears in the marker-based genus roster; the same-name majority does not establish a study species, genome or strain.",
+          "population_scope": "91 of 150 filtered references across ten clades, not unanimity or a measured isolate-group proportion.",
+          "name_scope": "Preserve the broad genus and current source wording; no new organism identity or ecological role is inferred.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Virgibacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__Amphibacillaceae;g__Virgibacillus",
+            "gtdb_taxon": "Virgibacillus",
+            "is_reclassified": false,
+            "majority_fraction": 0.607,
+            "n_alt": 10,
+            "ncbi_source_id": "NCBITaxon:84406",
+            "support_genomes": 91,
+            "total_genomes": 150,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 3,
+          "term": {
+            "id": "NCBITaxon:182709",
+            "label": "Oceanobacillus"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "The abstract names Oceanobacillus at genus level among collection isolates. The native reference majority adds no independent species, genotype or strain identification.",
+          "population_scope": "107 of 129 filtered references across four clades; distinct from culture frequency and salinity growth-class percentages.",
+          "name_scope": "Retain original genus, NCBI descriptor and source uncertainty without linking reference genomes to study isolates.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Oceanobacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__Amphibacillaceae;g__Oceanobacillus",
+            "gtdb_taxon": "Oceanobacillus",
+            "is_reclassified": false,
+            "majority_fraction": 0.829,
+            "n_alt": 4,
+            "ncbi_source_id": "NCBITaxon:182709",
+            "support_genomes": 107,
+            "total_genomes": 129,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 4,
+          "term": {
+            "id": "NCBITaxon:74385",
+            "label": "Gracilibacillus"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Gracilibacillus is explicitly included in the primary genus roster. Unanimous filtered reference correspondence remains generic and does not assign a source stock or activity.",
+          "population_scope": "64 of 64 filtered reference genomes, unrelated to the source collection denominator or halotolerance guild frequencies.",
+          "name_scope": "Keep source genus and absence of strain/species identifiers; all existing biology remains outside the correction.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Gracilibacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__Amphibacillaceae;g__Gracilibacillus",
+            "gtdb_taxon": "Gracilibacillus",
+            "is_reclassified": false,
+            "majority_fraction": 1.0,
+            "n_alt": 1,
+            "ncbi_source_id": "NCBITaxon:74385",
+            "support_genomes": 64,
+            "total_genomes": 64,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        },
+        {
+          "taxonomy_index": 6,
+          "term": {
+            "id": "NCBITaxon:289201",
+            "label": "Pontibacillus"
+          },
+          "strain_name": null,
+          "expected_ncbi_rank": "NCBITaxon:genus",
+          "source_assessment": "Pontibacillus is named in the marker-based roster. Its native majority at genus rank does not establish source species, stock identity or ecological causation.",
+          "population_scope": "23 of 29 filtered references across two clades; not unanimity, environmental abundance or a number of experimental isolates.",
+          "name_scope": "Preserve the genus descriptor, source names and unknown study stock details; no added species or assembly claim.",
+          "native_result": {
+            "gtdb_id": "GTDB:g__Pontibacillus",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_D;f__BH030062;g__Pontibacillus",
+            "gtdb_taxon": "Pontibacillus",
+            "is_reclassified": false,
+            "majority_fraction": 0.793,
+            "n_alt": 2,
+            "ncbi_source_id": "NCBITaxon:289201",
+            "support_genomes": 23,
+            "total_genomes": 29,
+            "via": "ncbi_rank_g"
+          },
+          "classify_status": {
+            "candidates": [],
+            "status": "NOT_ATTEMPTED"
+          }
+        }
+      ],
+      "historical_guard_assessment": "Select only indices 0,1,2,3,4,6. Existing Paenibacillus index5 is already AMBIGUOUS with all 33 native ordered alternatives and must remain byte/semantic-equivalent; do not pick a clade or remove alternatives. Preserve the 336-isolate five-site collection, seven genera, 42-isolate dominant ITS subset, 14 BOX-PCR genotypes and source-qualified marine-origin suggestion. OPEN2924 retains the separate causal-geography, collection interpretation and role-label finding; current taxonomy work does not endorse or repair those biological claims. All existing graph nodes, arrow, source quotations, abundances, roles and old events remain unchanged. Historical batch135 ledger facts stay immutable. The current caller already permits491 through a strict generic registry; coordinate later494 admission after peer492 to retain both and every current biological assertion. Only this record's exact old digest/last-event predicates may use an admitted predecessor. Crosswalk release is unestablished and local authority provenance is file-stat only. No whole-paper review, stock-genome identification, issue closure, product regeneration or full-corpus QC is claimed; first whole-record canary and all later applications remain gated by independent source/candidate review and saved persistence."
+    }
+  ]
+}

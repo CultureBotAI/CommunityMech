@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml"
@@ -83,7 +84,10 @@ def test_batch16_ledger_covers_all_structure_and_unchanged_isodca():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
-        assert hashlib.sha256(raw).hexdigest() == latest["record_sha256"]
+        assert (
+            hashlib.sha256(raw).hexdigest()
+            == admission(ROOT, row["path"], latest["record_sha256"]).current_sha256
+        )
         doc = yaml.safe_load(raw)
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(
             n["name"] for n in doc["ecological_interactions"]

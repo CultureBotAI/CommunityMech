@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from batch144_mapping_successor import current_record_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -106,10 +107,12 @@ def test_batch144_ledger_matches_curated_records() -> None:
 
         yaml_path = ROOT / row["path"]
         digest = hashlib.sha256(yaml_path.read_bytes()).hexdigest()
-        assert digest == expected["record_sha256"]
+        assert digest == current_record_sha256(ROOT, row["path"], expected["record_sha256"])
         doc = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
 
-        validate_batch144_entry(row, doc, digest)
+        # The strict successor above admits only reviewed mapping/history changes;
+        # these original biological assertions still use the immutable ledger hash.
+        validate_batch144_entry(row, doc, expected["record_sha256"])
 
         nodes = doc.get("ecological_interactions") or []
         edges = [e for n in nodes for e in (n.get("downstream") or [])]
@@ -124,6 +127,10 @@ def test_the_check_can_actually_fail() -> None:
     sample_review = yaml.safe_load(yaml.safe_dump(ledger["records"][0]))
     sample_path = ROOT / sample_review["path"]
     sample_digest = hashlib.sha256(sample_path.read_bytes()).hexdigest()
+    assert sample_digest == current_record_sha256(
+        ROOT, sample_review["path"], sample_review["record_sha256"]
+    )
+    sample_digest = sample_review["record_sha256"]
     sample_doc = yaml.safe_load(sample_path.read_text(encoding="utf-8"))
 
     # Control arm: unmutated copy passes cleanly.

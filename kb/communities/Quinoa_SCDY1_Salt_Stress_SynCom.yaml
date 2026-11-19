@@ -55,7 +55,16 @@ taxonomy:
     term:
       id: NCBITaxon:428992
       label: Pseudomonas panipatensis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_panipatensis
+      gtdb_taxon: Pseudomonas panipatensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas panipatensis
+      ncbi_source_id: NCBITaxon:428992
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Partial 16S rRNA placed SCDY1 isolate 82 closest to Pseudomonas panipatensis.
   strain_designation:
     strain_name: isolate 82
@@ -91,7 +100,16 @@ taxonomy:
     term:
       id: NCBITaxon:1017270
       label: Fictibacillus enclensis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Fictibacillus_C_enclensis
+      gtdb_taxon: Fictibacillus_C enclensis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_G;f__Fictibacillaceae;g__Fictibacillus_C;s__Fictibacillus_C enclensis
+      ncbi_source_id: NCBITaxon:1017270
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Partial 16S rRNA placed SCDY1 isolate 88 closest to Fictibacillus enclensis.
   strain_designation:
     strain_name: isolate 88
@@ -194,7 +212,16 @@ taxonomy:
     term:
       id: NCBITaxon:1452
       label: Bacillus atrophaeus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_atrophaeus
+      gtdb_taxon: Bacillus atrophaeus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus atrophaeus
+      ncbi_source_id: NCBITaxon:1452
+      majority_fraction: 1.0
+      total_genomes: 127
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Partial 16S rRNA placed SCDY1 isolate 100 closest to Bacillus atrophaeus.
   strain_designation:
     strain_name: isolate 100
@@ -212,7 +239,12 @@ taxonomy:
     term:
       id: NCBITaxon:1404
       label: Priestia megaterium
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Priestia_megaterium
+    - GTDB:s__Priestia_megaterium_D
+    - GTDB:s__Priestia_zanthoxyli
+    - GTDB:s__Virgibacillus_salarius
     notes: Partial 16S rRNA placed SCDY1 isolate 103 closest to Priestia megaterium.
   strain_designation:
     strain_name: isolate 103
@@ -327,6 +359,14 @@ curation_history:
   changes: 'Retain supported SCDY1 plant growth and its SUPPORT evidence; remove MUTUALISM because the cited evidence
     does not establish reciprocal benefit, and record the abstract-only access boundary. Issue #1747; reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml'
   llm_assisted: true
+- timestamp: '2026-11-15T12:30:57Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 3 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T12:30:57Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: scdy1_host_benefit_scope
   prompt: Does SCDY1 confer reciprocal fitness benefits, and which mechanisms mediate the plant-growth response?

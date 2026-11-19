@@ -85,7 +85,16 @@ taxonomy:
     term:
       id: NCBITaxon:1584
       label: Lactobacillus delbrueckii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_delbrueckii
+      gtdb_taxon: Lactobacillus delbrueckii
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus delbrueckii
+      ncbi_source_id: NCBITaxon:1584
+      majority_fraction: 1.0
+      total_genomes: 376
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: Source strain L. delbrueckii 5812 is retained at strain level; GTDB was left unresolved rather than inheriting
       a subspecies grounding from another record.
   strain_designation:
@@ -106,7 +115,16 @@ taxonomy:
     term:
       id: NCBITaxon:294710
       label: Proteiniphilum acetatigenes
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Proteiniphilum_acetatigenes
+      gtdb_taxon: Proteiniphilum acetatigenes
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Dysgonomonadaceae;g__Proteiniphilum;s__Proteiniphilum acetatigenes
+      ncbi_source_id: NCBITaxon:294710
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Source strain P. acetatigenes 6076 is retained as a strain designation.
   strain_designation:
     strain_name: '6076'
@@ -126,7 +144,16 @@ taxonomy:
     term:
       id: NCBITaxon:357441
       label: Enterococcus lactis
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Enterococcus_B_lactis
+      gtdb_taxon: Enterococcus_B lactis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus_B;s__Enterococcus_B lactis
+      ncbi_source_id: NCBITaxon:357441
+      majority_fraction: 0.99
+      total_genomes: 574
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Source strain E. lactis 6088 is retained as a strain designation.
   strain_designation:
     strain_name: '6088'
@@ -146,7 +173,16 @@ taxonomy:
     term:
       id: NCBITaxon:1642646
       label: Petrimonas mucosa
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Petrimonas_mucosa
+      gtdb_taxon: Petrimonas mucosa
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Dysgonomonadaceae;g__Petrimonas;s__Petrimonas mucosa
+      ncbi_source_id: NCBITaxon:1642646
+      majority_fraction: 1.0
+      total_genomes: 7
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Source strain P. mucosa 6360 is retained as a strain designation.
   strain_designation:
     strain_name: '6360'
@@ -406,3 +442,11 @@ curation_history:
     expression or synergy.; Preserve time-dependent cattle fermentation outcomes and nonsignificant fiber trends
     with animal-level replication limits. Issue #1655; reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml'
   llm_assisted: true
+- timestamp: '2026-11-16T01:28:23Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 4 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-16T01:28:24Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

@@ -1,14 +1,17 @@
 """Keep the two Transwell demonstrations and their strains distinct (#1467)."""
 
 import hashlib
+import io
 import json
 import subprocess
+import tarfile
 from collections import Counter
 from copy import deepcopy
 from pathlib import Path
 
 import pytest
 import yaml
+from final_four_gtdb_successors import BASE, BEFORE, TRANSWELL_PATH, admit_final_four_successor
 
 from communitymech.network.auditor import NetworkIntegrityAuditor
 
@@ -17,19 +20,30 @@ RECORD = ROOT / "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
 
 
 def current():
+    admission()
     return yaml.safe_load(RECORD.read_text())
 
 
+def admission():
+    return admit_final_four_successor(ROOT, TRANSWELL_PATH, BEFORE[TRANSWELL_PATH])
+
+
 def assert_scope(doc):
+    predecessor = yaml.safe_load(admission().historical_bytes)
+    previous_members = {t["strain_designation"]["strain_name"]: t for t in predecessor["taxonomy"]}
     members = {t["strain_designation"]["strain_name"]: t for t in doc["taxonomy"]}
     assert set(members) == {"Cv017", "Cv026", "SC11,378 (ATCC 31532)", "E264", "DC3000"}
     assert len(doc["taxonomy"]) == 5
-    for member in members.values():
+    for strain, member in members.items():
         term = member["taxon_term"]
-        assert term["gtdb_grounding_status"] == "UNRESOLVED"
+        # These two assertions describe the preserved 20261015 lookup, not today's proof.
+        old_term = previous_members[strain]["taxon_term"]
+        assert old_term["gtdb_grounding_status"] == "UNRESOLVED"
+        assert "gtdb_classification" not in old_term
+        assert term["gtdb_grounding_status"] == "GROUNDED"
+        assert term["gtdb_classification"]["gtdb_id"].startswith("GTDB:s__")
         assert "lookup did not complete" in term["notes"]
         assert "not evidence of no GTDB counterpart" in term["notes"]
-        assert "gtdb_classification" not in term
     for strain in ["Cv017", "Cv026", "SC11,378 (ATCC 31532)"]:
         assert members[strain]["taxon_term"]["term"] == {
             "id": "NCBITaxon:251747",
@@ -115,7 +129,8 @@ def test_source_and_successor_hashes_are_bound():
     )
     row = ledger["records"][0]
     assert row["id"] == current()["id"] == "CommunityMech:000091"
-    assert row["record_sha256"] == hashlib.sha256(RECORD.read_bytes()).hexdigest()
+    admitted = admit_final_four_successor(ROOT, row["path"], row["record_sha256"])
+    assert admitted.current_sha256 == hashlib.sha256(RECORD.read_bytes()).hexdigest()
     prior = yaml.safe_load((ROOT / row["supersedes_review"]["review_file"]).read_text())
     previous = next(r for r in prior["records"] if r["id"] == row["id"])
     assert previous["record_sha256"] == row["original_sha256"]
@@ -129,12 +144,28 @@ def test_source_and_successor_hashes_are_bound():
 
 
 def test_only_transwell_accounts_for_gtdb_distribution_change(monkeypatch):
+    # Authenticate the post-#2014 corpus rather than applying its historical floor
+    # to today's separately reviewed mapping corrections. Git owns every snapshot
+    # byte; the unchanged admission core proves the exact Transwell predecessor.
+    admitted = admission()
+    archive = subprocess.check_output(
+        ["git", "archive", BASE, "kb/communities", "data/isolates"], cwd=ROOT
+    )
+    with tarfile.open(fileobj=io.BytesIO(archive)) as bundle:
+        historical = {
+            ROOT / item.name: bundle.extractfile(item).read().decode()
+            for item in bundle.getmembers()
+            if item.isfile()
+            and Path(item.name).parent.as_posix() in ("kb/communities", "data/isolates")
+            and Path(item.name).suffix == ".yaml"
+        }
+    assert historical[RECORD].encode() == admitted.historical_bytes
+
     def census():
         counts = Counter()
-        for directory in ("kb/communities", "data/isolates"):
-            for path in sorted((ROOT / directory).glob("*.yaml")):
-                for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
-                    counts[(entry.get("taxon_term") or {}).get("gtdb_grounding_status")] += 1
+        for path in sorted(historical):
+            for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
+                counts[(entry.get("taxon_term") or {}).get("gtdb_grounding_status")] += 1
         return counts
 
     old = subprocess.check_output(
@@ -149,22 +180,27 @@ def test_only_transwell_accounts_for_gtdb_distribution_change(monkeypatch):
     before_members = yaml.safe_load(old)["taxonomy"]
     assert len(before_members) == 1
     assert before_members[0]["taxon_term"]["gtdb_grounding_status"] == "GROUNDED"
-    current_counts = census()
-    # Decoupled from exact corpus-wide UNRESOLVED count (#2063 / communitymech-infra-0004):
-    # enforce the post-#2014 floor and verify the exact 5-taxon Transwell delta dynamically.
-    assert current_counts["UNRESOLVED"] >= 494
-    assert current_counts["GROUNDED"] > 700
-    expected_previous = current_counts.copy()
-    expected_previous["UNRESOLVED"] -= 5
-    expected_previous["GROUNDED"] += 1
     original_read = Path.read_text
 
-    def predecessor_only(path, *args, **kwargs):
-        return old if path == RECORD else original_read(path, *args, **kwargs)
+    def snapshot_only(path, *args, **kwargs):
+        return historical[path] if path in historical else original_read(path, *args, **kwargs)
 
-    with monkeypatch.context() as context:
-        context.setattr(Path, "read_text", predecessor_only)
-        assert RECORD.read_text() == old
-        assert census() == expected_previous
-    assert RECORD.read_text() != old
-    assert census() == current_counts
+    def predecessor_only(path, *args, **kwargs):
+        return old if path == RECORD else snapshot_only(path, *args, **kwargs)
+
+    with monkeypatch.context() as snapshot:
+        snapshot.setattr(Path, "read_text", snapshot_only)
+        current_counts = census()
+        # Preserve the original floor and exact five-taxon historical delta.
+        assert current_counts["UNRESOLVED"] >= 494
+        assert current_counts["GROUNDED"] > 700
+        expected_previous = current_counts.copy()
+        expected_previous["UNRESOLVED"] -= 5
+        expected_previous["GROUNDED"] += 1
+        with monkeypatch.context() as context:
+            context.setattr(Path, "read_text", predecessor_only)
+            assert RECORD.read_text() == old
+            assert census() == expected_previous
+        assert RECORD.read_text() != old
+        assert census() == current_counts
+    assert RECORD.read_text() == original_read(RECORD)

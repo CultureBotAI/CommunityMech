@@ -1,0 +1,37 @@
+{
+  "route_report": {"path": ".temp/phase2-schema-20261115/environment-four-routes-001.log", "sha256": "45e79b4f03d4437d73bfbf41db4e29d8c339c6590efd188ac8eff8385e437323"},
+  "route_receipt": {"path": ".temp/phase2-schema-20261115/environment-four-routes-001.json", "sha256": "787d61b19dd189389f57161911c05314e1ca77a4fd0de614b288291b65fc883e"},
+  "route_exit": {"path": ".temp/phase2-schema-20261115/environment-four-routes-001.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"},
+  "records": [{
+    "record": "kb/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml",
+    "record_id": "CommunityMech:000420",
+    "before_sha256": "1ec35a19be4bccd263fd578dffe22ebe67642fa9f7a16d8f845176b0afb354b6",
+    "additional_inputs": {
+      "tests/test_causal_review_batch81.py": "96336549067529c352316b211130b1a72446f3eb822d8da839e91bd031f782f9",
+      "reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml": "00a6ded249918441aad8233076bff7d99e99472f1e9134ac7d90aa68055fb2ab"
+    },
+    "primary_sources": [{
+      "reference": "PMID:42526243", "path": "references_cache/PMID_42526243.txt",
+      "sha256": "80133c490222a84cb170fd10190d6d97b70704d191ca9a0649d08497fd96da58",
+      "locator": "Retained PubMed abstract beginning Pharmaceutical and personal care products; source strain and oxygen/matrix/end-point paragraphs.",
+      "coverage": "Entire retained abstract, entire canonical record and batch81 caller read. No full paper, supplement, sequence, strain genome or original figure analysis. This is an explicit generic taxonomy/domain correction with scientific review incomplete.",
+      "identity_tokens": ["42526243", "10.1016/j.jhazmat.2026.143098"],
+      "anchors": ["Sphingopyxis sp. GC21 and Ochrobactrum", "sp. TCC-2) and one fungal strain (Apiotrichum sp. IB-1)", "simulated wastewater (SW) and real", "Under anoxic conditions"]
+    }],
+    "occurrences": [
+      {"taxonomy_index": 0, "term": {"id": "NCBITaxon:165697", "label": "Sphingopyxis"}, "strain_name": "GC21", "expected_ncbi_rank": "NCBITaxon:genus", "expected_native": {"gtdb_id": "GTDB:g__Sphingopyxis", "via": "ncbi_rank_g", "support_genomes": 79, "total_genomes": 79, "majority_fraction": 1.0, "n_alt": 1},
+       "source_assessment": "The abstract directly names Sphingopyxis sp. GC21 as one of two bacterial stocks in the three-member inoculum. It does not report a sequenced GC21 genome or species identity. The added genus correspondence is therefore not study-stock classification.",
+       "population_scope": "79 of 79 reference genomes support the native genus correspondence; this is separate from the reported 6.45 percent Sphingopyxis abundance and cannot establish viable GC21 colonization.",
+       "name_scope": "Preserve GC21, Sphingopyxis and the source genus-only identity; no species, accession or individual reaction assignment."},
+      {"taxonomy_index": 1, "term": {"id": "NCBITaxon:528", "label": "Ochrobactrum"}, "strain_name": "TCC-2", "expected_ncbi_rank": "NCBITaxon:genus", "expected_native": {"ambiguous": true, "via": "ncbi_rank_g", "n_alt": 3, "gtdb_options": ["GTDB:g__Ochrobactrum_A", "GTDB:g__Ochrobactrum_B", "GTDB:g__Ochrobactrum"]},
+       "source_assessment": "The primary abstract names bacterial stock Ochrobactrum sp. TCC-2. Three generic reference-genus alternatives do not resolve that stock, its species or its individual degradative reactions.",
+       "population_scope": "Retain all three ordered alternatives. These are not three inoculated strains, genotype probabilities or the reported 0.23 percent genus fraction.",
+       "name_scope": "Preserve TCC-2 and Ochrobactrum; no selected alternative or inferred formal name change."},
+      {"taxonomy_index": 2, "term": {"id": "NCBITaxon:105983", "label": "Apiotrichum"}, "strain_name": "IB-1", "expected_ncbi_rank": "NCBITaxon:genus", "expected_native": {},
+       "source_assessment": "The abstract explicitly calls Apiotrichum sp. IB-1 a fungal strain. The pinned native route is null and the separate NCBI domain classifier reports NO_GTDB_EQUIVALENT. Changing the unresolved status records this fungal domain exclusion, not a failed search that proves identity or absence.",
+       "population_scope": "No bacterial/archaeal GTDB reference population or alternatives are supplied for this fungus. Its reported 51.06 percent genus fraction is not a bacterial-community denominator or proof of viable IB-1 colonization.",
+       "name_scope": "Retain Apiotrichum, IB-1 and all fungal evidence. Add only the native domain status; no GTDB block, species identity or invented candidate list."}
+    ],
+    "historical_guard_assessment": "Only these three descriptors' GTDB fields/status and actual native events may change. The selected fungal unit requires explicit null-route plus NO_GTDB_EQUIVALENT verification before staging; the empty expected-native subset does not itself prove that domain result. Preserve all three experimental stocks, the one community-level node with no causal arrow, separate simulated/real wastewater and aerobic/anoxic conditions, 8-hour removal values, and distinctions between removal, detoxification and mineralization. Genus abundance does not prove strain viability and bacterial/fungal denominators remain distinct. Transformation assignments, indigenous cooperation, ARG effects and mechanism remain research questions under 1672; no full scientific approval. Later batch81 caller adaptation must retain the already admitted 460 ambiguity proof and 359 c8s5 chain, current biology for all four records, exact ledger/cache assertions and unresolved1673/1674. Apply only after the 379 whole-record canary is durably verified."
+  }]
+}

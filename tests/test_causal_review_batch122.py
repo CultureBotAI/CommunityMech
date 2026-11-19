@@ -1,17 +1,29 @@
 """Preserve treatment benefits without inventing the mediating mechanism."""
 
-import hashlib
 from pathlib import Path
 
 import yaml
+from environment_gtdb_successors import WHEAT_DT, admit_environment_successor
+from gtdb_species_batch_successors_20261115 import admission
+from source_note_gtdb_successors import WHEAT, admit_note_mapping_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml"
 
 
+def admitted_record(row):
+    if row["path"] == WHEAT_DT:
+        return admit_environment_successor(ROOT, row["path"], row["record_sha256"])
+    if row["path"] == WHEAT:
+        return admit_note_mapping_successor(ROOT, row["path"], row["record_sha256"])
+    return admission(ROOT, row["path"], row["record_sha256"])
+
+
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
+    for row in rows:
+        admitted_record(row)
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
@@ -164,8 +176,9 @@ def test_ledger_accounts_for_topology_history_and_unchanged_caches():
     assert ledger["edison"]["provider_submissions"] == 0
     assert ledger["unresolved_non_graph_issues"] == [1951, 1952]
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
-        assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
+        admitted = admitted_record(row)
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert len(row["history_files"]) == 1 and historical["curation_history"][-1]["llm_assisted"]
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [n["node"] for n in row["node_decisions"]] == names
         assert all(

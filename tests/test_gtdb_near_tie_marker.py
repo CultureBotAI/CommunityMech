@@ -27,11 +27,16 @@ from pathlib import Path
 
 import pytest
 import yaml
+from genus_gtdb_successors import admit_genus_successor
+from shrimp_lane_gtdb_successors import BEFORE as SHRIMP_BEFORE
+from shrimp_lane_gtdb_successors import THERMO_PATH, admit_shrimp_lane_successor
 
 from communitymech.paths import taxon_descriptor_roots
 from communitymech.taxon_blocks import iter_taxon_descriptors
 
 REPO = Path(__file__).parent.parent
+ALGAL = "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml"
+ALGAL_BEFORE = "d317416542deab471a12785f688c23d08ed5a7eea2894dbde489f40c0df80806"
 
 
 # A GTDB grounding can live on any `TaxonDescriptor`, and the schema hangs that
@@ -102,13 +107,51 @@ def _grounded():
         for descriptor in iter_taxon_descriptors(yaml.safe_load(path.read_text())):
             block = descriptor.get("gtdb_classification")
             if block:
-                yield path.name, block
+                yield path.relative_to(REPO).as_posix(), block
+
+
+def _known_uncurated_near_tie(name, block):
+    """Preserve historical Bacillota plus exact source-bound additions (#2947)."""
+    if name == THERMO_PATH:
+        current = (REPO / name).read_bytes()
+        admission = admit_shrimp_lane_successor(REPO, name, SHRIMP_BEFORE[name], current=current)
+        assert admission.changed, "reviewed Thermophilic mapping proof is required"
+        descriptors = yaml.safe_load(current)["taxonomy"]
+        expected = {
+            "GTDB:p__Methanobacteriota": (0, 2815, 5300, 0.531),
+            "GTDB:p__Bacillota_A": (1, 226306, 451729, 0.501),
+        }
+        assert block["gtdb_id"] in expected, "inspected near-tie block differs"
+        index, support, total, fraction = expected[block["gtdb_id"]]
+        assert (
+            block == descriptors[index]["taxon_term"]["gtdb_classification"]
+        ), "inspected near-tie block differs"
+        assert (block["support_genomes"], block["total_genomes"], block["majority_fraction"]) == (
+            support,
+            total,
+            fraction,
+        )
+        return True
+    if name != ALGAL:
+        return block["gtdb_id"] == "GTDB:p__Bacillota_A"
+    current = (REPO / name).read_bytes()
+    admission = admit_genus_successor(REPO, name, ALGAL_BEFORE, current=current)
+    assert admission.changed, "reviewed Algal mapping proof is required"
+    descriptor = yaml.safe_load(current)["taxonomy"][2]["taxon_term"]
+    assert block == descriptor["gtdb_classification"], "inspected near-tie block differs"
+    assert block["gtdb_id"] == "GTDB:g__Leptolyngbya"
+    assert (block["support_genomes"], block["total_genomes"], block["majority_fraction"]) == (
+        13,
+        24,
+        0.542,
+    )
+    return True
 
 
 def test_the_known_near_ties_are_still_there():
     """The population #396 documents, so it cannot shrink unnoticed.
 
-    Five blocks, and they are two different things:
+    The original five blocks were two different things:
 
     * four `p__Bacillota_A` at 0.50098 — the tool's own output, retained because
       0.50098 > 0.5. These are what #396 is about.
@@ -119,16 +162,19 @@ def test_the_known_near_ties_are_still_there():
     That second one is why the *flag* stays a pure function of the fraction while
     the *judgement* does not: 0.5 really is a coin flip, and the record already
     answers "should someone look at this" with a curation note.
+    Later source-bound additions require their complete current strict proof;
+    their admission does not recast a narrow majority as stock identification.
     """
     near = [
-        (name, block["gtdb_id"], bool(block.get("curated")))
+        (name, block)
         for name, block in _grounded()
         if _module()._is_near_tie(block.get("majority_fraction"))
     ]
-    uncurated = [(n, g) for n, g, curated in near if not curated]
+    uncurated = [(name, block) for name, block in near if not block.get("curated")]
 
-    assert len(uncurated) >= 4, f"expected the 0.50098 Bacillota blocks, found {near}"
-    assert all(gtdb_id == "GTDB:p__Bacillota_A" for _, gtdb_id in uncurated), uncurated
+    bacillota = [block for _, block in uncurated if block["gtdb_id"] == "GTDB:p__Bacillota_A"]
+    assert len(bacillota) >= 4, f"expected the 0.50098 Bacillota blocks, found {near}"
+    assert all(_known_uncurated_near_tie(name, block) for name, block in uncurated), uncurated
     # Every block at or below the strict threshold must be a deliberate override,
     # or the threshold is not being enforced.
     for name, block in _grounded():

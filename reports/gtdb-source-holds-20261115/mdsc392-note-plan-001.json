@@ -1,0 +1,61 @@
+{
+  "scope": "taxonomy-notes-only",
+  "scientific_review": false,
+  "target": "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml",
+  "target_id": "CommunityMech:000392",
+  "before_sha256": "4ef5925538ded3549c72fd84eaa0786922b4f9565de33946289104cef18a5d49",
+  "event_changes": "Clarified two source-population notes using the separately verified official R232 workbook and pinned native crosswalk (#2877, #2848). R232's D.piger population has a majority unnamed cluster, while no exact current-name F.duncaniae NCBI row occurs in that worksheet. The native descriptor routes are a separate source with unestablished release; neither route identifies experimental stock genomes. This note-only intermediate preserves current statuses/candidates, four manually curated R232 blocks and all biological/history content, including the original FIX_MDSC_GTDB_GROUNDINGS event. Separate native mapping and strict composite proof remain pending; no whole-record scientific approval is asserted.",
+  "notes": [
+    {
+      "taxonomy_index": 10,
+      "existing_descriptor": {
+        "preferred_term": "Faecalibacterium duncaniae DSM 17677T",
+        "term": {"id": "NCBITaxon:411483", "label": "Faecalibacterium duncaniae"},
+        "gtdb_grounding_status": "UNRESOLVED",
+        "notes": "NCBI species identity verified under the current name Faecalibacterium duncaniae; the source notes that this strain was previously named Faecalibacterium prausnitzii."
+      },
+      "existing_stock": {"strain_name": "DSM 17677T", "culture_collections": [{"collection": "DSM", "accession": "17677"}], "type_strain": true},
+      "before": "NCBI species identity verified under the current name Faecalibacterium duncaniae; the source notes that this strain was previously named Faecalibacterium prausnitzii.",
+      "after": "The primary study names Faecalibacterium duncaniae DSM 17677T and explicitly notes its former name Faecalibacterium prausnitzii. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:411483 descriptor row to GTDB Faecalibacterium duncaniae, with 5,099 reference genomes and stored majority fraction 1.0. That crosswalk's GTDB release is not established. The independently verified official R232 NCBI-versus-GTDB workbook (SHA-256 e401d80c914c727268c184d19201aa35dcd23aabfd027a0d6e5a57476e71f3de), Species worksheet, has no exact NCBI-name row under Faecalibacterium duncaniae; the name occurs in the GTDB result column of five different NCBI-name rows. This is not absence of the GTDB species. Row136's historical-name Faecalibacterium prausnitzii population has 948 genomes and 57 GTDB clusters, including F.duncaniae at8.65%, and must not replace the current descriptor's population. These reference populations neither establish the experimental DSM17677T genome's GTDB assignment nor revise the source's stock identity. The original curation event remains a historical record of its earlier disposition, not a new current-source assertion."
+    },
+    {
+      "taxonomy_index": 13,
+      "existing_descriptor": {
+        "preferred_term": "Desulfovibrio piger DSM 749T",
+        "term": {"id": "NCBITaxon:901", "label": "Desulfovibrio piger"},
+        "gtdb_grounding_status": "AMBIGUOUS",
+        "gtdb_candidates": ["GTDB:s__Desulfovibrio_sp900556755", "GTDB:s__Desulfovibrio_piger", "GTDB:s__Desulfovibrio_piger_A", "GTDB:s__Desulfovibrio_sp944327285", "GTDB:s__Lachnospira_sp963590775", "GTDB:s__Anaerotignum_A_faecicola"],
+        "notes": "NCBI species identity verified by exact Taxonomy search; GTDB R232 splits the NCBI species across six species clusters, with no majority cluster."
+      },
+      "existing_stock": {"strain_name": "DSM 749T", "culture_collections": [{"collection": "DSM", "accession": "749"}], "type_strain": true},
+      "before": "NCBI species identity verified by exact Taxonomy search; GTDB R232 splits the NCBI species across six species clusters, with no majority cluster.",
+      "after": "The primary study names Desulfovibrio piger DSM 749T as an MDSC member. Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the encoded species descriptor through the NCBI-name route to GTDB Desulfovibrio piger, with 156 reference genomes and stored majority fraction 1.0; no exact NCBITaxon:901 row occurs in that crosswalk. Its GTDB release is not established. The independently verified official R232 NCBI-versus-GTDB workbook (SHA-256 e401d80c914c727268c184d19201aa35dcd23aabfd027a0d6e5a57476e71f3de), Species worksheet row544, describes a different NCBI-name population: 76 genomes across six GTDB clusters. The unnamed Desulfovibrio sp900556755 cluster has57.89%, named D.piger22.37%, D.piger_A15.79%, and three other clusters1.32% each. Thus that R232 population has a majority cluster; the earlier no-majority wording was inaccurate. The two source populations must not be pooled or described as older/newer without a verified release relationship. Neither population identifies DSM749T's experimental genome or justifies assigning that stock to the unnamed R232 majority. Source stock identity and the original historical curation event remain preserved."
+    }
+  ],
+  "inputs": {
+    "kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml": "4ef5925538ded3549c72fd84eaa0786922b4f9565de33946289104cef18a5d49",
+    "references_cache/PMID_42109165.txt": "d71d87dee9cbb64e6c2abebcc53b4f84558cc5a04770846235dbba131cf7b24a",
+    ".temp/gtdb-source-holds-20261115/kg-microbe/data/raw/NCBI2GTDB.tsv.gz": "761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd",
+    ".temp/phase2-schema-20261115/mdsc392-native-route-001.log": "5f79494df687892ccf64fad685c6cd919f4751dd2ad08d68da9360df6308dc81",
+    ".temp/phase2-schema-20261115/mdsc392-native-route-001.json": "8929e0a377c94bd2791866dc065d3d724522a42fd3f0b0c71a76a85716834f2e",
+    ".temp/phase2-schema-20261115/mdsc392-native-route-001.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/gtdb-source-holds-20261115/mdsc392-route-plan-001.json": "d042a6c81d33624720ba69ee8b3e80b51c74e49a1a01c2d7d08992082347abc5",
+    "scripts/adhoc/report_gtdb_batch_routes_20261115.py": "2d4732edafccba24741b728b9e672ca7fada5e50d8220162a9ccf3c5d8d875ef",
+    "scripts/gtdb_ground.py": "0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175",
+    ".temp/gtdb-r232-mdsc-20261115/source-001/ncbi_vs_gtdb_r232_bacteria.xlsx": "e401d80c914c727268c184d19201aa35dcd23aabfd027a0d6e5a57476e71f3de",
+    ".temp/gtdb-r232-mdsc-20261115/source-001/source-receipt.json": "9f0222100c6b5b4952d83ac0733ffba4d07e39471e69caa0420a8aa233157cf2",
+    "reports/phase2-completion-20261115/mdsc-r232-correspondence-001.json": "c72f3372b3382ff7193121332e3c2a66ab09f627e657f47b3915509cec45b71c",
+    "reports/phase2-completion-20261115/mdsc-r232-source-disposition-001.md": "6cad42f85c7f66112c613ed68bbc8c51890dae7669a5ec3ceb51eb49823bfb50",
+    "scripts/adhoc/inspect_mdsc_r232_correspondence_20261115.py": "f7a2a8e93c84a362e9f5ffe9f8f68f3aae8f48ffb694a18e5c452f2c2712b6b4",
+    "tests/test_causal_review_batch74.py": "46f1cbe401d385001730f356bb6349965b3452c00c0f88f7b714d62f2b0c2cff",
+    "reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml": "4d975cf5114b018229e3fc8408b87ea6b43e50d5e40569c564aeefa4daffa8ca"
+  },
+  "source_anchors": [
+    {"path": "references_cache/PMID_42109165.txt", "locator": "Methods2.1 source stock roster and former name", "text": "Faecalibacterium duncaniae DSM 17677T (previously"},
+    {"path": "references_cache/PMID_42109165.txt", "locator": "Methods2.1 source stock roster", "text": "Desulfovibrio piger\n DSM 749T."},
+    {"path": "reports/phase2-completion-20261115/mdsc-r232-correspondence-001.json", "locator": "Species worksheet row544 exact cells", "text": "s__Desulfovibrio sp900556755 57.89%, s__Desulfovibrio piger 22.37%"},
+    {"path": ".temp/phase2-schema-20261115/mdsc392-native-route-001.log", "locator": "taxonomy[10] exact411483 native result", "text": "\"total_genomes\": 5099"},
+    {"path": ".temp/phase2-schema-20261115/mdsc392-native-route-001.log", "locator": "taxonomy[13] NCBI-name native result", "text": "\"total_genomes\": 156"}
+  ],
+  "limits": "Source-plan preparation only; do not stage or apply without independent approval. Exactly two notes may change, with one native event. Preserve all14source stocks and culture accessions, source-preferred current/former names, all existing statuses/candidates, the four manual R232 blocks, all other mappings and provenance wording, medium/condition/endpoint claims, three current nodes and their original edges, both discussions, and all original history. The misleading earlier FIX_MDSC_GTDB_GROUNDINGS event is immutable history; a new event must explain this correction. Batch74's penultimate-event predicate and direct full-record hash require explicit strict original→real maintained note intermediate→final mapping admission while all current biological predicates remain current. No generic note/history exception or source-population waiver. Official workbook inspection is accepted retained evidence, not a new retrieval; primary stock and cultivation passages were read, without a new full scientific paper/figure/sequence review. Final native mappings, saved partial diagnostic, full input checkpoint, generated pages and combined QC remain separate subsequent work."
+}

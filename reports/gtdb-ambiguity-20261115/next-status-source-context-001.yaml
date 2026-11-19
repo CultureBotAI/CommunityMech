@@ -1,0 +1,188 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+source_revision: d64c2f88812065b306f980fd51877271fd12e934
+scope: >-
+  Four next whole-record candidates for the shared status-only workflow. This
+  records inspected source context and preservation boundaries, not a staged
+  candidate, application approval, or completed review. The expected alternatives
+  below originate in the historical partition and were reproduced by fresh
+  unchanged native correspondence reports at the source revision. These read-only
+  reports do not apply status or run the strict/history/term/reference gates.
+historical_partition_sha256: eaf78e16c342e36a0aa82c52c45888e8efb667fc2b70aa8d77ead956024f5f7c
+crosswalk_sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+operations: status-only
+native_report_provenance:
+  launcher: scripts/adhoc/run_phase2_schema_checks_20261115.py
+  classifier_sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+  runtime: Local Python 3.13.12; not M5 execution.
+  canary: Read-only whole-record 000401 native report persisted and its input checksums verified before the other three sequential reports.
+  inputs: [next-source-reports-001/401-inputs.sha256, next-source-reports-001/three-inputs.sha256]
+  verification: [next-source-reports-001/401-inputs-verified.log.txt, next-source-reports-001/three-inputs-verified.log.txt]
+  boundary: >-
+    Exact native correspondence output, not stock identity or an approved
+    candidate. No --apply or --apply-status flag was passed. The source-plan
+    document is manually authored after inspection; native logs and command
+    receipts remain byte-identical to their retained private originals. File
+    mtime printed by the CLI is not GTDB release/build provenance.
+shared_contract:
+  - Change only declared status/candidates and complete native appended events.
+  - Preserve every pre-existing classification block, note, quote, stock and biological field.
+  - Preserve all native manual holds and refuse undeclared occurrence changes.
+  - Do not select a single GTDB species or infer an assembly or study-stock identity.
+  - Require exact independently reviewed candidate, actual apply and sidecar, native scoped gates and saved partial diagnostic.
+  - Preserve historical ledgers; any caller changes require explicit strict successor proof.
+  - First execute one whole record through the shared status-only path before any larger batch.
+records:
+  - record_id: CommunityMech:000401
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    before_sha256: c751d65f77ac054c5c8686bb6fd9d0ecf503fe729c1bb5c1d2409bbfe781169e
+    proposed_order: 1
+    native_report: next-source-reports-001/401.receipt.json
+    native_log_sha256: eb3bf0c46d37d480feef5305a0d873792877c2607c29b431045e70b0fa6e7dca
+    reason: Same inspected primary study and exact A2-165/JCM31915 stock context as the completed 000546 canary.
+    occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:853', label: Faecalibacterium prausnitzii}
+        stock: A2-165 / JCM31915
+        historical_expected_status: AMBIGUOUS
+        historical_expected_candidates:
+          - GTDB:s__Faecalibacterium_longum
+          - GTDB:s__Faecalibacterium_prausnitzii
+          - GTDB:s__Faecalibacterium_prausnitzii_D
+    source:
+      reference: PMID:42655156
+      url: https://doi.org/10.3390/microorganisms14081812
+      retained_path: references_cache/PMID_42655156.txt
+      retained_sha256: f40ae202ccae35dad94ef7ed446f94adc2d089879ac64cec97302fc090b35e4c
+      independently_captured_xml_path: .temp/gtdb-ambiguity-20261115/faecalibacterium-source-001/article.xml
+      independently_captured_xml_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+      locator: Methods 2.1; sec2dot1-microorganisms-14-01812
+      exact_short_quote: Faecalibacterium prausnitzii A2-165 (JCM31915)
+    judgment: >-
+      The same named stock was co-inoculated with B. bifidum JCM1254. Existing
+      species-level alternatives can be recorded without selecting the stock's
+      species. The bibliography's duncaniae nomenclature question remains
+      unresolved by this bounded plan.
+    preserved_limits:
+      - taxonomy[0] B. bifidum grounding and its 472-genome denominator remain byte-equivalent.
+      - Measured butyrate-ratio response remains distinct from putative acetate transfer and unresolved flux/pH/substrate gaps.
+      - No new full scientific assessment or nomenclature determination.
+    historical_evidence:
+      - reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+      - reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml
+    active_biological_guard: tests/test_causal_review_batch6.py
+    guard_note: >-
+      The intake also found batch100/123 because they load the shared c6s5
+      ledger, but their record loops do not cover 000401. Do not modify those
+      callers solely because of this search hit.
+  - record_id: CommunityMech:000373
+    path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+    before_sha256: c9f62a78e6ca7a6c6fc3f3886a77fb9d7e0583f3ce931dd474aeefa2217a1e9d
+    proposed_order: 2
+    native_report: next-source-reports-001/373.receipt.json
+    native_log_sha256: 7cc7fc990ee557618a3ef37c5d4c4ea676b0cf571531b306f9457773a5546d3f
+    occurrences:
+      - selector: taxonomy[0].taxon_term
+        descriptor: {id: 'NCBITaxon:1390', label: Bacillus amyloliquefaciens}
+        stock: G12
+        historical_expected_status: AMBIGUOUS
+        historical_expected_candidates:
+          - GTDB:s__Bacillus_amyloliquefaciens
+          - GTDB:s__Bacillus_velezensis
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:1408', label: Bacillus pumilus}
+        stock: Y4
+        historical_expected_status: AMBIGUOUS
+        historical_expected_candidates:
+          - GTDB:s__Bacillus_altitudinis
+          - GTDB:s__Bacillus_pumilus
+          - GTDB:s__Bacillus_pumilus_O
+          - GTDB:s__Bacillus_sp002998085
+    source:
+      reference: PMID:42388034
+      url: https://doi.org/10.1002/ps.71069
+      retained_path: references_cache/PMID_42388034.txt
+      retained_sha256: 7c411b8884969706099963aa4cf8b7f6b1cda8810a8b38ca1dc392420d3dd393
+      locator: First retained Methods paragraph after the PMC13569317 text marker, line 13.
+      coverage: Selected methods/results/discussion; not independently verified complete full text.
+      exact_short_quote: Their taxonomic identities, confirmed in previous studies, were B. amyloliquefaciens (G12), B. pumilus (Y4) and B. velezensis (X25).
+    judgment: >-
+      The retained Methods explicitly names the two affected stocks and assigns
+      their source taxonomic names based on prior studies. G12 is tobacco
+      rhizosphere-derived and Y4 is tobacco tissue-derived. Species-descriptor
+      alternatives do not reidentify either stock or establish a genome match.
+    preserved_limits:
+      - taxonomy[2] B. velezensis X25 and its 1163-genome block remain exact.
+      - Preserve selected-source coverage and unresolved colonization, hormone mediation, strain fitness and persistence limitations.
+    historical_evidence:
+      - reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    active_biological_guard: tests/test_causal_review_batch5.py
+  - record_id: CommunityMech:000365
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    before_sha256: a284ede66ef1dee551a8ba37b94d2a0dd0e63578f7b4bb6899792dd08d53a74a
+    proposed_order: 3
+    native_report: next-source-reports-001/365.receipt.json
+    native_log_sha256: eb9b66ae07877877ca3c9368473fc69e0040511716e84886e7546e897efa59df
+    occurrences:
+      - selector: taxonomy[1].taxon_term
+        descriptor: {id: 'NCBITaxon:255204', label: Pseudoclavibacter}
+        stock: Not reported in the inspected abstract.
+        historical_expected_status: AMBIGUOUS
+        historical_expected_candidates:
+          - GTDB:g__Pseudoclavibacter_B
+          - GTDB:g__Pseudoclavibacter
+          - GTDB:g__Pseudoclavibacter_C
+          - GTDB:g__Pseudoclavibacter_A
+    source:
+      reference: PMID:42442429
+      url: https://doi.org/10.1016/j.biortech.2026.135395
+      retained_path: references_cache/PMID_42442429.txt
+      retained_sha256: c40ed908a704f8e694953bd4147a9d5987ebdbfbea1f8d35eb0157880f0bd973
+      locator: PubMed abstract, sentence identifying dominant prokaryotes.
+      coverage: Abstract only; no full methods or supplement inspected for this plan.
+      exact_short_quote: Clostridium sensu stricto 18 and Pseudoclavibacter
+    judgment: >-
+      The source names the genus, without species or strain resolution. Retain
+      all four genus alternatives; do not turn genus splitting into a selected
+      species or a recovered isolate roster.
+    preserved_limits:
+      - taxonomy[0] C. kluyveri block and its 5-genome denominator remain exact.
+      - Preserve uncertainty in the abstract's 86 percent denominator, Clostridium sensu stricto 18 identity and incomplete cultivation protocol.
+    historical_evidence:
+      - reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    active_biological_guard: tests/test_causal_review_batch6.py
+  - record_id: CommunityMech:000003
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    before_sha256: b615c84fa2415eecbf9eb3964ee830fdb3bc573508fbc42ce601fb340f3500c0
+    proposed_order: 4
+    native_report: next-source-reports-001/003.receipt.json
+    native_log_sha256: 48d80f8dc6edae6715b27f7352fd1ad5039e0a4c675a6107c123882de36b352e
+    occurrences:
+      - selector: taxonomy[2].taxon_term
+        descriptor: {id: 'NCBITaxon:930166', label: Pseudomonas brassicacearum}
+        stock: Root401 / R401, an opportunistic challenge strain.
+        historical_expected_status: AMBIGUOUS
+        historical_expected_candidates:
+          - GTDB:s__Pseudomonas_E_brassicacearum
+          - GTDB:s__Pseudomonas_E_neoaurantiaca
+    source:
+      reference: PMID:40663585
+      url: https://doi.org/10.1371/journal.pbio.3002882
+      retained_path: references_cache/PMID_40663585.txt
+      retained_sha256: a57fec8c2fb4c37ebd5c724e38406be4c6cdb098edcb79bd575cd7028678c09f
+      locator: Retained PMC12262851 Introduction and Results; flattened text line 94.
+      coverage: Retained open-access main text; no fresh acquisition or supplement review for this plan.
+      exact_short_quote: opportunistic Pseudomonas brassicacearum strain Root401 (R401)
+    judgment: >-
+      The primary text identifies Root401 as the challenge organism and
+      distinguishes it from designed commensal SynCom membership. The status
+      change must preserve that explicit boundary and must not certify the
+      inherited representative roster or the host as a microbial member.
+    preserved_limits:
+      - Preserve every other taxon and all existing grounding blocks, including the host entry; no silent membership or host migration.
+      - Preserve distinction between the earlier large recolonization mixture and later 17-member challenge assays.
+      - If native checks expose a pre-existing structural problem, retain its failed receipt and handle its owner explicitly; do not weaken or waive the gate.
+    historical_evidence:
+      - reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    active_biological_guard: tests/test_causal_review_batch5.py

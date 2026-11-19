@@ -6,8 +6,67 @@ import hashlib
 import importlib.util
 from pathlib import Path
 
+import batch147_genus_successor as genus_successor
+import batch147_species_successor as species_successor
 import pytest
+import scoped_gtdb_successor as shared_successor
 import yaml
+from gtdb_species_batch_successors_20261115 import ALLOWANCES as SPECIES_BATCH_ALLOWANCES
+
+SHARED_ALLOWANCES = {
+    "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml": (
+        SPECIES_BATCH_ALLOWANCES[
+            "data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml"
+        ]
+    ),
+    "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml": (
+        SPECIES_BATCH_ALLOWANCES[
+            "data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml"
+        ]
+    ),
+    "data/isolates/Rhizorhabdus_Wittichii_YL_JM2C_BDE47_Dioxygenase_Isolate_Baseline.yaml": {
+        "baseline_revision": "68699871415fda3c9eebf20382a315f9f3c7b17a",
+        "manifest": {
+            "path": "reports/gtdb-species-status-20261115/yljm2c-001-successor.json",
+            "sha256": "606093a26fbbcbbfb03e1992f971507f2bc06a591cf9747eca1476234afe4a11",
+        },
+    },
+}
+assert not set(genus_successor.TARGETS) & set(species_successor.TARGETS)
+assert not set(SHARED_ALLOWANCES) & (set(genus_successor.TARGETS) | set(species_successor.TARGETS))
+
+
+def current_record_sha256(root, path, predecessor_hash, **kwargs):
+    if path in genus_successor.TARGETS:
+        return genus_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
+    if path in species_successor.TARGETS:
+        return species_successor.current_record_sha256(root, path, predecessor_hash, **kwargs)
+    if path in SHARED_ALLOWANCES:
+        return shared_successor.current_record_sha256(
+            root, path, predecessor_hash, SHARED_ALLOWANCES, **kwargs
+        )
+    raw = kwargs.get("current")
+    if raw is None:
+        raw = (root / path).read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    assert actual == predecessor_hash, "no successor allowance for other batch147 records"
+    return actual
+
+
+def historical_bytes(root, path):
+    if path in genus_successor.TARGETS:
+        return genus_successor.historical_bytes(root, path)
+    if path in species_successor.TARGETS:
+        return species_successor.historical_bytes(root, path)
+    if path in SHARED_ALLOWANCES:
+        predecessor = next(
+            row["record_sha256"]
+            for row in EXPECTED_BATCH147_RECORDS.values()
+            if row["path"] == path
+        )
+        return shared_successor.admit(root, path, predecessor, SHARED_ALLOWANCES).historical_bytes
+    return (root / path).read_bytes()
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -130,10 +189,13 @@ def test_batch147_ledger_matches_curated_records() -> None:
         assert row["original_sha256"] == expected["original_sha256"]
         assert row["record_sha256"] == expected["record_sha256"]
 
-        yaml_path = ROOT / row["path"]
-        digest = hashlib.sha256(yaml_path.read_bytes()).hexdigest()
+        # Historical scientific assertions retain their exact original bytes.
+        # Any current successor must independently prove its bounded scope.
+        current_record_sha256(ROOT, row["path"], expected["record_sha256"])
+        original = historical_bytes(ROOT, row["path"])
+        digest = hashlib.sha256(original).hexdigest()
         assert digest == expected["record_sha256"]
-        doc = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
+        doc = yaml.safe_load(original)
 
         validate_batch147_entry(row, doc, digest)
 
@@ -148,9 +210,9 @@ def test_the_check_can_actually_fail() -> None:
     """Prove validate_batch147_entry fails across 5 distinct mutation arms after a green control."""
     ledger = yaml.safe_load(BATCH147_LEDGER.read_text(encoding="utf-8"))
     sample_review = yaml.safe_load(yaml.safe_dump(ledger["records"][6]))
-    sample_path = ROOT / sample_review["path"]
-    sample_digest = hashlib.sha256(sample_path.read_bytes()).hexdigest()
-    sample_doc = yaml.safe_load(sample_path.read_text(encoding="utf-8"))
+    sample_raw = historical_bytes(ROOT, sample_review["path"])
+    sample_digest = hashlib.sha256(sample_raw).hexdigest()
+    sample_doc = yaml.safe_load(sample_raw)
 
     # Control arm: unmutated copy passes cleanly.
     validate_batch147_entry(sample_review, sample_doc, sample_digest)

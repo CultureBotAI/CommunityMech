@@ -5,14 +5,26 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from environment_gtdb_successors import DICLOFENAC, admit_environment_successor
+from genus_last_four_gtdb_successors import DOLICHOSPERMUM, admit_genus_last_four_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml"
+ADMIT_SUCCESSOR = {
+    DICLOFENAC: admit_environment_successor,
+    DOLICHOSPERMUM: admit_genus_last_four_successor,
+}
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
-    return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
+    docs = []
+    for row in ledger["records"]:
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["path"] in ADMIT_SUCCESSOR:
+            ADMIT_SUCCESSOR[row["path"]](ROOT, row["path"], row["record_sha256"], current=raw)
+        docs.append(yaml.safe_load(raw))
+    return ledger, docs
 
 
 def test_diclofenac_mc_does_not_inherit_isolate_metabolites():
@@ -104,8 +116,17 @@ def test_batch33_canonical_terms_anchors_histories_and_exact_hashes():
             "ecological_interactions#" + n for n in names
         }
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
-        assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        current = (ROOT / row["path"]).read_bytes()
+        if row["path"] in ADMIT_SUCCESSOR:
+            admission = ADMIT_SUCCESSOR[row["path"]](
+                ROOT, row["path"], row["record_sha256"], current=current
+            )
+            assert hashlib.sha256(current).hexdigest() == admission.current_sha256
+            historical = yaml.safe_load(admission.historical_bytes)
+            assert historical["curation_history"][-1]["llm_assisted"] is True
+        else:
+            assert doc["curation_history"][-1]["llm_assisted"] is True
+            assert hashlib.sha256(current).hexdigest() == row["record_sha256"]
 
 
 def test_batch33_complete_node_and_arrow_decisions_without_invented_structure():

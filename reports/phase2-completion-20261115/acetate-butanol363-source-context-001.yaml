@@ -1,0 +1,42 @@
+kind: source_context_plan
+scientific_review: false
+status: preparation_only
+inspected_at: '2026-11-15'
+historical_mapping_input:
+  path: reports/phase2-completion-20261115/gtdb-repair-assignments-001/assignments.json
+  sha256: ccb27e378794d589d3b2eede61b1babf59a758c921b632e6cb3534789c87536e
+  limit: Historical expected route; fresh native binding and local authority rank observations remain required.
+record:
+  id: CommunityMech:000363
+  path: kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml
+  before_sha256: 262578e4cc60f82a1134df47dfeea7300751a28479c7296232653fdf4355a972
+  primary_source:
+    reference: PMID:42726284
+    url: https://doi.org/10.1007/s00253-026-14029-z
+    retained_path: references_cache/PMID_42726284.txt
+    retained_sha256: 08f6953950b650637457d41d36f53fdb161de29b5a4d923f0a3b0b9ec8339af6
+    locator: Retained abstract lines 22-39 and bounded source identity/Methods/Results/Discussion passages in flattened main text line 345.
+    coverage: Complete canonical record and selected retained primary passages read. No fresh full-paper, figure-pixel, supplementary sequence, assembly or genetic-construct verification.
+    judgment: The source distinguishes two cocultures sharing the engineered Synechocystis PCC6803 acetate producer, one with E. coli and the focal one with the P. taiwanensis VLB120 derivative. The named cyanobacterial derivative is WT_PKPa_RBS_BsPta_Δacs; the focal heterotroph is P. taiwanensis_Pem7_ButOH. Native descriptor correspondence must not be presented as independent verification of either engineered genotype or stock genome.
+  proposed_occurrences:
+    - selector: taxonomy[0].taxon_term
+      descriptor: {id: 'NCBITaxon:1148', label: Synechocystis sp. PCC 6803}
+      stock: WT_PKPa_RBS_BsPta_Δacs
+      historical_expected: {via: ncbi_id, gtdb_id: 'GTDB:s__Synechocystis_sp000284455', total_genomes: 22, majority_fraction: 1.0, is_reclassified: true}
+    - selector: taxonomy[1].taxon_term
+      descriptor: {id: 'NCBITaxon:470150', label: Pseudomonas taiwanensis}
+      stock: VLB120 Pem7_ButOH
+      historical_expected: {ambiguous: true, via: ncbi_name, n_alt: 2, gtdb_options: ['GTDB:s__Pseudomonas_E_asiatica', 'GTDB:s__Pseudomonas_E_taiwanensis']}
+  preservation_contract:
+    - Preserve both source-preferred strain names and every genetic_modification field exactly; descriptor correspondence does not newly certify plasmid, promoter, adaptation lineage or genotype. The separate E. coli coculture and cloning strain are not extra focal members.
+    - The 22 reference genomes and fraction 1.0 describe a crosswalk population, not 22 study stocks or identity probabilities. The placeholder GTDB label and is_reclassified flag are not a formal rename of the engineered cyanobacterium. Preserve both ordered Pseudomonas alternatives without selecting a stock genome.
+    - Keep two nodes and the one HYPOTHESIZED/PARTIAL arrow. CO2 remains a photosynthetic substrate, acetate a supported but nonexclusive organic-carbon route and butanol a measured community endpoint. Lower extracellular acetate and growth do not isotope-resolve transfer, carbon exclusivity or the product-carbon fraction.
+    - Preserve the distinct acetate-adaptation assays, focal coculture and axenic comparator, the retained refresh and sampling context, all quotations and old history. Growth adaptation did not establish improved butanol output; fluctuating titers and a plateau are not constant high productivity.
+    - Keep the existing open carbon-specificity discussion. No new interaction direction, reciprocal benefit, pathway mechanism, experimental parameter or genome accession is inferred. The pinned table's upstream release remains unverified.
+  historical_guard:
+    path: tests/test_causal_review_batch111.py
+    sha256: e8eee1718a65547c83dadedf44e1b5848f31fd90d2708ffc3c0cb7505f3c03e5
+    ledger: reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml
+    ledger_sha256: 931a6cd707b0e3944f8cc593cfa341b331bab93b6616264cca5410b0343d6b19
+    note: Exact363 admission precedes original whole-file/last-LLM assertions. Preserve actual current biology, identity-only participants, all nine original tests and the other two records' histories. Keep original ledger counts and recorded non-graph follow-ups; taxonomy correspondence is no new scientific disposition.
+completion_limit: Two selected descriptors in one complete record. No canonical change, fresh native route proof, scientific completion or reference comparison is supplied by this preparation. Candidate review, native application/checks/history, immutable assessment, complete checkpoint and strict successor integration remain required.

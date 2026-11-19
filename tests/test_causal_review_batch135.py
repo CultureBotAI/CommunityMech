@@ -5,10 +5,19 @@ import json
 from pathlib import Path
 
 import yaml
+from gtdb_species_batch_successors_20261115 import admission as species_admission
+from remaining_four_gtdb_successors import Q5_PATH, admit_remaining_four_successor
+from shrimp_lane_gtdb_successors import SAHARA_PATH, admit_shrimp_lane_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml"
 SUMMARY = ROOT / "reports/causal_graph_review/summary.json"
+
+
+def admission(root, path, before_sha256):
+    if path == Q5_PATH:
+        return admit_remaining_four_successor(root, path, before_sha256)
+    return species_admission(root, path, before_sha256)
 
 
 def _ref_to_cache_path(ref: str) -> Path:
@@ -38,7 +47,13 @@ def _ref_to_cache_path(ref: str) -> Path:
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    docs = []
+    for row in rows:
+        raw = (ROOT / row["path"]).read_bytes()
+        if row["path"] == SAHARA_PATH:
+            admit_shrimp_lane_successor(ROOT, row["path"], row["record_sha256"], current=raw)
+        docs.append(yaml.safe_load(raw))
+    return ledger, rows, docs
 
 
 def test_batch135_covers_all_five_c3s1_records_with_verified_hashes_and_history():
@@ -58,18 +73,29 @@ def test_batch135_covers_all_five_c3s1_records_with_verified_hashes_and_history(
     expected_ids = [f"CommunityMech:000{i}" for i in range(491, 496)]
     assert [row["id"] for row in rows] == expected_ids
 
-    for row, doc in zip(rows, docs, strict=True):
+    for row, _doc in zip(rows, docs, strict=True):
         assert row["status"] == "reviewed"
         assert row["original_sha256"] != row["record_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        if row["path"] == SAHARA_PATH:
+            raw = (ROOT / row["path"]).read_bytes()
+            assert _doc == yaml.safe_load(raw)
+            admitted = admit_shrimp_lane_successor(
+                ROOT, row["path"], row["record_sha256"], current=raw
+            )
+        else:
+            admitted = admission(ROOT, row["path"], row["record_sha256"])
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == admitted.current_sha256
+        )
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "curation_history",
         }
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).exists()
-        assert doc["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
-        assert doc["curation_history"][-1]["llm_assisted"] is True
+        historical = yaml.safe_load(admitted.historical_bytes)
+        assert historical["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
+        assert historical["curation_history"][-1]["llm_assisted"] is True
 
 
 def test_batch135_nodes_edges_scope_and_verbatim_cached_snippets():

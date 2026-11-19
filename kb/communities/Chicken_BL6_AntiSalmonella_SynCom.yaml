@@ -116,7 +116,10 @@ taxonomy:
     term:
       id: NCBITaxon:1624
       label: Ligilactobacillus salivarius
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Ligilactobacillus_salivarius
+    - GTDB:s__Ligilactobacillus_sp945923665
     notes: >-
       The source identifies CMLH112 as Ligilactobacillus salivarius; no
       species-level GTDB classification is asserted here.
@@ -182,7 +185,11 @@ taxonomy:
     term:
       id: NCBITaxon:33959
       label: Lactobacillus johnsonii
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Lactobacillus_johnsonii
+    - GTDB:s__Lactobacillus_sp945980025
+    - GTDB:s__Lactobacillus_sp947171515
     notes: >-
       The source identifies CMLH106 as Lactobacillus johnsonii; no
       species-level GTDB classification is asserted here.
@@ -204,10 +211,28 @@ taxonomy:
     term:
       id: NCBITaxon:47770
       label: Lactobacillus crispatus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_crispatus
+      gtdb_taxon: Lactobacillus crispatus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus crispatus
+      ncbi_source_id: NCBITaxon:47770
+      majority_fraction: 1.0
+      total_genomes: 1123
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
-      The source identifies CMLH109 as Lactobacillus crispatus; no
-      species-level GTDB classification is asserted here.
+      The primary study identifies CMLH109 as Lactobacillus crispatus and reports 97.91% ANI to the species
+      type-strain genome in Table 1. Its Methods report whole-genome sequencing of the six BL6 isolates; these
+      are source-reported isolate results, not an independent GTDB placement performed in this curation.
+      Separately, the pinned kg-microbe NCBI2GTDB.tsv.gz reference correspondence (SHA-256
+      761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd) resolves the exact NCBITaxon:47770
+      descriptor row to GTDB Lactobacillus crispatus, with 1,123 reference genomes and stored majority
+      fraction 1.0. The crosswalk release is not established. That descriptor population does not identify a
+      CMLH109 study assembly or establish its membership in the reference genomes. The study's on-request data
+      statement does not prove that public accessions are absent; no exhaustive archive search or author
+      contact was performed. Preserve the source stock identity and distinguish database correspondence from
+      experimental abundance or identity probability.
   strain_designation:
     strain_name: CMLH109
   abundance_level: DOMINANT
@@ -226,10 +251,27 @@ taxonomy:
     term:
       id: NCBITaxon:52242
       label: Lactobacillus gallinarum
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_gallinarum
+      gtdb_taxon: Lactobacillus gallinarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus gallinarum
+      ncbi_source_id: NCBITaxon:52242
+      majority_fraction: 0.92
+      total_genomes: 38
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: >-
-      The source identifies CMLH110 as Lactobacillus gallinarum; no
-      species-level GTDB classification is asserted here.
+      The primary study identifies CMLH110 as Lactobacillus gallinarum and reports 98.05% ANI to the species
+      type-strain genome in Table 1. Its Methods report whole-genome sequencing of the six BL6 isolates; this
+      source evidence is separate from the reference-table calculation. The pinned kg-microbe NCBI2GTDB.tsv.gz
+      reference correspondence (SHA-256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd)
+      resolves the exact NCBITaxon:52242 descriptor row to GTDB Lactobacillus gallinarum, with 38 reference
+      genomes and stored rounded majority fraction 0.92. The crosswalk release and exact numerator are not
+      established here. No CMLH110 study assembly was independently placed in GTDB or shown to belong to that
+      reference population in this bounded curation. The source's on-request data statement is not proof of
+      absent public accessions. Preserve the source stock identity; reference counts and fractions are not
+      measured inoculum abundance or probabilities of study-stock identity.
   strain_designation:
     strain_name: CMLH110
   abundance_level: DOMINANT
@@ -367,3 +409,21 @@ curation_history:
   changes: Bound BL6 protection to measured host outcomes and relative microbiota changes; reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1290
   llm_assisted: true
+- timestamp: '2026-11-15T10:41:54Z'
+  curator: Codex
+  action: CLARIFY_GTDB_SOURCE_SCOPE
+  changes: Clarified the CMLH109/CMLH110 taxonomy notes to distinguish source-reported isolate genome ANI from species-descriptor
+    reference correspondence (#2848). The source sequenced the six BL6 genomes, but no exact study assembly was
+    independently placed in GTDB in this bounded curation. This note-only intermediate preserves existing statuses,
+    all six stocks, both other grounded blocks and all biological/history content. Separate native mapping and strict
+    composite proof remain pending; prior phenotype/abundance, culture-context and evidence-placement findings remain
+    unresolved.
+  llm_assisted: true
+- timestamp: '2026-11-15T11:36:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 2 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T11:36:36Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 4 taxonomy entries (#294, #395).'

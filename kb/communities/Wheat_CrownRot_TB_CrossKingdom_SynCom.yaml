@@ -84,7 +84,16 @@ taxonomy:
     term:
       id: NCBITaxon:2715209
       label: Bacillus rugosus
-    gtdb_grounding_status: UNRESOLVED
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_rugosus
+      gtdb_taxon: Bacillus rugosus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus rugosus
+      ncbi_source_id: NCBITaxon:2715209
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-11-15)
     notes: Bacterial member of the TB SynCom. Bacillus rugosus resolves as NCBITaxon:2715209; GTDB grounding was not resolved
       during initial curation.
   strain_designation:
@@ -296,6 +305,14 @@ curation_history:
     Keep relative community profiles and simulated robustness distinct from colonization facilitation and demonstrated
     immune mediation. Issue#1947; reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
   llm_assisted: true
+- timestamp: '2026-11-15T10:00:56Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395).
+- timestamp: '2026-11-15T10:00:56Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: 'Wrote gtdb_grounding_status on 1 taxonomy entries (#294, #395).'
 discussions:
 - discussion_id: tb_causal_scope_batch122
   prompt: Which TB-dependent mechanisms explain protection beyond correlated community and soil-metabolite changes?

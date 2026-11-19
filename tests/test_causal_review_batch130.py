@@ -7,11 +7,14 @@ from pathlib import Path
 
 import pytest
 import yaml
+from genus_gtdb_successors import admit_genus_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "b68d71e702200cd7ce9afdec001705dc8b0890fd"
 ALSETH = "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml"
+ALSETH_BEFORE = "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5"
 PHA = "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml"
+PHA_BEFORE = "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
 MODEL = "Model-Inferred Context Dependence of Community Interactions"
 MODEL_QUOTES = (
     "reasonably fit the data in the absence of phage",
@@ -124,14 +127,17 @@ def test_unreviewed_fields_pha_and_article_caches_are_preserved():
         subprocess.check_output(["git", "show", f"{BASE}:{ALSETH}"], cwd=ROOT)
     )
     current = yaml.safe_load((ROOT / ALSETH).read_text())
+    admitted = admit_genus_successor(ROOT, ALSETH, ALSETH_BEFORE)
+    assert current == yaml.safe_load((ROOT / ALSETH).read_bytes())
+    historical = yaml.safe_load(admitted.historical_bytes)
     allowed = {"description", "ecological_interactions", "discussions", "curation_history"}
     assert {k: v for k, v in original.items() if k not in allowed} == {
-        k: v for k, v in current.items() if k not in allowed
+        k: v for k, v in historical.items() if k not in allowed
     }
-    assert current["curation_history"][-1]["curator"] == "codex"
-    assert current["curation_history"][-1]["llm_assisted"] is True
+    assert historical["curation_history"][-1]["curator"] == "codex"
+    assert historical["curation_history"][-1]["llm_assisted"] is True
     for path, expected in {
-        PHA: "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488",
+        PHA: PHA_BEFORE,
         "references_cache/PMID_38648198.txt": (
             "babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3"
         ),
@@ -139,7 +145,10 @@ def test_unreviewed_fields_pha_and_article_caches_are_preserved():
             "65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b"
         ),
     }.items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected
+        raw = (ROOT / path).read_bytes()
+        if path == PHA:
+            raw = admit_genus_successor(ROOT, path, PHA_BEFORE).historical_bytes
+        assert hashlib.sha256(raw).hexdigest() == expected
 
 
 def test_saved_graph_decisions_cover_both_records():
@@ -151,6 +160,9 @@ def test_saved_graph_decisions_cover_both_records():
         raw = (ROOT / row["path"]).read_bytes()
         doc = yaml.safe_load(raw)
         assert row["status"] == "reviewed"
+        if row["path"] in {ALSETH, PHA}:
+            assert doc == yaml.safe_load((ROOT / row["path"]).read_bytes())
+            raw = admit_genus_successor(ROOT, row["path"], row["record_sha256"]).historical_bytes
         assert row["record_sha256"] == hashlib.sha256(raw).hexdigest()
         assert [d["node"] for d in row["node_decisions"]] == [
             n["name"] for n in doc["ecological_interactions"]

@@ -4,6 +4,7 @@ import hashlib
 from collections import Counter
 from pathlib import Path
 
+import gtdb_species_batch_successors_20261115 as species_successor
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -137,7 +138,10 @@ def test_batch23_ledger_accounts_for_every_node_arrow_and_cache():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 6
     for row in rows:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        assert (
+            hashlib.sha256(raw).hexdigest()
+            == species_successor.admission(ROOT, row["path"], row["record_sha256"]).current_sha256
+        )
         doc = yaml.safe_load(raw)
         nodes = doc["ecological_interactions"]
         names = {n["name"] for n in nodes}
