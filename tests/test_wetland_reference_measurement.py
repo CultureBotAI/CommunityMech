@@ -70,7 +70,11 @@ def test_changed_input_refusal_then_restore(working, monkeypatch, name):
 
     def change(*args):
         result = real(*args)
-        path.write_bytes(original + b"\nchanged\n")
+        # Preserve valid YAML so the captured-input comparison, rather than a
+        # parser error, must reject the changed configuration (#2956).
+        suffix = b"\n# changed\n" if name == wrapper.native.CONFIG else b"\nchanged\n"
+        path.write_bytes(original + suffix)
+        assert path.read_bytes() != original
         return result
 
     monkeypatch.setattr(wrapper.native, "measure", change)

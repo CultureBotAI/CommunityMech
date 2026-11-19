@@ -219,7 +219,7 @@ def runtime_inventory(proof, tmp_path, monkeypatch):
         module.identity.TARGET: proof[2],
         module.identity.SOURCE: b"retained primary source\n",
         "references_cache/doi_DOI:10.1007_BF02106205.json": b"unrelated runtime cache\n",
-        module.measured.native.CONFIG: b"native configuration\n",
+        module.measured.native.CONFIG: b"skip_prefixes: []\n",
         "uv.lock": b"lock\n",
         "pyproject.toml": b"project\n",
         "src/communitymech/schema/communitymech.yaml": b"schema\n",

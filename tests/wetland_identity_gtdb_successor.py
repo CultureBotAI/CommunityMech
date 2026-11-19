@@ -26,6 +26,12 @@ BEFORE = diagnostic.identity.BEFORE
 INTERMEDIATE = diagnostic.AFTER
 IDENTITY_SCHEMA = "wetland471-identity-intermediate-v1"
 PUBLISHER_SHA = "86c8bd068e1c4da5537ceb691d6a657177092e6c89dfe135c809d44acc9a926b"
+REFERENCE_IMPLEMENTATION = "scripts/reference_assertion_coverage.py"
+REFERENCE_IMPLEMENTATION_ARCHIVE = (
+    "tests/fixtures/wetland_reference_assertion_coverage_af80bc09.py.txt"
+)
+REFERENCE_HISTORICAL_SHA = "363cffb652bdd18733cd5c8c2d22abf663cb3314410ef237e531a8b2f3298908"
+REFERENCE_SUCCESSOR_SHA = "8f5121eb9954dcbcb205f8af3a7a2a167aa65817004a24cc698a4ccbe247798d"
 
 
 def encoded(value):
@@ -145,7 +151,22 @@ def verify_identity(artifacts, proof, original, intermediate):
         name = str(Path(module.__file__).resolve().relative_to(ROOT))
         rows = [x for x in review["source"]["inputs"] if x["path"] == name]
         mapping.require(len(rows) == 1, "exact retained verifier implementation required")
-        artifacts.read({"path": name, "sha256": rows[0]["sha256"]})
+        if name == REFERENCE_IMPLEMENTATION:
+            # #2957: the saved review attests the actual af80bc09 implementation,
+            # not the later supplement-aware tracer. Authenticate both without
+            # replacing an original input hash. Historical proof verification
+            # calls only raw_reference/snippet_surfaces, whose ASTs are unchanged;
+            # dedicated controls bind that call boundary and both exact sources.
+            mapping.require(
+                rows[0]["sha256"] == REFERENCE_HISTORICAL_SHA,
+                "exact historical tracer input required",
+            )
+            artifacts.read(
+                {"path": REFERENCE_IMPLEMENTATION_ARCHIVE, "sha256": REFERENCE_HISTORICAL_SHA}
+            )
+            artifacts.read({"path": name, "sha256": REFERENCE_SUCCESSOR_SHA})
+        else:
+            artifacts.read({"path": name, "sha256": rows[0]["sha256"]})
     # The publisher was added after the saved review; bind its separately
     # reviewed implementation explicitly rather than inventing a review input.
     artifacts.read(

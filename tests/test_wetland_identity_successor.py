@@ -41,6 +41,7 @@ def identity_case(tmp_path):
     assert guard.mapping.digest(raw) == MANIFEST_SHA
     proof = json.loads(raw)
     names = set(artifact_paths(proof))
+    names.add(guard.REFERENCE_IMPLEMENTATION_ARCHIVE)
     names.update(
         str(Path(module.__file__).resolve().relative_to(ROOT))
         for module in (
