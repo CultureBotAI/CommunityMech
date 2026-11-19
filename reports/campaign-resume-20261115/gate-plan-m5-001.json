@@ -1,0 +1,52 @@
+{
+  "mode": "plan_only",
+  "revision": "0fa50e5928139fcf852f6a82b3eca41d258a71cd",
+  "target": "kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
+  "record_id": "CommunityMech:000296",
+  "inputs": {
+    "conf/reference_validator.yaml": "297b1fbd8a77ba2f89ca7126339deabc0f61ee91013d054d0fa64caef59a630d",
+    "history/records/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture/2026-10-06T082611Z-codex-5468bc.yaml": "f074b3e82ae71ff318fb1e771bee324b4104e71a1e3b484e1f077966fc31e219",
+    "justfile": "40369611ad4531582e420df0e9ff22109e4b18adf03b34d86b54200b280f2d0f",
+    "kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml": "31e420e8e1553817b77ff5bde0d4229ee09eca2cbf62e5d6524a275801475627",
+    "references_cache/PMID_42020426.md": "b9d67d6a9cceb1a072d6cfdf08d59a7c4b5edadb1759fa46bfb54aa05744d1fc",
+    "scripts/validate_strict.py": "edf99346fb864eaeddb096841048fe02dd8e4003b9db4c3d7559e05caa033421",
+    "src/communitymech/schema/communitymech.yaml": "c6f6e4a5cf42e450cf55d8fcb12817591c736198e24bcd217142b4f86712b4c3",
+    "src/communitymech/schema/history.yaml": "b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d",
+    "src/communitymech/schema/mech_shared.yaml": "cf32864df1626201128e9311054b075bfc4ad3d8345491ac144122a5d5e67d11",
+    "src/communitymech/validators/related_communities.py": "e880859f8e5788253256848c4768120cdff8b4fcbef5975b22bc02569a9c561a",
+    "uv.lock": "712838f8fa3d68fbd818ac8162f3f1e2f2637db1da1a8ebfaba0ef759690f3b4",
+    "scripts/adhoc/check_campaign_hmo_canary_20261115.py": "1835c4fc2ae9ed45b4cbe9ed05369600f71da535b12b1759f3423e098393e722",
+    "scripts/adhoc/run_campaign_hmo_canary_20261115.sh": "45f1034f8e8e5882103ba02c299b8e2a50074f0d8cc0c3f15b00e275694ef092",
+    "scripts/reference_assertion_coverage.py": "363cffb652bdd18733cd5c8c2d22abf663cb3314410ef237e531a8b2f3298908"
+  },
+  "native_runner_sha256": "effa36790cd5cea64a35eb4ccaa7fbcac608c30e08150c3b07c6ed7f0de77054",
+  "gates": [
+    "schema",
+    "strict",
+    "terms",
+    "references",
+    "gtdb",
+    "domain",
+    "history",
+    "scalars",
+    "network"
+  ],
+  "reference_policy": "Native matching against a verified private article-cache copy; no acquisition or full-text enrichment.",
+  "ontology_adapters_present": {
+    "NCBITaxon": true,
+    "PO": true,
+    "CHEBI": true,
+    "GO": true,
+    "UBERON": true,
+    "ENVO": true
+  },
+  "coverage_command": [
+    ".venv/bin/python",
+    "scripts/reference_assertion_coverage.py",
+    "--record",
+    "kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
+    "--output",
+    ".temp/campaign-resume-20261115/hmo-coverage-001"
+  ],
+  "limitations": "No gate, source judgment, immutable review save or corpus batch ran in plan mode."
+}
